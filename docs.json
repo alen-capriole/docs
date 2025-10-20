@@ -1,122 +1,270 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "willow",
+  "theme": "aspen",
   "name": "Capriole Charts",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#2563EB",
+    "light": "#3B82F6",
+    "dark": "#1E40AF"
   },
   "favicon": "/favicon.svg",
   "navigation": {
     "tabs": [
       {
-        "tab": "Guides",
+        "tab": "User Guides",
         "groups": [
           {
-            "group": "Getting started",
+            "group": "Getting Started",
             "pages": [
-              "index",
-              "quickstart",
-              "development"
+              "guides/introduction",
+              "guides/quick-start",
+              "guides/subscription-plans",
+              "guides/account-management"
             ]
           },
           {
-            "group": "Customization",
+            "group": "Using Charts",
             "pages": [
-              "essentials/settings",
-              "essentials/navigation"
+              "guides/chart-interface",
+              "guides/custom-indicators",
+              "guides/saving-layouts",
+              "guides/timeframes"
             ]
           },
           {
-            "group": "Writing content",
+            "group": "AI Features",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
+              "guides/ai-briefing",
+              "guides/capriole-intel"
             ]
           },
           {
-            "group": "AI tools",
+            "group": "Alert System",
             "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
+              "guides/alerts/creating-alerts",
+              "guides/alerts/notifications",
+              "guides/alerts/management"
             ]
           }
         ]
       },
       {
-        "tab": "API reference",
+        "tab": "Indicator Reference",
         "groups": [
           {
-            "group": "API documentation",
+            "group": "Strategies",
             "pages": [
-              "api-reference/introduction"
+              "indicators/strategies/macro-index-btc",
+              "indicators/strategies/macro-index-eth",
+              "indicators/strategies/spectrum-btc",
+              "indicators/strategies/node-btc",
+              "indicators/strategies/midas-gold"
             ]
           },
           {
-            "group": "Endpoint examples",
+            "group": "Quantum Index",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "indicators/quantum/index",
+              "indicators/quantum/constituents"
+            ]
+          },
+          {
+            "group": "Bitcoin On-Chain",
+            "pages": [
+              "indicators/bitcoin/apparent-demand",
+              "indicators/bitcoin/dynamic-range-nvt",
+              "indicators/bitcoin/energy-value",
+              "indicators/bitcoin/hash-ribbons",
+              "indicators/bitcoin/heater",
+              "indicators/bitcoin/hodler-growth-rate",
+              "indicators/bitcoin/inflation",
+              "indicators/bitcoin/lth-inflation-rate",
+              "indicators/bitcoin/mayer-multiple",
+              "indicators/bitcoin/miner-sell-pressure",
+              "indicators/bitcoin/mvrv-z-score",
+              "indicators/bitcoin/production-cost",
+              "indicators/bitcoin/slrv-ribbons",
+              "indicators/bitcoin/top-models",
+              "indicators/bitcoin/volume-summer",
+              "indicators/bitcoin/yardstick"
+            ]
+          },
+          {
+            "group": "Bitcoin Treasuries",
+            "pages": [
+              "indicators/treasuries/overview",
+              "indicators/treasuries/screener",
+              "indicators/treasuries/company-analysis",
+              "indicators/treasuries/mnav",
+              "indicators/treasuries/yield",
+              "indicators/treasuries/days-cover"
+            ]
+          },
+          {
+            "group": "Ethereum",
+            "pages": [
+              "indicators/ethereum/apparent-demand",
+              "indicators/ethereum/heater",
+              "indicators/ethereum/hodler-growth-rate",
+              "indicators/ethereum/mayer-multiple",
+              "indicators/ethereum/mvrv-z-score",
+              "indicators/ethereum/slrv-ribbons",
+              "indicators/ethereum/top-models",
+              "indicators/ethereum/volume-summer"
+            ]
+          },
+          {
+            "group": "Market Sentiment",
+            "pages": [
+              "indicators/sentiment/investor-sentiment",
+              "indicators/sentiment/active-manager",
+              "indicators/sentiment/business-outlook",
+              "indicators/sentiment/fear-greed"
+            ]
+          },
+          {
+            "group": "Macro Economics",
+            "pages": [
+              "indicators/macro/advance-decline-line",
+              "indicators/macro/equity-premium",
+              "indicators/macro/global-money-supply",
+              "indicators/macro/net-liquidity",
+              "indicators/macro/gold-stock-ratio",
+              "indicators/macro/insider-selling",
+              "indicators/macro/market-breadth",
+              "indicators/macro/relative-pe",
+              "indicators/macro/put-call-ratio",
+              "indicators/macro/us-liquidity",
+              "indicators/macro/usd-positioning"
+            ]
+          },
+          {
+            "group": "Macro Ratios",
+            "pages": [
+              "indicators/ratios/bbb-credit-spreads",
+              "indicators/ratios/commodities-vs-stocks",
+              "indicators/ratios/discretionaries-vs-staples",
+              "indicators/ratios/junk-bonds-vs-treasuries"
+            ]
+          },
+          {
+            "group": "Altcoins",
+            "pages": [
+              "indicators/altcoins/speculation-index"
+            ]
+          },
+          {
+            "group": "Guardian Risk Management",
+            "pages": [
+              "indicators/guardian/exchange-risk-report",
+              "indicators/guardian/reserves",
+              "indicators/guardian/vrr",
+              "indicators/guardian/orr",
+              "indicators/guardian/open-interest"
             ]
           }
         ]
       }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
-        }
-      ]
-    }
+    ]
   },
-  "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
-  },
+  "logo": "/logo/capriole.svg",
   "navbar": {
-    "links": [
-      {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
-      }
-    ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "label": "Open Charts",
+      "href": "https://capriole.com/charts"
+    }
+  },
+  "seo": {
+    "indexing": "all",
+    "metatags": {
+      "robots": "index, follow",
+      "googlebot": "index, follow",
+      "charset": "UTF-8",
+      "viewport": "width=device-width, initial-scale=1.0",
+      "description": "Professional Bitcoin and crypto market analysis platform with 60+ proprietary indicators, on-chain metrics, and quantitative trading strategies",
+      "keywords": "bitcoin indicators, crypto charts, on-chain analysis, tradingview indicators, financial data API, bitcoin treasury companies, macro economics, hash ribbons, nvt ratio, mvrv z-score",
+      "author": "Capriole Investments",
+      "language": "en",
+      "og:type": "website",
+      "og:site_name": "Capriole Charts Documentation",
+      "og:title": "Capriole Charts - Professional Bitcoin & Crypto Market Analysis",
+      "og:description": "Institutional-grade market analysis with 60+ proprietary indicators for Bitcoin, Ethereum, macro economics and risk management",
+      "og:url": "https://docs.capriole.com",
+      "og:image": "https://capriole.com/social-preview.jpg",
+      "og:locale": "en_US",
+      "twitter:card": "summary_large_image",
+      "twitter:site": "@capriole",
+      "twitter:creator": "@capriole",
+      "twitter:title": "Capriole Charts - Professional Bitcoin & Crypto Market Analysis",
+      "twitter:description": "Institutional-grade market analysis with 60+ proprietary indicators",
+      "twitter:image": "https://capriole.com/social-preview.jpg"
     }
   },
   "contextual": {
     "options": [
      "copy",
-     "view",
      "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
+     "claude"
    ]
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
-    }
+      "x": "https://x.com/capriole_fund",
+      "linkedin": "https://www.linkedin.com/company/capriole-investments/"
+    },
+    "links": [
+      {
+        "header": "Product",
+        "items": [
+          {
+            "label": "Invest",
+            "href": "https://capriole.com/invest"
+          },
+          {
+            "label": "Fund",
+            "href": "https://capriole.com/fund"
+          },
+          {
+            "label": "Charts",
+            "href": "https://capriole.com/charts"
+          }
+        ]
+      },
+      {
+        "header": "Resources",
+        "items": [
+          {
+            "label": "Newsletter",
+            "href": "https://capriole.com/newsletter"
+          },
+          {
+            "label": "Research",
+            "href": "https://capriole.com/research"
+          },
+          {
+            "label": "Press",
+            "href": "https://capriole.com/press"
+          }
+        ]
+      },
+      {
+        "header": "Company",
+        "items": [
+          {
+            "label": "About",
+            "href": "https://capriole.com/about"
+          },
+          {
+            "label": "Team",
+            "href": "https://capriole.com/team"
+          },
+          {
+            "label": "Contact",
+            "href": "https://capriole.com/contact"
+          }
+        ]
+      }
+    ]
   }
 }

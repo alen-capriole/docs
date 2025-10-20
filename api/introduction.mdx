@@ -1,0 +1,68 @@
+---
+title: API Introduction
+description: Access Capriole Charts data programmatically via RESTful API
+---
+
+## CAPI Backend Service
+
+The Capriole Charts API (CAPI) provides programmatic access to financial market data through a RESTful interface. The service delivers real-time and historical data for all platform indicators.
+
+## Technical Architecture
+
+### Infrastructure
+
+- **Framework**: FastAPI (Python)
+- **Data Format**: Parquet-based storage for optimized query performance
+- **Deployment**: Docker containers on AWS ECS
+- **Storage**: AWS EFS for persistent data access
+- **Caching**: Redis-based caching layer for improved response times
+
+### Data Processing
+
+The backend service handles:
+
+- Parquet file reading and data transformation
+- Time-series data aggregation
+- Subscription-based access control
+- Request caching and optimization
+
+## Authentication
+
+API access requires authentication using API keys associated with your Capriole Charts account.
+
+[Content placeholder - Authentication details to be added]
+
+## Rate Limiting
+
+API requests are subject to rate limits based on subscription tier:
+
+- **Free**: [Placeholder]
+- **Pro**: [Placeholder]  
+- **Premium**: [Placeholder]
+
+## Response Format
+
+All API endpoints return data in JSON format with standardized response structure.
+
+[Content placeholder - Response format details to be added]
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Authentication" icon="key" href="/api/authentication">
+    Configure API key authentication
+  </Card>
+  
+  <Card title="Available Endpoints" icon="list" href="/api/endpoints/list-charts">
+    Explore API endpoints
+  </Card>
+  
+  <Card title="Python Examples" icon="python" href="/api/examples/python">
+    View Python integration examples
+  </Card>
+  
+  <Card title="Rate Limits" icon="gauge" href="/api/rate-limits">
+    Understand rate limiting policies
+  </Card>
+</CardGroup>
+
