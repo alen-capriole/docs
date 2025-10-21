@@ -1,25 +1,68 @@
 ---
-title: Multi-Channel Notifications
-description: Configure Email, Discord, and Telegram alert delivery
+title: Alert Notifications
+description: Configure multi-channel notifications for Capriole Charts alerts
 ---
 
 ## Notification Channels
 
-The alert system supports three notification channels for delivering alerts.
+Capriole Charts supports three notification channels for alerts.
 
-### Email Notifications
+<CardGroup cols={3}>
+  <Card title="Email" icon="envelope">
+    Automatic setup
+    
+    Notifications sent to your account email
+  </Card>
+  
+  <Card title="Discord" icon="discord">
+    Connect via Account Settings
+    
+    Direct messages or server channel
+  </Card>
+  
+  <Card title="Telegram" icon="telegram">
+    Connect via bot
+    
+    Instant push notifications
+  </Card>
+</CardGroup>
 
-[Content placeholder - Email setup to be added]
+## Email Notifications
 
-### Discord Integration
+Email alerts are enabled automatically for all users. Notifications are sent to your registered account email.
 
-[Content placeholder - Discord OAuth setup to be added]
+Add `noreply@capriole.com` to your email safe sender list to prevent alerts from going to spam.
 
-### Telegram Integration
+## Discord Setup
 
-[Content placeholder - Telegram bot setup to be added]
+1. Navigate to **Account Settings** → **Integrations** → **Discord**
+2. Click **Connect Discord**
+3. Authorize Capriole Charts bot
+4. Choose notification method:
+   - **Direct Messages**: Private alerts sent to DMs
+   - **Server Channel**: Share alerts with your team
 
-## Channel Configuration
+## Telegram Setup
 
-[Content placeholder - Configuration instructions to be added]
+1. Search for **@CaprioleChartsBot** in Telegram
+2. Click **Start** or send `/start`
+3. Get your connection code from **Account Settings** → **Integrations** → **Telegram**
+4. Send the code to @CaprioleChartsBot
+5. Confirmation message indicates successful connection
 
+<Note>
+Connection codes expire after 24 hours. Generate a new code if needed.
+</Note>
+
+## Testing Notifications
+
+Test each connected channel from **Account Settings** → **Integrations**:
+- Send test email
+- Send test Discord message
+- Send test Telegram message
+
+## Next Steps
+
+<Card title="Alert Management" icon="bell" href="/guides/alerts/management">
+  Create and manage alerts
+</Card>

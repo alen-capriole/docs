@@ -17,9 +17,7 @@
             "group": "Getting Started",
             "pages": [
               "guides/introduction",
-              "guides/quick-start",
-              "guides/subscription-plans",
-              "guides/account-management"
+              "guides/subscription-plans"
             ]
           },
           {
@@ -27,8 +25,7 @@
             "pages": [
               "guides/chart-interface",
               "guides/custom-indicators",
-              "guides/saving-layouts",
-              "guides/timeframes"
+              "guides/saving-layouts"
             ]
           },
           {
@@ -41,9 +38,14 @@
           {
             "group": "Alert System",
             "pages": [
-              "guides/alerts/creating-alerts",
-              "guides/alerts/notifications",
-              "guides/alerts/management"
+              "guides/alerts/management",
+              "guides/alerts/notifications"
+            ]
+          },
+          {
+            "group": "Support",
+            "pages": [
+              "guides/support"
             ]
           }
         ]

@@ -1,31 +1,77 @@
 ---
-title: AI Market Briefing
-description: AI-powered market analysis combining 100+ indicators
+title: AI Briefing
+description: AI-powered daily market analysis across Bitcoin, Ethereum, Altcoins, Macro, Sentiment, and Guardian exchange risk
 ---
 
-## Overview
+## What is AI Briefing?
 
-The AI Market Briefing feature provides comprehensive market sentiment analysis powered by LangGraph workflows and machine learning models.
+AI Briefing is a daily market analysis report powered by AI models that analyze all Capriole public content (research reports, newsletters, YouTube videos) and synthesize data from 100+ proprietary indicators to provide intelligent analysis across six major market categories.
 
-## Architecture
+## How to Access
 
-The system combines two components:
+Click **Dashboard** at the top of the left sidebar.
 
-**Offline Knowledge Base**
-Curated intelligence from Capriole newsletters, research publications, and media content, distilled using LLM summarization.
+## Analysis Structure
 
-**Real-Time Analysis**
-LangGraph workflow processing current indicator data to generate market insights across five analytical categories.
+AI Briefing is divided into six market categories:
 
-## Analytical Framework
+### 1. Bitcoin
+Bitcoin on-chain indicators and valuation analysis
 
-[Content placeholder - Analysis categories to be added]
+### 2. Ethereum
+Ethereum network activity and valuation analysis
 
-## Accessing the Briefing
+### 3. Altcoins
+Altcoin market overview
 
-[Content placeholder - Access instructions to be added]
+### 4. Macro
+Macro-economic environment and liquidity
 
-## Interpretation Guidelines
+### 5. Sentiment
+Market sentiment and investor positioning
 
-[Content placeholder - How to use briefing insights to be added]
+### 6. Guardian
+Exchange risk status (Normal/Warning/Critical)
 
+## What Each Category Includes
+
+Each category provides comprehensive analysis with varying levels of detail based on your subscription:
+
+**AI Score (Weighted)**: Dynamic sentiment distribution (Bullish/Neutral/Bearish) that adjusts indicator weights based on reliability and market conditions.
+
+**Unweighted Score**: Raw sentiment distribution treating all indicators equally.
+
+**AI Summary**: Concise AI-generated overview of key developments and insights for the category.
+
+**Key Signals**: Top 3 most significant indicator signals and market developments.
+
+**Guardian Status** (Guardian category only): Overall exchange risk assessment with breakdown of exchanges by status (Normal/Warning/Critical).
+
+### Access by Subscription
+
+- **Free**: Unweighted Score
+- **Pro**: AI Score (Weighted), Guardian Status, Unweighted Score
+- **Premium**: All features including full AI Summary and complete Key Signals
+
+<Note>
+Free and Pro users can view masked versions of AI Summary and Key Signals (partial content hidden).
+</Note>
+
+## Update Frequency
+
+Updated daily, displays last update time (UTC timezone).
+
+## Disclaimer
+
+This briefing has been prepared by a world leading AI model. We believe it provides a useful overview, but AI can make mistakes and its views do not necessarily represent Capriole's. Do your own research before making decisions.
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Capriole Intel" icon="book" href="/guides/capriole-intel">
+    Learn about AI model knowledge source
+  </Card>
+  <Card title="Alert Management" icon="bell" href="/guides/alerts/management">
+    Create and manage alerts
+  </Card>
+</CardGroup>

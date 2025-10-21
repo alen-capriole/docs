@@ -1,21 +1,61 @@
 ---
 title: Alert Management
-description: Monitor and manage your active alerts
+description: Create and manage alerts for Capriole indicators with multi-channel notifications
 ---
 
-## Alert Dashboard
+## Alert System
 
-[Content placeholder - Dashboard overview to be added]
+Capriole Charts' alert system monitors indicators and sends notifications when specific conditions are met via email, Discord, or Telegram.
 
-## Managing Active Alerts
+<Note>
+  Alert creation requires **Premium** subscription (unlimited alerts).
+</Note>
 
-[Content placeholder - Alert controls to be added]
+## Creating an Alert
 
-## Alert History
+1. Open the indicator you want to monitor
+2. Click the **bell icon** in the top toolbar
+3. Configure alert settings:
+   - **Condition**: When to trigger (crossing above, below, etc.)
+   - **Target**: Threshold value
+   - **Notification Channels**: Email, Discord, Telegram
+   - **Alert Name**: Descriptive name
+4. Click **Create**
 
-[Content placeholder - Historical alert records to be added]
+## Managing Alerts
 
-## Alert Performance
+Access your alerts by clicking the **bell icon** in the toolbar.
 
-[Content placeholder - Alert analytics to be added]
+### Alert Actions
 
+- **Pause/Resume**: Temporarily disable alerts without deleting
+- **Edit**: Modify conditions or notification settings
+- **Delete**: Remove alerts permanently
+
+### Alert Status
+
+- **Active**: Currently monitoring
+- **Paused**: Temporarily disabled
+- **Triggered**: Condition recently met
+
+## Notification Channels
+
+### Email
+Notifications sent to your account email automatically.
+
+### Discord
+Connect Discord account in **Account Settings** to receive notifications via Discord bot.
+
+### Telegram
+Connect Telegram account in **Account Settings** to receive notifications via Telegram bot.
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Notification Setup" icon="bell" href="/guides/alerts/notifications">
+    Configure notification channels
+  </Card>
+  <Card title="Custom Indicators" icon="wand-magic-sparkles" href="/guides/custom-indicators">
+    Browse alertable indicators
+  </Card>
+</CardGroup>
