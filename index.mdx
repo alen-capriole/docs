@@ -1,97 +1,56 @@
 ---
-title: "Introduction"
-description: "Welcome to the new home for your documentation"
+title: "Capriole AI API"
+description: "Use one OpenAI-compatible API for model discovery and chat completions."
 ---
 
-## Setting up
+## Build against one API
 
-Get your documentation site up and running in minutes.
+Use one bearer-authenticated API for:
 
-<Card
-  title="Start here"
-  icon="rocket"
-  href="/quickstart"
-  horizontal
->
-  Follow our three step quickstart guide.
-</Card>
+- listing available models
+- creating chat completions
+- sending text or image input in one request
 
-## Make it yours
-
-Design a docs site that looks great and empowers your users.
-
-<Columns cols={2}>
-  <Card
-    title="Edit locally"
-    icon="pen-to-square"
-    href="/development"
-  >
-    Edit your docs locally and preview them in real time.
+<CardGroup cols={2}>
+  <Card title="Quickstart" icon="rocket" href="/quickstart">
+    Create your first request in a few minutes.
   </Card>
-  <Card
-    title="Customize your site"
-    icon="palette"
-    href="/essentials/settings"
-  >
-    Customize the design and colors of your site to match your brand.
+  <Card title="API overview" icon="terminal" href="/api-reference/introduction">
+    See the base URL, authentication, and current feature limits.
   </Card>
-    <Card
-    title="Set up navigation"
-    icon="map"
-    href="/essentials/navigation"
-  >
-    Organize your docs to help users find what they need and succeed with your product.
+  <Card title="List models" icon="list" href="/api-reference/endpoint/get">
+    Fetch the current public model catalog.
   </Card>
-  <Card
-    title="API documentation"
-    icon="terminal"
-    href="/api-reference/introduction"
-  >
-    Auto-generate API documentation from OpenAPI specifications.
+  <Card title="Chat completions" icon="messages" href="/api-reference/endpoint/create">
+    Send OpenAI-compatible chat requests.
   </Card>
-</Columns>
+</CardGroup>
 
-## Create beautiful pages
+## What you can do today
 
-Everything you need to create world-class documentation.
+<AccordionGroup>
+  <Accordion icon="key" title="Authenticate with a bearer API key">
+    Send your key in the `Authorization` header.
 
-<Columns cols={2}>
-  <Card
-    title="Write with MDX"
-    icon="pen-fancy"
-    href="/essentials/markdown"
-  >
-    Use MDX to style your docs pages.
-  </Card>
-  <Card
-    title="Code samples"
-    icon="code"
-    href="/essentials/code"
-  >
-    Add sample code to demonstrate how to use your product.
-  </Card>
-  <Card
-    title="Images"
-    icon="image"
-    href="/essentials/images"
-  >
-    Display images and other media.
-  </Card>
-  <Card
-    title="Reusable snippets"
-    icon="recycle"
-    href="/essentials/reusable-snippets"
-  >
-    Write once and reuse across your docs.
-  </Card>
-</Columns>
+    ```http
+    Authorization: Bearer sk-...
+    ```
+  </Accordion>
 
-## Need inspiration?
+  <Accordion icon="message" title="Send text chat requests">
+    Use `POST /v1/chat/completions` with `model` and `messages`.
+  </Accordion>
 
-<Card
-  title="See complete examples"
-  icon="stars"
-  href="https://mintlify.com/customers"
->
-  Browse our showcase of exceptional documentation sites.
-</Card>
+  <Accordion icon="image" title="Send image input">
+    Use OpenAI-compatible `image_url` content blocks inside a `user` message.
+
+    The public API currently accepts `data:image/...` URLs only.
+  </Accordion>
+ </AccordionGroup>
+
+## Current limits
+
+- `stream: true` is not supported yet
+- Remote image URLs are not supported
+- PDF input is not supported in the public API
+- Tool calling is not supported yet

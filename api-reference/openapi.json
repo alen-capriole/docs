@@ -1,94 +1,254 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "title": "OpenAPI Plant Store",
-    "description": "A sample API that uses a plant store as an example to demonstrate features in the OpenAPI specification",
-    "license": {
-      "name": "MIT"
-    },
+    "title": "Capriole AI API",
+    "description": "OpenAI-compatible public API for model discovery and chat completions.",
     "version": "1.0.0"
   },
   "servers": [
     {
-      "url": "http://sandbox.mintlify.com"
-    }
-  ],
-  "security": [
-    {
-      "bearerAuth": []
+      "url": "https://api.caprioletech.com"
     }
   ],
   "paths": {
-    "/plants": {
+    "/v1/models": {
       "get": {
-        "description": "Returns all plants from the system that the user has access to",
-        "parameters": [
-          {
-            "name": "limit",
-            "in": "query",
-            "description": "The maximum number of results to return",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
+        "operationId": "listModels",
+        "summary": "List public models",
+        "description": "Returns the current public model catalog.",
         "responses": {
           "200": {
-            "description": "Plant response",
+            "description": "Public model list",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Plant"
+                  "$ref": "#/components/schemas/ListPublicModelsResponse"
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "data": [
+                        {
+                          "id": "google/gemini-3.1-flash-lite-preview"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "$ref": "#/components/responses/RateLimitErrorResponse"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerErrorResponse"
+          }
+        }
+      }
+    },
+    "/v1/chat/completions": {
+      "post": {
+        "operationId": "createChatCompletion",
+        "summary": "Create a chat completion",
+        "description": "Creates an OpenAI-compatible chat completion.",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChatCompletionsRequest"
+              },
+              "examples": {
+                "text": {
+                  "value": {
+                    "model": "google/gemini-3.1-flash-lite-preview",
+                    "messages": [
+                      {
+                        "role": "user",
+                        "content": "Tell me a short joke."
+                      }
+                    ]
+                  }
+                },
+                "image": {
+                  "value": {
+                    "model": "google/gemini-3.1-flash-lite-preview",
+                    "messages": [
+                      {
+                        "role": "user",
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "Describe this image briefly."
+                          },
+                          {
+                            "type": "image_url",
+                            "image_url": {
+                              "url": "data:image/png;base64,REAL_BASE64_IMAGE"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Chat completion response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChatCompletionsResponse"
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "id": "chatcmpl_49da8eb7916b43a3ab02442bc2841839",
+                      "object": "chat.completion",
+                      "created": 1774487511,
+                      "model": "google/gemini-3.1-flash-lite-preview",
+                      "choices": [
+                        {
+                          "index": 0,
+                          "message": {
+                            "role": "assistant",
+                            "content": "Here is a short joke."
+                          },
+                          "finish_reason": "stop"
+                        }
+                      ],
+                      "usage": {
+                        "prompt_tokens": 11,
+                        "completion_tokens": 6,
+                        "total_tokens": 17
+                      }
+                    }
                   }
                 }
               }
             }
           },
           "400": {
-            "description": "Unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
+            "$ref": "#/components/responses/ValidationOrDetailErrorResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/DetailErrorResponse"
+          },
+          "403": {
+            "$ref": "#/components/responses/DetailErrorResponse"
+          },
+          "429": {
+            "$ref": "#/components/responses/RateLimitErrorResponse"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerErrorResponse"
+          },
+          "502": {
+            "$ref": "#/components/responses/DetailErrorResponse"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "responses": {
+      "DetailErrorResponse": {
+        "description": "Error response with a detail message",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/DetailError"
+            },
+            "examples": {
+              "missingBearerToken": {
+                "value": {
+                  "detail": "Missing Bearer token"
+                }
+              },
+              "invalidApiKey": {
+                "value": {
+                  "detail": "Invalid API key"
+                }
+              },
+              "usageMetadataUnavailable": {
+                "value": {
+                  "detail": "Missing usage metadata"
                 }
               }
             }
           }
         }
       },
-      "post": {
-        "description": "Creates a new plant in the store",
-        "requestBody": {
-          "description": "Plant to add to the store",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/NewPlant"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "plant response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Plant"
+      "ValidationOrDetailErrorResponse": {
+        "description": "Validation error or request-level error response",
+        "content": {
+          "application/json": {
+            "schema": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/ValidationError"
+                },
+                {
+                  "$ref": "#/components/schemas/DetailError"
+                }
+              ]
+            },
+            "examples": {
+              "invalidPayload": {
+                "value": {
+                  "detail": "Invalid input parameters received.",
+                  "errors": [
+                    "Field 'body -> messages': Field required"
+                  ]
+                }
+              },
+              "unsupportedStream": {
+                "value": {
+                  "detail": "Streaming is not supported yet"
                 }
               }
             }
-          },
-          "400": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
+          }
+        }
+      },
+      "RateLimitErrorResponse": {
+        "description": "Rate limit error response",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/DetailError"
+            },
+            "examples": {
+              "rateLimitExceeded": {
+                "value": {
+                  "detail": "Rate limit exceeded: 100 per 1 minute"
+                }
+              }
+            }
+          }
+        }
+      },
+      "InternalServerErrorResponse": {
+        "description": "Internal server error response",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/DetailError"
+            },
+            "examples": {
+              "internalServerError": {
+                "value": {
+                  "detail": "An internal server error occurred. Please try again later."
                 }
               }
             }
@@ -96,113 +256,279 @@
         }
       }
     },
-    "/plants/{id}": {
-      "delete": {
-        "description": "Deletes a single plant based on the ID supplied",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "ID of plant to delete",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
+    "schemas": {
+      "PublicModelItem": {
+        "type": "object",
+        "required": ["id"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Model identifier"
+          }
+        }
+      },
+      "ListPublicModelsResponse": {
+        "type": "object",
+        "required": ["data"],
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PublicModelItem"
             }
           }
-        ],
-        "responses": {
-          "204": {
-            "description": "Plant deleted",
-            "content": {}
+        }
+      },
+      "ChatCompletionTextContentPart": {
+        "type": "object",
+        "required": ["type", "text"],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["text"]
           },
-          "400": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
+          "text": {
+            "type": "string",
+            "description": "Text payload for one content block"
+          }
+        }
+      },
+      "ChatCompletionImageUrl": {
+        "type": "object",
+        "required": ["url"],
+        "properties": {
+          "url": {
+            "type": "string",
+            "description": "Data image URL payload"
+          }
+        }
+      },
+      "ChatCompletionImageContentPart": {
+        "type": "object",
+        "required": ["type", "image_url"],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["image_url"]
+          },
+          "image_url": {
+            "$ref": "#/components/schemas/ChatCompletionImageUrl"
+          }
+        }
+      },
+      "ChatCompletionMessage": {
+        "type": "object",
+        "required": ["role", "content"],
+        "properties": {
+          "role": {
+            "type": "string",
+            "enum": ["system", "user", "assistant"]
+          },
+          "content": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/ChatCompletionTextContentPart"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ChatCompletionImageContentPart"
+                    }
+                  ]
                 }
               }
-            }
-          }
-        }
-      }
-    }
-  },
-  "webhooks": {
-    "/plant/webhook": {
-      "post": {
-        "description": "Information about a new plant added to the store",
-        "requestBody": {
-          "description": "Plant added to the store",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/NewPlant"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Return a 200 status to indicate that the data was received successfully"
-          }
-        }
-      }
-    }
-  },
-  "components": {
-    "schemas": {
-      "Plant": {
-        "required": [
-          "name"
-        ],
-        "type": "object",
-        "properties": {
-          "name": {
-            "description": "The name of the plant",
-            "type": "string"
-          },
-          "tag": {
-            "description": "Tag to specify the type",
-            "type": "string"
-          }
-        }
-      },
-      "NewPlant": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/Plant"
-          },
-          {
-            "required": [
-              "id"
             ],
-            "type": "object",
-            "properties": {
-              "id": {
-                "description": "Identification number of the plant",
-                "type": "integer",
-                "format": "int64"
-              }
-            }
+            "description": "Plain text content or OpenAI-compatible multimodal content blocks"
           }
-        ]
+        }
       },
-      "Error": {
-        "required": [
-          "error",
-          "message"
-        ],
+      "ChatCompletionReasoningConfig": {
         "type": "object",
         "properties": {
-          "error": {
+          "effort": {
+            "type": "string",
+            "enum": ["none", "minimal", "low", "medium", "high", "xhigh", "max"],
+            "description": "Provider-agnostic reasoning effort hint"
+          },
+          "budget_tokens": {
             "type": "integer",
-            "format": "int32"
+            "description": "Provider-agnostic thinking budget hint"
+          }
+        }
+      },
+      "ChatCompletionsRequest": {
+        "type": "object",
+        "required": ["model", "messages"],
+        "properties": {
+          "model": {
+            "type": "string",
+            "description": "Model key from public.llm_models"
+          },
+          "messages": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/components/schemas/ChatCompletionMessage"
+            }
+          },
+          "stream": {
+            "type": "boolean",
+            "default": false,
+            "description": "Streaming flag. Only false is supported in the current MVP"
+          },
+          "temperature": {
+            "type": "number",
+            "description": "Sampling temperature"
+          },
+          "top_p": {
+            "type": "number",
+            "description": "Top-p nucleus sampling value"
+          },
+          "max_completion_tokens": {
+            "type": "integer",
+            "description": "Maximum output tokens for this completion"
+          },
+          "max_tokens": {
+            "type": "integer",
+            "description": "Alias of max_completion_tokens for compatibility"
+          },
+          "stop": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ],
+            "description": "Optional stop sequence or stop sequence list"
+          },
+          "reasoning_effort": {
+            "type": "string",
+            "enum": ["none", "minimal", "low", "medium", "high", "xhigh", "max"],
+            "description": "Unified reasoning effort hint"
+          },
+          "reasoning": {
+            "$ref": "#/components/schemas/ChatCompletionReasoningConfig"
+          },
+          "thinking": {
+            "$ref": "#/components/schemas/ChatCompletionReasoningConfig"
+          }
+        }
+      },
+      "ChatCompletionResponseMessage": {
+        "type": "object",
+        "required": ["role", "content"],
+        "properties": {
+          "role": {
+            "type": "string",
+            "enum": ["assistant"]
+          },
+          "content": {
+            "type": "string",
+            "description": "Plain text assistant message content"
+          }
+        }
+      },
+      "ChatCompletionsChoice": {
+        "type": "object",
+        "required": ["index", "message"],
+        "properties": {
+          "index": {
+            "type": "integer"
           },
           "message": {
+            "$ref": "#/components/schemas/ChatCompletionResponseMessage"
+          },
+          "finish_reason": {
             "type": "string"
+          }
+        }
+      },
+      "ChatCompletionsUsage": {
+        "type": "object",
+        "required": ["prompt_tokens", "completion_tokens", "total_tokens"],
+        "properties": {
+          "prompt_tokens": {
+            "type": "integer"
+          },
+          "completion_tokens": {
+            "type": "integer"
+          },
+          "total_tokens": {
+            "type": "integer"
+          }
+        }
+      },
+      "ChatCompletionsResponse": {
+        "type": "object",
+        "required": ["id", "object", "created", "model", "choices", "usage"],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "object": {
+            "type": "string"
+          },
+          "created": {
+            "type": "integer"
+          },
+          "model": {
+            "type": "string"
+          },
+          "choices": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ChatCompletionsChoice"
+            }
+          },
+          "usage": {
+            "$ref": "#/components/schemas/ChatCompletionsUsage"
+          }
+        }
+      },
+      "DetailError": {
+        "type": "object",
+        "required": ["detail"],
+        "properties": {
+          "detail": {
+            "type": "string",
+            "description": "Error detail from the API"
+          }
+        }
+      },
+      "ValidationError": {
+        "type": "object",
+        "required": ["detail", "errors"],
+        "properties": {
+          "detail": {
+            "type": "string",
+            "description": "Validation summary"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Per-field validation errors"
+          }
+        }
+      },
+      "RateLimitError": {
+        "type": "object",
+        "required": ["error"],
+        "properties": {
+          "error": {
+            "type": "string",
+            "description": "Rate limit error detail"
           }
         }
       }
@@ -210,7 +536,8 @@
     "securitySchemes": {
       "bearerAuth": {
         "type": "http",
-        "scheme": "bearer"
+        "scheme": "bearer",
+        "description": "Use an API key created in the Capriole AI page. Send it as `Authorization: Bearer sk-...`."
       }
     }
   }
