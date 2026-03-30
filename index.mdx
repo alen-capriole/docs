@@ -1,56 +1,34 @@
 ---
 title: "Capriole AI API"
-description: "Use one OpenAI-compatible API for model discovery and chat completions."
+description: "OpenAI-compatible access to public models, chat completions, and clear public pricing."
 ---
 
-## Build against one API
+## Build with Capriole AI
 
-Use one bearer-authenticated API for:
+Capriole AI is a standalone AI relay and API product for developers, automation workflows, and production integrations. It gives you an OpenAI-compatible surface for model discovery and chat completions, with public pricing designed to stay clear and easy to compare.
 
-- listing available models
-- creating chat completions
-- sending text or image input in one request
+- One API surface for model discovery and chat completions
+- Final public prices without route complexity
+- Savings versus official pricing on selected models
+- A lightweight fit for teams that want a straightforward integration path
+
+## Why Capriole AI
 
 <CardGroup cols={2}>
-  <Card title="Quickstart" icon="rocket" href="/quickstart">
-    Create your first request in a few minutes.
+  <Card title="Simple public pricing">
+    See one final public price per model instead of platform fee layers or internal routing detail.
   </Card>
-  <Card title="API overview" icon="terminal" href="/api-reference/introduction">
-    See the base URL, authentication, and current feature limits.
+  <Card title="Savings-focused model selection">
+    Capriole is designed to publish visible savings versus official pricing on selected launch models.
   </Card>
-  <Card title="List models" icon="list" href="/api-reference/endpoint/get">
-    Fetch the current public model catalog.
+  <Card title="OpenAI-compatible API">
+    Start with familiar request shapes for model discovery and chat completions.
   </Card>
-  <Card title="Chat completions" icon="messages" href="/api-reference/endpoint/create">
-    Send OpenAI-compatible chat requests.
+  <Card title="Built for practical builders">
+    A clean fit for developers, automation users, and small AI teams.
   </Card>
 </CardGroup>
 
-## What you can do today
+## Note
 
-<AccordionGroup>
-  <Accordion icon="key" title="Authenticate with a bearer API key">
-    Send your key in the `Authorization` header.
-
-    ```http
-    Authorization: Bearer sk-...
-    ```
-  </Accordion>
-
-  <Accordion icon="message" title="Send text chat requests">
-    Use `POST /v1/chat/completions` with `model` and `messages`.
-  </Accordion>
-
-  <Accordion icon="image" title="Send image input">
-    Use OpenAI-compatible `image_url` content blocks inside a `user` message.
-
-    The public API currently accepts `data:image/...` URLs only.
-  </Accordion>
- </AccordionGroup>
-
-## Current limits
-
-- `stream: true` is not supported yet
-- Remote image URLs are not supported
-- PDF input is not supported in the public API
-- Tool calling is not supported yet
+Active [Capriole Charts](https://capriole.com/charts/) subscribers receive complimentary Capriole AI access.

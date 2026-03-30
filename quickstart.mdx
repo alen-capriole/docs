@@ -3,35 +3,13 @@ title: "Quickstart"
 description: "Make your first Capriole AI API request."
 ---
 
-## Get started in three steps
+## Get started in two steps
 
 ### 1. Create an API key
 
 Create your key from the Capriole AI API page.
 
-Use the full secret key once. After creation, the UI shows only a masked preview.
-
-### 2. Call `GET /v1/models`
-
-Use this request to confirm your key works and to fetch the current public model list.
-
-```python
-import requests
-
-API_KEY = "YOUR_API_KEY"
-BASE_URL = "https://api.caprioletech.com"
-
-response = requests.get(
-    f"{BASE_URL}/v1/models",
-    headers={"Authorization": f"Bearer {API_KEY}"},
-    timeout=30,
-)
-
-response.raise_for_status()
-print(response.json())
-```
-
-### 3. Call `POST /v1/chat/completions`
+### 2. Call `POST /v1/chat/completions`
 
 Send a simple text chat request.
 
@@ -39,7 +17,6 @@ Send a simple text chat request.
 import requests
 
 API_KEY = "YOUR_API_KEY"
-BASE_URL = "https://api.caprioletech.com"
 
 payload = {
     "model": "google/gemini-3.1-flash-lite-preview",
@@ -52,7 +29,7 @@ payload = {
 }
 
 response = requests.post(
-    f"{BASE_URL}/v1/chat/completions",
+    "https://api.caprioletech.com/v1/chat/completions",
     headers={
         "Authorization": f"Bearer {API_KEY}",
         "Content-Type": "application/json",
@@ -64,18 +41,3 @@ response = requests.post(
 response.raise_for_status()
 print(response.json())
 ```
-
-## Base URL
-
-`https://api.caprioletech.com`
-
-## What to read next
-
-<CardGroup cols={2}>
-  <Card title="Overview" icon="terminal" href="/api-reference/introduction">
-    Review authentication, response shape, and limits.
-  </Card>
-  <Card title="Chat completions" icon="messages" href="/api-reference/endpoint/create">
-    See supported request formats for text and images.
-  </Card>
-</CardGroup>
