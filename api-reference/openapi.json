@@ -240,6 +240,7 @@
       },
       "ChatRequest": {
         "type": "object",
+        "additionalProperties": false,
         "required": ["model", "input"],
         "properties": {
           "model": {
@@ -257,6 +258,31 @@
           "input": {
             "type": "string",
             "description": "Plain text user input"
+          },
+          "web_search": {
+            "type": "boolean",
+            "default": true,
+            "description": "Enable provider-native web search when the selected model supports it."
+          },
+          "temperature": {
+            "type": "number",
+            "minimum": 0,
+            "description": "Optional sampling temperature."
+          },
+          "max_output_tokens": {
+            "type": "integer",
+            "exclusiveMinimum": 0,
+            "description": "Optional maximum number of output tokens."
+          },
+          "max_retries": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "Optional maximum number of provider retries."
+          },
+          "timeout": {
+            "type": "number",
+            "exclusiveMinimum": 0,
+            "description": "Optional provider request timeout in seconds."
           }
         }
       },
