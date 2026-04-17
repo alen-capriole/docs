@@ -3,33 +3,44 @@ title: "Quickstart"
 description: "Make your first Capriole AI API request."
 ---
 
+## Base URL
+
+`https://api.caprioletech.com`
+
 ## Get started in two steps
 
 ### 1. Create an API key
 
 Create your key from the Capriole AI API page.
 
-### 2. Call `POST /v1/chat/completions`
+### 2. Call `POST /v1/chat`
 
-Send a simple text chat request.
+Send a simple text request.
 
-```python
+<CodeGroup>
+```bash curl
+curl https://api.caprioletech.com/v1/chat \
+  -X POST \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "openai/gpt-5.4",
+    "input": "Hello World!"
+  }'
+```
+
+```python python
 import requests
 
 API_KEY = "YOUR_API_KEY"
 
 payload = {
-    "model": "google/gemini-3.1-flash-lite-preview",
-    "messages": [
-        {
-            "role": "user",
-            "content": "Tell me a short joke."
-        }
-    ]
+    "model": "openai/gpt-5.4",
+    "input": "Hello World!"
 }
 
 response = requests.post(
-    "https://api.caprioletech.com/v1/chat/completions",
+    "https://api.caprioletech.com/v1/chat",
     headers={
         "Authorization": f"Bearer {API_KEY}",
         "Content-Type": "application/json",
@@ -41,3 +52,4 @@ response = requests.post(
 response.raise_for_status()
 print(response.json())
 ```
+</CodeGroup>

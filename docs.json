@@ -7,16 +7,16 @@
     "light": "#60A5FA",
     "dark": "#1D4ED8"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "/favicon.ico",
   "navigation": {
     "tabs": [
       {
         "tab": "API reference",
         "groups": [
           {
-            "group": "Overview",
+            "group": "Get started",
             "pages": [
-              "api-reference/introduction",
+              "overview",
               "quickstart"
             ]
           },
@@ -24,12 +24,7 @@
             "group": "Endpoints",
             "pages": [
               "api-reference/endpoint/get",
-              {
-                "group": "Chat",
-                "pages": [
-                  "api-reference/endpoint/create"
-                ]
-              }
+              "api-reference/endpoint/create"
             ]
           }
         ]
@@ -51,13 +46,7 @@
   "contextual": {
     "options": [
       "copy",
-      "view",
-      "chatgpt",
-      "claude",
-      "perplexity",
-      "mcp",
-      "cursor",
-      "vscode"
+      "view"
     ]
   }
 }

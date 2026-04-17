@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Capriole AI API",
-    "description": "OpenAI-compatible public API for model discovery and chat completions.",
+    "description": "Public API for model discovery and text chat.",
     "version": "1.0.0"
   },
   "servers": [
@@ -29,7 +29,7 @@
                     "value": {
                       "data": [
                         {
-                          "id": "google/gemini-3.1-flash-lite-preview"
+                          "id": "openai/gpt-5.4"
                         }
                       ]
                     }
@@ -47,11 +47,11 @@
         }
       }
     },
-    "/v1/chat/completions": {
+    "/v1/chat": {
       "post": {
-        "operationId": "createChatCompletion",
-        "summary": "Create a chat completion",
-        "description": "Creates an OpenAI-compatible chat completion.",
+        "operationId": "createChat",
+        "summary": "Create chat response",
+        "description": "Creates a text response from a model.",
         "security": [
           {
             "bearerAuth": []
@@ -62,40 +62,13 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ChatCompletionsRequest"
+                "$ref": "#/components/schemas/ChatRequest"
               },
               "examples": {
                 "text": {
                   "value": {
-                    "model": "google/gemini-3.1-flash-lite-preview",
-                    "messages": [
-                      {
-                        "role": "user",
-                        "content": "Tell me a short joke."
-                      }
-                    ]
-                  }
-                },
-                "image": {
-                  "value": {
-                    "model": "google/gemini-3.1-flash-lite-preview",
-                    "messages": [
-                      {
-                        "role": "user",
-                        "content": [
-                          {
-                            "type": "text",
-                            "text": "Describe this image briefly."
-                          },
-                          {
-                            "type": "image_url",
-                            "image_url": {
-                              "url": "data:image/png;base64,REAL_BASE64_IMAGE"
-                            }
-                          }
-                        ]
-                      }
-                    ]
+                    "model": "openai/gpt-5.4",
+                    "input": "Hello World!"
                   }
                 }
               }
@@ -106,36 +79,27 @@
           "200": {
             "description": "Chat completion response",
             "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ChatCompletionsResponse"
-                },
-                "examples": {
-                  "default": {
-                    "value": {
-                      "id": "chatcmpl_49da8eb7916b43a3ab02442bc2841839",
-                      "object": "chat.completion",
-                      "created": 1774487511,
-                      "model": "google/gemini-3.1-flash-lite-preview",
-                      "choices": [
-                        {
-                          "index": 0,
-                          "message": {
-                            "role": "assistant",
-                            "content": "Here is a short joke."
-                          },
-                          "finish_reason": "stop"
-                        }
-                      ],
+            "application/json": {
+              "schema": {
+                  "$ref": "#/components/schemas/ChatResponse"
+              },
+              "examples": {
+                "default": {
+                  "value": {
+                      "id": "49da8eb7-916b-43a3-ab02-442bc2841839",
+                      "model": "openai/gpt-5.4",
+                      "result": {
+                        "text": "Here is a short joke."
+                      },
                       "usage": {
-                        "prompt_tokens": 11,
-                        "completion_tokens": 6,
+                        "input_tokens": 11,
+                        "output_tokens": 6,
                         "total_tokens": 17
                       }
-                    }
                   }
                 }
               }
+            }
             }
           },
           "400": {
@@ -208,13 +172,8 @@
                 "value": {
                   "detail": "Invalid input parameters received.",
                   "errors": [
-                    "Field 'body -> messages': Field required"
+                    "Field 'body -> input': String should have at least 1 character"
                   ]
-                }
-              },
-              "unsupportedStream": {
-                "value": {
-                  "detail": "Streaming is not supported yet"
                 }
               }
             }
@@ -279,188 +238,38 @@
           }
         }
       },
-      "ChatCompletionTextContentPart": {
+      "ChatRequest": {
         "type": "object",
-        "required": ["type", "text"],
-        "properties": {
-          "type": {
-            "type": "string",
-            "enum": ["text"]
-          },
-          "text": {
-            "type": "string",
-            "description": "Text payload for one content block"
-          }
-        }
-      },
-      "ChatCompletionImageUrl": {
-        "type": "object",
-        "required": ["url"],
-        "properties": {
-          "url": {
-            "type": "string",
-            "description": "Data image URL payload"
-          }
-        }
-      },
-      "ChatCompletionImageContentPart": {
-        "type": "object",
-        "required": ["type", "image_url"],
-        "properties": {
-          "type": {
-            "type": "string",
-            "enum": ["image_url"]
-          },
-          "image_url": {
-            "$ref": "#/components/schemas/ChatCompletionImageUrl"
-          }
-        }
-      },
-      "ChatCompletionMessage": {
-        "type": "object",
-        "required": ["role", "content"],
-        "properties": {
-          "role": {
-            "type": "string",
-            "enum": ["system", "user", "assistant"]
-          },
-          "content": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "array",
-                "items": {
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/ChatCompletionTextContentPart"
-                    },
-                    {
-                      "$ref": "#/components/schemas/ChatCompletionImageContentPart"
-                    }
-                  ]
-                }
-              }
-            ],
-            "description": "Plain text content or OpenAI-compatible multimodal content blocks"
-          }
-        }
-      },
-      "ChatCompletionReasoningConfig": {
-        "type": "object",
-        "properties": {
-          "effort": {
-            "type": "string",
-            "enum": ["none", "minimal", "low", "medium", "high", "xhigh", "max"],
-            "description": "Provider-agnostic reasoning effort hint"
-          },
-          "budget_tokens": {
-            "type": "integer",
-            "description": "Provider-agnostic thinking budget hint"
-          }
-        }
-      },
-      "ChatCompletionsRequest": {
-        "type": "object",
-        "required": ["model", "messages"],
+        "required": ["model", "input"],
         "properties": {
           "model": {
             "type": "string",
-            "description": "Model key from public.llm_models"
+            "description": "Public model identifier returned by GET /v1/models"
           },
-          "messages": {
-            "type": "array",
-            "minItems": 1,
-            "items": {
-              "$ref": "#/components/schemas/ChatCompletionMessage"
-            }
-          },
-          "stream": {
-            "type": "boolean",
-            "default": false,
-            "description": "Streaming flag. Only false is supported in the current MVP"
-          },
-          "temperature": {
-            "type": "number",
-            "description": "Sampling temperature"
-          },
-          "top_p": {
-            "type": "number",
-            "description": "Top-p nucleus sampling value"
-          },
-          "max_completion_tokens": {
-            "type": "integer",
-            "description": "Maximum output tokens for this completion"
-          },
-          "max_tokens": {
-            "type": "integer",
-            "description": "Alias of max_completion_tokens for compatibility"
-          },
-          "stop": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              }
-            ],
-            "description": "Optional stop sequence or stop sequence list"
-          },
-          "reasoning_effort": {
+          "input": {
             "type": "string",
-            "enum": ["none", "minimal", "low", "medium", "high", "xhigh", "max"],
-            "description": "Unified reasoning effort hint"
-          },
-          "reasoning": {
-            "$ref": "#/components/schemas/ChatCompletionReasoningConfig"
-          },
-          "thinking": {
-            "$ref": "#/components/schemas/ChatCompletionReasoningConfig"
+            "description": "Plain text user input"
           }
         }
       },
-      "ChatCompletionResponseMessage": {
+      "ChatResult": {
         "type": "object",
-        "required": ["role", "content"],
+        "required": ["text"],
         "properties": {
-          "role": {
+          "text": {
             "type": "string",
-            "enum": ["assistant"]
-          },
-          "content": {
-            "type": "string",
-            "description": "Plain text assistant message content"
+            "description": "Plain text assistant result"
           }
         }
       },
-      "ChatCompletionsChoice": {
+      "ChatUsage": {
         "type": "object",
-        "required": ["index", "message"],
+        "required": ["input_tokens", "output_tokens", "total_tokens"],
         "properties": {
-          "index": {
+          "input_tokens": {
             "type": "integer"
           },
-          "message": {
-            "$ref": "#/components/schemas/ChatCompletionResponseMessage"
-          },
-          "finish_reason": {
-            "type": "string"
-          }
-        }
-      },
-      "ChatCompletionsUsage": {
-        "type": "object",
-        "required": ["prompt_tokens", "completion_tokens", "total_tokens"],
-        "properties": {
-          "prompt_tokens": {
-            "type": "integer"
-          },
-          "completion_tokens": {
+          "output_tokens": {
             "type": "integer"
           },
           "total_tokens": {
@@ -468,30 +277,21 @@
           }
         }
       },
-      "ChatCompletionsResponse": {
+      "ChatResponse": {
         "type": "object",
-        "required": ["id", "object", "created", "model", "choices", "usage"],
+        "required": ["id", "model", "result", "usage"],
         "properties": {
           "id": {
             "type": "string"
           },
-          "object": {
-            "type": "string"
-          },
-          "created": {
-            "type": "integer"
-          },
           "model": {
             "type": "string"
           },
-          "choices": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ChatCompletionsChoice"
-            }
+          "result": {
+            "$ref": "#/components/schemas/ChatResult"
           },
           "usage": {
-            "$ref": "#/components/schemas/ChatCompletionsUsage"
+            "$ref": "#/components/schemas/ChatUsage"
           }
         }
       },
