@@ -1,0 +1,32 @@
+---
+title: "Codex"
+description: "Configure Codex to use Capriole AI."
+---
+
+## Install Codex
+
+### Codex CLI
+
+```bash
+npm i -g @openai/codex
+```
+
+### Codex app
+
+Download the app from [OpenAI Codex](https://openai.com/codex/get-started/).
+
+## Configure Codex
+
+Create or update `~/.codex/config.toml`:
+
+```toml
+model = "openai/gpt-5.4"
+model_reasoning_effort = "high"
+model_provider = "capriole_ai"
+
+[model_providers.capriole_ai]
+name = "Capriole AI"
+base_url = "https://api.caprioletech.com/v1"
+wire_api = "responses"
+experimental_bearer_token = "YOUR_CAPRIOLE_AI_API_KEY"
+```

@@ -26,6 +26,12 @@
               "api-reference/endpoint/get",
               "api-reference/endpoint/create"
             ]
+          },
+          {
+            "group": "Integration",
+            "pages": [
+              "integrations/codex"
+            ]
           }
         ]
       }
