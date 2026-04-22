@@ -30,7 +30,8 @@
           {
             "group": "Integration",
             "pages": [
-              "integrations/codex"
+              "integrations/codex",
+              "integrations/claude-code"
             ]
           }
         ]
