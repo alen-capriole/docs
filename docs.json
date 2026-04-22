@@ -31,7 +31,8 @@
             "group": "Integration",
             "pages": [
               "integrations/codex",
-              "integrations/claude-code"
+              "integrations/claude-code",
+              "integrations/more-agents"
             ]
           }
         ]
