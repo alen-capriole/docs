@@ -85,24 +85,6 @@ export CUSTOM_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
 openclaw tui
 ```
 
-## Test without TUI
-
-```bash
-export CUSTOM_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
-
-openclaw infer model run \
-  --local \
-  --model capriole-ai-claude/claude-opus-4-7 \
-  --prompt "Reply exactly OK." \
-  --json
-
-openclaw infer model run \
-  --local \
-  --model capriole-ai-openai/openai/gpt-5.4 \
-  --prompt "Reply exactly OK." \
-  --json
-```
-
 ## Supported models
 
 OpenClaw currently supports GPT 5.4 and Opus 4.7 through Capriole AI.
