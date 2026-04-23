@@ -55,6 +55,24 @@
   },
   "contextual": {
     "options": [
+      {
+        "title": "Ask in Capriole AI",
+        "description": "Explain this page in Capriole AI",
+        "icon": "/favicon.ico",
+        "href": {
+          "base": "https://capriole.ai",
+          "query": [
+            {
+              "key": "ask",
+              "value": "Explain this Capriole AI documentation page and help me apply it: https://docs.capriole.ai$path"
+            },
+            {
+              "key": "source",
+              "value": "docs"
+            }
+          ]
+        }
+      },
       "copy",
       "view"
     ]
