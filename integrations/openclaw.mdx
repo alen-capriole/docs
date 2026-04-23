@@ -1,0 +1,108 @@
+---
+title: "OpenClaw"
+description: "Configure OpenClaw to use Capriole AI."
+---
+
+## Install OpenClaw
+
+```bash
+curl -fsSL https://openclaw.ai/install.sh | bash -s -- --no-onboard
+```
+
+## Configure OpenAI-compatible models
+
+```bash
+export CUSTOM_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
+export CAPRIOLE_OPENAI_BASE_URL="https://api.caprioletech.com/v1"
+
+openclaw onboard --non-interactive \
+  --accept-risk \
+  --mode local \
+  --auth-choice custom-api-key \
+  --custom-base-url "$CAPRIOLE_OPENAI_BASE_URL" \
+  --custom-model-id "openai/gpt-5.4" \
+  --custom-provider-id "capriole-ai-openai" \
+  --custom-compatibility openai \
+  --secret-input-mode ref \
+  --gateway-port 18789 \
+  --gateway-bind loopback \
+  --skip-channels \
+  --skip-search \
+  --skip-skills \
+  --skip-health \
+  --no-install-daemon
+
+openclaw config set models.providers.capriole-ai-openai.request.auth \
+  '{"mode":"authorization-bearer","token":"${CUSTOM_API_KEY}"}' \
+  --strict-json
+
+openclaw config set models.providers.capriole-ai-openai.api \
+  '"openai-responses"' \
+  --strict-json
+```
+
+## Configure Anthropic-compatible models
+
+```bash
+export CUSTOM_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
+export CAPRIOLE_ANTHROPIC_BASE_URL="https://api.caprioletech.com"
+
+openclaw onboard --non-interactive \
+  --accept-risk \
+  --mode local \
+  --auth-choice custom-api-key \
+  --custom-base-url "$CAPRIOLE_ANTHROPIC_BASE_URL" \
+  --custom-model-id "claude-opus-4-7" \
+  --custom-provider-id "capriole-ai-claude" \
+  --custom-compatibility anthropic \
+  --secret-input-mode ref \
+  --gateway-port 18789 \
+  --gateway-bind loopback \
+  --skip-channels \
+  --skip-search \
+  --skip-skills \
+  --skip-health \
+  --no-install-daemon
+
+openclaw config set models.providers.capriole-ai-claude.request.auth \
+  '{"mode":"authorization-bearer","token":"${CUSTOM_API_KEY}"}' \
+  --strict-json
+```
+
+## Start OpenClaw
+
+Start the gateway:
+
+```bash
+export CUSTOM_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
+openclaw gateway --force --port 18789
+```
+
+Open the TUI in another terminal:
+
+```bash
+export CUSTOM_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
+openclaw tui
+```
+
+## Test without TUI
+
+```bash
+export CUSTOM_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
+
+openclaw infer model run \
+  --local \
+  --model capriole-ai-claude/claude-opus-4-7 \
+  --prompt "Reply exactly OK." \
+  --json
+
+openclaw infer model run \
+  --local \
+  --model capriole-ai-openai/openai/gpt-5.4 \
+  --prompt "Reply exactly OK." \
+  --json
+```
+
+## Supported models
+
+OpenClaw currently supports GPT 5.4 and Opus 4.7 through Capriole AI.

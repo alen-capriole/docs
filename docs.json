@@ -33,6 +33,7 @@
             "pages": [
               "integrations/codex",
               "integrations/claude-code",
+              "integrations/openclaw",
               "integrations/more-agents"
             ]
           }
