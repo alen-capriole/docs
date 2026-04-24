@@ -29,7 +29,7 @@
                     "value": {
                       "data": [
                         {
-                          "id": "openai/gpt-5.4"
+                          "id": "openai/gpt-5.5"
                         }
                       ]
                     }
@@ -67,7 +67,7 @@
               "examples": {
                 "text": {
                   "value": {
-                    "model": "openai/gpt-5.4",
+                    "model": "openai/gpt-5.5",
                     "input": "Hello World!"
                   }
                 }
@@ -87,7 +87,7 @@
                 "default": {
                   "value": {
                       "id": "49da8eb7-916b-43a3-ab02-442bc2841839",
-                      "model": "openai/gpt-5.4",
+                      "model": "openai/gpt-5.5",
                       "result": {
                         "text": "Here is a short joke."
                       },
@@ -247,7 +247,7 @@
             "type": "string",
             "description": "Public model identifier returned by GET /v1/models",
             "enum": [
-              "openai/gpt-5.4",
+              "openai/gpt-5.5",
               "openai/gpt-5.4-mini",
               "google/gemini-3.1-pro-preview",
               "google/gemini-3.1-flash-lite-preview",

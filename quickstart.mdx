@@ -24,7 +24,7 @@ curl https://api.caprioletech.com/v1/chat \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "openai/gpt-5.4",
+    "model": "openai/gpt-5.5",
     "input": "Hello World!"
   }'
 ```
@@ -41,7 +41,7 @@ response = requests.post(
         "Content-Type": "application/json",
     },
     json={
-        "model": "openai/gpt-5.4",
+        "model": "openai/gpt-5.5",
         "input": "Hello World!"
     },
 )
