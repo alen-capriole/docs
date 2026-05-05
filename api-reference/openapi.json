@@ -92,9 +92,11 @@
                         "text": "Here is a short joke."
                       },
                       "usage": {
-                        "input_tokens": 11,
+                        "input_tokens": 228807,
                         "output_tokens": 6,
-                        "total_tokens": 17
+                        "total_tokens": 228813,
+                        "cached_tokens": 228224,
+                        "charged_tokens": 23412
                       }
                   }
                 }
@@ -298,7 +300,7 @@
       },
       "ChatUsage": {
         "type": "object",
-        "required": ["input_tokens", "output_tokens", "total_tokens"],
+        "required": ["input_tokens", "output_tokens", "total_tokens", "cached_tokens", "charged_tokens"],
         "properties": {
           "input_tokens": {
             "type": "integer"
@@ -308,6 +310,14 @@
           },
           "total_tokens": {
             "type": "integer"
+          },
+          "cached_tokens": {
+            "type": "integer",
+            "description": "Provider-reported cached input tokens."
+          },
+          "charged_tokens": {
+            "type": "integer",
+            "description": "Quota tokens charged after cached input discount."
           }
         }
       },
