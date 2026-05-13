@@ -1,0 +1,91 @@
+---
+title: "OpenCode"
+description: "Configure OpenCode to use Capriole AI."
+---
+
+## What is OpenCode?
+
+OpenCode is a Go-based open-source command-line programming tool (CLI) that provides powerful AI assistance for developers.
+
+## Prerequisites
+
+Before you begin, make sure you have:
+
+- A Capriole AI account ([Sign up here](https://capriole.ai))
+- A Capriole AI API key ([Get your key](https://capriole.ai?view=api))
+
+## Installation
+
+Install OpenCode with the official install script:
+
+```bash
+curl -fsSL https://opencode.ai/install | bash
+```
+
+Or install it with npm:
+
+```bash
+npm install -g opencode-ai
+```
+
+Verify the install:
+
+```bash
+opencode --version
+```
+
+## Configuration
+
+Create or update `~/.config/opencode/opencode.json`:
+
+Use `apiKey` for the GPT provider and `authToken` for the Claude provider.
+
+```json
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "capriole-ai-openai/openai/gpt-5.5",
+  "small_model": "capriole-ai-openai/openai/gpt-5.5",
+  "enabled_providers": ["capriole-ai-openai", "capriole-ai-claude"],
+  "provider": {
+    "capriole-ai-openai": {
+      "npm": "@ai-sdk/openai",
+      "name": "Capriole AI OpenAI",
+      "options": {
+        "baseURL": "https://api.caprioletech.com/v1",
+        "apiKey": "{env:CAPRIOLE_AI_API_KEY}"
+      },
+      "models": {
+        "openai/gpt-5.5": {
+          "name": "GPT 5.5"
+        }
+      }
+    },
+    "capriole-ai-claude": {
+      "npm": "@ai-sdk/anthropic",
+      "name": "Capriole AI Claude",
+      "options": {
+        "baseURL": "https://api.caprioletech.com/v1",
+        "authToken": "{env:CAPRIOLE_AI_API_KEY}"
+      },
+      "models": {
+        "claude-opus-4-7": {
+          "name": "Opus 4.7"
+        }
+      }
+    }
+  }
+}
+```
+
+## Start OpenCode
+
+Set your API key, then start OpenCode:
+
+```bash
+export CAPRIOLE_AI_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
+opencode
+```
+
+## Supported models
+
+OpenCode currently supports GPT 5.5 and Opus 4.7 through Capriole AI.
