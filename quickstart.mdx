@@ -21,7 +21,7 @@ Send a simple text request.
 ```bash curl
 curl https://api.caprioletech.com/v1/chat \
   -X POST \
-  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Authorization: Bearer YOUR_CAPRIOLE_AI_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
     "model": "openai/gpt-5.5",
@@ -32,7 +32,7 @@ curl https://api.caprioletech.com/v1/chat \
 ```python python
 import requests
 
-API_KEY = "YOUR_API_KEY"
+API_KEY = "YOUR_CAPRIOLE_AI_API_KEY"
 
 response = requests.post(
     "https://api.caprioletech.com/v1/chat",
