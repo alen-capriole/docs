@@ -5,3 +5,5 @@ openapi: "api-reference/openapi.json POST /v1/chat"
 ---
 
 Use this endpoint to send plain text input to a model and receive a plain text response.
+
+Capriole AI web chat and the public API are separate product surfaces. Web chat separates models into Fast and Thinking product modes, while the API uses API model IDs. For Claude API requests, use `anthropic/claude-opus-4-7`; Claude Fast and Claude Thinking are web chat modes, not separate `/v1/chat` API model IDs.

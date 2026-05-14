@@ -3,13 +3,26 @@ title: "OpenClaw"
 description: "Configure OpenClaw to use Capriole AI."
 ---
 
-## Install OpenClaw
+## What is OpenClaw
+
+OpenClaw is an open-source, self-hosted personal AI assistant and gateway that connects chat channels such as WhatsApp, Slack, Discord, Telegram, iMessage, and WebChat to AI agents. It can send supported model requests through Capriole AI by configuring custom OpenAI-compatible and Anthropic-compatible model providers.
+
+## Prerequisites
+
+Before you begin, make sure you have:
+
+- A Capriole AI account ([Sign up here](https://capriole.ai))
+- A Capriole AI API key ([Get your key](https://capriole.ai?view=api))
+
+## Installation
 
 ```bash
 curl -fsSL https://openclaw.ai/install.sh | bash -s -- --no-onboard
 ```
 
-## Configure OpenAI-compatible models
+## Configuration
+
+Configure the GPT provider:
 
 ```bash
 export CUSTOM_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
@@ -41,7 +54,7 @@ openclaw config set models.providers.capriole-ai-openai.api \
   --strict-json
 ```
 
-## Configure Anthropic-compatible models
+Configure the Claude provider:
 
 ```bash
 export CUSTOM_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
@@ -67,9 +80,13 @@ openclaw onboard --non-interactive \
 openclaw config set models.providers.capriole-ai-claude.request.auth \
   '{"mode":"authorization-bearer","token":"${CUSTOM_API_KEY}"}' \
   --strict-json
+
+openclaw config set models.providers.capriole-ai-claude.api \
+  '"anthropic-messages"' \
+  --strict-json
 ```
 
-## Start OpenClaw
+## Run OpenClaw
 
 Start the gateway:
 
@@ -88,3 +105,37 @@ openclaw tui
 ## Supported models
 
 OpenClaw currently supports GPT 5.5 and Opus 4.7 through Capriole AI.
+
+- `openai/gpt-5.5`
+- `claude-opus-4-7`
+
+## Troubleshooting
+
+### Why do GPT requests fail?
+
+Confirm that `models.providers.capriole-ai-openai.api` is set to `"openai-responses"` and `baseUrl` is `https://api.caprioletech.com/v1`.
+
+### Why do Claude requests fail?
+
+Confirm that `models.providers.capriole-ai-claude.api` is set to `"anthropic-messages"` and the Claude `baseUrl` is `https://api.caprioletech.com` without `/v1`.
+
+### Why does authentication fail?
+
+Export `CUSTOM_API_KEY` in the terminal that starts `openclaw gateway` and in the terminal that starts `openclaw tui`.
+
+### Why does OpenClaw report that a model is not allowed or unavailable?
+
+Run `openclaw models list`, then confirm the selected model and any `agents.defaults.models` allowlist include `capriole-ai-openai/openai/gpt-5.5` or `capriole-ai-claude/claude-opus-4-7`.
+
+### Why doesn't the gateway start?
+
+Run `openclaw status`, `openclaw gateway status`, `openclaw logs --follow`, and `openclaw doctor`. Fix schema, `gateway.mode`, or service issues before retrying.
+
+### Why does port `18789` fail?
+
+Choose another local port and use the same port for the gateway and client setup. For service-mode installs, run `openclaw doctor --fix` or `openclaw gateway install --force` after changing the port.
+
+## Notes
+
+- OpenClaw custom providers require the provider API mode to match the Capriole AI endpoint family.
+- Official references: [OpenClaw install](https://docs.openclaw.ai/install), [OpenClaw custom providers](https://docs.openclaw.ai/gateway/config-tools), [OpenClaw model providers](https://documentation.openclaw.ai/concepts/model-providers), and [OpenClaw troubleshooting](https://docs.openclaw.ai/gateway/troubleshooting).

@@ -3,9 +3,9 @@ title: "OpenCode"
 description: "Configure OpenCode to use Capriole AI."
 ---
 
-## What is OpenCode?
+## What is OpenCode
 
-OpenCode is a Go-based open-source command-line programming tool (CLI) that provides powerful AI assistance for developers.
+OpenCode is an open-source AI coding agent available as a terminal interface, desktop app, and IDE extension. With provider configuration, it can send supported model requests through Capriole AI's OpenAI-compatible and Anthropic-compatible endpoints.
 
 ## Prerequisites
 
@@ -52,7 +52,7 @@ Use `apiKey` for the GPT provider and `authToken` for the Claude provider.
       "name": "Capriole AI OpenAI",
       "options": {
         "baseURL": "https://api.caprioletech.com/v1",
-        "apiKey": "{env:CAPRIOLE_AI_API_KEY}"
+        "apiKey": "YOUR_CAPRIOLE_AI_API_KEY"
       },
       "models": {
         "openai/gpt-5.5": {
@@ -65,7 +65,7 @@ Use `apiKey` for the GPT provider and `authToken` for the Claude provider.
       "name": "Capriole AI Claude",
       "options": {
         "baseURL": "https://api.caprioletech.com/v1",
-        "authToken": "{env:CAPRIOLE_AI_API_KEY}"
+        "authToken": "YOUR_CAPRIOLE_AI_API_KEY"
       },
       "models": {
         "claude-opus-4-7": {
@@ -77,15 +77,48 @@ Use `apiKey` for the GPT provider and `authToken` for the Claude provider.
 }
 ```
 
-## Start OpenCode
+## Run OpenCode
 
-Set your API key, then start OpenCode:
+After replacing `YOUR_CAPRIOLE_AI_API_KEY` in the config, start OpenCode:
 
 ```bash
-export CAPRIOLE_AI_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
 opencode
 ```
 
 ## Supported models
 
 OpenCode currently supports GPT 5.5 and Opus 4.7 through Capriole AI.
+
+- `openai/gpt-5.5`
+- `claude-opus-4-7`
+
+## Troubleshooting
+
+### Why does OpenCode return an authentication error?
+
+Confirm that both `apiKey` and `authToken` in `~/.config/opencode/opencode.json` use your Capriole AI API key instead of `YOUR_CAPRIOLE_AI_API_KEY`.
+
+### Why do GPT requests fail?
+
+Confirm that the GPT provider uses `npm: "@ai-sdk/openai"` and `baseURL: "https://api.caprioletech.com/v1"` so requests use the Responses API.
+
+### Why do Claude requests fail?
+
+Confirm that the Claude provider uses `npm: "@ai-sdk/anthropic"`, `authToken`, and `baseURL: "https://api.caprioletech.com/v1"`.
+
+### Why don't Capriole AI models appear?
+
+Confirm that the model reference uses `<providerId>/<modelId>`, such as `capriole-ai-openai/openai/gpt-5.5`, and that `enabled_providers` includes the Capriole AI providers while `disabled_providers` does not block them.
+
+### Why don't config changes apply?
+
+Check for project-level `opencode.json` or `OPENCODE_CONFIG` overrides, then restart OpenCode.
+
+### Why do provider initialization or provider package errors appear?
+
+For `ProviderInitError`, verify the provider config first. For provider package errors, clear `~/.cache/opencode` and restart OpenCode so provider packages are reinstalled.
+
+## Notes
+
+- The Claude provider uses `authToken` so the AI SDK Anthropic provider sends `Authorization: Bearer` authentication.
+- Official references: [OpenCode install](https://opencode.ai/docs), [OpenCode config](https://opencode.ai/docs/config), [OpenCode providers](https://opencode.ai/docs/providers), [OpenCode troubleshooting](https://opencode.ai/docs/troubleshooting), and [AI SDK Anthropic provider](https://ai-sdk.dev/providers/ai-sdk-providers/anthropic).

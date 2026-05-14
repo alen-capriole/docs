@@ -3,7 +3,18 @@ title: "Codex"
 description: "Configure Codex to use Capriole AI."
 ---
 
-## Install Codex
+## What is Codex
+
+Codex is OpenAI's coding agent for software development. It can use Capriole AI through a custom model provider configured to send requests to Capriole AI's Responses-compatible API.
+
+## Prerequisites
+
+Before you begin, make sure you have:
+
+- A Capriole AI account ([Sign up here](https://capriole.ai))
+- A Capriole AI API key ([Get your key](https://capriole.ai?view=api))
+
+## Installation
 
 ### Codex CLI
 
@@ -13,9 +24,9 @@ npm install -g @openai/codex
 
 ### Codex app
 
-Download the app from [OpenAI Codex](https://openai.com/codex/get-started/).
+Download the app from [OpenAI Codex](https://developers.openai.com/codex).
 
-## Configure Codex
+## Configuration
 
 Create or update `~/.codex/config.toml`:
 
@@ -28,9 +39,48 @@ model_provider = "capriole_ai"
 name = "Capriole AI"
 base_url = "https://api.caprioletech.com/v1"
 wire_api = "responses"
-experimental_bearer_token = "YOUR_CAPRIOLE_AI_API_KEY"
+env_key = "CAPRIOLE_AI_API_KEY"
+env_key_instructions = "Export CAPRIOLE_AI_API_KEY before starting Codex"
+```
+
+## Run Codex
+
+Set your API key, then start Codex:
+
+```bash
+export CAPRIOLE_AI_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
+codex
 ```
 
 ## Supported models
 
 Codex currently supports GPT 5.5 through Capriole AI.
+
+- `openai/gpt-5.5`
+
+## Troubleshooting
+
+### Why does Codex return an authentication error?
+
+Confirm that `CAPRIOLE_AI_API_KEY` is exported in the same shell before running `codex`.
+
+### Why can't Codex find the model?
+
+Confirm that `model = "openai/gpt-5.5"` and `model_provider = "capriole_ai"` are set exactly.
+
+### Why do requests fail with endpoint or protocol errors?
+
+Confirm that `base_url = "https://api.caprioletech.com/v1"` and `wire_api = "responses"` are set under `[model_providers.capriole_ai]`.
+
+### Why does Codex ignore the Capriole AI provider?
+
+Do not use a reserved built-in provider ID such as `openai`; keep the custom provider ID as `capriole_ai`.
+
+### Why don't config changes apply?
+
+Confirm that `~/.codex/config.toml` is the active user config file, trust the project before relying on project-scoped `.codex/config.toml`, then restart Codex.
+
+## Notes
+
+- The configuration uses `env_key` so your API key stays in your shell environment instead of the config file.
+- Official references: [Codex CLI](https://developers.openai.com/codex/cli), [Codex config basics](https://developers.openai.com/codex/config-basic), [Codex config reference](https://developers.openai.com/codex/config-reference), and [sample configuration](https://developers.openai.com/codex/config-sample).

@@ -31,10 +31,10 @@
           {
             "group": "Integration",
             "pages": [
-              "integrations/claude-code",
               "integrations/codex",
-              "integrations/openclaw",
+              "integrations/claude-code",
               "integrations/opencode",
+              "integrations/openclaw",
               "integrations/more-agents"
             ]
           }

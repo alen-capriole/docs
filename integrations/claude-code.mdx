@@ -3,15 +3,26 @@ title: "Claude Code"
 description: "Configure Claude Code to use Capriole AI."
 ---
 
-## Install Claude Code
+## What is Claude Code
+
+Claude Code is Anthropic's agentic coding tool for reading codebases, editing files, running commands, and integrating with development tools. This CLI setup uses Capriole AI by configuring Claude Code's API endpoint, auth token, and model environment variables.
+
+## Prerequisites
+
+Before you begin, make sure you have:
+
+- A Capriole AI account ([Sign up here](https://capriole.ai))
+- A Capriole AI API key ([Get your key](https://capriole.ai?view=api))
+
+## Installation
 
 ```bash
 npm install -g @anthropic-ai/claude-code
 ```
 
-## Configure Claude Code
+## Configuration
 
-Set the Capriole AI API base URL and API key, then start Claude Code:
+Set the Capriole AI API base URL, API key, and model pins:
 
 ```bash
 export ANTHROPIC_BASE_URL="https://api.caprioletech.com"
@@ -22,10 +33,45 @@ export ANTHROPIC_DEFAULT_OPUS_MODEL="claude-opus-4-7"
 export ANTHROPIC_DEFAULT_SONNET_MODEL="claude-opus-4-7"
 export ANTHROPIC_DEFAULT_HAIKU_MODEL="claude-opus-4-7"
 export CLAUDE_CODE_SUBAGENT_MODEL="claude-opus-4-7"
+```
 
+## Run Claude Code
+
+Start Claude Code from your project directory:
+
+```bash
 claude
 ```
 
 ## Supported models
 
 Claude Code currently supports Opus 4.7 through Capriole AI.
+
+- `claude-opus-4-7`
+
+## Troubleshooting
+
+### Why does Claude Code return an authentication error?
+
+Confirm that `ANTHROPIC_AUTH_TOKEN` is exported in the same shell before launching `claude`. Use `ANTHROPIC_AUTH_TOKEN`, not `ANTHROPIC_API_KEY`, for this setup.
+
+### Why do requests fail with endpoint errors?
+
+Confirm that `ANTHROPIC_BASE_URL` is `https://api.caprioletech.com` without `/v1`; Claude Code sends requests to `/v1/messages` and `/v1/messages/count_tokens`.
+
+### Why doesn't Claude Code use Opus 4.7?
+
+Confirm that `ANTHROPIC_MODEL` and the default model environment variables are exported before launch, then check `/model` or `/status` for an active session or settings override.
+
+### Why can't Claude Code select Opus 4.7?
+
+Update Claude Code with `claude update`, then run `claude --version`.
+
+### Why does token counting or startup model discovery fail?
+
+Keep the pinned model environment variables in place and confirm that the model ID is `claude-opus-4-7`.
+
+## Notes
+
+- `ANTHROPIC_BASE_URL` changes where Claude Code sends requests. The model environment variables control which model ID is sent.
+- Official references: [Claude Code setup](https://code.claude.com/docs/en/setup), [environment variables](https://code.claude.com/docs/en/env-vars), and [model configuration](https://code.claude.com/docs/en/model-config).
