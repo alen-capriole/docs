@@ -6,4 +6,4 @@ openapi: "api-reference/openapi.json POST /v1/chat"
 
 Use this endpoint to send plain text input to a model and receive a plain text response.
 
-Capriole AI web chat and the public API are separate product surfaces. In web chat, Claude Fast and Claude Thinking are product modes over the same Claude Opus 4.7 model: Fast is the lower-latency chat lane over that model, and Thinking is the deeper-analysis chat lane. The public API does not expose those web chat modes as separate model IDs; for Claude API requests, use `anthropic/claude-opus-4-7`.
+Capriole AI web chat and the public API are separate product surfaces. In web chat, Claude Fast and Claude Thinking are product modes over Claude Opus 4.8. The public API does not expose those web chat modes as separate model IDs; for Claude API requests, use `anthropic/claude-opus-4-8`. Existing `anthropic/claude-opus-4-7` integrations remain supported.

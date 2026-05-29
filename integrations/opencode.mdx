@@ -93,8 +93,8 @@ Use `apiKey` for the OpenAI provider and `authToken` for the Anthropic provider.
         "authToken": "YOUR_CAPRIOLE_AI_API_KEY"
       },
       "models": {
-        "claude-opus-4-7": {
-          "name": "Opus 4.7",
+        "claude-opus-4-8": {
+          "name": "Opus 4.8",
           "variants": {
             "low": {
               "thinking": {
@@ -147,13 +147,14 @@ After replacing `YOUR_CAPRIOLE_AI_API_KEY` in the config, start OpenCode:
 opencode
 ```
 
-Use `/models` to select GPT 5.5 or Opus 4.7. Use `Ctrl+T` to cycle model variants.
+Use `/models` to select GPT 5.5 or Opus 4.8. Use `Ctrl+T` to cycle model variants.
 
 ## Supported models
 
-OpenCode currently supports GPT 5.5 and Opus 4.7 through Capriole AI.
+OpenCode supports GPT 5.5, Opus 4.8, and Opus 4.7 through Capriole AI. Use Opus 4.8 for new setups.
 
 - `openai/gpt-5.5`
+- `claude-opus-4-8`
 - `claude-opus-4-7`
 
 ## Troubleshooting
@@ -172,7 +173,7 @@ Confirm that the Anthropic provider uses `npm: "@ai-sdk/anthropic"`, `authToken`
 
 ### Why don't Capriole AI models appear?
 
-Confirm that the model reference uses `<providerId>/<modelId>`, such as `capriole-ai-openai/openai/gpt-5.5` or `capriole-ai-anthropic/claude-opus-4-7`, and that `enabled_providers` includes the Capriole AI providers while `disabled_providers` does not block them.
+Confirm that the model reference uses `<providerId>/<modelId>`, such as `capriole-ai-openai/openai/gpt-5.5` or `capriole-ai-anthropic/claude-opus-4-8`, and that `enabled_providers` includes the Capriole AI providers while `disabled_providers` does not block them.
 
 ### Why don't model variants appear?
 

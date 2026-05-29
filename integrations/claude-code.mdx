@@ -26,16 +26,16 @@ Create or update `~/.claude/settings.json` for persistent setup:
 
 ```json
 {
-  "model": "claude-opus-4-7",
+  "model": "claude-opus-4-8",
   "effortLevel": "high",
   "env": {
     "ANTHROPIC_BASE_URL": "https://api.caprioletech.com",
     "ANTHROPIC_AUTH_TOKEN": "YOUR_CAPRIOLE_AI_API_KEY",
-    "ANTHROPIC_MODEL": "claude-opus-4-7",
-    "ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-opus-4-7",
-    "ANTHROPIC_DEFAULT_SONNET_MODEL": "claude-opus-4-7",
-    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "claude-opus-4-7",
-    "CLAUDE_CODE_SUBAGENT_MODEL": "claude-opus-4-7"
+    "ANTHROPIC_MODEL": "claude-opus-4-8",
+    "ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-opus-4-8",
+    "ANTHROPIC_DEFAULT_SONNET_MODEL": "claude-opus-4-8",
+    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "claude-opus-4-8",
+    "CLAUDE_CODE_SUBAGENT_MODEL": "claude-opus-4-8"
   }
 }
 ```
@@ -46,11 +46,11 @@ For a one-time shell setup, export the same values before launching Claude Code:
 export ANTHROPIC_BASE_URL="https://api.caprioletech.com"
 export ANTHROPIC_AUTH_TOKEN="YOUR_CAPRIOLE_AI_API_KEY"
 
-export ANTHROPIC_MODEL="claude-opus-4-7"
-export ANTHROPIC_DEFAULT_OPUS_MODEL="claude-opus-4-7"
-export ANTHROPIC_DEFAULT_SONNET_MODEL="claude-opus-4-7"
-export ANTHROPIC_DEFAULT_HAIKU_MODEL="claude-opus-4-7"
-export CLAUDE_CODE_SUBAGENT_MODEL="claude-opus-4-7"
+export ANTHROPIC_MODEL="claude-opus-4-8"
+export ANTHROPIC_DEFAULT_OPUS_MODEL="claude-opus-4-8"
+export ANTHROPIC_DEFAULT_SONNET_MODEL="claude-opus-4-8"
+export ANTHROPIC_DEFAULT_HAIKU_MODEL="claude-opus-4-8"
+export CLAUDE_CODE_SUBAGENT_MODEL="claude-opus-4-8"
 ```
 
 ## Run Claude Code
@@ -63,8 +63,9 @@ claude
 
 ## Supported models
 
-Claude Code currently supports Opus 4.7 through Capriole AI.
+Claude Code supports Opus 4.8 and Opus 4.7 through Capriole AI. Use Opus 4.8 for new setups.
 
+- `claude-opus-4-8`
 - `claude-opus-4-7`
 
 ## Troubleshooting
@@ -77,7 +78,7 @@ Confirm that `ANTHROPIC_AUTH_TOKEN` is exported in the same shell before launchi
 
 Confirm that `ANTHROPIC_BASE_URL` is `https://api.caprioletech.com` without `/v1`; Claude Code sends requests to `/v1/messages` and `/v1/messages/count_tokens`.
 
-### Why doesn't Claude Code use Opus 4.7?
+### Why doesn't Claude Code use Opus 4.8?
 
 Confirm that `model`, `ANTHROPIC_MODEL`, and the default model environment variables are set before launch, then check `/model` or `/status` for an active session or settings override.
 
@@ -87,17 +88,17 @@ Set `"effortLevel": "high"` in `~/.claude/settings.json`, then restart Claude Co
 
 For the absolute maximum effort in a session, use `/effort max`, launch with `claude --effort max`, or set `CLAUDE_CODE_EFFORT_LEVEL=max` before launching `claude`.
 
-### Why can't Claude Code select Opus 4.7?
+### Why can't Claude Code select Opus 4.8?
 
 Update Claude Code with `claude update`, then run `claude --version`.
 
 ### Why does token counting or startup model discovery fail?
 
-Keep the pinned model environment variables in place and confirm that the model ID is `claude-opus-4-7`.
+Keep the pinned model environment variables in place and confirm that the model ID is `claude-opus-4-8`.
 
 ## Notes
 
 - `~/.claude/settings.json` applies to your user account across projects. Use `YOUR_CAPRIOLE_AI_API_KEY` as a placeholder and replace it with your actual Capriole AI API key.
 - `ANTHROPIC_BASE_URL` changes where Claude Code sends requests. The model environment variables control which model ID is sent.
-- This setup uses `high` as the documented default effort level. On Opus 4.7, `xhigh` is also a persistent `effortLevel` option, while `max` is a session-level override and can spend more thinking tokens.
+- This setup uses `high` as the documented default effort level. On Opus 4.8, `xhigh` is also a persistent `effortLevel` option, while `max` is a session-level override and can spend more thinking tokens.
 - Official references: [Claude Code setup](https://code.claude.com/docs/en/setup), [environment variables](https://code.claude.com/docs/en/env-vars), [model configuration](https://code.claude.com/docs/en/model-config), and [Claude effort](https://platform.claude.com/docs/en/build-with-claude/effort).
