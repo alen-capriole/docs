@@ -1,0 +1,11 @@
+---
+title: "Responses"
+description: "Create OpenAI Responses-compatible output with Capriole AI OpenAI models."
+openapi: "api-reference/openapi.json POST /v1/responses"
+---
+
+Use this endpoint when your application, SDK, or agent expects the OpenAI Responses request and response format.
+
+Send a standard Responses payload with `model` and `input`. Capriole AI rewrites the `model` value to the selected upstream model ID, forwards compatible fields such as `instructions`, `tools`, `reasoning`, `previous_response_id`, and `stream`, and returns the upstream JSON or SSE stream unchanged.
+
+For simple Capriole-native text generation, use `POST /v1/chat`. Use `POST /v1/responses` when OpenAI Responses wire behavior is required.

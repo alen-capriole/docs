@@ -50,3 +50,7 @@ response.raise_for_status()
 print(response.json())
 ```
 </CodeGroup>
+
+## Protocol-compatible endpoints
+
+Use `POST /v1/responses` for OpenAI Responses clients, `POST /v1/chat/completions` for OpenAI Chat Completions clients, and `POST /v1/messages` for Anthropic Messages clients.

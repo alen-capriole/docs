@@ -54,9 +54,10 @@ codex
 
 ## Supported models
 
-Codex currently supports GPT 5.5 through Capriole AI.
+Codex supports Capriole AI OpenAI models through the Responses API. Use GPT 5.5 as the default model for new setups.
 
 - `openai/gpt-5.5`
+- `openai/gpt-5.4-mini`
 
 ## Troubleshooting
 
@@ -66,7 +67,7 @@ Confirm that `CAPRIOLE_AI_API_KEY` is exported in the same shell before running 
 
 ### Why can't Codex find the model?
 
-Confirm that `model = "openai/gpt-5.5"` and `model_provider = "capriole_ai"` are set exactly.
+Confirm that `model_provider = "capriole_ai"` is set and that `model` is one of the supported Capriole AI OpenAI model IDs.
 
 ### Why do requests fail with endpoint or protocol errors?
 

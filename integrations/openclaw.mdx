@@ -52,6 +52,10 @@ openclaw config set models.providers.capriole-ai-openai.request.auth \
 openclaw config set models.providers.capriole-ai-openai.api \
   '"openai-responses"' \
   --strict-json
+
+openclaw config set models.providers.capriole-ai-openai.models \
+  '[{"id":"openai/gpt-5.5","name":"GPT 5.5"},{"id":"openai/gpt-5.4-mini","name":"GPT 5.4 mini"}]' \
+  --strict-json --merge
 ```
 
 Configure the Anthropic provider:
@@ -84,6 +88,10 @@ openclaw config set models.providers.capriole-ai-anthropic.request.auth \
 openclaw config set models.providers.capriole-ai-anthropic.api \
   '"anthropic-messages"' \
   --strict-json
+
+openclaw config set models.providers.capriole-ai-anthropic.models \
+  '[{"id":"claude-opus-4-8","name":"Opus 4.8"},{"id":"claude-opus-4-7","name":"Opus 4.7"}]' \
+  --strict-json --merge
 ```
 
 ## Run OpenClaw
@@ -104,9 +112,10 @@ openclaw tui
 
 ## Supported models
 
-OpenClaw supports GPT 5.5, Opus 4.8, and Opus 4.7 through Capriole AI. Use Opus 4.8 for new setups.
+OpenClaw supports GPT 5.5, GPT 5.4 mini, Opus 4.8, and Opus 4.7 through Capriole AI. Use GPT 5.5 and Opus 4.8 for new setups.
 
 - `openai/gpt-5.5`
+- `openai/gpt-5.4-mini`
 - `claude-opus-4-8`
 - `claude-opus-4-7`
 
@@ -126,7 +135,7 @@ Export `CUSTOM_API_KEY` in the terminal that starts `openclaw gateway` and in th
 
 ### Why does OpenClaw report that a model is not allowed or unavailable?
 
-Run `openclaw models list`, then confirm the selected model and any `agents.defaults.models` allowlist include `capriole-ai-openai/openai/gpt-5.5` or `capriole-ai-anthropic/claude-opus-4-8`.
+Run `openclaw models list`, then confirm the selected model and any `agents.defaults.models` allowlist include the Capriole AI model reference, such as `capriole-ai-openai/openai/gpt-5.5`, `capriole-ai-openai/openai/gpt-5.4-mini`, `capriole-ai-anthropic/claude-opus-4-8`, or `capriole-ai-anthropic/claude-opus-4-7`.
 
 ### Why doesn't the gateway start?
 
