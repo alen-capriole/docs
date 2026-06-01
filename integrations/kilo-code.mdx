@@ -1,0 +1,164 @@
+---
+title: "Kilo Code"
+description: "Configure Kilo Code to use Capriole AI."
+---
+
+## What is Kilo Code
+
+Kilo Code is an AI coding assistant for IDEs and terminals. It can use Capriole AI through Kilo's OpenAI-compatible provider, which sends requests to Capriole AI's Chat Completions-compatible API.
+
+## Prerequisites
+
+Before you begin, make sure you have:
+
+- A Capriole AI account ([Sign up here](https://capriole.ai))
+- A Capriole AI API key ([Get your key](https://capriole.ai?view=api))
+- Kilo Code installed in VS Code or as the Kilo CLI
+
+## Installation
+
+### VS Code extension
+
+Install Kilo Code from the VS Code Extensions view. Search for `Kilo Code`, then install the pre-release version.
+
+### Kilo CLI
+
+```bash
+npm install -g @kilocode/cli
+```
+
+## Configuration
+
+Create or update your Kilo config file:
+
+- Global config: `~/.config/kilo/kilo.jsonc`
+- Project config: `kilo.jsonc` or `.kilo/kilo.jsonc` in your project root
+
+Use this OpenAI-compatible provider setup:
+
+```jsonc
+{
+  "$schema": "https://app.kilo.ai/config.json",
+  "model": "openai-compatible/openai/gpt-5.5",
+  "enabled_providers": ["openai-compatible"],
+  "provider": {
+    "openai-compatible": {
+      "options": {
+        "apiKey": "{env:CAPRIOLE_AI_API_KEY}",
+        "baseURL": "https://api.caprioletech.com/v1"
+      },
+      "models": {
+        "openai/gpt-5.5": {
+          "name": "Capriole GPT 5.5",
+          "tool_call": true,
+          "reasoning": true
+        },
+        "openai/gpt-5.4-mini": {
+          "name": "Capriole GPT 5.4 Mini",
+          "tool_call": true,
+          "reasoning": true
+        },
+        "anthropic/claude-opus-4-8": {
+          "name": "Capriole Opus 4.8",
+          "tool_call": true
+        },
+        "anthropic/claude-opus-4-7": {
+          "name": "Capriole Opus 4.7",
+          "tool_call": true
+        },
+        "google/gemini-3.1-pro-preview": {
+          "name": "Capriole Gemini 3.1 Pro Preview",
+          "tool_call": true,
+          "reasoning": true
+        },
+        "google/gemini-3.5-flash": {
+          "name": "Capriole Gemini 3.5 Flash",
+          "tool_call": false,
+          "reasoning": true
+        }
+      }
+    }
+  }
+}
+```
+
+## Run Kilo Code
+
+Set your API key, then start Kilo from your project directory:
+
+```bash
+export CAPRIOLE_AI_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
+kilo
+```
+
+Start with a specific model:
+
+```bash
+kilo -m openai-compatible/openai/gpt-5.5
+kilo -m openai-compatible/openai/gpt-5.4-mini
+kilo -m openai-compatible/anthropic/claude-opus-4-8
+kilo -m openai-compatible/anthropic/claude-opus-4-7
+kilo -m openai-compatible/google/gemini-3.1-pro-preview
+kilo -m openai-compatible/google/gemini-3.5-flash
+```
+
+Run a one-off request with Gemini 3.5 Flash:
+
+```bash
+kilo run --agent ask -m openai-compatible/google/gemini-3.5-flash "Summarize this project."
+```
+
+For a one-off CLI request, pass a prompt to `kilo run`:
+
+```bash
+export CAPRIOLE_AI_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
+kilo run -m openai-compatible/openai/gpt-5.5 "Explain this repository structure."
+```
+
+## Supported models
+
+Start with GPT 5.5 for new Kilo Code setups. Use Opus 4.8 for new Claude-style coding tasks, or Opus 4.7 when you need that exact model version.
+
+The Kilo docs use the same family order as the Capriole AI model picker: OpenAI, Anthropic, then Google. Public API integrations exclude web-chat-only presets such as Opus 4.8 Thinking.
+
+- `openai/gpt-5.5`
+- `openai/gpt-5.4-mini`
+- `anthropic/claude-opus-4-8`
+- `anthropic/claude-opus-4-7`
+- `google/gemini-3.1-pro-preview`
+- `google/gemini-3.5-flash`
+
+Keep `"tool_call": false` for Gemini 3.5 Flash in Kilo Code. Capriole AI supports simple Chat Completions tool calls for this model, and Kilo Code can run local tool workflows with this setting, but enabling native Gemini function declarations can still expose Gemini's narrower OpenAPI schema subset.
+
+Other public model IDs returned by `GET /v1/models` can also be configured when you want to test them. Validate tool use before using a model for code-editing workflows.
+
+## Troubleshooting
+
+### Why does Kilo Code return an authentication error?
+
+Confirm that `CAPRIOLE_AI_API_KEY` is exported in the same shell before running `kilo`.
+
+### Which config file should I edit?
+
+Use `~/.config/kilo/kilo.jsonc` for the current Kilo CLI and VS Code extension. Run `kilo config check` after editing it.
+
+### Why do requests fail with endpoint errors?
+
+Confirm that `baseURL` is `https://api.caprioletech.com/v1`. Kilo sends Chat Completions requests to `/v1/chat/completions`.
+
+### Why does Kilo Code say the model is missing?
+
+Confirm that the selected model uses the `openai-compatible/<model-id>` format and that `provider.openai-compatible.models` contains the matching model entry. For example, `openai-compatible/openai/gpt-5.5` maps to the `openai/gpt-5.5` config key.
+
+### Why does tool use fail?
+
+For GPT, Claude, and Gemini 3.1 Pro entries, confirm that the model entry includes `"tool_call": true`. Kilo Code executes tools locally and sends follow-up Chat Completions requests to Capriole AI.
+
+For Gemini 3.5 Flash, keep `"tool_call": false`. Gemini supports function calling, but its function declarations use a supported subset of OpenAPI schema. Some native tool schemas are broader than that subset.
+
+## Notes
+
+- Capriole AI exposes Kilo Code through `POST /v1/chat/completions`.
+- Kilo Code executes coding tools locally. Capriole AI only handles the model request.
+- Keep the provider config minimal first. Add Kilo model limits or other model options only when you intentionally want client-side context management.
+- Official references: [Kilo OpenAI Compatible provider](https://kilo.ai/docs/ai-providers/openai-compatible), [Kilo settings](https://kilo.ai/docs/getting-started/settings), [Kilo custom models](https://kilo.ai/docs/code-with-ai/agents/custom-models), [Kilo CLI](https://kilo.ai/docs/cli), and [Gemini function calling](https://ai.google.dev/gemini-api/docs/function-calling).

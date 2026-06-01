@@ -25,7 +25,8 @@
             "group": "Endpoints",
             "pages": [
               "api-reference/endpoint/get",
-              "api-reference/endpoint/create"
+              "api-reference/endpoint/create",
+              "api-reference/endpoint/chat-completions"
             ]
           },
           {
@@ -35,6 +36,7 @@
               "integrations/claude-code",
               "integrations/opencode",
               "integrations/openclaw",
+              "integrations/kilo-code",
               "integrations/more-agents"
             ]
           }

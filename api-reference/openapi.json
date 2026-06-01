@@ -124,6 +124,114 @@
           }
         }
       }
+    },
+    "/v1/chat/completions": {
+      "post": {
+        "operationId": "createChatCompletion",
+        "summary": "Create chat completion",
+        "description": "Creates an OpenAI-compatible chat completion for clients that use the Chat Completions request and response format.",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChatCompletionsRequest"
+              },
+              "examples": {
+                "text": {
+                  "value": {
+                    "model": "openai/gpt-5.5",
+                    "messages": [
+                      {
+                        "role": "user",
+                        "content": "Hello World!"
+                      }
+                    ]
+                  }
+                },
+                "streaming": {
+                  "value": {
+                    "model": "openai/gpt-5.5",
+                    "messages": [
+                      {
+                        "role": "user",
+                        "content": "Write a short Python function."
+                      }
+                    ],
+                    "stream": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OpenAI-compatible Chat Completions response or SSE stream",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChatCompletionsResponse"
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "id": "chatcmpl_123",
+                      "object": "chat.completion",
+                      "created": 1764547200,
+                      "model": "gpt-5.5",
+                      "choices": [
+                        {
+                          "index": 0,
+                          "message": {
+                            "role": "assistant",
+                            "content": "Hello! How can I help?"
+                          },
+                          "finish_reason": "stop"
+                        }
+                      ],
+                      "usage": {
+                        "prompt_tokens": 12,
+                        "completion_tokens": 8,
+                        "total_tokens": 20
+                      }
+                    }
+                  }
+                }
+              },
+              "text/event-stream": {
+                "schema": {
+                  "type": "string",
+                  "description": "OpenAI-compatible Chat Completions SSE chunks."
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/ValidationOrDetailErrorResponse"
+          },
+          "401": {
+            "$ref": "#/components/responses/DetailErrorResponse"
+          },
+          "403": {
+            "$ref": "#/components/responses/DetailErrorResponse"
+          },
+          "429": {
+            "$ref": "#/components/responses/RateLimitErrorResponse"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerErrorResponse"
+          },
+          "502": {
+            "$ref": "#/components/responses/DetailErrorResponse"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -251,10 +359,10 @@
             "enum": [
               "openai/gpt-5.5",
               "openai/gpt-5.4-mini",
-              "google/gemini-3.1-pro-preview",
-              "google/gemini-3.5-flash",
               "anthropic/claude-opus-4-8",
-              "anthropic/claude-opus-4-7"
+              "anthropic/claude-opus-4-7",
+              "google/gemini-3.1-pro-preview",
+              "google/gemini-3.5-flash"
             ]
           },
           "input": {
@@ -336,6 +444,127 @@
           },
           "usage": {
             "$ref": "#/components/schemas/ChatUsage"
+          }
+        }
+      },
+      "ChatCompletionsMessage": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["role"],
+        "properties": {
+          "role": {
+            "type": "string",
+            "description": "Message role such as system, user, assistant, or tool."
+          },
+          "content": {
+            "description": "OpenAI-compatible message content.",
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        }
+      },
+      "ChatCompletionsRequest": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["model", "messages"],
+        "properties": {
+          "model": {
+            "type": "string",
+            "description": "Public model identifier returned by GET /v1/models",
+            "enum": [
+              "openai/gpt-5.5",
+              "openai/gpt-5.4-mini",
+              "anthropic/claude-opus-4-8",
+              "anthropic/claude-opus-4-7",
+              "google/gemini-3.1-pro-preview",
+              "google/gemini-3.5-flash"
+            ]
+          },
+          "messages": {
+            "type": "array",
+            "description": "OpenAI-compatible conversation messages.",
+            "items": {
+              "$ref": "#/components/schemas/ChatCompletionsMessage"
+            }
+          },
+          "tools": {
+            "type": "array",
+            "description": "OpenAI-compatible tool definitions.",
+            "items": {
+              "type": "object",
+              "additionalProperties": true
+            }
+          },
+          "tool_choice": {
+            "description": "OpenAI-compatible tool choice.",
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "object",
+                "additionalProperties": true
+              }
+            ]
+          },
+          "response_format": {
+            "type": "object",
+            "description": "OpenAI-compatible response format.",
+            "additionalProperties": true
+          },
+          "stream": {
+            "type": "boolean",
+            "default": false,
+            "description": "Stream the response as OpenAI-compatible server-sent events."
+          },
+          "stream_options": {
+            "type": "object",
+            "description": "OpenAI-compatible stream options. For streaming requests, Capriole AI sets include_usage=true before upstream dispatch for usage accounting.",
+            "additionalProperties": true
+          }
+        }
+      },
+      "ChatCompletionsResponse": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["id", "object", "created", "model", "choices"],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "object": {
+            "type": "string",
+            "example": "chat.completion"
+          },
+          "created": {
+            "type": "integer"
+          },
+          "model": {
+            "type": "string"
+          },
+          "choices": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": true
+            }
+          },
+          "usage": {
+            "type": "object",
+            "additionalProperties": true
           }
         }
       },
