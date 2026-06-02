@@ -54,8 +54,29 @@ openclaw config set models.providers.capriole-ai-openai.api \
   --strict-json
 
 openclaw config set models.providers.capriole-ai-openai.models \
-  '[{"id":"openai/gpt-5.5","name":"GPT 5.5"},{"id":"openai/gpt-5.4-mini","name":"GPT 5.4 mini"}]' \
-  --strict-json --merge
+  '[
+    {
+      "id": "openai/gpt-5.5",
+      "name": "GPT 5.5",
+      "api": "openai-responses",
+      "contextWindow": 400000,
+      "maxTokens": 128000,
+      "input": ["text"],
+      "reasoning": true,
+      "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
+    },
+    {
+      "id": "openai/gpt-5.4-mini",
+      "name": "GPT 5.4 mini",
+      "api": "openai-responses",
+      "contextWindow": 400000,
+      "maxTokens": 128000,
+      "input": ["text"],
+      "reasoning": true,
+      "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
+    }
+  ]' \
+  --strict-json
 ```
 
 Configure the Anthropic provider:
@@ -90,8 +111,29 @@ openclaw config set models.providers.capriole-ai-anthropic.api \
   --strict-json
 
 openclaw config set models.providers.capriole-ai-anthropic.models \
-  '[{"id":"claude-opus-4-8","name":"Opus 4.8"},{"id":"claude-opus-4-7","name":"Opus 4.7"}]' \
-  --strict-json --merge
+  '[
+    {
+      "id": "claude-opus-4-8",
+      "name": "Opus 4.8",
+      "api": "anthropic-messages",
+      "contextWindow": 200000,
+      "maxTokens": 32000,
+      "input": ["text"],
+      "reasoning": true,
+      "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
+    },
+    {
+      "id": "claude-opus-4-7",
+      "name": "Opus 4.7",
+      "api": "anthropic-messages",
+      "contextWindow": 200000,
+      "maxTokens": 32000,
+      "input": ["text"],
+      "reasoning": true,
+      "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
+    }
+  ]' \
+  --strict-json
 ```
 
 ## Run OpenClaw
@@ -136,6 +178,8 @@ Export `CUSTOM_API_KEY` in the terminal that starts `openclaw gateway` and in th
 ### Why does OpenClaw report that a model is not allowed or unavailable?
 
 Run `openclaw models list`, then confirm the selected model and any `agents.defaults.models` allowlist include the Capriole AI model reference, such as `capriole-ai-openai/openai/gpt-5.5`, `capriole-ai-openai/openai/gpt-5.4-mini`, `capriole-ai-anthropic/claude-opus-4-8`, or `capriole-ai-anthropic/claude-opus-4-7`.
+
+If a Capriole AI model appears as missing, update the model entry with the full object shown above. Current OpenClaw releases need more than `id` and `name` for custom provider models.
 
 ### Why doesn't the gateway start?
 

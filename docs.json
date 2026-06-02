@@ -26,8 +26,8 @@
             "pages": [
               "api-reference/endpoint/get",
               "api-reference/endpoint/create",
-              "api-reference/endpoint/responses",
               "api-reference/endpoint/chat-completions",
+              "api-reference/endpoint/responses",
               "api-reference/endpoint/messages"
             ]
           },
@@ -36,6 +36,7 @@
             "pages": [
               "integrations/codex",
               "integrations/claude-code",
+              "integrations/github-copilot-cli",
               "integrations/opencode",
               "integrations/openclaw",
               "integrations/kilo-code",

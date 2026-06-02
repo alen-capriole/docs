@@ -1,0 +1,214 @@
+---
+title: "GitHub Copilot CLI"
+description: "Configure GitHub Copilot CLI to use Capriole AI."
+---
+
+## What is GitHub Copilot CLI
+
+GitHub Copilot CLI is a terminal-native coding assistant. Its BYOK provider mode can use an OpenAI Chat Completions-compatible endpoint, which lets it send model requests to Capriole AI.
+
+This is a direct model-provider setup for Copilot CLI. It is separate from Microsoft 365 Copilot.
+
+## Prerequisites
+
+Before you begin, make sure you have:
+
+- A Capriole AI account ([Sign up here](https://capriole.ai))
+- A Capriole AI API key ([Get your key](https://capriole.ai?view=api))
+- GitHub Copilot CLI installed
+
+## Installation
+
+Install GitHub Copilot CLI with npm:
+
+```bash
+npm install -g @github/copilot
+```
+
+Verify the install:
+
+```bash
+copilot --version
+```
+
+GitHub authentication is not required when `COPILOT_PROVIDER_BASE_URL` is set for BYOK mode.
+
+## Configuration
+
+Set Capriole AI as the OpenAI-compatible model provider:
+
+```bash
+export CAPRIOLE_AI_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
+export COPILOT_PROVIDER_TYPE="openai"
+export COPILOT_PROVIDER_BASE_URL="https://api.caprioletech.com/v1"
+export COPILOT_PROVIDER_API_KEY="$CAPRIOLE_AI_API_KEY"
+export COPILOT_PROVIDER_WIRE_API="completions"
+```
+
+Choose GPT 5.5 on Chat Completions:
+
+```bash
+export COPILOT_PROVIDER_MODEL_ID="gpt-5.5"
+export COPILOT_PROVIDER_WIRE_MODEL="openai/gpt-5.5"
+```
+
+Or choose GPT 5.4 Mini on Chat Completions:
+
+```bash
+export COPILOT_PROVIDER_MODEL_ID="gpt-5.4"
+export COPILOT_PROVIDER_WIRE_MODEL="openai/gpt-5.4-mini"
+```
+
+`COPILOT_PROVIDER_MODEL_ID` tells Copilot CLI which built-in model behavior to use. `COPILOT_PROVIDER_WIRE_MODEL` is the Capriole AI model ID sent to `POST /v1/chat/completions`.
+
+## Persistent setup
+
+GitHub Copilot CLI stores general CLI settings in its own config, but BYOK provider settings are environment variables. For a simple persistent setup, put one Capriole AI profile in your shell config.
+
+Add this GPT 5.5 Responses profile to `~/.zshrc`:
+
+```bash
+export CAPRIOLE_AI_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
+export COPILOT_PROVIDER_TYPE="openai"
+export COPILOT_PROVIDER_BASE_URL="https://api.caprioletech.com/v1"
+export COPILOT_PROVIDER_API_KEY="$CAPRIOLE_AI_API_KEY"
+export COPILOT_PROVIDER_WIRE_API="responses"
+export COPILOT_PROVIDER_MODEL_ID="gpt-5.5"
+export COPILOT_PROVIDER_WIRE_MODEL="openai/gpt-5.5"
+alias capriole-copilot="copilot --stream on"
+```
+
+Reload your shell:
+
+```bash
+source ~/.zshrc
+```
+
+Then run:
+
+```bash
+capriole-copilot
+```
+
+For a one-off prompt:
+
+```bash
+capriole-copilot -p "Explain this repository structure." --allow-all-tools
+```
+
+To switch profiles, change only `COPILOT_PROVIDER_WIRE_API`, `COPILOT_PROVIDER_MODEL_ID`, `COPILOT_PROVIDER_WIRE_MODEL`, and for Claude Messages use `COPILOT_PROVIDER_TYPE`, `COPILOT_PROVIDER_BASE_URL`, and `COPILOT_PROVIDER_BEARER_TOKEN`.
+
+## Interface options
+
+### OpenAI Chat Completions
+
+Use this path when you want the broadest Capriole AI model coverage in GitHub Copilot CLI.
+
+```bash
+export COPILOT_PROVIDER_TYPE="openai"
+export COPILOT_PROVIDER_BASE_URL="https://api.caprioletech.com/v1"
+export COPILOT_PROVIDER_API_KEY="$CAPRIOLE_AI_API_KEY"
+export COPILOT_PROVIDER_WIRE_API="completions"
+```
+
+Validated wire models:
+
+- `openai/gpt-5.5` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
+- `openai/gpt-5.4-mini` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
+- `anthropic/claude-opus-4-8` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
+- `anthropic/claude-opus-4-7` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
+- `google/gemini-3.1-pro-preview` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
+- `google/gemini-3.5-flash` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
+
+Copilot CLI does not have a native Gemini provider. Gemini runs through Capriole AI's OpenAI-compatible Chat Completions proxy.
+
+### OpenAI Responses
+
+Use this path when you want GitHub Copilot CLI to call Capriole AI's Responses-compatible endpoint.
+
+```bash
+export COPILOT_PROVIDER_TYPE="openai"
+export COPILOT_PROVIDER_BASE_URL="https://api.caprioletech.com/v1"
+export COPILOT_PROVIDER_API_KEY="$CAPRIOLE_AI_API_KEY"
+export COPILOT_PROVIDER_WIRE_API="responses"
+```
+
+Validated wire models:
+
+- `openai/gpt-5.5` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
+- `openai/gpt-5.4-mini` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
+
+Responses is an OpenAI wire protocol in Capriole AI. Claude and Gemini model IDs are not supported on `POST /v1/responses`.
+
+### Anthropic Messages
+
+Use this path when you want GitHub Copilot CLI to call Capriole AI's Anthropic Messages-compatible endpoint.
+
+```bash
+export COPILOT_PROVIDER_TYPE="anthropic"
+export COPILOT_PROVIDER_BASE_URL="https://api.caprioletech.com"
+export COPILOT_PROVIDER_BEARER_TOKEN="$CAPRIOLE_AI_API_KEY"
+export COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"
+export COPILOT_PROVIDER_WIRE_MODEL="claude-opus-4-8"
+```
+
+Validated wire models:
+
+- `claude-opus-4-8` with `COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"`
+- `claude-opus-4-7` with `COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"`
+
+Use `COPILOT_PROVIDER_BEARER_TOKEN` for this path. `COPILOT_PROVIDER_API_KEY` sends provider-style auth and does not satisfy Capriole AI's public Bearer-token auth gate.
+
+## Run GitHub Copilot CLI
+
+Start an interactive session:
+
+```bash
+copilot --stream on
+```
+
+Run a one-off request:
+
+```bash
+copilot -p "Explain this repository structure." --allow-all-tools --stream on
+```
+
+For scripted use, keep streaming enabled. Capriole AI's validated Copilot CLI paths all use streaming with tool calls.
+
+## Supported models
+
+These model/provider mappings have been validated with Copilot CLI BYOK, streaming responses, and local shell tool use:
+
+- Chat Completions: `openai/gpt-5.5`, `openai/gpt-5.4-mini`, `anthropic/claude-opus-4-8`, `anthropic/claude-opus-4-7`, `google/gemini-3.1-pro-preview`, and `google/gemini-3.5-flash`
+- Responses: `openai/gpt-5.5` and `openai/gpt-5.4-mini`
+- Anthropic Messages: `claude-opus-4-8` and `claude-opus-4-7`
+
+Other public model IDs returned by `GET /v1/models` can be tested through the same OpenAI-compatible provider path, but do not use them for coding-agent workflows until tool use is validated.
+
+## Troubleshooting
+
+### Why does Copilot CLI return an authentication error?
+
+Confirm that `CAPRIOLE_AI_API_KEY` is exported and that `COPILOT_PROVIDER_API_KEY` points to it in the same shell before starting Copilot CLI.
+
+### Why do requests fail with endpoint errors?
+
+For OpenAI-compatible Chat Completions or Responses, confirm that `COPILOT_PROVIDER_BASE_URL` is `https://api.caprioletech.com/v1`.
+
+For Anthropic Messages, confirm that `COPILOT_PROVIDER_BASE_URL` is `https://api.caprioletech.com` without `/v1`.
+
+### Why does Copilot CLI say the model is missing?
+
+Set both `COPILOT_PROVIDER_MODEL_ID` and `COPILOT_PROVIDER_WIRE_MODEL`. The model ID should be the Copilot-side base model, while the wire model should be the Capriole AI model ID.
+
+### Why should streaming stay enabled?
+
+GitHub's BYOK requirements state that models must support streaming and tool/function calling. Capriole AI validates GitHub Copilot CLI on the streaming path.
+
+## Notes
+
+- Capriole AI exposes GitHub Copilot CLI through `POST /v1/chat/completions`.
+- Capriole AI also validates GitHub Copilot CLI through `POST /v1/responses` for OpenAI models and `POST /v1/messages` for Claude models.
+- GitHub Copilot CLI executes coding tools locally. Capriole AI only handles model requests.
+- GitHub Copilot CLI does not have a wire API for Capriole AI's native `POST /v1/chat` route.
+- Official references: [GitHub Copilot CLI installation](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli), [GitHub Copilot CLI BYOK](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/use-byok-models), and [GitHub Copilot SDK BYOK](https://docs.github.com/en/copilot/how-tos/copilot-sdk/auth/byok).
