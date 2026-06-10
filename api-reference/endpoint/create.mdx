@@ -4,6 +4,8 @@ description: "Creates a text response from a model."
 openapi: "api-reference/openapi.json POST /v1/chat"
 ---
 
-Use this endpoint to send plain text input to a model and receive a plain text response.
+Use this endpoint to send plain text input to a model and receive a plain text response. This Capriole-native route is non-streaming; use Chat Completions, Responses, or Messages when your client needs an SSE stream.
+
+`POST /v1/chat` accepts `openai-latest`, `claude-latest`, `google-latest`, and public concrete model IDs returned by `GET /v1/models`. Use a latest alias to let Capriole AI choose our recommended flagship for that provider. Use a concrete model ID when version pinning matters.
 
 Capriole AI web chat and the public API are separate product surfaces. In web chat, Claude Fast and Claude Thinking are product modes over Claude Opus 4.8. The public API does not expose those web chat modes as separate model IDs; for Claude API requests, use `anthropic/claude-opus-4-8`. Existing `anthropic/claude-opus-4-7` integrations remain supported.

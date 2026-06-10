@@ -31,7 +31,7 @@ Download the app from [OpenAI Codex](https://developers.openai.com/codex).
 Create or update `~/.codex/config.toml`:
 
 ```toml
-model = "openai/gpt-5.5"
+model = "openai-latest"
 model_reasoning_effort = "high"
 model_provider = "capriole_ai"
 
@@ -54,8 +54,9 @@ codex
 
 ## Supported models
 
-Codex supports Capriole AI OpenAI models through the Responses API. Use GPT 5.5 as the default model for new setups.
+Codex supports Capriole AI OpenAI models through the Responses API. Use `openai-latest` for new setups so Capriole AI can route Codex to our recommended flagship OpenAI model without changing your config.
 
+- `openai-latest`
 - `openai/gpt-5.5`
 - `openai/gpt-5.4-mini`
 
@@ -67,7 +68,7 @@ Confirm that `CAPRIOLE_AI_API_KEY` is exported in the same shell before running 
 
 ### Why can't Codex find the model?
 
-Confirm that `model_provider = "capriole_ai"` is set and that `model` is one of the supported Capriole AI OpenAI model IDs.
+Confirm that `model_provider = "capriole_ai"` is set and that `model` is `openai-latest` or a supported Capriole AI OpenAI model ID.
 
 ### Why do requests fail with endpoint or protocol errors?
 

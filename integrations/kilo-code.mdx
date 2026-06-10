@@ -39,7 +39,7 @@ Use this OpenAI-compatible provider setup:
 ```jsonc
 {
   "$schema": "https://app.kilo.ai/config.json",
-  "model": "openai-compatible/openai/gpt-5.5",
+  "model": "openai-compatible/openai-latest",
   "enabled_providers": ["openai-compatible"],
   "provider": {
     "openai-compatible": {
@@ -48,6 +48,21 @@ Use this OpenAI-compatible provider setup:
         "baseURL": "https://api.caprioletech.com/v1"
       },
       "models": {
+        "openai-latest": {
+          "name": "Capriole OpenAI Latest",
+          "tool_call": true,
+          "reasoning": true
+        },
+        "claude-latest": {
+          "name": "Capriole Claude Latest",
+          "tool_call": true,
+          "reasoning": true
+        },
+        "google-latest": {
+          "name": "Capriole Google Latest",
+          "tool_call": true,
+          "reasoning": true
+        },
         "openai/gpt-5.5": {
           "name": "Capriole GPT 5.5",
           "tool_call": true,
@@ -94,6 +109,9 @@ kilo
 Start with a specific model:
 
 ```bash
+kilo -m openai-compatible/openai-latest
+kilo -m openai-compatible/claude-latest
+kilo -m openai-compatible/google-latest
 kilo -m openai-compatible/openai/gpt-5.5
 kilo -m openai-compatible/openai/gpt-5.4-mini
 kilo -m openai-compatible/anthropic/claude-opus-4-8
@@ -112,25 +130,28 @@ For a one-off CLI request, pass a prompt to `kilo run`:
 
 ```bash
 export CAPRIOLE_AI_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
-kilo run -m openai-compatible/openai/gpt-5.5 "Explain this repository structure."
+kilo run -m openai-compatible/openai-latest "Explain this repository structure."
 ```
 
 ## Supported models
 
-Start with GPT 5.5 for new Kilo Code setups. Use Opus 4.8 for new Claude-style coding tasks, or Opus 4.7 when you need that exact model version.
+Start with `openai-latest` for new Kilo Code setups. Use `claude-latest` or `google-latest` when you want Capriole AI to route to our recommended flagship Claude or Gemini model, and use a concrete model ID when you need an exact model version.
 
 The Kilo docs use the same family order as the Capriole AI model picker: OpenAI, Anthropic, then Google. Public API integrations exclude web-chat-only presets such as Opus 4.8 Thinking.
 
+- `openai-latest`
 - `openai/gpt-5.5`
 - `openai/gpt-5.4-mini`
+- `claude-latest`
 - `anthropic/claude-opus-4-8`
 - `anthropic/claude-opus-4-7`
+- `google-latest`
 - `google/gemini-3.1-pro-preview`
 - `google/gemini-3.5-flash`
 
 Keep `"tool_call": false` for Gemini 3.5 Flash in Kilo Code. Capriole AI supports simple Chat Completions tool calls for this model, and Kilo Code can run local tool workflows with this setting, but enabling native Gemini function declarations can still expose Gemini's narrower OpenAPI schema subset.
 
-Other public model IDs returned by `GET /v1/models` can also be configured when you want to test them. Validate tool use before using a model for code-editing workflows.
+Other public Chat Completions-compatible model IDs returned by `GET /v1/models` can also be configured when you want to test them. Validate tool use before using a model for code-editing workflows.
 
 ## Troubleshooting
 
@@ -148,11 +169,11 @@ Confirm that `baseURL` is `https://api.caprioletech.com/v1`. Kilo sends Chat Com
 
 ### Why does Kilo Code say the model is missing?
 
-Confirm that the selected model uses the `openai-compatible/<model-id>` format and that `provider.openai-compatible.models` contains the matching model entry. For example, `openai-compatible/openai/gpt-5.5` maps to the `openai/gpt-5.5` config key.
+Confirm that the selected model uses the `openai-compatible/<model-id>` format and that `provider.openai-compatible.models` contains the matching model entry. For example, `openai-compatible/openai-latest` maps to the `openai-latest` config key.
 
 ### Why does tool use fail?
 
-For GPT, Claude, and Gemini 3.1 Pro entries, confirm that the model entry includes `"tool_call": true`. Kilo Code executes tools locally and sends follow-up Chat Completions requests to Capriole AI.
+For GPT, Claude, Gemini 3.1 Pro, and latest-alias entries, confirm that the model entry includes `"tool_call": true`. Kilo Code executes tools locally and sends follow-up Chat Completions requests to Capriole AI.
 
 For Gemini 3.5 Flash, keep `"tool_call": false`. Gemini supports function calling, but its function declarations use a supported subset of OpenAPI schema. Some native tool schemas are broader than that subset.
 

@@ -29,16 +29,25 @@
                     "value": {
                       "data": [
                         {
+                          "id": "openai-latest"
+                        },
+                        {
                           "id": "openai/gpt-5.5"
                         },
                         {
                           "id": "openai/gpt-5.4-mini"
                         },
                         {
+                          "id": "claude-latest"
+                        },
+                        {
                           "id": "anthropic/claude-opus-4-8"
                         },
                         {
                           "id": "anthropic/claude-opus-4-7"
+                        },
+                        {
+                          "id": "google-latest"
                         },
                         {
                           "id": "google/gemini-3.1-pro-preview"
@@ -82,7 +91,7 @@
               "examples": {
                 "text": {
                   "value": {
-                    "model": "openai/gpt-5.5",
+                    "model": "openai-latest",
                     "input": "Hello World!"
                   }
                 }
@@ -107,11 +116,11 @@
                         "text": "Here is a short joke."
                       },
                       "usage": {
-                        "input_tokens": 228807,
+                        "input_tokens": 8,
                         "output_tokens": 6,
-                        "total_tokens": 228813,
-                        "cached_tokens": 228224,
-                        "charged_tokens": 23412
+                        "total_tokens": 14,
+                        "cached_tokens": 0,
+                        "charged_tokens": 14
                       }
                   }
                 }
@@ -160,7 +169,7 @@
               "examples": {
                 "text": {
                   "value": {
-                    "model": "openai/gpt-5.5",
+                    "model": "openai-latest",
                     "input": "Hello World!"
                   }
                 },
@@ -233,7 +242,7 @@
               "examples": {
                 "text": {
                   "value": {
-                    "model": "openai/gpt-5.5",
+                    "model": "openai-latest",
                     "messages": [
                       {
                         "role": "user",
@@ -244,7 +253,7 @@
                 },
                 "streaming": {
                   "value": {
-                    "model": "openai/gpt-5.5",
+                    "model": "openai-latest",
                     "messages": [
                       {
                         "role": "user",
@@ -260,7 +269,7 @@
         },
         "responses": {
           "200": {
-            "description": "OpenAI-compatible Chat Completions response or SSE stream",
+            "description": "OpenAI-compatible Chat Completions response or SSE stream. Response model fields follow the selected compatible endpoint and may differ from the input alias.",
             "content": {
               "application/json": {
                 "schema": {
@@ -341,7 +350,7 @@
               "examples": {
                 "text": {
                   "value": {
-                    "model": "claude-opus-4-8",
+                    "model": "claude-latest",
                     "max_tokens": 1024,
                     "messages": [
                       {
@@ -410,7 +419,7 @@
       "post": {
         "operationId": "countMessageTokens",
         "summary": "Count message tokens",
-        "description": "Counts Anthropic Messages-compatible input tokens for Claude models.",
+        "description": "Counts Anthropic Messages-compatible input tokens for Claude models by proxying to the selected upstream. Token-count requests do not create usage rows. If the selected upstream does not support token counting, Capriole AI returns the upstream error instead.",
         "security": [
           {
             "bearerAuth": []
@@ -426,7 +435,7 @@
               "examples": {
                 "text": {
                   "value": {
-                    "model": "claude-opus-4-8",
+                    "model": "claude-latest",
                     "messages": [
                       {
                         "role": "user",
@@ -441,7 +450,7 @@
         },
         "responses": {
           "200": {
-            "description": "Anthropic token count response",
+            "description": "Upstream Anthropic token count response.",
             "content": {
               "application/json": {
                 "schema": {
@@ -600,12 +609,15 @@
         "properties": {
           "model": {
             "type": "string",
-            "description": "Public model identifier returned by GET /v1/models",
+            "description": "Public model identifier or latest alias returned by GET /v1/models",
             "enum": [
+              "openai-latest",
               "openai/gpt-5.5",
               "openai/gpt-5.4-mini",
+              "claude-latest",
               "anthropic/claude-opus-4-8",
               "anthropic/claude-opus-4-7",
+              "google-latest",
               "google/gemini-3.1-pro-preview",
               "google/gemini-3.5-flash"
             ]
@@ -699,8 +711,9 @@
         "properties": {
           "model": {
             "type": "string",
-            "description": "Public OpenAI Responses model identifier",
+            "description": "Public OpenAI Responses model identifier or OpenAI latest alias",
             "enum": [
+              "openai-latest",
               "openai/gpt-5.5",
               "openai/gpt-5.4-mini"
             ]
@@ -785,12 +798,15 @@
         "properties": {
           "model": {
             "type": "string",
-            "description": "Public model identifier returned by GET /v1/models",
+            "description": "Public model identifier or latest alias returned by GET /v1/models",
             "enum": [
+              "openai-latest",
               "openai/gpt-5.5",
               "openai/gpt-5.4-mini",
+              "claude-latest",
               "anthropic/claude-opus-4-8",
               "anthropic/claude-opus-4-7",
+              "google-latest",
               "google/gemini-3.1-pro-preview",
               "google/gemini-3.5-flash"
             ]
@@ -915,8 +931,9 @@
         "properties": {
           "model": {
             "type": "string",
-            "description": "Public Anthropic Messages model identifier",
+            "description": "Public Anthropic Messages model identifier or Claude latest alias",
             "enum": [
+              "claude-latest",
               "claude-opus-4-8",
               "claude-opus-4-7"
             ]
@@ -979,8 +996,9 @@
         "properties": {
           "model": {
             "type": "string",
-            "description": "Public Anthropic Messages model identifier",
+            "description": "Public Anthropic Messages model identifier or Claude latest alias",
             "enum": [
+              "claude-latest",
               "claude-opus-4-8",
               "claude-opus-4-7"
             ]

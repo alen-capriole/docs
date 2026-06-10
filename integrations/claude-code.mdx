@@ -26,16 +26,17 @@ Create or update `~/.claude/settings.json` for persistent setup:
 
 ```json
 {
-  "model": "claude-opus-4-8",
+  "model": "claude-latest",
   "effortLevel": "high",
   "env": {
     "ANTHROPIC_BASE_URL": "https://api.caprioletech.com",
     "ANTHROPIC_AUTH_TOKEN": "YOUR_CAPRIOLE_AI_API_KEY",
-    "ANTHROPIC_MODEL": "claude-opus-4-8",
-    "ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-opus-4-8",
-    "ANTHROPIC_DEFAULT_SONNET_MODEL": "claude-opus-4-8",
-    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "claude-opus-4-8",
-    "CLAUDE_CODE_SUBAGENT_MODEL": "claude-opus-4-8"
+    "ANTHROPIC_MODEL": "claude-latest",
+    "ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-latest",
+    "ANTHROPIC_DEFAULT_SONNET_MODEL": "claude-latest",
+    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "claude-latest",
+    "ANTHROPIC_SMALL_FAST_MODEL": "claude-latest",
+    "CLAUDE_CODE_SUBAGENT_MODEL": "claude-latest"
   }
 }
 ```
@@ -46,11 +47,12 @@ For a one-time shell setup, export the same values before launching Claude Code:
 export ANTHROPIC_BASE_URL="https://api.caprioletech.com"
 export ANTHROPIC_AUTH_TOKEN="YOUR_CAPRIOLE_AI_API_KEY"
 
-export ANTHROPIC_MODEL="claude-opus-4-8"
-export ANTHROPIC_DEFAULT_OPUS_MODEL="claude-opus-4-8"
-export ANTHROPIC_DEFAULT_SONNET_MODEL="claude-opus-4-8"
-export ANTHROPIC_DEFAULT_HAIKU_MODEL="claude-opus-4-8"
-export CLAUDE_CODE_SUBAGENT_MODEL="claude-opus-4-8"
+export ANTHROPIC_MODEL="claude-latest"
+export ANTHROPIC_DEFAULT_OPUS_MODEL="claude-latest"
+export ANTHROPIC_DEFAULT_SONNET_MODEL="claude-latest"
+export ANTHROPIC_DEFAULT_HAIKU_MODEL="claude-latest"
+export ANTHROPIC_SMALL_FAST_MODEL="claude-latest"
+export CLAUDE_CODE_SUBAGENT_MODEL="claude-latest"
 ```
 
 ## Run Claude Code
@@ -61,10 +63,17 @@ After saving `~/.claude/settings.json` or exporting the variables, start Claude 
 claude
 ```
 
+For a one-time non-interactive run without a saved settings file, pass the model explicitly:
+
+```bash
+claude --model claude-latest -p "Explain this repository."
+```
+
 ## Supported models
 
-Claude Code supports Opus 4.8 and Opus 4.7 through Capriole AI. Use Opus 4.8 for new setups.
+Claude Code supports Claude latest, Opus 4.8, and Opus 4.7 through Capriole AI. Use `claude-latest` for new setups so Capriole AI can route Claude Code to our recommended flagship Claude model without changing your config.
 
+- `claude-latest`
 - `claude-opus-4-8`
 - `claude-opus-4-7`
 
@@ -78,9 +87,9 @@ Confirm that `ANTHROPIC_AUTH_TOKEN` is exported in the same shell before launchi
 
 Confirm that `ANTHROPIC_BASE_URL` is `https://api.caprioletech.com` without `/v1`; Claude Code sends requests to `/v1/messages` and `/v1/messages/count_tokens`.
 
-### Why doesn't Claude Code use Opus 4.8?
+### Why doesn't Claude Code use Claude latest?
 
-Confirm that `model`, `ANTHROPIC_MODEL`, and the default model environment variables are set before launch, then check `/model` or `/status` for an active session or settings override.
+Confirm that `model`, `ANTHROPIC_MODEL`, `ANTHROPIC_SMALL_FAST_MODEL`, and the default model environment variables are set before launch, then check `/model` or `/status` for an active session or settings override.
 
 ### Why doesn't Claude Code use the configured effort level?
 
@@ -94,11 +103,12 @@ Update Claude Code with `claude update`, then run `claude --version`.
 
 ### Why does token counting or startup model discovery fail?
 
-Keep the pinned model environment variables in place and confirm that the model ID is `claude-opus-4-8`.
+Keep the model environment variables in place and confirm that the model ID is `claude-latest` or a supported concrete Claude model ID. Capriole AI proxies `/v1/messages/count_tokens` to the selected upstream, so token-count preflight depends on that upstream supporting Anthropic token counting.
 
 ## Notes
 
 - `~/.claude/settings.json` applies to your user account across projects. Use `YOUR_CAPRIOLE_AI_API_KEY` as a placeholder and replace it with your actual Capriole AI API key.
 - `ANTHROPIC_BASE_URL` changes where Claude Code sends requests. The model environment variables control which model ID is sent.
+- `ANTHROPIC_SMALL_FAST_MODEL` should match `claude-latest` so Claude Code helper requests use the same Capriole AI latest alias as the main conversation.
 - This setup uses `high` as the documented default effort level. On Opus 4.8, `xhigh` is also a persistent `effortLevel` option, while `max` is a session-level override and can spend more thinking tokens.
 - Official references: [Claude Code setup](https://code.claude.com/docs/en/setup), [environment variables](https://code.claude.com/docs/en/env-vars), [model configuration](https://code.claude.com/docs/en/model-config), and [Claude effort](https://platform.claude.com/docs/en/build-with-claude/effort).

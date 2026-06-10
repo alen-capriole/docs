@@ -11,7 +11,7 @@ description: "Make your first Capriole AI API request."
 
 ### 1. Create an API key
 
-Create your key from the Capriole AI API page.
+Create your key from the [Capriole AI API page](https://capriole.ai?view=api) after signing in.
 
 ### 2. Call `POST /v1/chat`
 
@@ -24,7 +24,7 @@ curl https://api.caprioletech.com/v1/chat \
   -H "Authorization: Bearer YOUR_CAPRIOLE_AI_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "openai/gpt-5.5",
+    "model": "openai-latest",
     "input": "Hello World!"
   }'
 ```
@@ -41,7 +41,7 @@ response = requests.post(
         "Content-Type": "application/json",
     },
     json={
-        "model": "openai/gpt-5.5",
+        "model": "openai-latest",
         "input": "Hello World!"
     },
 )
@@ -54,3 +54,29 @@ print(response.json())
 ## Protocol-compatible endpoints
 
 Use `POST /v1/responses` for OpenAI Responses clients, `POST /v1/chat/completions` for OpenAI Chat Completions clients, and `POST /v1/messages` for Anthropic Messages clients.
+
+Use `openai-latest`, `claude-latest`, or `google-latest` when you want Capriole AI to choose our recommended flagship model for that provider. Use a concrete model ID when you need one exact model version.
+
+Latest aliases are input shortcuts. Capriole AI records usage against the resolved model, while protocol-compatible response bodies keep the model fields returned by the upstream-compatible endpoint.
+
+## Quick answers
+
+### Should the base URL include `/v1`?
+
+Use `https://api.caprioletech.com` for direct API calls. Some coding agents ask for a provider base URL; follow the integration page for that agent because OpenAI-compatible and Anthropic-compatible clients expect different base URLs.
+
+### Which latest aliases work on each endpoint?
+
+`POST /v1/chat` and `POST /v1/chat/completions` support all three latest aliases. `POST /v1/responses` supports `openai-latest`. `POST /v1/messages` supports `claude-latest`.
+
+### Why does the response model not show the alias I sent?
+
+That is expected. The alias is only used to pick the model. Responses keep the model naming behavior of the selected endpoint.
+
+### Why did I get an unsupported model error?
+
+Use a latest alias only on an endpoint that supports it, or switch to a concrete model ID listed by `GET /v1/models`.
+
+### Does `/v1/messages/count_tokens` always work?
+
+It accepts `claude-latest` and concrete Claude Messages IDs. Token counting depends on the selected upstream supporting Anthropic token counting.

@@ -43,8 +43,8 @@ Use `apiKey` for the OpenAI provider and `authToken` for the Anthropic provider.
 ```json
 {
   "$schema": "https://opencode.ai/config.json",
-  "model": "capriole-ai-openai/openai/gpt-5.5",
-  "small_model": "capriole-ai-openai/openai/gpt-5.5",
+  "model": "capriole-ai-openai/openai-latest",
+  "small_model": "capriole-ai-openai/openai-latest",
   "enabled_providers": ["capriole-ai-openai", "capriole-ai-anthropic"],
   "provider": {
     "capriole-ai-openai": {
@@ -55,6 +55,34 @@ Use `apiKey` for the OpenAI provider and `authToken` for the Anthropic provider.
         "apiKey": "YOUR_CAPRIOLE_AI_API_KEY"
       },
       "models": {
+        "openai-latest": {
+          "name": "OpenAI latest",
+          "options": {
+            "forceReasoning": true
+          },
+          "variants": {
+            "minimal": {
+              "reasoningEffort": "minimal",
+              "reasoningSummary": "auto"
+            },
+            "low": {
+              "reasoningEffort": "low",
+              "reasoningSummary": "auto"
+            },
+            "medium": {
+              "reasoningEffort": "medium",
+              "reasoningSummary": "auto"
+            },
+            "high": {
+              "reasoningEffort": "high",
+              "reasoningSummary": "auto"
+            },
+            "xhigh": {
+              "reasoningEffort": "xhigh",
+              "reasoningSummary": "auto"
+            }
+          }
+        },
         "openai/gpt-5.5": {
           "name": "GPT 5.5",
           "options": {
@@ -121,6 +149,46 @@ Use `apiKey` for the OpenAI provider and `authToken` for the Anthropic provider.
         "authToken": "YOUR_CAPRIOLE_AI_API_KEY"
       },
       "models": {
+        "claude-latest": {
+          "name": "Claude latest",
+          "variants": {
+            "low": {
+              "thinking": {
+                "type": "adaptive",
+                "display": "summarized"
+              },
+              "effort": "low"
+            },
+            "medium": {
+              "thinking": {
+                "type": "adaptive",
+                "display": "summarized"
+              },
+              "effort": "medium"
+            },
+            "high": {
+              "thinking": {
+                "type": "adaptive",
+                "display": "summarized"
+              },
+              "effort": "high"
+            },
+            "xhigh": {
+              "thinking": {
+                "type": "adaptive",
+                "display": "summarized"
+              },
+              "effort": "xhigh"
+            },
+            "max": {
+              "thinking": {
+                "type": "adaptive",
+                "display": "summarized"
+              },
+              "effort": "max"
+            }
+          }
+        },
         "claude-opus-4-8": {
           "name": "Opus 4.8",
           "variants": {
@@ -215,14 +283,16 @@ After replacing `YOUR_CAPRIOLE_AI_API_KEY` in the config, start OpenCode:
 opencode
 ```
 
-Use `/models` to select GPT 5.5, GPT 5.4 mini, Opus 4.8, or Opus 4.7. Use `Ctrl+T` to cycle model variants.
+Use `/models` to select OpenAI latest, GPT 5.5, GPT 5.4 mini, Claude latest, Opus 4.8, or Opus 4.7. Use `Ctrl+T` to cycle model variants.
 
 ## Supported models
 
-OpenCode supports GPT 5.5, GPT 5.4 mini, Opus 4.8, and Opus 4.7 through Capriole AI. Use GPT 5.5 and Opus 4.8 for new setups.
+OpenCode supports OpenAI latest, GPT 5.5, GPT 5.4 mini, Claude latest, Opus 4.8, and Opus 4.7 through Capriole AI. Use `openai-latest` and `claude-latest` for new setups.
 
+- `openai-latest`
 - `openai/gpt-5.5`
 - `openai/gpt-5.4-mini`
+- `claude-latest`
 - `claude-opus-4-8`
 - `claude-opus-4-7`
 
@@ -242,7 +312,7 @@ Confirm that the Anthropic provider uses `npm: "@ai-sdk/anthropic"`, `authToken`
 
 ### Why don't Capriole AI models appear?
 
-Confirm that the model reference uses `<providerId>/<modelId>`, such as `capriole-ai-openai/openai/gpt-5.5` or `capriole-ai-anthropic/claude-opus-4-8`, and that `enabled_providers` includes the Capriole AI providers while `disabled_providers` does not block them.
+Confirm that the model reference uses `<providerId>/<modelId>`, such as `capriole-ai-openai/openai-latest` or `capriole-ai-anthropic/claude-latest`, and that `enabled_providers` includes the Capriole AI providers while `disabled_providers` does not block them.
 
 ### Why don't model variants appear?
 

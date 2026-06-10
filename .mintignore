@@ -5,3 +5,7 @@
 # Draft content
 drafts/
 *.draft.mdx
+
+# Mintlify starter content that is not part of Capriole AI docs
+development.mdx
+essentials/

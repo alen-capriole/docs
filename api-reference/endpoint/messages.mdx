@@ -6,8 +6,10 @@ openapi: "api-reference/openapi.json POST /v1/messages"
 
 Use this endpoint when your application, SDK, or agent expects the Anthropic Messages request and response format.
 
-Send a standard Messages payload with `model`, `messages`, and `max_tokens`. Capriole AI rewrites the model to the selected upstream Claude model, forwards compatible fields such as `system`, `tools`, `thinking`, and `stream`, and returns the upstream JSON or SSE stream unchanged.
+Send a standard Messages payload with `model`, `messages`, and `max_tokens`. Capriole AI resolves latest aliases to the selected upstream Claude model before upstream dispatch, forwards compatible fields such as `system`, `tools`, `thinking`, and `stream`, and returns the upstream JSON or SSE stream unchanged.
 
-`POST /v1/messages/count_tokens` is also available for Anthropic-compatible clients that need a token-count preflight. It accepts the same message shape and returns the upstream token-count JSON unchanged.
+`POST /v1/messages` accepts `claude-latest`, `claude-opus-4-8`, and `claude-opus-4-7`. Use `claude-latest` to let Capriole AI choose our recommended flagship Claude Messages model.
+
+`POST /v1/messages/count_tokens` accepts the same Claude model IDs for Anthropic-compatible token-count checks. It returns the selected upstream's token-count response or error.
 
 For simple Capriole-native text generation, use `POST /v1/chat`. Use `POST /v1/messages` when Anthropic Messages wire behavior is required.
