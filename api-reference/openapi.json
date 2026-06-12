@@ -47,6 +47,12 @@
                           "id": "anthropic/claude-opus-4-7"
                         },
                         {
+                          "id": "anthropic/claude-opus-4-6"
+                        },
+                        {
+                          "id": "anthropic/claude-sonnet-4-6"
+                        },
+                        {
                           "id": "google-latest"
                         },
                         {
@@ -617,6 +623,8 @@
               "claude-latest",
               "anthropic/claude-opus-4-8",
               "anthropic/claude-opus-4-7",
+              "anthropic/claude-opus-4-6",
+              "anthropic/claude-sonnet-4-6",
               "google-latest",
               "google/gemini-3.1-pro-preview",
               "google/gemini-3.5-flash"
@@ -806,6 +814,8 @@
               "claude-latest",
               "anthropic/claude-opus-4-8",
               "anthropic/claude-opus-4-7",
+              "anthropic/claude-opus-4-6",
+              "anthropic/claude-sonnet-4-6",
               "google-latest",
               "google/gemini-3.1-pro-preview",
               "google/gemini-3.5-flash"
@@ -935,7 +945,9 @@
             "enum": [
               "claude-latest",
               "claude-opus-4-8",
-              "claude-opus-4-7"
+              "claude-opus-4-7",
+              "claude-opus-4-6",
+              "claude-sonnet-4-6"
             ]
           },
           "messages": {
@@ -1000,7 +1012,9 @@
             "enum": [
               "claude-latest",
               "claude-opus-4-8",
-              "claude-opus-4-7"
+              "claude-opus-4-7",
+              "claude-opus-4-6",
+              "claude-sonnet-4-6"
             ]
           },
           "messages": {
