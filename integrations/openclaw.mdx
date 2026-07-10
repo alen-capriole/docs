@@ -66,6 +66,26 @@ openclaw config set models.providers.capriole-ai-openai.models \
       "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
     },
     {
+      "id": "openai/gpt-5.6-terra",
+      "name": "GPT 5.6 Thinking",
+      "api": "openai-responses",
+      "contextWindow": 1050000,
+      "maxTokens": 128000,
+      "input": ["text"],
+      "reasoning": true,
+      "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
+    },
+    {
+      "id": "openai/gpt-5.6-luna",
+      "name": "GPT 5.6",
+      "api": "openai-responses",
+      "contextWindow": 1050000,
+      "maxTokens": 128000,
+      "input": ["text"],
+      "reasoning": true,
+      "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
+    },
+    {
       "id": "openai/gpt-5.5",
       "name": "GPT 5.5",
       "api": "openai-responses",
@@ -86,6 +106,52 @@ openclaw config set models.providers.capriole-ai-openai.models \
       "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
     }
   ]' \
+  --strict-json
+```
+
+Configure the Grok and GLM Chat Completions provider:
+
+```bash
+export CUSTOM_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
+
+openclaw config set models.providers.capriole-ai-compatible \
+  '{
+    "baseUrl": "https://api.caprioletech.com/v1",
+    "apiKey": "${CUSTOM_API_KEY}",
+    "api": "openai-completions",
+    "models": [
+      {
+        "id": "anthropic/claude-fable-5",
+        "name": "Fable 5",
+        "api": "openai-completions",
+        "contextWindow": 1000000,
+        "maxTokens": 128000,
+        "input": ["text"],
+        "reasoning": true,
+        "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
+      },
+      {
+        "id": "xai/grok-4.5",
+        "name": "Grok 4.5",
+        "api": "openai-completions",
+        "contextWindow": 500000,
+        "maxTokens": 128000,
+        "input": ["text"],
+        "reasoning": true,
+        "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
+      },
+      {
+        "id": "zai/glm-5.2",
+        "name": "GLM 5.2",
+        "api": "openai-completions",
+        "contextWindow": 1000000,
+        "maxTokens": 128000,
+        "input": ["text"],
+        "reasoning": true,
+        "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
+      }
+    ]
+  }' \
   --strict-json
 ```
 
@@ -180,7 +246,7 @@ Allow the configured Capriole AI models for the default agent:
 
 ```bash
 openclaw config set agents.defaults.models \
-  '{"capriole-ai-openai/openai-latest":{},"capriole-ai-openai/openai/gpt-5.5":{},"capriole-ai-openai/openai/gpt-5.4-mini":{},"capriole-ai-anthropic/claude-latest":{},"capriole-ai-anthropic/claude-opus-4-8":{},"capriole-ai-anthropic/claude-opus-4-7":{},"capriole-ai-anthropic/claude-opus-4-6":{},"capriole-ai-anthropic/claude-sonnet-4-6":{}}' \
+  '{"capriole-ai-openai/openai-latest":{},"capriole-ai-openai/openai/gpt-5.6-terra":{},"capriole-ai-openai/openai/gpt-5.6-luna":{},"capriole-ai-openai/openai/gpt-5.5":{},"capriole-ai-openai/openai/gpt-5.4-mini":{},"capriole-ai-compatible/anthropic/claude-fable-5":{},"capriole-ai-compatible/xai/grok-4.5":{},"capriole-ai-compatible/zai/glm-5.2":{},"capriole-ai-anthropic/claude-latest":{},"capriole-ai-anthropic/claude-opus-4-8":{},"capriole-ai-anthropic/claude-opus-4-7":{},"capriole-ai-anthropic/claude-opus-4-6":{},"capriole-ai-anthropic/claude-sonnet-4-6":{}}' \
   --strict-json
 ```
 
@@ -202,11 +268,16 @@ openclaw tui
 
 ## Supported models
 
-OpenClaw supports OpenAI latest, GPT 5.5, GPT 5.4 mini, Claude latest, Opus 4.8, Opus 4.7, Opus 4.6, and Sonnet 4.6 through Capriole AI. Use `openai-latest` and `claude-latest` for new setups.
+OpenClaw supports OpenAI latest, GPT 5.6 Thinking, GPT 5.6, GPT 5.5, GPT 5.4 mini, Fable 5, Grok 4.5, GLM 5.2, Claude latest, Opus 4.8, Opus 4.7, Opus 4.6, and Sonnet 4.6 through Capriole AI. Fable 5 uses the Chat Completions-compatible provider; the Anthropic Messages provider remains available for the existing Claude models.
 
 - `openai-latest`
+- `openai/gpt-5.6-terra`
+- `openai/gpt-5.6-luna`
 - `openai/gpt-5.5`
 - `openai/gpt-5.4-mini`
+- `anthropic/claude-fable-5`
+- `xai/grok-4.5`
+- `zai/glm-5.2`
 - `claude-latest`
 - `claude-opus-4-8`
 - `claude-opus-4-7`
@@ -219,6 +290,10 @@ OpenClaw supports OpenAI latest, GPT 5.5, GPT 5.4 mini, Claude latest, Opus 4.8,
 
 Confirm that `models.providers.capriole-ai-openai.api` is set to `"openai-responses"` and `baseUrl` is `https://api.caprioletech.com/v1`.
 
+### Why do Grok or GLM requests fail?
+
+Confirm that `models.providers.capriole-ai-compatible.api` is set to `"openai-completions"` and `baseUrl` is `https://api.caprioletech.com/v1`.
+
 ### Why do Anthropic requests fail?
 
 Confirm that `models.providers.capriole-ai-anthropic.api` is set to `"anthropic-messages"` and the Anthropic `baseUrl` is `https://api.caprioletech.com` without `/v1`.
@@ -229,7 +304,7 @@ Export `CUSTOM_API_KEY` in the terminal that starts `openclaw gateway` and in th
 
 ### Why does OpenClaw report that a model is not allowed or unavailable?
 
-Run `openclaw models list`, then confirm the selected model and any `agents.defaults.models` allowlist include the Capriole AI model reference, such as `capriole-ai-openai/openai-latest`, `capriole-ai-openai/openai/gpt-5.5`, `capriole-ai-anthropic/claude-latest`, `capriole-ai-anthropic/claude-opus-4-8`, `capriole-ai-anthropic/claude-opus-4-6`, or `capriole-ai-anthropic/claude-sonnet-4-6`.
+Run `openclaw models list`, then confirm the selected model and any `agents.defaults.models` allowlist include the Capriole AI model reference, such as `capriole-ai-openai/openai-latest`, `capriole-ai-compatible/xai/grok-4.5`, `capriole-ai-compatible/zai/glm-5.2`, or `capriole-ai-anthropic/claude-latest`.
 
 If a Capriole AI model appears as missing, update the model entry with the full object shown above. Current OpenClaw releases need more than `id` and `name` for custom provider models.
 
@@ -244,5 +319,6 @@ Choose another local port and use the same port for the gateway and client setup
 ## Notes
 
 - OpenClaw custom providers require the provider API mode to match the Capriole AI endpoint family.
+- OpenClaw 2026.4.21 completes local `exec` tool workflows with Grok 4.5 and GLM 5.2 through `openai-completions`.
 - Capriole AI handles the model request. OpenClaw can still shape final assistant behavior through its gateway, channels, and agent settings.
 - Official references: [OpenClaw install](https://docs.openclaw.ai/install), [OpenClaw custom providers](https://docs.openclaw.ai/gateway/config-tools), [OpenClaw model providers](https://documentation.openclaw.ai/concepts/model-providers), and [OpenClaw troubleshooting](https://docs.openclaw.ai/gateway/troubleshooting).
