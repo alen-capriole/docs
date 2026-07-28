@@ -122,6 +122,7 @@ Endpoint-compatible wire models:
 - `openai/gpt-5.4-mini` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
 - `claude-latest` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
 - `anthropic/claude-fable-5` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
+- `anthropic/claude-opus-5` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
 - `anthropic/claude-opus-4-8` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
 - `anthropic/claude-opus-4-7` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
 - `anthropic/claude-opus-4-6` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
@@ -170,6 +171,8 @@ export COPILOT_PROVIDER_WIRE_MODEL="claude-latest"
 Endpoint-compatible wire models:
 
 - `claude-latest` with `COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"`
+- `claude-fable-5` with `COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"`
+- `claude-opus-5` with `COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"`
 - `claude-opus-4-8` with `COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"`
 - `claude-opus-4-7` with `COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"`
 - `claude-opus-4-6` with `COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"`
@@ -197,9 +200,9 @@ For scripted use, keep streaming enabled. The matching Capriole AI endpoints sup
 
 These wire models are accepted by the matching Capriole AI endpoints for Copilot CLI BYOK. They are endpoint-compatible values, not a substitute for validating streaming and local shell tool use with your installed Copilot CLI:
 
-- Chat Completions: `openai-latest`, `openai/gpt-5.6-terra`, `openai/gpt-5.6-luna`, `openai/gpt-5.5`, `openai/gpt-5.4-mini`, `claude-latest`, `anthropic/claude-fable-5`, `anthropic/claude-opus-4-8`, `anthropic/claude-opus-4-7`, `anthropic/claude-opus-4-6`, `anthropic/claude-sonnet-4-6`, `google-latest`, `google/gemini-3.1-pro-preview`, `google/gemini-3.5-flash`, `xai/grok-4.5`, and `zai/glm-5.2`
+- Chat Completions: `openai-latest`, `openai/gpt-5.6-terra`, `openai/gpt-5.6-luna`, `openai/gpt-5.5`, `openai/gpt-5.4-mini`, `claude-latest`, `anthropic/claude-fable-5`, `anthropic/claude-opus-5`, `anthropic/claude-opus-4-8`, `anthropic/claude-opus-4-7`, `anthropic/claude-opus-4-6`, `anthropic/claude-sonnet-4-6`, `google-latest`, `google/gemini-3.1-pro-preview`, `google/gemini-3.5-flash`, `xai/grok-4.5`, and `zai/glm-5.2`
 - Responses: `openai-latest`, `openai/gpt-5.6-terra`, `openai/gpt-5.6-luna`, `openai/gpt-5.5`, and `openai/gpt-5.4-mini`
-- Anthropic Messages: `claude-latest`, `claude-opus-4-8`, `claude-opus-4-7`, `claude-opus-4-6`, and `claude-sonnet-4-6`
+- Anthropic Messages: `claude-latest`, `claude-fable-5`, `claude-opus-5`, `claude-opus-4-8`, `claude-opus-4-7`, `claude-opus-4-6`, and `claude-sonnet-4-6`
 
 Other public Chat Completions-compatible model IDs returned by `GET /v1/models` can be tested through the same OpenAI-compatible provider path, but do not use them for coding-agent workflows until tool use is validated.
 

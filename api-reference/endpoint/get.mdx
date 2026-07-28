@@ -35,8 +35,8 @@ Latest aliases resolve as follows on `POST /v1/chat` and `POST /v1/chat/completi
 | `POST /v1/messages` | `claude-latest` |
 | `POST /v1/messages/count_tokens` | `claude-latest` |
 
-Anthropic Messages endpoints also accept bare concrete Claude Messages IDs such as `claude-opus-4-8`, `claude-opus-4-7`, `claude-opus-4-6`, and `claude-sonnet-4-6`.
+Anthropic Messages endpoints also accept bare concrete Claude Messages IDs such as `claude-fable-5`, `claude-opus-5`, `claude-opus-4-8`, `claude-opus-4-7`, `claude-opus-4-6`, and `claude-sonnet-4-6`.
 
-On `POST /v1/messages` and `POST /v1/messages/count_tokens`, `claude-latest` remains pinned to `claude-opus-4-8` for Claude Code compatibility.
+On `POST /v1/messages` and `POST /v1/messages/count_tokens`, `claude-latest` resolves to `claude-fable-5`, matching the Chat and Chat Completions latest alias.
 
 Use the bare alias IDs shown above. Provider prefixes such as `openai/openai-latest` are client-side selector patterns, not Capriole AI model IDs.

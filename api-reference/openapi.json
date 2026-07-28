@@ -50,6 +50,9 @@
                           "id": "anthropic/claude-fable-5"
                         },
                         {
+                          "id": "anthropic/claude-opus-5"
+                        },
+                        {
                           "id": "anthropic/claude-opus-4-8"
                         },
                         {
@@ -639,6 +642,7 @@
               "openai/gpt-5.4-mini",
               "claude-latest",
               "anthropic/claude-fable-5",
+              "anthropic/claude-opus-5",
               "anthropic/claude-opus-4-8",
               "anthropic/claude-opus-4-7",
               "anthropic/claude-opus-4-6",
@@ -837,6 +841,7 @@
               "openai/gpt-5.4-mini",
               "claude-latest",
               "anthropic/claude-fable-5",
+              "anthropic/claude-opus-5",
               "anthropic/claude-opus-4-8",
               "anthropic/claude-opus-4-7",
               "anthropic/claude-opus-4-6",
@@ -971,6 +976,8 @@
             "description": "Public Anthropic Messages model identifier or Claude latest alias",
             "enum": [
               "claude-latest",
+              "claude-fable-5",
+              "claude-opus-5",
               "claude-opus-4-8",
               "claude-opus-4-7",
               "claude-opus-4-6",
@@ -1038,6 +1045,8 @@
             "description": "Public Anthropic Messages model identifier or Claude latest alias",
             "enum": [
               "claude-latest",
+              "claude-fable-5",
+              "claude-opus-5",
               "claude-opus-4-8",
               "claude-opus-4-7",
               "claude-opus-4-6",

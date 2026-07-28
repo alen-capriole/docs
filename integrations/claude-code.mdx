@@ -71,9 +71,11 @@ claude --model claude-latest -p "Explain this repository."
 
 ## Supported models
 
-Claude Code supports Claude latest, Opus 4.8, Opus 4.7, Opus 4.6, and Sonnet 4.6 through Capriole AI. Use `claude-latest` for new setups so Capriole AI can route Claude Code to our recommended flagship Claude model without changing your config.
+Claude Code supports Claude latest, Fable 5, Opus 5, Opus 4.8, Opus 4.7, Opus 4.6, and Sonnet 4.6 through Capriole AI. Use `claude-latest` for new setups; it resolves to Fable 5.
 
 - `claude-latest`
+- `claude-fable-5`
+- `claude-opus-5`
 - `claude-opus-4-8`
 - `claude-opus-4-7`
 - `claude-opus-4-6`
@@ -99,7 +101,7 @@ Set `"effortLevel": "high"` in `~/.claude/settings.json`, then restart Claude Co
 
 For the absolute maximum effort in a session, use `/effort max`, launch with `claude --effort max`, or set `CLAUDE_CODE_EFFORT_LEVEL=max` before launching `claude`.
 
-### Why can't Claude Code select Opus 4.8?
+### Why can't Claude Code select a concrete Opus model?
 
 Update Claude Code with `claude update`, then run `claude --version`.
 
@@ -112,5 +114,5 @@ Keep the model environment variables in place and confirm that the model ID is `
 - `~/.claude/settings.json` applies to your user account across projects. Use `YOUR_CAPRIOLE_AI_API_KEY` as a placeholder and replace it with your actual Capriole AI API key.
 - `ANTHROPIC_BASE_URL` changes where Claude Code sends requests. The model environment variables control which model ID is sent.
 - `ANTHROPIC_SMALL_FAST_MODEL` should match `claude-latest` so Claude Code helper requests use the same Capriole AI latest alias as the main conversation.
-- This setup uses `high` as the documented default effort level. On Opus 4.8, `xhigh` is also a persistent `effortLevel` option, while `max` is a session-level override and can spend more thinking tokens.
+- This setup uses `high` as the documented default effort level. `xhigh` is also a persistent `effortLevel` option, while `max` is a session-level override and can spend more thinking tokens.
 - Official references: [Claude Code setup](https://code.claude.com/docs/en/setup), [environment variables](https://code.claude.com/docs/en/env-vars), [model configuration](https://code.claude.com/docs/en/model-config), and [Claude effort](https://platform.claude.com/docs/en/build-with-claude/effort).
