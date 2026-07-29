@@ -78,6 +78,9 @@
                         },
                         {
                           "id": "zai/glm-5.2"
+                        },
+                        {
+                          "id": "moonshot/kimi-k3"
                         }
                       ]
                     }
@@ -651,7 +654,8 @@
               "google/gemini-3.1-pro-preview",
               "google/gemini-3.5-flash",
               "xai/grok-4.5",
-              "zai/glm-5.2"
+              "zai/glm-5.2",
+              "moonshot/kimi-k3"
             ]
           },
           "input": {
@@ -850,7 +854,8 @@
               "google/gemini-3.1-pro-preview",
               "google/gemini-3.5-flash",
               "xai/grok-4.5",
-              "zai/glm-5.2"
+              "zai/glm-5.2",
+              "moonshot/kimi-k3"
             ]
           },
           "messages": {

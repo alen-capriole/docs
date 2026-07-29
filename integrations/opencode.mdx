@@ -172,6 +172,9 @@ Use `apiKey` for the OpenAI and OpenAI-compatible providers and `authToken` for 
         },
         "zai/glm-5.2": {
           "name": "GLM 5.2"
+        },
+        "moonshot/kimi-k3": {
+          "name": "Kimi K3"
         }
       }
     },
@@ -403,11 +406,11 @@ After replacing `YOUR_CAPRIOLE_AI_API_KEY` in the config, start OpenCode:
 opencode
 ```
 
-Use `/models` to select OpenAI latest, GPT 5.6 Thinking, GPT 5.6, GPT 5.5, GPT 5.4 mini, Fable 5, Opus 5, Grok 4.5, GLM 5.2, Claude latest, Opus 4.8, Opus 4.7, Opus 4.6, or Sonnet 4.6. Use `Ctrl+T` to cycle model variants.
+Use `/models` to select OpenAI latest, GPT 5.6 Thinking, GPT 5.6, GPT 5.5, GPT 5.4 mini, Fable 5, Opus 5, Grok 4.5, GLM 5.2, Kimi K3, Claude latest, Opus 4.8, Opus 4.7, Opus 4.6, or Sonnet 4.6. Use `Ctrl+T` to cycle model variants.
 
 ## Supported models
 
-OpenCode supports OpenAI latest, GPT 5.6 Thinking, GPT 5.6, GPT 5.5, GPT 5.4 mini, Fable 5, Opus 5, Grok 4.5, GLM 5.2, Claude latest, Opus 4.8, Opus 4.7, Opus 4.6, and Sonnet 4.6 through Capriole AI. Fable 5 and Opus 5 can use either the Chat Completions-compatible provider or the Anthropic Messages provider.
+OpenCode supports OpenAI latest, GPT 5.6 Thinking, GPT 5.6, GPT 5.5, GPT 5.4 mini, Fable 5, Opus 5, Grok 4.5, GLM 5.2, Kimi K3, Claude latest, Opus 4.8, Opus 4.7, Opus 4.6, and Sonnet 4.6 through Capriole AI. Fable 5 and Opus 5 can use either the Chat Completions-compatible provider or the Anthropic Messages provider.
 
 - `openai-latest`
 - `openai/gpt-5.6-terra`
@@ -418,6 +421,7 @@ OpenCode supports OpenAI latest, GPT 5.6 Thinking, GPT 5.6, GPT 5.5, GPT 5.4 min
 - `anthropic/claude-opus-5`
 - `xai/grok-4.5`
 - `zai/glm-5.2`
+- `moonshot/kimi-k3`
 - `claude-latest`
 - `claude-fable-5`
 - `claude-opus-5`
@@ -436,7 +440,7 @@ Confirm that both `apiKey` and `authToken` in `~/.config/opencode/opencode.json`
 
 Confirm that the GPT provider uses `npm: "@ai-sdk/openai"` and `baseURL: "https://api.caprioletech.com/v1"` so requests use the Responses API.
 
-### Why do Grok or GLM requests fail?
+### Why do Grok, GLM, or Kimi requests fail?
 
 Confirm that `capriole-ai-compatible` uses `npm: "@ai-sdk/openai-compatible"` and `baseURL: "https://api.caprioletech.com/v1"` so both models use Chat Completions.
 
@@ -446,7 +450,7 @@ Confirm that the Anthropic provider uses `npm: "@ai-sdk/anthropic"`, `authToken`
 
 ### Why don't Capriole AI models appear?
 
-Confirm that the model reference uses `<providerId>/<modelId>`, such as `capriole-ai-openai/openai-latest`, `capriole-ai-compatible/xai/grok-4.5`, or `capriole-ai-anthropic/claude-latest`, and that `enabled_providers` includes the Capriole AI providers while `disabled_providers` does not block them.
+Confirm that the model reference uses `<providerId>/<modelId>`, such as `capriole-ai-openai/openai-latest`, `capriole-ai-compatible/moonshot/kimi-k3`, or `capriole-ai-anthropic/claude-latest`, and that `enabled_providers` includes the Capriole AI providers while `disabled_providers` does not block them.
 
 ### Why don't model variants appear?
 
@@ -463,6 +467,6 @@ For `ProviderInitError`, verify the provider config first. For provider package 
 ## Notes
 
 - The Anthropic provider uses `authToken` so the AI SDK Anthropic provider sends `Authorization: Bearer` authentication.
-- OpenCode 1.14.48 completes shell-tool workflows with Grok 4.5 and GLM 5.2 through `@ai-sdk/openai-compatible`.
+- OpenCode 1.14.48 completes shell-tool workflows with Grok 4.5, GLM 5.2, and Kimi K3 through `@ai-sdk/openai-compatible`.
 - OpenCode variants are client-side model settings. They do not create new Capriole AI API model IDs.
 - Official references: [OpenCode install](https://opencode.ai/docs), [OpenCode config](https://opencode.ai/docs/config), [OpenCode providers](https://opencode.ai/docs/providers), [OpenCode models and variants](https://opencode.ai/docs/models), [OpenCode keybinds](https://opencode.ai/docs/keybinds), [OpenCode troubleshooting](https://opencode.ai/docs/troubleshooting), [OpenAI Responses API](https://developers.openai.com/api/reference/resources/responses/methods/create), [AI SDK OpenAI provider](https://ai-sdk.dev/v7/providers/ai-sdk-providers/openai), [AI SDK Anthropic provider](https://ai-sdk.dev/v7/providers/ai-sdk-providers/anthropic), [Anthropic adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking), and [Anthropic effort](https://platform.claude.com/docs/en/build-with-claude/effort).

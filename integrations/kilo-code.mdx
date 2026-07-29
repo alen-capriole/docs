@@ -103,6 +103,11 @@ Use this OpenAI-compatible provider setup:
           "tool_call": true,
           "reasoning": true
         },
+        "moonshot/kimi-k3": {
+          "name": "Capriole Kimi K3",
+          "tool_call": true,
+          "reasoning": true
+        },
         "anthropic/claude-opus-4-8": {
           "name": "Capriole Opus 4.8",
           "tool_call": true
@@ -158,6 +163,7 @@ kilo -m openai-compatible/anthropic/claude-opus-4-8
 kilo -m openai-compatible/anthropic/claude-opus-4-7
 kilo -m openai-compatible/google/gemini-3.1-pro-preview
 kilo -m openai-compatible/google/gemini-3.5-flash
+kilo -m openai-compatible/moonshot/kimi-k3
 ```
 
 Run a one-off request with Gemini 3.5 Flash:
@@ -196,6 +202,7 @@ The Kilo docs use the same family order as the Capriole AI model picker: OpenAI,
 - `google/gemini-3.5-flash`
 - `xai/grok-4.5`
 - `zai/glm-5.2`
+- `moonshot/kimi-k3`
 
 Keep `"tool_call": false` for Gemini 3.5 Flash in Kilo Code. Capriole AI supports simple Chat Completions tool calls for this model, and Kilo Code can run local tool workflows with this setting, but enabling native Gemini function declarations can still expose Gemini's narrower OpenAPI schema subset.
 
@@ -229,5 +236,6 @@ For Gemini 3.5 Flash, keep `"tool_call": false`. Gemini supports function callin
 
 - Capriole AI exposes Kilo Code through `POST /v1/chat/completions`.
 - Kilo Code executes coding tools locally. Capriole AI only handles the model request.
+- Kilo Code 7.3.16 completes a streamed bash tool call and the follow-up assistant turn with Kimi K3.
 - Keep the provider config minimal first. Add Kilo model limits or other model options only when you intentionally want client-side context management.
 - Official references: [Kilo OpenAI Compatible provider](https://kilo.ai/docs/ai-providers/openai-compatible), [Kilo settings](https://kilo.ai/docs/getting-started/settings), [Kilo custom models](https://kilo.ai/docs/code-with-ai/agents/custom-models), [Kilo CLI](https://kilo.ai/docs/cli), and [Gemini function calling](https://ai.google.dev/gemini-api/docs/function-calling).
