@@ -1,0 +1,107 @@
+---
+title: "Capriole AI vs T3 Chat for Chat, BYOK, and API Access"
+sidebarTitle: "Capriole AI vs T3 Chat"
+description: "Compare Capriole AI and T3 Chat for multi-model chat, BYOK, usage limits, API access, privacy, storage, and supported coding-agent workflows."
+---
+
+Choose T3 Chat when the browser chat itself is the product you care about most, especially if branching and BYOK for supported models fit your workflow. Choose Capriole AI when browser chat also needs to lead into public API access and maintained coding-agent integrations under the same account.
+
+Both products currently present a USD 8 option, yet the included usage is structured differently. T3 uses cost-aware Base and Overage buckets. Capriole Premium provides unlimited browser chat across its supported Premium model set plus 5 million API tokens per month.
+
+We checked T3's FAQ, privacy policy, and official product-feedback pages for this comparison. T3 does not maintain a stable public pricing page, so its prices and plan allowances need another checkout review before purchase.
+
+## What the current USD 8 options include
+
+| Area | Capriole AI | T3 Chat |
+|---|---|---|
+| Main product | Browser workspace, public API, and maintained coding-agent integrations | Polished multi-model browser chat |
+| Current paid options | Premium at USD 8/month | Pro currently shown at USD 8/month; T3 staff currently identify Premier at USD 50/month |
+| Browser usage | Unlimited across the supported Premium model set | Cost-aware Base and Overage buckets |
+| Model switching | Switch supported models in an active thread | Model switching is available in the chat interface |
+| Chat tools | Files, web search, saved history, and explicit storage modes | Files, search, temporary chats, profiles, and branching |
+| BYOK | No public BYOK workflow | Available for supported models; scope varies by model |
+| Developer API | OpenAI Chat Completions, OpenAI Responses, Anthropic Messages, and a Capriole-native endpoint | The official pages reviewed do not document a public general-purpose developer API |
+| Coding agents | Maintained guides for Codex, Claude Code, OpenCode, and OpenClaw | The official docs reviewed do not include setup guides for those named clients |
+
+The broader [OpenRouter alternatives guide](/articles/openrouter-alternatives) places both products beside gateways and configurable BYOK clients.
+
+## T3 Chat keeps the browser conversation in focus
+
+T3's appeal is easy to understand once the job stays inside a chat window. You can select models, attach material, use search, start temporary chats, and branch a conversation when one line of thought needs to split from another.
+
+Branching is a meaningful difference. T3 marked the feature as shipped on its official feedback site. It lets a user preserve the original thread while exploring another direction from an earlier point.
+
+Capriole also supports files, web search, and changing supported models inside an active conversation. Its emphasis is continuity across model families within the same thread. A separate guide explains [how mid-conversation model switching works](/articles/switch-models-mid-chat).
+
+For someone who wants a refined browser chat and has no plan to connect external software, T3 deserves the straightforward advantage. The public product has been built around that surface.
+
+## BYOK gives T3 users another cost path
+
+T3 has completed BYOK support and documents it in the current FAQ. Users can supply a provider key where the selected model supports that path. The model coverage is not universal, and the provider's own training and retention settings become the user's responsibility.
+
+BYOK can help someone who already has provider billing, negotiated access, or a reason to keep usage attached to a specific provider account. It also makes cost inspection easier when the provider exposes detailed usage records.
+
+Capriole AI does not currently offer a public BYOK workflow. It supplies model access through the Capriole membership and API balance. That removes provider-key administration, while giving up the account-level control that T3 BYOK users may want.
+
+This is one of the clearest selection rules in the comparison. Pick T3 when your own supported provider key is part of the plan. Pick Capriole when you want the service to include access.
+
+## The two USD 8 offers meter different things
+
+T3's current FAQ describes a Base bucket and an Overage bucket. Base refills every four hours. Overage refills monthly. The system reserves an estimated amount before a request and settles the actual cost afterward.
+
+A message has no single fixed cost in that system. Long threads, large attachments, search, and more expensive models can use more of the available balance. Old fixed-message descriptions no longer represent the current FAQ.
+
+Capriole Premium separates browser and programmatic use. Browser chat is unlimited across the supported Premium model set. The public API and coding agents draw from 5 million included monthly API tokens, with separate top-ups available.
+
+That split suits users who chat frequently and want a defined allowance for development work. The [one AI subscription guide](/articles/one-ai-subscription) shows what the Capriole membership includes and where metering begins.
+
+T3's Pro and Premier terms can change without a static pricing page. The current USD 8 and USD 50 figures should remain dated facts rather than evergreen promises.
+
+## Development work changes the decision
+
+T3's official pages reviewed for this article did not document a public general-purpose LLM API. They also did not provide maintained setup guides for Codex, Claude Code, OpenCode, or OpenClaw. This describes the available documentation on the review date. It does not prove that every custom experiment is technically impossible.
+
+Capriole documents multiple public protocol paths. OpenAI Responses supports clients such as [Codex](/integrations/codex), while Anthropic Messages supports [Claude Code](/integrations/claude-code). OpenCode and OpenClaw have their own maintained configurations.
+
+The coding agent executes its local tools and file changes. Capriole handles supported model access. Agent usage remains metered API traffic, so unlimited browser chat does not extend to an automated coding workload.
+
+If an external client is central to the purchase, Capriole has the clearer supported path. If everything will happen in browser chat, T3's lack of public API documentation may have no practical cost.
+
+## Privacy claims follow the request path
+
+T3 says it does not train its own models on user data and opts out of provider training where possible. Its FAQ describes training as disabled by default for the listed OpenAI and Anthropic paths, and it says models that require training will be identified. BYOK users need to manage their provider settings themselves.
+
+T3's privacy policy also says the service collects prompts and uploaded files and shares the inputs needed by service providers and model providers. A temporary chat setting does not mean the request avoids those systems.
+
+Capriole offers Synced, Local, and No Storage chat-history modes. Local keeps history in the current browser. No Storage leaves no saved chat history. Requests in every mode still pass through Capriole and the selected model provider.
+
+These are different controls. T3's public language focuses on model-training choices and temporary chats. Capriole exposes where workspace history is retained. Neither product's control removes the need to review the upstream provider when the material is sensitive.
+
+## The practical T3 Chat buyer
+
+Choose T3 when you want a chat-first product with branching and supported-model BYOK. It also fits users who value the browser interface enough to consider the current Premier tier for a larger usage allowance.
+
+T3 is especially sensible when there is no application API to integrate and no coding-agent configuration to maintain. The product can stay focused on the conversation.
+
+## The practical Capriole AI buyer
+
+Choose Capriole when the same account needs to cover everyday chat and an external API client. The included API balance gives applications and supported coding agents a documented route beyond the browser.
+
+Capriole also gives the user an explicit history choice among account sync, browser-local storage, and an ephemeral No Storage session. Different conversations can therefore use different retention behavior.
+
+If this product shape fits your work, [try the limited free browser chat](https://capriole.ai) or start with the [API quickstart](/quickstart).
+
+## Official sources
+
+- [T3 Chat FAQ](https://t3.chat/faq)
+- [T3 Chat privacy policy](https://t3.chat/privacy-policy)
+- [T3 plan discussion with official staff responses](https://feedback.t3.chat/p/new-tier-in-between-pro-and-premier)
+- [T3 BYOK feature status](https://feedback.t3.chat/p/use-our-own-api-keys)
+- [T3 branching feature status](https://feedback.t3.chat/p/branching-chats)
+- [T3 model-switcher feature status](https://feedback.t3.chat/p/model-switcher-with-keyboard)
+
+User comments on T3's feedback site were not treated as product facts. Product status and staff responses were used where identified.
+
+Capriole AI facts on this page are maintained as first-party documentation.
+
+**Facts checked** 2026-08-10.

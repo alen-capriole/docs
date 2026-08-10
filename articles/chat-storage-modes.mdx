@@ -1,0 +1,77 @@
+---
+title: "Synced, Local, or No Storage for AI Chat"
+sidebarTitle: "Chat Storage Modes"
+description: "Compare Capriole AI's Synced, Local, and No Storage chat modes, including history, uploads, cross-device access, and privacy tradeoffs."
+---
+
+Capriole AI offers three chat-history boundaries: Synced, Local, and No Storage. Choose Synced for cross-device continuity, Local when history should stay in the current browser, and No Storage for an ephemeral conversation that should not become saved chat history.
+
+None of the three is the universal “most private” answer. Each gives up something different.
+
+## The short comparison
+
+| Mode | Where chat history is kept | Cross-device history | Saved uploads | Best fit |
+|---|---|---|---|---|
+| Synced | Capriole account history | Yes | Available | Ongoing work across devices |
+| Local | Current browser | No | Not available | Browser-only history without server-saved chats |
+| No Storage | Not kept as chat history | No | Not available | Ephemeral conversations |
+
+These controls describe Capriole chat-history behavior. They are not a claim that model requests never reach an inference provider, that no operational record can exist anywhere in the delivery path, or that a mode satisfies a particular compliance framework.
+
+Clear privacy choices begin with saying exactly what a control does.
+
+## Synced: continuity is the priority
+
+Synced history is the normal choice for work you expect to revisit.
+
+A saved conversation can follow the account across devices. Research can begin on one computer and continue on another. Threads remain available after closing the browser, and workflows that depend on saved conversation state can keep working.
+
+The tradeoff is straightforward: the chat is stored with the account so that Capriole can provide that continuity.
+
+Use Synced for projects, recurring research, and conversations where the history is part of the value.
+
+## Local: history stays with this browser
+
+Local mode keeps the chat history in the current browser rather than saving it as Capriole account history.
+
+It is useful when you want to return to a thread on one device but do not want that thread synced through the account. The history is tied to the browser's local data. Clear that data, change browsers, or move to another device, and the conversation will not follow you.
+
+Uploads are disabled in Local mode. That is not an arbitrary feature gap: saved file workflows and browser-only history do not share the same persistence boundary.
+
+Use Local when the current browser is the intended home of the conversation and you accept that it can disappear with local data.
+
+## No Storage: the conversation is temporary
+
+No Storage mode is for a session you do not want kept as chat history.
+
+There is no cross-device history and no saved thread to reopen later. Uploads are disabled. Once the session is gone, continuity is gone with it.
+
+That can be the right tradeoff for a one-off question or material you do not want sitting in a conversation list. It is a poor choice for a project you may need to audit, continue, or reproduce.
+
+The name should be read narrowly and literally: no saved **chat history** in the product workflow. It is not a promise about unrelated browser behavior, network infrastructure, abuse prevention, billing records, or the policies of every model provider involved in a request.
+
+## How to choose
+
+Start with one question: what would be more costly here, losing the conversation or storing it?
+
+Choose **Synced** when losing the thread would interrupt the work. Choose **Local** when one-browser continuity is enough. Choose **No Storage** when retaining the thread would be the bigger concern and you can accept an ephemeral session.
+
+Some users will change modes by task. A long research project may belong in Synced history, a personal working note may stay Local, and a disposable question may use No Storage. Privacy controls are more useful when they follow the situation instead of forcing one permanent account-wide answer.
+
+## Storage and model switching
+
+The selected storage boundary also affects how a multi-model conversation behaves over time.
+
+Within an active thread, Capriole can let you [switch supported models without rebuilding the conversation](/articles/switch-models-mid-chat). A saved Synced thread can be reopened later. A Local thread depends on the same browser data. A No Storage session is not designed to provide later continuity.
+
+Model switching does not override those choices. The workspace can adapt context for the next supported model, but it cannot restore a thread that was intentionally not saved.
+
+## A privacy control should show its cost
+
+“Private mode” is easy to market and hard to evaluate. A useful product control says what is stored, where the user can expect to find it, and which features stop working when storage is removed.
+
+Capriole exposes those tradeoffs in the workspace. Synced, Local, and No Storage are not three labels for the same behavior. They are three different answers to the question of chat-history persistence.
+
+You can [open Capriole AI](https://capriole.ai) and select the boundary that fits the conversation.
+
+**Facts checked:** 2026-08-10.

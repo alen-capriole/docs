@@ -1,0 +1,100 @@
+---
+title: "AI API Cost Comparison: Direct vs OpenRouter vs Capriole"
+sidebarTitle: "AI API Cost Comparison"
+description: "A reproducible cost comparison for Claude Fable 5, Gemini 3.1 Pro Preview, and Gemini 3.5 Flash across direct APIs, OpenRouter, and Capriole AI."
+---
+
+Using prices checked on 2026-08-10, a workload with 4 million uncached input tokens and 1 million output tokens costs **USD 15 to USD 90** through the three direct APIs tested. OpenRouter's total cost ranges from **USD 15.83 to USD 94.95** after its 5.5% credit-purchase fee. Capriole's public API requires the USD 8 monthly Premium plan, which includes the first **5 million charged tokens**; active members can buy another 5 million for USD 8.
+
+These numbers answer one narrow question. They do not prove that one service is always cheaper. Model choice, the input-to-output mix, caching, request size, tools, batch processing, taxes, and price changes can all change the result.
+
+## The 5 million token comparison
+
+The table holds the workload constant at 4 million uncached input tokens and 1 million output tokens. Each request stays below Google's 200,000-token prompt threshold. The example excludes cache reads and writes, tools, batch processing, taxes, and promotional pricing.
+
+| Exact model | Published input / output price per 1M tokens | Direct official API | OpenRouter inference | OpenRouter total, including 5.5% fee | Capriole 5M charged tokens |
+|---|---:|---:|---:|---:|---:|
+| `claude-fable-5` | USD 10 / USD 50 | USD 90.00 | USD 90.00 | USD 94.95 | USD 8.00* |
+| `gemini-3.1-pro-preview` | USD 2 / USD 12 | USD 20.00 | USD 20.00 | USD 21.10 | USD 8.00* |
+| `gemini-3.5-flash` | USD 1.50 / USD 9 | USD 15.00 | USD 15.00 | USD 15.83 | USD 8.00* |
+
+\* Premium costs USD 8 per month and includes the first 5 million monthly charged tokens plus unlimited browser chat across the supported Premium model set. After that allowance is used, one additional 5 million charged-token pack costs USD 8. Personal top-ups require an active Premium plan.
+
+## How to reproduce the calculation
+
+Direct providers publish separate prices for input and output. For this workload, the formula is:
+
+```text
+direct_cost = 4 × input_price_per_1M + 1 × output_price_per_1M
+```
+
+Claude Fable 5 therefore costs:
+
+```text
+4 × USD 10 + 1 × USD 50 = USD 90
+```
+
+OpenRouter states that it passes through the underlying provider's inference price without a markup. Its pay-as-you-go plan lists a 5.5% fee when credits are purchased. Assuming you buy the exact credits required, the cash calculation is:
+
+```text
+openrouter_cash = inference_cost × 1.055
+USD 90 × 1.055 = USD 94.95
+```
+
+The same arithmetic produces USD 21.10 for Gemini 3.1 Pro Preview. Gemini 3.5 Flash produces USD 15.825, rounded to USD 15.83.
+
+## Why Capriole uses a different unit
+
+Capriole does not copy each provider's input and output price table. It deducts a unified balance called charged tokens:
+
+```text
+charged_tokens = uncached_input + ceil(cached_input × 0.1) + output
+```
+
+Uncached input and output count at 100%. Cached input counts at 10%. The example has no cached input, so 4 million input tokens plus 1 million output tokens consume 5 million charged tokens.
+
+A charged token is an account balance unit. It is not the same thing as a provider's input-token or output-token price. The table compares what the fixed workload costs under each billing system; it does not claim that their pricing units are interchangeable.
+
+## The subscription changes the buying decision
+
+Direct APIs and OpenRouter let you pay for inference without a Capriole membership. Capriole's public API is available only with paid access.
+
+The USD 8 Premium plan includes:
+
+- Unlimited browser chat across the supported Premium model set
+- The first 5 million monthly API charged tokens
+- Access to the public API and maintained coding-agent integrations
+
+This bundle can fit someone who uses browser chat and the API. It may be a poor fit if you need API access only, want to bring your own provider keys, require a model outside Capriole's supported catalog, or need OpenRouter's provider routing and controls.
+
+The first 5 million tokens should not be described as a standalone USD 8 API product. The payment buys the full Premium bundle. An active member who needs another 5 million charged tokens can purchase one USD 8 top-up pack.
+
+## When the table will not predict your bill
+
+The example excludes several pricing paths that can materially change cost:
+
+- **Caching**: Providers price cache writes and reads separately. Capriole counts cached input at 10% in its charged-token formula.
+- **Long prompts**: Gemini 3.1 Pro Preview charges higher rates when an individual prompt exceeds 200,000 tokens.
+- **Batch processing**: Official batch APIs can offer lower prices than standard synchronous requests.
+- **Tools and search**: Server-side tools, grounding, and search can add request or usage charges.
+- **Output-heavy workloads**: The table uses an 80/20 input-to-output split. More output raises direct and OpenRouter costs faster for models with a large output-price premium.
+- **Enterprise terms**: Volume discounts, private offers, data residency, and negotiated commitments can replace public list prices.
+
+Recalculate with your expected model, token mix, and features before choosing a provider.
+
+## The practical choice
+
+Use a direct official API when provider-native features, an existing contract, or direct account control matters most. OpenRouter fits workloads that need broad model access, provider routing, bring-your-own-key support, and one usage ledger. Capriole fits users who value a USD 8 browser-and-API bundle and whose models are in its supported catalog.
+
+For a wider product comparison, read [Capriole AI vs OpenRouter](/articles/capriole-ai-vs-openrouter). The [one AI subscription guide](/articles/one-ai-subscription) explains the browser-chat side of the Premium bundle. Developers can continue with the [API quickstart](/quickstart).
+
+## Official sources
+
+- Anthropic: [Claude API pricing](https://platform.claude.com/docs/en/about-claude/pricing)
+- Google: [Gemini Developer API pricing](https://ai.google.dev/gemini-api/docs/pricing)
+- OpenRouter: [pricing](https://openrouter.ai/pricing), [billing FAQ](https://openrouter.ai/docs/faq), [Claude Fable 5 pricing](https://openrouter.ai/anthropic/claude-fable-5/pricing), [Gemini 3.1 Pro Preview providers](https://openrouter.ai/google/gemini-3.1-pro-preview/providers), and [Gemini 3.5 Flash pricing](https://openrouter.ai/google/gemini-3.5-flash/pricing)
+- Capriole AI: [current public model catalog](https://api.caprioletech.com/v1/models)
+
+Capriole plan, top-up, and charged-token facts on this page are maintained as first-party documentation.
+
+**Prices and facts checked:** 2026-08-10.

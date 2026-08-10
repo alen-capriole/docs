@@ -1,0 +1,82 @@
+---
+title: "One API for Codex, Claude Code, OpenCode, and OpenClaw"
+sidebarTitle: "Coding Agent Compatibility"
+description: "See how one Capriole AI account connects Codex, Claude Code, OpenCode, and OpenClaw through the protocol each coding agent expects."
+---
+
+One Capriole AI account can connect Codex, Claude Code, OpenCode, and OpenClaw. It does not force every coding agent through the same wire format: Capriole maintains the OpenAI Responses, OpenAI-compatible Chat Completions, and Anthropic Messages paths that the documented clients expect.
+
+This matters because “OpenAI compatible” is not a complete description of modern coding-agent support.
+
+## Four agents, several protocols
+
+Coding agents may look similar at the prompt, but their model clients are not interchangeable.
+
+| Coding agent | Maintained Capriole path | Recommended starting point |
+|---|---|---|
+| Codex | OpenAI Responses | [`openai-latest`](/integrations/codex) |
+| Claude Code | Anthropic Messages | [`claude-latest`](/integrations/claude-code) |
+| OpenCode | OpenAI Responses or Anthropic Messages | [Choose a documented provider path](/integrations/opencode) |
+| OpenClaw | OpenAI Responses, Anthropic Messages, or compatible chat | [Choose a documented provider path](/integrations/openclaw) |
+
+The same account and API balance sit behind these integrations. The request shape still follows the client.
+
+Codex sends Responses requests. Claude Code sends Anthropic Messages requests and can use token-counting preflight when the selected upstream supports it. OpenCode and OpenClaw can be configured with different provider adapters, so their setup depends on the model family and protocol you choose.
+
+Capriole preserves those distinctions. Its public Responses route is not secretly converted into Chat Completions, and its Messages route is not rewritten into an OpenAI response.
+
+## Why one key is useful
+
+Without a shared access layer, trying several coding agents often means repeating the same administrative work:
+
+- create or maintain accounts with different model providers;
+- add billing details and balances in several places;
+- store several API keys;
+- learn which model name and base URL each client expects;
+- revisit every configuration when a preferred model changes.
+
+Capriole reduces that setup to one account and one Capriole API key. The integration guides provide the exact base URL, model selector, and client-specific fields.
+
+That does not make every agent identical. Their interfaces, tool systems, permission models, and local execution behavior remain their own. Capriole supplies model access; the coding agent still decides how to edit files, run tools, and present the result.
+
+## Latest aliases reduce maintenance
+
+Model releases move quickly. A configuration tied to one concrete model ID is useful for reproducible work, but it also needs manual updates when you want the newest supported default.
+
+Capriole provides maintained aliases for supported public paths:
+
+- `openai-latest` for the maintained OpenAI route;
+- `claude-latest` for the maintained Claude route;
+- `google-latest` on compatible public chat paths.
+
+The alias is resolved before upstream dispatch and usage accounting. The coding agent sends the stable selector; Capriole records the resolved model that handled the request.
+
+Concrete model IDs remain useful when an exact version matters for an audit, a test, or a long-running project. “Latest” is a convenience, not a substitute for version pinning.
+
+## What has been tested
+
+The maintained setup is based on actual client paths, not a list of logos.
+
+Local validation covers Codex through OpenAI Responses, Claude Code through Anthropic Messages, and OpenCode and OpenClaw through their documented provider configurations. Tests include basic prompts and supported tool-interaction flows.
+
+There are client-specific limits. Codex remains on the maintained OpenAI Responses models; selecting a Claude model in Capriole does not make it a Codex-compatible model. Claude Code uses the Claude Messages path. OpenCode and OpenClaw offer broader provider choices, but their configuration must still match the selected protocol.
+
+The integration guides linked in the table are the source of truth for current fields and supported selectors.
+
+## Browser chat and coding agents solve different parts of the job
+
+Research, drafting, files, web search, and mid-conversation model changes can stay in the browser workspace. When the task needs repository context, local tools, or file changes, a coding agent can use the same Capriole account.
+
+Capriole connects both surfaces to the same account. A Premium membership currently costs **USD 8 per month**, includes unlimited browser chat across the supported Premium model set, and adds **5 million API tokens each month**. Coding-agent usage is API usage, so it draws from that metered balance rather than the unlimited browser-chat allowance.
+
+The plan keeps the two workloads separate. Everyday browser chat is unlimited under Premium, while programmatic and agent workloads use visible API tokens with top-ups available when needed.
+
+## Choose the agent first, then follow its protocol
+
+Use Codex when its Responses-based OpenAI workflow fits the job. Use Claude Code when you want its Anthropic-native client. Use OpenCode or OpenClaw when their local workflow and provider flexibility are the better fit.
+
+Capriole does not need those products to behave the same. It gives each documented client a maintained route to the models that route actually supports.
+
+Start with the [API quickstart](/quickstart), then open the integration guide for the agent you use.
+
+**Facts checked:** 2026-08-10.

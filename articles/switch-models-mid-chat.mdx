@@ -1,0 +1,81 @@
+---
+title: "Switch AI Models Without Restarting Your Conversation"
+sidebarTitle: "Switch Models Mid-Chat"
+description: "Learn how Capriole AI lets you change supported AI models inside one conversation while keeping the thread, files, and working context together."
+---
+
+Yes, you can switch AI models without starting a new conversation. In Capriole AI, the model is a choice you can change as the work changes, not a decision that permanently belongs to the first message in a thread.
+
+The practical benefit appears halfway through a task, when another model becomes a better fit and the conversation no longer needs to be rebuilt elsewhere.
+
+## Why changing models usually breaks the flow
+
+Suppose a conversation begins with one model because it is quick and familiar. Halfway through, the work becomes more technical. You want a second opinion from Claude, a different reasoning style from Gemini, or another supported model for the next step.
+
+Across separate AI products, that normally means opening another site and rebuilding the situation. You copy the useful messages, upload the files again, explain what has already been decided, and hope the new chat interprets the summary the same way.
+
+The model changed, but so did the workspace, the history, and often the format of the input. The interruption can cost more time than the comparison saves.
+
+Capriole AI keeps the thread in one place. Choose another supported model, write the next message, and continue.
+
+## What stays together
+
+Changing the selected model does not create a second Capriole conversation. The existing thread remains the working record, including the messages that led to the current question.
+
+The workspace can also carry relevant saved files and conversation context into the next request when the selected storage mode and model support them. You do not need to maintain parallel copies of the same discussion across several products.
+
+There are still real technical boundaries. Models have different context limits, file support, reasoning controls, and message formats. A model cannot use an input type it does not support simply because another model accepted it earlier. Long conversations may also need context management before the next request.
+
+Capriole handles those differences behind the model selector. The promise is not that every model is identical. It is that the user does not have to rebuild the integration each time the model changes.
+
+## A practical way to use model switching
+
+The feature is most useful when the switch has a reason.
+
+### Get a second reading
+
+Ask one model to draft an answer, then switch models and ask the next one to challenge the assumptions. Because both turns belong to the same thread, the second model can respond to the work already on the page instead of a hand-written recap.
+
+### Change the kind of help
+
+A fast model may be enough to explore options. A more deliberate model may be a better fit once the task becomes a decision, a technical review, or a difficult piece of writing. The conversation can move with that change.
+
+### Compare approaches without tab management
+
+When separate subscriptions are involved, comparison often becomes a collection of browser tabs and duplicated prompts. In one workspace, the comparison stays attached to the original problem.
+
+### Recover when a route is unavailable
+
+Capriole also maintains automatic fallback for supported traffic before a response begins. Manual model switching and automatic fallback are different features: one is a user decision, while the other helps a request continue through a supported alternative route when necessary.
+
+## What Capriole adapts behind the interface
+
+The major model providers do not expose one universal conversation format.
+
+OpenAI Responses, OpenAI-compatible Chat Completions, and Anthropic Messages have different request and streaming shapes. Reasoning settings, tool events, files, usage records, and errors also differ. Capriole maintains the compatible paths needed by its browser workspace and public API rather than pretending those protocols are interchangeable.
+
+For browser chat, the workspace rebuilds the saved conversation into input the selected model can accept. It also applies the current model's limits instead of assuming the previous model's rules still apply.
+
+That is the work a model selector hides. The visible action is one click; the underlying request may follow a different protocol and require a different representation of the same conversation.
+
+The technical details are covered in [How Capriole AI Works Across Model APIs](/articles/unified-model-api).
+
+## Storage mode still matters
+
+Conversation continuity depends on how you choose to store the chat.
+
+- **Synced** history supports saved conversations across devices.
+- **Local** history stays in the current browser and is lost if its local data is cleared.
+- **No Storage** is an ephemeral session and gives up saved history, uploads, and cross-device continuity.
+
+Those choices are intentional. A user who wants a durable research thread and a user who wants an unsaved conversation should not be forced into the same storage boundary. [The storage-mode guide](/articles/chat-storage-modes) explains the tradeoffs.
+
+## The simpler mental model
+
+In a single-provider product, the conversation belongs to that provider's model family. In Capriole AI, the conversation belongs to your workspace. The selected model handles the next turn.
+
+Model switching is useful because the tool can change without discarding the work.
+
+[Open Capriole AI](https://capriole.ai) to try supported models in browser chat. Premium is USD 8 per month and includes unlimited browser chat across the supported Premium model set. Limited free chat is available before upgrading.
+
+**Facts checked:** 2026-08-10.

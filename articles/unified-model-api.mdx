@@ -1,0 +1,94 @@
+---
+title: "How Capriole AI Works Across Different Model APIs"
+sidebarTitle: "Multi-Protocol API"
+description: "A technical look at how Capriole AI supports OpenAI Responses, Chat Completions, Anthropic Messages, model aliases, usage, and fallback."
+---
+
+Capriole AI provides one account and API key across supported model families, but it does not flatten every provider into one imaginary protocol. It maintains several public paths: OpenAI Responses, OpenAI-compatible Chat Completions, Anthropic Messages, and a simple Capriole-native chat endpoint.
+
+The result is unified access without pretending the underlying APIs are identical.
+
+## The public paths
+
+| Path | Intended contract | Typical use |
+|---|---|---|
+| `POST /v1/chat` | Capriole-native text request | Simple application calls |
+| `POST /v1/chat/completions` | OpenAI-compatible Chat Completions | Compatible clients and agents |
+| `POST /v1/responses` | OpenAI Responses | Responses-based applications and Codex |
+| `POST /v1/messages` | Anthropic Messages | Claude-native clients and Claude Code |
+
+Successful proxy responses and streamed events remain in the protocol the client requested. A Responses payload is not converted into Chat Completions on the way back. An Anthropic Messages stream is not repackaged as OpenAI output.
+
+This preserves the protocol-specific behavior that Responses, Messages, and Chat Completions clients expect.
+
+## Why one endpoint is not enough
+
+Model families disagree about more than field names.
+
+OpenAI Responses represents output as typed events and items. Anthropic Messages uses its own content blocks and streaming events. Chat Completions has another request and response shape. Reasoning controls, tool calls, usage data, errors, and token-counting behavior also differ.
+
+A shallow adapter can make a simple text prompt work. Coding agents and production clients expose the missing details quickly. They depend on streaming order, tool-result turns, usage metadata, and model-specific controls.
+
+Capriole therefore owns multiple protocol-preserving routes behind one authentication and billing layer.
+
+## One key, explicit model selection
+
+All public generation routes use the same Capriole API key and account balance. The requested model still has to belong to the selected protocol.
+
+For example, the Responses path accepts the maintained OpenAI alias and supported Responses-compatible OpenAI models. The Messages path accepts the maintained Claude alias and supported Claude Messages model IDs. Compatible chat paths can expose a broader set of public chat models.
+
+If a model is not valid for the chosen route, the request should fail validation. Capriole does not quietly remap an unsupported retired key to something else.
+
+That explicit failure is safer than returning an answer from a model the caller did not request.
+
+## Latest aliases and reproducible IDs
+
+Capriole exposes maintained aliases such as `openai-latest`, `claude-latest`, and `google-latest` on the public paths that support them.
+
+Aliases are resolved before upstream dispatch. Usage, quota, and fallback records are attached to the resolved canonical model rather than an ambiguous “latest” bucket.
+
+Use an alias when you want Capriole's maintained default to move with supported releases. Use a concrete model ID when the exact version is part of the result and must remain reproducible.
+
+The [List models endpoint](/api-reference/endpoint/get) is the current public inventory. Do not assume a model shown in browser chat is automatically valid on every API protocol.
+
+## Fallback happens before the response begins
+
+For supported routes, Capriole can attempt another configured source when the first source fails before response bytes have been sent.
+
+That boundary matters. Once a streamed response has begun, switching sources would risk duplicated or contradictory output. Automatic fallback is not the same as choosing a different model halfway through a response, and it is not a promise that every upstream failure can be hidden.
+
+The requested model key is preserved through a supported source fallback. Capriole changes the delivery source, not the user's stated model choice.
+
+Browser chat can separately offer optional model auto-switching and [manual model changes inside a conversation](/articles/switch-models-mid-chat). Those are workspace behaviors, not the raw API fallback contract.
+
+## Usage remains visible
+
+Programmatic workloads are metered. Capriole records usage from the metadata supplied by the matching protocol, including completed streamed responses when usage is available.
+
+Premium currently includes **5 million charged API tokens per month**. Capriole counts uncached input and output at 100% and cached input at 10% for this balance. Additional token packs are available as top-ups. The unlimited part of Premium applies to browser chat across the supported Premium model set, not to API or coding-agent traffic.
+
+This distinction avoids an impossible promise. A casual browser conversation and an automated workload processing millions of tokens should not share an invisible unlimited allowance.
+
+## What the unified layer actually provides
+
+The useful common layer is not one response schema. It is the surrounding product contract:
+
+- one Capriole account and API key;
+- one visible API balance;
+- maintained model aliases;
+- validation against the selected protocol;
+- supported source fallback before output begins;
+- usage accounting against the resolved model;
+- documented setup for applications and coding agents.
+
+The protocol remains explicit because clients depend on it.
+
+## Start with the client you already have
+
+If an application uses Chat Completions, follow the [Chat Completions reference](/api-reference/endpoint/chat-completions). If it is built on Responses, use the [Responses reference](/api-reference/endpoint/responses). Claude-native clients should use the [Messages reference](/api-reference/endpoint/messages).
+
+For a first request, begin with the [API quickstart](/quickstart). Coding-agent users can see the maintained client matrix in [One API for Coding Agents](/articles/coding-agent-compatibility).
+
+Capriole's job is to remove account and access fragmentation while respecting the protocol your client actually speaks.
+
+**Facts checked:** 2026-08-10.

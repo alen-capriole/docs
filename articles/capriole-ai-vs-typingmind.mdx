@@ -1,0 +1,107 @@
+---
+title: "Capriole AI vs TypingMind for BYOK, Privacy, and API Access"
+sidebarTitle: "Capriole AI vs TypingMind"
+description: "Compare Capriole AI and TypingMind for BYOK, local-first storage, model costs, agents, MCP, API access, self-hosting, and coding-agent setup."
+---
+
+TypingMind suits users who already have provider API keys and want a local-first, highly configurable chat client with AI Agents, plugins, MCP, and self-hosting. Capriole AI suits users who want included model access, unlimited browser chat across the supported Premium model set, a monthly API allowance, and maintained coding-agent integrations.
+
+The first question in this comparison is who supplies the model access. TypingMind personal users bring and pay for their own provider keys. Capriole Premium includes access to its supported models and 5 million API tokens per month.
+
+We checked TypingMind's current documentation, privacy policy, cloud-sync pages, feature list, and license pages for this comparison. The products can both present several model families in one interface, but they put account ownership and data flow in different places.
+
+## Who owns the key, history, and model bill
+
+| Area | Capriole AI | TypingMind |
+|---|---|---|
+| Model access | Included access to a curated supported model set | Personal users supply provider API keys; TypingMind does not sell model credits |
+| Current personal price | USD 8/month for Premium | Personal license currently starts at a one-time USD 39 payment |
+| Ongoing model cost | Unlimited browser chat across the supported Premium model set plus 5M API tokens/month; API top-ups are separate | Provider API usage is billed separately by each provider |
+| Default storage path | Synced account history, browser-local history, or No Storage | LocalStorage and IndexedDB in the browser |
+| Request path | Requests pass through Capriole and the selected model provider | The static client sends model requests directly to the configured provider |
+| Customization | Curated workspace with files, search, model switching, and documented external agents | AI Agents, plugins, MCP, RAG, custom endpoints, and self-hosting |
+| Multi-model workflow | Change supported models inside one continuing thread | Send a prompt to several models in parallel, each with separate context |
+| Developer API | Public OpenAI and Anthropic protocol endpoints for external clients | Team Professional includes a separate API for team users, chats, responses, and agents |
+| BYOK | No public BYOK workflow | Central to the personal product |
+
+TypingMind also appears in our broader [OpenRouter alternatives guide](/articles/openrouter-alternatives) for buyers comparing BYOK clients with bundled model access.
+
+## TypingMind starts with keys you control
+
+TypingMind's personal product is an interface over provider accounts supplied by the user. You add a working API key, then the browser client sends requests to that provider. TypingMind says it does not sell the API credits consumed by those requests.
+
+That arrangement is a strong fit when you already use provider APIs. Billing stays attached to the provider account. The key owner can inspect provider usage, apply provider-specific controls, and choose which compatible endpoint to add.
+
+It also means the one-time TypingMind license is only part of the cost. The current personal license starts at USD 39, while model usage remains an ongoing provider charge. Optional cloud storage can add another cost after the included allowance.
+
+Capriole takes responsibility for the access layer. Premium costs USD 8 per month and includes unlimited browser chat across the supported Premium model set. Public API and coding-agent traffic draw from 5 million included monthly tokens.
+
+Capriole users do not need separate provider keys. They also cannot bring a provider key through a public BYOK workflow. The [one AI subscription guide](/articles/one-ai-subscription) explains when included access is useful and when a direct provider account remains the better fit.
+
+## Local-first describes storage and request ownership
+
+TypingMind keeps API keys, chats, prompts, and messages in browser LocalStorage or IndexedDB by default. Its privacy policy says the TypingMind backend cannot read, access, or recover that local data. The configured model provider still receives the request directly from the browser.
+
+This is a genuine architectural advantage for users who want the chat client removed from the normal storage path. Provider privacy and retention terms still apply, since model inference happens outside the browser.
+
+TypingMind also offers optional cloud sync. Its current documentation lists 50 MB of free cloud storage, described as enough for roughly 5,000 chats in typical use. Synced data can include chats, settings, keys, agents, plugins, and files. Deleted cloud items remain in Recently Deleted for 30 days.
+
+Capriole offers three history modes with a different network path. Synced saves account history. Local keeps history in the current browser. No Storage leaves no saved chat history. Every mode still sends the prompt through Capriole and the chosen model provider.
+
+[Capriole's storage guide](/articles/chat-storage-modes) explains what each mode keeps and which upload or continuity features are unavailable. The products should be compared by their full paths rather than by the word local alone.
+
+## TypingMind offers deeper workspace customization
+
+TypingMind has the wider customization surface. Its official feature list covers specialized AI Agents, plugins, MCP, retrieval workflows, prompt tools, custom compatible endpoints, and static self-hosting.
+
+Its multi-model response feature can send one prompt to several selected models in parallel. Each model receives a separate context, and the user can choose a primary response or ask for a final result. This design works well for side-by-side comparison.
+
+Capriole's model switching is sequential. A user can continue one active conversation with another supported model while keeping the existing thread context in the workspace. It suits work that changes model as the task develops.
+
+The two workflows solve different problems. TypingMind makes the client itself configurable. Capriole keeps the browser surface smaller and extends the same account into external APIs and supported coding tools.
+
+## TypingMind Team API and Capriole API serve different clients
+
+TypingMind does have an API product. The Team Professional plan documents API operations for managing users and chats, creating model responses, and chatting with a configured AI Agent. That API belongs to the TypingMind Team workspace.
+
+Personal custom endpoints work in the other direction. They let TypingMind call a compatible model service supplied by the user. They do not turn the personal license into an included external model gateway.
+
+Capriole's public endpoints are intended for applications and agents that speak OpenAI Chat Completions, OpenAI Responses, or Anthropic Messages. One Capriole key and API balance sit behind those supported paths.
+
+Capriole is the more direct choice for a developer who wants to configure [Codex](/integrations/codex), [Claude Code](/integrations/claude-code), [OpenCode](/integrations/opencode), or [OpenClaw](/integrations/openclaw). TypingMind has its own AI Agents and MCP support, which should not be confused with a lack of agent features.
+
+## TypingMind fits users who want control of the client
+
+Choose TypingMind when you already maintain provider accounts and want the interface to stay local-first. It is also the stronger fit for users who need plugins, MCP, self-hosting, or extensive control over their own agents and model endpoints.
+
+The one-time license can be appealing when you expect to keep the same client for a long time. Calculate provider API usage separately. A heavy model workload can cost much more than the interface license.
+
+TypingMind's parallel multi-model responses also make sense when comparison is the task. The selected models answer independently, and the user can inspect the alternatives together.
+
+## Capriole fits users who want access included
+
+Choose Capriole when you want to avoid managing provider keys and balances. Premium combines unlimited browser chat with a visible monthly API allowance, while top-ups cover additional programmatic use.
+
+Capriole is also the clearer fit when browser research needs to continue in an external coding agent. The maintained guides provide client-specific base URLs, model selectors, and protocol paths.
+
+TypingMind gives the user more control over the client and provider relationship. Capriole gives the user a prepared access bundle. The right answer follows from which responsibility you want to keep.
+
+If included access is the better fit, [try Capriole AI with limited free browser chat](https://capriole.ai) or continue with the [API quickstart](/quickstart).
+
+## Official sources
+
+- [TypingMind documentation](https://docs.typingmind.com/)
+- [TypingMind general FAQ](https://docs.typingmind.com/general-faqs)
+- [TypingMind personal licenses](https://www.typingmind.com/buy)
+- [TypingMind personal and team comparison](https://docs.typingmind.com/quickstart/typingmind-vs-typingmind-team)
+- [TypingMind Team plans](https://docs.typingmind.com/typingmind-team/getting-started/compare-typingmind-team-plans)
+- [TypingMind Team API overview](https://docs.typingmind.com/typingmind-team/integrations/api-integration-overview)
+- [TypingMind feature list](https://docs.typingmind.com/feature-list)
+- [TypingMind privacy policy](https://docs.typingmind.com/security-and-compliance/privacy-policy)
+- [TypingMind cloud sync and backup](https://docs.typingmind.com/cloud-sync-and-backup/cloud-sync-and-backup-overview)
+- [TypingMind multi-model responses](https://docs.typingmind.com/manage-and-connect-ai-models/activate-multi-model-responses)
+- [TypingMind MCP documentation](https://docs.typingmind.com/model-context-protocol-%28mcp%29-in-typingmind)
+
+Capriole AI facts on this page are maintained as first-party documentation.
+
+**Facts checked** 2026-08-10.

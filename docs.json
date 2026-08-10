@@ -64,7 +64,17 @@
             "group": "Articles",
             "pages": [
               "articles/why-we-built-capriole-ai",
-              "articles/capriole-ai-vs-openrouter"
+              "articles/one-ai-subscription",
+              "articles/openrouter-alternatives",
+              "articles/ai-api-cost-comparison",
+              "articles/capriole-ai-vs-openrouter",
+              "articles/capriole-ai-vs-poe",
+              "articles/capriole-ai-vs-t3-chat",
+              "articles/capriole-ai-vs-typingmind",
+              "articles/switch-models-mid-chat",
+              "articles/coding-agent-compatibility",
+              "articles/chat-storage-modes",
+              "articles/unified-model-api"
             ]
           }
         ]
