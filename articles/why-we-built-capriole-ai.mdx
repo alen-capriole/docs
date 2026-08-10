@@ -14,6 +14,12 @@ We decided to turn the infrastructure we had built for ourselves into a service 
 
 The first AI experience lived inside Charts. As the work grew, the general chat and model-access layer clearly had a wider use. We separated that workspace into Capriole AI, while Charts kept the AI features tied to its own product context.
 
+| The friction we encountered | What we changed | What the user gets |
+|---|---|---|
+| Separate subscriptions, accounts, and interfaces | One browser workspace for supported frontier models | Less cost and less account management |
+| Rebuilding context when changing products | Model switching inside the same conversation | The work stays together as the model changes |
+| Different API and coding-agent setup for each provider | One Capriole account with maintained protocol paths | A simpler route from chat to API and coding agents |
+
 ## The cost of separate products
 
 Paying several companies every month is expensive. Managing them is tedious too.

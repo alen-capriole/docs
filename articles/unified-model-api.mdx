@@ -21,6 +21,8 @@ Successful proxy responses and streamed events remain in the protocol the client
 
 This preserves the protocol-specific behavior that Responses, Messages, and Chat Completions clients expect.
 
+The shared layer handles access and accounting. Each public route keeps the request and response contract its client expects. The model groups are route-specific compatibility sets, not a hierarchy; a model may appear on more than one supported route when it implements each contract.
+
 ## Why one endpoint is not enough
 
 Model families disagree about more than field names.
