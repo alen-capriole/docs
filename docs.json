@@ -44,6 +44,18 @@
             ]
           }
         ]
+      },
+      {
+        "tab": "Articles",
+        "groups": [
+          {
+            "group": "Articles",
+            "pages": [
+              "articles/why-we-built-capriole-ai",
+              "articles/capriole-ai-vs-openrouter"
+            ]
+          }
+        ]
       }
     ]
   },

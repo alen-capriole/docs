@@ -1,0 +1,86 @@
+---
+title: "Capriole AI vs OpenRouter: Which one fits your workflow?"
+description: "A practical comparison of Capriole AI and OpenRouter for browser chat, API access, coding agents, pricing, routing, and model choice."
+---
+
+# Capriole AI vs OpenRouter: Which one fits your workflow?
+
+Capriole AI and OpenRouter both put multiple AI models behind one account, but they solve different versions of that problem.
+
+OpenRouter is the obvious choice when you need a very large model catalog, BYOK, or detailed control over providers and routes. Capriole AI makes more sense when you want browser chat, an API allowance, and supported coding agents packaged as one daily workspace.
+
+This comparison is based on each product's public documentation, checked on 2026-08-10. It is a product and pricing comparison, not a private latency or output-quality benchmark.
+
+## The quick comparison
+
+| Area | Capriole AI | OpenRouter |
+|---|---|---|
+| Product shape | Browser workspace, API access, and maintained coding-agent setup | Model marketplace and gateway with chat and broad developer tooling |
+| Model strategy | Curated supported models and latest-model aliases | 400+ models across 70+ providers |
+| Browser chat | Mid-conversation model switching, files, web search, synced/local/No Storage modes | Local-device conversations plus broad model access |
+| Paid pricing | USD 8/month Premium bundle | Pay as you go, with a 5.5% credit-purchase fee |
+| Included usage | Unlimited Premium browser chat and 5M API tokens/month; API top-ups sold separately | Usage charged by model and provider; no minimum spend |
+| Free access | Limited browser chat | 25+ free models and published rate limits |
+| BYOK | Not in the current public workflow | Supported; fees and allowances are documented and may change |
+| Routing | Automatic fallback and optional model auto-switching | Provider ordering, routing preferences, policies, budgets, and logs |
+| Coding agents | Maintained guides for Codex, Claude Code, OpenCode, and OpenClaw | Large OpenAI-compatible integration ecosystem |
+
+## What are you actually choosing?
+
+Counting model logos does not settle this comparison. The useful distinction is how much of the surrounding workflow you want the service to own.
+
+OpenRouter gives developers a broad gateway. Its public catalog lists more than 400 models from more than 70 providers, and its controls cover provider selection, routing, budgets, activity logs, data policies, and BYOK. If you already have a preferred chat client or application, that breadth is a strong foundation.
+
+Capriole AI is more opinionated. Its browser workspace includes model switching, files, web search, chat history, and storage choices. The same account can then supply an API key to supported coding agents. The catalog is smaller, but there is less for the user to assemble.
+
+That difference matters more than feature parity. OpenRouter gives you more infrastructure choices. Capriole AI tries to make a common set of choices disappear from the working day.
+
+## When OpenRouter is the straightforward answer
+
+If BYOK is non-negotiable, stop here: OpenRouter is the answer. Capriole AI does not currently expose BYOK as part of its public workflow.
+
+OpenRouter is also better suited to developers who need niche models, exact provider selection, detailed spend controls, or a gateway that fits an existing client. Its pay-as-you-go plan has no minimum spend. OpenRouter says it passes through underlying inference prices without a markup and charges a **5.5% fee when credits are purchased**.
+
+That is an aggregation service, not a discount on official inference prices. OpenRouter passes through the provider's listed inference price, and the credit-purchase fee can make the final cost higher than buying from that provider directly.
+
+BYOK is a meaningful option for teams that already hold provider accounts and want to keep their own limits or commercial relationships. OpenRouter documents the current allowance and any fees on its BYOK and pricing pages; those terms should be checked again before purchase.
+
+OpenRouter also has a real free tier: 25+ free models with published rate limits. It would be misleading to describe the product as paid-only or API-only; it offers both chat and API access.
+
+## When Capriole AI is the better fit
+
+Capriole AI is built for someone who wants to open one product and get on with the task. Research can begin in browser chat with files or web search, continue with a different model in the same conversation, and move into a coding agent using the same Capriole account.
+
+Premium currently costs **USD 8 per month**. It includes unlimited browser chat with the supported Premium model set and **5 million API tokens each month**. API top-ups are separate, so this is not an unlimited API plan.
+
+For supported models, Capriole's API prices are set below official access. The same account and model aliases work across the browser, API, and documented coding-agent paths, so the lower price does not require a separate provider account for each model family.
+
+That bundle is attractive when browser chat is used every day and the included API allowance covers a useful share of development work. It is less compelling for someone whose only need is occasional API traffic or whose monthly usage swings widely.
+
+Capriole also exposes three chat-storage choices: synced history, local browser-only history, and No Storage mode. These are workspace controls with explicit compromises. Local history stays with the browser; No Storage gives up continuity and features that depend on saved uploads.
+
+For coding tools, Capriole maintains setup paths for [Codex](/integrations/codex), [Claude Code](/integrations/claude-code), [OpenCode](/integrations/opencode), and [OpenClaw](/integrations/openclaw). OpenRouter supports a much larger ecosystem. Capriole focuses on a short, product-owned route from account to key to these specific tools.
+
+## The choice
+
+Use OpenRouter when model and provider choice is the product you need. Its catalog, BYOK support, routing controls, and pay-as-you-go billing are hard to argue with for an API-first workflow.
+
+Use Capriole AI when the gateway is only one part of the job. It gives up catalog breadth in exchange for a ready-made browser workspace, a simple monthly bundle, explicit storage modes, and maintained paths into several popular coding agents.
+
+Actual cost depends on the workload. Prompt length, model choice, and monthly volume all matter.
+
+If the Capriole workflow matches yours, start with the [limited free browser chat](https://capriole.ai). The [API quickstart](/quickstart) covers the first request.
+
+## Sources
+
+OpenRouter facts were checked against its official pages:
+
+- [Pricing](https://openrouter.ai/pricing)
+- [About OpenRouter](https://openrouter.ai/about)
+- [Frequently asked questions](https://openrouter.ai/docs/faq)
+- [BYOK documentation](https://openrouter.ai/docs/guides/overview/auth/byok)
+- [Works with OpenRouter](https://openrouter.ai/works-with-openrouter)
+
+Capriole AI facts were checked against the maintained product, billing, API, coding-agent, and marketing documentation.
+
+**Facts checked:** 2026-08-10.
