@@ -1,13 +1,25 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Capriole AI API",
+  "name": "Capriole AI Docs",
+  "description": "Documentation, integrations, and articles for Capriole AI, a unified workspace for frontier-model chat, API access, and coding agents.",
   "colors": {
     "primary": "#2563EB",
     "light": "#60A5FA",
     "dark": "#1D4ED8"
   },
   "favicon": "/favicon.ico",
+  "seo": {
+    "indexing": "navigable",
+    "organization": {
+      "id": "https://www.capriole.ai/#organization",
+      "name": "Capriole AI",
+      "url": "https://www.capriole.ai/"
+    }
+  },
+  "metadata": {
+    "timestamp": true
+  },
   "navigation": {
     "tabs": [
       {
