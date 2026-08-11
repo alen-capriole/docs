@@ -65,9 +65,9 @@
             "pages": [
               "guides/files-web-search",
               "guides/api-keys-usage",
-              "guides/one-api-key-coding-agents",
+              "guides/chat-storage",
               "guides/openai-anthropic-sdks",
-              "guides/chat-storage"
+              "guides/one-api-key-coding-agents"
             ]
           }
         ]
@@ -78,18 +78,18 @@
           {
             "group": "Articles",
             "pages": [
-              "articles/why-we-built-capriole-ai",
-              "articles/one-ai-subscription",
-              "articles/openrouter-alternatives",
-              "articles/ai-api-cost-comparison",
-              "articles/capriole-ai-vs-openrouter",
-              "articles/capriole-ai-vs-poe",
-              "articles/capriole-ai-vs-t3-chat",
-              "articles/capriole-ai-vs-typingmind",
-              "articles/switch-models-mid-chat",
-              "articles/coding-agent-compatibility",
+              "articles/charged-tokens",
               "articles/unified-model-api",
-              "articles/charged-tokens"
+              "articles/coding-agent-compatibility",
+              "articles/switch-models-mid-chat",
+              "articles/capriole-ai-vs-typingmind",
+              "articles/capriole-ai-vs-t3-chat",
+              "articles/capriole-ai-vs-poe",
+              "articles/capriole-ai-vs-openrouter",
+              "articles/ai-api-cost-comparison",
+              "articles/openrouter-alternatives",
+              "articles/one-ai-subscription",
+              "articles/why-we-built-capriole-ai"
             ]
           }
         ]

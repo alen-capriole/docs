@@ -1,7 +1,7 @@
 ---
 title: "Capriole AI Charged Tokens Explained"
 sidebarTitle: "Charged Tokens"
-description: "Calculate Capriole AI charged tokens from uncached input, cached input, and output, with reproducible examples and Premium quota boundaries."
+description: "Calculate Capriole AI charged tokens from uncached input, cached input, and output, with reproducible examples and personal and Team quota boundaries."
 ---
 
 Charged tokens are the units deducted from a Capriole AI API balance. Uncached input and output count at 100%. Cached input counts at 10%, rounded up to the next whole token.
@@ -10,7 +10,7 @@ They apply to public API and coding-agent traffic. Unlimited Premium browser cha
 
 ## The formula
 
-Capriole receives a total input-token count and, when the selected provider reports it, a cached-input count. Cached input is a subset of total input.
+Capriole normalizes each supported protocol into a total input-token count and, when the selected provider reports it, a cached-input count. Cached input is a subset of total input.
 
 ```text
 uncached_input = input_tokens - cached_input
@@ -22,6 +22,14 @@ charged_tokens =
 ```
 
 If the provider reports no cached input, all input tokens count at 100%. Capriole does not infer a cache hit that the usage metadata does not report.
+
+| Protocol | Normalized input | Cached subset |
+|---|---|---|
+| OpenAI Responses | `input_tokens` | `input_tokens_details.cached_tokens` |
+| OpenAI Chat Completions | `prompt_tokens` | `prompt_tokens_details.cached_tokens` |
+| Anthropic Messages | `input_tokens + cache_creation_input_tokens + cache_read_input_tokens` | `cache_read_input_tokens` |
+
+For Anthropic Messages, cache creation remains 100% input. Only reported cache reads receive the 10% charged-token treatment.
 
 ## Three reproducible examples
 
@@ -66,28 +74,26 @@ Do not multiply charged tokens by a provider's published input or output rate. T
 
 The [dated API cost comparison](/articles/ai-api-cost-comparison) applies this formula to one fixed 5 million-token workload and then compares the cash cost under each service.
 
-## Premium and top-up boundaries
+## Personal and Team balance boundaries
 
-| Balance | Current rule |
-|---|---|
-| Included API balance | Premium includes 5 million charged tokens in each active monthly quota period |
-| Personal top-up | Each purchased unit adds 5 million charged tokens to the personal top-up wallet |
-| Access requirement | Public API and personal top-ups require an active Premium membership |
-| Consumption order | Included quota is used before the personal top-up wallet |
-| Browser chat | Unlimited across the supported Premium model set and separate from API accounting |
-| Coding agents | Count as API traffic and deduct charged tokens |
+| Access | Included API balance | Top-up base price | Current rule |
+|---|---:|---:|---|
+| Personal Premium | 5 million charged tokens per active monthly quota period | USD 8 per 5 million | Public API and personal top-ups require active Premium access; purchases of multiple packs receive the displayed volume discount, up to 15% |
+| Team | 50 million shared charged tokens per active monthly quota period | USD 80 per 50 million | USD 70/month includes five seats; owners and admins can buy one to five packs, with the displayed volume discount up to 10% |
+
+Included quota is consumed before the matching personal or Team top-up wallet. Purchased top-up balances persist across monthly quota periods and paid-access gaps; consuming them still requires eligible active paid access. Browser chat is separate from API accounting; coding agents count as API traffic and deduct charged tokens.
 
 The monthly 5 million is part of the full USD 8 Premium workspace membership. It is not an unlimited API plan and should not be presented as a standalone API price.
 
-Top-ups extend programmatic usage. They do not change the browser-chat allowance, model compatibility, or the requirement for active paid access.
+Top-ups extend programmatic usage. They do not change the browser-chat allowance, model compatibility, or the requirement for eligible active personal or Team access.
 
 ## What the API records
 
-Capriole keeps raw usage and charged usage as separate fields. A successful public API request can record:
+Capriole keeps protocol-normalized usage and charged usage as separate fields. A successful public API request can record:
 
-- total input tokens;
+- normalized input tokens;
 - output tokens;
-- total tokens;
+- normalized input-plus-output tokens;
 - provider-reported cached input tokens;
 - charged tokens deducted from quota;
 - the resolved model and request status.
@@ -100,10 +106,10 @@ Open the Capriole AI [API page](https://capriole.ai?view=api), then use the **Ke
 
 | Column | What it confirms |
 |---|---|
-| **Input tokens** | Total provider-reported input before separating cached input |
+| **Input tokens** | Protocol-normalized input before separating cached input |
 | **Cached tokens** | Input the provider reported as cached |
 | **Charged tokens** | Quota deducted after applying the cached-input formula |
-| **Total tokens** | Provider-reported input plus output |
+| **Total tokens** | Protocol-normalized input plus output |
 
 A positive cached-token value confirms that compatible provider usage metadata reported a cache hit. It does not prove that every repeated request will hit the same provider cache. Provider routing, cache lifetime, request structure, and model behavior can change the result.
 
@@ -129,4 +135,4 @@ Use the [API quickstart](/quickstart) for the smallest raw request or the [OpenA
 
 Capriole plan, quota, top-up, and charged-token facts on this page are maintained as first-party documentation.
 
-**Facts checked:** 2026-08-10.
+**Facts checked:** 2026-08-11.

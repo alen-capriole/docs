@@ -4,21 +4,15 @@ sidebarTitle: "Why We Built Capriole AI"
 description: "Why we turned our own AI infrastructure into Capriole AI, an affordable workspace for frontier-model chat, API access, and supported coding agents."
 ---
 
-Capriole AI is a unified workspace for frontier-model chat, lower-cost API access, and supported coding agents. It began while we were adding AI capabilities to Capriole Charts.
+Capriole AI is a unified workspace for frontier-model chat, a public API allowance, and supported coding agents. It began while we were adding AI capabilities to Capriole Charts.
 
-We needed dependable access to frontier models, so we spent a long time finding a setup that was both stable and cost-efficient. Once it had worked reliably for us, keeping that advantage inside one product felt like a missed opportunity. Anyone using several AI products would still face the same expensive, fragmented setup we had just worked through.
+We needed dependable access to frontier models and spent a long time making the setup stable enough for our own work. Once it held up, we could see that the same access layer would be useful outside Charts.
 
 Using ChatGPT, Claude, and Gemini usually meant visiting three products. Each had its own subscription, interface, history, and way of handling a conversation. API access added another set of accounts and balances. Coding agents brought more keys and configuration.
 
-We decided to turn the infrastructure we had built for ourselves into a service anyone could use.
+We decided to make that infrastructure available as its own product.
 
 The first AI experience lived inside Charts. As the work grew, the general chat and model-access layer clearly had a wider use. We separated that workspace into Capriole AI, while Charts kept the AI features tied to its own product context.
-
-| The friction we encountered | What we changed | What the user gets |
-|---|---|---|
-| Separate subscriptions, accounts, and interfaces | One browser workspace for supported frontier models | Less cost and less account management |
-| Rebuilding context when changing products | Model switching inside the same conversation | The work stays together as the model changes |
-| Different API and coding-agent setup for each provider | One Capriole account with maintained protocol paths | A simpler route from chat to API and coding agents |
 
 ## The cost of separate products
 
@@ -38,9 +32,9 @@ A model selector was the smallest part of the job. We built and kept refining pr
 
 The differences show up in real requests. One model family may use OpenAI Responses events while another expects Anthropic Messages. Token usage and errors arrive in different shapes. A long thread may need its context compacted before the next model can continue it safely. Those cases have to work together before a model switch can feel uneventful.
 
-The user shouldn't have to see most of that work. Switching from a ChatGPT model to Claude or Gemini halfway through a conversation should feel ordinary. The workspace should carry the complexity.
+Most of that work stays behind the interface. A user can switch from a ChatGPT model to Claude or Gemini halfway through a conversation and continue in the same thread.
 
-The same Capriole AI account spans browser chat, the public API, and maintained coding-agent integrations, including [Codex](/integrations/codex), [Claude Code](/integrations/claude-code), [OpenCode](/integrations/opencode), and [OpenClaw](/integrations/openclaw). Latest-model aliases simplify supported API and agent configuration without making you track provider-specific model names. We handle the compatible protocol paths so connecting an agent doesn't become another provider-integration project.
+The same Capriole AI account spans browser chat, the public API, and six maintained coding-agent integrations: [Codex](/integrations/codex), [Claude Code](/integrations/claude-code), [Kilo Code](/integrations/kilo-code), [GitHub Copilot CLI](/integrations/github-copilot-cli), [OpenCode](/integrations/opencode), and [OpenClaw](/integrations/openclaw). Latest-model aliases simplify supported API and agent configuration without making you track provider-specific model names. We handle the compatible protocol paths so connecting an agent doesn't become another provider-integration project.
 
 ## A membership priced for everyday use
 
@@ -48,7 +42,7 @@ We built Capriole AI to replace a collection of expensive AI memberships with on
 
 Premium costs **USD 8 per month**. It includes unlimited browser chat across the supported Premium model set. There is no browser-chat credit balance to watch and no separate allowance deducted each time you change models.
 
-Premium members also receive **5 million API tokens each month**, and additional usage is available through top-ups. The API is metered because programmatic workloads can vary enormously, but the same model-access layer lets us price supported API usage well below official access.
+Premium members also receive **5 million charged API tokens each month**, and additional usage is available through top-ups. The API is metered because programmatic workloads can vary enormously. Our [dated cost comparison](/articles/ai-api-cost-comparison) shows the public customer price for three exact models under one reproducible token mix; it is not a claim that every workload is cheaper.
 
 One account can therefore cover the chat used for everyday thinking and the API used for building. The browser remains unlimited under Premium; the API keeps a clear, visible usage balance.
 
@@ -56,7 +50,13 @@ One account can therefore cover the chat used for everyday thinking and the API 
 
 A saved research thread and a conversation containing sensitive material do not need the same storage policy.
 
-Synced history keeps chats available across devices. Local mode leaves history in the current browser. No Storage mode is for conversations that should not be kept as chat history at all. The tradeoffs are visible before you choose, including the loss of continuity and saved-upload workflows in No Storage mode.
+| Mode | Persistence | Key tradeoff |
+|---|---|---|
+| Synced | Account history available across devices | Chat and uploaded-file state are stored for continuity |
+| Local | Current browser only | No cross-device history; uploads are disabled |
+| No Storage | Current page session only | Refreshing or leaving loses the chat; uploads are disabled |
+
+Enabling No Storage first asks for confirmation before deleting existing server and local chat history. All modes still send requests through Capriole and the selected model service; they change history persistence, not the model request path. The [chat storage guide](/guides/chat-storage) explains the complete boundary.
 
 We made privacy a control inside the workspace, with the consequences of each choice explained alongside it.
 
@@ -72,4 +72,4 @@ If you are deciding between a workspace like this and a broader model gateway, o
 
 You can [open Capriole AI](https://capriole.ai) and begin with limited free chat. If the workflow feels familiar, Premium brings the supported frontier models together for USD 8 per month. Developers can continue with the [API quickstart](/quickstart) when they are ready to connect an application or coding agent.
 
-**Facts checked:** 2026-08-10.
+**Facts checked:** 2026-08-11.

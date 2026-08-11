@@ -4,7 +4,7 @@ sidebarTitle: "Switch Models Mid-Chat"
 description: "Learn how Capriole AI lets you change supported AI models inside one conversation while keeping the thread, files, and working context together."
 ---
 
-Yes, you can switch AI models without starting a new conversation. In Capriole AI, the model is a choice you can change as the work changes, not a decision that permanently belongs to the first message in a thread.
+Yes, you can switch AI models without starting a new conversation. In Capriole AI, the selected model can change from one turn to the next while the thread stays in the same workspace.
 
 The practical benefit appears halfway through a task, when another model becomes a better fit and the conversation no longer needs to be rebuilt elsewhere.
 
@@ -26,7 +26,7 @@ The workspace can also carry relevant saved files and conversation context into 
 
 There are still real technical boundaries. Models have different context limits, file support, reasoning controls, and message formats. A model cannot use an input type it does not support simply because another model accepted it earlier. Long conversations may also need context management before the next request.
 
-Capriole handles those differences behind the model selector. The promise is not that every model is identical. It is that the user does not have to rebuild the integration each time the model changes.
+Capriole handles those differences behind the model selector. Models keep their own limits and capabilities, while the user continues from the existing thread.
 
 ## A practical way to use model switching
 
@@ -52,7 +52,7 @@ Capriole also maintains automatic fallback for supported traffic before a respon
 
 The major model providers do not expose one universal conversation format.
 
-OpenAI Responses, OpenAI-compatible Chat Completions, and Anthropic Messages have different request and streaming shapes. Reasoning settings, tool events, files, usage records, and errors also differ. Capriole maintains the compatible paths needed by its browser workspace and public API rather than pretending those protocols are interchangeable.
+OpenAI Responses, OpenAI-compatible Chat Completions, and Anthropic Messages have different request and streaming shapes. Reasoning settings, tool events, files, usage records, and errors also differ. Capriole maintains a compatible path for each supported protocol.
 
 For browser chat, the workspace rebuilds the saved conversation into input the selected model can accept. It also applies the current model's limits instead of assuming the previous model's rules still apply.
 

@@ -4,9 +4,9 @@ sidebarTitle: "Multi-Protocol API"
 description: "A technical look at how Capriole AI supports OpenAI Responses, Chat Completions, Anthropic Messages, model aliases, usage, and fallback."
 ---
 
-Capriole AI provides one account and API key across supported model families, but it does not flatten every provider into one imaginary protocol. It maintains several public paths: OpenAI Responses, OpenAI-compatible Chat Completions, Anthropic Messages, and a simple Capriole-native chat endpoint.
+Capriole AI provides one account and API key across supported model families. It maintains four public paths: OpenAI Responses, OpenAI-compatible Chat Completions, Anthropic Messages, and a simple Capriole-native chat endpoint.
 
-The result is unified access without pretending the underlying APIs are identical.
+The shared account and billing layer sits above those protocol-specific routes.
 
 ## The public paths
 
@@ -57,7 +57,7 @@ The [List models endpoint](/api-reference/endpoint/get) is the current public in
 
 For supported routes, Capriole can attempt another configured source when the first source fails before response bytes have been sent.
 
-That boundary matters. Once a streamed response has begun, switching sources would risk duplicated or contradictory output. Automatic fallback is not the same as choosing a different model halfway through a response, and it is not a promise that every upstream failure can be hidden.
+Once a streamed response has begun, switching sources would risk duplicated or contradictory output. Automatic fallback only runs before output starts. It cannot hide every provider failure or change models halfway through a response.
 
 The requested model key is preserved through a supported source fallback. Capriole changes the delivery source, not the user's stated model choice.
 
@@ -71,7 +71,7 @@ Premium currently includes **5 million charged API tokens per month**. Capriole 
 
 The [charged-token article](/articles/charged-tokens) gives the exact formula, rounding rule, and reproducible examples.
 
-This distinction avoids an impossible promise. A casual browser conversation and an automated workload processing millions of tokens should not share an invisible unlimited allowance.
+Browser chat and automated API workloads use separate allowances. A coding agent processing millions of tokens draws from the visible charged-token balance.
 
 ## What the unified layer actually provides
 

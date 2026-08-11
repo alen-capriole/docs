@@ -4,11 +4,11 @@ sidebarTitle: "One AI Subscription"
 description: "How one multi-model workspace can replace the friction of separate AI subscriptions while keeping chat, API usage, coding agents, and storage choices clear."
 ---
 
-One multi-model subscription can reduce the cost and friction of using ChatGPT, Claude, and Gemini models, but it does not turn their original products into one membership.
+One multi-model subscription can reduce the cost and setup involved in using models from several providers. The original ChatGPT, Claude, and Gemini products remain separate subscriptions with their own features.
 
-Capriole AI is an alternative workspace. Its Premium plan costs **USD 8 per month** for unlimited browser chat across the supported Premium model set, including current models from OpenAI, Anthropic, and Google. Premium also includes **5 million API tokens per month**. It does not include official ChatGPT, Claude, or Gemini subscriptions, and it does not reproduce every provider-native feature.
+Capriole AI is an alternative workspace. Its Premium plan costs **USD 8 per month** for unlimited browser chat across the supported Premium model set, including supported models from OpenAI, Anthropic, Google, xAI, Z.AI, and Moonshot AI. Premium also includes **5 million charged API tokens per month**. It does not include official provider subscriptions, and it does not reproduce every provider-native feature.
 
-The value is simpler: one account, one interface, and one place to move between supported models as the work changes.
+Capriole puts supported models, chat history, API access, and coding-agent setup under one account.
 
 ## The problem is larger than the monthly bill
 
@@ -23,14 +23,20 @@ Capriole AI brings the common parts into one workspace. You can chat with a supp
 | Part of the plan | What is included | Important boundary |
 |---|---|---|
 | Premium browser chat | Unlimited chat across the supported Premium model set | This is Capriole's web workspace, not access to provider-native apps |
-| Monthly API allowance | 5 million API tokens | API usage consumes the allowance; it is not unlimited |
+| Monthly API allowance | 5 million charged API tokens | API usage consumes the allowance; it is not unlimited |
 | API top-ups | Additional token packs can be purchased | Top-ups are separate from the monthly subscription |
 | Coding agents | A Capriole API key can be used with documented integrations | Support is limited to the maintained protocol and model paths |
 | Free access | Limited browser chat before upgrading | Free access does not include the public API |
 
 The browser and API have different usage models. Premium browser chat has no per-message token balance for the user to manage. API requests are metered because programmatic workloads can grow far beyond normal chat use.
 
-This distinction makes the plan useful for someone who chats every day and also needs occasional or moderate API access. A developer with a large production workload should still compare metered costs and limits against a dedicated gateway or direct provider contract.
+The plan suits someone who chats every day and also needs occasional or moderate API access. A developer with a large production workload should compare metered costs and limits against a dedicated gateway or direct provider contract.
+
+## Team access uses a shared balance
+
+The Team plan costs **USD 70 per month** and includes five seats plus a shared monthly pool of **50 million charged API tokens**. Active roles are owner, admin, and member. Owners and admins can manage invitations, roles, member usage thresholds, billing, and Team top-ups.
+
+Team members use their own API keys, while successful Team-billed requests draw first from the shared monthly quota and then from the Team top-up wallet. This is a separate entitlement from personal Premium, not five individual Premium subscriptions.
 
 ## One conversation, different model strengths
 
@@ -44,7 +50,7 @@ Capriole also provides latest-model aliases for supported API and agent workflow
 
 ## The same account can leave the browser
 
-Premium unlocks Capriole's public API as well as browser chat. The [API quickstart](/quickstart) covers the first request, while maintained integration guides explain how to connect [Codex](/integrations/codex), [Claude Code](/integrations/claude-code), [OpenCode](/integrations/opencode), and [OpenClaw](/integrations/openclaw).
+Eligible paid access unlocks Capriole's public API as well as browser chat. The [API quickstart](/quickstart) covers the first request, while maintained guides support six coding agents: [Codex](/integrations/codex), [Claude Code](/integrations/claude-code), [Kilo Code](/integrations/kilo-code), [GitHub Copilot CLI](/integrations/github-copilot-cli), [OpenCode](/integrations/opencode), and [OpenClaw](/integrations/openclaw).
 
 This does not make every coding agent identical. Each client still has its own capabilities and expectations. The benefit is that supported clients can use one Capriole account and compatible API paths instead of requiring a separate model-provider setup for each family.
 
@@ -52,13 +58,15 @@ This does not make every coding agent identical. Each client still has its own c
 
 Not every conversation deserves the same storage policy.
 
-- **Synced** history keeps conversations available across devices.
-- **Local** mode keeps chat history in the current browser.
-- **No Storage** mode is for conversations that should not remain in chat history.
+| Mode | Where chat history remains | Across devices | Uploads |
+|---|---|---|---|
+| Synced | Capriole account storage | Yes | Available |
+| Local | This browser's local storage | No | Disabled |
+| No Storage | Memory for the current page session only | No | Disabled |
 
-The choice has consequences. Local history does not follow you to another browser, and No Storage gives up continuity and features that depend on saved uploads. These modes let the user choose the practical boundary instead of applying one storage behavior to every thread.
+Local history survives a refresh until that browser's site data is cleared. No Storage history is lost when the page refreshes or the user leaves, and enabling it first asks for confirmation before deleting existing server and local chat history.
 
-They do not replace the need to review the selected model's upstream data policy for sensitive or regulated work.
+All three modes still send each request through Capriole and the selected model service. They control chat-history persistence; they do not promise zero operational records or replace the selected provider's data policy. Read the [chat storage guide](/guides/chat-storage) before using sensitive or regulated data.
 
 ## When one workspace is the right trade-off
 
@@ -66,8 +74,8 @@ Capriole AI is a good fit when the main problems are subscription cost, repeated
 
 Keep a provider's official subscription when you depend on features unique to that provider, need its exact product controls, or want access to models and tools outside Capriole's supported set. Use a broad gateway or direct API contract when model breadth, BYOK, provider selection, or high-volume infrastructure control matters more than an included browser workspace.
 
-The goal is not to pretend the original products are interchangeable. It is to make the common multi-model workflow cheaper and less fragmented.
+The original products still matter when their native features are required. Capriole covers the common multi-model workflow with fewer accounts and less repeated setup.
 
 You can [try Capriole AI with limited free browser chat](https://capriole.ai). If you also need programmatic access, continue with the [API quickstart](/quickstart) after upgrading to Premium.
 
-**Facts checked:** 2026-08-10.
+**Facts checked:** 2026-08-11.
