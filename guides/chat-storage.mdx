@@ -1,0 +1,127 @@
+---
+title: "Choose Chat Storage in Capriole AI"
+sidebarTitle: "Choose Chat Storage"
+description: "Choose default synced history, local browser storage, or No Storage in Capriole AI using the real Account settings and visible product tradeoffs."
+---
+
+Capriole AI has three chat-history behaviors. Leave both storage switches off for default account-synced history, enable **Enable local storage** for browser-only history, or enable **Enable No Storage** for a temporary session that disappears after you leave or refresh the page.
+
+You must be signed in to change these settings.
+
+## Compare the three behaviors
+
+| Choice in Account settings | Where chat history is kept | Cross-device history | Uploads | What happens after refresh |
+|---|---|---|---|---|
+| Both storage switches off | Capriole account history | Available | Available | The saved thread can be reopened |
+| **Enable local storage** on | Current browser data | Not available | Disabled | The thread remains until browser data is cleared |
+| **Enable No Storage** on | Not kept as chat history | Not available | Disabled | The current session is lost |
+
+These settings control Capriole chat-history persistence. Model requests still travel through Capriole and the selected inference provider. The settings do not make a general compliance or zero-operational-record promise.
+
+## Open the storage settings
+
+<Steps>
+<Step title="Sign in to Capriole AI">
+
+Open [Capriole AI](https://capriole.ai) and sign in. The storage switches do not change state for a signed-out visitor.
+
+</Step>
+
+<Step title="Open Account">
+
+Select your avatar or name at the bottom of the Capriole AI sidebar, then select **Account** from the menu. Scroll to the **Settings** section.
+
+You should see **Enable No Storage** above **Enable local storage**.
+
+</Step>
+</Steps>
+
+## Keep account-synced history
+
+Leave **Enable No Storage** and **Enable local storage** off.
+
+New chat history is stored with your account, can sync across devices, and can use saved uploads. Choose this behavior for work you expect to reopen from another browser or device.
+
+If another storage mode is enabled, turn it off. A chat that was intentionally deleted or lost from browser data cannot be recreated by changing the setting back.
+
+## Keep history in this browser
+
+Turn on **Enable local storage**.
+
+The active storage behavior changes to browser-only history. Conversations remain available in the current browser and can still appear in its history list. They do not sync to another device, and file uploads are disabled.
+
+<Warning>
+Clearing this browser's site data deletes the local conversations. Capriole cannot restore browser-only history from account storage.
+</Warning>
+
+Turn **Enable local storage** off to use default account-synced storage for new work.
+
+## Start a No Storage session
+
+<Warning>
+Enabling No Storage permanently deletes all conversation history from the server and this browser. Read the confirmation before continuing.
+</Warning>
+
+<Steps>
+<Step title="Enable No Storage">
+
+In **Account** → **Settings**, turn on **Enable No Storage**.
+
+Capriole opens a dialog titled **Delete all chats?**. The setting has not changed yet.
+
+</Step>
+
+<Step title="Confirm the deletion">
+
+Select **Delete** to remove the saved server and browser history and enter No Storage mode. Select **Cancel** if you need to keep the existing conversations.
+
+After deletion, the chat history and search section disappears from the sidebar. **Enable local storage** is disabled while No Storage remains on.
+
+</Step>
+
+<Step title="Use the temporary chat">
+
+Send messages without attaching files. The current conversation exists for the active page session and disappears after you leave or refresh the page.
+
+Turn **Enable No Storage** off when you want new chats to use default account-synced history again. Previously deleted conversations do not return.
+
+</Step>
+</Steps>
+
+## Choose by consequence
+
+| If you need... | Choose... |
+|---|---|
+| A project that follows your account across devices | Default synced storage |
+| History on one browser without account-saved chats | **Enable local storage** |
+| A disposable session with no saved chat history | **Enable No Storage** |
+| File uploads | Default synced storage |
+| A thread that survives cleared browser data | Default synced storage |
+
+Changing models does not override the storage setting. The [model-switching article](/articles/switch-models-mid-chat) explains how a supported model can handle the next turn inside an active conversation.
+
+Default synced storage is also required for Browser Chat attachments. The [files and web search guide](/guides/files-web-search) covers supported formats, size limits, and source inspection.
+
+## Common questions
+
+### Does Local mode keep a history list?
+
+Yes. The current browser can list, search, rename, pin, and delete its local threads. Another browser or device cannot see them.
+
+### Can I upload a file in Local or No Storage mode?
+
+No. File uploads require default account-synced storage.
+
+### Does No Storage keep the current chat after a refresh?
+
+No. Leaving or refreshing the page ends that temporary session.
+
+### Can I recover chats deleted when No Storage was enabled?
+
+No. The confirmation deletes server and browser chat history permanently.
+
+### Do these settings stop the model provider from receiving a request?
+
+No. They control chat history inside the Capriole workspace. The request still needs to reach Capriole and the selected model provider for inference.
+
+**Facts checked:** 2026-08-10.

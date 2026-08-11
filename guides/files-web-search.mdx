@@ -1,0 +1,102 @@
+---
+title: "Use Files and Web Search in Capriole AI"
+sidebarTitle: "Files and Web Search"
+description: "Upload documents, images, slides, and spreadsheets in Capriole AI Browser Chat, then ask for current web information and inspect returned sources."
+---
+
+Capriole AI Browser Chat can combine an uploaded work file with current information from the web. Attach the material you want the model to read, ask a specific question, and request recent information when the answer depends on what has changed.
+
+File uploads require a signed-in chat using default account-synced storage. Web search is a Browser Chat tool that the model calls when the question needs current public information.
+
+## Check the file before uploading
+
+| File category | Supported examples | Per-file limit |
+|---|---|---:|
+| Images | JPG, JPEG, PNG | 10 MB |
+| PDF | PDF documents | 10 MB |
+| Text and structured files | TXT, Markdown, JSON, JSONL, HTML | 4 MB |
+| Office documents | DOCX and PPTX | 4 MB |
+| Spreadsheets | CSV, XLS, XLSX | 4 MB |
+
+The composer can accept multiple files, but there is no published promise of unlimited attachments. Large combined context can still exceed the selected model's input limits.
+
+Local and No Storage modes do not accept file uploads. Use the [chat storage guide](/guides/chat-storage) before changing a conversation's storage boundary.
+
+## Ask a model to work from a file
+
+<Steps>
+<Step title="Open a synced chat">
+
+Sign in to [Capriole AI](https://capriole.ai). Leave **Enable local storage** and **Enable No Storage** off so the chat uses default account-synced storage.
+
+</Step>
+
+<Step title="Add the file">
+
+Choose **Add photos and files** in the composer. You can also drag files into the chat area or paste a file from the clipboard.
+
+Wait for the attachment to finish uploading before sending the message. Capriole shows a processing status while it prepares uploaded files for the selected model.
+
+</Step>
+
+<Step title="Describe the job, not only the file">
+
+Tell the model what to inspect and what output would be useful. For example:
+
+```text
+Read the attached spreadsheet. Identify the three largest month-over-month changes, explain which rows produced them, and return a compact table.
+```
+
+For a document review, name the section, decision, or inconsistency you care about. A bare request such as `summarize this` gives the model less direction.
+
+</Step>
+
+<Step title="Check the answer against the attachment">
+
+Confirm important numbers, quotations, and row references in the original file. Different models have different file and context limits, and converted documents can lose layout details that depend on visual positioning.
+
+</Step>
+</Steps>
+
+## Add current web information
+
+There is no ordinary Web Search switch in the composer. Ask a question that clearly depends on recent or live public information. The model can call the Browser Chat search tool when it decides a search is needed.
+
+```text
+Use the attached product brief as the baseline. Search for official changes announced in the last 30 days, list the sources, and explain which parts of the brief now need revision.
+```
+
+During a search, the Thinking area can show **Web searching**. When the search returns source metadata, the response exposes a **Sources** control that opens the linked results.
+
+The model does not have to search for every prompt. A request for current news or a dated fact makes the need clearer, but it does not guarantee a particular result, source count, or search provider.
+
+## Allow image URLs in web search context
+
+Signed-in users can open **Account** → **Settings** and enable **Enable web search images**. This setting allows web search to return image URLs alongside normal search results when available.
+
+It is not an image-generation setting, and it does not guarantee that every search returns or displays an image. Adding image results can increase the search context sent to the model and may increase token use.
+
+## How Capriole prepares different files
+
+Capriole keeps one upload workflow while adapting the model input underneath it. Images can use native multimodal input. Some PDFs and text-like files can also use a model's native file path. Other supported documents are converted into text context before the model call.
+
+That adaptation lets the same chat move between supported models without asking the user to rebuild every attachment manually. It does not mean every model reads every file natively, preserves every visual detail, or has the same context capacity.
+
+If the current model cannot accept the combined context, reduce the number of attachments, split a large document, or start with the section needed for the immediate question.
+
+## Fix common problems
+
+| Problem | Likely reason | Next action |
+|---|---|---|
+| The attachment button is missing | The chat uses Local or No Storage mode | Return to default account-synced storage |
+| A document is rejected | A non-image, non-PDF file exceeds 4 MB or the type is unsupported | Split, export, or convert the file to a supported format |
+| A PDF or image is rejected | The file exceeds 10 MB | Reduce the file size before uploading |
+| The message cannot send yet | One or more attachments are still uploading | Wait for upload completion or remove the failed attachment |
+| No Sources control appears | The model did not search or no normalized sources were returned | Ask explicitly for current information and source links |
+| A model misses layout details | The file was converted or the model interpreted it differently | Verify against the original and try a model suited to visual input |
+
+## Keep the workflow in one thread
+
+You can change the selected model before the next message without rebuilding the conversation. Read [Switch AI Models Without Restarting Your Conversation](/articles/switch-models-mid-chat) for the context and storage boundaries that apply when another model continues the thread.
+
+**Facts checked:** 2026-08-10.

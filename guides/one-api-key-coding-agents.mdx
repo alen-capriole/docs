@@ -1,0 +1,140 @@
+---
+title: "Use One API Key with Coding Agents"
+sidebarTitle: "One Key for Coding Agents"
+description: "Set up Codex, Claude Code, OpenCode, or OpenClaw with one Capriole AI API key while keeping each agent on its supported protocol."
+---
+
+One Capriole AI API key can authenticate Codex, Claude Code, OpenCode, and OpenClaw. The key stays the same, while the base URL, protocol, and model selector must match the client you are configuring.
+
+Use this guide to move from one Capriole account to a working agent. The individual integration pages remain the source of truth for complete client configuration.
+
+## Before you start
+
+You need:
+
+- an active Capriole AI Premium membership;
+- a Capriole AI API key from the [API page](https://capriole.ai?view=api);
+- at least one installed coding agent;
+- a terminal where you can set an environment variable.
+
+<Warning>
+Keep the API key out of repositories and committed configuration files. The examples use `YOUR_CAPRIOLE_AI_API_KEY` as a placeholder.
+</Warning>
+
+<Note>
+This guide reuses one key to prove compatibility. For a long-lived setup or a team, create a separate named key for each agent or user. Separate keys reduce the impact of a leaked credential and let you filter usage or revoke access independently from the API page.
+</Note>
+
+## Match the agent to its protocol
+
+Each client keeps the wire protocol it was built to use, even though the account key is shared.
+
+| Agent | Capriole protocol | Base URL | Starting model | Full configuration |
+|---|---|---|---|---|
+| Codex | OpenAI Responses | `https://api.caprioletech.com/v1` | `openai-latest` | [Configure Codex](/integrations/codex) |
+| Claude Code | Anthropic Messages | `https://api.caprioletech.com` | `claude-latest` | [Configure Claude Code](/integrations/claude-code) |
+| OpenCode | Responses, Chat Completions, or Messages | Provider-specific | `openai-latest` or `claude-latest` | [Configure OpenCode](/integrations/opencode) |
+| OpenClaw | Responses, Chat Completions, or Messages | Provider-specific | `openai-latest` or `claude-latest` | [Configure OpenClaw](/integrations/openclaw) |
+
+Codex and OpenAI-based OpenCode or OpenClaw providers include `/v1` in the base URL. Claude Code uses the API root. OpenCode and OpenClaw can use different base URLs for their Anthropic adapters, so copy the provider-specific value from the matching integration page.
+
+## Set up the shared key
+
+<Steps>
+<Step title="Export the Capriole API key">
+
+Set one shell variable before opening an agent:
+
+```bash
+export CAPRIOLE_AI_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
+```
+
+Verify that the variable exists without printing the secret:
+
+```bash
+test -n "$CAPRIOLE_AI_API_KEY" && echo "Capriole API key is set"
+```
+
+The expected result is `Capriole API key is set`.
+
+</Step>
+
+<Step title="Choose the client path">
+
+Open the integration page from the table and copy its maintained configuration. Use the same value from `CAPRIOLE_AI_API_KEY` wherever that client asks for a token.
+
+- Codex reads the key from `CAPRIOLE_AI_API_KEY` through `env_key`.
+- Claude Code uses `ANTHROPIC_AUTH_TOKEN`. Set it from the shared variable before launch.
+- OpenCode provider entries use the Capriole key in `apiKey` or `authToken`, depending on the provider adapter.
+- OpenClaw provider entries reference `CUSTOM_API_KEY`. Set it from the shared variable before starting the gateway.
+
+For Claude Code:
+
+```bash
+export ANTHROPIC_AUTH_TOKEN="$CAPRIOLE_AI_API_KEY"
+```
+
+For OpenClaw:
+
+```bash
+export CUSTOM_API_KEY="$CAPRIOLE_AI_API_KEY"
+```
+
+</Step>
+
+<Step title="Keep the model on a compatible route">
+
+Start with a maintained alias unless you need an exact model version:
+
+- use `openai-latest` on OpenAI Responses paths;
+- use `claude-latest` on Anthropic Messages paths;
+- use a model listed by the integration page on Chat Completions-compatible paths.
+
+The [current model catalog](/api-reference/endpoint/get) lists public API models. A browser-chat model is not automatically valid on every API protocol.
+
+</Step>
+
+<Step title="Launch and verify the agent">
+
+Start the configured client from a test project and ask:
+
+```text
+Reply with CAPRIOLE_OK and no other text.
+```
+
+Look for a non-empty answer, ideally the requested `CAPRIOLE_OK` marker. Models do not always follow exact-output prompts, so the wording may differ.
+
+Then open the [API page](https://capriole.ai?view=api) and confirm that the request appears in the usage view under the expected key and model. The usage record is the decisive check that the client used Capriole. A response alone is not enough when the client has another provider or fallback configured. The [API keys and usage guide](/guides/api-keys-usage) shows the exact filters and key lifecycle.
+
+This check does not test every tool or model feature.
+
+</Step>
+</Steps>
+
+## What success looks like
+
+| Check | Expected result |
+|---|---|
+| Environment | The client starts without a missing-key warning |
+| Authentication | The first model request does not return `401` |
+| Endpoint | The request does not return an endpoint or protocol error |
+| Model | The client accepts the configured latest alias or concrete ID |
+| Usage | The request appears in the API usage view as metered API traffic |
+
+Coding-agent requests use the Premium API balance. They are not part of unlimited Premium browser chat. Read [Capriole AI charged tokens](/articles/charged-tokens) before running a large automated workload.
+
+## Fix common setup failures
+
+| Symptom | Likely cause | Fix |
+|---|---|---|
+| `401` or missing Bearer token | The client did not receive the Capriole key | Export the client-specific variable in the same shell that starts the agent |
+| `404` or protocol error | The base URL includes or omits `/v1` incorrectly | Copy the exact base URL from the matching integration page |
+| Unsupported model | The model does not belong to that protocol | Start with `openai-latest` for Responses or `claude-latest` for Messages |
+| Client uses another provider | A built-in provider or project override takes precedence | Select the custom Capriole provider and restart the client |
+| Agent stops after the allowance is used | Coding-agent traffic consumed the API balance | Review API usage and add a top-up while the Premium membership is active |
+
+## Choose the next page
+
+Read [One API for Codex, Claude Code, OpenCode, and OpenClaw](/articles/coding-agent-compatibility) when you need the compatibility model behind these routes. For direct application code, continue with the [OpenAI and Anthropic SDK guide](/guides/openai-anthropic-sdks).
+
+**Facts checked:** 2026-08-10.

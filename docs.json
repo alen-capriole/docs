@@ -58,6 +58,21 @@
         ]
       },
       {
+        "tab": "Guides",
+        "groups": [
+          {
+            "group": "How-to guides",
+            "pages": [
+              "guides/files-web-search",
+              "guides/api-keys-usage",
+              "guides/one-api-key-coding-agents",
+              "guides/openai-anthropic-sdks",
+              "guides/chat-storage"
+            ]
+          }
+        ]
+      },
+      {
         "tab": "Articles",
         "groups": [
           {
@@ -73,8 +88,8 @@
               "articles/capriole-ai-vs-typingmind",
               "articles/switch-models-mid-chat",
               "articles/coding-agent-compatibility",
-              "articles/chat-storage-modes",
-              "articles/unified-model-api"
+              "articles/unified-model-api",
+              "articles/charged-tokens"
             ]
           }
         ]

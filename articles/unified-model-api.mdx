@@ -69,6 +69,8 @@ Programmatic workloads are metered. Capriole records usage from the metadata sup
 
 Premium currently includes **5 million charged API tokens per month**. Capriole counts uncached input and output at 100% and cached input at 10% for this balance. Additional token packs are available as top-ups. The unlimited part of Premium applies to browser chat across the supported Premium model set, not to API or coding-agent traffic.
 
+The [charged-token article](/articles/charged-tokens) gives the exact formula, rounding rule, and reproducible examples.
+
 This distinction avoids an impossible promise. A casual browser conversation and an automated workload processing millions of tokens should not share an invisible unlimited allowance.
 
 ## What the unified layer actually provides
@@ -85,11 +87,32 @@ The useful common layer is not one response schema. It is the surrounding produc
 
 The protocol remains explicit because clients depend on it.
 
+## How we test compatibility
+
+Capriole documents a route as supported after its protocol contract and a representative real client flow both pass. A successful text prompt is an initial check. Streaming, tool-result turns, alias resolution, usage accounting, and negative protocol tests provide the rest of the evidence.
+
+On 2026-08-10, the focused public-route and file-conversion suites completed **68 automated tests** against controlled upstream responses, not production live calls. Separate local upstream and coding-agent runs check behavior that a mocked endpoint cannot prove.
+
+| Test lane | Verified evidence | Current boundary |
+|---|---|---|
+| OpenAI Responses | Non-streaming output, SSE completion, function call, stateless function-result follow-up, and `openai-latest` | OpenAI Responses models only |
+| Chat Completions | Non-streaming output, SSE completion, tool call, tool-result follow-up, and all three maintained latest aliases | The selected model must support the compatible route |
+| Anthropic Messages | Non-streaming output, Anthropic SSE, `tool_use`, `tool_result`, and `claude-latest` | Claude Messages models only |
+| Latest aliases | Endpoint gating, canonical resolution, canonical usage rows, and representative client runs | Aliases are input selectors and do not create a separate usage model |
+| Files in Browser Chat | File-kind detection, conversion, and model-payload assembly for images, PDFs, text, DOCX, PPTX, CSV, XLS, and XLSX | This evidence belongs to the Browser Chat workspace |
+| Files through the public API | No published cross-protocol pass | Capriole does not claim one universal file contract across Responses, Chat Completions, and Messages |
+
+Stream checks consume the full response and require each protocol's own terminal event. Responses ends with its completion event, Chat Completions reaches `[DONE]`, and Messages reaches `message_stop`. Tool tests send the tool result back and require the final assistant turn.
+
+Negative tests keep the protocol boundary visible. `google-latest` fails on Responses, while `openai-latest` fails on Messages. Capriole does not move either request to a different endpoint.
+
+Public API file support uses a separate release gate. Each candidate route needs the same small image, PDF, CSV, and DOCX fixtures, a content-specific answer, a streaming repeat where supported, and a record of the exact SDK, model ID, request shape, and test date. Until those live fixtures pass, the public API documentation follows the file formats supported by each native protocol rather than advertising a shared Capriole attachment field.
+
 ## Start with the client you already have
 
 If an application uses Chat Completions, follow the [Chat Completions reference](/api-reference/endpoint/chat-completions). If it is built on Responses, use the [Responses reference](/api-reference/endpoint/responses). Claude-native clients should use the [Messages reference](/api-reference/endpoint/messages).
 
-For a first request, begin with the [API quickstart](/quickstart). Coding-agent users can see the maintained client matrix in [One API for Coding Agents](/articles/coding-agent-compatibility).
+For a first request, begin with the [API quickstart](/quickstart). Python developers can follow the [OpenAI and Anthropic SDK guide](/guides/openai-anthropic-sdks). Coding-agent users can see the maintained client matrix in [One API for Coding Agents](/articles/coding-agent-compatibility).
 
 Capriole's job is to remove account and access fragmentation while respecting the protocol your client actually speaks.
 

@@ -1,0 +1,110 @@
+---
+title: "Manage API Keys and Track Usage in Capriole AI"
+sidebarTitle: "API Keys and Usage"
+description: "Create, name, deactivate, and delete Capriole AI API keys, then filter requests and understand cached, charged, and remaining tokens."
+---
+
+The Capriole AI API page keeps key management and usage accounting in one place. You can create named keys, disable or delete them, filter requests by time, key, model, or status, and compare raw token usage with the charged tokens deducted from your balance.
+
+API access requires an active Premium membership or eligible Team access.
+
+## Create a named API key
+
+<Steps>
+<Step title="Open the API page">
+
+Open [Capriole AI API](https://capriole.ai?view=api) and sign in. The page shows **API keys**, **Playground**, and **Usage** for an account with API access.
+
+</Step>
+
+<Step title="Create and name the key">
+
+Select **Create key**. The **Name (Optional)** field can identify the client that will use it, such as `local-codex`, `support-agent`, or `test-script`.
+
+Use separate named keys for long-lived clients or team members. That makes a request easier to attribute and lets you revoke one client without replacing every credential.
+
+</Step>
+
+<Step title="Copy the secret immediately">
+
+Select **Create**, then copy the value from the **Secret key** dialog. Capriole shows the full secret only after creation. The key list displays a masked value later.
+
+<Warning>
+Do not place the secret in source control, screenshots, support messages, or client-side application code. If the full value is lost, create a replacement key.
+</Warning>
+
+</Step>
+
+<Step title="Send one test request">
+
+Follow the [API quickstart](/quickstart) or the [OpenAI and Anthropic SDK guide](/guides/openai-anthropic-sdks). Return to **Usage** after the request completes.
+
+A model response is useful, but the usage row is the stronger confirmation. It shows that Capriole received the request under the expected key and model.
+
+</Step>
+</Steps>
+
+## Read the current balance
+
+The Usage section separates the current included quota from purchased on-demand tokens.
+
+| Summary | What it means |
+|---|---|
+| **Included usage** | Current membership quota, billing cycle, used tokens, and remaining percentage |
+| **On-demand usage** | Purchased top-up tokens, used amount, and remaining balance |
+| **Total requests** | Successful and failed requests inside the selected usage filters |
+| **Charged tokens** | Quota deducted for the filtered successful usage, alongside total and cached tokens |
+
+The **Time** filter changes the request analytics and rows. It does not change the billing cycle or recalculate the quota summary for that selected window.
+
+Read [Capriole AI Charged Tokens Explained](/articles/charged-tokens) for the cached-input formula and rounding rule.
+
+## Filter the request history
+
+Use the filters to answer one question at a time.
+
+| Filter | Available choices | Useful for |
+|---|---|---|
+| **Time** | Last 24 hours, 7 days, 30 days, or all time | Isolating a deployment or recent test |
+| **Key** | All keys or one named key | Confirming which client sent traffic |
+| **Model** | Models found in the visible usage history | Comparing traffic across model routes |
+| **Status** | All status, success, or error | Separating completed calls from failures |
+| **Member** | Team members, for owners and admins | Reviewing team traffic by person |
+
+Each request row can show the time, key, model, input tokens, cached tokens, output tokens, charged tokens, total tokens, latency, status, and an error message. Some metrics can be unavailable when an upstream response or failed request does not provide them.
+
+## Verify a client used the intended key
+
+After sending a test request:
+
+1. Set **Time** to **Last 24 hours**.
+2. Select the named **Key** used by the client.
+3. Select the expected **Model** if several models are present.
+4. Set **Status** to **Success**.
+5. Confirm that the new row has the expected time and token activity.
+
+This check catches a common setup mistake. A coding tool can produce a response through a built-in or fallback provider even when its Capriole configuration is not active. A matching Capriole usage row removes that ambiguity.
+
+## Deactivate, reactivate, or delete a key
+
+| Action | Result | Can it be reversed? |
+|---|---|---|
+| Deactivate | New requests using that key stop authenticating | Yes, turn the key back on |
+| Reactivate | The existing key can authenticate again | Yes |
+| Delete | The key is permanently removed | No |
+
+Use deactivation when you are investigating a client or temporarily stopping traffic. Delete a key after replacing it, or when the credential may have been exposed.
+
+The list shows **Created** and **Last used** values to help identify stale keys. A displayed status of **Inactive** means the key has been revoked until it is reactivated.
+
+## Team visibility
+
+Team owners and admins can filter usage by member and compare requests or charged tokens across members. A regular team member sees only the usage permitted for that member. Team top-ups and team-wide controls are also limited to eligible team roles.
+
+The usage filters do not expose Capriole's internal provider route, upstream cost, or fallback diagnostics. They report the customer-facing model, request result, and token accounting needed to manage API access.
+
+## Continue from here
+
+Use [one key with coding agents](/guides/one-api-key-coding-agents) for an initial compatibility test, or open the maintained [integration guides](/integrations/codex) for client-specific configuration. The [dated API cost comparison](/articles/ai-api-cost-comparison) explains how Capriole's quota units differ from provider input and output pricing.
+
+**Facts checked:** 2026-08-10.
