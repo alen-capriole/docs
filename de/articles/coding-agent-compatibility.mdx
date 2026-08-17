@@ -1,0 +1,94 @@
+---
+title: "Eine API für Codex, Claude Code, Copilot CLI und mehr"
+sidebarTitle: "Coding-Agent-Kompatibilität"
+description: "Sehen Sie, wie ein Capriole AI-Konto sechs gepflegte Coding-Agents über das Protokoll verbindet, das jeder Client erwartet."
+---
+
+Ein Capriole AI-Konto kann Codex, Claude Code, Kilo Code, GitHub Copilot CLI, OpenCode und OpenClaw verbinden. Premium kostet USD 8 pro Monat, umfasst 5 Millionen berechnete API-Tokens und stellt außerdem unbegrenzten Browser Chat mit der unterstützten Premium-Modellgruppe bereit.
+
+Jeder Client behält das Wire-Format, das er erwartet. Capriole unterhält OpenAI Responses-, OpenAI-kompatible Chat Completions- und Anthropic Messages-Pfade für die dokumentierten Integrationen.
+
+„OpenAI compatible“ allein beschreibt keine moderne Coding-Agent-Unterstützung.
+
+## Warum die gepflegten Pfade wichtig sind
+
+Capriole entfernt die wiederholte Anbietereinrichtung hinter diesen Clients. Eine Mitgliedschaft liefert das Konto, das API-Guthaben, die Schlüsselverwaltung, Latest-Modell-Aliase und die genaue client-spezifische Konfiguration. Sie brauchen kein getrenntes Anbieterkonto, keinen Schlüssel, kein Guthaben und keine Abrechnungsseite für jede unterstützte Modellfamilie.
+
+Das Ergebnis ist ein dokumentierter Pfad vom Browser-Arbeitsbereich zur Repository-Arbeit. Chat bleibt unter Premium unbegrenzt, während Coding-Agent-Traffic das sichtbare monatliche Guthaben von 5 Millionen abgerechneten Tokens nutzt.
+
+## Sechs Agents, mehrere Protokolle
+
+Coding-Agents können am Prompt ähnlich aussehen, ihre Modellclients sind aber nicht austauschbar.
+
+| Coding-Agent | Gepflegter Capriole-Pfad | Empfohlener Startpunkt |
+|---|---|---|
+| Codex | OpenAI Responses | [`openai-latest`](/de/integrations/codex) |
+| Claude Code | Anthropic Messages | [`claude-latest`](/de/integrations/claude-code) |
+| Kilo Code | OpenAI-kompatible Chat Completions | [`openai-latest`](/de/integrations/kilo-code) |
+| GitHub Copilot CLI | Chat Completions, Responses oder Messages | [Einen dokumentierten Protokollpfad wählen](/de/integrations/github-copilot-cli) |
+| OpenCode | OpenAI Responses, Chat Completions oder Anthropic Messages | [Einen dokumentierten Anbieterpfad wählen](/de/integrations/opencode) |
+| OpenClaw | OpenAI Responses, Anthropic Messages oder kompatibler Chat | [Einen dokumentierten Anbieterpfad wählen](/de/integrations/openclaw) |
+
+Dasselbe Konto und API-Guthaben stehen hinter diesen Integrationen. Die Anfrageform folgt weiterhin dem Client.
+
+Codex sendet Responses-Anfragen. Claude Code sendet Anthropic Messages-Anfragen und kann Token-Zähl-Preflight nutzen, wenn der gewählte Anbieter ihn unterstützt. Kilo Code verwendet Chat Completions. GitHub Copilot CLI, OpenCode und OpenClaw können mit unterschiedlichen Protokoll- oder Anbieterpfaden konfiguriert werden, ihre Einrichtung hängt daher von der Modellfamilie und dem Protokoll ab, das Sie wählen.
+
+Capriole bewahrt diese Unterscheidungen. Seine öffentliche Responses-Route wird nicht still in Chat Completions umgewandelt, und seine Messages-Route wird nicht in eine OpenAI-Antwort umgeschrieben.
+
+## Warum ein Schlüssel nützlich ist
+
+Ohne eine gemeinsame Zugangsschicht bedeutet das Ausprobieren mehrerer Coding-Agents oft, dieselbe Verwaltungsarbeit zu wiederholen:
+
+- Konten bei unterschiedlichen Modellanbietern erstellen oder pflegen;
+- Abrechnungsdaten und Guthaben an mehreren Stellen hinzufügen;
+- mehrere API-Schlüssel speichern;
+- lernen, welchen Modellnamen und welche Base URL jeder Client erwartet;
+- jede Konfiguration erneut prüfen, wenn ein bevorzugtes Modell wechselt.
+
+Capriole reduziert diese Einrichtung auf ein Konto und einen Capriole API-Schlüssel. Die Integrationsanleitungen liefern die genaue Base URL, den Modellwähler und die client-spezifischen Felder.
+
+Die Agents behalten ihre eigenen Oberflächen, Tool-Systeme, Berechtigungsmodelle und lokales Ausführungsverhalten. Capriole liefert Modellzugang; jeder Coding-Agent entscheidet weiterhin, wie Dateien bearbeitet, Tools ausgeführt und das Ergebnis dargestellt werden.
+
+## Latest-Aliase reduzieren Wartung
+
+Modell-Releases bewegen sich schnell. Eine an eine konkrete Modell-ID gebundene Konfiguration ist für reproduzierbare Arbeit nützlich, braucht aber auch manuelle Updates, wenn Sie den neuesten unterstützten Standard möchten.
+
+Capriole stellt gepflegte Aliase für unterstützte öffentliche Pfade bereit:
+
+- `openai-latest` für die gepflegte OpenAI-Route;
+- `claude-latest` für die gepflegte Claude-Route;
+- `google-latest` auf kompatiblen öffentlichen Chat-Pfaden.
+
+Der Alias wird vor Upstream-Weiterleitung und Nutzungserfassung aufgelöst. Der Coding-Agent sendet den stabilen Auswähler; Capriole erfasst das aufgelöste Modell, das die Anfrage verarbeitet hat.
+
+Konkrete Modell-IDs bleiben nützlich, wenn eine genaue Version für ein Audit, einen Test oder ein langlebiges Projekt zählt. „Latest“ ist eine Erleichterung, kein Ersatz für Versionsfestlegung.
+
+## Was getestet wurde
+
+Die gepflegte Einrichtung folgt tatsächlichen Client-Pfaden und Tests.
+
+Lokale Validierung deckt alle sechs Clients über ihre dokumentierten Konfigurationen ab. Tests umfassen grundlegende Prompts und unterstützte Tool-Interaktionsflows.
+
+Es gibt client-spezifische Limits. Codex bleibt auf den gepflegten OpenAI Responses-Modellen; die Auswahl eines Claude-Modells in Capriole macht es nicht zu einem Codex-kompatiblen Modell. Claude Code verwendet den Claude Messages-Pfad. Kilo Code verwendet Chat Completions. GitHub Copilot CLI, OpenCode und OpenClaw bieten breitere Wahlmöglichkeiten, ihre Konfiguration muss aber weiterhin zum gewählten Protokoll passen.
+
+Die in der Tabelle verlinkten Integrationsanleitungen sind die Quelle der Wahrheit für aktuelle Felder und unterstützte Auswähler.
+
+Lesen Sie [wie Capriole die Multi-Modell-API-Kompatibilität testet](/de/articles/unified-model-api#wie-wir-die-kompatibilität-testen) für den Unterschied zwischen Routenabdeckung und einem echten Coding-Agent-Durchlauf.
+
+## Browser Chat und Coding-Agents lösen unterschiedliche Teile der Aufgabe
+
+Recherche, Entwürfe, Dateien, Web Search und Modelländerungen mitten in der Unterhaltung können im Browser-Arbeitsbereich bleiben. Wenn die Aufgabe Repository-Kontext, lokale Tools oder Dateiänderungen braucht, kann ein Coding-Agent dasselbe Capriole-Konto nutzen.
+
+Capriole verbindet beide Flächen mit demselben Konto. Eine Premium-Mitgliedschaft kostet derzeit **USD 8 pro Monat**, umfasst unbegrenzten Browser Chat über die unterstützte Premium-Modellgruppe und fügt **5 Millionen berechnete API-Tokens jeden Monat** hinzu. Coding-Agent-Nutzung ist API-Nutzung, greift also auf dieses gemessene Guthaben zu und nicht auf das unbegrenzte Browser-Chat-Kontingent.
+
+Der Plan hält die beiden Arbeitslasten getrennt. Alltäglicher Browser Chat ist unter Premium unbegrenzt, während programmatische und Agent-Arbeitslasten sichtbare berechnete API-Tokens nutzen, mit Aufstockungen wenn nötig.
+
+## Wählen Sie zuerst den Agent, folgen Sie dann seinem Protokoll
+
+Nutzen Sie Codex, wenn sein Responses-basierter OpenAI-Workflow zur Aufgabe passt. Nutzen Sie Claude Code, wenn Sie seinen Anthropic-nativen Client möchten. Kilo Code bietet einen IDE- oder Terminal-Workflow über Chat Completions. GitHub Copilot CLI, OpenCode und OpenClaw bieten mehr Protokollwahl.
+
+Jeder dokumentierte Client erhält eine gepflegte Route zu den von diesem Protokoll unterstützten Modellen.
+
+[Probieren Sie GPT-5.6 Thinking, Claude Fable 5 oder Gemini 3.1 Pro im begrenzten kostenlosen Browser Chat](https://capriole.ai) und upgraden Sie, wenn Sie bereit sind, einen API-Schlüssel zu erstellen. Beginnen Sie mit der [Ein-Schlüssel-Coding-Agent-Anleitung](/de/guides/one-api-key-coding-agents) für den gemeinsamen Workflow und öffnen Sie dann die Integrationsseite für den Agent, den Sie nutzen.
+
+**Fakten geprüft:** 2026-08-11.

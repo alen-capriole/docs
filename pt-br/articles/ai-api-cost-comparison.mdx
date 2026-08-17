@@ -1,0 +1,112 @@
+---
+title: "Teste de custo da API com 5M tokens: direto vs OpenRouter vs Capriole"
+sidebarTitle: "Comparação de custo da API de IA"
+description: "Um teste reproduzível de carga de trabalho fixa de 5M tokens para Claude Fable 5, Gemini 3.1 Pro Preview e Gemini 3.5 Flash nas APIs diretas, no OpenRouter e na Capriole AI."
+---
+
+Para a carga de trabalho fixa de 5 milhões de tokens abaixo, **a Capriole custa USD 8** para Claude Fable 5, Gemini 3.1 Pro Preview ou Gemini 3.5 Flash. Os mesmos modelos custam **USD 15 a USD 90** nos preços de lista Standard pagos, enquanto o total em dinheiro calculado do OpenRouter é **USD 15.83 a USD 94.95** depois da taxa publicada de compra de créditos.
+
+Isso torna a Capriole a opção de custo bem menor nas três linhas verificadas. A compra de USD 8 também é uma assinatura Premium completa: inclui Browser Chat ilimitado no conjunto de modelos Premium suportado e os primeiros 5 milhões de tokens cobrados mensais da API.
+
+Esta é uma comparação reproduzível, não uma promessa universal de preço. Ela mantém a mistura de tokens constante e usa preços públicos conferidos em 2026-08-12.
+
+## A comparação de 5 milhões de tokens
+
+A tabela mantém constantes as contagens de tokens cobrados, não o texto-fonte nem a carga semântica. Os tokenizers diferem entre famílias de modelo. O cenário usa 100 solicitações com 40,000 tokens de entrada sem cache e 10,000 tokens de saída cada, mantendo cada prompt abaixo do limiar de 200,000 tokens do Google. Ele exclui leituras e gravações de cache, ferramentas, níveis gratuitos, níveis alternativos de serviço, processamento em lote, impostos e preços promocionais.
+
+| Modelo exato | Premium pessoal novo da Capriole | Standard pago direto | OpenRouter na mesma taxa de inferência exibida | Créditos do OpenRouter e taxa de compra | Preço Standard publicado de entrada / saída por 1M tokens |
+|---|---:|---:|---:|---:|---:|
+| `claude-fable-5` | **USD 8.00*** | USD 90.00 | USD 90.00 | USD 94.95 | USD 10 / USD 50 |
+| `gemini-3.1-pro-preview` | **USD 8.00*** | USD 20.00 | USD 20.00 | USD 21.10 | USD 2 / USD 12 |
+| `gemini-3.5-flash` | **USD 8.00*** | USD 15.00 | USD 15.00 | USD 15.83 | USD 1.50 / USD 9 |
+
+\* O Premium custa USD 8 por mês e inclui Browser Chat ilimitado no conjunto de modelos Premium suportado mais os primeiros 5 milhões de tokens cobrados mensais. Este é o preço público de compra do cliente novo para esse pacote completo de espaço de trabalho, não uma taxa de token por modelo nem um custo marginal de inferência. Um membro Premium existente com saldo incluído suficiente não paga dinheiro adicional por este uso. Depois que a cota incluída é usada, um pacote adicional de 5 milhões de tokens cobrados tem preço-base de USD 8. Recargas pessoais exigem acesso Premium pessoal ativo.
+
+[Experimente a Capriole AI no Browser Chat gratuito limitado](https://capriole.ai) antes de assinar o Premium para o espaço de trabalho completo e o acesso à API.
+
+## Como reproduzir o cálculo
+
+Os provedores diretos publicam preços separados para entrada e saída. Para esta carga de trabalho, a fórmula é:
+
+```text
+direct_cost = 4 × input_price_per_1M + 1 × output_price_per_1M
+```
+
+Claude Fable 5, portanto, custa:
+
+```text
+4 × USD 10 + 1 × USD 50 = USD 90
+```
+
+O OpenRouter afirma que repassa o preço de inferência do provedor selecionado sem markup. O plano pay-as-you-go lista uma taxa de 5.5%, com mínimo de USD 0.80, quando créditos são comprados. Na taxa de inferência exibida, o cálculo em dinheiro é:
+
+```text
+openrouter_cash = inference_cost + max(USD 0.80, inference_cost × 0.055)
+USD 90 + max(USD 0.80, USD 4.95) = USD 94.95
+```
+
+A mesma aritmética produz USD 21.10 para Gemini 3.1 Pro Preview. Gemini 3.5 Flash produz USD 15.825, arredondado para USD 15.83. A taxa percentual excede o mínimo de USD 0.80 nas três linhas.
+
+O OpenRouter pode rotear o mesmo modelo para provedores ou níveis de serviço diferentes, e o fallback pode mudar o endpoint que atende a uma solicitação. A tabela, portanto, compara a taxa de inferência correspondente exibida; ela não garante a conta de toda configuração padrão de roteamento.
+
+## Por que a Capriole usa uma unidade diferente
+
+O saldo público do cliente da Capriole não copia a tabela de preços de entrada e saída de cada provedor. Ele deduz um saldo unificado chamado tokens cobrados:
+
+```text
+charged_tokens = uncached_input + ceil(cached_input × 0.1) + output
+```
+
+Entrada sem cache e saída contam 100%. Entrada em cache conta 10%. O exemplo não tem entrada em cache, então 4 milhões de tokens de entrada mais 1 milhão de tokens de saída consomem 5 milhões de tokens cobrados.
+
+Um token cobrado é uma unidade de saldo da conta. Não é a mesma coisa que o preço de token de entrada ou de saída de um provedor. A tabela compara o que a carga de trabalho fixa custa em cada sistema de cobrança; ela não afirma que as unidades de preço sejam intercambiáveis. [Tokens cobrados da Capriole AI explicados](/pt-br/articles/charged-tokens) traz três exemplos adicionais, o comportamento de arredondamento e o limite de cota do Premium.
+
+## O que USD 8 inclui além do saldo da API
+
+APIs diretas e o OpenRouter permitem pagar por inferência sem uma assinatura da Capriole. Esta tabela cobre uma assinatura Premium pessoal nova. O acesso à API da Capriole, de outro modo, exige um direito pessoal ou Team ativo elegível; o preço do Team está fora desta comparação.
+
+O plano Premium de USD 8 inclui:
+
+- Browser Chat ilimitado no conjunto de modelos Premium suportado
+- Os primeiros 5 milhões de tokens cobrados mensais da API
+- Acesso à API pública e às integrações mantidas de agentes de programação
+- Um espaço de trabalho no navegador com troca de modelo, arquivos, pesquisa na web e controles de armazenamento do chat
+
+Antes de assinar, visitantes sem login e usuários Free podem experimentar GPT-5.6 Thinking, Claude Fable 5 e Gemini 3.1 Pro no Browser Chat limitado. Esse teste gratuito dos modelos principais é separado da tabela de custo dos três modelos acima.
+
+Para o usuário-alvo que quer chat com modelos de fronteira e acesso programático juntos, esta é a vantagem prática: um preço mensal baixo cobre o espaço de trabalho diário no navegador e uma cota útil de API. A mesma conta também funciona com [seis integrações mantidas de agentes de programação](/pt-br/articles/coding-agent-compatibility).
+
+Os primeiros 5 milhões de tokens não devem ser descritos como um produto avulso de API de USD 8. O pagamento compra o pacote Premium completo. Um membro Premium pessoal ativo que precisa de outros 5 milhões de tokens cobrados pode comprar um pacote de recarga de USD 8.
+
+## Quando a tabela não vai prever a sua conta
+
+O exemplo exclui vários caminhos de preço que podem mudar o custo de forma material:
+
+- **Cache**: os provedores precificam gravações e leituras de cache separadamente. A Capriole conta entrada em cache a 10% na fórmula de tokens cobrados.
+- **Prompts longos**: Gemini 3.1 Pro Preview cobra taxas mais altas quando um prompt individual excede 200,000 tokens.
+- **Níveis de serviço e processamento em lote**: níveis Free, Flex, Priority, Batch ou outros do provedor podem diferir das taxas Standard pagas usadas aqui.
+- **Roteamento do OpenRouter**: o endpoint ou o fallback que atende a uma solicitação pode ter um preço diferente da taxa correspondente usada na tabela.
+- **Ferramentas e busca**: ferramentas no servidor, grounding e busca podem adicionar cobranças de solicitação ou uso.
+- **Cargas de trabalho pesadas em saída**: a tabela usa uma divisão 80/20 de entrada para saída. Mais saída eleva os custos diretos e do OpenRouter mais depressa em modelos com um grande prêmio de preço de saída.
+- **Termos empresariais**: descontos de volume, ofertas privadas, residência de dados e compromissos negociados podem substituir os preços públicos de lista.
+
+Recalcule com o modelo, a mistura de tokens e os recursos esperados antes de escolher um provedor.
+
+## A escolha prática
+
+Escolha a Capriole quando o conjunto de modelos suportado cobrir o seu trabalho e você quiser o total em dinheiro verificado mais baixo nesta comparação, Browser Chat ilimitado no Premium, uso de API incluído e caminhos mantidos de agentes de programação em uma conta.
+
+Em todas as linhas testadas, a Capriole entrega o total verificado mais baixo e inclui mais do que inferência. A mesma compra de USD 8 adiciona o espaço de trabalho no navegador, o ponto de entrada gratuito antes de pagar, o chat ilimitado no Premium e as integrações mantidas de agentes de programação. APIs diretas e o OpenRouter cobram mais pela carga de trabalho fixa sem incluir esse pacote de espaço de trabalho da Capriole.
+
+Você pode [experimentar a Capriole AI no Browser Chat gratuito limitado](https://capriole.ai) antes de assinar. Para uma comparação mais ampla de produto, leia [Capriole AI vs OpenRouter](/pt-br/articles/capriole-ai-vs-openrouter). Desenvolvedores podem continuar com o [início rápido da API](/pt-br/quickstart).
+
+## Fontes oficiais
+
+- Anthropic: [Preços da API Claude](https://platform.claude.com/docs/en/about-claude/pricing)
+- Google: [Preços da Gemini Developer API](https://ai.google.dev/gemini-api/docs/pricing)
+- OpenRouter: [preços](https://openrouter.ai/pricing), [FAQ de cobrança](https://openrouter.ai/docs/faq), [preços do Claude Fable 5](https://openrouter.ai/anthropic/claude-fable-5/pricing), [provedores do Gemini 3.1 Pro Preview](https://openrouter.ai/google/gemini-3.1-pro-preview/providers) e [preços do Gemini 3.5 Flash](https://openrouter.ai/google/gemini-3.5-flash/pricing)
+- Capriole AI: [produto e plano públicos](https://capriole.ai) e [catálogo público atual de modelos](https://api.caprioletech.com/v1/models)
+
+Os fatos de plano, recarga e tokens cobrados da Capriole nesta página são mantidos como documentação de primeira parte. A comparação usa só preços públicos para clientes e regras de cota.
+
+**Preços e fatos verificados:** 2026-08-12.

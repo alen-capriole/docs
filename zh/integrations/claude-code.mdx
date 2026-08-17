@@ -1,0 +1,118 @@
+---
+title: "Claude Code"
+description: "配置 Claude Code 使用 Capriole AI。"
+---
+
+## Claude Code 是什么
+
+Claude Code 是 Anthropic 推出的代理式编程工具，可以读取代码库、编辑文件、运行命令并与开发工具集成。这套 CLI 配置通过设置 Claude Code 的 API 端点、身份验证 Token 和模型环境变量来使用 Capriole AI。
+
+## 前置条件
+
+开始前请确保你已经拥有以下内容。
+
+- Capriole AI 账户，可在[此处注册](https://capriole.ai)
+- Capriole AI API Key，可在[此处获取](https://capriole.ai?view=api)
+
+## 安装
+
+```bash
+npm install -g @anthropic-ai/claude-code
+```
+
+## 配置
+
+创建或更新 `~/.claude/settings.json`，让配置长期生效。
+
+```json
+{
+  "model": "claude-latest",
+  "effortLevel": "high",
+  "env": {
+    "ANTHROPIC_BASE_URL": "https://api.caprioletech.com",
+    "ANTHROPIC_AUTH_TOKEN": "YOUR_CAPRIOLE_AI_API_KEY",
+    "ANTHROPIC_MODEL": "claude-latest",
+    "ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-latest",
+    "ANTHROPIC_DEFAULT_SONNET_MODEL": "claude-latest",
+    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "claude-latest",
+    "ANTHROPIC_SMALL_FAST_MODEL": "claude-latest",
+    "CLAUDE_CODE_SUBAGENT_MODEL": "claude-latest"
+  }
+}
+```
+
+如果只想在当前 Shell 中使用，请在启动 Claude Code 前导出相同的值。
+
+```bash
+export ANTHROPIC_BASE_URL="https://api.caprioletech.com"
+export ANTHROPIC_AUTH_TOKEN="YOUR_CAPRIOLE_AI_API_KEY"
+
+export ANTHROPIC_MODEL="claude-latest"
+export ANTHROPIC_DEFAULT_OPUS_MODEL="claude-latest"
+export ANTHROPIC_DEFAULT_SONNET_MODEL="claude-latest"
+export ANTHROPIC_DEFAULT_HAIKU_MODEL="claude-latest"
+export ANTHROPIC_SMALL_FAST_MODEL="claude-latest"
+export CLAUDE_CODE_SUBAGENT_MODEL="claude-latest"
+```
+
+## 运行 Claude Code
+
+保存 `~/.claude/settings.json` 或导出变量后，在项目目录中启动 Claude Code。
+
+```bash
+claude
+```
+
+如果不保存设置文件，只进行一次非交互式运行，请明确传入模型。
+
+```bash
+claude --model claude-latest -p "Explain this repository."
+```
+
+## 支持的模型
+
+Claude Code 可以通过 Capriole AI 使用 Claude latest、Fable 5、Opus 5、Opus 4.8、Opus 4.7、Opus 4.6 和 Sonnet 4.6。新配置请使用 `claude-latest`，它会解析到 Fable 5。
+
+- `claude-latest`
+- `claude-fable-5`
+- `claude-opus-5`
+- `claude-opus-4-8`
+- `claude-opus-4-7`
+- `claude-opus-4-6`
+- `claude-sonnet-4-6`
+
+## 故障排除
+
+### 为什么 Claude Code 返回身份验证错误
+
+启动 `claude` 前，确认已在同一个 Shell 中导出 `ANTHROPIC_AUTH_TOKEN`。此配置应使用 `ANTHROPIC_AUTH_TOKEN`，不要使用 `ANTHROPIC_API_KEY`。
+
+### 为什么请求出现端点错误
+
+确认 `ANTHROPIC_BASE_URL` 是不含 `/v1` 的 `https://api.caprioletech.com`。Claude Code 会向 `/v1/messages` 和 `/v1/messages/count_tokens` 发送请求。
+
+### 为什么 Claude Code 没有使用 Claude latest
+
+确认启动前已经设置 `model`、`ANTHROPIC_MODEL`、`ANTHROPIC_SMALL_FAST_MODEL` 和默认模型环境变量，然后通过 `/model` 或 `/status` 检查当前会话或设置是否覆盖了这些值。
+
+### 为什么 Claude Code 没有使用配置的思考强度
+
+在 `~/.claude/settings.json` 中设置 `"effortLevel": "high"`，然后重新启动 Claude Code。Claude Code 设置接受 `low`、`medium`、`high` 和 `xhigh`，`effortLevel` 不接受 `max`。
+
+如需在会话中使用最高思考强度，请使用 `/effort max`、通过 `claude --effort max` 启动，或者在启动 `claude` 前设置 `CLAUDE_CODE_EFFORT_LEVEL=max`。
+
+### 为什么 Claude Code 无法选择具体的 Opus 模型
+
+通过 `claude update` 更新 Claude Code，然后运行 `claude --version`。
+
+### 为什么 Token 计数或启动时的模型发现失败
+
+保留模型环境变量，并确认模型 ID 是 `claude-latest` 或受支持的具体 Claude 模型 ID。Capriole AI 会把 `/v1/messages/count_tokens` 代理到所选上游，因此 Token 计数预检取决于该上游是否支持 Anthropic Token 计数。
+
+## 说明
+
+- `~/.claude/settings.json` 会跨项目应用于当前用户账户。请将 `YOUR_CAPRIOLE_AI_API_KEY` 作为占位符，并替换为实际的 Capriole AI API Key。
+- `ANTHROPIC_BASE_URL` 决定 Claude Code 把请求发送到哪里。模型环境变量控制请求中发送的模型 ID。
+- `ANTHROPIC_SMALL_FAST_MODEL` 应与 `claude-latest` 保持一致，这样 Claude Code 的辅助请求和主对话会使用同一个 Capriole AI latest 别名。
+- 此配置把 `high` 作为文档中的默认思考强度。`xhigh` 也可以持久化到 `effortLevel`，而 `max` 是会话级覆盖项，可能消耗更多 Thinking Token。
+- 官方参考资料包括 [Claude Code 设置](https://code.claude.com/docs/en/setup)、[环境变量](https://code.claude.com/docs/en/env-vars)、[模型配置](https://code.claude.com/docs/en/model-config)和 [Claude 思考强度](https://platform.claude.com/docs/en/build-with-claude/effort)。

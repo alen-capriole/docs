@@ -1,0 +1,42 @@
+---
+title: "列出模型"
+description: "返回当前公开模型目录。"
+openapi: "api-reference/openapi.json GET /v1/models"
+---
+
+使用此端点获取当前公开模型目录。
+
+模型目录会先列出提供商级别的 latest alias，再列出具体模型 ID。
+
+- `openai-latest`
+- `claude-latest`
+- `google-latest`
+
+如果希望 Capriole AI 为对应提供商选择当前推荐的旗舰模型，请使用 latest alias。如果需要固定到一个特定模型版本，请使用具体模型 ID。
+
+| 模型选择 | 适用场景 |
+| --- | --- |
+| `openai-latest`、`claude-latest`、`google-latest` | 配置一次，让 Capriole AI 持续使用当前推荐的旗舰模型 |
+| `openai/gpt-5.6-terra` 等具体模型 ID | 固定到一个特定模型版本 |
+
+在 `POST /v1/chat` 和 `POST /v1/chat/completions` 中，latest alias 按以下方式解析。
+
+| Latest alias | 解析结果 |
+| --- | --- |
+| `openai-latest` | `openai/gpt-5.6-terra` |
+| `claude-latest` | `anthropic/claude-fable-5` |
+| `google-latest` | `google/gemini-3.1-pro-preview` |
+
+| 端点 | 支持的 latest alias |
+| --- | --- |
+| `POST /v1/chat` | `openai-latest`、`claude-latest`、`google-latest` |
+| `POST /v1/chat/completions` | `openai-latest`、`claude-latest`、`google-latest` |
+| `POST /v1/responses` | `openai-latest` |
+| `POST /v1/messages` | `claude-latest` |
+| `POST /v1/messages/count_tokens` | `claude-latest` |
+
+Anthropic Messages 端点也接受 `claude-fable-5`、`claude-opus-5`、`claude-opus-4-8`、`claude-opus-4-7`、`claude-opus-4-6` 和 `claude-sonnet-4-6` 等不带提供商前缀的具体 Claude Messages 模型 ID。
+
+在 `POST /v1/messages` 和 `POST /v1/messages/count_tokens` 中，`claude-latest` 会解析为 `claude-fable-5`，与 Chat 和 Chat Completions 的 latest alias 保持一致。
+
+请使用上面列出的 alias ID，不要添加提供商前缀。`openai/openai-latest` 这样的写法属于客户端的提供商选择格式，不是 Capriole AI 模型 ID。

@@ -1,0 +1,42 @@
+---
+title: "Listar modelos"
+description: "Retorna o catálogo público atual de modelos."
+openapi: "api-reference/openapi.json GET /v1/models"
+---
+
+Use este endpoint para obter o catálogo público atual de modelos.
+
+O catálogo inclui aliases latest no nível do provedor antes dos IDs de modelo concretos:
+
+- `openai-latest`
+- `claude-latest`
+- `google-latest`
+
+Use um alias latest quando quiser que a Capriole AI escolha o modelo principal que recomendamos para aquele provedor. Use um ID de modelo concreto quando precisar de uma versão exata.
+
+| Escolha de modelo | Melhor para |
+| --- | --- |
+| `openai-latest`, `claude-latest`, `google-latest` | Configure uma vez e deixe a Capriole AI manter você no modelo principal recomendado |
+| IDs de modelo concretos, como `openai/gpt-5.6-terra` | Fixar uma versão exata do modelo |
+
+Os aliases latest são resolvidos da seguinte forma em `POST /v1/chat` e `POST /v1/chat/completions`:
+
+| Alias latest | Resolve para |
+| --- | --- |
+| `openai-latest` | `openai/gpt-5.6-terra` |
+| `claude-latest` | `anthropic/claude-fable-5` |
+| `google-latest` | `google/gemini-3.1-pro-preview` |
+
+| Endpoint | Aliases latest |
+| --- | --- |
+| `POST /v1/chat` | `openai-latest`, `claude-latest`, `google-latest` |
+| `POST /v1/chat/completions` | `openai-latest`, `claude-latest`, `google-latest` |
+| `POST /v1/responses` | `openai-latest` |
+| `POST /v1/messages` | `claude-latest` |
+| `POST /v1/messages/count_tokens` | `claude-latest` |
+
+Os endpoints Anthropic Messages também aceitam IDs concretos de Claude Messages sem prefixo, como `claude-fable-5`, `claude-opus-5`, `claude-opus-4-8`, `claude-opus-4-7`, `claude-opus-4-6` e `claude-sonnet-4-6`.
+
+Em `POST /v1/messages` e `POST /v1/messages/count_tokens`, `claude-latest` resolve para `claude-fable-5`, alinhado ao alias latest de Chat e Chat Completions.
+
+Use os IDs de alias sem prefixo mostrados acima. Prefixos de provedor como `openai/openai-latest` são padrões de seletor no lado do cliente, não IDs de modelo da Capriole AI.

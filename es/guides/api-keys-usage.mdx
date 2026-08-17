@@ -1,0 +1,112 @@
+---
+title: "Gestiona claves API y sigue el uso en Capriole AI"
+sidebarTitle: "Claves API y uso"
+description: "Crea, nombra, desactiva y elimina claves API de Capriole AI, filtra solicitudes y entiende los tokens en caché, cobrados y restantes."
+---
+
+La página de API de Capriole AI reúne la gestión de claves y la contabilidad de uso en un solo lugar. Puedes crear claves con nombre, deshabilitarlas o eliminarlas, filtrar solicitudes por tiempo, clave, modelo o estado, y comparar el uso bruto de tokens con los tokens cobrados descontados de tu saldo.
+
+El acceso a la API requiere una membresía Premium activa o acceso Team elegible. Premium personal cuesta USD 8 al mes e incluye 5 millones de tokens cobrados de API junto con chat ilimitado del navegador en el conjunto de modelos Premium compatible. La misma cuenta cubre por tanto el chat cotidiano, el código de aplicación y los agentes de programación sin claves de proveedor ni páginas de facturación separadas.
+
+## Crea una clave API con nombre
+
+<Steps>
+<Step title="Abre la página de API">
+
+Abre [Capriole AI API](https://capriole.ai?view=api) e inicia sesión. La página muestra **API keys**, **Playground** y **Usage** para una cuenta con acceso a la API.
+
+</Step>
+
+<Step title="Crea y nombra la clave">
+
+Selecciona **Create key**. El campo **Name (Optional)** puede identificar al cliente que la usará, como `local-codex`, `support-agent` o `test-script`.
+
+Usa claves con nombre separadas para clientes de larga duración o miembros del equipo. Así es más fácil atribuir una solicitud y puedes revocar un cliente sin reemplazar todas las credenciales.
+
+</Step>
+
+<Step title="Copia el secreto de inmediato">
+
+Selecciona **Create** y luego copia el valor del diálogo **Secret key**. Capriole muestra el secreto completo solo después de crearlo. La lista de claves muestra después un valor enmascarado.
+
+<Warning>
+No pongas el secreto en el control de versiones, capturas de pantalla, mensajes de soporte o código de aplicación del lado del cliente. Si se pierde el valor completo, crea una clave de reemplazo.
+</Warning>
+
+</Step>
+
+<Step title="Envía una solicitud de prueba">
+
+Sigue el [inicio rápido de la API](/es/quickstart) o la [guía de los SDK de OpenAI y Anthropic](/es/guides/openai-anthropic-sdks). Vuelve a **Usage** cuando la solicitud termine.
+
+Una respuesta del modelo es útil, pero la fila de uso es la confirmación más sólida. Muestra que Capriole recibió la solicitud con la clave y el modelo esperados.
+
+</Step>
+</Steps>
+
+## Lee el saldo actual
+
+La sección Usage separa la cuota incluida actual de los tokens on-demand comprados.
+
+| Resumen | Qué significa |
+|---|---|
+| **Included usage** | Cuota de membresía actual, ciclo de facturación, tokens usados y porcentaje restante |
+| **On-demand usage** | Tokens de recarga comprados, cantidad usada y saldo restante |
+| **Total requests** | Solicitudes exitosas y fallidas dentro de los filtros de uso seleccionados |
+| **Charged tokens** | Cuota descontada por el uso exitoso filtrado, junto con los tokens totales y en caché |
+
+El filtro **Time** cambia el análisis y las filas de solicitudes. No cambia el ciclo de facturación ni recalcula el resumen de cuota para esa ventana seleccionada.
+
+Lee [Tokens cobrados de Capriole AI explicados](/es/articles/charged-tokens) para la fórmula de entrada en caché y la regla de redondeo.
+
+## Filtra el historial de solicitudes
+
+Usa los filtros para responder una pregunta a la vez.
+
+| Filtro | Opciones disponibles | Útil para |
+|---|---|---|
+| **Time** | Last 24 hours, 7 days, 30 days o all time | Aislar un despliegue o una prueba reciente |
+| **Key** | Todas las claves o una clave con nombre | Confirmar qué cliente envió tráfico |
+| **Model** | Modelos encontrados en el historial de uso visible | Comparar tráfico entre rutas de modelo |
+| **Status** | All status, success o error | Separar llamadas completadas de fallos |
+| **Member** | Miembros del equipo, para owners y admins | Revisar el tráfico del equipo por persona |
+
+Cada fila de solicitud puede mostrar la hora, la clave, el modelo, los tokens de entrada, los tokens en caché, los tokens de salida, los tokens cobrados, los tokens totales, la latencia, el estado y un mensaje de error. Algunas métricas pueden no estar disponibles cuando una respuesta de upstream o una solicitud fallida no las proporciona.
+
+## Verifica que un cliente usó la clave prevista
+
+Después de enviar una solicitud de prueba:
+
+1. Define **Time** en **Last 24 hours**.
+2. Selecciona la **Key** con nombre usada por el cliente.
+3. Selecciona el **Model** esperado si hay varios modelos presentes.
+4. Define **Status** en **Success**.
+5. Confirma que la fila nueva tiene la hora y la actividad de tokens esperadas.
+
+Esta comprobación atrapa un error de configuración habitual. Una herramienta de programación puede producir una respuesta a través de un proveedor integrado o de fallback incluso cuando su configuración de Capriole no está activa. Una fila de uso coincidente de Capriole elimina esa ambigüedad.
+
+## Desactiva, reactiva o elimina una clave
+
+| Acción | Resultado | ¿Se puede revertir? |
+|---|---|---|
+| Desactivar | Las solicitudes nuevas que usan esa clave dejan de autenticarse | Sí, vuelve a activar la clave |
+| Reactivar | La clave existente puede autenticarse de nuevo | Sí |
+| Eliminar | La clave se quita de forma permanente | No |
+
+Usa la desactivación cuando investigas un cliente o detienes tráfico de forma temporal. Elimina una clave después de reemplazarla, o cuando la credencial puede haber quedado expuesta.
+
+La lista muestra los valores **Created** y **Last used** para ayudar a identificar claves antiguas. Un estado mostrado de **Inactive** significa que la clave ha sido revocada hasta que se reactive.
+
+## Visibilidad de Team
+
+Los owners y admins de Team pueden filtrar el uso por miembro y comparar solicitudes o tokens cobrados entre miembros. Un miembro regular del equipo solo ve el uso permitido para ese miembro. Las recargas de Team y los controles de todo el equipo también están limitados a roles de equipo elegibles.
+
+Los filtros de uso no exponen la ruta interna de proveedor de Capriole, el costo de upstream ni el diagnóstico de fallback. Informan el modelo visible para el cliente, el resultado de la solicitud y la contabilidad de tokens necesaria para gestionar el acceso a la API.
+
+## Continúa desde aquí
+
+Usa [una clave con agentes de programación](/es/guides/one-api-key-coding-agents) para una prueba inicial de compatibilidad, o abre las [guías de integración](/es/integrations/codex) mantenidas para la configuración específica de cada cliente. La [comparación fechada de costos de API](/es/articles/ai-api-cost-comparison) explica cómo las unidades de cuota de Capriole difieren de los precios de entrada y salida del proveedor.
+
+[Prueba GPT-5.6 Thinking, Claude Fable 5 o Gemini 3.1 Pro en el chat limitado gratuito del navegador](https://capriole.ai). Pasa a Premium cuando quieras crear una clave y usar el saldo mensual de API incluido.
+
+**Hechos comprobados:** 2026-08-10.

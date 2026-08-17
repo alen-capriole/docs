@@ -1,0 +1,245 @@
+---
+title: "OpenAI- und Anthropic-SDKs mit Capriole AI nutzen"
+sidebarTitle: "OpenAI- und Anthropic-SDKs"
+description: "Rufen Sie Capriole AI aus Python oder TypeScript mit den offiziellen OpenAI- und Anthropic-SDKs, unterstützten Protokollen, Latest-Aliasen und korrekten Base URLs auf."
+---
+
+Sie können die offiziellen OpenAI- und Anthropic-SDKs für Python oder TypeScript mit einem Capriole AI API-Schlüssel nutzen. Konfigurieren Sie den OpenAI-Client mit der `/v1`-Base-URL und den Anthropic-Client mit der API-Wurzel und rufen Sie dann den protokollnativen Endpunkt auf, den jedes SDK erwartet.
+
+Persönliches Premium kostet USD 8 pro Monat und umfasst 5 Millionen berechnete API-Tokens plus unbegrenzten Browser Chat über die unterstützte Premium-Modellgruppe. Dieselbe Mitgliedschaft kann eine Anwendung über diese SDKs, einen Coding-Agent über eine gepflegte Integration und Alltagsarbeit im Browser antreiben.
+
+Diese Anleitung baut dieselbe Zwei-Anfragen-Prüfung in beiden Sprachen. Jedes Beispiel sendet eine OpenAI Responses-Anfrage und eine Anthropic Messages-Anfrage.
+
+## Den Anfragepfad wählen
+
+| Client-Aufruf | Protokoll und Endpunkt | Base URL | Startmodell |
+|---|---|---|---|
+| `openai.responses.create()` | `POST /v1/responses` | `https://api.caprioletech.com/v1` | `openai-latest` |
+| `openai.chat.completions.create()` | `POST /v1/chat/completions` | `https://api.caprioletech.com/v1` | Ein kompatibler Latest-Alias oder eine Modell-ID |
+| `anthropic.messages.create()` | `POST /v1/messages` | `https://api.caprioletech.com` | `claude-latest` |
+
+Verwenden Sie Responses für Responses-native OpenAI-Anwendungen. Verwenden Sie Chat Completions, wenn eine bestehende OpenAI-kompatible Anwendung diesen Vertrag erwartet. Verwenden Sie Messages für Claude-nativen Code.
+
+## Bevor Sie beginnen
+
+Sie brauchen aktiven Premium- oder berechtigten Team-Zugang, einen [Capriole AI API-Schlüssel](https://capriole.ai?view=api) und entweder Python oder Node.js 20 oder neuer. Kopieren Sie einen neu erstellten Schlüssel, wenn Capriole ihn anzeigt; das vollständige Secret wird nicht erneut gezeigt.
+
+<Steps>
+<Step title="Eine Umgebung erstellen und beide SDKs installieren">
+
+Erstellen und aktivieren Sie eine virtuelle Umgebung unter macOS oder Linux und installieren Sie dann die offiziellen Pakete:
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install openai anthropic
+```
+
+Aktivieren Sie dieselbe Umgebung unter Windows PowerShell mit:
+
+```powershell
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+python -m pip install openai anthropic
+```
+
+Halten Sie die Umgebung für die restlichen Schritte aktiv. Der Installationsbefehl sollte mit beiden verfügbaren Paketen und ohne Abhängigkeitsfehler enden.
+
+</Step>
+
+<Step title="Den Capriole API-Schlüssel setzen">
+
+```bash
+export CAPRIOLE_AI_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
+```
+
+Das Programm unten liest den Schlüssel aus der Umgebung. Es legt das Secret nicht in den Quellcode.
+
+</Step>
+
+<Step title="Das SDK-Beispiel erstellen">
+
+Speichern Sie diese Datei als `capriole_sdk_example.py`:
+
+```python
+import os
+
+from anthropic import Anthropic
+from openai import OpenAI
+
+
+api_key = os.environ["CAPRIOLE_AI_API_KEY"]
+
+openai_client = OpenAI(
+    api_key=api_key,
+    base_url="https://api.caprioletech.com/v1",
+)
+
+openai_response = openai_client.responses.create(
+    model="openai-latest",
+    input="Reply with OPENAI_OK and no other text.",
+)
+print(openai_response.output_text)
+
+anthropic_client = Anthropic(
+    auth_token=api_key,
+    base_url="https://api.caprioletech.com",
+)
+
+anthropic_response = anthropic_client.messages.create(
+    model="claude-latest",
+    max_tokens=32,
+    messages=[
+        {
+            "role": "user",
+            "content": "Reply with ANTHROPIC_OK and no other text.",
+        }
+    ],
+)
+print(anthropic_response.content[0].text)
+```
+
+`auth_token` ist Absicht. Dadurch sendet das Anthropic-SDK den Capriole API-Schlüssel als Bearer-Token.
+
+</Step>
+
+<Step title="Das Programm ausführen">
+
+```bash
+python capriole_sdk_example.py
+```
+
+Ein erfolgreicher Lauf gibt zwei nicht leere Modellantworten aus, gewöhnlich die angeforderten Marker:
+
+```text
+OPENAI_OK
+ANTHROPIC_OK
+```
+
+Modelle folgen nicht immer Prompts mit exakter Ausgabe. Wenn der Wortlaut abweicht, bestätigen zwei nicht leere Antworten weiterhin, dass beide SDK-Pfade Modellausgabe zurückgegeben haben.
+
+</Step>
+</Steps>
+
+## Dieselbe Prüfung mit TypeScript ausführen
+
+Verwenden Sie Node.js 20 oder neuer. Installieren Sie die offiziellen SDKs und einen TypeScript-Runner in einem neuen Projekt:
+
+```bash
+npm init -y
+npm install openai @anthropic-ai/sdk
+npm install --save-dev typescript tsx @types/node
+```
+
+Setzen Sie denselben API-Schlüssel in der Shell, die das Programm ausführt:
+
+```bash
+export CAPRIOLE_AI_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
+```
+
+Speichern Sie die folgende Datei als `capriole-sdk-example.ts`:
+
+```typescript
+import Anthropic from "@anthropic-ai/sdk";
+import OpenAI from "openai";
+
+const apiKey = process.env.CAPRIOLE_AI_API_KEY;
+
+if (!apiKey) {
+  throw new Error("CAPRIOLE_AI_API_KEY is not set");
+}
+
+const openai = new OpenAI({
+  apiKey,
+  baseURL: "https://api.caprioletech.com/v1",
+});
+
+const openaiResponse = await openai.responses.create({
+  model: "openai-latest",
+  input: "Reply with OPENAI_OK and no other text.",
+});
+
+console.log(openaiResponse.output_text);
+
+const anthropic = new Anthropic({
+  authToken: apiKey,
+  baseURL: "https://api.caprioletech.com",
+});
+
+const anthropicResponse = await anthropic.messages.create({
+  model: "claude-latest",
+  max_tokens: 32,
+  messages: [
+    {
+      role: "user",
+      content: "Reply with ANTHROPIC_OK and no other text.",
+    },
+  ],
+});
+
+for (const block of anthropicResponse.content) {
+  if (block.type === "text") {
+    console.log(block.text);
+  }
+}
+```
+
+Führen Sie sie aus mit:
+
+```bash
+npx tsx capriole-sdk-example.ts
+```
+
+Sie sollten zwei nicht leere Antworten erhalten. Die TypeScript-Konstruktoren verwenden `baseURL`, die Python-Konstruktoren `base_url`. Die Anthropic-Beispiele verwenden `authToken` oder `auth_token`, damit das SDK Bearer-Authentifizierung an Capriole sendet.
+
+## Chat Completions verwenden, wenn Ihre App es erwartet
+
+Derselbe OpenAI-Client kann den Chat Completions-kompatiblen Endpunkt aufrufen:
+
+```python
+completion = openai_client.chat.completions.create(
+    model="google-latest",
+    messages=[
+        {
+            "role": "user",
+            "content": "Reply with CHAT_COMPLETIONS_OK and no other text.",
+        }
+    ],
+)
+
+print(completion.choices[0].message.content)
+```
+
+Verschieben Sie `google-latest` nicht zu `responses.create()`. Die Responses-Route akzeptiert die unterstützte OpenAI Responses-Modellgruppe, während Chat Completions den breiteren öffentlichen kompatiblen Katalog akzeptiert.
+
+## Häufige SDK-Fehler beheben
+
+| Fehler | Ursache | Behebung |
+|---|---|---|
+| `KeyError: CAPRIOLE_AI_API_KEY` | Die Umgebungsvariable fehlt | Exportieren Sie den Schlüssel in der Shell, die Python ausführt |
+| `401 Missing Bearer token` | Das SDK hat die falsche Authentifizierungsoption verwendet | Verwenden Sie `api_key` für OpenAI und `auth_token` für Anthropic |
+| `404 Not Found` | Die Client-Base-URL hat die falsche `/v1`-Grenze | OpenAI verwendet die `/v1`-Base; Anthropic verwendet die API-Wurzel |
+| Unsupported model | Der gewählte Alias gehört nicht zum Endpunkt | Verwenden Sie `openai-latest` mit Responses oder `claude-latest` mit Messages |
+| Token-Zähl-Preflight schlägt fehl | Das gewählte Claude-Upstream unterstützt Anthropic Token Counting nicht | Behandeln Sie die Unterstützung von `/v1/messages/count_tokens` als upstream-abhängig |
+| `403`-Kontingentfehler | Die Mitgliedschaft oder das API-Guthaben kann die Anfrage nicht autorisieren | Prüfen Sie die aktive Mitgliedschaft und das verbleibende Guthaben an abgerechneten Tokens |
+
+## Die Ergebnisgrenze verstehen
+
+Capriole bewahrt das vom SDK angeforderte Protokoll. Responses-Ausgabe bleibt Responses-Ausgabe, und Anthropic Messages-Ausgabe bleibt Messages-Ausgabe. Ein Konto und ein Guthaben stehen hinter beiden Routen; die Antwortschemata werden nicht austauschbar.
+
+Der [Artikel zur Multi-Protokoll-API](/de/articles/unified-model-api) erklärt diese Architektur. Nutzen Sie die [Responses-Referenz](/de/api-reference/endpoint/responses), die [Chat Completions-Referenz](/de/api-reference/endpoint/chat-completions) oder die [Messages-Referenz](/de/api-reference/endpoint/messages) für Endpunktfelder. Der [API-Schnellstart](/de/quickstart) bleibt der kürzeste Weg zu einer ersten Rohanfrage.
+
+Lesen Sie [wie Capriole die Multi-Modell-API-Kompatibilität testet](/de/articles/unified-model-api#wie-wir-die-kompatibilität-testen) für die Evidenz, die erforderlich ist, bevor ein Protokoll, Alias oder Client-Pfad als unterstützt dokumentiert wird.
+
+API-Aufrufe werden in abgerechneten Tokens gemessen. Lesen Sie [wie abgerechnete Tokens ermittelt werden](/de/articles/charged-tokens), bevor Sie eine Arbeitslast schätzen.
+
+## Offizielle SDK-Referenzen
+
+- OpenAI: [Python-SDK](https://github.com/openai/openai-python)
+- Anthropic: [Python-SDK](https://github.com/anthropics/anthropic-sdk-python)
+- OpenAI: [TypeScript- und JavaScript-SDK](https://github.com/openai/openai-node)
+- Anthropic: [TypeScript-SDK](https://github.com/anthropics/anthropic-sdk-typescript)
+
+[Probieren Sie GPT-5.6 Thinking, Claude Fable 5 oder Gemini 3.1 Pro im begrenzten kostenlosen Browser Chat](https://capriole.ai) und wechseln Sie zu Premium, wenn Sie das enthaltene API-Guthaben aus Python oder TypeScript nutzen möchten.
+
+**Fakten geprüft:** 2026-08-11.

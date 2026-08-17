@@ -1,0 +1,86 @@
+---
+title: "チャット、BYOK、API アクセスにおける Capriole AI と T3 Chat"
+sidebarTitle: "Capriole AI と T3 Chat"
+description: "Capriole AI が低コストの最先端モデル、無制限の Premium Browser Chat、API アクセス、コーディング エージェント、ストレージ制御で、チャットを超える理由を見ます。"
+---
+
+1 つのアカウントで最先端モデル チャット、API アクセス、コーディング エージェントをカバーしたいユーザーにとって、**Capriole AI のほうがより完全な選択です**。サインアウト中の訪問者と Free ユーザーは GPT-5.6 Thinking、Claude Fable 5、Gemini 3.1 Pro を試せます。Premium は月額 USD 8 で、無制限の Browser Chat、毎月 500 万の課金 API トークン、維持されている 6 つのコーディング エージェント統合を提供します。
+
+T3 Chat は Base と Overage バケットでブラウザ使用量を計量します。確認した公開ページは、同じ汎用 API とコーディング エージェント ワークフローを文書化していません。
+
+この比較では、T3 の FAQ、プライバシー ポリシー、公式の製品フィードバック ページを確認しました。T3 は安定した公開価格ページを維持していないため、この記事は固定の T3 価格またはプラン許容量を公開しません。
+
+## 製品がアクセスを構成する方法
+
+| 領域 | Capriole AI | T3 Chat |
+|---|---|---|
+| 現在の旗艦アクセス | 1 つのワークスペースで GPT-5.6 Thinking、Claude Fable 5、Gemini 3.1 Pro | Base と Overage バケットで計量される、チャット優先のモデル アクセス |
+| 有料ブラウザ使用量 | 月額 USD 8 で、対応する Premium モデル群が無制限 | 使用量はコストを意識した Base と Overage バケットから引く |
+| 含まれる API 使用量 | 月 5M の課金 API トークン | 汎用デベロッパー API 許容量は文書化されていない |
+| 公開 API | OpenAI Chat Completions、OpenAI Responses、Anthropic Messages、Capriole ネイティブ エンドポイント | 確認した公式ページは、公開の汎用デベロッパー API を文書化していない |
+| コーディング エージェント経路 | 維持されている 6 つの統合ガイド | 確認した公式ドキュメントは、名前付き 6 クライアント向けのセットアップ ページを維持していない |
+| ワークスペースとストレージ | モデル切り替え、ファイル、ウェブ検索、Synced、Local、または No Storage 履歴 | チャット優先ワークスペース。一時チャット動作は別に文書化 |
+
+より広い [OpenRouter 代替ガイド](/ja/articles/openrouter-alternatives) は、両製品をゲートウェイと設定可能な BYOK クライアントの横に置きます。
+
+## Capriole が Browser Chat より先へ進む理由
+
+サインアウト中の訪問者と Free ユーザーは、対応旗艦モデルの制限付きチャットで Capriole を始められます。Premium はその後、対応する Premium セット全体で Browser Chat のメーターを外します。
+
+ファイル、ウェブ検索、保存履歴、[会話中のモデル切り替え](/ja/articles/switch-models-mid-chat) は同じワークスペースに残ります。同じアカウントは、公開 API エンドポイントと維持されているコーディング エージェント設定を通じて、その後ブラウザを離れられます。
+
+## 含まれるアクセスはプロバイダー キー管理を取り除く
+
+Capriole はメンバーシップと API 残高を通じてモデル アクセスを供給します。ユーザーはプロバイダー キーを持参したり、複数アカウントに資金を入れたり、対応する各モデル系統向けに別の請求関係を維持したりする必要はありません。
+
+対象の買い手にとって、それが利点です。対応する各モデル系統に、別々のプロバイダー アカウント、キー、残高、請求ページは不要です。現在の旗艦セットは、1 つの Capriole ワークスペース内で利用できます。
+
+## プランは使用量を異なる方法で計量する
+
+T3 の現行 FAQ は Base バケットと Overage バケットを説明します。Base は 4 時間ごとに補充されます。Overage は毎月補充されます。システムはリクエスト前に見積額を予約し、あとで実際のコストを確定します。
+
+そのシステムでは、メッセージに単一の固定コストはありません。長いスレッド、大きな添付、検索、より高価なモデルは、利用可能残高をより多く使う場合があります。古い固定メッセージ数の説明は、現行 FAQ を表しません。
+
+Capriole Premium はブラウザ利用とプログラム利用を分けます。Browser Chat は対応する Premium モデル群で無制限です。公開 API とコーディング エージェントは、含まれる毎月 500 万の課金 API トークンから引き、別途トップアップも利用できます。
+
+その分割は、頻繁にチャットし、開発作業に定義された許容量が欲しいユーザーに合います。[1 つの AI サブスクリプション ガイド](/ja/articles/one-ai-subscription) は、Capriole メンバーシップに何が含まれ、どこから計量が始まるかを示します。
+
+## Capriole は文書化されたデベロッパー経路を提供する
+
+この記事で確認した T3 の公式ページは、公開の汎用 LLM API や、Capriole が文書化する 6 つのコーディング エージェント向けの維持セットアップ ガイドを文書化していませんでした。
+
+Capriole は複数の公開プロトコル経路を文書化します。OpenAI Responses は [Codex](/ja/integrations/codex) などのクライアントをサポートし、Anthropic Messages は [Claude Code](/ja/integrations/claude-code) をサポートします。[Kilo Code](/ja/integrations/kilo-code)、[GitHub Copilot CLI](/ja/integrations/github-copilot-cli)、OpenCode、OpenClaw には、対応経路向けの維持設定があります。
+
+コーディング エージェントはローカル ツールとファイル変更を実行します。Capriole は対応モデル アクセスを扱います。エージェント使用量は計量 API トラフィックのままなので、無制限の Browser Chat は自動コーディング ワークロードへは延びません。
+
+外部クライアントが購入の中心なら、Capriole にはアカウントから API キー、動作するクライアントまでの文書化された経路があります。確認した T3 の公開ドキュメントは、同等の維持経路を提供しません。
+
+## Capriole は履歴ストレージを明示的な選択にする
+
+Capriole は Synced、Local、No Storage のチャット履歴モードを提供します。Local は履歴を現在のブラウザに残します。No Storage は保存チャット履歴を残しません。どのモードでも、リクエストは引き続き Capriole と選択したモデル プロバイダーを通ります。
+
+これらの制御は、ユーザーを別製品へ移さずに永続化境界を見えるようにします。機密資料のときは、選択した上流プロバイダーを確認する必要はなくなりません。
+
+## チャットだけではデベロッパー ワークフローは未完成
+
+T3 はチャット優先インターフェイス、会話ブランチ、BYOK を強調します。Capriole は別々のプロバイダー アカウントなしで、より大きなワークフローをカバーします。Browser Chat から始め、公開 API 経路を続け、同じ USD 8 メンバーシップの下で維持されている 6 つのコーディング エージェントを接続します。
+
+## Capriole でチャットを超える
+
+同じアカウントが日常チャット、対応する最先端モデル、外部 API クライアント、コーディング エージェントを低い月額でカバーする必要があるときは、Capriole を選んでください。
+
+[制限付きの無料 Browser Chat を試す](https://capriole.ai)。無制限の Browser Chat と含まれる API 残高には、USD 8 の Premium にアップグレードしてください。最初のアプリケーション リクエストは [API クイックスタート](/ja/quickstart) が扱います。
+
+## 公式ソース
+
+- [T3 Chat FAQ](https://t3.chat/faq)
+- [T3 Chat privacy policy](https://t3.chat/privacy-policy)
+- [T3 BYOK feature status](https://feedback.t3.chat/p/use-our-own-api-keys)
+- [T3 branching feature status](https://feedback.t3.chat/p/branching-chats)
+- [T3 model-switcher feature status](https://feedback.t3.chat/p/model-switcher-with-keyboard)
+
+T3 のフィードバック サイト上のユーザー コメントは、製品事実として扱いませんでした。特定できた場合は、製品ステータスとスタッフ回答を使いました。
+
+このページの Capriole AI の事実は、第一当事者ドキュメントとして維持されています。
+
+**事実確認日：** 2026-08-12。

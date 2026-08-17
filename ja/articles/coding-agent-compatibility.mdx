@@ -1,0 +1,94 @@
+---
+title: "Codex、Claude Code、Copilot CLI など向けの 1 つの API"
+sidebarTitle: "コーディング エージェント互換性"
+description: "1 つの Capriole AI アカウントが、各クライアントが期待するプロトコル経由で、維持されている 6 つのコーディング エージェントにどうつながるかを見ます。"
+---
+
+1 つの Capriole AI アカウントで、Codex、Claude Code、Kilo Code、GitHub Copilot CLI、OpenCode、OpenClaw を接続できます。Premium は月額 USD 8 で、500 万の課金 API トークンを含み、対応する Premium モデル群の無制限 Browser Chat も提供します。
+
+各クライアントは期待するワイヤ形式を維持します。Capriole は、文書化された統合向けに OpenAI Responses、OpenAI 互換 Chat Completions、Anthropic Messages の経路を維持します。
+
+「OpenAI compatible」だけでは、現代のコーディング エージェント対応を説明できません。
+
+## 維持経路が重要な理由
+
+Capriole は、これらのクライアント背後の繰り返しのプロバイダー設定を取り除きます。1 つのメンバーシップが、アカウント、API 残高、キー管理、latest モデル エイリアス、正確なクライアント固有設定を供給します。対応する各モデル系統ごとに、別のプロバイダー アカウント、キー、残高、請求ページは必要ありません。
+
+結果は、ブラウザ ワークスペースからリポジトリ作業への文書化された経路です。Premium ではチャットは無制限のままで、コーディング エージェント トラフィックは見える毎月 500 万の課金トークン残高を使います。
+
+## 6 つのエージェント、複数のプロトコル
+
+コーディング エージェントはプロンプトでは似て見えても、モデル クライアントは相互に置き換えられません。
+
+| コーディング エージェント | 維持されている Capriole 経路 | 推奨する開始点 |
+|---|---|---|
+| Codex | OpenAI Responses | [`openai-latest`](/ja/integrations/codex) |
+| Claude Code | Anthropic Messages | [`claude-latest`](/ja/integrations/claude-code) |
+| Kilo Code | OpenAI 互換 Chat Completions | [`openai-latest`](/ja/integrations/kilo-code) |
+| GitHub Copilot CLI | Chat Completions、Responses、または Messages | [文書化されたプロトコル経路を選ぶ](/ja/integrations/github-copilot-cli) |
+| OpenCode | OpenAI Responses、Chat Completions、または Anthropic Messages | [文書化されたプロバイダー経路を選ぶ](/ja/integrations/opencode) |
+| OpenClaw | OpenAI Responses、Anthropic Messages、または互換チャット | [文書化されたプロバイダー経路を選ぶ](/ja/integrations/openclaw) |
+
+これらの統合の背後には、同じアカウントと API 残高があります。リクエスト形状は引き続きクライアントに従います。
+
+Codex は Responses リクエストを送ります。Claude Code は Anthropic Messages リクエストを送り、選択したプロバイダーが対応する場合はトークンカウントの事前確認を使えます。Kilo Code は Chat Completions を使います。GitHub Copilot CLI、OpenCode、OpenClaw は異なるプロトコルまたはプロバイダー経路で設定できるため、セットアップは選ぶモデル系統とプロトコルに依存します。
+
+Capriole はこれらの区別を保持します。公開 Responses ルートは密かに Chat Completions へ変換されず、Messages ルートも OpenAI レスポンスへ書き換えられません。
+
+## 1 つのキーが有用な理由
+
+共有アクセス レイヤーがないと、複数のコーディング エージェントを試すことは、同じ管理作業の繰り返しになりがちです。
+
+- 異なるモデル プロバイダーでアカウントを作成または維持する
+- 複数の場所に請求情報と残高を追加する
+- 複数の API キーを保存する
+- 各クライアントが期待するモデル名と Base URL を学ぶ
+- 好みのモデルが変わるたびに、すべての設定を見直す
+
+Capriole はそのセットアップを、1 つのアカウントと 1 つの Capriole API キーに減らします。統合ガイドは、正確な Base URL、モデル セレクター、クライアント固有フィールドを提供します。
+
+エージェントは独自のインターフェイス、ツール システム、権限モデル、ローカル実行動作を維持します。Capriole はモデル アクセスを供給します。ファイル編集、ツール実行、結果提示の方法は、各コーディング エージェントが引き続き決めます。
+
+## latest エイリアスは保守を減らす
+
+モデル リリースは速く動きます。1 つの具体的なモデル ID に縛った設定は再現作業に有用ですが、最新の対応デフォルトが欲しいときは手動更新も必要です。
+
+Capriole は、対応する公開経路向けに維持エイリアスを提供します。
+
+- 維持されている OpenAI ルート向けの `openai-latest`
+- 維持されている Claude ルート向けの `claude-latest`
+- 互換の公開チャット経路向けの `google-latest`
+
+エイリアスは上流ディスパッチと使用量会計の前に解決されます。コーディング エージェントは安定したセレクターを送り、Capriole はリクエストを処理した解決後モデルを記録します。
+
+監査、テスト、または長期間のプロジェクトで正確なバージョンが重要なときは、具体的なモデル ID が引き続き有用です。「Latest」は便利さであり、バージョン固定の代わりではありません。
+
+## テスト済みのこと
+
+維持セットアップは、実際のクライアント経路とテストに従います。
+
+ローカル検証は、文書化された設定を通じて 6 クライアントすべてをカバーします。テストには基本プロンプトと、対応するツール対話フローが含まれます。
+
+クライアント固有の制限があります。Codex は維持されている OpenAI Responses モデルのままです。Capriole で Claude モデルを選んでも、Codex 互換モデルにはなりません。Claude Code は Claude Messages 経路を使います。Kilo Code は Chat Completions を使います。GitHub Copilot CLI、OpenCode、OpenClaw はより広い選択肢を提供しますが、設定はそれでも選択したプロトコルに一致する必要があります。
+
+表にリンクした統合ガイドが、現在のフィールドと対応セレクターの根拠です。
+
+ルート対応と実際のコーディング エージェント合格の違いは、[Capriole がマルチモデル API の互換性をテストする方法](/ja/articles/unified-model-api#互換性のテスト方法) を読んでください。
+
+## Browser Chat とコーディング エージェントは仕事の異なる部分を解く
+
+調査、下書き、ファイル、ウェブ検索、会話中のモデル変更は、ブラウザ ワークスペースに残せます。タスクにリポジトリ コンテキスト、ローカル ツール、またはファイル変更が必要なときは、コーディング エージェントが同じ Capriole アカウントを使えます。
+
+Capriole は両方のサーフェスを同じアカウントにつなぎます。Premium メンバーシップは現在 **月額 USD 8** で、対応する Premium モデル群の無制限 Browser Chat を含み、**毎月 500 万の課金 API トークン** を追加します。コーディング エージェントの使用量は API 使用量なので、無制限の Browser Chat 許容量ではなく、その計量残高から引きます。
+
+プランは 2 つのワークロードを分けたままにします。Premium では日常の Browser Chat は無制限で、プログラムおよびエージェント ワークロードは見える課金 API トークンを使い、必要なときはトップアップを利用できます。
+
+## まずエージェントを選び、そのプロトコルに従う
+
+Responses ベースの OpenAI ワークフローが仕事に合うときは Codex を使ってください。Anthropic ネイティブ クライアントが欲しいときは Claude Code を使ってください。Kilo Code は Chat Completions 上の IDE またはターミナル ワークフローを提供します。GitHub Copilot CLI、OpenCode、OpenClaw はより多くのプロトコル選択肢を提供します。
+
+文書化された各クライアントは、そのプロトコルがサポートするモデルへの維持ルートを持ちます。
+
+[制限付きの無料 Browser Chat で GPT-5.6 Thinking、Claude Fable 5、または Gemini 3.1 Pro を試す](https://capriole.ai)。API キーを作成する準備ができたらアップグレードしてください。共有ワークフローは [1 つのキーのコーディング エージェント ガイド](/ja/guides/one-api-key-coding-agents) から始め、使うエージェントの統合ページを開いてください。
+
+**事実確認日：** 2026-08-11。

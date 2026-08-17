@@ -1,0 +1,80 @@
+---
+title: "Capriole AI 与 TypingMind 的 BYOK、隐私和 API 访问对比"
+sidebarTitle: "Capriole AI 与 TypingMind"
+description: "了解 Capriole AI 如何通过内含前沿模型访问、无限 Premium 浏览器聊天、API 用量和编程智能体，提供配置更少的替代方案。"
+---
+
+对于希望方案内直接包含前沿模型访问，不想分别购买和管理提供商密钥的用户，**Capriole AI 是更简单、成本更低的工作配置**。付费前，可以通过有限的免费聊天试用 GPT-5.6 Thinking、Claude Fable 5 和 Gemini 3.1 Pro。Premium 每月收费 USD 8，包括无限浏览器聊天、500 万 API 计费 token 和六项持续维护的编程智能体集成，也不要求单独开设提供商账户。
+
+TypingMind 的个人许可证购买的是界面，不包含模型访问。用户仍需自行提供提供商账户、密钥和余额，并持续支付模型用量。
+
+本次对比核对了 TypingMind 当前的文档、隐私政策、cloud sync 页面、功能列表和许可证页面。两款产品都可以在一个界面呈现多个模型家族，但账户所有权和数据流位置不同。
+
+## 谁持有密钥、历史记录和模型账单
+
+| 范围 | Capriole AI | TypingMind |
+|---|---|---|
+| 内含模型访问 | GPT-5.6 Thinking、Claude Fable 5、Gemini 3.1 Pro 和受支持 Premium 模型组合 | 个人用户提供模型提供商 API key，许可证不含模型 credits |
+| 持续使用总成本 | 每月 USD 8 包括工作区和受支持的模型访问 | 界面许可证加持续产生的提供商 API 费用 |
+| 浏览器聊天 | 受支持 Premium 模型范围内无限 | 每次模型请求由连接的提供商计费 |
+| 内含 API 用量 | 每月 500 万计费 API token | 个人用户通过自己的提供商账户支付用量 |
+| 编程智能体设置 | 六份持续维护的外部智能体指南 | 个人产品侧重 TypingMind 客户端内的 agents |
+| 存储选择 | Synced 账户历史、浏览器本地历史或 No Storage | 默认使用浏览器本地存储，也可选 cloud sync |
+
+如果买家要比较 BYOK 客户端和内含模型访问的产品，也可以在更完整的 [OpenRouter 替代方案指南](/zh/articles/openrouter-alternatives)中看到 TypingMind。
+
+## Capriole 包含模型访问
+
+Capriole 负责访问层。未登录访客和 Free 用户可以先在有限的浏览器聊天中试用受支持的旗舰模型。Premium 随后提供受支持 Premium 模型范围内的无限浏览器聊天。公共 API 与编程智能体流量会消耗每月内含的 500 万 API 计费 token。
+
+这省去了几个管理步骤，包括开设提供商账户、保存多个密钥、为多个余额充值，以及检查多个账单页面。浏览器工作区、API 额度和持续维护的智能体路径都位于同一个 Capriole 账户下。
+
+TypingMind 的个人产品采用另一种方式。用户为界面付费，添加提供商 API key，再继续向所选提供商支付模型用量。超过内含额度后，可选 cloud storage 还可能增加费用。
+
+Capriole 用户不需要单独的提供商密钥。[一个 AI 订阅指南](/zh/articles/one-ai-subscription)解释了内含访问，以及无限浏览器聊天和计量 API 工作之间的边界。
+
+## Capriole 无需更换产品即可提供存储选择
+
+Capriole 提供三种聊天历史选择。Synced 保存账户历史，Local 把历史留在当前浏览器，No Storage 不保留已保存的聊天历史。所有模式都会把提示词发送给 Capriole 和所选模型提供商。
+
+[Capriole 聊天存储指南](/zh/guides/chat-storage)说明每种模式保留哪些内容，以及哪些上传或连续使用功能会不可用。用户可以在同一个工作区中选择连续历史、仅浏览器历史或临时会话。
+
+## 一个工作区可以延伸到外部工具
+
+Capriole 允许用户在工作区保留现有线程上下文，同时换用另一个受支持模型继续当前对话。同一个账户随后还可用于 OpenAI 和 Anthropic 协议端点，以及[六条持续维护的编程智能体路径](/zh/articles/coding-agent-compatibility)。
+
+相较于独立 BYOK 界面，它的产品优势来自一体化提供工作区、受支持的模型访问、公共 API 额度和外部智能体配置。
+
+## Capriole API 是个人工作区的一部分
+
+Capriole 公共端点面向支持 OpenAI Chat Completions、OpenAI Responses 或 Anthropic Messages 的应用和智能体。一个 Capriole key 和一份 API 余额可以用于这些受支持路径。
+
+TypingMind Teams 确实为团队工作区提供 Custom API。个人 custom endpoints 的方向则相反。它们让 TypingMind 调用由用户提供的兼容模型服务，并不包含一个外部模型网关。
+
+## BYOK 把成本和配置交还给用户
+
+TypingMind 提供 BYOK、自托管、MCP、plugins 和深度客户端定制。这些选项仍然要求用户负责提供商账户、密钥、余额和模型账单。Capriole 包含受支持的模型访问，并在一个账户下把工作流从浏览器聊天延伸到 API 和编程智能体。
+
+## 无需自行组装即可使用 Capriole
+
+如果你希望使用受支持的前沿模型、无限 Premium 浏览器聊天、内含 API 额度、编程智能体路径和存储控制，又不想自行搭建访问层，可以选择 Capriole。
+
+[试用有限的免费浏览器聊天](https://capriole.ai)，无需先开设提供商账户、购买界面许可证或提供单独的 API key，即可使用受支持的旗舰模型。
+
+## 官方来源
+
+- [TypingMind 文档](https://docs.typingmind.com/)
+- [TypingMind 一般常见问题](https://docs.typingmind.com/general-faqs)
+- [TypingMind 个人许可证](https://www.typingmind.com/buy)
+- [TypingMind 个人版与团队版对比](https://docs.typingmind.com/quickstart/typingmind-vs-typingmind-team)
+- [TypingMind Team 方案](https://docs.typingmind.com/typingmind-team/getting-started/compare-typingmind-team-plans)
+- [TypingMind Team API 概览](https://docs.typingmind.com/typingmind-team/integrations/api-integration-overview)
+- [TypingMind 功能列表](https://docs.typingmind.com/feature-list)
+- [TypingMind 隐私政策](https://docs.typingmind.com/security-and-compliance/privacy-policy)
+- [TypingMind cloud sync 与备份](https://docs.typingmind.com/cloud-sync-and-backup/cloud-sync-and-backup-overview)
+- [TypingMind 多模型回答](https://docs.typingmind.com/manage-and-connect-ai-models/activate-multi-model-responses)
+- [TypingMind MCP 文档](https://docs.typingmind.com/model-context-protocol-%28mcp%29-in-typingmind)
+
+本页中的 Capriole AI 事实作为第一方文档持续维护。
+
+**事实核验日期** 2026-08-12

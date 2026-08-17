@@ -1,0 +1,94 @@
+---
+title: "一个 API 连接 Codex、Claude Code、Copilot CLI 等工具"
+sidebarTitle: "编程智能体兼容性"
+description: "了解一个 Capriole AI 账户如何通过各客户端要求的协议，连接六种持续维护的编程智能体。"
+---
+
+一个 Capriole AI 账户可以连接 Codex、Claude Code、Kilo Code、GitHub Copilot CLI、OpenCode 和 OpenClaw。Premium 每月收费 USD 8，包含 500 万 API 计费 token，也提供受支持 Premium 模型范围内的无限浏览器聊天。
+
+每个客户端继续使用自己要求的 wire format。Capriole 为文档列出的集成维护 OpenAI Responses、OpenAI-compatible Chat Completions 和 Anthropic Messages 路径。
+
+只说“OpenAI compatible”，不足以描述现代编程智能体支持。
+
+## 持续维护的路径为什么重要
+
+Capriole 免去了这些客户端背后反复进行的提供商配置。一份会员即可提供账户、API 余额、密钥管理、最新模型别名和针对每个客户端的精确配置。你不必为每个受支持的模型家族分别准备提供商账户、密钥、余额和账单页面。
+
+用户因此拥有一条从浏览器工作区进入代码仓库工作的文档路径。Premium 下的聊天始终无限，编程智能体流量则使用可见的每月 500 万计费 token 余额。
+
+## 六种智能体，多种协议
+
+编程智能体的提示词界面可能相似，但它们的模型客户端无法互换。
+
+| 编程智能体 | Capriole 持续维护的路径 | 推荐起点 |
+|---|---|---|
+| Codex | OpenAI Responses | [`openai-latest`](/zh/integrations/codex) |
+| Claude Code | Anthropic Messages | [`claude-latest`](/zh/integrations/claude-code) |
+| Kilo Code | OpenAI-compatible Chat Completions | [`openai-latest`](/zh/integrations/kilo-code) |
+| GitHub Copilot CLI | Chat Completions、Responses 或 Messages | [选择文档列出的协议路径](/zh/integrations/github-copilot-cli) |
+| OpenCode | OpenAI Responses、Chat Completions 或 Anthropic Messages | [选择文档列出的提供商路径](/zh/integrations/opencode) |
+| OpenClaw | OpenAI Responses、Anthropic Messages 或 compatible chat | [选择文档列出的提供商路径](/zh/integrations/openclaw) |
+
+这些集成共用同一个账户和 API 余额，请求结构仍然跟随客户端。
+
+Codex 发送 Responses 请求。Claude Code 发送 Anthropic Messages 请求，在所选提供商支持时还可以进行 token-counting preflight。Kilo Code 使用 Chat Completions。GitHub Copilot CLI、OpenCode 和 OpenClaw 可以配置不同的协议或提供商路径，因此设置方式取决于你选择的模型家族和协议。
+
+Capriole 保留这些差异。公共 Responses 路由不会在内部悄悄转换成 Chat Completions，Messages 路由也不会被改写成 OpenAI response。
+
+## 一个密钥为什么有用
+
+没有共享访问层时，尝试多种编程智能体往往意味着反复完成同样的管理工作。
+
+- 创建或维护多个模型提供商账户
+- 在多个地方添加账单信息和余额
+- 保存多个 API key
+- 了解每个客户端要求的模型名称和 base URL
+- 首选模型变化后重新检查每一份配置
+
+Capriole 把这些配置缩减到一个账户和一个 Capriole API key。集成指南提供准确的 base URL、模型选择器和客户端特定字段。
+
+各智能体继续保留自己的界面、工具系统、权限模型和本地执行行为。Capriole 提供模型访问，每个编程智能体仍自行决定如何编辑文件、运行工具和呈现结果。
+
+## Latest aliases 减少维护工作
+
+模型发布速度很快。绑定具体 model ID 的配置有利于复现，但想改用最新的受支持默认模型时，就需要手动更新。
+
+Capriole 为受支持的公共路径提供持续维护的别名。
+
+- `openai-latest` 用于持续维护的 OpenAI 路由
+- `claude-latest` 用于持续维护的 Claude 路由
+- `google-latest` 用于兼容的公共聊天路径
+
+别名会在上游分发和用量计量之前解析。编程智能体发送稳定的选择器，Capriole 则记录实际处理请求的解析后模型。
+
+审计、测试或长期项目要求精确版本时，具体 model ID 仍然有用。“Latest”只是一项便利功能，无法替代版本固定。
+
+## 已经测试了什么
+
+持续维护的设置遵循真实客户端路径和测试。
+
+本地验证通过文档所列配置覆盖全部六种客户端。测试包含基本提示词和受支持的工具交互流程。
+
+每个客户端都有自己的限制。Codex 继续使用持续维护的 OpenAI Responses 模型，在 Capriole 中选择 Claude 模型并不会让它成为 Codex-compatible model。Claude Code 使用 Claude Messages 路径，Kilo Code 使用 Chat Completions。GitHub Copilot CLI、OpenCode 和 OpenClaw 提供更多选择，但配置仍须匹配所选协议。
+
+表格所链接的集成指南，是当前字段和受支持选择器的事实来源。
+
+阅读 [Capriole 如何测试多模型 API 兼容性](/zh/articles/unified-model-api#我们如何测试兼容性)，了解路由覆盖和真实编程智能体通过测试之间的区别。
+
+## 浏览器聊天和编程智能体解决不同工作
+
+研究、起草、文件、网页搜索和在对话中更换模型，都可以留在浏览器工作区。任务需要代码仓库上下文、本地工具或文件更改时，编程智能体可以使用同一个 Capriole 账户。
+
+Capriole 把两个使用界面连接到同一个账户。Premium 当前每月收费 **USD 8**，包括受支持 Premium 模型范围内的无限浏览器聊天，以及每月 **500 万 API 计费 token**。编程智能体用量属于 API 用量，因此会消耗计量余额，不会使用无限浏览器聊天额度。
+
+该方案把两类工作负载分开。Premium 下的日常浏览器聊天无限，程序化和智能体工作负载则使用可见的 API 计费 token，必要时可购买 top-up。
+
+## 先选择智能体，再遵循对应协议
+
+需要基于 Responses 的 OpenAI 工作流时，可以使用 Codex。需要 Anthropic-native client 时，可以使用 Claude Code。Kilo Code 通过 Chat Completions 提供 IDE 或终端工作流。GitHub Copilot CLI、OpenCode 和 OpenClaw 则提供更多协议选择。
+
+每个文档所列客户端都有一条持续维护的路径，可以连接该协议支持的模型。
+
+[在有限的免费浏览器聊天中试用 GPT-5.6 Thinking、Claude Fable 5 或 Gemini 3.1 Pro](https://capriole.ai)，准备创建 API key 时再升级。先阅读[一个密钥连接编程智能体指南](/zh/guides/one-api-key-coding-agents)，了解共用工作流，再打开你所用智能体的集成页面。
+
+**事实核验日期** 2026-08-11

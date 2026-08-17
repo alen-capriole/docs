@@ -1,0 +1,15 @@
+---
+title: "Messages"
+description: "通过 Capriole AI Claude 模型创建 Anthropic Messages 兼容输出。"
+openapi: "api-reference/openapi.json POST /v1/messages"
+---
+
+当应用、SDK 或代理需要 Anthropic Messages 请求与响应格式时，请使用此端点。
+
+发送包含 `model`、`messages` 和 `max_tokens` 的标准 Messages 请求体。Capriole AI 会在转发给上游前，把 latest alias 解析为所选上游 Claude 模型；继续转发 `system`、`tools`、`thinking` 和 `stream` 等兼容字段；并原样返回上游 JSON 或 SSE 流。
+
+`POST /v1/messages` 接受 `claude-latest`、`claude-fable-5`、`claude-opus-5`、`claude-opus-4-8`、`claude-opus-4-7`、`claude-opus-4-6` 和 `claude-sonnet-4-6`。使用 `claude-latest` 可以在不修改配置的情况下选择 Fable 5。
+
+`POST /v1/messages/count_tokens` 接受相同的 Claude 模型 ID，用于执行 Anthropic 兼容的 Token 计数检查。它会返回所选上游的 Token 计数响应或错误。
+
+简单的 Capriole 原生文本生成使用 `POST /v1/chat`。需要 Anthropic Messages 传输格式时，请使用 `POST /v1/messages`。

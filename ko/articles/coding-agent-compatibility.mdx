@@ -1,0 +1,94 @@
+---
+title: "Codex, Claude Code, Copilot CLI 등을 위한 하나의 API"
+sidebarTitle: "코딩 에이전트 호환성"
+description: "하나의 Capriole AI 계정이 각 클라이언트가 기대하는 프로토콜을 통해 유지 중인 코딩 에이전트 여섯 개를 연결하는 방식을 확인하세요."
+---
+
+하나의 Capriole AI 계정으로 Codex, Claude Code, Kilo Code, GitHub Copilot CLI, OpenCode, OpenClaw를 연결할 수 있습니다. Premium은 월 USD 8이며, 500만 과금 API 토큰을 포함하고, 지원되는 Premium 모델 세트로 무제한 Browser Chat도 제공합니다.
+
+각 클라이언트는 기대하는 전송 형식을 유지합니다. Capriole은 문서화된 통합을 위해 OpenAI Responses, OpenAI 호환 Chat Completions, Anthropic Messages 경로를 유지합니다.
+
+“OpenAI compatible”만으로는 현대 코딩 에이전트 지원을 설명하지 못합니다.
+
+## 유지 중인 경로가 중요한 이유
+
+Capriole은 이 클라이언트 뒤의 반복되는 제공자 설정을 제거합니다. 하나의 멤버십이 계정, API 잔액, 키 관리, latest 모델 별칭, 정확한 클라이언트별 구성을 제공합니다. 지원되는 각 모델 계열마다 별도의 제공자 계정, 키, 잔액, 청구 페이지가 필요 없습니다.
+
+결과는 브라우저 작업 공간에서 리포지토리 작업까지 문서화된 경로입니다. Premium에서 채팅은 무제한으로 남고, 코딩 에이전트 트래픽은 보이는 월 500만 과금 토큰 잔액을 사용합니다.
+
+## 에이전트 여섯 개, 프로토콜 여러 개
+
+코딩 에이전트는 프롬프트에서는 비슷해 보여도 모델 클라이언트는 서로 바꿔 쓸 수 없습니다.
+
+| 코딩 에이전트 | 유지 중인 Capriole 경로 | 권장 시작점 |
+|---|---|---|
+| Codex | OpenAI Responses | [`openai-latest`](/ko/integrations/codex) |
+| Claude Code | Anthropic Messages | [`claude-latest`](/ko/integrations/claude-code) |
+| Kilo Code | OpenAI 호환 Chat Completions | [`openai-latest`](/ko/integrations/kilo-code) |
+| GitHub Copilot CLI | Chat Completions, Responses 또는 Messages | [문서화된 프로토콜 경로 선택](/ko/integrations/github-copilot-cli) |
+| OpenCode | OpenAI Responses, Chat Completions 또는 Anthropic Messages | [문서화된 제공자 경로 선택](/ko/integrations/opencode) |
+| OpenClaw | OpenAI Responses, Anthropic Messages 또는 호환 채팅 | [문서화된 제공자 경로 선택](/ko/integrations/openclaw) |
+
+같은 계정과 API 잔액이 이 통합 뒤에 있습니다. 요청 형태는 여전히 클라이언트를 따릅니다.
+
+Codex는 Responses 요청을 보냅니다. Claude Code는 Anthropic Messages 요청을 보내고, 선택한 제공자가 지원하면 토큰 계산 사전 검사를 사용할 수 있습니다. Kilo Code는 Chat Completions를 사용합니다. GitHub Copilot CLI, OpenCode, OpenClaw는 다른 프로토콜 또는 제공자 경로로 구성할 수 있으므로, 설정은 선택한 모델 계열과 프로토콜에 따라 달라집니다.
+
+Capriole은 그 구분을 유지합니다. 공개 Responses 경로는 비밀리에 Chat Completions로 변환되지 않고, Messages 경로는 OpenAI 응답으로 다시 쓰이지 않습니다.
+
+## 키 하나가 유용한 이유
+
+공유 접근 계층이 없으면 여러 코딩 에이전트를 시도하는 일은 같은 관리 작업을 반복하는 경우가 많습니다.
+
+- 다른 모델 제공자와 계정을 만들거나 유지하기
+- 여러 곳에 청구 정보와 잔액 추가하기
+- API key 여러 개 저장하기
+- 각 클라이언트가 기대하는 모델 이름과 Base URL 배우기
+- 선호 모델이 바뀌면 모든 구성을 다시 확인하기
+
+Capriole은 그 설정을 계정 하나와 Capriole API key 하나로 줄입니다. 통합 가이드가 정확한 Base URL, 모델 선택자, 클라이언트별 필드를 제공합니다.
+
+에이전트는 자체 인터페이스, 도구 시스템, 권한 모델, 로컬 실행 동작을 유지합니다. Capriole은 모델 접근을 제공합니다. 각 코딩 에이전트가 파일을 편집하고, 도구를 실행하고, 결과를 제시하는 방식을 여전히 결정합니다.
+
+## Latest 별칭이 유지 관리를 줄입니다
+
+모델 릴리스는 빠르게 움직입니다. 하나의 구체 모델 ID에 묶인 구성은 재현 가능한 작업에 유용하지만, 최신 지원 기본값을 원할 때는 수동 업데이트도 필요합니다.
+
+Capriole은 지원되는 공개 경로에 유지 중인 별칭을 제공합니다.
+
+- 유지 중인 OpenAI 경로용 `openai-latest`
+- 유지 중인 Claude 경로용 `claude-latest`
+- 호환 공개 채팅 경로의 `google-latest`
+
+별칭은 업스트림 전달과 사용량 회계 전에 해석됩니다. 코딩 에이전트는 안정적인 선택자를 보내고, Capriole은 요청을 처리한 해석된 모델을 기록합니다.
+
+감사, 테스트, 장기 프로젝트에 정확한 버전이 중요하면 구체 모델 ID는 여전히 유용합니다. “Latest”는 편의이며 버전 고정의 대체가 아닙니다.
+
+## 테스트된 내용
+
+유지 중인 설정은 실제 클라이언트 경로와 테스트를 따릅니다.
+
+로컬 검증은 문서화된 구성을 통해 클라이언트 여섯 개를 모두 커버합니다. 테스트에는 기본 프롬프트와 지원되는 도구 상호작용 흐름이 포함됩니다.
+
+클라이언트별 제한이 있습니다. Codex는 유지 중인 OpenAI Responses 모델에 남습니다. Capriole에서 Claude 모델을 선택해도 Codex 호환 모델이 되지는 않습니다. Claude Code는 Claude Messages 경로를 사용합니다. Kilo Code는 Chat Completions를 사용합니다. GitHub Copilot CLI, OpenCode, OpenClaw는 더 넓은 선택이 있지만, 구성은 여전히 선택한 프로토콜과 일치해야 합니다.
+
+표에 연결된 통합 가이드가 현재 필드와 지원 선택자의 진실 원천입니다.
+
+경로 커버리지와 실제 코딩 에이전트 통과의 차이는 [Capriole이 다중 모델 API 호환성을 테스트하는 방법](/ko/articles/unified-model-api#호환성을-테스트하는-방법)을 읽으세요.
+
+## Browser Chat과 코딩 에이전트는 작업의 다른 부분을 해결합니다
+
+연구, 초안, 파일, 웹 검색, 대화 중 모델 변경은 브라우저 작업 공간에 둘 수 있습니다. 작업에 리포지토리 컨텍스트, 로컬 도구, 파일 변경이 필요하면 코딩 에이전트가 같은 Capriole 계정을 사용할 수 있습니다.
+
+Capriole은 두 표면을 같은 계정에 연결합니다. Premium 멤버십은 현재 **월 USD 8**이며, 지원되는 Premium 모델 세트의 무제한 Browser Chat을 포함하고, **매달 500만 과금 API 토큰**을 추가합니다. 코딩 에이전트 사용량은 API 사용량이므로, 무제한 Browser Chat 허용량이 아니라 그 측정 잔액에서 가져갑니다.
+
+플랜은 두 워크로드를 분리합니다. 일상 Browser Chat은 Premium에서 무제한이고, 프로그래밍 및 에이전트 워크로드는 보이는 과금 API 토큰을 사용하며 필요할 때 top-up을 사용할 수 있습니다.
+
+## 에이전트를 먼저 선택한 다음 프로토콜을 따르세요
+
+Responses 기반 OpenAI 워크플로가 작업에 맞으면 Codex를 사용하세요. Anthropic 네이티브 클라이언트를 원하면 Claude Code를 사용하세요. Kilo Code는 Chat Completions 위의 IDE 또는 터미널 워크플로를 제공합니다. GitHub Copilot CLI, OpenCode, OpenClaw는 더 많은 프로토콜 선택을 제공합니다.
+
+문서화된 각 클라이언트는 해당 프로토콜이 지원하는 모델로 가는 유지 중인 경로를 받습니다.
+
+[제한된 무료 Browser Chat에서 GPT-5.6 Thinking, Claude Fable 5 또는 Gemini 3.1 Pro를 써 보세요](https://capriole.ai). API key를 만들 준비가 되면 업그레이드하세요. 공유 워크플로는 [키 하나 코딩 에이전트 가이드](/ko/guides/one-api-key-coding-agents)부터 시작한 다음, 사용하는 에이전트의 통합 페이지를 여세요.
+
+**사실 확인 날짜** 2026-08-11.

@@ -1,0 +1,88 @@
+---
+title: "빠른 시작"
+description: "첫 Capriole AI API 요청을 보냅니다."
+---
+
+## Base URL
+
+`https://api.caprioletech.com`
+
+## 두 단계로 시작하기
+
+### 1. API key 만들기
+
+로그인 후 [Capriole AI API 페이지](https://capriole.ai?view=api)에서 키를 만드세요.
+
+### 2. `POST /v1/chat` 호출하기
+
+간단한 텍스트 요청을 보냅니다.
+
+<CodeGroup>
+```bash curl
+curl https://api.caprioletech.com/v1/chat \
+  -X POST \
+  -H "Authorization: Bearer YOUR_CAPRIOLE_AI_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "openai-latest",
+    "input": "Hello World!"
+  }'
+```
+
+```python python
+import requests
+
+API_KEY = "YOUR_CAPRIOLE_AI_API_KEY"
+
+response = requests.post(
+    "https://api.caprioletech.com/v1/chat",
+    headers={
+        "Authorization": f"Bearer {API_KEY}",
+        "Content-Type": "application/json",
+    },
+    json={
+        "model": "openai-latest",
+        "input": "Hello World!"
+    },
+)
+
+response.raise_for_status()
+print(response.json())
+```
+</CodeGroup>
+
+## 프로토콜 호환 엔드포인트
+
+OpenAI Responses 클라이언트는 `POST /v1/responses`, OpenAI Chat Completions 클라이언트는 `POST /v1/chat/completions`, Anthropic Messages 클라이언트는 `POST /v1/messages`를 사용하세요.
+
+해당 제공자의 권장 플래그십 모델을 Capriole AI가 선택하게 하려면 `openai-latest`, `claude-latest` 또는 `google-latest`를 사용하세요. 정확한 모델 버전이 필요하면 구체적인 모델 ID를 사용하세요.
+
+Latest 별칭은 입력 단축키입니다. Capriole AI는 해석된 모델에 대해 사용량을 기록하고, 프로토콜 호환 응답 본문의 모델 필드는 업스트림 호환 엔드포인트가 반환한 값을 유지합니다.
+
+## 빠른 답변
+
+### Base URL에 `/v1`을 포함해야 하나요?
+
+직접 API를 호출할 때는 `https://api.caprioletech.com`을 사용하세요. 일부 코딩 에이전트는 제공자 Base URL을 요청합니다. OpenAI 호환 클라이언트와 Anthropic 호환 클라이언트가 기대하는 Base URL이 다르므로, 해당 에이전트의 통합 페이지를 따르세요.
+
+### 각 엔드포인트에서 사용할 수 있는 latest 별칭은 무엇인가요?
+
+`POST /v1/chat`와 `POST /v1/chat/completions`는 세 latest 별칭을 모두 지원합니다. `POST /v1/responses`는 `openai-latest`를 지원합니다. `POST /v1/messages`는 `claude-latest`와 `claude-fable-5`, `claude-opus-5`, `claude-opus-4-8`, `claude-opus-4-7`, `claude-opus-4-6`, `claude-sonnet-4-6` 같은 구체적인 Claude Messages ID를 지원합니다.
+
+### 응답의 모델이 보낸 별칭과 다른 이유는 무엇인가요?
+
+정상적인 동작입니다. 별칭은 모델을 고르는 데만 사용됩니다. 응답은 선택한 엔드포인트의 모델 이름 지정 방식을 유지합니다.
+
+### unsupported model 오류가 발생한 이유는 무엇인가요?
+
+해당 latest 별칭을 지원하는 엔드포인트에서만 사용하거나, `GET /v1/models`에 나온 구체적인 모델 ID로 전환하세요.
+
+### `/v1/messages/count_tokens`는 항상 동작하나요?
+
+`claude-latest`와 구체적인 Claude Messages ID를 받습니다. 토큰 계산은 선택한 업스트림이 Anthropic token counting을 지원하는지에 따라 달라집니다.
+
+## SDK로 이어가기
+
+[OpenAI 및 Anthropic SDK 가이드](/ko/guides/openai-anthropic-sdks)를 사용해 같은 Capriole AI API key로 프로토콜 네이티브 Python 또는 TypeScript 클라이언트를 실행하세요.
+
+첫 요청 후에는 [API keys와 사용량 가이드](/ko/guides/api-keys-usage)에서 키, 모델, 상태, 과금 토큰 기록을 확인하세요.

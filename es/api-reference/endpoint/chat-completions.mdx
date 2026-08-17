@@ -1,0 +1,15 @@
+---
+title: "Chat completions"
+description: "Crea Chat Completions compatibles con OpenAI con modelos de Capriole AI."
+openapi: "api-reference/openapi.json POST /v1/chat/completions"
+---
+
+Usa este endpoint cuando tu aplicación, SDK o gateway espere el formato de solicitud y respuesta de OpenAI Chat Completions.
+
+Envía un payload estándar de Chat Completions con `model` y `messages`. Capriole AI resuelve los alias latest al ID de modelo del proveedor seleccionado antes del envío a upstream, reenvía campos compatibles como `messages`, `tools`, `tool_choice`, `response_format` y `stream`, y devuelve el JSON o el flujo SSE de upstream sin cambios. En solicitudes streaming, Capriole AI establece `stream_options.include_usage=true` antes de reenviar para poder registrar el uso.
+
+`POST /v1/chat/completions` acepta `openai-latest`, `claude-latest`, `google-latest` y los IDs de modelo concretos públicos que devuelve `GET /v1/models`. Usa un alias latest para que Capriole AI elija nuestro modelo insignia recomendado para ese proveedor.
+
+Los alias latest son atajos de entrada. El uso se registra contra el modelo resuelto, mientras que el cuerpo de la respuesta conserva el comportamiento de nombres de modelo del endpoint compatible seleccionado.
+
+Para generación de texto nativa de Capriole, usa `POST /v1/chat`. Usa `POST /v1/chat/completions` cuando se requiera el comportamiento de transmisión compatible con OpenAI.

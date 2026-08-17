@@ -1,0 +1,106 @@
+---
+title: "Usar arquivos e pesquisa na web na Capriole AI"
+sidebarTitle: "Arquivos e pesquisa na web"
+description: "Envie documentos, imagens, slides e planilhas no Browser Chat da Capriole AI, peça informações atuais da web e inspecione as fontes retornadas."
+---
+
+O Browser Chat da Capriole AI pode combinar um arquivo de trabalho enviado com informações atuais da web. Anexe o material que o modelo deve ler, faça uma pergunta específica e peça informações recentes quando a resposta depender do que mudou.
+
+O mesmo espaço de trabalho pode continuar a tarefa com GPT-5.6 Thinking, Claude Fable 5 ou Gemini 3.1 Pro, sem copiar o material para produtos separados. O Premium custa USD 8 por mês e deixa o Browser Chat ilimitado no conjunto de modelos Premium suportado.
+
+O envio de arquivos exige um chat autenticado com o armazenamento sincronizado da conta, o padrão. A pesquisa na web é uma ferramenta do Browser Chat que o modelo chama quando a pergunta precisa de informação pública atual.
+
+## Verifique o arquivo antes de enviar
+
+| Categoria de arquivo | Exemplos suportados | Limite por arquivo |
+|---|---|---:|
+| Imagens | JPG, JPEG, PNG | 10 MB |
+| PDF | Documentos PDF | 10 MB |
+| Texto e arquivos estruturados | TXT, Markdown, JSON, JSONL, HTML | 4 MB |
+| Documentos Office | DOCX e PPTX | 4 MB |
+| Planilhas | CSV, XLS, XLSX | 4 MB |
+
+O compositor pode aceitar vários arquivos, mas não há promessa publicada de anexos ilimitados. Um contexto combinado grande ainda pode exceder os limites de entrada do modelo selecionado.
+
+Os modos Local e No Storage não aceitam envio de arquivos. Leia o [guia de armazenamento do chat](/pt-br/guides/chat-storage) antes de alterar o limite de armazenamento de uma conversa.
+
+## Peça a um modelo para trabalhar a partir de um arquivo
+
+<Steps>
+<Step title="Abra um chat sincronizado">
+
+Entre na [Capriole AI](https://capriole.ai). Deixe **Enable local storage** e **Enable No Storage** desligados para o chat usar o armazenamento sincronizado da conta, o padrão.
+
+</Step>
+
+<Step title="Adicione o arquivo">
+
+Escolha **Add photos and files** no compositor. Você também pode arrastar arquivos para a área do chat ou colar um arquivo da área de transferência.
+
+Espere o anexo terminar o envio antes de mandar a mensagem. A Capriole mostra um status de processamento enquanto prepara os arquivos enviados para o modelo selecionado.
+
+</Step>
+
+<Step title="Descreva o trabalho, não só o arquivo">
+
+Diga ao modelo o que inspecionar e qual saída seria útil. Por exemplo:
+
+```text
+Read the attached spreadsheet. Identify the three largest month-over-month changes, explain which rows produced them, and return a compact table.
+```
+
+Em uma revisão de documento, nomeie a seção, a decisão ou a inconsistência que importa. Um pedido genérico como `summarize this` dá menos direção ao modelo.
+
+</Step>
+
+<Step title="Confira a resposta contra o anexo">
+
+Confirme números importantes, citações e referências de linha no arquivo original. Modelos diferentes têm limites diferentes de arquivo e contexto, e documentos convertidos podem perder detalhes de layout que dependem do posicionamento visual.
+
+</Step>
+</Steps>
+
+## Adicione informações atuais da web
+
+Não há um interruptor comum de Web Search no compositor. Faça uma pergunta que dependa claramente de informação pública recente ou ao vivo. O modelo pode chamar a ferramenta de pesquisa do Browser Chat quando decidir que uma busca é necessária.
+
+```text
+Use the attached product brief as the baseline. Search for official changes announced in the last 30 days, list the sources, and explain which parts of the brief now need revision.
+```
+
+Durante uma busca, a área Thinking pode mostrar **Web searching**. Quando a busca devolve metadados de fonte, a resposta expõe um controle **Sources** que abre os resultados vinculados.
+
+O modelo não precisa pesquisar em todo prompt. Um pedido de notícia atual ou de um fato datado deixa a necessidade mais clara, mas não garante um resultado específico, um número de fontes ou um provedor de busca.
+
+## Permitir URLs de imagem no contexto da pesquisa na web
+
+Usuários autenticados podem abrir **Account** → **Settings** e ativar **Enable web search images**. Esta configuração permite que a pesquisa na web devolva URLs de imagem junto com os resultados normais, quando disponíveis.
+
+Não é uma configuração de geração de imagem e não garante que toda busca devolva ou exiba uma imagem. Incluir resultados de imagem pode aumentar o contexto de busca enviado ao modelo e pode aumentar o uso de tokens.
+
+## Como a Capriole prepara arquivos diferentes
+
+A Capriole mantém um único fluxo de envio e adapta a entrada do modelo por baixo. Imagens podem usar entrada multimodal nativa. Alguns PDFs e arquivos semelhantes a texto também podem usar o caminho nativo de arquivo do modelo. Outros documentos suportados são convertidos em contexto de texto antes da chamada do modelo.
+
+Essa adaptação permite que o mesmo chat mude entre modelos suportados sem pedir que o usuário recrie cada anexo manualmente. Isso não significa que todo modelo lê todo arquivo de forma nativa, preserve cada detalhe visual ou tenha a mesma capacidade de contexto.
+
+Se o modelo atual não puder aceitar o contexto combinado, reduza o número de anexos, divida um documento grande ou comece pela seção necessária para a pergunta imediata.
+
+## Corrija problemas comuns
+
+| Problema | Motivo provável | Próxima ação |
+|---|---|---|
+| O botão de anexo está ausente | O chat usa o modo Local ou No Storage | Volte ao armazenamento sincronizado da conta, o padrão |
+| Um documento é recusado | Um arquivo que não é imagem nem PDF excede 4 MB ou o tipo não é suportado | Divida, exporte ou converta o arquivo para um formato suportado |
+| Um PDF ou uma imagem é recusado | O arquivo excede 10 MB | Reduza o tamanho do arquivo antes de enviar |
+| A mensagem ainda não pode ser enviada | Um ou mais anexos ainda estão sendo enviados | Espere o envio terminar ou remova o anexo que falhou |
+| Nenhum controle Sources aparece | O modelo não pesquisou ou nenhuma fonte normalizada foi devolvida | Peça explicitamente informações atuais e links de fonte |
+| Um modelo perde detalhes de layout | O arquivo foi convertido ou o modelo o interpretou de outro modo | Confira no original e tente um modelo adequado a entrada visual |
+
+## Mantenha o fluxo em uma única conversa
+
+Você pode alterar o modelo selecionado antes da próxima mensagem sem reconstruir a conversa. Leia [Trocar modelos de IA sem reiniciar a conversa](/pt-br/articles/switch-models-mid-chat) para o contexto e os limites de armazenamento que se aplicam quando outro modelo continua a conversa.
+
+[Experimente o fluxo no Browser Chat gratuito limitado](https://capriole.ai). Faça upgrade para Premium quando quiser Browser Chat ilimitado e continue com a mesma conta Capriole para trabalho de API e agentes de programação.
+
+**Fatos verificados:** 2026-08-10.

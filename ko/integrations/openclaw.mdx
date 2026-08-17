@@ -1,0 +1,368 @@
+---
+title: "OpenClaw"
+description: "OpenClaw가 Capriole AI를 사용하도록 구성합니다."
+---
+
+## OpenClaw란
+
+OpenClaw는 WhatsApp, Slack, Discord, Telegram, iMessage, WebChat 같은 채팅 채널을 AI 에이전트에 연결하는 오픈 소스 셀프호스트 개인 AI 어시스턴트이자 게이트웨이입니다. 사용자 지정 OpenAI 호환 및 Anthropic 호환 모델 제공자를 구성해 Capriole AI를 통해 지원 모델 요청을 보낼 수 있습니다.
+
+## 사전 준비
+
+시작하기 전에 다음이 있는지 확인하세요.
+
+- Capriole AI 계정([여기에서 가입](https://capriole.ai))
+- Capriole AI API key([키 받기](https://capriole.ai?view=api))
+
+## 설치
+
+```bash
+curl -fsSL https://openclaw.ai/install.sh | bash -s -- --no-onboard
+```
+
+## 구성
+
+GPT 제공자를 구성하세요.
+
+```bash
+export CUSTOM_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
+export CAPRIOLE_OPENAI_BASE_URL="https://api.caprioletech.com/v1"
+
+openclaw onboard --non-interactive \
+  --accept-risk \
+  --mode local \
+  --auth-choice custom-api-key \
+  --custom-base-url "$CAPRIOLE_OPENAI_BASE_URL" \
+  --custom-model-id "openai-latest" \
+  --custom-provider-id "capriole-ai-openai" \
+  --custom-compatibility openai \
+  --secret-input-mode ref \
+  --gateway-port 18789 \
+  --gateway-bind loopback \
+  --skip-channels \
+  --skip-search \
+  --skip-skills \
+  --skip-health \
+  --no-install-daemon
+
+openclaw config set models.providers.capriole-ai-openai.request.auth \
+  '{"mode":"authorization-bearer","token":"${CUSTOM_API_KEY}"}' \
+  --strict-json
+
+openclaw config set models.providers.capriole-ai-openai.api \
+  '"openai-responses"' \
+  --strict-json
+
+openclaw config set models.providers.capriole-ai-openai.models \
+  '[
+    {
+      "id": "openai-latest",
+      "name": "OpenAI latest",
+      "api": "openai-responses",
+      "contextWindow": 400000,
+      "maxTokens": 128000,
+      "input": ["text"],
+      "reasoning": true,
+      "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
+    },
+    {
+      "id": "openai/gpt-5.6-terra",
+      "name": "GPT 5.6 Thinking",
+      "api": "openai-responses",
+      "contextWindow": 1050000,
+      "maxTokens": 128000,
+      "input": ["text"],
+      "reasoning": true,
+      "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
+    },
+    {
+      "id": "openai/gpt-5.6-luna",
+      "name": "GPT 5.6",
+      "api": "openai-responses",
+      "contextWindow": 1050000,
+      "maxTokens": 128000,
+      "input": ["text"],
+      "reasoning": true,
+      "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
+    },
+    {
+      "id": "openai/gpt-5.5",
+      "name": "GPT 5.5",
+      "api": "openai-responses",
+      "contextWindow": 400000,
+      "maxTokens": 128000,
+      "input": ["text"],
+      "reasoning": true,
+      "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
+    },
+    {
+      "id": "openai/gpt-5.4-mini",
+      "name": "GPT 5.4 mini",
+      "api": "openai-responses",
+      "contextWindow": 400000,
+      "maxTokens": 128000,
+      "input": ["text"],
+      "reasoning": true,
+      "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
+    }
+  ]' \
+  --strict-json
+```
+
+Claude, Grok, GLM, Kimi Chat Completions 제공자를 구성하세요.
+
+```bash
+export CUSTOM_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
+
+openclaw config set models.providers.capriole-ai-compatible \
+  '{
+    "baseUrl": "https://api.caprioletech.com/v1",
+    "apiKey": "${CUSTOM_API_KEY}",
+    "api": "openai-completions",
+    "models": [
+      {
+        "id": "anthropic/claude-fable-5",
+        "name": "Fable 5",
+        "api": "openai-completions",
+        "contextWindow": 1000000,
+        "maxTokens": 128000,
+        "input": ["text"],
+        "reasoning": true,
+        "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
+      },
+      {
+        "id": "anthropic/claude-opus-5",
+        "name": "Opus 5",
+        "api": "openai-completions",
+        "contextWindow": 1000000,
+        "maxTokens": 128000,
+        "input": ["text"],
+        "reasoning": true,
+        "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
+      },
+      {
+        "id": "xai/grok-4.5",
+        "name": "Grok 4.5",
+        "api": "openai-completions",
+        "contextWindow": 500000,
+        "maxTokens": 128000,
+        "input": ["text"],
+        "reasoning": true,
+        "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
+      },
+      {
+        "id": "zai/glm-5.2",
+        "name": "GLM 5.2",
+        "api": "openai-completions",
+        "contextWindow": 1000000,
+        "maxTokens": 128000,
+        "input": ["text"],
+        "reasoning": true,
+        "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
+      },
+      {
+        "id": "moonshot/kimi-k3",
+        "name": "Kimi K3",
+        "api": "openai-completions",
+        "contextWindow": 1048576,
+        "maxTokens": 131072,
+        "input": ["text"],
+        "reasoning": true,
+        "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
+      }
+    ]
+  }' \
+  --strict-json
+```
+
+Anthropic 제공자를 구성하세요.
+
+```bash
+export CUSTOM_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
+export CAPRIOLE_ANTHROPIC_BASE_URL="https://api.caprioletech.com"
+
+openclaw onboard --non-interactive \
+  --accept-risk \
+  --mode local \
+  --auth-choice custom-api-key \
+  --custom-base-url "$CAPRIOLE_ANTHROPIC_BASE_URL" \
+  --custom-model-id "claude-latest" \
+  --custom-provider-id "capriole-ai-anthropic" \
+  --custom-compatibility anthropic \
+  --secret-input-mode ref \
+  --gateway-port 18789 \
+  --gateway-bind loopback \
+  --skip-channels \
+  --skip-search \
+  --skip-skills \
+  --skip-health \
+  --no-install-daemon
+
+openclaw config set models.providers.capriole-ai-anthropic.request.auth \
+  '{"mode":"authorization-bearer","token":"${CUSTOM_API_KEY}"}' \
+  --strict-json
+
+openclaw config set models.providers.capriole-ai-anthropic.api \
+  '"anthropic-messages"' \
+  --strict-json
+
+openclaw config set models.providers.capriole-ai-anthropic.models \
+  '[
+    {
+      "id": "claude-latest",
+      "name": "Claude latest",
+      "api": "anthropic-messages",
+      "contextWindow": 1000000,
+      "maxTokens": 128000,
+      "input": ["text"],
+      "reasoning": true,
+      "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
+    },
+    {
+      "id": "claude-fable-5",
+      "name": "Fable 5",
+      "api": "anthropic-messages",
+      "contextWindow": 1000000,
+      "maxTokens": 128000,
+      "input": ["text"],
+      "reasoning": true,
+      "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
+    },
+    {
+      "id": "claude-opus-5",
+      "name": "Opus 5",
+      "api": "anthropic-messages",
+      "contextWindow": 1000000,
+      "maxTokens": 128000,
+      "input": ["text"],
+      "reasoning": true,
+      "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
+    },
+    {
+      "id": "claude-opus-4-8",
+      "name": "Opus 4.8",
+      "api": "anthropic-messages",
+      "contextWindow": 200000,
+      "maxTokens": 32000,
+      "input": ["text"],
+      "reasoning": true,
+      "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
+    },
+    {
+      "id": "claude-opus-4-7",
+      "name": "Opus 4.7",
+      "api": "anthropic-messages",
+      "contextWindow": 200000,
+      "maxTokens": 32000,
+      "input": ["text"],
+      "reasoning": true,
+      "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
+    },
+    {
+      "id": "claude-opus-4-6",
+      "name": "Opus 4.6",
+      "api": "anthropic-messages",
+      "contextWindow": 200000,
+      "maxTokens": 32000,
+      "input": ["text"],
+      "reasoning": true,
+      "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
+    },
+    {
+      "id": "claude-sonnet-4-6",
+      "name": "Sonnet 4.6",
+      "api": "anthropic-messages",
+      "contextWindow": 200000,
+      "maxTokens": 32000,
+      "input": ["text"],
+      "reasoning": true,
+      "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
+    }
+  ]' \
+  --strict-json
+```
+
+기본 에이전트에 구성한 Capriole AI 모델을 허용하세요.
+
+```bash
+openclaw config set agents.defaults.models \
+  '{"capriole-ai-openai/openai-latest":{},"capriole-ai-openai/openai/gpt-5.6-terra":{},"capriole-ai-openai/openai/gpt-5.6-luna":{},"capriole-ai-openai/openai/gpt-5.5":{},"capriole-ai-openai/openai/gpt-5.4-mini":{},"capriole-ai-compatible/anthropic/claude-fable-5":{},"capriole-ai-compatible/anthropic/claude-opus-5":{},"capriole-ai-compatible/xai/grok-4.5":{},"capriole-ai-compatible/zai/glm-5.2":{},"capriole-ai-compatible/moonshot/kimi-k3":{},"capriole-ai-anthropic/claude-latest":{},"capriole-ai-anthropic/claude-fable-5":{},"capriole-ai-anthropic/claude-opus-5":{},"capriole-ai-anthropic/claude-opus-4-8":{},"capriole-ai-anthropic/claude-opus-4-7":{},"capriole-ai-anthropic/claude-opus-4-6":{},"capriole-ai-anthropic/claude-sonnet-4-6":{}}' \
+  --strict-json
+```
+
+## OpenClaw 실행
+
+게이트웨이를 시작하세요.
+
+```bash
+export CUSTOM_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
+openclaw gateway --force --port 18789
+```
+
+다른 터미널에서 TUI를 여세요.
+
+```bash
+export CUSTOM_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
+openclaw tui
+```
+
+## 지원 모델
+
+OpenClaw는 Capriole AI를 통해 OpenAI latest, GPT 5.6 Thinking, GPT 5.6, GPT 5.5, GPT 5.4 mini, Fable 5, Opus 5, Grok 4.5, GLM 5.2, Kimi K3, Claude latest, Opus 4.8, Opus 4.7, Opus 4.6, Sonnet 4.6을 지원합니다. Fable 5와 Opus 5는 Chat Completions 호환 제공자 또는 Anthropic Messages 제공자를 사용할 수 있습니다.
+
+- `openai-latest`
+- `openai/gpt-5.6-terra`
+- `openai/gpt-5.6-luna`
+- `openai/gpt-5.5`
+- `openai/gpt-5.4-mini`
+- `anthropic/claude-fable-5`
+- `anthropic/claude-opus-5`
+- `xai/grok-4.5`
+- `zai/glm-5.2`
+- `moonshot/kimi-k3`
+- `claude-latest`
+- `claude-fable-5`
+- `claude-opus-5`
+- `claude-opus-4-8`
+- `claude-opus-4-7`
+- `claude-opus-4-6`
+- `claude-sonnet-4-6`
+
+## 문제 해결
+
+### GPT 요청이 실패하는 이유는 무엇인가요?
+
+`models.providers.capriole-ai-openai.api`가 `"openai-responses"`이고 `baseUrl`이 `https://api.caprioletech.com/v1`인지 확인하세요.
+
+### Grok, GLM, Kimi 요청이 실패하는 이유는 무엇인가요?
+
+`models.providers.capriole-ai-compatible.api`가 `"openai-completions"`이고 `baseUrl`이 `https://api.caprioletech.com/v1`인지 확인하세요.
+
+### Anthropic 요청이 실패하는 이유는 무엇인가요?
+
+`models.providers.capriole-ai-anthropic.api`가 `"anthropic-messages"`이고 Anthropic `baseUrl`이 `/v1` 없는 `https://api.caprioletech.com`인지 확인하세요.
+
+### 인증이 실패하는 이유는 무엇인가요?
+
+`openclaw gateway`를 시작하는 터미널과 `openclaw tui`를 시작하는 터미널에서 `CUSTOM_API_KEY`를 내보내세요.
+
+### OpenClaw가 모델이 허용되지 않거나 사용할 수 없다고 하는 이유는 무엇인가요?
+
+`openclaw models list`를 실행한 다음, 선택한 모델과 `agents.defaults.models` 허용 목록에 `capriole-ai-openai/openai-latest`, `capriole-ai-compatible/xai/grok-4.5`, `capriole-ai-compatible/moonshot/kimi-k3`, `capriole-ai-anthropic/claude-latest` 같은 Capriole AI 모델 참조가 포함되어 있는지 확인하세요.
+
+Capriole AI 모델이 누락된 것으로 보이면 위에 나온 전체 객체로 모델 항목을 업데이트하세요. 현재 OpenClaw 릴리스는 사용자 지정 제공자 모델에 `id`와 `name` 이상이 필요합니다.
+
+### 게이트웨이가 시작되지 않는 이유는 무엇인가요?
+
+`openclaw status`, `openclaw gateway status`, `openclaw logs --follow`, `openclaw doctor`를 실행하세요. 다시 시도하기 전에 스키마, `gateway.mode`, 서비스 문제를 해결하세요.
+
+### 포트 `18789`가 실패하는 이유는 무엇인가요?
+
+다른 로컬 포트를 선택하고 게이트웨이와 클라이언트 구성에 같은 포트를 사용하세요. 서비스 모드 설치에서는 포트를 바꾼 뒤 `openclaw doctor --fix` 또는 `openclaw gateway install --force`를 실행하세요.
+
+## 참고
+
+- OpenClaw 사용자 지정 제공자는 제공자 API 모드가 Capriole AI 엔드포인트 계열과 일치해야 합니다.
+- OpenClaw 2026.4.21은 `openai-completions`를 통해 Grok 4.5, GLM 5.2, Kimi K3로 로컬 `exec` 도구 워크플로를 완료합니다.
+- Capriole AI는 모델 요청을 처리합니다. OpenClaw는 게이트웨이, 채널, 에이전트 설정으로 최종 assistant 동작을 계속 형성할 수 있습니다.
+- 공식 참고: [OpenClaw install](https://docs.openclaw.ai/install), [OpenClaw custom providers](https://docs.openclaw.ai/gateway/config-tools), [OpenClaw model providers](https://documentation.openclaw.ai/concepts/model-providers), [OpenClaw troubleshooting](https://docs.openclaw.ai/gateway/troubleshooting).

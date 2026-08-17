@@ -1,0 +1,88 @@
+---
+title: "快速开始"
+description: "发送你的第一个 Capriole AI API 请求。"
+---
+
+## Base URL
+
+`https://api.caprioletech.com`
+
+## 两步开始使用
+
+### 1. 创建 API Key
+
+登录后，在 [Capriole AI API 页面](https://capriole.ai?view=api)创建 API Key。
+
+### 2. 调用 `POST /v1/chat`
+
+发送一个简单的文本请求。
+
+<CodeGroup>
+```bash curl
+curl https://api.caprioletech.com/v1/chat \
+  -X POST \
+  -H "Authorization: Bearer YOUR_CAPRIOLE_AI_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "openai-latest",
+    "input": "Hello World!"
+  }'
+```
+
+```python python
+import requests
+
+API_KEY = "YOUR_CAPRIOLE_AI_API_KEY"
+
+response = requests.post(
+    "https://api.caprioletech.com/v1/chat",
+    headers={
+        "Authorization": f"Bearer {API_KEY}",
+        "Content-Type": "application/json",
+    },
+    json={
+        "model": "openai-latest",
+        "input": "Hello World!"
+    },
+)
+
+response.raise_for_status()
+print(response.json())
+```
+</CodeGroup>
+
+## 协议兼容端点
+
+OpenAI Responses 客户端使用 `POST /v1/responses`，OpenAI Chat Completions 客户端使用 `POST /v1/chat/completions`，Anthropic Messages 客户端使用 `POST /v1/messages`。
+
+如果希望 Capriole AI 为对应提供商选择当前推荐的旗舰模型，请使用 `openai-latest`、`claude-latest` 或 `google-latest`。如果需要固定到一个特定模型版本，请使用具体的模型 ID。
+
+Latest alias 只是请求输入的快捷方式。Capriole AI 按解析后的具体模型记录用量，协议兼容响应中的模型字段则保留上游兼容端点返回的值。
+
+## 常见问题
+
+### Base URL 是否应包含 `/v1`
+
+直接调用 API 时使用 `https://api.caprioletech.com`。部分编程代理会要求填写提供商 Base URL。请按照对应集成页面配置，因为 OpenAI 兼容客户端和 Anthropic 兼容客户端需要的 Base URL 不同。
+
+### 每个端点支持哪些 latest alias
+
+`POST /v1/chat` 和 `POST /v1/chat/completions` 支持三个 latest alias。`POST /v1/responses` 支持 `openai-latest`。`POST /v1/messages` 支持 `claude-latest`，也支持 `claude-fable-5`、`claude-opus-5`、`claude-opus-4-8`、`claude-opus-4-7`、`claude-opus-4-6` 和 `claude-sonnet-4-6` 等具体的 Claude Messages 模型 ID。
+
+### 为什么响应中的模型不是我发送的 alias
+
+这是正常行为。Alias 只用于选择模型。响应会保留所选端点原有的模型命名方式。
+
+### 为什么会返回 unsupported model 错误
+
+请只在支持对应 latest alias 的端点使用它，或者改用 `GET /v1/models` 返回的具体模型 ID。
+
+### `/v1/messages/count_tokens` 是否始终可用
+
+它接受 `claude-latest` 和具体的 Claude Messages 模型 ID。Token 计数能否成功，取决于所选上游是否支持 Anthropic token counting。
+
+## 继续使用 SDK
+
+参阅 [OpenAI 和 Anthropic SDK 指南](/zh/guides/openai-anthropic-sdks)，使用同一个 Capriole AI API Key 运行协议原生的 Python 或 TypeScript 客户端。
+
+发送第一个请求后，参阅 [API Key 与用量指南](/zh/guides/api-keys-usage)，核对 API Key、模型、状态和 charged token 记录。

@@ -1,0 +1,90 @@
+---
+title: "Codex"
+description: "Codex が Capriole AI を使うように設定します。"
+---
+
+## Codex とは
+
+Codex は、ソフトウェア開発向けの OpenAI のコーディング エージェントです。Capriole AI の Responses 互換 API にリクエストを送るカスタム モデル プロバイダーを設定すると、Capriole AI を利用できます。
+
+## 前提条件
+
+始める前に、次を用意してください。
+
+- Capriole AI アカウント（[こちらから登録](https://capriole.ai)）
+- Capriole AI API キー（[キーを取得](https://capriole.ai?view=api)）
+
+## インストール
+
+### Codex CLI
+
+```bash
+npm install -g @openai/codex
+```
+
+### Codex app
+
+[OpenAI Codex](https://developers.openai.com/codex) からアプリをダウンロードしてください。
+
+## 設定
+
+`~/.codex/config.toml` を作成または更新します。
+
+```toml
+model = "openai-latest"
+model_reasoning_effort = "high"
+model_provider = "capriole_ai"
+
+[model_providers.capriole_ai]
+name = "Capriole AI"
+base_url = "https://api.caprioletech.com/v1"
+wire_api = "responses"
+env_key = "CAPRIOLE_AI_API_KEY"
+env_key_instructions = "Export CAPRIOLE_AI_API_KEY before starting Codex"
+```
+
+## Codex を実行する
+
+API キーを設定してから、Codex を起動します。
+
+```bash
+export CAPRIOLE_AI_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
+codex
+```
+
+## 対応モデル
+
+Codex は Responses API 経由で Capriole AI の OpenAI モデルを使えます。新規セットアップでは `openai-latest` を使い、設定を変えずに推奨の旗艦 OpenAI モデルへ Codex をルーティングしてください。
+
+- `openai-latest`
+- `openai/gpt-5.6-terra`
+- `openai/gpt-5.6-luna`
+- `openai/gpt-5.5`
+- `openai/gpt-5.4-mini`
+
+## トラブルシューティング
+
+### Codex が認証エラーを返すのはなぜですか？
+
+`codex` を実行する前に、同じシェルで `CAPRIOLE_AI_API_KEY` がエクスポートされていることを確認してください。
+
+### Codex がモデルを見つけられないのはなぜですか？
+
+`model_provider = "capriole_ai"` が設定されており、`model` が `openai-latest` または対応する Capriole AI の OpenAI モデル ID であることを確認してください。
+
+### エンドポイントまたはプロトコル エラーでリクエストが失敗するのはなぜですか？
+
+`[model_providers.capriole_ai]` の下に `base_url = "https://api.caprioletech.com/v1"` と `wire_api = "responses"` が設定されていることを確認してください。
+
+### Codex が Capriole AI プロバイダーを無視するのはなぜですか？
+
+`openai` などの予約済み組み込みプロバイダー ID は使わないでください。カスタム プロバイダー ID は `capriole_ai` のままにしてください。
+
+### 設定の変更が反映されないのはなぜですか？
+
+`~/.codex/config.toml` が有効なユーザー設定ファイルであることを確認し、プロジェクトスコープの `.codex/config.toml` に頼る前にプロジェクトを信頼してから、Codex を再起動してください。
+
+## 注意事項
+
+- この設定は `env_key` を使うため、API キーは設定ファイルではなくシェル環境に残ります。
+- 公式リファレンス: [Codex CLI](https://developers.openai.com/codex/cli)、[Codex 設定の基本](https://developers.openai.com/codex/config-basic)、[Codex 設定リファレンス](https://developers.openai.com/codex/config-reference)、[設定サンプル](https://developers.openai.com/codex/config-sample)。

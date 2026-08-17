@@ -1,0 +1,86 @@
+---
+title: "Capriole AI vs T3 Chat para chat, BYOK y acceso a la API"
+sidebarTitle: "Capriole AI vs T3 Chat"
+description: "Mira por qué Capriole AI va más allá del chat con modelos de frontera de bajo costo, chat ilimitado del navegador en Premium, acceso a la API, agentes de programación y controles de almacenamiento."
+---
+
+Para los usuarios que quieren una cuenta que cubra chat con modelos de frontera, acceso a la API y agentes de programación, **Capriole AI es la opción más completa**. Los visitantes sin sesión y los usuarios Free pueden probar GPT-5.6 Thinking, Claude Fable 5 y Gemini 3.1 Pro; Premium cuesta USD 8 al mes y ofrece chat ilimitado del navegador, 5 millones de tokens cobrados de API al mes y seis integraciones mantenidas de agentes de programación.
+
+T3 Chat mide el uso del navegador a través de cubos Base y Overage. Sus páginas públicas revisadas no documentan el mismo flujo de API de propósito general y de agentes de programación.
+
+Revisamos el FAQ, la política de privacidad y las páginas oficiales de feedback de producto de T3 para esta comparación. T3 no mantiene una página pública estable de precios, así que este artículo no publica un precio fijo de T3 ni un cupo de plan.
+
+## Cómo estructuran el acceso los productos
+
+| Área | Capriole AI | T3 Chat |
+|---|---|---|
+| Acceso actual a modelos insignia | GPT-5.6 Thinking, Claude Fable 5 y Gemini 3.1 Pro en un espacio de trabajo | Acceso a modelos centrado en el chat medido a través de cubos Base y Overage |
+| Uso de pago del navegador | Ilimitado en el conjunto de modelos Premium compatible por USD 8/mes | El uso toma de cubos Base y Overage conscientes del costo |
+| Uso de API incluido | 5M de tokens cobrados de API/mes | No se documenta un cupo de API de desarrollador de propósito general |
+| API pública | OpenAI Chat Completions, OpenAI Responses, Anthropic Messages y un endpoint nativo de Capriole | Las páginas oficiales revisadas no documentan una API pública de desarrollador de propósito general |
+| Ruta de agentes de programación | Seis guías de integración mantenidas | Los docs oficiales revisados no mantienen páginas de configuración para esos seis clientes con nombre |
+| Espacio de trabajo y almacenamiento | Cambio de modelo, archivos, búsqueda web e historial Synced, Local o No Storage | Espacio de trabajo centrado en el chat, con comportamiento de chat temporal documentado por separado |
+
+La [guía más amplia de alternativas a OpenRouter](/es/articles/openrouter-alternatives) sitúa ambos productos junto a gateways y clientes BYOK configurables.
+
+## Por qué Capriole va más lejos que el chat del navegador
+
+Los visitantes sin sesión y los usuarios Free pueden empezar en Capriole con chat limitado en los modelos insignia compatibles. Premium luego quita el medidor del chat del navegador en el conjunto Premium compatible.
+
+Los archivos, la búsqueda web, el historial guardado y el [cambio de modelo a mitad de conversación](/es/articles/switch-models-mid-chat) se quedan en el mismo espacio de trabajo. La misma cuenta puede luego salir del navegador a través de endpoints de API pública y configuraciones mantenidas de agentes de programación.
+
+## El acceso incluido quita la administración de claves de proveedor
+
+Capriole suministra el acceso al modelo a través de la membresía y el saldo de API. Los usuarios no necesitan aportar claves de proveedor, financiar varias cuentas ni mantener otra relación de facturación para cada familia de modelo compatible.
+
+Para el comprador objetivo, esa es la ventaja: no se requiere una cuenta, clave, saldo o página de facturación de proveedor separados para cada familia de modelo compatible. El conjunto insignia actual está disponible dentro de un espacio de trabajo de Capriole.
+
+## Los planes miden el uso de forma distinta
+
+El FAQ actual de T3 describe un cubo Base y un cubo Overage. Base se recarga cada cuatro horas. Overage se recarga cada mes. El sistema reserva una cantidad estimada antes de una solicitud y liquida el costo real después.
+
+Un mensaje no tiene un costo fijo único en ese sistema. Los hilos largos, los adjuntos grandes, la búsqueda y los modelos más caros pueden usar más del saldo disponible. Las descripciones antiguas de mensajes fijos ya no representan el FAQ actual.
+
+Capriole Premium separa el uso del navegador y el programático. El chat del navegador es ilimitado en el conjunto de modelos Premium compatible. La API pública y los agentes de programación toman de 5 millones de tokens cobrados de API mensuales incluidos, con recargas separadas disponibles.
+
+Esa división encaja con usuarios que chatean con frecuencia y quieren un cupo definido para trabajo de desarrollo. La [guía de una suscripción de IA](/es/articles/one-ai-subscription) muestra qué incluye la membresía de Capriole y dónde empieza la medición.
+
+## Capriole ofrece la ruta de desarrollador documentada
+
+Las páginas oficiales de T3 revisadas para este artículo no documentaban una API pública de LLM de propósito general ni guías de configuración mantenidas para los seis agentes de programación que documenta Capriole.
+
+Capriole documenta varias rutas de protocolo públicas. OpenAI Responses admite clientes como [Codex](/es/integrations/codex), mientras que Anthropic Messages admite [Claude Code](/es/integrations/claude-code). [Kilo Code](/es/integrations/kilo-code), [GitHub Copilot CLI](/es/integrations/github-copilot-cli), OpenCode y OpenClaw tienen configuraciones mantenidas para sus rutas compatibles.
+
+El agente de programación ejecuta sus herramientas locales y cambios de archivos. Capriole gestiona el acceso al modelo compatible. El uso del agente sigue siendo tráfico de API medido, así que el chat ilimitado del navegador no se extiende a una carga de trabajo de programación automatizada.
+
+Si un cliente externo es central para la compra, Capriole tiene la ruta documentada de cuenta a clave API a cliente en funcionamiento. La documentación pública revisada de T3 no ofrece una ruta mantenida equivalente.
+
+## Capriole hace del almacenamiento del historial una elección explícita
+
+Capriole ofrece modos de historial de chat Synced, Local y No Storage. Local conserva el historial en el navegador actual. No Storage no deja historial de chat guardado. Las solicitudes en todos los modos siguen pasando por Capriole y el proveedor de modelo seleccionado.
+
+Estos controles hacen visible el límite de persistencia sin mover al usuario a otro producto. No quitan la necesidad de revisar el proveedor de upstream seleccionado cuando el material es sensible.
+
+## El chat solo deja incompleto el flujo de desarrollador
+
+T3 enfatiza una interfaz centrada en el chat, ramificación de conversaciones y BYOK. Capriole cubre el flujo más amplio sin requerir cuentas de proveedor separadas: empieza en el chat del navegador, continúa por rutas de API pública y conecta seis agentes de programación mantenidos bajo la misma membresía de USD 8.
+
+## Ve más allá del chat con Capriole
+
+Elige Capriole cuando la misma cuenta necesite cubrir el chat cotidiano, modelos de frontera compatibles, un cliente de API externo y agentes de programación a un precio mensual bajo.
+
+[Prueba el chat limitado gratuito del navegador](https://capriole.ai) y luego pasa a Premium de USD 8 para chat ilimitado del navegador y el saldo de API incluido. El [inicio rápido de la API](/es/quickstart) cubre la primera solicitud de aplicación.
+
+## Fuentes oficiales
+
+- [T3 Chat FAQ](https://t3.chat/faq)
+- [T3 Chat privacy policy](https://t3.chat/privacy-policy)
+- [T3 BYOK feature status](https://feedback.t3.chat/p/use-our-own-api-keys)
+- [T3 branching feature status](https://feedback.t3.chat/p/branching-chats)
+- [T3 model-switcher feature status](https://feedback.t3.chat/p/model-switcher-with-keyboard)
+
+Los comentarios de usuarios en el sitio de feedback de T3 no se trataron como hechos de producto. Se usaron el estado del producto y las respuestas del personal donde se identificaron.
+
+Los hechos de Capriole AI en esta página se mantienen como documentación de primera parte.
+
+**Hechos comprobados:** 2026-08-12.

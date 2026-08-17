@@ -1,0 +1,15 @@
+---
+title: "Messages"
+description: "Capriole AI の Claude モデルで Anthropic Messages 互換の出力を作成します。"
+openapi: "api-reference/openapi.json POST /v1/messages"
+---
+
+アプリケーション、SDK、またはエージェントが Anthropic Messages のリクエストとレスポンス形式を期待する場合は、このエンドポイントを使ってください。
+
+`model`、`messages`、`max_tokens` を含む標準の Messages ペイロードを送信します。Capriole AI は上流へ送る前に latest エイリアスを選択した上流 Claude モデルに解決し、`system`、`tools`、`thinking`、`stream` などの互換フィールドを転送し、上流の JSON または SSE ストリームをそのまま返します。
+
+`POST /v1/messages` は `claude-latest`、`claude-fable-5`、`claude-opus-5`、`claude-opus-4-8`、`claude-opus-4-7`、`claude-opus-4-6`、`claude-sonnet-4-6` を受け付けます。設定を変えずに Fable 5 を選ぶには、`claude-latest` を使ってください。
+
+`POST /v1/messages/count_tokens` は、Anthropic 互換のトークンカウント確認のために同じ Claude モデル ID を受け付けます。選択した上流のトークンカウント応答またはエラーを返します。
+
+シンプルな Capriole ネイティブのテキスト生成には `POST /v1/chat` を使ってください。Anthropic Messages のワイヤ動作が必要な場合は `POST /v1/messages` を使ってください。

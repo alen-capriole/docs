@@ -1,0 +1,88 @@
+---
+title: "Inicio rápido"
+description: "Haz tu primera solicitud a la API de Capriole AI."
+---
+
+## Base URL
+
+`https://api.caprioletech.com`
+
+## Empieza en dos pasos
+
+### 1. Crea una clave API
+
+Crea tu clave en la [página de API de Capriole AI](https://capriole.ai?view=api) después de iniciar sesión.
+
+### 2. Llama a `POST /v1/chat`
+
+Envía una solicitud de texto simple.
+
+<CodeGroup>
+```bash curl
+curl https://api.caprioletech.com/v1/chat \
+  -X POST \
+  -H "Authorization: Bearer YOUR_CAPRIOLE_AI_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "openai-latest",
+    "input": "Hello World!"
+  }'
+```
+
+```python python
+import requests
+
+API_KEY = "YOUR_CAPRIOLE_AI_API_KEY"
+
+response = requests.post(
+    "https://api.caprioletech.com/v1/chat",
+    headers={
+        "Authorization": f"Bearer {API_KEY}",
+        "Content-Type": "application/json",
+    },
+    json={
+        "model": "openai-latest",
+        "input": "Hello World!"
+    },
+)
+
+response.raise_for_status()
+print(response.json())
+```
+</CodeGroup>
+
+## Endpoints compatibles con el protocolo
+
+Usa `POST /v1/responses` para clientes de OpenAI Responses, `POST /v1/chat/completions` para clientes de OpenAI Chat Completions y `POST /v1/messages` para clientes de Anthropic Messages.
+
+Usa `openai-latest`, `claude-latest` o `google-latest` cuando quieras que Capriole AI elija nuestro modelo insignia recomendado para ese proveedor. Usa un ID de modelo concreto cuando necesites una versión exacta.
+
+Los alias latest son atajos de entrada. Capriole AI registra el uso contra el modelo resuelto, mientras que los cuerpos de respuesta compatibles con el protocolo conservan los campos de modelo que devuelve el endpoint compatible de upstream.
+
+## Respuestas rápidas
+
+### ¿La Base URL debe incluir `/v1`?
+
+Usa `https://api.caprioletech.com` para llamadas directas a la API. Algunos agentes de programación piden una Base URL de proveedor; sigue la página de integración de ese agente porque los clientes compatibles con OpenAI y los compatibles con Anthropic esperan Base URL distintas.
+
+### ¿Qué alias latest funcionan en cada endpoint?
+
+`POST /v1/chat` y `POST /v1/chat/completions` admiten los tres alias latest. `POST /v1/responses` admite `openai-latest`. `POST /v1/messages` admite `claude-latest` más IDs concretos de Claude Messages como `claude-fable-5`, `claude-opus-5`, `claude-opus-4-8`, `claude-opus-4-7`, `claude-opus-4-6` y `claude-sonnet-4-6`.
+
+### ¿Por qué el modelo de la respuesta no muestra el alias que envié?
+
+Eso es lo esperado. El alias solo se usa para elegir el modelo. Las respuestas conservan el comportamiento de nombres de modelo del endpoint seleccionado.
+
+### ¿Por qué recibí un error de modelo no compatible?
+
+Usa un alias latest solo en un endpoint que lo admita, o cambia a un ID de modelo concreto listado por `GET /v1/models`.
+
+### ¿`/v1/messages/count_tokens` funciona siempre?
+
+Acepta `claude-latest` e IDs concretos de Claude Messages. El recuento de tokens depende de que el upstream seleccionado admita el recuento de tokens de Anthropic.
+
+## Continúa con un SDK
+
+Usa la [guía de los SDK de OpenAI y Anthropic](/es/guides/openai-anthropic-sdks) para ejecutar clientes nativos de protocolo en Python o TypeScript con la misma clave API de Capriole AI.
+
+Después de la primera solicitud, usa la [guía de claves API y uso](/es/guides/api-keys-usage) para verificar la clave, el modelo, el estado y el registro de tokens cobrados.

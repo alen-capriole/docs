@@ -1,0 +1,148 @@
+---
+title: "使用一个 API Key 配置编程代理"
+sidebarTitle: "一个 Key 配置编程代理"
+description: "使用一个 Capriole AI API Key 配置六个持续维护的编程代理，同时让每个客户端使用其支持的协议。"
+---
+
+一个 Capriole AI API Key 可以为 Codex、Claude Code、Kilo Code、GitHub Copilot CLI、OpenCode 和 OpenClaw 提供身份验证。API Key 保持不变，但 Base URL、协议和模型选择方式必须与正在配置的客户端匹配。
+
+按照本指南操作，可以从一个 Capriole 账户开始配置可用的编程代理。个人 Premium 每月 8 美元，包含 500 万 charged API token，还可以不限量使用受支持的 Premium Browser Chat 模型。同一份会员权益可以覆盖浏览器工作区和六条持续维护的编程代理路径。
+
+各集成页面仍是完整客户端配置的事实依据。
+
+## 开始前
+
+你需要准备以下内容。
+
+- 有效的 Capriole AI Premium 或符合条件的 Team 权限
+- 从 [API 页面](https://capriole.ai?view=api)获取的 Capriole AI API Key
+- 至少一个已经安装的编程代理
+- 可以设置环境变量的终端
+
+<Warning>
+不要把 API Key 放入代码仓库或已经提交的配置文件。示例使用 `YOUR_CAPRIOLE_AI_API_KEY` 作为占位符。
+</Warning>
+
+<Note>
+本指南复用一个 Key 来验证兼容性。长期运行或 Team 环境应为每个代理或用户创建单独命名的 Key。分开使用 Key 可以降低凭据泄露的影响，也能从 API 页面独立筛选用量或撤销权限。
+</Note>
+
+## 为代理匹配正确的协议
+
+虽然这些客户端共用一个账户 Key，但每个客户端仍使用自身支持的 Wire Protocol。
+
+| 代理 | Capriole 协议 | Base URL | 起始模型 | 完整配置 |
+|---|---|---|---|---|
+| Codex | OpenAI Responses | `https://api.caprioletech.com/v1` | `openai-latest` | [配置 Codex](/zh/integrations/codex) |
+| Claude Code | Anthropic Messages | `https://api.caprioletech.com` | `claude-latest` | [配置 Claude Code](/zh/integrations/claude-code) |
+| Kilo Code | Chat Completions | `https://api.caprioletech.com/v1` | `openai-latest` | [配置 Kilo Code](/zh/integrations/kilo-code) |
+| GitHub Copilot CLI | Chat Completions、Responses 或 Messages | 取决于协议 | 取决于协议 | [配置 GitHub Copilot CLI](/zh/integrations/github-copilot-cli) |
+| OpenCode | Responses、Chat Completions 或 Messages | 取决于提供商 | `openai-latest` 或 `claude-latest` | [配置 OpenCode](/zh/integrations/opencode) |
+| OpenClaw | Responses、Chat Completions 或 Messages | 取决于提供商 | `openai-latest` 或 `claude-latest` | [配置 OpenClaw](/zh/integrations/openclaw) |
+
+Responses 和 Chat Completions 路径的 Base URL 包含 `/v1`。Anthropic Messages 路径使用 API 根地址，除非集成页面注明了客户端专用的适配器值。请复制对应集成页面中的准确值。
+
+## 设置共用 Key
+
+<Steps>
+<Step title="导出 Capriole API Key">
+
+打开编程代理前设置一个 Shell 变量。
+
+```bash
+export CAPRIOLE_AI_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
+```
+
+验证变量已经存在，同时不要打印 Secret。
+
+```bash
+test -n "$CAPRIOLE_AI_API_KEY" && echo "Capriole API key is set"
+```
+
+预期结果是 `Capriole API key is set`。
+
+</Step>
+
+<Step title="选择客户端路径">
+
+打开表格中的集成页面，复制其中持续维护的配置。客户端要求提供 Token 时，统一使用 `CAPRIOLE_AI_API_KEY` 的值。
+
+- Codex 通过 `env_key` 从 `CAPRIOLE_AI_API_KEY` 读取 Key。
+- Claude Code 使用 `ANTHROPIC_AUTH_TOKEN`。启动前从共用变量设置该值。
+- Kilo Code 在提供商配置中引用 `{env:CAPRIOLE_AI_API_KEY}`。
+- GitHub Copilot CLI 在 OpenAI 兼容路径中使用 `COPILOT_PROVIDER_API_KEY`，在 Anthropic Messages 路径中使用 `COPILOT_PROVIDER_BEARER_TOKEN`。
+- OpenCode 提供商条目根据适配器使用 `apiKey` 或 `authToken` 保存 Capriole Key。
+- OpenClaw 提供商条目引用 `CUSTOM_API_KEY`。启动 Gateway 前从共用变量设置该值。
+
+对于 Claude Code：
+
+```bash
+export ANTHROPIC_AUTH_TOKEN="$CAPRIOLE_AI_API_KEY"
+```
+
+对于 OpenClaw：
+
+```bash
+export CUSTOM_API_KEY="$CAPRIOLE_AI_API_KEY"
+```
+
+</Step>
+
+<Step title="让模型使用兼容路由">
+
+除非需要指定准确模型版本，否则先使用持续维护的别名。
+
+- OpenAI Responses 路径使用 `openai-latest`
+- Anthropic Messages 路径使用 `claude-latest`
+- Chat Completions 兼容路径使用集成页面列出的模型
+
+[当前模型目录](/zh/api-reference/endpoint/get)列出了公共 API 模型。Browser Chat 模型不会自动适用于每种 API 协议。
+
+</Step>
+
+<Step title="启动并验证代理">
+
+在测试项目中启动已配置的客户端，然后发送以下内容。
+
+```text
+Reply with CAPRIOLE_OK and no other text.
+```
+
+检查是否收到非空回答，最好是要求返回的 `CAPRIOLE_OK` 标记。模型不一定严格遵循只输出指定内容的 Prompt，因此实际措辞可能不同。
+
+然后打开 [API 页面](https://capriole.ai?view=api)，确认请求显示在用量视图中，并对应预期的 Key 和模型。用量记录是客户端确实使用 Capriole 的决定性依据。客户端配置了其他提供商或 fallback 时，只收到回答并不足以证明请求经过 Capriole。[API Key 与用量指南](/zh/guides/api-keys-usage)介绍了准确的筛选方式和 Key 生命周期。
+
+这项检查不会测试每项工具或模型功能。
+
+</Step>
+</Steps>
+
+## 成功标准
+
+| 检查项 | 预期结果 |
+|---|---|
+| 环境 | 客户端启动时没有 Key 缺失警告 |
+| 身份验证 | 第一条模型请求没有返回 `401` |
+| 端点 | 请求没有返回端点或协议错误 |
+| 模型 | 客户端接受配置的 latest 别名或具体 ID |
+| 用量 | 请求以计量 API 流量的形式出现在 API 用量视图中 |
+
+编程代理请求使用符合条件的个人或 Team API 余额，不属于付费会员不限量 Browser Chat 的范围。运行大型自动化工作负载前，请阅读 [Capriole AI charged token 说明](/zh/articles/charged-tokens)。
+
+## 解决常见配置问题
+
+| 现象 | 可能原因 | 解决方法 |
+|---|---|---|
+| `401` 或缺少 Bearer Token | 客户端没有收到 Capriole Key | 在启动代理的同一个 Shell 中导出客户端专用变量 |
+| `404` 或协议错误 | Base URL 错误地包含或遗漏了 `/v1` | 从对应的集成页面复制准确的 Base URL |
+| 模型不受支持 | 模型不属于该协议 | Responses 先使用 `openai-latest`，Messages 先使用 `claude-latest` |
+| 客户端使用其他提供商 | 内置提供商或项目覆盖项优先级更高 | 选择自定义 Capriole 提供商并重启客户端 |
+| 用完额度后代理停止 | 编程代理流量消耗了 API 余额 | 查看 API 用量，并在有效付费权限期间充值 |
+
+## 后续阅读
+
+需要了解这些路由背后的模型时，请阅读[编程代理兼容性文章](/zh/articles/coding-agent-compatibility)。如需直接编写应用代码，请继续阅读 [OpenAI 和 Anthropic SDK 指南](/zh/guides/openai-anthropic-sdks)。
+
+[在有限的免费 Browser Chat 中试用当前旗舰模型](https://capriole.ai)。准备好创建编程代理使用的 API Key 后，可升级到 Premium。
+
+**事实核验日期** 2026-08-11。

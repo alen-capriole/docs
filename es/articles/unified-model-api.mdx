@@ -1,0 +1,127 @@
+---
+title: "Cómo funciona Capriole AI entre distintas APIs de modelo"
+sidebarTitle: "API multiprotocolo"
+description: "Una mirada técnica a cómo Capriole AI admite OpenAI Responses, Chat Completions, Anthropic Messages, alias de modelo, uso y fallback."
+---
+
+Capriole AI ofrece una cuenta y una clave API en las familias de modelo compatibles. Premium incluye 5 millones de tokens cobrados de API al mes junto con chat ilimitado del navegador, así que la misma membresía de bajo costo puede cubrir aplicaciones, agentes de programación y el chat cotidiano.
+
+Capriole mantiene cuatro rutas públicas: OpenAI Responses, Chat Completions compatible con OpenAI, Anthropic Messages y un endpoint de chat nativo de Capriole simple.
+
+La capa compartida de cuenta y facturación se sitúa por encima de esas rutas específicas de protocolo.
+
+## Por qué esto hace a Capriole más útil
+
+Una membresía Premium de USD 8 cubre chat ilimitado del navegador en el conjunto de modelos Premium compatible, 5 millones de tokens cobrados de API al mes y seis rutas de agentes de programación mantenidas. Las aplicaciones conservan el protocolo que ya usan, mientras que el usuario conserva una cuenta, clave, saldo y página de facturación de Capriole.
+
+Esta es la ventaja práctica frente a armar cuentas de proveedor por separado. La [comparación de costos fechada](/es/articles/ai-api-cost-comparison) también muestra a Capriole a USD 8 para cada carga de trabajo de 5 millones de tokens probada, frente a USD 15 a USD 90 en el precio Standard de pago directo y USD 15.83 a USD 94.95 a través de OpenRouter después de su tarifa publicada de compra de créditos.
+
+## Las rutas públicas
+
+| Ruta | Contrato previsto | Uso típico |
+|---|---|---|
+| `POST /v1/chat` | Solicitud de texto nativa de Capriole | Llamadas simples de aplicación |
+| `POST /v1/chat/completions` | Chat Completions compatible con OpenAI | Clientes y agentes compatibles |
+| `POST /v1/responses` | OpenAI Responses | Aplicaciones basadas en Responses y Codex |
+| `POST /v1/messages` | Anthropic Messages | Clientes nativos de Claude y Claude Code |
+
+Las respuestas enrutadas exitosas y los eventos streaming permanecen en el protocolo que el cliente solicitó. Un payload de Responses no se convierte en Chat Completions de vuelta. Un flujo de Anthropic Messages no se reempaqueta como salida de OpenAI.
+
+Esto conserva el comportamiento específico de protocolo que esperan los clientes de Responses, Messages y Chat Completions.
+
+La capa compartida gestiona el acceso y la contabilidad. Cada ruta pública conserva el contrato de solicitud y respuesta que su cliente espera. Los grupos de modelo son conjuntos de compatibilidad específicos de ruta, no una jerarquía; un modelo puede aparecer en más de una ruta compatible cuando implementa cada contrato.
+
+## Por qué un solo endpoint no basta
+
+Las familias de modelo discrepan en más que los nombres de campo.
+
+OpenAI Responses representa la salida como eventos e ítems tipados. Anthropic Messages usa sus propios bloques de contenido y eventos streaming. Chat Completions tiene otra forma de solicitud y respuesta. Los controles de reasoning, las llamadas a herramientas, los datos de uso, los errores y el comportamiento de recuento de tokens también difieren.
+
+Un adaptador superficial puede hacer funcionar un prompt de texto simple. Los agentes de programación y los clientes de producción exponen rápido los detalles que faltan. Dependen del orden de streaming, de los turnos de resultado de herramientas, de los metadatos de uso y de los controles específicos del modelo.
+
+Capriole por tanto posee varias rutas que conservan el protocolo detrás de una sola capa de autenticación y facturación.
+
+## Una clave, selección explícita de modelo
+
+Todas las rutas públicas de generación usan la misma clave API y el mismo saldo de cuenta de Capriole. El modelo solicitado sigue teniendo que pertenecer al protocolo seleccionado.
+
+Por ejemplo, la ruta Responses acepta el alias OpenAI mantenido y los modelos OpenAI compatibles con Responses. La ruta Messages acepta el alias Claude mantenido y los IDs de modelo de Claude Messages compatibles. Las rutas de chat compatibles pueden exponer un conjunto más amplio de modelos de chat públicos.
+
+Si un modelo no es válido para la ruta elegida, la solicitud debe fallar la validación. Capriole no reasigna en silencio una clave retirada no compatible a otra cosa.
+
+Ese fallo explícito es más seguro que devolver una respuesta de un modelo que el llamador no solicitó.
+
+## Alias latest e IDs reproducibles
+
+Capriole expone alias mantenidos como `openai-latest`, `claude-latest` y `google-latest` en las rutas públicas que los admiten.
+
+Los alias se resuelven antes del envío a upstream. Los registros de uso, cuota y fallback se adjuntan al modelo canónico resuelto en lugar de a un cubo ambiguo de “latest”.
+
+Usa un alias cuando quieras que el valor por defecto mantenido de Capriole se mueva con las versiones compatibles. Usa un ID de modelo concreto cuando la versión exacta forma parte del resultado y debe permanecer reproducible.
+
+El [endpoint Listar modelos](/es/api-reference/endpoint/get) es el inventario público actual. No asumas que un modelo mostrado en el chat del navegador es automáticamente válido en todos los protocolos de API.
+
+## El fallback ocurre antes de que empiece la respuesta
+
+En las rutas compatibles, Capriole puede intentar otra fuente configurada cuando la primera fuente falla antes de que se hayan enviado bytes de respuesta.
+
+Una vez que ha empezado una respuesta streaming, cambiar de fuente arriesgaría una salida duplicada o contradictoria. El fallback automático solo se ejecuta antes de que empiece la salida. No puede ocultar todos los fallos del proveedor ni cambiar de modelo a mitad de una respuesta.
+
+La clave de modelo solicitada se conserva a través de un fallback de fuente compatible. Capriole cambia la fuente de entrega, no la elección de modelo declarada por el usuario.
+
+El chat del navegador puede ofrecer por separado el cambio automático opcional de modelo y [cambios manuales de modelo dentro de una conversación](/es/articles/switch-models-mid-chat). Esos son comportamientos del espacio de trabajo, no el contrato de fallback de la API en bruto.
+
+## El uso permanece visible
+
+Las cargas de trabajo programáticas se miden. Capriole registra el uso a partir de los metadatos que suministra el protocolo coincidente, incluidas las respuestas streaming completadas cuando el uso está disponible.
+
+Premium incluye actualmente **5 millones de tokens cobrados de API al mes**. Capriole cuenta la entrada no cacheada y la salida al 100% y la entrada cacheada al 10% para este saldo. Hay paquetes de tokens adicionales disponibles como recargas. La parte ilimitada de Premium se aplica al chat del navegador en el conjunto de modelos Premium compatible, no al tráfico de API ni de agentes de programación.
+
+El [artículo de tokens cobrados](/es/articles/charged-tokens) da la fórmula exacta, la regla de redondeo y ejemplos reproducibles.
+
+El chat del navegador y las cargas de trabajo automatizadas de API usan cupos separados. Un agente de programación que procesa millones de tokens toma del saldo visible de tokens cobrados.
+
+## Qué proporciona realmente la capa unificada
+
+La capa común útil no es un esquema de respuesta único. Es el contrato de producto que lo rodea:
+
+- una cuenta y una clave API de Capriole;
+- un saldo de API visible;
+- alias de modelo mantenidos;
+- validación contra el protocolo seleccionado;
+- fallback de fuente compatible antes de que empiece la salida;
+- contabilidad de uso contra el modelo resuelto;
+- configuración documentada para aplicaciones y agentes de programación.
+
+El protocolo permanece explícito porque los clientes dependen de él.
+
+## Cómo comprobamos la compatibilidad
+
+Capriole documenta una ruta como compatible después de que pasen tanto su contrato de protocolo como un flujo representativo de cliente real. Un prompt de texto exitoso es una comprobación inicial. El streaming, los turnos de resultado de herramientas, la resolución de alias, la contabilidad de uso y las pruebas negativas de protocolo aportan el resto de la evidencia.
+
+A fecha de 2026-08-10, las suites enfocadas de rutas públicas y conversión de archivos habían completado **68 pruebas automatizadas** contra respuestas de upstream controladas, no llamadas en vivo de producción. Ejecuciones locales separadas de upstream y de agentes de programación comprueban el comportamiento que un endpoint simulado no puede demostrar.
+
+| Carril de prueba | Evidencia verificada | Límite actual |
+|---|---|---|
+| OpenAI Responses | Salida no streaming, finalización SSE, function call, seguimiento stateless de function-result y `openai-latest` | Solo modelos de OpenAI Responses |
+| Chat Completions | Salida no streaming, finalización SSE, tool call, seguimiento de tool-result y los tres alias latest mantenidos | El modelo seleccionado debe admitir la ruta compatible |
+| Anthropic Messages | Salida no streaming, SSE de Anthropic, `tool_use`, `tool_result` y `claude-latest` | Solo modelos de Claude Messages |
+| Alias latest | Filtrado de endpoint, resolución canónica, filas de uso canónicas y ejecuciones representativas de cliente | Los alias son selectores de entrada y no crean un modelo de uso separado |
+| Archivos en Browser Chat | Detección de tipo de archivo, conversión y ensamblado del payload de modelo para imágenes, PDF, texto, DOCX, PPTX, CSV, XLS y XLSX | Esta evidencia pertenece al espacio de trabajo de Browser Chat |
+| Archivos a través de la API pública | No hay un pase publicado entre protocolos | Capriole no afirma un contrato de archivos universal entre Responses, Chat Completions y Messages |
+
+Las comprobaciones de stream consumen la respuesta completa y exigen el evento terminal propio de cada protocolo. Responses termina con su evento de finalización, Chat Completions llega a `[DONE]` y Messages llega a `message_stop`. Las pruebas de herramientas envían de vuelta el resultado de la herramienta y exigen el turno final del asistente.
+
+Las pruebas negativas mantienen visible el límite del protocolo. `google-latest` falla en Responses, mientras que `openai-latest` falla en Messages. Capriole no mueve ninguna de las dos solicitudes a un endpoint distinto.
+
+El soporte de archivos de la API pública usa una puerta de lanzamiento separada. Cada ruta candidata necesita los mismos fixtures pequeños de imagen, PDF, CSV y DOCX, una respuesta específica del contenido, una repetición streaming donde sea compatible y un registro del SDK exacto, el ID de modelo, la forma de la solicitud y la fecha de prueba. Hasta que esos fixtures en vivo pasen, la documentación de la API pública sigue los formatos de archivo que admite cada protocolo nativo en lugar de anunciar un campo de adjunto compartido de Capriole.
+
+## Empieza con el cliente que ya tienes
+
+Si una aplicación usa Chat Completions, sigue la [referencia de Chat Completions](/es/api-reference/endpoint/chat-completions). Si está construida sobre Responses, usa la [referencia de Responses](/es/api-reference/endpoint/responses). Los clientes nativos de Claude deben usar la [referencia de Messages](/es/api-reference/endpoint/messages).
+
+Para una primera solicitud, empieza por el [inicio rápido de la API](/es/quickstart). Los desarrolladores de Python pueden seguir la [guía de los SDK de OpenAI y Anthropic](/es/guides/openai-anthropic-sdks). Los usuarios de agentes de programación pueden ver la matriz de clientes mantenida en [Una API para agentes de programación](/es/articles/coding-agent-compatibility).
+
+El trabajo de Capriole es quitar la fragmentación de cuentas y de acceso respetando el protocolo que tu cliente realmente habla. [Prueba los modelos insignia compatibles en el chat limitado gratuito del navegador](https://capriole.ai) y pasa a Premium cuando estés listo para crear una clave API.
+
+**Hechos comprobados:** 2026-08-10.

@@ -1,0 +1,106 @@
+---
+title: "Dateien und Web Search in Capriole AI nutzen"
+sidebarTitle: "Dateien und Web Search"
+description: "Laden Sie Dokumente, Bilder, Folien und Tabellen in Capriole AI Browser Chat hoch, fragen Sie nach aktuellen Webinformationen und prüfen Sie die zurückgegebenen Quellen."
+---
+
+Capriole AI Browser Chat kann eine hochgeladene Arbeitsdatei mit aktuellen Informationen aus dem Web kombinieren. Hängen Sie das Material an, das das Modell lesen soll, stellen Sie eine konkrete Frage und fordern Sie aktuelle Informationen an, wenn die Antwort von dem abhängt, was sich geändert hat.
+
+Derselbe Arbeitsbereich kann die Aufgabe mit GPT-5.6 Thinking, Claude Fable 5 oder Gemini 3.1 Pro fortsetzen, ohne das Material in getrennte Produkte zu kopieren. Premium kostet USD 8 pro Monat und macht Browser Chat über die unterstützte Premium-Modellgruppe unbegrenzt.
+
+Datei-Uploads erfordern einen angemeldeten Chat mit der standardmäßigen, kontosynchronisierten Speicherung. Web Search ist ein Browser Chat-Tool, das das Modell aufruft, wenn die Frage aktuelle öffentliche Informationen braucht.
+
+## Die Datei vor dem Hochladen prüfen
+
+| Dateikategorie | Unterstützte Beispiele | Limit pro Datei |
+|---|---|---:|
+| Bilder | JPG, JPEG, PNG | 10 MB |
+| PDF | PDF-Dokumente | 10 MB |
+| Text und strukturierte Dateien | TXT, Markdown, JSON, JSONL, HTML | 4 MB |
+| Office-Dokumente | DOCX und PPTX | 4 MB |
+| Tabellen | CSV, XLS, XLSX | 4 MB |
+
+Der Composer kann mehrere Dateien annehmen, aber es gibt keine veröffentlichte Zusage unbegrenzter Anhänge. Großer kombinierter Kontext kann die Eingabelimits des gewählten Modells trotzdem überschreiten.
+
+Die Modi Local und No Storage akzeptieren keine Datei-Uploads. Lesen Sie die [Anleitung zur Chat-Speicherung](/de/guides/chat-storage), bevor Sie die Speichergrenze einer Unterhaltung ändern.
+
+## Ein Modell aus einer Datei arbeiten lassen
+
+<Steps>
+<Step title="Einen synchronisierten Chat öffnen">
+
+Melden Sie sich bei [Capriole AI](https://capriole.ai) an. Lassen Sie **Enable local storage** und **Enable No Storage** aus, damit der Chat die standardmäßige, kontosynchronisierte Speicherung verwendet.
+
+</Step>
+
+<Step title="Die Datei hinzufügen">
+
+Wählen Sie **Add photos and files** im Composer. Sie können Dateien auch in den Chatbereich ziehen oder eine Datei aus der Zwischenablage einfügen.
+
+Warten Sie, bis der Anhang fertig hochgeladen ist, bevor Sie die Nachricht senden. Capriole zeigt einen Verarbeitungsstatus, während hochgeladene Dateien für das gewählte Modell vorbereitet werden.
+
+</Step>
+
+<Step title="Den Auftrag beschreiben, nicht nur die Datei">
+
+Sagen Sie dem Modell, was es prüfen und welche Ausgabe nützlich sein soll. Zum Beispiel:
+
+```text
+Read the attached spreadsheet. Identify the three largest month-over-month changes, explain which rows produced them, and return a compact table.
+```
+
+Nennen Sie bei einer Dokumentprüfung den Abschnitt, die Entscheidung oder den Widerspruch, der Sie interessiert. Eine bloße Anfrage wie `summarize this` gibt dem Modell weniger Richtung.
+
+</Step>
+
+<Step title="Die Antwort gegen den Anhang prüfen">
+
+Bestätigen Sie wichtige Zahlen, Zitate und Zeilenverweise in der Originaldatei. Verschiedene Modelle haben unterschiedliche Datei- und Kontextlimits, und konvertierte Dokumente können Layoutdetails verlieren, die von der visuellen Position abhängen.
+
+</Step>
+</Steps>
+
+## Aktuelle Webinformationen hinzufügen
+
+Im Composer gibt es keinen gewöhnlichen Web Search-Schalter. Stellen Sie eine Frage, die eindeutig von aktuellen oder live öffentlichen Informationen abhängt. Das Modell kann das Browser Chat-Suchtool aufrufen, wenn es eine Suche für nötig hält.
+
+```text
+Use the attached product brief as the baseline. Search for official changes announced in the last 30 days, list the sources, and explain which parts of the brief now need revision.
+```
+
+Während einer Suche kann der Thinking-Bereich **Web searching** anzeigen. Wenn die Suche Quellenmetadaten zurückgibt, stellt die Antwort ein **Sources**-Steuerelement bereit, das die verlinkten Ergebnisse öffnet.
+
+Das Modell muss nicht bei jedem Prompt suchen. Eine Anfrage nach aktuellen Nachrichten oder einer datierten Tatsache macht den Bedarf klarer, garantiert aber kein bestimmtes Ergebnis, keine bestimmte Quellenanzahl und keinen bestimmten Suchanbieter.
+
+## Bild-URLs im Web-Search-Kontext zulassen
+
+Wenn Sie angemeldet sind, können Sie **Account** → **Settings** öffnen und **Enable web search images** aktivieren. Diese Einstellung erlaubt der Websuche, Bild-URLs neben normalen Suchergebnissen zurückzugeben, wenn sie verfügbar sind.
+
+Es ist keine Einstellung zur Bildgenerierung und garantiert nicht, dass jede Suche ein Bild zurückgibt oder anzeigt. Zusätzliche Bildergebnisse können den an das Modell gesendeten Suchkontext vergrößern und die Token-Nutzung erhöhen.
+
+## Wie Capriole verschiedene Dateien vorbereitet
+
+Capriole behält einen Upload-Workflow bei und passt die Modelleingabe darunter an. Bilder können native multimodale Eingabe nutzen. Einige PDFs und textähnliche Dateien können ebenfalls den nativen Dateipfad eines Modells nutzen. Andere unterstützte Dokumente werden vor dem Modellaufruf in Textkontext umgewandelt.
+
+Diese Anpassung lässt denselben Chat zwischen unterstützten Modellen wechseln, ohne dass der Nutzer jeden Anhang manuell neu aufbauen muss. Das bedeutet nicht, dass jedes Modell jede Datei nativ liest, jedes visuelle Detail bewahrt oder dieselbe Kontextkapazität hat.
+
+Wenn das aktuelle Modell den kombinierten Kontext nicht annehmen kann, reduzieren Sie die Zahl der Anhänge, teilen Sie ein großes Dokument oder beginnen Sie mit dem Abschnitt, der für die unmittelbare Frage nötig ist.
+
+## Häufige Probleme beheben
+
+| Problem | Wahrscheinliche Ursache | Nächster Schritt |
+|---|---|---|
+| Die Anhangsschaltfläche fehlt | Der Chat verwendet den Modus Local oder No Storage | Zur standardmäßigen, kontosynchronisierten Speicherung zurückkehren |
+| Ein Dokument wird abgelehnt | Eine Datei, die kein Bild und kein PDF ist, überschreitet 4 MB oder der Typ wird nicht unterstützt | Die Datei teilen, exportieren oder in ein unterstütztes Format konvertieren |
+| Ein PDF oder Bild wird abgelehnt | Die Datei überschreitet 10 MB | Die Dateigröße vor dem Hochladen reduzieren |
+| Die Nachricht lässt sich noch nicht senden | Ein oder mehrere Anhänge werden noch hochgeladen | Auf den Upload-Abschluss warten oder den fehlgeschlagenen Anhang entfernen |
+| Es erscheint kein **Sources**-Steuerelement | Das Modell hat nicht gesucht oder es wurden keine normalisierten Quellen zurückgegeben | Explizit aktuelle Informationen und Quellenlinks anfragen |
+| Ein Modell übersieht Layoutdetails | Die Datei wurde konvertiert oder das Modell hat sie anders interpretiert | Gegen das Original prüfen und ein Modell für visuelle Eingabe versuchen |
+
+## Den Workflow in einem Thread behalten
+
+Sie können das gewählte Modell vor der nächsten Nachricht ändern, ohne die Unterhaltung neu aufzubauen. Lesen Sie [KI-Modelle wechseln, ohne die Unterhaltung neu zu starten](/de/articles/switch-models-mid-chat) für die Kontext- und Speichergrenzen, die gelten, wenn ein anderes Modell den Thread fortsetzt.
+
+[Probieren Sie den Workflow im begrenzten kostenlosen Browser Chat](https://capriole.ai). Wechseln Sie zu Premium, wenn Sie unbegrenzten Browser Chat möchten, und behalten Sie dasselbe Capriole-Konto für API- und Coding-Agent-Arbeit.
+
+**Fakten geprüft:** 2026-08-10.

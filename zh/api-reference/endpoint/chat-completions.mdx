@@ -1,0 +1,15 @@
+---
+title: "Chat completions"
+description: "通过 Capriole AI 模型创建 OpenAI 兼容的 Chat Completions。"
+openapi: "api-reference/openapi.json POST /v1/chat/completions"
+---
+
+当应用、SDK 或网关需要 OpenAI Chat Completions 请求与响应格式时，请使用此端点。
+
+发送包含 `model` 和 `messages` 的标准 Chat Completions 请求体。Capriole AI 会在转发给上游前，把 latest alias 解析为所选提供商的模型 ID；继续转发 `messages`、`tools`、`tool_choice`、`response_format` 和 `stream` 等兼容字段；并原样返回上游 JSON 或 SSE 流。对于流式请求，Capriole AI 会在转发前设置 `stream_options.include_usage=true`，以便记录用量。
+
+`POST /v1/chat/completions` 接受 `openai-latest`、`claude-latest`、`google-latest`，以及 `GET /v1/models` 返回的公开具体模型 ID。使用 latest alias 可以让 Capriole AI 为对应提供商选择当前推荐的旗舰模型。
+
+Latest alias 只是请求输入的快捷方式。用量按解析后的具体模型记录，响应体则保留所选兼容端点原有的模型命名方式。
+
+Capriole 原生文本生成使用 `POST /v1/chat`。需要 OpenAI 兼容的传输格式时，请使用 `POST /v1/chat/completions`。

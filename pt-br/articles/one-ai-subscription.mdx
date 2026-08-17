@@ -1,0 +1,73 @@
+---
+title: "Substitua várias assinaturas de IA por um espaço de trabalho"
+sidebarTitle: "Uma assinatura de IA"
+description: "Como um espaço de trabalho com vários modelos pode substituir o atrito de assinaturas de IA separadas, mantendo claros o chat, o uso da API, os agentes de programação e as escolhas de armazenamento."
+---
+
+A Capriole AI substitui o atrito cotidiano de assinaturas de IA separadas por um espaço de trabalho de baixo custo. Visitantes sem login e usuários Free podem experimentar **GPT-5.6 Thinking, Claude Fable 5 e Gemini 3.1 Pro** no Browser Chat limitado antes de pagar.
+
+O Premium custa **USD 8 por mês** para Browser Chat ilimitado no conjunto de modelos Premium suportado. Também inclui **5 milhões de tokens cobrados de API por mês**, seis integrações mantidas de agentes de programação, troca de modelo, arquivos, pesquisa na web e controles explícitos de armazenamento do chat.
+
+O resultado é uma conta para os modelos de fronteira suportados, em vez de várias assinaturas, interfaces, históricos, keys de provedor e saldos.
+
+## O problema é maior do que a conta mensal
+
+Usar vários produtos de IA costuma significar várias abas do navegador, páginas de cobrança, históricos, interfaces e conjuntos de controles. Uma tarefa que começa em um produto pode precisar de outro modelo depois. Movê-la então vira uma pequena migração: copiar o contexto útil, reanexar arquivos, explicar a tarefa de novo e aprender quais controles a próxima interface expõe.
+
+O trabalho de API adiciona contas de provedor, keys, saldos, nomes de modelo e formatos de solicitação incompatíveis. Agentes de programação adicionam outra camada de configuração. Nenhum desses passos é difícil sozinho, mas juntos eles transformam a escolha de modelo em administração de conta.
+
+A Capriole AI traz as partes comuns para um espaço de trabalho. Você pode conversar com um modelo suportado, trocar de modelo dentro da conversa, trabalhar com arquivos ou pesquisa na web e manter a conversa na mesma interface. O produto trata as diferenças de protocolo e contexto por trás dessa troca.
+
+## O que uma assinatura de USD 8 substitui
+
+| Parte do plano | O que está incluído | Limite importante |
+|---|---|---|
+| Browser Chat do Premium | Chat ilimitado no conjunto de modelos Premium suportado | Um espaço de trabalho Capriole substitui interfaces de chat de provedor separadas para o trabalho cotidiano suportado |
+| Cota mensal da API | 5 milhões de tokens cobrados de API | O uso da API consome a cota; não é ilimitado |
+| Recargas da API | Pacotes adicionais de tokens podem ser comprados | As recargas são separadas da assinatura mensal |
+| Agentes de programação | Uma API key da Capriole pode ser usada com integrações documentadas | O suporte se limita aos caminhos mantidos de protocolo e modelo |
+| Acesso Free | Browser Chat limitado antes do upgrade | O acesso Free não inclui a API pública |
+
+A Capriole mantém modelos suportados atuais da OpenAI, Anthropic, Google, xAI, Z.AI e Moonshot AI no mesmo espaço de trabalho, incluindo o conjunto principal nomeado acima.
+
+O navegador e a API têm modelos de uso diferentes. O Browser Chat do Premium não tem um saldo de tokens por mensagem para o usuário gerenciar. As solicitações da API são medidas porque cargas de trabalho programáticas podem crescer muito além do uso normal de chat.
+
+O plano serve a quem conversa todos os dias e também precisa de acesso ocasional ou moderado à API ou a agentes de programação. As duas cotas permanecem claras: o Browser Chat é ilimitado no Premium, enquanto o trabalho automatizado usa o saldo visível de tokens cobrados.
+
+## Uma conversa, forças diferentes de modelo
+
+Famílias de modelo diferentes são úteis para partes diferentes da mesma tarefa. Uma conversa pode começar com pesquisa, passar para escrita cuidadosa e terminar com código ou análise estruturada. Produtos separados fazem o usuário carregar o contexto entre eles.
+
+A Capriole deixa a conversa ficar em um espaço de trabalho enquanto o modelo selecionado muda. A ação visível é uma escolha de modelo. Por baixo, formatos de mensagem, limites de contexto, controles de raciocínio, arquivos, ferramentas, eventos de streaming, contabilidade de tokens e erros podem exigir tratamentos diferentes.
+
+A Capriole mantém essa adaptação como parte do produto, então alterar o modelo selecionado não faz o usuário reconstruir a conversa ou a integração.
+
+A Capriole também oferece aliases de modelo latest para fluxos suportados de API e agentes. Eles permitem que uma configuração acompanhe o modelo atual recomendado da Capriole para uma família de provedor, sem exigir que o usuário atualize imediatamente cada identificador exato de modelo.
+
+## A mesma conta pode sair do navegador
+
+O acesso pago elegível libera a API pública da Capriole, além do Browser Chat. O [início rápido da API](/pt-br/quickstart) cobre a primeira solicitação, enquanto guias mantidos oferecem suporte a seis agentes de programação: [Codex](/pt-br/integrations/codex), [Claude Code](/pt-br/integrations/claude-code), [Kilo Code](/pt-br/integrations/kilo-code), [GitHub Copilot CLI](/pt-br/integrations/github-copilot-cli), [OpenCode](/pt-br/integrations/opencode) e [OpenClaw](/pt-br/integrations/openclaw).
+
+Isso não torna todos os agentes de programação idênticos. Cada cliente ainda tem as próprias capacidades e expectativas. O benefício é que os clientes suportados podem usar uma conta Capriole e caminhos compatíveis da API, em vez de exigir uma configuração separada de provedor de modelo para cada família.
+
+## Escolha onde o histórico do chat fica
+
+Nem toda conversa merece a mesma política de armazenamento.
+
+| Modo | Onde o histórico do chat permanece | Entre dispositivos | Envios |
+|---|---|---|---|
+| Synced | Armazenamento da conta Capriole | Sim | Disponível |
+| Local | Armazenamento local deste navegador | Não | Desativado |
+| No Storage | Memória só da sessão atual da página | Não | Desativado |
+
+O histórico Local sobrevive a uma atualização até os dados do site daquele navegador serem apagados. O histórico No Storage se perde quando a página atualiza ou o usuário sai, e ativá-lo primeiro pede confirmação antes de excluir o histórico existente do servidor e local.
+
+Os três modos ainda enviam cada solicitação pela Capriole e pelo serviço de modelo selecionado. Eles controlam a persistência do histórico de chat; não prometem registros operacionais zero nem substituem a política de dados do provedor selecionado. Leia o [guia de armazenamento do chat](/pt-br/guides/chat-storage) antes de usar dados sensíveis ou regulamentados.
+
+## Substitua a configuração recorrente
+
+[Experimente GPT-5.6 Thinking, Claude Fable 5 ou Gemini 3.1 Pro no Browser Chat gratuito limitado](https://capriole.ai). Faça upgrade para o Premium de USD 8 quando quiser Browser Chat ilimitado, o saldo incluído da API, seis caminhos mantidos de agentes de programação e um espaço de trabalho contínuo.
+
+Se você também precisa de acesso programático, continue com o [início rápido da API](/pt-br/quickstart) depois do upgrade.
+
+**Fatos verificados:** 2026-08-11.

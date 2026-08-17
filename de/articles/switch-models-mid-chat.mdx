@@ -1,0 +1,81 @@
+---
+title: "KI-Modelle wechseln, ohne die Unterhaltung neu zu starten"
+sidebarTitle: "Modelle mitten im Chat wechseln"
+description: "Erfahren Sie, wie Capriole AI Sie unterstützte KI-Modelle in einer Unterhaltung wechseln lässt, während Thread, Dateien und Arbeitskontext zusammenbleiben."
+---
+
+Ja, Sie können KI-Modelle wechseln, ohne eine neue Unterhaltung zu starten. In Capriole AI kann das gewählte Modell von einem Turn zum nächsten wechseln, während der Thread im selben Arbeitsbereich bleibt. Abgemeldete Besucher und Free-Nutzer können GPT-5.6 Thinking, Claude Fable 5 und Gemini 3.1 Pro vor dem Upgrade ausprobieren.
+
+Der praktische Nutzen erscheint in der Mitte einer Aufgabe, wenn ein anderes Modell besser passt und die Unterhaltung nicht anderswo neu aufgebaut werden muss. Premium hält diesen Workflow über die unterstützte Premium-Modellgruppe für USD 8 pro Monat unbegrenzt.
+
+## Warum das Wechseln von Modellen den Ablauf gewöhnlich unterbricht
+
+Angenommen, eine Unterhaltung beginnt mit einem Modell, weil es schnell und vertraut ist. Auf halbem Weg wird die Arbeit technischer. Sie möchten eine zweite Meinung von Claude, einen anderen Reasoning-Stil von Gemini oder ein anderes unterstütztes Modell für den nächsten Schritt.
+
+Über getrennte KI-Produkte bedeutet das gewöhnlich, eine andere Site zu öffnen und die Situation neu aufzubauen. Sie kopieren die nützlichen Nachrichten, laden die Dateien erneut hoch, erklären, was bereits entschieden wurde, und hoffen, dass der neue Chat die Zusammenfassung gleich interpretiert.
+
+Das Modell hat gewechselt, aber auch der Arbeitsbereich, die Historie und oft das Format der Eingabe. Die Unterbrechung kann mehr Zeit kosten, als der Vergleich einspart.
+
+Capriole AI hält den Thread an einem Ort. Wählen Sie ein anderes unterstütztes Modell, schreiben Sie die nächste Nachricht und fahren Sie fort. Für diese nächste Anfrage passt der Arbeitsbereich gespeicherte Nachrichten an die unterstützte Eingabeform des gewählten Modells an, prüft seine Kontextlimits und nimmt gespeicherte Dateien nur auf, wenn Modell und Speichermodus sie unterstützen.
+
+## Was zusammenbleibt
+
+Das Wechseln des gewählten Modells erzeugt keine zweite Capriole-Unterhaltung. Der bestehende Thread bleibt der Arbeitsdatensatz, einschließlich der Nachrichten, die zur aktuellen Frage geführt haben.
+
+Der Arbeitsbereich kann auch relevante gespeicherte Dateien und Unterhaltungskontext in die nächste Anfrage mitnehmen, wenn der gewählte Speichermodus und das Modell sie unterstützen. Sie müssen keine parallelen Kopien derselben Diskussion über mehrere Produkte pflegen.
+
+Es gibt weiterhin echte technische Grenzen. Modelle haben unterschiedliche Kontextlimits, Dateiunterstützung, Reasoning-Steuerungen und Nachrichtenformate. Ein Modell kann einen Eingabetyp nicht nutzen, den es nicht unterstützt, nur weil ein anderes Modell ihn früher akzeptiert hat. Lange Unterhaltungen können vor der nächsten Anfrage auch Kontextverwaltung brauchen.
+
+Capriole behandelt diese Unterschiede hinter dem Modellwähler. Modelle behalten ihre eigenen Limits und Fähigkeiten, während der Nutzer vom bestehenden Thread aus fortfährt.
+
+## Eine praktische Art, Modellwechsel zu nutzen
+
+Die Funktion ist am nützlichsten, wenn der Wechsel einen Grund hat.
+
+### Eine zweite Lesart holen
+
+Bitten Sie ein Modell, eine Antwort zu entwerfen, wechseln Sie dann das Modell und bitten Sie das nächste, die Annahmen zu hinterfragen. Weil beide Turns zum selben Thread gehören, kann das zweite Modell auf die bereits auf der Seite liegende Arbeit antworten statt auf eine handgeschriebene Zusammenfassung.
+
+### Die Art der Hilfe ändern
+
+Ein schnelles Modell kann ausreichen, um Optionen zu erkunden. Ein bedächtigeres Modell kann besser passen, sobald die Aufgabe eine Entscheidung, eine technische Prüfung oder ein schwieriges Stück Text wird. Die Unterhaltung kann sich mit dieser Änderung bewegen.
+
+### Ansätze vergleichen ohne Tab-Verwaltung
+
+Wenn getrennte Abonnements im Spiel sind, wird der Vergleich oft zu einer Sammlung von Browser-Tabs und doppelten Prompts. In einem Arbeitsbereich bleibt der Vergleich am ursprünglichen Problem.
+
+### Wiederherstellen, wenn eine Route nicht verfügbar ist
+
+Capriole unterhält außerdem automatischen Fallback für unterstützten Traffic, bevor eine Antwort beginnt. Manueller Modellwechsel und automatischer Fallback sind unterschiedliche Funktionen: eines ist eine Nutzerentscheidung, das andere hilft einer Anfrage, über eine unterstützte Alternativroute fortzufahren, wenn nötig.
+
+## Was Capriole hinter der Oberfläche anpasst
+
+Die großen Modellanbieter stellen kein universelles Unterhaltungsformat bereit.
+
+OpenAI Responses, OpenAI-kompatible Chat Completions und Anthropic Messages haben unterschiedliche Anfrage- und Streaming-Formen. Reasoning-Einstellungen, Tool-Ereignisse, Dateien, Nutzungseinträge und Fehler unterscheiden sich ebenfalls. Capriole unterhält einen kompatiblen Pfad für jedes unterstützte Protokoll.
+
+Für Browser Chat baut der Arbeitsbereich die gespeicherte Unterhaltung zu einer Eingabe um, die das gewählte Modell annehmen kann. Er wendet außerdem die Limits des aktuellen Modells an, statt anzunehmen, dass die Regeln des vorherigen Modells weiterhin gelten.
+
+Das ist die Arbeit, die ein Modellwähler verbirgt. Die sichtbare Aktion ist ein Klick; die darunterliegende Anfrage kann einem anderen Protokoll folgen und eine andere Darstellung derselben Unterhaltung erfordern.
+
+Die technischen Details stehen in [Wie Capriole AI über Modell-APIs arbeitet](/de/articles/unified-model-api).
+
+## Der Speichermodus bleibt entscheidend
+
+Die Kontinuität der Unterhaltung hängt davon ab, wie Sie den Chat speichern.
+
+- **Synced**-Historie unterstützt gespeicherte Unterhaltungen über Geräte hinweg.
+- **Local**-Historie bleibt im aktuellen Browser und geht verloren, wenn ihre lokalen Daten gelöscht werden.
+- **No Storage** ist eine vergängliche Sitzung und gibt gespeicherte Historie, Uploads und geräteübergreifende Kontinuität auf.
+
+Diese Wahlen sind Absicht. Ein Nutzer, der einen dauerhaften Recherche-Thread will, und ein Nutzer, der eine ungespeicherte Unterhaltung will, sollten nicht in dieselbe Speichergrenze gezwungen werden. [Die Anleitung zur Chat-Speicherung](/de/guides/chat-storage) erklärt die echten Account-Einstellungen und Kompromisse.
+
+## Das einfachere mentale Modell
+
+In einem Einzelanbieterprodukt gehört die Unterhaltung zur Modellfamilie dieses Anbieters. In Capriole AI gehört die Unterhaltung zu Ihrem Arbeitsbereich. Das gewählte Modell verarbeitet den nächsten Turn.
+
+Modellwechsel ist nützlich, weil das Werkzeug wechseln kann, ohne die Arbeit zu verwerfen.
+
+[Öffnen Sie Capriole AI](https://capriole.ai), um die unterstützte Flaggschiff-Gruppe im begrenzten kostenlosen Browser Chat auszuprobieren. Wechseln Sie zu USD 8 Premium, wenn Sie unbegrenzten Browser Chat und den vollständigen durchgehenden Arbeitsbereich möchten.
+
+**Fakten geprüft:** 2026-08-10.

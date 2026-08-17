@@ -1,0 +1,79 @@
+---
+title: "Warum wir Capriole AI gebaut haben: Ein Arbeitsbereich für Frontier-Modelle"
+sidebarTitle: "Warum wir Capriole AI gebaut haben"
+description: "Warum wir unsere eigene KI-Infrastruktur in Capriole AI verwandelt haben, einen erschwinglichen Arbeitsbereich für Frontier-Modell-Chat, API-Zugang und unterstützte Coding-Agents."
+---
+
+Capriole AI ist ein vereinheitlichter Arbeitsbereich für Frontier-Modell-Chat, ein öffentliches API-Kontingent und unterstützte Coding-Agents. Abgemeldete Besucher und Free-Nutzer können GPT-5.6 Thinking, Claude Fable 5 und Gemini 3.1 Pro vor dem Abonnieren ausprobieren; USD 8 Premium fügt unbegrenzten Browser Chat, 5 Millionen berechnete API-Tokens und sechs gepflegte Agent-Integrationen hinzu.
+
+Es begann, während wir Capriole Charts KI-Fähigkeiten hinzufügten.
+
+Wir brauchten verlässlichen Zugang zu Frontier-Modellen und haben lange gebraucht, die Einrichtung für unsere eigene Arbeit stabil genug zu machen. Als sie hielt, sahen wir, dass dieselbe Zugangsschicht außerhalb von Charts nützlich wäre.
+
+ChatGPT, Claude und Gemini zu nutzen bedeutete gewöhnlich, drei Produkte zu besuchen. Jedes hatte sein eigenes Abonnement, seine Oberfläche, Historie und Art, eine Unterhaltung zu behandeln. API-Zugang fügte einen weiteren Satz Konten und Guthaben hinzu. Coding-Agents brachten mehr Schlüssel und Konfiguration.
+
+Wir entschieden uns, diese Infrastruktur als eigenes Produkt verfügbar zu machen.
+
+Die erste KI-Erfahrung lebte in Charts. Als die Arbeit wuchs, hatte die allgemeine Chat- und Modellzugangsschicht klar eine breitere Nutzung. Wir trennten diesen Arbeitsbereich in Capriole AI, während Charts die KI-Funktionen behielt, die an seinen eigenen Produktkontext gebunden sind.
+
+## Die Kosten getrennter Produkte
+
+Jeden Monat mehrere Unternehmen zu bezahlen ist teuer. Sie zu verwalten ist außerdem mühsam.
+
+Eine Frage kann in einem Chat beginnen und den Punkt erreichen, an dem ein anderes Modell nützlicher wäre. Der Wechsel bedeutete, den Prompt zu kopieren, die Teile des Kontexts mitzunehmen, die noch Sinn ergaben, und sich an eine andere Oberfläche zu gewöhnen. Der Nutzer musste Produkte koordinieren, die Zeit sparen sollten.
+
+Capriole AI legt die unterstützten Frontier-Modelle in einen Web-Chat. Sie können eine Unterhaltung mit einem Modell beginnen und zu einem anderen wechseln, ohne ein neues Produkt zu öffnen oder den Thread neu aufzubauen. Dateien, Web Search, Chat-Historie und Modellauswahl bleiben im selben Arbeitsbereich.
+
+## Unterschiedliche Modelle wie ein Produkt wirken lassen
+
+Jeder Modellanbieter hat eigene Annahmen. Nachrichtenformate unterscheiden sich. Kontextlimits und Reasoning-Steuerungen unterscheiden sich. Dateien, Tools, Streaming-Ereignisse, Token-Abrechnung und Fehlerantworten brauchen jeweils eigene Behandlung.
+
+Ein offizielles KI-Produkt muss nur die eigenen Modelle gut funktionieren lassen. Capriole AI muss führende Modelle mehrerer Anbieter in einer Unterhaltung kohärent verhalten lassen.
+
+Ein Modellwähler war der kleinste Teil der Aufgabe. Wir haben Protokolladapter, Modellaliase, Kontextverwaltung, Streaming-Verhalten, automatischen Fallback und Fehlerbehandlung gebaut und weiter verfeinert. Neue Modell-Releases brauchen oft eine weitere Runde Kompatibilitätsarbeit, bevor sie in dieselbe Oberfläche gehören.
+
+Die Unterschiede zeigen sich in echten Anfragen. Eine Modellfamilie kann OpenAI Responses-Ereignisse nutzen, während eine andere Anthropic Messages erwartet. Token-Nutzung und Fehler kommen in unterschiedlichen Formen an. Ein langer Thread kann seinen Kontext verdichten müssen, bevor das nächste Modell ihn sicher fortsetzen kann. Diese Fälle müssen zusammenarbeiten, bevor ein Modellwechsel ereignislos wirken kann.
+
+Der größte Teil dieser Arbeit bleibt hinter der Oberfläche. Ein Nutzer kann mitten in einer Unterhaltung von einem ChatGPT-Modell zu Claude oder Gemini wechseln und im selben Thread fortfahren.
+
+Dasselbe Capriole AI-Konto umfasst Browser Chat, die öffentliche API und sechs gepflegte Coding-Agent-Integrationen: [Codex](/de/integrations/codex), [Claude Code](/de/integrations/claude-code), [Kilo Code](/de/integrations/kilo-code), [GitHub Copilot CLI](/de/integrations/github-copilot-cli), [OpenCode](/de/integrations/opencode) und [OpenClaw](/de/integrations/openclaw). Latest-Modell-Aliase vereinfachen unterstützte API- und Agent-Konfiguration, ohne dass Sie anbieterspezifische Modellnamen verfolgen müssen. Wir behandeln die kompatiblen Protokollpfade, damit das Verbinden eines Agents nicht zu einem weiteren Anbieterintegrationsprojekt wird.
+
+## Eine Mitgliedschaft, die für den Alltag bepreist ist
+
+Wir haben Capriole AI gebaut, um eine Sammlung teurer KI-Mitgliedschaften durch ein erschwingliches Konto zu ersetzen.
+
+Premium kostet **USD 8 pro Monat**. Es umfasst unbegrenzten Browser Chat über die unterstützte Premium-Modellgruppe. Es gibt kein Browser-Chat-Credit-Guthaben, das Sie beobachten müssten, und kein getrenntes Kontingent, das bei jedem Modellwechsel abgezogen wird.
+
+Premium-Mitglieder erhalten außerdem **5 Millionen berechnete API-Tokens jeden Monat**, und zusätzliche Nutzung ist über Aufstockungen verfügbar. In unserem [datierten Kostenvergleich](/de/articles/ai-api-cost-comparison) kostet Capriole USD 8 für jede der drei getesteten Modellarbeitslasten. Direkte bezahlte Standard-Preise liegen zwischen USD 15 und USD 90, während OpenRouter nach der veröffentlichten Kreditkaufgebühr zwischen USD 15.83 und USD 94.95 liegt.
+
+Der Test verwendet eine feste Token-Mischung statt jeder möglichen Arbeitslast. Er zeigt trotzdem den Grund, warum wir die Mitgliedschaft so gebaut haben: die niedrigere verifizierte API-Summe kommt in einem vollständigen Arbeitsbereich, statt nur Inferenz zu kaufen.
+
+Ein Konto kann daher den Chat für alltägliches Denken und die API fürs Bauen abdecken. Der Browser bleibt unter Premium unbegrenzt; die API behält ein klares, sichtbares Nutzungsguthaben.
+
+## Datenschutz sollte eine Wahl im Produkt sein
+
+Ein gespeicherter Recherche-Thread und eine Unterhaltung mit sensiblem Material brauchen nicht dieselbe Speicherrichtlinie.
+
+| Modus | Persistenz | Wichtiger Kompromiss |
+|---|---|---|
+| Synced | Kontohistorie über Geräte hinweg verfügbar | Chat- und Upload-Dateizustand werden für Kontinuität gespeichert |
+| Local | Nur aktueller Browser | Keine geräteübergreifende Historie; Uploads sind deaktiviert |
+| No Storage | Nur aktuelle Seitensitzung | Aktualisieren oder Verlassen verliert den Chat; Uploads sind deaktiviert |
+
+Das Aktivieren von No Storage fragt zuerst nach Bestätigung, bevor bestehende Server- und lokale Chat-Historie gelöscht wird. Alle Modi senden Anfragen weiterhin über Capriole und den gewählten Modelldienst; sie ändern die Historiepersistenz, nicht den Modellanfragepfad. Die [Anleitung zur Chat-Speicherung](/de/guides/chat-storage) erklärt die vollständige Grenze.
+
+Wir haben Datenschutz zu einer Steuerung im Arbeitsbereich gemacht, mit den Konsequenzen jeder Wahl daneben erklärt.
+
+## Was wir einfacher machen wollten
+
+Capriole AI ist für Menschen, die Zugang zu starken Modellen wollen, ohne KI-Zugang zu einem weiteren Verwaltungsjob zu machen.
+
+Mehrere teure Mitgliedschaften ergeben wenig Sinn, wenn das Ziel einfach ist, das richtige Modell für eine Aufgabe zu nutzen. Eine nützliche Unterhaltung sollte fortgesetzt werden können, wenn dieses Modell wechselt. Coding-Agents sollten sich verbinden, ohne jedes Mal dieselbe Anbietereinrichtung neu aufzubauen.
+
+Wir wollten einen Arbeitsbereich, der Geld spart, Einrichtung reduziert und die Modellwahl offen lässt, wenn die Arbeit wechselt. Capriole ist jetzt das Produkt, das wir uns gewünscht hätten, als getrennte Abonnements, Schlüssel, Historien und Oberflächen im Weg waren.
+
+Wenn Sie zwischen einem solchen Arbeitsbereich und einem breiteren Modell-Gateway entscheiden, erklärt unser [Vergleich von Capriole AI und OpenRouter](/de/articles/capriole-ai-vs-openrouter), wo jedes Produkt passt.
+
+Sie können [Capriole AI öffnen](https://capriole.ai) und die aktuelle Flaggschiff-Gruppe im begrenzten kostenlosen Chat ausprobieren. Wechseln Sie zu USD 8 Premium, wenn Sie unbegrenzten Browser Chat, das enthaltene API-Guthaben und gepflegte Coding-Agent-Pfade unter demselben Konto möchten. Entwickler können mit dem [API-Schnellstart](/de/quickstart) fortfahren.
+
+**Fakten geprüft:** 2026-08-11.

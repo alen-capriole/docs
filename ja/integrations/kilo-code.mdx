@@ -1,0 +1,241 @@
+---
+title: "Kilo Code"
+description: "Kilo Code が Capriole AI を使うように設定します。"
+---
+
+## Kilo Code とは
+
+Kilo Code は、IDE とターミナル向けの AI コーディング アシスタントです。Kilo の OpenAI 互換プロバイダー経由で Capriole AI を使え、リクエストは Capriole AI の Chat Completions 互換 API に送られます。
+
+## 前提条件
+
+始める前に、次を用意してください。
+
+- Capriole AI アカウント（[こちらから登録](https://capriole.ai)）
+- Capriole AI API キー（[キーを取得](https://capriole.ai?view=api)）
+- VS Code にインストールした Kilo Code、または Kilo CLI
+
+## インストール
+
+### VS Code 拡張機能
+
+VS Code の Extensions ビューから Kilo Code をインストールします。`Kilo Code` を検索し、pre-release バージョンをインストールしてください。
+
+### Kilo CLI
+
+```bash
+npm install -g @kilocode/cli
+```
+
+## 設定
+
+Kilo の設定ファイルを作成または更新します。
+
+- グローバル設定: `~/.config/kilo/kilo.jsonc`
+- プロジェクト設定: プロジェクト ルートの `kilo.jsonc` または `.kilo/kilo.jsonc`
+
+次の OpenAI 互換プロバイダー設定を使ってください。
+
+```jsonc
+{
+  "$schema": "https://app.kilo.ai/config.json",
+  "model": "openai-compatible/openai-latest",
+  "enabled_providers": ["openai-compatible"],
+  "provider": {
+    "openai-compatible": {
+      "options": {
+        "apiKey": "{env:CAPRIOLE_AI_API_KEY}",
+        "baseURL": "https://api.caprioletech.com/v1"
+      },
+      "models": {
+        "openai-latest": {
+          "name": "Capriole OpenAI Latest",
+          "tool_call": true,
+          "reasoning": true
+        },
+        "claude-latest": {
+          "name": "Capriole Claude Latest",
+          "tool_call": true,
+          "reasoning": true
+        },
+        "anthropic/claude-fable-5": {
+          "name": "Capriole Fable 5",
+          "tool_call": true,
+          "reasoning": true
+        },
+        "anthropic/claude-opus-5": {
+          "name": "Capriole Opus 5",
+          "tool_call": true,
+          "reasoning": true
+        },
+        "google-latest": {
+          "name": "Capriole Google Latest",
+          "tool_call": true,
+          "reasoning": true
+        },
+        "openai/gpt-5.6-terra": {
+          "name": "Capriole GPT 5.6 Thinking",
+          "tool_call": true,
+          "reasoning": true
+        },
+        "openai/gpt-5.6-luna": {
+          "name": "Capriole GPT 5.6",
+          "tool_call": true,
+          "reasoning": true
+        },
+        "openai/gpt-5.5": {
+          "name": "Capriole GPT 5.5",
+          "tool_call": true,
+          "reasoning": true
+        },
+        "openai/gpt-5.4-mini": {
+          "name": "Capriole GPT 5.4 Mini",
+          "tool_call": true,
+          "reasoning": true
+        },
+        "xai/grok-4.5": {
+          "name": "Capriole Grok 4.5",
+          "tool_call": true,
+          "reasoning": true
+        },
+        "zai/glm-5.2": {
+          "name": "Capriole GLM 5.2",
+          "tool_call": true,
+          "reasoning": true
+        },
+        "moonshot/kimi-k3": {
+          "name": "Capriole Kimi K3",
+          "tool_call": true,
+          "reasoning": true
+        },
+        "anthropic/claude-opus-4-8": {
+          "name": "Capriole Opus 4.8",
+          "tool_call": true
+        },
+        "anthropic/claude-opus-4-7": {
+          "name": "Capriole Opus 4.7",
+          "tool_call": true
+        },
+        "anthropic/claude-opus-4-6": {
+          "name": "Capriole Opus 4.6",
+          "tool_call": true
+        },
+        "anthropic/claude-sonnet-4-6": {
+          "name": "Capriole Sonnet 4.6",
+          "tool_call": true
+        },
+        "google/gemini-3.1-pro-preview": {
+          "name": "Capriole Gemini 3.1 Pro Preview",
+          "tool_call": true,
+          "reasoning": true
+        },
+        "google/gemini-3.5-flash": {
+          "name": "Capriole Gemini 3.5 Flash",
+          "tool_call": false,
+          "reasoning": true
+        }
+      }
+    }
+  }
+}
+```
+
+## Kilo Code を実行する
+
+API キーを設定してから、プロジェクト ディレクトリで Kilo を起動します。
+
+```bash
+export CAPRIOLE_AI_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
+kilo
+```
+
+特定のモデルで起動します。
+
+```bash
+kilo -m openai-compatible/openai-latest
+kilo -m openai-compatible/claude-latest
+kilo -m openai-compatible/google-latest
+kilo -m openai-compatible/openai/gpt-5.5
+kilo -m openai-compatible/openai/gpt-5.4-mini
+kilo -m openai-compatible/anthropic/claude-fable-5
+kilo -m openai-compatible/anthropic/claude-opus-5
+kilo -m openai-compatible/anthropic/claude-opus-4-8
+kilo -m openai-compatible/anthropic/claude-opus-4-7
+kilo -m openai-compatible/google/gemini-3.1-pro-preview
+kilo -m openai-compatible/google/gemini-3.5-flash
+kilo -m openai-compatible/moonshot/kimi-k3
+```
+
+Gemini 3.5 Flash で一度きりのリクエストを実行します。
+
+```bash
+kilo run --agent ask -m openai-compatible/google/gemini-3.5-flash "Summarize this project."
+```
+
+一度きりの CLI リクエストでは、プロンプトを `kilo run` に渡します。
+
+```bash
+export CAPRIOLE_AI_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
+kilo run -m openai-compatible/openai-latest "Explain this repository structure."
+```
+
+## 対応モデル
+
+新規の Kilo Code セットアップでは、まず `openai-latest` を使ってください。推奨の旗艦 Claude または Gemini モデルへ Capriole AI にルーティングさせたい場合は `claude-latest` または `google-latest` を使い、正確なモデル バージョンが必要な場合は具体的なモデル ID を使ってください。
+
+Kilo のドキュメントは、Capriole AI のモデル ピッカーと同じ系列順を使います。OpenAI、Anthropic、その次に Google です。公開 API 統合には、Fable 5 Thinking や Opus 5 Thinking など、ウェブチャット専用のプリセットは含まれません。
+
+- `openai-latest`
+- `openai/gpt-5.6-terra`
+- `openai/gpt-5.6-luna`
+- `openai/gpt-5.5`
+- `openai/gpt-5.4-mini`
+- `claude-latest`
+- `anthropic/claude-fable-5`
+- `anthropic/claude-opus-5`
+- `anthropic/claude-opus-4-8`
+- `anthropic/claude-opus-4-7`
+- `anthropic/claude-opus-4-6`
+- `anthropic/claude-sonnet-4-6`
+- `google-latest`
+- `google/gemini-3.1-pro-preview`
+- `google/gemini-3.5-flash`
+- `xai/grok-4.5`
+- `zai/glm-5.2`
+- `moonshot/kimi-k3`
+
+Kilo Code では Gemini 3.5 Flash の `"tool_call": false` を維持してください。Capriole AI はこのモデルのシンプルな Chat Completions ツール呼び出しに対応しており、Kilo Code もこの設定でローカル ツール ワークフローを実行できます。ただし、ネイティブ Gemini 関数宣言を有効にすると、Gemini のより狭い OpenAPI スキーマ部分集合が表面化する場合があります。
+
+テストしたい場合は、`GET /v1/models` が返す他の公開 Chat Completions 互換モデル ID も設定できます。コード編集ワークフローに使う前に、ツール利用を検証してください。
+
+## トラブルシューティング
+
+### Kilo Code が認証エラーを返すのはなぜですか？
+
+`kilo` を実行する前に、同じシェルで `CAPRIOLE_AI_API_KEY` がエクスポートされていることを確認してください。
+
+### どの設定ファイルを編集すべきですか？
+
+現在の Kilo CLI と VS Code 拡張機能では `~/.config/kilo/kilo.jsonc` を使ってください。編集後に `kilo config check` を実行してください。
+
+### エンドポイント エラーでリクエストが失敗するのはなぜですか？
+
+`baseURL` が `https://api.caprioletech.com/v1` であることを確認してください。Kilo は Chat Completions リクエストを `/v1/chat/completions` に送ります。
+
+### Kilo Code がモデル不足と表示するのはなぜですか？
+
+選択したモデルが `openai-compatible/<model-id>` 形式であり、`provider.openai-compatible.models` に対応するモデル エントリがあることを確認してください。たとえば `openai-compatible/openai-latest` は `openai-latest` 設定キーに対応します。
+
+### ツール利用が失敗するのはなぜですか？
+
+GPT、Claude、Gemini 3.1 Pro、および latest エイリアスのエントリでは、モデル エントリに `"tool_call": true` が含まれていることを確認してください。Kilo Code はツールをローカルで実行し、後続の Chat Completions リクエストを Capriole AI に送ります。
+
+Gemini 3.5 Flash では `"tool_call": false` を維持してください。Gemini は関数呼び出しに対応していますが、関数宣言はサポートされる OpenAPI スキーマの部分集合を使います。一部のネイティブ ツール スキーマはその部分集合より広いです。
+
+## 注意事項
+
+- Capriole AI は `POST /v1/chat/completions` 経由で Kilo Code に対応します。
+- Kilo Code はコーディング ツールをローカルで実行します。Capriole AI はモデル リクエストだけを処理します。
+- Kilo Code 7.3.16 は、Kimi K3 でストリーミング bash ツール呼び出しと後続のアシスタント ターンを完了します。
+- まずプロバイダー設定は最小限にしてください。クライアント側のコンテキスト管理を意図する場合にだけ、Kilo のモデル制限や他のモデル オプションを追加してください。
+- 公式リファレンス: [Kilo OpenAI Compatible プロバイダー](https://kilo.ai/docs/ai-providers/openai-compatible)、[Kilo 設定](https://kilo.ai/docs/getting-started/settings)、[Kilo カスタム モデル](https://kilo.ai/docs/code-with-ai/agents/custom-models)、[Kilo CLI](https://kilo.ai/docs/cli)、[Gemini 関数呼び出し](https://ai.google.dev/gemini-api/docs/function-calling)。

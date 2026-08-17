@@ -1,0 +1,472 @@
+---
+title: "OpenCode"
+description: "Konfigurieren Sie OpenCode für die Nutzung von Capriole AI."
+---
+
+## Was ist OpenCode
+
+OpenCode ist ein Open-Source-KI-Coding-Agent als Terminaloberfläche, Desktop-App und IDE-Erweiterung. Mit einer Anbieterkonfiguration kann es unterstützte Modellanfragen über die OpenAI-kompatiblen und Anthropic-kompatiblen Endpunkte von Capriole AI senden.
+
+## Voraussetzungen
+
+Bevor Sie beginnen, stellen Sie sicher, dass Sie Folgendes haben:
+
+- Ein Capriole AI-Konto ([Hier registrieren](https://capriole.ai))
+- Einen Capriole AI API-Schlüssel ([Schlüssel abrufen](https://capriole.ai?view=api))
+
+## Installation
+
+Installieren Sie OpenCode mit dem offiziellen Installationsskript:
+
+```bash
+curl -fsSL https://opencode.ai/install | bash
+```
+
+Oder installieren Sie es mit npm:
+
+```bash
+npm install -g opencode-ai
+```
+
+Prüfen Sie die Installation:
+
+```bash
+opencode --version
+```
+
+## Konfiguration
+
+Erstellen oder aktualisieren Sie `~/.config/opencode/opencode.json`:
+
+Verwenden Sie `apiKey` für die OpenAI- und OpenAI-kompatiblen Anbieter und `authToken` für den Anthropic-Anbieter.
+
+```json
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "capriole-ai-openai/openai-latest",
+  "small_model": "capriole-ai-openai/openai-latest",
+  "enabled_providers": ["capriole-ai-openai", "capriole-ai-compatible", "capriole-ai-anthropic"],
+  "provider": {
+    "capriole-ai-openai": {
+      "npm": "@ai-sdk/openai",
+      "name": "Capriole AI OpenAI",
+      "options": {
+        "baseURL": "https://api.caprioletech.com/v1",
+        "apiKey": "YOUR_CAPRIOLE_AI_API_KEY"
+      },
+      "models": {
+        "openai-latest": {
+          "name": "OpenAI latest",
+          "options": {
+            "forceReasoning": true
+          },
+          "variants": {
+            "minimal": {
+              "reasoningEffort": "minimal",
+              "reasoningSummary": "auto"
+            },
+            "low": {
+              "reasoningEffort": "low",
+              "reasoningSummary": "auto"
+            },
+            "medium": {
+              "reasoningEffort": "medium",
+              "reasoningSummary": "auto"
+            },
+            "high": {
+              "reasoningEffort": "high",
+              "reasoningSummary": "auto"
+            },
+            "xhigh": {
+              "reasoningEffort": "xhigh",
+              "reasoningSummary": "auto"
+            }
+          }
+        },
+        "openai/gpt-5.6-terra": {
+          "name": "GPT 5.6 Thinking",
+          "options": {
+            "forceReasoning": true
+          }
+        },
+        "openai/gpt-5.6-luna": {
+          "name": "GPT 5.6",
+          "options": {
+            "forceReasoning": true
+          }
+        },
+        "openai/gpt-5.5": {
+          "name": "GPT 5.5",
+          "options": {
+            "forceReasoning": true
+          },
+          "variants": {
+            "minimal": {
+              "reasoningEffort": "minimal",
+              "reasoningSummary": "auto"
+            },
+            "low": {
+              "reasoningEffort": "low",
+              "reasoningSummary": "auto"
+            },
+            "medium": {
+              "reasoningEffort": "medium",
+              "reasoningSummary": "auto"
+            },
+            "high": {
+              "reasoningEffort": "high",
+              "reasoningSummary": "auto"
+            },
+            "xhigh": {
+              "reasoningEffort": "xhigh",
+              "reasoningSummary": "auto"
+            }
+          }
+        },
+        "openai/gpt-5.4-mini": {
+          "name": "GPT 5.4 mini",
+          "options": {
+            "forceReasoning": true
+          },
+          "variants": {
+            "minimal": {
+              "reasoningEffort": "minimal",
+              "reasoningSummary": "auto"
+            },
+            "low": {
+              "reasoningEffort": "low",
+              "reasoningSummary": "auto"
+            },
+            "medium": {
+              "reasoningEffort": "medium",
+              "reasoningSummary": "auto"
+            },
+            "high": {
+              "reasoningEffort": "high",
+              "reasoningSummary": "auto"
+            },
+            "xhigh": {
+              "reasoningEffort": "xhigh",
+              "reasoningSummary": "auto"
+            }
+          }
+        }
+      }
+    },
+    "capriole-ai-compatible": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Capriole AI Compatible",
+      "options": {
+        "baseURL": "https://api.caprioletech.com/v1",
+        "apiKey": "YOUR_CAPRIOLE_AI_API_KEY"
+      },
+      "models": {
+        "anthropic/claude-fable-5": {
+          "name": "Fable 5"
+        },
+        "anthropic/claude-opus-5": {
+          "name": "Opus 5"
+        },
+        "xai/grok-4.5": {
+          "name": "Grok 4.5"
+        },
+        "zai/glm-5.2": {
+          "name": "GLM 5.2"
+        },
+        "moonshot/kimi-k3": {
+          "name": "Kimi K3"
+        }
+      }
+    },
+    "capriole-ai-anthropic": {
+      "npm": "@ai-sdk/anthropic",
+      "name": "Capriole AI Anthropic",
+      "options": {
+        "baseURL": "https://api.caprioletech.com/v1",
+        "authToken": "YOUR_CAPRIOLE_AI_API_KEY"
+      },
+      "models": {
+        "claude-latest": {
+          "name": "Claude latest",
+          "variants": {
+            "low": {
+              "thinking": {
+                "type": "adaptive",
+                "display": "summarized"
+              },
+              "effort": "low"
+            },
+            "medium": {
+              "thinking": {
+                "type": "adaptive",
+                "display": "summarized"
+              },
+              "effort": "medium"
+            },
+            "high": {
+              "thinking": {
+                "type": "adaptive",
+                "display": "summarized"
+              },
+              "effort": "high"
+            },
+            "xhigh": {
+              "thinking": {
+                "type": "adaptive",
+                "display": "summarized"
+              },
+              "effort": "xhigh"
+            },
+            "max": {
+              "thinking": {
+                "type": "adaptive",
+                "display": "summarized"
+              },
+              "effort": "max"
+            }
+          }
+        },
+        "claude-fable-5": {
+          "name": "Fable 5"
+        },
+        "claude-opus-5": {
+          "name": "Opus 5"
+        },
+        "claude-opus-4-8": {
+          "name": "Opus 4.8",
+          "variants": {
+            "low": {
+              "thinking": {
+                "type": "adaptive",
+                "display": "summarized"
+              },
+              "effort": "low"
+            },
+            "medium": {
+              "thinking": {
+                "type": "adaptive",
+                "display": "summarized"
+              },
+              "effort": "medium"
+            },
+            "high": {
+              "thinking": {
+                "type": "adaptive",
+                "display": "summarized"
+              },
+              "effort": "high"
+            },
+            "xhigh": {
+              "thinking": {
+                "type": "adaptive",
+                "display": "summarized"
+              },
+              "effort": "xhigh"
+            },
+            "max": {
+              "thinking": {
+                "type": "adaptive",
+                "display": "summarized"
+              },
+              "effort": "max"
+            }
+          }
+        },
+        "claude-opus-4-7": {
+          "name": "Opus 4.7",
+          "variants": {
+            "low": {
+              "thinking": {
+                "type": "adaptive",
+                "display": "summarized"
+              },
+              "effort": "low"
+            },
+            "medium": {
+              "thinking": {
+                "type": "adaptive",
+                "display": "summarized"
+              },
+              "effort": "medium"
+            },
+            "high": {
+              "thinking": {
+                "type": "adaptive",
+                "display": "summarized"
+              },
+              "effort": "high"
+            },
+            "xhigh": {
+              "thinking": {
+                "type": "adaptive",
+                "display": "summarized"
+              },
+              "effort": "xhigh"
+            },
+            "max": {
+              "thinking": {
+                "type": "adaptive",
+                "display": "summarized"
+              },
+              "effort": "max"
+            }
+          }
+        },
+        "claude-opus-4-6": {
+          "name": "Opus 4.6",
+          "variants": {
+            "low": {
+              "thinking": {
+                "type": "adaptive",
+                "display": "summarized"
+              },
+              "effort": "low"
+            },
+            "medium": {
+              "thinking": {
+                "type": "adaptive",
+                "display": "summarized"
+              },
+              "effort": "medium"
+            },
+            "high": {
+              "thinking": {
+                "type": "adaptive",
+                "display": "summarized"
+              },
+              "effort": "high"
+            },
+            "xhigh": {
+              "thinking": {
+                "type": "adaptive",
+                "display": "summarized"
+              },
+              "effort": "xhigh"
+            },
+            "max": {
+              "thinking": {
+                "type": "adaptive",
+                "display": "summarized"
+              },
+              "effort": "max"
+            }
+          }
+        },
+        "claude-sonnet-4-6": {
+          "name": "Sonnet 4.6",
+          "variants": {
+            "low": {
+              "thinking": {
+                "type": "adaptive",
+                "display": "summarized"
+              },
+              "effort": "low"
+            },
+            "medium": {
+              "thinking": {
+                "type": "adaptive",
+                "display": "summarized"
+              },
+              "effort": "medium"
+            },
+            "high": {
+              "thinking": {
+                "type": "adaptive",
+                "display": "summarized"
+              },
+              "effort": "high"
+            },
+            "xhigh": {
+              "thinking": {
+                "type": "adaptive",
+                "display": "summarized"
+              },
+              "effort": "xhigh"
+            },
+            "max": {
+              "thinking": {
+                "type": "adaptive",
+                "display": "summarized"
+              },
+              "effort": "max"
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+## OpenCode ausführen
+
+Nachdem Sie `YOUR_CAPRIOLE_AI_API_KEY` in der Konfiguration ersetzt haben, starten Sie OpenCode:
+
+```bash
+opencode
+```
+
+Verwenden Sie `/models`, um OpenAI latest, GPT 5.6 Thinking, GPT 5.6, GPT 5.5, GPT 5.4 mini, Fable 5, Opus 5, Grok 4.5, GLM 5.2, Kimi K3, Claude latest, Opus 4.8, Opus 4.7, Opus 4.6 oder Sonnet 4.6 auszuwählen. Verwenden Sie `Ctrl+T`, um Modellvarianten zu durchlaufen.
+
+## Unterstützte Modelle
+
+OpenCode unterstützt OpenAI latest, GPT 5.6 Thinking, GPT 5.6, GPT 5.5, GPT 5.4 mini, Fable 5, Opus 5, Grok 4.5, GLM 5.2, Kimi K3, Claude latest, Opus 4.8, Opus 4.7, Opus 4.6 und Sonnet 4.6 über Capriole AI. Fable 5 und Opus 5 können entweder den Chat Completions-kompatiblen Anbieter oder den Anthropic Messages-Anbieter nutzen.
+
+- `openai-latest`
+- `openai/gpt-5.6-terra`
+- `openai/gpt-5.6-luna`
+- `openai/gpt-5.5`
+- `openai/gpt-5.4-mini`
+- `anthropic/claude-fable-5`
+- `anthropic/claude-opus-5`
+- `xai/grok-4.5`
+- `zai/glm-5.2`
+- `moonshot/kimi-k3`
+- `claude-latest`
+- `claude-fable-5`
+- `claude-opus-5`
+- `claude-opus-4-8`
+- `claude-opus-4-7`
+- `claude-opus-4-6`
+- `claude-sonnet-4-6`
+
+## Fehlerbehebung
+
+### Warum gibt OpenCode einen Authentifizierungsfehler zurück?
+
+Bestätigen Sie, dass sowohl `apiKey` als auch `authToken` in `~/.config/opencode/opencode.json` Ihren Capriole AI API-Schlüssel verwenden und nicht `YOUR_CAPRIOLE_AI_API_KEY`.
+
+### Warum schlagen GPT-Anfragen fehl?
+
+Bestätigen Sie, dass der GPT-Anbieter `npm: "@ai-sdk/openai"` und `baseURL: "https://api.caprioletech.com/v1"` verwendet, damit Anfragen die Responses API nutzen.
+
+### Warum schlagen Grok-, GLM- oder Kimi-Anfragen fehl?
+
+Bestätigen Sie, dass `capriole-ai-compatible` `npm: "@ai-sdk/openai-compatible"` und `baseURL: "https://api.caprioletech.com/v1"` verwendet, damit beide Modelle Chat Completions nutzen.
+
+### Warum schlagen Anthropic-Anfragen fehl?
+
+Bestätigen Sie, dass der Anthropic-Anbieter `npm: "@ai-sdk/anthropic"`, `authToken` und `baseURL: "https://api.caprioletech.com/v1"` verwendet.
+
+### Warum erscheinen Capriole AI-Modelle nicht?
+
+Bestätigen Sie, dass die Modellreferenz `<providerId>/<modelId>` verwendet, etwa `capriole-ai-openai/openai-latest`, `capriole-ai-compatible/moonshot/kimi-k3` oder `capriole-ai-anthropic/claude-latest`, und dass `enabled_providers` die Capriole AI-Anbieter enthält, während `disabled_providers` sie nicht blockiert.
+
+### Warum erscheinen Modellvarianten nicht?
+
+Bestätigen Sie, dass Sie OpenCode nach der Aktualisierung von `~/.config/opencode/opencode.json` neu gestartet haben, öffnen Sie dann `/models` und drücken Sie `Ctrl+T`, um Varianten zu durchlaufen.
+
+### Warum greifen Konfigurationsänderungen nicht?
+
+Prüfen Sie auf projektbezogene `opencode.json`- oder `OPENCODE_CONFIG`-Überschreibungen und starten Sie OpenCode anschließend neu.
+
+### Warum erscheinen Fehler zur Anbieterinitialisierung oder zu Anbieterpaketen?
+
+Prüfen Sie bei `ProviderInitError` zuerst die Anbieterkonfiguration. Löschen Sie bei Fehlern zu Anbieterpaketen `~/.cache/opencode` und starten Sie OpenCode neu, damit Anbieterpakete neu installiert werden.
+
+## Hinweise
+
+- Der Anthropic-Anbieter verwendet `authToken`, damit der AI SDK Anthropic-Anbieter die Authentifizierung `Authorization: Bearer` sendet.
+- OpenCode 1.14.48 schließt Shell-Tool-Workflows mit Grok 4.5, GLM 5.2 und Kimi K3 über `@ai-sdk/openai-compatible` ab.
+- OpenCode-Varianten sind clientseitige Modelleinstellungen. Sie erzeugen keine neuen Capriole AI API-Modell-IDs.
+- Offizielle Referenzen: [OpenCode-Installation](https://opencode.ai/docs), [OpenCode-Konfiguration](https://opencode.ai/docs/config), [OpenCode-Anbieter](https://opencode.ai/docs/providers), [OpenCode-Modelle und Varianten](https://opencode.ai/docs/models), [OpenCode-Tastenkombinationen](https://opencode.ai/docs/keybinds), [OpenCode-Fehlerbehebung](https://opencode.ai/docs/troubleshooting), [OpenAI Responses API](https://developers.openai.com/api/reference/resources/responses/methods/create), [AI SDK OpenAI-Anbieter](https://ai-sdk.dev/v7/providers/ai-sdk-providers/openai), [AI SDK Anthropic-Anbieter](https://ai-sdk.dev/v7/providers/ai-sdk-providers/anthropic), [Anthropic Adaptive Thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking) und [Anthropic Effort](https://platform.claude.com/docs/en/build-with-claude/effort).

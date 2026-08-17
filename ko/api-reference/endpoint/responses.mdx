@@ -1,0 +1,15 @@
+---
+title: "Responses"
+description: "Capriole AI Responses 모델로 OpenAI Responses 호환 출력을 만듭니다."
+openapi: "api-reference/openapi.json POST /v1/responses"
+---
+
+애플리케이션, SDK 또는 에이전트가 OpenAI Responses 요청 및 응답 형식을 기대할 때 이 엔드포인트를 사용하세요.
+
+`model`과 `input`이 있는 표준 Responses 페이로드를 보내세요. Capriole AI는 업스트림 전달 전에 latest 별칭을 선택한 업스트림 모델 ID로 해석하고, `instructions`, `tools`, `reasoning`, `previous_response_id`, `stream` 같은 호환 필드를 전달하며, 업스트림 JSON 또는 SSE 스트림을 그대로 반환합니다.
+
+`POST /v1/responses`는 `openai-latest`, `openai/gpt-5.6-terra`, `openai/gpt-5.6-luna`, `openai/gpt-5.5`, `openai/gpt-5.4-mini`를 받습니다. Capriole AI가 권장 OpenAI Responses 플래그십 모델을 선택하게 하려면 `openai-latest`를 사용하세요.
+
+이 엔드포인트는 Claude 및 Google latest 별칭을 지원하지 않습니다. Grok 4.5, GLM 5.2, Kimi K3는 Chat Completions를 사용하므로 여기에서도 지원되지 않습니다. 모든 공개 모델을 하나의 OpenAI 호환 엔드포인트로 호출하려면 `POST /v1/chat/completions`를 사용하세요.
+
+간단한 Capriole 네이티브 텍스트 생성에는 `POST /v1/chat`를 사용하세요. OpenAI Responses 전송 동작이 필요하면 `POST /v1/responses`를 사용하세요.

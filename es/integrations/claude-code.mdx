@@ -1,0 +1,118 @@
+---
+title: "Claude Code"
+description: "Configura Claude Code para usar Capriole AI."
+---
+
+## Qué es Claude Code
+
+Claude Code es la herramienta de programación agentic de Anthropic para leer bases de código, editar archivos, ejecutar comandos e integrarse con herramientas de desarrollo. Esta configuración de CLI usa Capriole AI al configurar el endpoint de API, el token de autenticación y las variables de entorno de modelo de Claude Code.
+
+## Requisitos previos
+
+Antes de empezar, asegúrate de tener:
+
+- Una cuenta de Capriole AI ([Regístrate aquí](https://capriole.ai))
+- Una clave API de Capriole AI ([Obtén tu clave](https://capriole.ai?view=api))
+
+## Instalación
+
+```bash
+npm install -g @anthropic-ai/claude-code
+```
+
+## Configuración
+
+Crea o actualiza `~/.claude/settings.json` para una configuración persistente:
+
+```json
+{
+  "model": "claude-latest",
+  "effortLevel": "high",
+  "env": {
+    "ANTHROPIC_BASE_URL": "https://api.caprioletech.com",
+    "ANTHROPIC_AUTH_TOKEN": "YOUR_CAPRIOLE_AI_API_KEY",
+    "ANTHROPIC_MODEL": "claude-latest",
+    "ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-latest",
+    "ANTHROPIC_DEFAULT_SONNET_MODEL": "claude-latest",
+    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "claude-latest",
+    "ANTHROPIC_SMALL_FAST_MODEL": "claude-latest",
+    "CLAUDE_CODE_SUBAGENT_MODEL": "claude-latest"
+  }
+}
+```
+
+Para una configuración de shell de una sola vez, exporta los mismos valores antes de iniciar Claude Code:
+
+```bash
+export ANTHROPIC_BASE_URL="https://api.caprioletech.com"
+export ANTHROPIC_AUTH_TOKEN="YOUR_CAPRIOLE_AI_API_KEY"
+
+export ANTHROPIC_MODEL="claude-latest"
+export ANTHROPIC_DEFAULT_OPUS_MODEL="claude-latest"
+export ANTHROPIC_DEFAULT_SONNET_MODEL="claude-latest"
+export ANTHROPIC_DEFAULT_HAIKU_MODEL="claude-latest"
+export ANTHROPIC_SMALL_FAST_MODEL="claude-latest"
+export CLAUDE_CODE_SUBAGENT_MODEL="claude-latest"
+```
+
+## Ejecutar Claude Code
+
+Después de guardar `~/.claude/settings.json` o de exportar las variables, inicia Claude Code desde el directorio de tu proyecto:
+
+```bash
+claude
+```
+
+Para una ejecución no interactiva de una sola vez sin un archivo de configuración guardado, pasa el modelo de forma explícita:
+
+```bash
+claude --model claude-latest -p "Explain this repository."
+```
+
+## Modelos compatibles
+
+Claude Code admite Claude latest, Fable 5, Opus 5, Opus 4.8, Opus 4.7, Opus 4.6 y Sonnet 4.6 a través de Capriole AI. Usa `claude-latest` en las configuraciones nuevas; se resuelve a Fable 5.
+
+- `claude-latest`
+- `claude-fable-5`
+- `claude-opus-5`
+- `claude-opus-4-8`
+- `claude-opus-4-7`
+- `claude-opus-4-6`
+- `claude-sonnet-4-6`
+
+## Solución de problemas
+
+### ¿Por qué Claude Code devuelve un error de autenticación?
+
+Confirma que `ANTHROPIC_AUTH_TOKEN` está exportada en el mismo shell antes de iniciar `claude`. Usa `ANTHROPIC_AUTH_TOKEN`, no `ANTHROPIC_API_KEY`, para esta configuración.
+
+### ¿Por qué las solicitudes fallan con errores de endpoint?
+
+Confirma que `ANTHROPIC_BASE_URL` es `https://api.caprioletech.com` sin `/v1`; Claude Code envía solicitudes a `/v1/messages` y `/v1/messages/count_tokens`.
+
+### ¿Por qué Claude Code no usa Claude latest?
+
+Confirma que `model`, `ANTHROPIC_MODEL`, `ANTHROPIC_SMALL_FAST_MODEL` y las variables de entorno de modelo por defecto están definidas antes del inicio, y luego revisa `/model` o `/status` por si hay una sesión activa o una anulación de configuración.
+
+### ¿Por qué Claude Code no usa el nivel de esfuerzo configurado?
+
+Define `"effortLevel": "high"` en `~/.claude/settings.json` y luego reinicia Claude Code. La configuración de Claude Code acepta `low`, `medium`, `high` y `xhigh`; `max` no se acepta en `effortLevel`.
+
+Para el esfuerzo máximo absoluto en una sesión, usa `/effort max`, inicia con `claude --effort max` o define `CLAUDE_CODE_EFFORT_LEVEL=max` antes de iniciar `claude`.
+
+### ¿Por qué Claude Code no puede seleccionar un modelo Opus concreto?
+
+Actualiza Claude Code con `claude update` y luego ejecuta `claude --version`.
+
+### ¿Por qué falla el recuento de tokens o el descubrimiento de modelo al iniciar?
+
+Mantén las variables de entorno de modelo en su lugar y confirma que el ID de modelo es `claude-latest` o un ID de modelo Claude concreto compatible. Capriole AI hace proxy de `/v1/messages/count_tokens` al upstream seleccionado, así que el preflight de recuento de tokens depende de que ese upstream admita el recuento de tokens de Anthropic.
+
+## Notas
+
+- `~/.claude/settings.json` se aplica a tu cuenta de usuario en todos los proyectos. Usa `YOUR_CAPRIOLE_AI_API_KEY` como marcador de posición y sustitúyelo por tu clave API real de Capriole AI.
+- `ANTHROPIC_BASE_URL` cambia adónde Claude Code envía las solicitudes. Las variables de entorno de modelo controlan qué ID de modelo se envía.
+- `ANTHROPIC_SMALL_FAST_MODEL` debe coincidir con `claude-latest` para que las solicitudes auxiliares de Claude Code usen el mismo alias latest de Capriole AI que la conversación principal.
+- Esta configuración usa `high` como nivel de esfuerzo por defecto documentado. `xhigh` también es una opción persistente de `effortLevel`, mientras que `max` es una anulación a nivel de sesión y puede gastar más tokens de thinking.
+- Referencias oficiales: [Claude Code setup](https://code.claude.com/docs/en/setup), [environment variables](https://code.claude.com/docs/en/env-vars), [model configuration](https://code.claude.com/docs/en/model-config) y [Claude effort](https://platform.claude.com/docs/en/build-with-claude/effort).

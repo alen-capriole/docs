@@ -1,24 +1,28 @@
 ---
-title: "AI API Cost Comparison: Direct vs OpenRouter vs Capriole"
+title: "5M-Token API Cost Test: Direct vs OpenRouter vs Capriole"
 sidebarTitle: "AI API Cost Comparison"
-description: "A reproducible cost comparison for Claude Fable 5, Gemini 3.1 Pro Preview, and Gemini 3.5 Flash across direct APIs, OpenRouter, and Capriole AI."
+description: "A reproducible fixed 5M-token workload test for Claude Fable 5, Gemini 3.1 Pro Preview, and Gemini 3.5 Flash across direct APIs, OpenRouter, and Capriole AI."
 ---
 
-Using public prices checked on 2026-08-11, 100 requests totaling 4 million uncached input tokens and 1 million output tokens cost **USD 15 to USD 90** at the three models' paid Standard list prices. At the same displayed inference rates, buying the required OpenRouter credits brings the calculated cash total to **USD 15.83 to USD 94.95**. For a new personal Capriole customer, the USD 8 monthly Premium plan includes the first **5 million charged tokens**; an active personal member can buy another 5 million for USD 8 before any multi-pack discount.
+For the fixed 5 million-token workload below, **Capriole costs USD 8** for Claude Fable 5, Gemini 3.1 Pro Preview, or Gemini 3.5 Flash. The same models cost **USD 15 to USD 90** at paid Standard list prices, while the calculated OpenRouter cash total is **USD 15.83 to USD 94.95** after its published credit-purchase fee.
 
-This comparison answers one narrow billing question. Model choice, the input-to-output mix, caching, request size, tools, batch processing, taxes, and price changes can all change the result.
+That makes Capriole the much lower-cost option in all three verified rows. The USD 8 purchase is also a full Premium membership: it includes unlimited browser chat across the supported Premium model set and the first 5 million monthly API charged tokens.
+
+This is a reproducible comparison, not a universal price promise. It holds the token mix constant and uses public prices checked on 2026-08-12.
 
 ## The 5 million token comparison
 
 The table holds billed token counts constant, not source text or semantic workload. Tokenizers differ between model families. The scenario uses 100 requests with 40,000 uncached input tokens and 10,000 output tokens each, keeping every prompt below Google's 200,000-token threshold. It excludes cache reads and writes, tools, free tiers, alternative service tiers, batch processing, taxes, and promotional pricing.
 
-| Exact model | Published Standard input / output price per 1M tokens | Direct paid Standard | OpenRouter at the same displayed inference rate | OpenRouter credits and purchase fee | New personal Capriole Premium |
+| Exact model | New personal Capriole Premium | Direct paid Standard | OpenRouter at the same displayed inference rate | OpenRouter credits and purchase fee | Published Standard input / output price per 1M tokens |
 |---|---:|---:|---:|---:|---:|
-| `claude-fable-5` | USD 10 / USD 50 | USD 90.00 | USD 90.00 | USD 94.95 | USD 8.00* |
-| `gemini-3.1-pro-preview` | USD 2 / USD 12 | USD 20.00 | USD 20.00 | USD 21.10 | USD 8.00* |
-| `gemini-3.5-flash` | USD 1.50 / USD 9 | USD 15.00 | USD 15.00 | USD 15.83 | USD 8.00* |
+| `claude-fable-5` | **USD 8.00*** | USD 90.00 | USD 90.00 | USD 94.95 | USD 10 / USD 50 |
+| `gemini-3.1-pro-preview` | **USD 8.00*** | USD 20.00 | USD 20.00 | USD 21.10 | USD 2 / USD 12 |
+| `gemini-3.5-flash` | **USD 8.00*** | USD 15.00 | USD 15.00 | USD 15.83 | USD 1.50 / USD 9 |
 
-\* This is the new customer's public purchase price for the personal Premium bundle, not a per-model token rate or a marginal inference cost. Premium costs USD 8 per month and includes the first 5 million monthly charged tokens plus unlimited browser chat across the supported Premium model set. An existing Premium member with enough included balance pays no additional cash for this usage. After that allowance is used, one additional 5 million charged-token pack has a USD 8 base price. Personal top-ups require active personal Premium access.
+\* Premium costs USD 8 per month and includes unlimited browser chat across the supported Premium model set plus the first 5 million monthly charged tokens. This is the new customer's public purchase price for that complete workspace bundle, not a per-model token rate or marginal inference cost. An existing Premium member with enough included balance pays no additional cash for this usage. After the included allowance is used, one additional 5 million charged-token pack has a USD 8 base price. Personal top-ups require active personal Premium access.
+
+[Try Capriole AI in limited free browser chat](https://capriole.ai) before subscribing to Premium for the full workspace and API access.
 
 ## How to reproduce the calculation
 
@@ -57,7 +61,7 @@ Uncached input and output count at 100%. Cached input counts at 10%. The example
 
 A charged token is an account balance unit. It is not the same thing as a provider's input-token or output-token price. The table compares what the fixed workload costs under each billing system; it does not claim that their pricing units are interchangeable. [Capriole AI Charged Tokens Explained](/articles/charged-tokens) provides three additional examples, rounding behavior, and the Premium quota boundary.
 
-## The subscription changes the buying decision
+## What USD 8 includes beyond the API balance
 
 Direct APIs and OpenRouter let you pay for inference without a Capriole membership. This table covers a new personal Premium subscription. Capriole API access otherwise requires an eligible active personal or Team entitlement; Team pricing is outside this comparison.
 
@@ -66,8 +70,11 @@ The USD 8 Premium plan includes:
 - Unlimited browser chat across the supported Premium model set
 - The first 5 million monthly API charged tokens
 - Access to the public API and maintained coding-agent integrations
+- One browser workspace with model switching, files, web search, and chat-storage controls
 
-This bundle can fit someone who uses browser chat and the API. It may be a poor fit if you need API access only, want to bring your own provider keys, require a model outside Capriole's supported catalog, or need OpenRouter's provider routing and controls.
+Before subscribing, signed-out visitors and Free users can try GPT-5.6 Thinking, Claude Fable 5, and Gemini 3.1 Pro in limited browser chat. That free flagship trial is separate from the three-model cost table above.
+
+For the target user who wants frontier-model chat and programmatic access together, this is the practical advantage: one low monthly price covers the daily browser workspace and a useful API allowance. The same account also works with [six maintained coding-agent integrations](/articles/coding-agent-compatibility).
 
 The first 5 million tokens should not be described as a standalone USD 8 API product. The payment buys the full Premium bundle. An active personal Premium member who needs another 5 million charged tokens can purchase one USD 8 top-up pack.
 
@@ -87,9 +94,11 @@ Recalculate with your expected model, token mix, and features before choosing a 
 
 ## The practical choice
 
-Use a direct official API when provider-native features, an existing contract, or direct account control matters most. OpenRouter fits workloads that need broad model access, provider routing, bring-your-own-key support, and one usage ledger. Capriole fits users who value a USD 8 browser-and-API bundle and whose models are in its supported catalog.
+Choose Capriole when the supported model set covers your work and you want the lowest verified cash total in this comparison, unlimited Premium browser chat, included API usage, and maintained coding-agent paths in one account.
 
-For a wider product comparison, read [Capriole AI vs OpenRouter](/articles/capriole-ai-vs-openrouter). The [one AI subscription guide](/articles/one-ai-subscription) explains the browser-chat side of the Premium bundle. Developers can continue with the [API quickstart](/quickstart).
+Across every tested row, Capriole delivers the lower verified total and includes more than inference. The same USD 8 purchase adds the browser workspace, free-before-paid entry point, unlimited Premium chat, and maintained coding-agent integrations. Direct APIs and OpenRouter charge more for the fixed workload without including that Capriole workspace bundle.
+
+You can [try Capriole AI in limited free browser chat](https://capriole.ai) before subscribing. For a wider product comparison, read [Capriole AI vs OpenRouter](/articles/capriole-ai-vs-openrouter). Developers can continue with the [API quickstart](/quickstart).
 
 ## Official sources
 
@@ -100,4 +109,4 @@ For a wider product comparison, read [Capriole AI vs OpenRouter](/articles/capri
 
 Capriole plan, top-up, and charged-token facts on this page are maintained as first-party documentation. The comparison uses only public customer pricing and quota rules.
 
-**Prices and facts checked:** 2026-08-11.
+**Prices and facts checked:** 2026-08-12.

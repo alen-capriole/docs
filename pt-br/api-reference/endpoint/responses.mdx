@@ -1,0 +1,15 @@
+---
+title: "Responses"
+description: "Crie saída compatível com OpenAI Responses com os modelos Responses da Capriole AI."
+openapi: "api-reference/openapi.json POST /v1/responses"
+---
+
+Use este endpoint quando seu aplicativo, SDK ou agente esperar o formato de solicitação e resposta do OpenAI Responses.
+
+Envie um payload padrão de Responses com `model` e `input`. A Capriole AI resolve os aliases latest para o ID de modelo upstream selecionado antes do despacho, encaminha campos compatíveis como `instructions`, `tools`, `reasoning`, `previous_response_id` e `stream`, e devolve o JSON ou o stream SSE do upstream sem alteração.
+
+`POST /v1/responses` aceita `openai-latest`, `openai/gpt-5.6-terra`, `openai/gpt-5.6-luna`, `openai/gpt-5.5` e `openai/gpt-5.4-mini`. Use `openai-latest` para deixar a Capriole AI escolher o modelo principal de OpenAI Responses que recomendamos.
+
+Aliases latest de Claude e Google não são suportados neste endpoint. Grok 4.5, GLM 5.2 e Kimi K3 usam Chat Completions e também não são suportados aqui. Use `POST /v1/chat/completions` quando quiser um único endpoint compatível com OpenAI que possa chamar todos os modelos públicos.
+
+Para geração de texto nativa da Capriole, use `POST /v1/chat`. Use `POST /v1/responses` quando o comportamento de transmissão do OpenAI Responses for necessário.

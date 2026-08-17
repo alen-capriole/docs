@@ -1,0 +1,79 @@
+---
+title: "Por que construímos a Capriole AI: um espaço de trabalho para modelos de fronteira"
+sidebarTitle: "Por que construímos a Capriole AI"
+description: "Por que transformamos nossa própria infraestrutura de IA na Capriole AI, um espaço de trabalho acessível para chat com modelos de fronteira, acesso à API e agentes de programação suportados."
+---
+
+A Capriole AI é um espaço de trabalho unificado para chat com modelos de fronteira, uma cota pública de API e agentes de programação suportados. Visitantes sem login e usuários Free podem experimentar GPT-5.6 Thinking, Claude Fable 5 e Gemini 3.1 Pro antes de assinar; o Premium de USD 8 adiciona Browser Chat ilimitado, 5 milhões de tokens cobrados de API e seis integrações mantidas de agentes.
+
+Começou enquanto adicionávamos capacidades de IA ao Capriole Charts.
+
+Precisávamos de acesso confiável a modelos de fronteira e passamos muito tempo tornando a configuração estável o bastante para o nosso próprio trabalho. Quando ela se sustentou, vimos que a mesma camada de acesso seria útil fora do Charts.
+
+Usar ChatGPT, Claude e Gemini costumava significar visitar três produtos. Cada um tinha a própria assinatura, interface, histórico e forma de tratar uma conversa. O acesso à API adicionava outro conjunto de contas e saldos. Agentes de programação traziam mais keys e configuração.
+
+Decidimos tornar essa infraestrutura disponível como um produto próprio.
+
+A primeira experiência de IA vivia dentro do Charts. Conforme o trabalho cresceu, a camada geral de chat e acesso a modelos claramente tinha um uso mais amplo. Separamos esse espaço de trabalho na Capriole AI, enquanto o Charts manteve os recursos de IA ligados ao próprio contexto de produto.
+
+## O custo de produtos separados
+
+Pagar várias empresas todos os meses é caro. Gerenciá-las também é tedioso.
+
+Uma pergunta pode começar em um chat e chegar ao ponto em que outro modelo seria mais útil. Mover significava copiar o prompt, carregar as partes do contexto que ainda faziam sentido e se acostumar com outra interface. O usuário tinha que coordenar produtos que deveriam poupar tempo.
+
+A Capriole AI coloca os modelos de fronteira suportados em um chat na web. Você pode começar uma conversa com um modelo e mudar para outro sem abrir um produto novo nem reconstruir a conversa. Arquivos, pesquisa na web, histórico do chat e seleção de modelo ficam no mesmo espaço de trabalho.
+
+## Fazer modelos diferentes parecerem um produto
+
+Todo provedor de modelo tem as próprias premissas. Os formatos de mensagem diferem. Limites de contexto e controles de raciocínio diferem. Arquivos, ferramentas, eventos de streaming, contabilidade de tokens e respostas de erro todos precisam do próprio tratamento.
+
+Um produto oficial de IA só precisa fazer os próprios modelos funcionarem bem. A Capriole AI precisa fazer modelos líderes de vários provedores se comportarem de forma coerente dentro de uma conversa.
+
+Um seletor de modelo foi a menor parte do trabalho. Construímos e continuamos refinando adaptadores de protocolo, aliases de modelo, gerenciamento de contexto, comportamento de streaming, fallback automático e tratamento de erros. Novos lançamentos de modelo muitas vezes precisam de outra rodada de trabalho de compatibilidade antes de pertencerem à mesma interface.
+
+As diferenças aparecem em solicitações reais. Uma família de modelo pode usar eventos OpenAI Responses enquanto outra espera Anthropic Messages. Uso de tokens e erros chegam em formas diferentes. Uma conversa longa pode precisar compactar o contexto antes que o próximo modelo possa continuá-la com segurança. Esses casos precisam funcionar juntos antes que uma troca de modelo possa passar despercebida.
+
+A maior parte desse trabalho fica atrás da interface. Um usuário pode trocar de um modelo ChatGPT para Claude ou Gemini no meio de uma conversa e continuar na mesma conversa.
+
+A mesma conta Capriole AI cobre Browser Chat, a API pública e seis integrações mantidas de agentes de programação: [Codex](/pt-br/integrations/codex), [Claude Code](/pt-br/integrations/claude-code), [Kilo Code](/pt-br/integrations/kilo-code), [GitHub Copilot CLI](/pt-br/integrations/github-copilot-cli), [OpenCode](/pt-br/integrations/opencode) e [OpenClaw](/pt-br/integrations/openclaw). Aliases de modelo latest simplificam a configuração suportada de API e agentes, sem fazer você acompanhar nomes de modelo específicos do provedor. Nós tratamos os caminhos de protocolo compatíveis para que conectar um agente não vire outro projeto de integração de provedor.
+
+## Uma assinatura com preço para o uso cotidiano
+
+Construímos a Capriole AI para substituir uma coleção de assinaturas caras de IA por uma conta acessível.
+
+O Premium custa **USD 8 por mês**. Inclui Browser Chat ilimitado no conjunto de modelos Premium suportado. Não há saldo de crédito de Browser Chat para vigiar nem uma cota separada deduzida cada vez que você troca de modelo.
+
+Membros Premium também recebem **5 milhões de tokens cobrados de API por mês**, e o uso adicional está disponível por recargas. Na nossa [comparação datada de custo](/pt-br/articles/ai-api-cost-comparison), a Capriole custa USD 8 para cada uma das três cargas de trabalho de modelo testadas. O preço Standard pago direto vai de USD 15 a USD 90, enquanto o OpenRouter vai de USD 15.83 a USD 94.95 depois da taxa publicada de compra de créditos.
+
+O teste usa uma mistura fixa de tokens, e não toda carga de trabalho possível. Ainda assim demonstra o motivo pelo qual construímos a assinatura deste modo: o total verificado mais baixo da API vem dentro de um espaço de trabalho completo, em vez de comprar só inferência.
+
+Uma conta pode, portanto, cobrir o chat usado para o pensamento cotidiano e a API usada para construir. O navegador permanece ilimitado no Premium; a API mantém um saldo de uso claro e visível.
+
+## Privacidade deve ser uma escolha no produto
+
+Uma conversa de pesquisa salva e uma conversa com material sensível não precisam da mesma política de armazenamento.
+
+| Modo | Persistência | Troca principal |
+|---|---|---|
+| Synced | Histórico da conta disponível entre dispositivos | O estado do chat e dos arquivos enviados é armazenado para continuidade |
+| Local | Só o navegador atual | Sem histórico entre dispositivos; envios desativados |
+| No Storage | Só a sessão atual da página | Atualizar ou sair perde o chat; envios desativados |
+
+Ativar No Storage primeiro pede confirmação antes de excluir o histórico existente de chat do servidor e local. Todos os modos ainda enviam solicitações pela Capriole e pelo serviço de modelo selecionado; eles alteram a persistência do histórico, não o caminho da solicitação do modelo. O [guia de armazenamento do chat](/pt-br/guides/chat-storage) explica o limite completo.
+
+Tornamos a privacidade um controle dentro do espaço de trabalho, com as consequências de cada escolha explicadas ao lado.
+
+## O que queríamos tornar mais fácil
+
+A Capriole AI é para pessoas que querem acesso a modelos fortes sem transformar o acesso à IA em outro trabalho administrativo.
+
+Várias assinaturas caras fazem pouco sentido quando o objetivo é simplesmente usar o modelo certo para uma tarefa. Uma conversa útil deve poder continuar quando esse modelo muda. Agentes de programação devem se conectar sem reconstruir a mesma configuração de provedor cada vez.
+
+Queríamos um espaço de trabalho que economize dinheiro, reduza a configuração e deixe a escolha de modelo aberta conforme o trabalho muda. A Capriole é agora o produto que gostaríamos de ter tido quando assinaturas, keys, históricos e interfaces separados estavam no caminho.
+
+Se você está decidindo entre um espaço de trabalho como este e um gateway mais amplo de modelos, a nossa [comparação Capriole AI e OpenRouter](/pt-br/articles/capriole-ai-vs-openrouter) explica onde cada produto se encaixa.
+
+Você pode [abrir a Capriole AI](https://capriole.ai) e experimentar o conjunto principal atual no chat gratuito limitado. Faça upgrade para o Premium de USD 8 quando quiser Browser Chat ilimitado, o saldo incluído da API e caminhos mantidos de agentes de programação sob a mesma conta. Desenvolvedores podem continuar com o [início rápido da API](/pt-br/quickstart).
+
+**Fatos verificados:** 2026-08-11.

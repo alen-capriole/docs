@@ -21,75 +21,543 @@
     "timestamp": true
   },
   "navigation": {
-    "tabs": [
+    "languages": [
       {
-        "tab": "API reference",
-        "groups": [
+        "language": "en",
+        "default": true,
+        "tabs": [
           {
-            "group": "Get started",
-            "pages": [
-              "overview",
-              "quickstart",
-              "contact"
+            "tab": "API reference",
+            "groups": [
+              {
+                "group": "Get started",
+                "pages": [
+                  "overview",
+                  "quickstart",
+                  "contact"
+                ]
+              },
+              {
+                "group": "Endpoints",
+                "pages": [
+                  "api-reference/endpoint/get",
+                  "api-reference/endpoint/create",
+                  "api-reference/endpoint/chat-completions",
+                  "api-reference/endpoint/responses",
+                  "api-reference/endpoint/messages"
+                ]
+              },
+              {
+                "group": "Integration",
+                "pages": [
+                  "integrations/codex",
+                  "integrations/claude-code",
+                  "integrations/github-copilot-cli",
+                  "integrations/opencode",
+                  "integrations/openclaw",
+                  "integrations/kilo-code",
+                  "integrations/more-agents"
+                ]
+              }
             ]
           },
           {
-            "group": "Endpoints",
-            "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/chat-completions",
-              "api-reference/endpoint/responses",
-              "api-reference/endpoint/messages"
+            "tab": "Guides",
+            "groups": [
+              {
+                "group": "How-to guides",
+                "pages": [
+                  "guides/files-web-search",
+                  "guides/api-keys-usage",
+                  "guides/chat-storage",
+                  "guides/openai-anthropic-sdks",
+                  "guides/one-api-key-coding-agents"
+                ]
+              }
             ]
           },
           {
-            "group": "Integration",
-            "pages": [
-              "integrations/codex",
-              "integrations/claude-code",
-              "integrations/github-copilot-cli",
-              "integrations/opencode",
-              "integrations/openclaw",
-              "integrations/kilo-code",
-              "integrations/more-agents"
+            "tab": "Articles",
+            "groups": [
+              {
+                "group": "Articles",
+                "pages": [
+                  "articles/charged-tokens",
+                  "articles/unified-model-api",
+                  "articles/coding-agent-compatibility",
+                  "articles/switch-models-mid-chat",
+                  "articles/capriole-ai-vs-typingmind",
+                  "articles/capriole-ai-vs-t3-chat",
+                  "articles/capriole-ai-vs-poe",
+                  "articles/capriole-ai-vs-openrouter",
+                  "articles/ai-api-cost-comparison",
+                  "articles/openrouter-alternatives",
+                  "articles/one-ai-subscription",
+                  "articles/why-we-built-capriole-ai"
+                ]
+              }
             ]
           }
         ]
       },
       {
-        "tab": "Guides",
-        "groups": [
+        "language": "zh-Hans",
+        "tabs": [
           {
-            "group": "How-to guides",
-            "pages": [
-              "guides/files-web-search",
-              "guides/api-keys-usage",
-              "guides/chat-storage",
-              "guides/openai-anthropic-sdks",
-              "guides/one-api-key-coding-agents"
+            "tab": "API 参考",
+            "groups": [
+              {
+                "group": "开始使用",
+                "pages": [
+                  "zh/overview",
+                  "zh/quickstart",
+                  "zh/contact"
+                ]
+              },
+              {
+                "group": "端点",
+                "pages": [
+                  "zh/api-reference/endpoint/get",
+                  "zh/api-reference/endpoint/create",
+                  "zh/api-reference/endpoint/chat-completions",
+                  "zh/api-reference/endpoint/responses",
+                  "zh/api-reference/endpoint/messages"
+                ]
+              },
+              {
+                "group": "编程代理集成",
+                "pages": [
+                  "zh/integrations/codex",
+                  "zh/integrations/claude-code",
+                  "zh/integrations/github-copilot-cli",
+                  "zh/integrations/opencode",
+                  "zh/integrations/openclaw",
+                  "zh/integrations/kilo-code",
+                  "zh/integrations/more-agents"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "指南",
+            "groups": [
+              {
+                "group": "使用指南",
+                "pages": [
+                  "zh/guides/files-web-search",
+                  "zh/guides/api-keys-usage",
+                  "zh/guides/chat-storage",
+                  "zh/guides/openai-anthropic-sdks",
+                  "zh/guides/one-api-key-coding-agents"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "文章",
+            "groups": [
+              {
+                "group": "文章",
+                "pages": [
+                  "zh/articles/charged-tokens",
+                  "zh/articles/unified-model-api",
+                  "zh/articles/coding-agent-compatibility",
+                  "zh/articles/switch-models-mid-chat",
+                  "zh/articles/capriole-ai-vs-typingmind",
+                  "zh/articles/capriole-ai-vs-t3-chat",
+                  "zh/articles/capriole-ai-vs-poe",
+                  "zh/articles/capriole-ai-vs-openrouter",
+                  "zh/articles/ai-api-cost-comparison",
+                  "zh/articles/openrouter-alternatives",
+                  "zh/articles/one-ai-subscription",
+                  "zh/articles/why-we-built-capriole-ai"
+                ]
+              }
             ]
           }
         ]
       },
       {
-        "tab": "Articles",
-        "groups": [
+        "language": "es",
+        "tabs": [
           {
-            "group": "Articles",
-            "pages": [
-              "articles/charged-tokens",
-              "articles/unified-model-api",
-              "articles/coding-agent-compatibility",
-              "articles/switch-models-mid-chat",
-              "articles/capriole-ai-vs-typingmind",
-              "articles/capriole-ai-vs-t3-chat",
-              "articles/capriole-ai-vs-poe",
-              "articles/capriole-ai-vs-openrouter",
-              "articles/ai-api-cost-comparison",
-              "articles/openrouter-alternatives",
-              "articles/one-ai-subscription",
-              "articles/why-we-built-capriole-ai"
+            "tab": "Referencia de la API",
+            "groups": [
+              {
+                "group": "Primeros pasos",
+                "pages": [
+                  "es/overview",
+                  "es/quickstart",
+                  "es/contact"
+                ]
+              },
+              {
+                "group": "Endpoints",
+                "pages": [
+                  "es/api-reference/endpoint/get",
+                  "es/api-reference/endpoint/create",
+                  "es/api-reference/endpoint/chat-completions",
+                  "es/api-reference/endpoint/responses",
+                  "es/api-reference/endpoint/messages"
+                ]
+              },
+              {
+                "group": "Integración de agentes",
+                "pages": [
+                  "es/integrations/codex",
+                  "es/integrations/claude-code",
+                  "es/integrations/github-copilot-cli",
+                  "es/integrations/opencode",
+                  "es/integrations/openclaw",
+                  "es/integrations/kilo-code",
+                  "es/integrations/more-agents"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "Guías",
+            "groups": [
+              {
+                "group": "Guías prácticas",
+                "pages": [
+                  "es/guides/files-web-search",
+                  "es/guides/api-keys-usage",
+                  "es/guides/chat-storage",
+                  "es/guides/openai-anthropic-sdks",
+                  "es/guides/one-api-key-coding-agents"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "Artículos",
+            "groups": [
+              {
+                "group": "Artículos",
+                "pages": [
+                  "es/articles/charged-tokens",
+                  "es/articles/unified-model-api",
+                  "es/articles/coding-agent-compatibility",
+                  "es/articles/switch-models-mid-chat",
+                  "es/articles/capriole-ai-vs-typingmind",
+                  "es/articles/capriole-ai-vs-t3-chat",
+                  "es/articles/capriole-ai-vs-poe",
+                  "es/articles/capriole-ai-vs-openrouter",
+                  "es/articles/ai-api-cost-comparison",
+                  "es/articles/openrouter-alternatives",
+                  "es/articles/one-ai-subscription",
+                  "es/articles/why-we-built-capriole-ai"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "language": "pt-BR",
+        "tabs": [
+          {
+            "tab": "Referência da API",
+            "groups": [
+              {
+                "group": "Primeiros passos",
+                "pages": [
+                  "pt-br/overview",
+                  "pt-br/quickstart",
+                  "pt-br/contact"
+                ]
+              },
+              {
+                "group": "Endpoints",
+                "pages": [
+                  "pt-br/api-reference/endpoint/get",
+                  "pt-br/api-reference/endpoint/create",
+                  "pt-br/api-reference/endpoint/chat-completions",
+                  "pt-br/api-reference/endpoint/responses",
+                  "pt-br/api-reference/endpoint/messages"
+                ]
+              },
+              {
+                "group": "Integração com agentes",
+                "pages": [
+                  "pt-br/integrations/codex",
+                  "pt-br/integrations/claude-code",
+                  "pt-br/integrations/github-copilot-cli",
+                  "pt-br/integrations/opencode",
+                  "pt-br/integrations/openclaw",
+                  "pt-br/integrations/kilo-code",
+                  "pt-br/integrations/more-agents"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "Guias",
+            "groups": [
+              {
+                "group": "Guias práticos",
+                "pages": [
+                  "pt-br/guides/files-web-search",
+                  "pt-br/guides/api-keys-usage",
+                  "pt-br/guides/chat-storage",
+                  "pt-br/guides/openai-anthropic-sdks",
+                  "pt-br/guides/one-api-key-coding-agents"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "Artigos",
+            "groups": [
+              {
+                "group": "Artigos",
+                "pages": [
+                  "pt-br/articles/charged-tokens",
+                  "pt-br/articles/unified-model-api",
+                  "pt-br/articles/coding-agent-compatibility",
+                  "pt-br/articles/switch-models-mid-chat",
+                  "pt-br/articles/capriole-ai-vs-typingmind",
+                  "pt-br/articles/capriole-ai-vs-t3-chat",
+                  "pt-br/articles/capriole-ai-vs-poe",
+                  "pt-br/articles/capriole-ai-vs-openrouter",
+                  "pt-br/articles/ai-api-cost-comparison",
+                  "pt-br/articles/openrouter-alternatives",
+                  "pt-br/articles/one-ai-subscription",
+                  "pt-br/articles/why-we-built-capriole-ai"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "language": "de",
+        "tabs": [
+          {
+            "tab": "API-Referenz",
+            "groups": [
+              {
+                "group": "Erste Schritte",
+                "pages": [
+                  "de/overview",
+                  "de/quickstart",
+                  "de/contact"
+                ]
+              },
+              {
+                "group": "Endpunkte",
+                "pages": [
+                  "de/api-reference/endpoint/get",
+                  "de/api-reference/endpoint/create",
+                  "de/api-reference/endpoint/chat-completions",
+                  "de/api-reference/endpoint/responses",
+                  "de/api-reference/endpoint/messages"
+                ]
+              },
+              {
+                "group": "Coding-Agent-Integration",
+                "pages": [
+                  "de/integrations/codex",
+                  "de/integrations/claude-code",
+                  "de/integrations/github-copilot-cli",
+                  "de/integrations/opencode",
+                  "de/integrations/openclaw",
+                  "de/integrations/kilo-code",
+                  "de/integrations/more-agents"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "Anleitungen",
+            "groups": [
+              {
+                "group": "Praxisleitfäden",
+                "pages": [
+                  "de/guides/files-web-search",
+                  "de/guides/api-keys-usage",
+                  "de/guides/chat-storage",
+                  "de/guides/openai-anthropic-sdks",
+                  "de/guides/one-api-key-coding-agents"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "Artikel",
+            "groups": [
+              {
+                "group": "Artikel",
+                "pages": [
+                  "de/articles/charged-tokens",
+                  "de/articles/unified-model-api",
+                  "de/articles/coding-agent-compatibility",
+                  "de/articles/switch-models-mid-chat",
+                  "de/articles/capriole-ai-vs-typingmind",
+                  "de/articles/capriole-ai-vs-t3-chat",
+                  "de/articles/capriole-ai-vs-poe",
+                  "de/articles/capriole-ai-vs-openrouter",
+                  "de/articles/ai-api-cost-comparison",
+                  "de/articles/openrouter-alternatives",
+                  "de/articles/one-ai-subscription",
+                  "de/articles/why-we-built-capriole-ai"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "language": "ja",
+        "tabs": [
+          {
+            "tab": "API リファレンス",
+            "groups": [
+              {
+                "group": "はじめに",
+                "pages": [
+                  "ja/overview",
+                  "ja/quickstart",
+                  "ja/contact"
+                ]
+              },
+              {
+                "group": "エンドポイント",
+                "pages": [
+                  "ja/api-reference/endpoint/get",
+                  "ja/api-reference/endpoint/create",
+                  "ja/api-reference/endpoint/chat-completions",
+                  "ja/api-reference/endpoint/responses",
+                  "ja/api-reference/endpoint/messages"
+                ]
+              },
+              {
+                "group": "コーディングエージェント連携",
+                "pages": [
+                  "ja/integrations/codex",
+                  "ja/integrations/claude-code",
+                  "ja/integrations/github-copilot-cli",
+                  "ja/integrations/opencode",
+                  "ja/integrations/openclaw",
+                  "ja/integrations/kilo-code",
+                  "ja/integrations/more-agents"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "ガイド",
+            "groups": [
+              {
+                "group": "使い方ガイド",
+                "pages": [
+                  "ja/guides/files-web-search",
+                  "ja/guides/api-keys-usage",
+                  "ja/guides/chat-storage",
+                  "ja/guides/openai-anthropic-sdks",
+                  "ja/guides/one-api-key-coding-agents"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "記事",
+            "groups": [
+              {
+                "group": "記事",
+                "pages": [
+                  "ja/articles/charged-tokens",
+                  "ja/articles/unified-model-api",
+                  "ja/articles/coding-agent-compatibility",
+                  "ja/articles/switch-models-mid-chat",
+                  "ja/articles/capriole-ai-vs-typingmind",
+                  "ja/articles/capriole-ai-vs-t3-chat",
+                  "ja/articles/capriole-ai-vs-poe",
+                  "ja/articles/capriole-ai-vs-openrouter",
+                  "ja/articles/ai-api-cost-comparison",
+                  "ja/articles/openrouter-alternatives",
+                  "ja/articles/one-ai-subscription",
+                  "ja/articles/why-we-built-capriole-ai"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "language": "ko",
+        "tabs": [
+          {
+            "tab": "API 레퍼런스",
+            "groups": [
+              {
+                "group": "시작하기",
+                "pages": [
+                  "ko/overview",
+                  "ko/quickstart",
+                  "ko/contact"
+                ]
+              },
+              {
+                "group": "엔드포인트",
+                "pages": [
+                  "ko/api-reference/endpoint/get",
+                  "ko/api-reference/endpoint/create",
+                  "ko/api-reference/endpoint/chat-completions",
+                  "ko/api-reference/endpoint/responses",
+                  "ko/api-reference/endpoint/messages"
+                ]
+              },
+              {
+                "group": "코딩 에이전트 연동",
+                "pages": [
+                  "ko/integrations/codex",
+                  "ko/integrations/claude-code",
+                  "ko/integrations/github-copilot-cli",
+                  "ko/integrations/opencode",
+                  "ko/integrations/openclaw",
+                  "ko/integrations/kilo-code",
+                  "ko/integrations/more-agents"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "가이드",
+            "groups": [
+              {
+                "group": "사용 가이드",
+                "pages": [
+                  "ko/guides/files-web-search",
+                  "ko/guides/api-keys-usage",
+                  "ko/guides/chat-storage",
+                  "ko/guides/openai-anthropic-sdks",
+                  "ko/guides/one-api-key-coding-agents"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "아티클",
+            "groups": [
+              {
+                "group": "아티클",
+                "pages": [
+                  "ko/articles/charged-tokens",
+                  "ko/articles/unified-model-api",
+                  "ko/articles/coding-agent-compatibility",
+                  "ko/articles/switch-models-mid-chat",
+                  "ko/articles/capriole-ai-vs-typingmind",
+                  "ko/articles/capriole-ai-vs-t3-chat",
+                  "ko/articles/capriole-ai-vs-poe",
+                  "ko/articles/capriole-ai-vs-openrouter",
+                  "ko/articles/ai-api-cost-comparison",
+                  "ko/articles/openrouter-alternatives",
+                  "ko/articles/one-ai-subscription",
+                  "ko/articles/why-we-built-capriole-ai"
+                ]
+              }
             ]
           }
         ]

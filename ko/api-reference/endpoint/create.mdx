@@ -1,0 +1,11 @@
+---
+title: "Chat"
+description: "모델에서 텍스트 응답을 만듭니다."
+openapi: "api-reference/openapi.json POST /v1/chat"
+---
+
+이 엔드포인트로 모델에 일반 텍스트 입력을 보내고 일반 텍스트 응답을 받습니다. 이 Capriole 네이티브 경로는 비스트리밍입니다. 클라이언트에 SSE 스트림이 필요하면 Chat Completions, Responses 또는 Messages를 사용하세요.
+
+`POST /v1/chat`는 `openai-latest`, `claude-latest`, `google-latest`와 `GET /v1/models`가 반환하는 공개 구체 모델 ID를 받습니다. 해당 제공자의 권장 플래그십 모델을 Capriole AI가 선택하게 하려면 latest 별칭을 사용하세요. 버전 고정이 중요하면 구체적인 모델 ID를 사용하세요.
+
+Capriole AI 웹 채팅과 공개 API는 서로 다른 제품 표면입니다. 웹 채팅에서 Fable 5와 Fable 5 Thinking이 기본 Anthropic 모드이고, Opus 5와 Opus 5 Thinking은 **Other Models**에 표시됩니다. 공개 API는 웹 채팅 Thinking 프리셋을 별도의 모델 ID로 노출하지 않습니다. Claude Chat API 요청에는 `claude-latest` 또는 `anthropic/claude-fable-5`, `anthropic/claude-opus-5`, `anthropic/claude-sonnet-4-6` 같은 공개 구체 Claude 모델 ID를 사용하세요. 기존 Opus 4.8, Opus 4.7, Opus 4.6 통합은 계속 지원됩니다.

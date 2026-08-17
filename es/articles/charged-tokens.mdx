@@ -1,0 +1,138 @@
+---
+title: "Tokens cobrados de Capriole AI explicados"
+sidebarTitle: "Tokens cobrados"
+description: "Calcula los tokens cobrados de Capriole AI a partir de la entrada no cacheada, la entrada cacheada y la salida, con ejemplos reproducibles y los límites de cuota personal y Team."
+---
+
+Los tokens cobrados son las unidades que se descuentan de un saldo de API de Capriole AI. Premium personal incluye 5 millones al mes como parte de la membresía de espacio de trabajo de USD 8. La entrada no cacheada y la salida cuentan al 100%. La entrada cacheada cuenta al 10%, redondeada al alza al siguiente token entero.
+
+Se aplican al tráfico de la API pública y de los agentes de programación. El chat ilimitado del navegador de Premium no consume este saldo de API.
+
+## La fórmula
+
+Capriole normaliza cada protocolo compatible en un recuento total de tokens de entrada y, cuando el proveedor seleccionado lo informa, un recuento de entrada cacheada. La entrada cacheada es un subconjunto de la entrada total.
+
+```text
+uncached_input = input_tokens - cached_input
+
+charged_tokens =
+  uncached_input
+  + ceil(cached_input × 0.1)
+  + output_tokens
+```
+
+Si el proveedor no informa entrada cacheada, todos los tokens de entrada cuentan al 100%. Capriole no infiere un acierto de caché que los metadatos de uso no informen.
+
+| Protocolo | Entrada normalizada | Subconjunto cacheado |
+|---|---|---|
+| OpenAI Responses | `input_tokens` | `input_tokens_details.cached_tokens` |
+| OpenAI Chat Completions | `prompt_tokens` | `prompt_tokens_details.cached_tokens` |
+| Anthropic Messages | `input_tokens + cache_creation_input_tokens + cache_read_input_tokens` | `cache_read_input_tokens` |
+
+En Anthropic Messages, la creación de caché sigue siendo entrada al 100%. Solo las lecturas de caché informadas reciben el tratamiento de tokens cobrados al 10%.
+
+## Tres ejemplos reproducibles
+
+| Ejemplo | Entrada total | Entrada cacheada | Salida | Cálculo | Tokens cobrados |
+|---|---:|---:|---:|---|---:|
+| Sin acierto de caché | 800 | 0 | 200 | `800 + 0 + 200` | 1,000 |
+| Prompt mayormente cacheado | 10,000 | 8,000 | 500 | `2,000 + ceil(800) + 500` | 3,300 |
+| Acierto de caché informado grande | 228,807 | 228,224 | 90 | `583 + ceil(22,822.4) + 90` | 23,496 |
+
+La tercera solicitud tiene 228,897 tokens brutos de entrada más salida. Descuenta 23,496 tokens cobrados porque el proveedor informó 228,224 tokens de entrada como cacheados.
+
+El redondeo ocurre sobre la porción cacheada de cada solicitud registrada. Un token de entrada cacheado por tanto cobra un token después de `ceil(0.1)`, mientras que diez tokens de entrada cacheados también cobran un token.
+
+## Estima cuántas solicitudes caben en 5 millones de tokens cobrados
+
+Usa el valor medio de tokens cobrados de tu propio uso de API en lugar de adivinar a partir del tamaño bruto del contexto.
+
+```text
+estimated_requests = floor(5,000,000 / average_charged_tokens_per_request)
+```
+
+| Tokens cobrados medios por solicitud | Solicitudes a partir de 5 millones de tokens cobrados |
+|---:|---:|
+| 1,000 | 5,000 |
+| 5,000 | 1,000 |
+| 25,000 | 200 |
+| 100,000 | 50 |
+
+Estas filas son aritmética de planificación, no afirmaciones de carga de trabajo típica. Una llamada corta de clasificación y un turno largo de agente de programación pueden diferir en órdenes de magnitud. La longitud de la salida, el contexto repetido, los aciertos de caché informados por el proveedor y los resultados de herramientas cambian el promedio medido.
+
+## Los tokens cobrados y los precios del proveedor usan unidades distintas
+
+Los proveedores oficiales pueden publicar precios separados para entrada, entrada cacheada, escrituras de caché, salida, herramientas o contextos largos. El saldo de tokens cobrados de Capriole es una unidad de cuota del cliente con una sola fórmula en las rutas de API pública compatibles.
+
+| Unidad | Qué responde |
+|---|---|
+| Precio de entrada y salida del proveedor | Lo que el proveedor cobra según su propia tabla de precios |
+| Tokens brutos de uso de la API | Cuántos tokens de entrada, salida y cacheados informa la respuesta |
+| Tokens cobrados de Capriole | Cuánto descuenta Capriole del saldo de API de la cuenta |
+
+No multipliques los tokens cobrados por la tarifa publicada de entrada o salida de un proveedor. Las unidades describen sistemas de facturación distintos.
+
+La [comparación fechada de costos de API](/es/articles/ai-api-cost-comparison) aplica esta fórmula a una carga de trabajo fija de 5 millones de tokens y luego compara el costo en efectivo de cada servicio.
+
+## Límites del saldo personal y Team
+
+| Acceso | Saldo de API incluido | Precio base de recarga | Regla actual |
+|---|---:|---:|---|
+| Premium personal | 5 millones de tokens cobrados por periodo de cuota mensual activo | USD 8 por 5 millones | La API pública y las recargas personales requieren acceso Premium activo; las compras de varios paquetes reciben el descuento por volumen mostrado, de hasta 15% |
+| Team | 50 millones de tokens cobrados compartidos por periodo de cuota mensual activo | USD 80 por 50 millones | USD 70/mes incluye cinco asientos; los owners y admins pueden comprar de uno a cinco paquetes, con el descuento por volumen mostrado de hasta 10% |
+
+La cuota incluida se consume antes de la billetera de recarga personal o Team coincidente. Los saldos de recarga comprados persisten entre periodos de cuota mensual y huecos de acceso de pago; consumirlos sigue requiriendo acceso de pago activo elegible. El chat del navegador es independiente de la contabilidad de API; los agentes de programación cuentan como tráfico de API y descuentan tokens cobrados.
+
+Los 5 millones mensuales forman parte de la membresía completa de espacio de trabajo Premium de USD 8. No es un plan de API ilimitada y no debe presentarse como un precio de API independiente.
+
+Las recargas extienden el uso programático. No cambian el cupo del chat del navegador, la compatibilidad de modelos ni el requisito de acceso personal o Team activo elegible.
+
+## Qué registra la API
+
+Capriole guarda el uso normalizado por protocolo y el uso cobrado como campos separados. Una solicitud exitosa de API pública puede registrar:
+
+- tokens de entrada normalizados;
+- tokens de salida;
+- tokens normalizados de entrada más salida;
+- tokens de entrada cacheados informados por el proveedor;
+- tokens cobrados descontados de la cuota;
+- el modelo resuelto y el estado de la solicitud.
+
+La respuesta nativa de Capriole `POST /v1/chat` expone `cached_tokens` y `charged_tokens` dentro de `usage`. Los endpoints compatibles con el protocolo Responses, Chat Completions y Messages conservan sus formas de respuesta de upstream, mientras que Capriole registra el valor coincidente de tokens cobrados para el uso de la cuenta.
+
+## Confirma si la entrada cacheada redujo un cargo
+
+Abre la [página de API](https://capriole.ai?view=api) de Capriole AI y usa los filtros **Key**, **Model** y **Status** para aislar la solicitud. Compara estas columnas en la tabla de uso:
+
+| Columna | Qué confirma |
+|---|---|
+| **Input tokens** | Entrada normalizada por protocolo antes de separar la entrada cacheada |
+| **Cached tokens** | Entrada que el proveedor informó como cacheada |
+| **Charged tokens** | Cuota descontada después de aplicar la fórmula de entrada cacheada |
+| **Total tokens** | Entrada más salida normalizadas por protocolo |
+
+Un valor positivo de tokens cacheados confirma que los metadatos de uso compatibles del proveedor informaron un acierto de caché. No prueba que cada solicitud repetida acierte la misma caché del proveedor. El enrutamiento del proveedor, la vida de la caché, la estructura de la solicitud y el comportamiento del modelo pueden cambiar el resultado.
+
+Para `POST /v1/chat` nativo de Capriole, la misma comprobación está disponible en `usage.cached_tokens` y `usage.charged_tokens`. Las demás respuestas de protocolo conservan sus esquemas de upstream, así que la tabla de uso de la cuenta es el lugar coherente para comparar solicitudes entre rutas.
+
+## Preguntas frecuentes
+
+### ¿La entrada cacheada recibe siempre el descuento de cuota del 90%?
+
+Solo cuando el proveedor seleccionado informa entrada cacheada en metadatos de uso compatibles. La ausencia de metadatos de caché no se trata como un acierto de caché.
+
+### ¿Los tokens de reasoning se suman una segunda vez?
+
+No. El uso de salida informado por el proveedor ya contiene la contabilidad de salida usada por la ruta. Capriole no añade un cargo separado de tokens de reasoning encima de la salida para esta fórmula.
+
+### ¿El uso de API es ilimitado en Premium?
+
+No. El chat del navegador de Premium es ilimitado en el conjunto de modelos Premium compatible. Las solicitudes de API y de agentes de programación usan el saldo incluido de tokens cobrados y cualquier saldo de recarga disponible.
+
+### ¿Por dónde debo empezar a programar?
+
+Usa el [inicio rápido de la API](/es/quickstart) para la solicitud en bruto más pequeña o la [guía de los SDK de OpenAI y Anthropic](/es/guides/openai-anthropic-sdks) para clientes nativos de protocolo en Python y TypeScript. Si aún no te has suscrito, [prueba los modelos insignia en el chat limitado gratuito del navegador](https://capriole.ai) antes de pasar a Premium.
+
+Los hechos de plan, cuota, recarga y tokens cobrados de Capriole en esta página se mantienen como documentación de primera parte.
+
+**Hechos comprobados:** 2026-08-11.

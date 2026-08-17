@@ -1,0 +1,112 @@
+---
+title: "500 万 token API 成本测试，直连、OpenRouter 与 Capriole 对比"
+sidebarTitle: "AI API 成本对比"
+description: "使用固定且可复现的 500 万 token 工作负载，对比 Claude Fable 5、Gemini 3.1 Pro Preview 和 Gemini 3.5 Flash 在官方直连 API、OpenRouter 与 Capriole AI 下的成本。"
+---
+
+对于下文固定的 500 万 token 工作负载，Claude Fable 5、Gemini 3.1 Pro Preview 或 Gemini 3.5 Flash 在 **Capriole 的成本均为 USD 8**。按照付费 Standard 公开价格，使用相同模型需要 **USD 15 至 USD 90**。计入 OpenRouter 公开的充值手续费后，计算所得现金总额为 **USD 15.83 至 USD 94.95**。
+
+在三项经过核验的对比中，Capriole 的成本都低得多。这笔 USD 8 还会购买一份完整的 Premium 会员，其中包括受支持 Premium 模型范围内的无限浏览器聊天，以及每月首批 500 万 API 计费 token。
+
+这是一项可复现的对比，不代表所有情况下的价格承诺。测试固定了 token 构成，并采用我们在 2026-08-12 核对的公开价格。
+
+## 500 万 token 成本对比
+
+表格固定的是计费 token 数量，并非源文本或语义工作负载。不同模型家族使用不同的 tokenizer。测试场景包含 100 个请求，每个请求使用 40,000 个未缓存输入 token 和 10,000 个输出 token，同时确保每条提示词都低于 Google 的 200,000 token 阈值。测试不包含缓存读取与写入、工具、免费层、其他服务层级、批处理、税费和促销价格。
+
+| 精确模型 | 新个人用户购买 Capriole Premium | 官方直连付费 Standard | OpenRouter 使用相同展示推理价格 | OpenRouter credits 与充值手续费 | 公开的 Standard 输入 / 输出价格，每 100 万 token |
+|---|---:|---:|---:|---:|---:|
+| `claude-fable-5` | **USD 8.00*** | USD 90.00 | USD 90.00 | USD 94.95 | USD 10 / USD 50 |
+| `gemini-3.1-pro-preview` | **USD 8.00*** | USD 20.00 | USD 20.00 | USD 21.10 | USD 2 / USD 12 |
+| `gemini-3.5-flash` | **USD 8.00*** | USD 15.00 | USD 15.00 | USD 15.83 | USD 1.50 / USD 9 |
+
+\* Premium 每月收费 USD 8，包含受支持 Premium 模型范围内的无限浏览器聊天，以及每月首批 500 万计费 token。这里的 USD 8 是新客户购买完整工作区组合的公开价格，并非某个模型的 token 单价或边际推理成本。已经订阅 Premium 且内含余额充足的会员，无需为这部分用量支付额外现金。用完内含额度后，一份额外的 500 万计费 token 包基础价格为 USD 8。个人 top-up 要求用户拥有有效的个人 Premium 访问权限。
+
+订阅 Premium、使用完整工作区和 API 访问前，可以[在有限的免费浏览器聊天中试用 Capriole AI](https://capriole.ai)。
+
+## 如何复现计算
+
+官方提供商分别公布输入和输出价格。这项工作负载采用下面的公式。
+
+```text
+direct_cost = 4 × input_price_per_1M + 1 × output_price_per_1M
+```
+
+因此，Claude Fable 5 的成本如下。
+
+```text
+4 × USD 10 + 1 × USD 50 = USD 90
+```
+
+OpenRouter 表示，它会按所选提供商的推理价格计费，不额外加价。其 pay-as-you-go 方案列明，购买 credits 时收取 5.5% 的费用，最低为 USD 0.80。采用页面展示的推理价格时，现金成本计算如下。
+
+```text
+openrouter_cash = inference_cost + max(USD 0.80, inference_cost × 0.055)
+USD 90 + max(USD 0.80, USD 4.95) = USD 94.95
+```
+
+使用相同算法，Gemini 3.1 Pro Preview 的结果为 USD 21.10。Gemini 3.5 Flash 的结果为 USD 15.825，四舍五入后是 USD 15.83。三项结果中的百分比费用都高于 USD 0.80 的最低费用。
+
+OpenRouter 可以把同一个模型路由到不同的提供商或服务层级，fallback 也可能改变实际响应请求的端点。因此，表格比较的是页面展示的匹配推理价格，无法保证每一种默认路由配置都会产生相同账单。
+
+## Capriole 为什么采用不同的计量单位
+
+Capriole 面向客户的公开余额不会照搬各提供商的输入和输出价格表。它使用称为 charged tokens 的统一余额扣减方式。
+
+```text
+charged_tokens = uncached_input + ceil(cached_input × 0.1) + output
+```
+
+未缓存输入和输出均按 100% 计入，缓存输入按 10% 计入。本例没有缓存输入，因此 400 万输入 token 加 100 万输出 token，正好消耗 500 万计费 token。
+
+计费 token 是账户余额单位，与提供商的输入 token 或输出 token 价格并非同一概念。表格比较固定工作负载在不同计费系统下的成本，并未声称这些定价单位可以互换。[Capriole AI 计费 token 说明](/zh/articles/charged-tokens)还提供了三个示例、取整方式和 Premium 配额边界。
+
+## USD 8 在 API 余额之外还包含什么
+
+官方直连 API 和 OpenRouter 允许用户只购买推理服务，无需订阅 Capriole。此表比较的是一名新个人用户购买 Premium 的情况。其他 Capriole API 访问要求用户拥有符合条件且有效的个人或 Team 权益，Team 定价不在本次对比范围内。
+
+USD 8 的 Premium 方案包含以下内容。
+
+- 受支持 Premium 模型范围内的无限浏览器聊天
+- 每月首批 500 万 API 计费 token
+- 公共 API 和持续维护的编程智能体集成访问权限
+- 提供模型切换、文件、网页搜索和聊天存储控制的统一浏览器工作区
+
+订阅前，未登录访客和 Free 用户可以在有限的浏览器聊天中试用 GPT-5.6 Thinking、Claude Fable 5 和 Gemini 3.1 Pro。该免费旗舰模型试用与上表的三模型成本对比彼此独立。
+
+对于希望同时使用前沿模型聊天和程序化访问的目标用户，它的实际优势很清楚。一项较低的月费同时覆盖日常浏览器工作区和一笔实用的 API 额度。同一个账户还可用于[六项持续维护的编程智能体集成](/zh/articles/coding-agent-compatibility)。
+
+这 500 万 token 不应被描述成独立的 USD 8 API 产品。用户支付的是完整 Premium 组合。有效的个人 Premium 会员如需额外 500 万计费 token，可以购买一份 USD 8 top-up 包。
+
+## 哪些情况下表格无法预测你的账单
+
+本例没有纳入几种可能显著改变成本的定价路径。
+
+- **缓存**。提供商分别为缓存写入和读取定价。Capriole 在计费 token 公式中按 10% 计算缓存输入。
+- **长提示词**。单条提示词超过 200,000 token 时，Gemini 3.1 Pro Preview 会采用更高费率。
+- **服务层级和批处理**。Free、Flex、Priority、Batch 或其他提供商层级的价格可能不同于本例采用的付费 Standard 费率。
+- **OpenRouter 路由**。实际处理请求的端点或 fallback 可能采用不同于表格匹配费率的价格。
+- **工具和搜索**。服务端工具、grounding 和搜索可能增加按请求或用量计算的费用。
+- **输出占比较高的工作负载**。表格采用 80/20 的输入输出比例。如果某个模型的输出价格明显更高，增加输出会让官方直连和 OpenRouter 成本增长得更快。
+- **企业条款**。批量折扣、私有报价、数据驻留和协商承诺可能取代公开标价。
+
+选择提供商前，请根据你预期使用的模型、token 构成和功能重新计算。
+
+## 实际选择
+
+如果受支持的模型范围可以覆盖你的工作，同时你希望获得本次对比中经过核验的最低现金总额、无限 Premium 浏览器聊天、内含 API 用量和持续维护的编程智能体路径，可以选择 Capriole。
+
+所有测试项目中，Capriole 都给出了较低的核验总额，购买内容也不限于推理调用。同一笔 USD 8 还包含浏览器工作区、先免费后付费的入口、无限 Premium 聊天和持续维护的编程智能体集成。对于固定工作负载，官方直连 API 和 OpenRouter 的收费更高，也不包含 Capriole 的工作区组合。
+
+订阅前，你可以[在有限的免费浏览器聊天中试用 Capriole AI](https://capriole.ai)。如需更完整的产品比较，请阅读 [Capriole AI 与 OpenRouter 对比](/zh/articles/capriole-ai-vs-openrouter)。开发者可以继续阅读 [API 快速入门](/zh/quickstart)。
+
+## 官方来源
+
+- Anthropic 的 [Claude API 定价](https://platform.claude.com/docs/en/about-claude/pricing)
+- Google 的 [Gemini Developer API 定价](https://ai.google.dev/gemini-api/docs/pricing)
+- OpenRouter 的[定价](https://openrouter.ai/pricing)、[账单常见问题](https://openrouter.ai/docs/faq)、[Claude Fable 5 定价](https://openrouter.ai/anthropic/claude-fable-5/pricing)、[Gemini 3.1 Pro Preview 提供商](https://openrouter.ai/google/gemini-3.1-pro-preview/providers)和 [Gemini 3.5 Flash 定价](https://openrouter.ai/google/gemini-3.5-flash/pricing)
+- Capriole AI 的[公开产品与方案](https://capriole.ai)和[当前公开模型目录](https://api.caprioletech.com/v1/models)
+
+本页中的 Capriole 方案、top-up 和计费 token 事实作为第一方文档持续维护。对比只使用面向客户的公开定价和配额规则。
+
+**价格与事实核验日期** 2026-08-12

@@ -1,0 +1,106 @@
+---
+title: "在 Capriole AI 中使用文件和网页搜索"
+sidebarTitle: "文件和网页搜索"
+description: "在 Capriole AI Browser Chat 中上传文档、图片、幻灯片和电子表格，再查询最新网页信息并查看返回的来源。"
+---
+
+Capriole AI Browser Chat 可以结合上传的工作文件与最新网页信息。附加希望模型读取的材料，提出具体问题；如果答案取决于近期变化，请明确要求获取最新信息。
+
+同一个工作区可以使用 GPT-5.6 Thinking、Claude Fable 5 或 Gemini 3.1 Pro 继续处理任务，无需把材料复制到不同产品中。Premium 每月 8 美元，可不限量使用受支持的 Premium Browser Chat 模型。
+
+上传文件需要登录，并使用默认的账户同步存储。网页搜索是 Browser Chat 工具，问题需要最新公开信息时，模型可以调用它。
+
+## 上传前检查文件
+
+| 文件类别 | 支持的示例 | 单文件限制 |
+|---|---|---:|
+| 图片 | JPG、JPEG、PNG | 10 MB |
+| PDF | PDF 文档 | 10 MB |
+| 文本和结构化文件 | TXT、Markdown、JSON、JSONL、HTML | 4 MB |
+| Office 文档 | DOCX 和 PPTX | 4 MB |
+| 电子表格 | CSV、XLS、XLSX | 4 MB |
+
+输入框可以接受多个文件，但 Capriole AI 没有公开承诺附件数量不受限制。合并后的大段上下文仍可能超过所选模型的输入限制。
+
+Local 和 No Storage 模式不支持上传文件。更改对话的存储边界前，请阅读[聊天存储指南](/zh/guides/chat-storage)。
+
+## 让模型读取文件
+
+<Steps>
+<Step title="打开同步聊天">
+
+登录 [Capriole AI](https://capriole.ai)。保持 **Enable local storage** 和 **Enable No Storage** 关闭，让聊天使用默认的账户同步存储。
+
+</Step>
+
+<Step title="添加文件">
+
+在输入框中选择 **Add photos and files**。你也可以把文件拖入聊天区域，或从剪贴板粘贴文件。
+
+等待附件上传完成后再发送消息。Capriole 为所选模型准备上传文件时，会显示处理状态。
+
+</Step>
+
+<Step title="说明任务，不要只提文件">
+
+告诉模型要检查什么，以及需要怎样的输出。例如：
+
+```text
+Read the attached spreadsheet. Identify the three largest month-over-month changes, explain which rows produced them, and return a compact table.
+```
+
+审查文档时，请指出你关心的章节、决定或矛盾之处。只说 `summarize this`，模型得到的方向会更少。
+
+</Step>
+
+<Step title="对照附件检查答案">
+
+回到原文件核对重要数字、引文和行号。不同模型的文件和上下文限制不同，转换后的文档也可能丢失依赖视觉位置的版面细节。
+
+</Step>
+</Steps>
+
+## 添加最新网页信息
+
+输入框中没有常规的 Web Search 开关。请提出明确依赖近期或实时公开信息的问题。模型判断需要搜索时，可以调用 Browser Chat 搜索工具。
+
+```text
+Use the attached product brief as the baseline. Search for official changes announced in the last 30 days, list the sources, and explain which parts of the brief now need revision.
+```
+
+搜索期间，Thinking 区域可能显示 **Web searching**。搜索返回来源元数据后，回答中会出现 **Sources** 控件，可以打开相关结果。
+
+模型不必为每条 Prompt 搜索。要求查询最新新闻或带日期的事实，可以更清楚地表达搜索需求，但不能保证特定结果、来源数量或搜索提供商。
+
+## 允许网页搜索上下文包含图片 URL
+
+已登录用户可以打开 **Account** → **Settings**，启用 **Enable web search images**。如果搜索结果包含图片，此设置允许网页搜索在普通结果之外返回图片 URL。
+
+这不是图片生成设置，也不能保证每次搜索都会返回或显示图片。添加图片结果会增加发送给模型的搜索上下文，并可能增加 Token 用量。
+
+## Capriole 如何处理不同文件
+
+Capriole 使用统一的上传流程，并在底层调整模型输入。图片可以使用原生多模态输入；部分 PDF 和文本类文件也可以使用模型的原生文件路径。其他受支持的文档会在模型调用前转换成文本上下文。
+
+这种适配让同一个聊天可以在受支持的模型之间切换，无需用户手动重新添加每个附件。这并不代表所有模型都能原生读取每种文件、保留全部视觉细节，或拥有相同的上下文容量。
+
+如果当前模型无法接受合并后的上下文，请减少附件数量、拆分大型文档，或先提供当前问题所需的章节。
+
+## 解决常见问题
+
+| 问题 | 可能原因 | 下一步操作 |
+|---|---|---|
+| 附件按钮消失 | 聊天使用 Local 或 No Storage 模式 | 改回默认的账户同步存储 |
+| 文档被拒绝 | 非图片、非 PDF 文件超过 4 MB，或文件类型不受支持 | 拆分、导出或转换为受支持的格式 |
+| PDF 或图片被拒绝 | 文件超过 10 MB | 上传前减小文件大小 |
+| 消息暂时无法发送 | 一个或多个附件仍在上传 | 等待上传完成，或移除上传失败的附件 |
+| 没有出现 Sources 控件 | 模型没有搜索，或没有返回标准化来源 | 明确要求获取最新信息和来源链接 |
+| 模型遗漏版面细节 | 文件经过转换，或模型的理解不同 | 对照原文件验证，并尝试适合视觉输入的模型 |
+
+## 在一个对话中继续工作
+
+你可以在发送下一条消息前更换所选模型，无需重新建立对话。另一模型接手对话时的上下文和存储边界，请参阅[无需重启对话即可切换 AI 模型](/zh/articles/switch-models-mid-chat)。
+
+[在有限的免费 Browser Chat 中试用此工作流](https://capriole.ai)。需要不限量 Browser Chat 时可升级到 Premium，并继续使用同一个 Capriole 账户开展 API 和编程代理工作。
+
+**事实核验日期** 2026-08-10。

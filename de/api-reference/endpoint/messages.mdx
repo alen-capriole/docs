@@ -1,0 +1,15 @@
+---
+title: "Messages"
+description: "Erstellen Sie Anthropic Messages-kompatible Ausgabe mit Capriole AI Claude-Modellen."
+openapi: "api-reference/openapi.json POST /v1/messages"
+---
+
+Verwenden Sie diesen Endpunkt, wenn Ihre Anwendung, Ihr SDK oder Ihr Agent das Anfrage- und Antwortformat von Anthropic Messages erwartet.
+
+Senden Sie eine Standard-Messages-Nutzlast mit `model`, `messages` und `max_tokens`. Capriole AI löst Latest-Aliase vor der Upstream-Weiterleitung zum ausgewählten Upstream-Claude-Modell auf, leitet kompatible Felder wie `system`, `tools`, `thinking` und `stream` weiter und gibt den Upstream-JSON- oder SSE-Stream unverändert zurück.
+
+`POST /v1/messages` akzeptiert `claude-latest`, `claude-fable-5`, `claude-opus-5`, `claude-opus-4-8`, `claude-opus-4-7`, `claude-opus-4-6` und `claude-sonnet-4-6`. Verwenden Sie `claude-latest`, um Fable 5 ohne Konfigurationsänderung auszuwählen.
+
+`POST /v1/messages/count_tokens` akzeptiert dieselben Claude-Modell-IDs für Anthropic-kompatible Token-Zählprüfungen. Der Endpunkt gibt die Token-Zählantwort oder den Fehler des gewählten Upstreams zurück.
+
+Für einfache Capriole-native Textgenerierung verwenden Sie `POST /v1/chat`. Verwenden Sie `POST /v1/messages`, wenn Anthropic Messages-Wire-Verhalten erforderlich ist.

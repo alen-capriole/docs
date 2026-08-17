@@ -1,0 +1,42 @@
+---
+title: "モデル一覧"
+description: "現在の公開モデルカタログを返します。"
+openapi: "api-reference/openapi.json GET /v1/models"
+---
+
+このエンドポイントを使って、現在の公開モデルカタログを取得します。
+
+カタログでは、具体的なモデル ID の前にプロバイダーレベルの latest エイリアスが一覧されます。
+
+- `openai-latest`
+- `claude-latest`
+- `google-latest`
+
+対応プロバイダーの推奨旗艦モデルを Capriole AI に選ばせたい場合は、latest エイリアスを使ってください。特定のモデル バージョンに固定する必要がある場合は、具体的なモデル ID を使ってください。
+
+| モデルの選び方 | 向いている用途 |
+| --- | --- |
+| `openai-latest`、`claude-latest`、`google-latest` | 一度設定すれば、Capriole AI が推奨旗艦モデルに合わせ続けます |
+| `openai/gpt-5.6-terra` などの具体的なモデル ID | 特定のモデル バージョンに固定します |
+
+`POST /v1/chat` と `POST /v1/chat/completions` では、latest エイリアスは次のように解決されます。
+
+| latest エイリアス | 解決先 |
+| --- | --- |
+| `openai-latest` | `openai/gpt-5.6-terra` |
+| `claude-latest` | `anthropic/claude-fable-5` |
+| `google-latest` | `google/gemini-3.1-pro-preview` |
+
+| エンドポイント | latest エイリアス |
+| --- | --- |
+| `POST /v1/chat` | `openai-latest`、`claude-latest`、`google-latest` |
+| `POST /v1/chat/completions` | `openai-latest`、`claude-latest`、`google-latest` |
+| `POST /v1/responses` | `openai-latest` |
+| `POST /v1/messages` | `claude-latest` |
+| `POST /v1/messages/count_tokens` | `claude-latest` |
+
+Anthropic Messages エンドポイントは、`claude-fable-5`、`claude-opus-5`、`claude-opus-4-8`、`claude-opus-4-7`、`claude-opus-4-6`、`claude-sonnet-4-6` などのプレフィックスなしの具体的な Claude Messages ID も受け付けます。
+
+`POST /v1/messages` と `POST /v1/messages/count_tokens` では、`claude-latest` は `claude-fable-5` に解決されます。これは Chat と Chat Completions の latest エイリアスと一致します。
+
+上に示したそのままのエイリアス ID を使ってください。`openai/openai-latest` のようなプロバイダー プレフィックスはクライアント側のセレクター形式であり、Capriole AI のモデル ID ではありません。

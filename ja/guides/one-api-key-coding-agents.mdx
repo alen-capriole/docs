@@ -1,0 +1,148 @@
+---
+title: "1 つの API キーでコーディング エージェントを使う"
+sidebarTitle: "コーディング エージェント用の 1 つのキー"
+description: "1 つの Capriole AI API キーで、維持されている 6 つのコーディング エージェントを設定し、各クライアントを対応プロトコルに保ちます。"
+---
+
+1 つの Capriole AI API キーで、Codex、Claude Code、Kilo Code、GitHub Copilot CLI、OpenCode、OpenClaw を認証できます。キーは同じまま、Base URL、プロトコル、モデル セレクターは設定中のクライアントに合わせる必要があります。
+
+このガイドで、1 つの Capriole アカウントから動作するエージェントまで進めます。個人 Premium は月額 USD 8 で、500 万の課金 API トークンを含み、対応する Premium モデル群の無制限 Browser Chat も解除します。そのため、1 つのメンバーシップでブラウザ ワークスペースと、維持されている 6 つのエージェント経路をカバーできます。
+
+完全なクライアント設定の根拠は、引き続き各統合ページです。
+
+## 始める前に
+
+次が必要です。
+
+- 有効な Capriole AI Premium、または対象となる Team アクセス
+- [API ページ](https://capriole.ai?view=api) の Capriole AI API キー
+- インストール済みのコーディング エージェントが少なくとも 1 つ
+- 環境変数を設定できるターミナル
+
+<Warning>
+API キーをリポジトリやコミット済み設定ファイルに置かないでください。例ではプレースホルダーとして `YOUR_CAPRIOLE_AI_API_KEY` を使います。
+</Warning>
+
+<Note>
+このガイドは互換性を示すために 1 つのキーを再利用します。長期間のセットアップまたは Team では、エージェントまたはユーザーごとに別々の名前付きキーを作成してください。キーを分けると、漏洩した資格情報の影響が小さくなり、API ページから使用量のフィルタやアクセス取り消しを独立して行えます。
+</Note>
+
+## エージェントをプロトコルに合わせる
+
+アカウント キーは共有でも、各クライアントはもともと使うワイヤ プロトコルを維持します。
+
+| エージェント | Capriole プロトコル | Base URL | 開始モデル | 完全な設定 |
+|---|---|---|---|---|
+| Codex | OpenAI Responses | `https://api.caprioletech.com/v1` | `openai-latest` | [Codex を設定する](/ja/integrations/codex) |
+| Claude Code | Anthropic Messages | `https://api.caprioletech.com` | `claude-latest` | [Claude Code を設定する](/ja/integrations/claude-code) |
+| Kilo Code | Chat Completions | `https://api.caprioletech.com/v1` | `openai-latest` | [Kilo Code を設定する](/ja/integrations/kilo-code) |
+| GitHub Copilot CLI | Chat Completions、Responses、または Messages | プロトコルによる | プロトコルによる | [GitHub Copilot CLI を設定する](/ja/integrations/github-copilot-cli) |
+| OpenCode | Responses、Chat Completions、または Messages | プロバイダーによる | `openai-latest` または `claude-latest` | [OpenCode を設定する](/ja/integrations/opencode) |
+| OpenClaw | Responses、Chat Completions、または Messages | プロバイダーによる | `openai-latest` または `claude-latest` | [OpenClaw を設定する](/ja/integrations/openclaw) |
+
+Responses と Chat Completions の経路では、Base URL に `/v1` を含めます。Anthropic Messages の経路は API ルートを使います。統合ページがクライアント固有のアダプター値を記載している場合を除きます。一致する統合ページから正確な値をコピーしてください。
+
+## 共有キーを設定する
+
+<Steps>
+<Step title="Capriole API キーをエクスポートする">
+
+エージェントを開く前に、シェル変数を 1 つ設定します。
+
+```bash
+export CAPRIOLE_AI_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
+```
+
+シークレットを表示せずに、変数が存在することを確認します。
+
+```bash
+test -n "$CAPRIOLE_AI_API_KEY" && echo "Capriole API key is set"
+```
+
+期待する結果は `Capriole API key is set` です。
+
+</Step>
+
+<Step title="クライアント経路を選ぶ">
+
+表の統合ページを開き、維持されている設定をコピーします。そのクライアントがトークンを求める場所では、`CAPRIOLE_AI_API_KEY` の同じ値を使ってください。
+
+- Codex は `env_key` 経由で `CAPRIOLE_AI_API_KEY` からキーを読みます。
+- Claude Code は `ANTHROPIC_AUTH_TOKEN` を使います。起動前に共有変数から設定してください。
+- Kilo Code はプロバイダー設定で `{env:CAPRIOLE_AI_API_KEY}` を参照します。
+- GitHub Copilot CLI は OpenAI 互換経路で `COPILOT_PROVIDER_API_KEY`、Anthropic Messages で `COPILOT_PROVIDER_BEARER_TOKEN` を使います。
+- OpenCode のプロバイダー エントリは、プロバイダー アダプターに応じて `apiKey` または `authToken` に Capriole キーを使います。
+- OpenClaw のプロバイダー エントリは `CUSTOM_API_KEY` を参照します。ゲートウェイを起動する前に共有変数から設定してください。
+
+Claude Code の場合:
+
+```bash
+export ANTHROPIC_AUTH_TOKEN="$CAPRIOLE_AI_API_KEY"
+```
+
+OpenClaw の場合:
+
+```bash
+export CUSTOM_API_KEY="$CAPRIOLE_AI_API_KEY"
+```
+
+</Step>
+
+<Step title="モデルを互換ルートに保つ">
+
+正確なモデル バージョンが必要な場合を除き、維持されているエイリアスから始めてください。
+
+- OpenAI Responses 経路では `openai-latest` を使う
+- Anthropic Messages 経路では `claude-latest` を使う
+- Chat Completions 互換経路では、統合ページに載っているモデルを使う
+
+[現在のモデルカタログ](/ja/api-reference/endpoint/get) は公開 API モデルを一覧します。Browser Chat のモデルが、すべての API プロトコルで自動的に有効になるわけではありません。
+
+</Step>
+
+<Step title="エージェントを起動して確認する">
+
+テスト プロジェクトから設定済みクライアントを起動し、次を尋ねます。
+
+```text
+Reply with CAPRIOLE_OK and no other text.
+```
+
+空でない回答、できれば要求した `CAPRIOLE_OK` マーカーを探してください。モデルは正確な出力を求めるプロンプトに常に従うわけではないため、文言は異なる場合があります。
+
+次に [API ページ](https://capriole.ai?view=api) を開き、想定したキーとモデルの使用量ビューにリクエストが表示されることを確認してください。使用量記録は、クライアントが Capriole を使ったことの決定的な確認です。クライアントに別のプロバイダーまたはフォールバックがある場合、応答だけでは不十分です。正確なフィルタとキーのライフサイクルは、[API キーと使用量ガイド](/ja/guides/api-keys-usage) を参照してください。
+
+この確認は、すべてのツールまたはモデル機能をテストするものではありません。
+
+</Step>
+</Steps>
+
+## 成功の見た目
+
+| 確認項目 | 期待する結果 |
+|---|---|
+| 環境 | クライアントがキー不足の警告なしで起動する |
+| 認証 | 最初のモデル リクエストが `401` を返さない |
+| エンドポイント | リクエストがエンドポイントまたはプロトコル エラーを返さない |
+| モデル | クライアントが設定した latest エイリアスまたは具体的な ID を受け付ける |
+| 使用量 | リクエストが計量 API トラフィックとして API 使用量ビューに表示される |
+
+コーディング エージェントのリクエストは、対象となる個人または Team の API 残高を使います。無制限の有料 Browser Chat の一部ではありません。大きな自動ワークロードを実行する前に、[Capriole AI の課金トークン](/ja/articles/charged-tokens) を読んでください。
+
+## よくあるセットアップ失敗を直す
+
+| 症状 | 考えられる原因 | 修正 |
+|---|---|---|
+| `401` または Bearer トークン不足 | クライアントが Capriole キーを受け取っていない | エージェントを起動する同じシェルで、クライアント固有の変数をエクスポートする |
+| `404` またはプロトコル エラー | Base URL が `/v1` を誤って含む、または省略している | 一致する統合ページから正確な Base URL をコピーする |
+| 非対応モデル | そのモデルがそのプロトコルに属さない | Responses では `openai-latest`、Messages では `claude-latest` から始める |
+| クライアントが別のプロバイダーを使う | 組み込みプロバイダーまたはプロジェクト上書きが優先される | カスタム Capriole プロバイダーを選び、クライアントを再起動する |
+| 許容量を使い切ったあとエージェントが止まる | コーディング エージェント トラフィックが API 残高を消費した | API 使用量を確認し、対象となる有料アクセスが有効なあいだにトップアップを追加する |
+
+## 次のページを選ぶ
+
+これらのルートの背後にあるモデルが必要なときは、[コーディング エージェント互換性の記事](/ja/articles/coding-agent-compatibility) を読んでください。アプリケーション コードを直接書く場合は、[OpenAI と Anthropic の SDK ガイド](/ja/guides/openai-anthropic-sdks) に進んでください。
+
+[制限付きの無料 Browser Chat で現在の旗艦モデルを試す](https://capriole.ai)。コーディング エージェントが使う API キーを作成する準備ができたら Premium にアップグレードしてください。
+
+**事実確認日：** 2026-08-11。

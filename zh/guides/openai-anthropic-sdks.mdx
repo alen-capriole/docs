@@ -1,0 +1,245 @@
+---
+title: "通过 OpenAI 和 Anthropic SDK 使用 Capriole AI"
+sidebarTitle: "OpenAI 和 Anthropic SDK"
+description: "使用官方 OpenAI 和 Anthropic SDK，通过 Python 或 TypeScript 调用 Capriole AI，并正确配置受支持的协议、latest 别名和 Base URL。"
+---
+
+你可以使用一个 Capriole AI API Key，通过官方 OpenAI 和 Anthropic SDK 编写 Python 或 TypeScript 程序。OpenAI 客户端使用包含 `/v1` 的 Base URL，Anthropic 客户端使用 API 根地址，然后调用各 SDK 对应的原生协议端点。
+
+个人 Premium 每月 8 美元，包含 500 万 charged API token，并可不限量使用受支持的 Premium Browser Chat 模型。同一份会员权益可以通过这些 SDK 为应用提供能力，也能用于持续维护的编程代理集成和日常 Browser Chat 工作。
+
+本指南使用两种编程语言构建相同的双请求检查。每个示例都会发送一条 OpenAI Responses 请求和一条 Anthropic Messages 请求。
+
+## 选择请求路径
+
+| 客户端调用 | 协议和端点 | Base URL | 起始模型 |
+|---|---|---|---|
+| `openai.responses.create()` | `POST /v1/responses` | `https://api.caprioletech.com/v1` | `openai-latest` |
+| `openai.chat.completions.create()` | `POST /v1/chat/completions` | `https://api.caprioletech.com/v1` | 兼容的 latest 别名或模型 ID |
+| `anthropic.messages.create()` | `POST /v1/messages` | `https://api.caprioletech.com` | `claude-latest` |
+
+原生使用 Responses 的 OpenAI 应用请选择 Responses。现有 OpenAI 兼容应用依赖 Chat Completions 契约时请选择 Chat Completions。Claude 原生代码请选择 Messages。
+
+## 开始前
+
+你需要有效的 Premium 或符合条件的 Team 权限、[Capriole AI API Key](https://capriole.ai?view=api)，以及 Python 或 Node.js 20 及更高版本。Capriole 显示新建的 Key 时请立即复制，完整 Secret 不会再次显示。
+
+<Steps>
+<Step title="创建环境并安装两个 SDK">
+
+在 macOS 或 Linux 上创建并激活虚拟环境，然后安装官方软件包。
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install openai anthropic
+```
+
+在 Windows PowerShell 中，使用以下命令激活同一个环境。
+
+```powershell
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+python -m pip install openai anthropic
+```
+
+后续步骤请保持环境处于激活状态。安装命令完成后，两个软件包都应可用，并且没有依赖错误。
+
+</Step>
+
+<Step title="设置 Capriole API Key">
+
+```bash
+export CAPRIOLE_AI_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
+```
+
+下面的程序从环境中读取 Key，不会把 Secret 写入源代码。
+
+</Step>
+
+<Step title="创建 SDK 示例">
+
+将以下文件保存为 `capriole_sdk_example.py`。
+
+```python
+import os
+
+from anthropic import Anthropic
+from openai import OpenAI
+
+
+api_key = os.environ["CAPRIOLE_AI_API_KEY"]
+
+openai_client = OpenAI(
+    api_key=api_key,
+    base_url="https://api.caprioletech.com/v1",
+)
+
+openai_response = openai_client.responses.create(
+    model="openai-latest",
+    input="Reply with OPENAI_OK and no other text.",
+)
+print(openai_response.output_text)
+
+anthropic_client = Anthropic(
+    auth_token=api_key,
+    base_url="https://api.caprioletech.com",
+)
+
+anthropic_response = anthropic_client.messages.create(
+    model="claude-latest",
+    max_tokens=32,
+    messages=[
+        {
+            "role": "user",
+            "content": "Reply with ANTHROPIC_OK and no other text.",
+        }
+    ],
+)
+print(anthropic_response.content[0].text)
+```
+
+`auth_token` 是有意使用的配置。它让 Anthropic SDK 以 Bearer Token 形式发送 Capriole API Key。
+
+</Step>
+
+<Step title="运行程序">
+
+```bash
+python capriole_sdk_example.py
+```
+
+成功运行后会打印两条非空模型回答，通常是所要求的标记。
+
+```text
+OPENAI_OK
+ANTHROPIC_OK
+```
+
+模型不一定严格遵循只输出指定内容的 Prompt。即使措辞不同，只要收到两条非空回答，也能确认两个 SDK 路径都返回了模型输出。
+
+</Step>
+</Steps>
+
+## 使用 TypeScript 运行相同检查
+
+使用 Node.js 20 或更高版本。在新项目中安装官方 SDK 和 TypeScript Runner。
+
+```bash
+npm init -y
+npm install openai @anthropic-ai/sdk
+npm install --save-dev typescript tsx @types/node
+```
+
+在运行程序的 Shell 中设置相同的 API Key。
+
+```bash
+export CAPRIOLE_AI_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
+```
+
+将以下文件保存为 `capriole-sdk-example.ts`。
+
+```typescript
+import Anthropic from "@anthropic-ai/sdk";
+import OpenAI from "openai";
+
+const apiKey = process.env.CAPRIOLE_AI_API_KEY;
+
+if (!apiKey) {
+  throw new Error("CAPRIOLE_AI_API_KEY is not set");
+}
+
+const openai = new OpenAI({
+  apiKey,
+  baseURL: "https://api.caprioletech.com/v1",
+});
+
+const openaiResponse = await openai.responses.create({
+  model: "openai-latest",
+  input: "Reply with OPENAI_OK and no other text.",
+});
+
+console.log(openaiResponse.output_text);
+
+const anthropic = new Anthropic({
+  authToken: apiKey,
+  baseURL: "https://api.caprioletech.com",
+});
+
+const anthropicResponse = await anthropic.messages.create({
+  model: "claude-latest",
+  max_tokens: 32,
+  messages: [
+    {
+      role: "user",
+      content: "Reply with ANTHROPIC_OK and no other text.",
+    },
+  ],
+});
+
+for (const block of anthropicResponse.content) {
+  if (block.type === "text") {
+    console.log(block.text);
+  }
+}
+```
+
+使用以下命令运行。
+
+```bash
+npx tsx capriole-sdk-example.ts
+```
+
+你应当收到两条非空回答。TypeScript 构造函数使用 `baseURL`，Python 构造函数使用 `base_url`。Anthropic 示例使用 `authToken` 或 `auth_token`，让 SDK 向 Capriole 发送 Bearer 身份验证。
+
+## 应用依赖 Chat Completions 时的用法
+
+同一个 OpenAI 客户端也可以调用 Chat Completions 兼容端点。
+
+```python
+completion = openai_client.chat.completions.create(
+    model="google-latest",
+    messages=[
+        {
+            "role": "user",
+            "content": "Reply with CHAT_COMPLETIONS_OK and no other text.",
+        }
+    ],
+)
+
+print(completion.choices[0].message.content)
+```
+
+不要把 `google-latest` 移到 `responses.create()`。Responses 路由接受受支持的 OpenAI Responses 模型集合，Chat Completions 则接受范围更广的公共兼容模型目录。
+
+## 解决常见 SDK 错误
+
+| 错误 | 原因 | 解决方法 |
+|---|---|---|
+| `KeyError: CAPRIOLE_AI_API_KEY` | 缺少环境变量 | 在运行 Python 的 Shell 中导出 Key |
+| `401 Missing Bearer token` | SDK 使用了错误的身份验证选项 | OpenAI 使用 `api_key`，Anthropic 使用 `auth_token` |
+| `404 Not Found` | 客户端 Base URL 的 `/v1` 边界错误 | OpenAI 使用包含 `/v1` 的地址，Anthropic 使用 API 根地址 |
+| 模型不受支持 | 所选别名不属于该端点 | Responses 使用 `openai-latest`，Messages 使用 `claude-latest` |
+| Token 计数预检失败 | 所选 Claude 上游不支持 Anthropic Token 计数 | 将 `/v1/messages/count_tokens` 支持视为取决于上游的能力 |
+| `403` 额度错误 | 会员权限或 API 余额无法授权请求 | 检查有效会员和剩余 charged-token 余额 |
+
+## 理解返回结果的边界
+
+Capriole 会保留 SDK 请求的协议。Responses 输出仍是 Responses 输出，Anthropic Messages 输出仍是 Messages 输出。两个路由共用一个账户和余额，但响应 Schema 不会因此变得可以互换。
+
+[多协议 API 文章](/zh/articles/unified-model-api)解释了这套架构。端点字段请参阅 [Responses 参考](/zh/api-reference/endpoint/responses)、[Chat Completions 参考](/zh/api-reference/endpoint/chat-completions)或 [Messages 参考](/zh/api-reference/endpoint/messages)。[API 快速开始](/zh/quickstart)仍是发送第一条原始请求的最短路径。
+
+关于协议、别名或客户端路径在文档标记为受支持前需要哪些证据，请阅读 [Capriole 如何测试多模型 API 兼容性](/zh/articles/unified-model-api#how-we-test-compatibility)。
+
+API 调用按 charged token 计量。估算工作负载前，请阅读 [charged token 如何计算](/zh/articles/charged-tokens)。
+
+## SDK 官方参考资料
+
+- OpenAI [Python SDK](https://github.com/openai/openai-python)
+- Anthropic [Python SDK](https://github.com/anthropics/anthropic-sdk-python)
+- OpenAI [TypeScript 和 JavaScript SDK](https://github.com/openai/openai-node)
+- Anthropic [TypeScript SDK](https://github.com/anthropics/anthropic-sdk-typescript)
+
+[在有限的免费 Browser Chat 中试用 GPT-5.6 Thinking、Claude Fable 5 或 Gemini 3.1 Pro](https://capriole.ai)。需要通过 Python 或 TypeScript 使用会员包含的 API 余额时，可升级到 Premium。
+
+**事实核验日期** 2026-08-11。

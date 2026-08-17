@@ -1,0 +1,81 @@
+---
+title: "Trocar modelos de IA sem reiniciar a conversa"
+sidebarTitle: "Trocar modelos no meio do chat"
+description: "Saiba como a Capriole AI permite alterar modelos de IA suportados dentro de uma conversa, mantendo a conversa, os arquivos e o contexto de trabalho juntos."
+---
+
+Sim, você pode trocar modelos de IA sem começar uma conversa nova. Na Capriole AI, o modelo selecionado pode mudar de um turno para o próximo enquanto a conversa permanece no mesmo espaço de trabalho. Visitantes sem login e usuários Free podem experimentar GPT-5.6 Thinking, Claude Fable 5 e Gemini 3.1 Pro antes de fazer upgrade.
+
+O benefício prático aparece no meio de uma tarefa, quando outro modelo se torna um encaixe melhor e a conversa não precisa ser reconstruída em outro lugar. O Premium mantém esse fluxo ilimitado no conjunto de modelos Premium suportado por USD 8 por mês.
+
+## Por que trocar de modelo costuma quebrar o fluxo
+
+Suponha que uma conversa comece com um modelo porque ele é rápido e familiar. No meio do caminho, o trabalho fica mais técnico. Você quer uma segunda opinião do Claude, outro estilo de raciocínio do Gemini ou outro modelo suportado para o próximo passo.
+
+Em produtos de IA separados, isso normalmente significa abrir outro site e reconstruir a situação. Você copia as mensagens úteis, envia os arquivos de novo, explica o que já foi decidido e espera que o chat novo interprete o resumo da mesma forma.
+
+O modelo mudou, mas o espaço de trabalho, o histórico e, muitas vezes, o formato da entrada também mudaram. A interrupção pode custar mais tempo do que a comparação economiza.
+
+A Capriole AI mantém a conversa em um só lugar. Escolha outro modelo suportado, escreva a próxima mensagem e continue. Para essa próxima solicitação, o espaço de trabalho adapta as mensagens salvas à forma de entrada suportada pelo modelo selecionado, verifica os limites de contexto e inclui arquivos salvos só quando o modelo e o modo de armazenamento os suportam.
+
+## O que permanece junto
+
+Alterar o modelo selecionado não cria uma segunda conversa da Capriole. A conversa existente continua o registro de trabalho, incluindo as mensagens que levaram à pergunta atual.
+
+O espaço de trabalho também pode levar arquivos salvos relevantes e o contexto da conversa para a próxima solicitação quando o modo de armazenamento e o modelo selecionados os suportam. Você não precisa manter cópias paralelas da mesma discussão em vários produtos.
+
+Ainda existem limites técnicos reais. Os modelos têm limites de contexto, suporte a arquivos, controles de raciocínio e formatos de mensagem diferentes. Um modelo não pode usar um tipo de entrada que não suporta só porque outro modelo o aceitou antes. Conversas longas também podem precisar de gerenciamento de contexto antes da próxima solicitação.
+
+A Capriole trata essas diferenças por trás do seletor de modelo. Os modelos mantêm os próprios limites e capacidades, enquanto o usuário continua a partir da conversa existente.
+
+## Uma forma prática de usar a troca de modelo
+
+O recurso é mais útil quando a troca tem um motivo.
+
+### Obter uma segunda leitura
+
+Peça a um modelo para redigir uma resposta, depois troque de modelo e peça ao seguinte que questione as premissas. Como os dois turnos pertencem à mesma conversa, o segundo modelo pode responder ao trabalho que já está na página, em vez de a um resumo escrito à mão.
+
+### Mudar o tipo de ajuda
+
+Um modelo rápido pode bastar para explorar opções. Um modelo mais deliberado pode ser um encaixe melhor quando a tarefa se torna uma decisão, uma revisão técnica ou um trecho difícil de escrita. A conversa pode acompanhar essa mudança.
+
+### Comparar abordagens sem gerenciar abas
+
+Quando assinaturas separadas entram em jogo, a comparação costuma virar um conjunto de abas do navegador e prompts duplicados. Em um espaço de trabalho, a comparação permanece ligada ao problema original.
+
+### Recuperar quando uma rota não está disponível
+
+A Capriole também mantém fallback automático para o tráfego suportado antes de uma resposta começar. A troca manual de modelo e o fallback automático são recursos diferentes: um é uma decisão do usuário, enquanto o outro ajuda uma solicitação a continuar por uma rota alternativa suportada quando necessário.
+
+## O que a Capriole adapta por trás da interface
+
+Os principais provedores de modelo não expõem um formato universal de conversa.
+
+OpenAI Responses, Chat Completions compatível com OpenAI e Anthropic Messages têm formas diferentes de solicitação e streaming. Configurações de raciocínio, eventos de ferramenta, arquivos, registros de uso e erros também diferem. A Capriole mantém um caminho compatível para cada protocolo suportado.
+
+No Browser Chat, o espaço de trabalho reconstrói a conversa salva na entrada que o modelo selecionado pode aceitar. Ele também aplica os limites do modelo atual, em vez de assumir que as regras do modelo anterior ainda valem.
+
+Esse é o trabalho que um seletor de modelo esconde. A ação visível é um clique; a solicitação por baixo pode seguir um protocolo diferente e exigir uma representação diferente da mesma conversa.
+
+Os detalhes técnicos estão em [Como a Capriole AI funciona entre APIs de modelo](/pt-br/articles/unified-model-api).
+
+## O modo de armazenamento ainda importa
+
+A continuidade da conversa depende de como você escolhe armazenar o chat.
+
+- O histórico **Synced** oferece suporte a conversas salvas entre dispositivos.
+- O histórico **Local** permanece no navegador atual e se perde se os dados locais forem apagados.
+- **No Storage** é uma sessão efêmera e abre mão de histórico salvo, envios e continuidade entre dispositivos.
+
+Essas escolhas são intencionais. Um usuário que quer uma conversa de pesquisa durável e um usuário que quer uma conversa não salva não devem ser forçados ao mesmo limite de armazenamento. [O guia de armazenamento do chat](/pt-br/guides/chat-storage) explica as configurações reais de Account e as trocas.
+
+## O modelo mental mais simples
+
+Em um produto de um único provedor, a conversa pertence à família de modelos desse provedor. Na Capriole AI, a conversa pertence ao seu espaço de trabalho. O modelo selecionado trata o próximo turno.
+
+A troca de modelo é útil porque a ferramenta pode mudar sem descartar o trabalho.
+
+[Abra a Capriole AI](https://capriole.ai) para experimentar o conjunto principal suportado no Browser Chat gratuito limitado. Faça upgrade para o Premium de USD 8 quando quiser Browser Chat ilimitado e o espaço de trabalho contínuo completo.
+
+**Fatos verificados:** 2026-08-10.

@@ -1,0 +1,42 @@
+---
+title: "Modelle auflisten"
+description: "Gibt den aktuellen öffentlichen Modellkatalog zurück."
+openapi: "api-reference/openapi.json GET /v1/models"
+---
+
+Verwenden Sie diesen Endpunkt, um den aktuellen öffentlichen Modellkatalog abzurufen.
+
+Der Katalog listet zuerst die anbieterweiten Latest-Aliase und danach konkrete Modell-IDs:
+
+- `openai-latest`
+- `claude-latest`
+- `google-latest`
+
+Verwenden Sie einen Latest-Alias, wenn Capriole AI das von uns empfohlene Flaggschiff-Modell für diesen Anbieter wählen soll. Verwenden Sie eine konkrete Modell-ID, wenn Sie eine genaue Modellversion benötigen.
+
+| Modellwahl | Am besten geeignet für |
+| --- | --- |
+| `openai-latest`, `claude-latest`, `google-latest` | Einmal konfigurieren und Capriole AI auf dem empfohlenen Flaggschiff halten |
+| Konkrete Modell-IDs wie `openai/gpt-5.6-terra` | Eine genaue Modellversion festlegen |
+
+Latest-Aliase werden auf `POST /v1/chat` und `POST /v1/chat/completions` wie folgt aufgelöst:
+
+| Latest-Alias | Wird aufgelöst zu |
+| --- | --- |
+| `openai-latest` | `openai/gpt-5.6-terra` |
+| `claude-latest` | `anthropic/claude-fable-5` |
+| `google-latest` | `google/gemini-3.1-pro-preview` |
+
+| Endpunkt | Latest-Aliase |
+| --- | --- |
+| `POST /v1/chat` | `openai-latest`, `claude-latest`, `google-latest` |
+| `POST /v1/chat/completions` | `openai-latest`, `claude-latest`, `google-latest` |
+| `POST /v1/responses` | `openai-latest` |
+| `POST /v1/messages` | `claude-latest` |
+| `POST /v1/messages/count_tokens` | `claude-latest` |
+
+Anthropic Messages-Endpunkte akzeptieren außerdem unpräfigierte konkrete Claude Messages-IDs wie `claude-fable-5`, `claude-opus-5`, `claude-opus-4-8`, `claude-opus-4-7`, `claude-opus-4-6` und `claude-sonnet-4-6`.
+
+Auf `POST /v1/messages` und `POST /v1/messages/count_tokens` wird `claude-latest` zu `claude-fable-5` aufgelöst und entspricht damit dem Latest-Alias von Chat und Chat Completions.
+
+Verwenden Sie die oben gezeigten reinen Alias-IDs. Anbieterpräfixe wie `openai/openai-latest` sind clientseitige Auswahlmuster, keine Capriole AI Modell-IDs.

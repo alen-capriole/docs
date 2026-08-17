@@ -1,0 +1,15 @@
+---
+title: "Chat completions"
+description: "Capriole AI モデルで OpenAI 互換の Chat Completions を作成します。"
+openapi: "api-reference/openapi.json POST /v1/chat/completions"
+---
+
+アプリケーション、SDK、またはゲートウェイが OpenAI Chat Completions のリクエストとレスポンス形式を期待する場合は、このエンドポイントを使ってください。
+
+`model` と `messages` を含む標準の Chat Completions ペイロードを送信します。Capriole AI は上流へ送る前に latest エイリアスを選択したプロバイダーのモデル ID に解決し、`messages`、`tools`、`tool_choice`、`response_format`、`stream` などの互換フィールドを転送し、上流の JSON または SSE ストリームをそのまま返します。ストリーミング リクエストでは、使用量を記録できるよう、転送前に `stream_options.include_usage=true` を設定します。
+
+`POST /v1/chat/completions` は `openai-latest`、`claude-latest`、`google-latest`、および `GET /v1/models` が返す公開の具体的なモデル ID を受け付けます。対応プロバイダーの推奨旗艦モデルを Capriole AI に選ばせるには、latest エイリアスを使ってください。
+
+latest エイリアスは入力のショートカットです。使用量は解決後のモデルに対して記録され、レスポンス本文は選択した互換エンドポイント本来のモデル命名の動作を保持します。
+
+Capriole ネイティブのテキスト生成には `POST /v1/chat` を使ってください。OpenAI 互換のワイヤ動作が必要な場合は `POST /v1/chat/completions` を使ってください。

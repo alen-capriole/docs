@@ -4,9 +4,17 @@ sidebarTitle: "Multi-Protocol API"
 description: "A technical look at how Capriole AI supports OpenAI Responses, Chat Completions, Anthropic Messages, model aliases, usage, and fallback."
 ---
 
-Capriole AI provides one account and API key across supported model families. It maintains four public paths: OpenAI Responses, OpenAI-compatible Chat Completions, Anthropic Messages, and a simple Capriole-native chat endpoint.
+Capriole AI provides one account and API key across supported model families. Premium includes 5 million monthly charged API tokens alongside unlimited browser chat, so the same low-cost membership can cover applications, coding agents, and everyday chat.
+
+Capriole maintains four public paths: OpenAI Responses, OpenAI-compatible Chat Completions, Anthropic Messages, and a simple Capriole-native chat endpoint.
 
 The shared account and billing layer sits above those protocol-specific routes.
+
+## Why this makes Capriole more useful
+
+One USD 8 Premium membership covers unlimited browser chat across the supported Premium model set, 5 million monthly charged API tokens, and six maintained coding-agent paths. Applications keep the protocol they already use, while the user keeps one Capriole account, key, balance, and billing page.
+
+This is the practical advantage over assembling provider accounts separately. The [dated cost comparison](/articles/ai-api-cost-comparison) also shows Capriole at USD 8 for each tested 5 million-token workload, compared with USD 15 to USD 90 for direct paid Standard pricing and USD 15.83 to USD 94.95 through OpenRouter after its published credit-purchase fee.
 
 ## The public paths
 
@@ -17,7 +25,7 @@ The shared account and billing layer sits above those protocol-specific routes.
 | `POST /v1/responses` | OpenAI Responses | Responses-based applications and Codex |
 | `POST /v1/messages` | Anthropic Messages | Claude-native clients and Claude Code |
 
-Successful proxy responses and streamed events remain in the protocol the client requested. A Responses payload is not converted into Chat Completions on the way back. An Anthropic Messages stream is not repackaged as OpenAI output.
+Successful routed responses and streamed events remain in the protocol the client requested. A Responses payload is not converted into Chat Completions on the way back. An Anthropic Messages stream is not repackaged as OpenAI output.
 
 This preserves the protocol-specific behavior that Responses, Messages, and Chat Completions clients expect.
 
@@ -91,7 +99,7 @@ The protocol remains explicit because clients depend on it.
 
 Capriole documents a route as supported after its protocol contract and a representative real client flow both pass. A successful text prompt is an initial check. Streaming, tool-result turns, alias resolution, usage accounting, and negative protocol tests provide the rest of the evidence.
 
-On 2026-08-10, the focused public-route and file-conversion suites completed **68 automated tests** against controlled upstream responses, not production live calls. Separate local upstream and coding-agent runs check behavior that a mocked endpoint cannot prove.
+As of 2026-08-10, the focused public-route and file-conversion suites had completed **68 automated tests** against controlled upstream responses, not production live calls. Separate local upstream and coding-agent runs check behavior that a mocked endpoint cannot prove.
 
 | Test lane | Verified evidence | Current boundary |
 |---|---|---|
@@ -114,6 +122,6 @@ If an application uses Chat Completions, follow the [Chat Completions reference]
 
 For a first request, begin with the [API quickstart](/quickstart). Python developers can follow the [OpenAI and Anthropic SDK guide](/guides/openai-anthropic-sdks). Coding-agent users can see the maintained client matrix in [One API for Coding Agents](/articles/coding-agent-compatibility).
 
-Capriole's job is to remove account and access fragmentation while respecting the protocol your client actually speaks.
+Capriole's job is to remove account and access fragmentation while respecting the protocol your client actually speaks. [Try the supported flagship models in limited free browser chat](https://capriole.ai), then upgrade when you are ready to create an API key.
 
 **Facts checked:** 2026-08-10.

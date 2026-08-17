@@ -1,0 +1,11 @@
+---
+title: "Chat"
+description: "Erstellt eine Textantwort von einem Modell."
+openapi: "api-reference/openapi.json POST /v1/chat"
+---
+
+Verwenden Sie diesen Endpunkt, um reinen Text an ein Modell zu senden und eine reine Textantwort zu erhalten. Diese Capriole-native Route ist nicht streamingfähig; verwenden Sie Chat Completions, Responses oder Messages, wenn Ihr Client einen SSE-Stream benötigt.
+
+`POST /v1/chat` akzeptiert `openai-latest`, `claude-latest`, `google-latest` und öffentliche konkrete Modell-IDs aus `GET /v1/models`. Verwenden Sie einen Latest-Alias, damit Capriole AI das von uns empfohlene Flaggschiff-Modell für diesen Anbieter wählt. Verwenden Sie eine konkrete Modell-ID, wenn die Versionsfestlegung wichtig ist.
+
+Capriole AI Web-Chat und die öffentliche API sind getrennte Produktflächen. Im Web-Chat sind Fable 5 und Fable 5 Thinking die primären Anthropic-Modi, während Opus 5 und Opus 5 Thinking unter **Other Models** erscheinen. Die öffentliche API stellt die Thinking-Voreinstellungen des Web-Chats nicht als eigene Modell-IDs bereit; verwenden Sie für Claude Chat API-Anfragen `claude-latest` oder eine konkrete öffentliche Claude-Modell-ID wie `anthropic/claude-fable-5`, `anthropic/claude-opus-5` oder `anthropic/claude-sonnet-4-6`. Bestehende Opus 4.8-, Opus 4.7- und Opus 4.6-Integrationen bleiben unterstützt.

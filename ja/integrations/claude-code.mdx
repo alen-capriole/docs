@@ -1,0 +1,118 @@
+---
+title: "Claude Code"
+description: "Claude Code が Capriole AI を使うように設定します。"
+---
+
+## Claude Code とは
+
+Claude Code は、コードベースの読み取り、ファイル編集、コマンド実行、開発ツールとの統合を行う Anthropic のエージェント型コーディング ツールです。この CLI セットアップでは、Claude Code の API エンドポイント、認証トークン、モデル環境変数を設定して Capriole AI を使います。
+
+## 前提条件
+
+始める前に、次を用意してください。
+
+- Capriole AI アカウント（[こちらから登録](https://capriole.ai)）
+- Capriole AI API キー（[キーを取得](https://capriole.ai?view=api)）
+
+## インストール
+
+```bash
+npm install -g @anthropic-ai/claude-code
+```
+
+## 設定
+
+永続的なセットアップとして、`~/.claude/settings.json` を作成または更新します。
+
+```json
+{
+  "model": "claude-latest",
+  "effortLevel": "high",
+  "env": {
+    "ANTHROPIC_BASE_URL": "https://api.caprioletech.com",
+    "ANTHROPIC_AUTH_TOKEN": "YOUR_CAPRIOLE_AI_API_KEY",
+    "ANTHROPIC_MODEL": "claude-latest",
+    "ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-latest",
+    "ANTHROPIC_DEFAULT_SONNET_MODEL": "claude-latest",
+    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "claude-latest",
+    "ANTHROPIC_SMALL_FAST_MODEL": "claude-latest",
+    "CLAUDE_CODE_SUBAGENT_MODEL": "claude-latest"
+  }
+}
+```
+
+一度きりのシェル設定では、Claude Code を起動する前に同じ値をエクスポートしてください。
+
+```bash
+export ANTHROPIC_BASE_URL="https://api.caprioletech.com"
+export ANTHROPIC_AUTH_TOKEN="YOUR_CAPRIOLE_AI_API_KEY"
+
+export ANTHROPIC_MODEL="claude-latest"
+export ANTHROPIC_DEFAULT_OPUS_MODEL="claude-latest"
+export ANTHROPIC_DEFAULT_SONNET_MODEL="claude-latest"
+export ANTHROPIC_DEFAULT_HAIKU_MODEL="claude-latest"
+export ANTHROPIC_SMALL_FAST_MODEL="claude-latest"
+export CLAUDE_CODE_SUBAGENT_MODEL="claude-latest"
+```
+
+## Claude Code を実行する
+
+`~/.claude/settings.json` を保存するか変数をエクスポートしたあと、プロジェクト ディレクトリから Claude Code を起動します。
+
+```bash
+claude
+```
+
+設定ファイルを保存せずに、一度きりの非対話実行を行う場合は、モデルを明示的に渡してください。
+
+```bash
+claude --model claude-latest -p "Explain this repository."
+```
+
+## 対応モデル
+
+Claude Code は Capriole AI 経由で Claude latest、Fable 5、Opus 5、Opus 4.8、Opus 4.7、Opus 4.6、Sonnet 4.6 を使えます。新規セットアップでは `claude-latest` を使ってください。これは Fable 5 に解決されます。
+
+- `claude-latest`
+- `claude-fable-5`
+- `claude-opus-5`
+- `claude-opus-4-8`
+- `claude-opus-4-7`
+- `claude-opus-4-6`
+- `claude-sonnet-4-6`
+
+## トラブルシューティング
+
+### Claude Code が認証エラーを返すのはなぜですか？
+
+`claude` を起動する前に、同じシェルで `ANTHROPIC_AUTH_TOKEN` がエクスポートされていることを確認してください。このセットアップでは `ANTHROPIC_API_KEY` ではなく `ANTHROPIC_AUTH_TOKEN` を使ってください。
+
+### エンドポイント エラーでリクエストが失敗するのはなぜですか？
+
+`ANTHROPIC_BASE_URL` が `/v1` なしの `https://api.caprioletech.com` であることを確認してください。Claude Code は `/v1/messages` と `/v1/messages/count_tokens` にリクエストを送ります。
+
+### Claude Code が Claude latest を使わないのはなぜですか？
+
+起動前に `model`、`ANTHROPIC_MODEL`、`ANTHROPIC_SMALL_FAST_MODEL`、およびデフォルト モデルの環境変数が設定されていることを確認し、アクティブなセッションまたは設定の上書きを `/model` または `/status` で確認してください。
+
+### Claude Code が設定した思考レベルを使わないのはなぜですか？
+
+`~/.claude/settings.json` で `"effortLevel": "high"` を設定し、Claude Code を再起動してください。Claude Code の設定は `low`、`medium`、`high`、`xhigh` を受け付けます。`effortLevel` では `max` は受け付けられません。
+
+セッションで絶対最大の思考強度を使うには、`/effort max` を使うか、`claude --effort max` で起動するか、`claude` を起動する前に `CLAUDE_CODE_EFFORT_LEVEL=max` を設定してください。
+
+### Claude Code が具体的な Opus モデルを選べないのはなぜですか？
+
+`claude update` で Claude Code を更新し、`claude --version` を実行してください。
+
+### トークンカウントまたは起動時のモデル検出が失敗するのはなぜですか？
+
+モデル環境変数を維持し、モデル ID が `claude-latest` または対応する具体的な Claude モデル ID であることを確認してください。Capriole AI は `/v1/messages/count_tokens` を選択した上流にプロキシするため、トークンカウントの事前確認はその上流が Anthropic のトークンカウントに対応しているかによります。
+
+## 注意事項
+
+- `~/.claude/settings.json` は、プロジェクトをまたいでユーザー アカウントに適用されます。`YOUR_CAPRIOLE_AI_API_KEY` はプレースホルダーとして使い、実際の Capriole AI API キーに置き換えてください。
+- `ANTHROPIC_BASE_URL` は Claude Code がリクエストを送る先を変えます。モデル環境変数は送信されるモデル ID を制御します。
+- `ANTHROPIC_SMALL_FAST_MODEL` は `claude-latest` と一致させてください。こうすると Claude Code の補助リクエストも、メイン会話と同じ Capriole AI の latest エイリアスを使います。
+- このセットアップは、ドキュメント上のデフォルト思考レベルとして `high` を使います。`xhigh` も永続的な `effortLevel` オプションです。一方 `max` はセッションレベルの上書きであり、thinking トークンをより多く消費する場合があります。
+- 公式リファレンス: [Claude Code セットアップ](https://code.claude.com/docs/en/setup)、[環境変数](https://code.claude.com/docs/en/env-vars)、[モデル設定](https://code.claude.com/docs/en/model-config)、[Claude effort](https://platform.claude.com/docs/en/build-with-claude/effort)。

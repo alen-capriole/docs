@@ -1,0 +1,81 @@
+---
+title: "Cambia de modelo de IA sin reiniciar tu conversación"
+sidebarTitle: "Cambia de modelo a mitad de chat"
+description: "Aprende cómo Capriole AI te deja cambiar de modelo de IA compatible dentro de una conversación mientras mantiene juntos el hilo, los archivos y el contexto de trabajo."
+---
+
+Sí, puedes cambiar de modelo de IA sin empezar una conversación nueva. En Capriole AI, el modelo seleccionado puede cambiar de un turno al siguiente mientras el hilo permanece en el mismo espacio de trabajo. Los visitantes sin sesión y los usuarios Free pueden probar GPT-5.6 Thinking, Claude Fable 5 y Gemini 3.1 Pro antes de pasar a Premium.
+
+El beneficio práctico aparece a mitad de una tarea, cuando otro modelo encaja mejor y la conversación ya no necesita reconstruirse en otro sitio. Premium mantiene ese flujo ilimitado en el conjunto de modelos Premium compatible por USD 8 al mes.
+
+## Por qué cambiar de modelo suele romper el flujo
+
+Supón que una conversación empieza con un modelo porque es rápido y familiar. A mitad de camino, el trabajo se vuelve más técnico. Quieres una segunda opinión de Claude, un estilo de reasoning distinto de Gemini u otro modelo compatible para el siguiente paso.
+
+Entre productos de IA separados, eso normalmente significa abrir otro sitio y reconstruir la situación. Copias los mensajes útiles, vuelves a subir los archivos, explicas lo que ya se decidió y esperas que el chat nuevo interprete el resumen de la misma forma.
+
+El modelo cambió, pero también el espacio de trabajo, el historial y a menudo el formato de la entrada. La interrupción puede costar más tiempo del que ahorra la comparación.
+
+Capriole AI mantiene el hilo en un solo lugar. Elige otro modelo compatible, escribe el siguiente mensaje y continúa. Para esa siguiente solicitud, el espacio de trabajo adapta los mensajes guardados a la forma de entrada que admite el modelo seleccionado, comprueba sus límites de contexto e incluye los archivos guardados solo cuando el modelo y el modo de almacenamiento los admiten.
+
+## Qué se mantiene junto
+
+Cambiar el modelo seleccionado no crea una segunda conversación de Capriole. El hilo existente permanece como el registro de trabajo, incluidos los mensajes que llevaron a la pregunta actual.
+
+El espacio de trabajo también puede llevar archivos guardados relevantes y contexto de la conversación a la siguiente solicitud cuando el modo de almacenamiento y el modelo seleccionados los admiten. No necesitas mantener copias paralelas de la misma discusión en varios productos.
+
+Siguen existiendo límites técnicos reales. Los modelos tienen distintos límites de contexto, soporte de archivos, controles de reasoning y formatos de mensaje. Un modelo no puede usar un tipo de entrada que no admite solo porque otro modelo lo aceptó antes. Las conversaciones largas también pueden necesitar gestión de contexto antes de la siguiente solicitud.
+
+Capriole gestiona esas diferencias detrás del selector de modelo. Los modelos conservan sus propios límites y capacidades, mientras que el usuario continúa desde el hilo existente.
+
+## Una forma práctica de usar el cambio de modelo
+
+La función es más útil cuando el cambio tiene un motivo.
+
+### Obtén una segunda lectura
+
+Pide a un modelo que redacte una respuesta, luego cambia de modelo y pide al siguiente que cuestione los supuestos. Como ambos turnos pertenecen al mismo hilo, el segundo modelo puede responder al trabajo que ya está en la página en lugar de a un resumen escrito a mano.
+
+### Cambia el tipo de ayuda
+
+Un modelo rápido puede bastar para explorar opciones. Un modelo más deliberado puede encajar mejor cuando la tarea se convierte en una decisión, una revisión técnica o un texto difícil. La conversación puede moverse con ese cambio.
+
+### Compara enfoques sin gestionar pestañas
+
+Cuando hay suscripciones separadas de por medio, la comparación suele convertirse en una colección de pestañas del navegador y prompts duplicados. En un solo espacio de trabajo, la comparación permanece unida al problema original.
+
+### Recupera cuando una ruta no está disponible
+
+Capriole también mantiene fallback automático para el tráfico compatible antes de que empiece una respuesta. El cambio manual de modelo y el fallback automático son funciones distintas: uno es una decisión del usuario, mientras que el otro ayuda a que una solicitud continúe por una ruta alternativa compatible cuando es necesario.
+
+## Qué adapta Capriole detrás de la interfaz
+
+Los principales proveedores de modelo no exponen un formato de conversación universal.
+
+OpenAI Responses, Chat Completions compatible con OpenAI y Anthropic Messages tienen formas distintas de solicitud y de streaming. Los ajustes de reasoning, los eventos de herramientas, los archivos, los registros de uso y los errores también difieren. Capriole mantiene una ruta compatible para cada protocolo admitido.
+
+Para el chat del navegador, el espacio de trabajo reconstruye la conversación guardada en la entrada que el modelo seleccionado puede aceptar. También aplica los límites del modelo actual en lugar de asumir que las reglas del modelo anterior siguen vigentes.
+
+Ese es el trabajo que oculta un selector de modelo. La acción visible es un clic; la solicitud subyacente puede seguir un protocolo distinto y requerir una representación distinta de la misma conversación.
+
+Los detalles técnicos se cubren en [Cómo funciona Capriole AI entre APIs de modelo](/es/articles/unified-model-api).
+
+## El modo de almacenamiento sigue importando
+
+La continuidad de la conversación depende de cómo elijas guardar el chat.
+
+- El historial **sincronizado** admite conversaciones guardadas entre dispositivos.
+- El historial **Local** se queda en el navegador actual y se pierde si se borran sus datos locales.
+- **No Storage** es una sesión efímera y renuncia al historial guardado, a las subidas y a la continuidad entre dispositivos.
+
+Esas elecciones son intencionadas. Un usuario que quiere un hilo de investigación duradero y un usuario que quiere una conversación no guardada no deberían verse forzados al mismo límite de almacenamiento. [La guía de almacenamiento del chat](/es/guides/chat-storage) explica los ajustes reales de Account y las compensaciones.
+
+## El modelo mental más simple
+
+En un producto de un solo proveedor, la conversación pertenece a la familia de modelo de ese proveedor. En Capriole AI, la conversación pertenece a tu espacio de trabajo. El modelo seleccionado gestiona el siguiente turno.
+
+El cambio de modelo es útil porque la herramienta puede cambiar sin descartar el trabajo.
+
+[Abre Capriole AI](https://capriole.ai) para probar el conjunto insignia compatible en el chat limitado gratuito del navegador. Pasa a Premium de USD 8 cuando quieras chat ilimitado del navegador y el espacio de trabajo continuo completo.
+
+**Hechos comprobados:** 2026-08-10.

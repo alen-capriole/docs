@@ -1,0 +1,112 @@
+---
+title: "管理 Capriole AI API Key 与用量"
+sidebarTitle: "API Key 与用量"
+description: "创建、命名、停用和删除 Capriole AI API Key，并筛选请求，理解缓存、计费和剩余 Token。"
+---
+
+Capriole AI API 页面把 API Key 管理和用量统计放在同一个地方。你可以创建带名称的 API Key，停用或删除 API Key，按时间、API Key、模型或状态筛选请求，还可以对比原始 Token 用量与从余额中扣除的 charged token。
+
+API 访问需要有效的 Premium 会员或符合条件的 Team 权限。个人 Premium 每月 8 美元，包含 500 万 charged API token，并可不限量使用支持的 Premium 浏览器聊天模型。同一个账户可以覆盖日常聊天、应用代码和编程代理，无需分别管理各家提供商的 API Key 或账单页面。
+
+## 创建带名称的 API Key
+
+<Steps>
+<Step title="打开 API 页面">
+
+打开 [Capriole AI API](https://capriole.ai?view=api) 并登录。具有 API 访问权限的账户会看到 **API keys**、**Playground** 和 **Usage**。
+
+</Step>
+
+<Step title="创建并命名 API Key">
+
+选择 **Create key**。你可以在 **Name (Optional)** 字段中标记使用该 API Key 的客户端，例如 `local-codex`、`support-agent` 或 `test-script`。
+
+长期运行的客户端或 Team 成员应分别使用带名称的 API Key。这样更容易判断请求来自哪里，也能单独撤销一个客户端的权限，不必替换所有凭据。
+
+</Step>
+
+<Step title="立即复制 Secret Key">
+
+选择 **Create**，然后从 **Secret key** 对话框复制完整值。Capriole 只在创建后显示一次完整 Secret Key，之后的列表只显示遮盖后的值。
+
+<Warning>
+不要把 Secret Key 放入源代码仓库、截图、支持消息或客户端应用代码。如果完整值已经丢失，请创建新的 API Key。
+</Warning>
+
+</Step>
+
+<Step title="发送一次测试请求">
+
+按照 [API 快速开始](/zh/quickstart)或 [OpenAI 和 Anthropic SDK 指南](/zh/guides/openai-anthropic-sdks)发送请求。请求完成后返回 **Usage**。
+
+收到模型响应可以说明调用成功，用量记录则能提供更明确的确认。它会显示 Capriole 是否通过预期的 API Key 和模型收到请求。
+
+</Step>
+</Steps>
+
+## 查看当前余额
+
+Usage 区域分别显示当前包含的额度和已购买的按需 Token。
+
+| 摘要 | 含义 |
+|---|---|
+| **Included usage** | 当前会员额度、账单周期、已用 Token 和剩余百分比 |
+| **On-demand usage** | 已购买的充值 Token、已用数量和剩余余额 |
+| **Total requests** | 当前用量筛选条件内成功和失败的请求数 |
+| **Charged tokens** | 当前筛选条件内成功请求扣除的额度，同时显示总 Token 和缓存 Token |
+
+**Time** 筛选条件只会改变请求分析和列表，不会改变账单周期，也不会按所选时间范围重新计算额度摘要。
+
+缓存输入的计算公式和取整规则可参阅 [Capriole AI charged token 说明](/zh/articles/charged-tokens)。
+
+## 筛选请求历史
+
+每次使用筛选条件回答一个具体问题。
+
+| 筛选条件 | 可选值 | 适用场景 |
+|---|---|---|
+| **Time** | 过去 24 小时、7 天、30 天或全部时间 | 单独查看一次部署或近期测试 |
+| **Key** | 全部 API Key 或一个带名称的 API Key | 确认哪个客户端发送了请求 |
+| **Model** | 当前可见用量历史中的模型 | 对比不同模型路由的流量 |
+| **Status** | 全部状态、成功或错误 | 区分已完成调用和失败调用 |
+| **Member** | Team owner 和 admin 可查看 Team 成员 | 按成员查看 Team 流量 |
+
+每条请求记录可以显示时间、API Key、模型、输入 Token、缓存 Token、输出 Token、charged token、总 Token、延迟、状态和错误消息。如果上游响应或失败请求未提供某项指标，该指标可能无法显示。
+
+## 验证客户端使用了预期的 API Key
+
+发送测试请求后，按以下步骤检查。
+
+1. 将 **Time** 设置为 **Last 24 hours**。
+2. 选择客户端使用的 **Key**。
+3. 如果出现多个模型，选择预期的 **Model**。
+4. 将 **Status** 设置为 **Success**。
+5. 确认新记录的时间和 Token 活动符合预期。
+
+这项检查可以发现常见的配置错误。即使 Capriole 配置没有生效，编程工具也可能通过内置或备用提供商返回响应。Capriole 中匹配的用量记录可以排除这种歧义。
+
+## 停用、重新启用或删除 API Key
+
+| 操作 | 结果 | 能否恢复 |
+|---|---|---|
+| Deactivate | 使用该 API Key 的新请求无法通过身份验证 | 可以重新启用 |
+| Reactivate | 现有 API Key 可以重新用于身份验证 | 可以再次停用 |
+| Delete | API Key 被永久删除 | 不可以 |
+
+调查客户端问题或临时停止流量时使用 Deactivate。替换 API Key 后，或者凭据可能已经泄露时，再将其删除。
+
+列表中的 **Created** 和 **Last used** 可以帮助识别长期未使用的 API Key。显示 **Inactive** 表示该 API Key 已撤销，需要重新启用后才能使用。
+
+## Team 可见范围
+
+Team owner 和 admin 可以按成员筛选用量，对比不同成员的请求或 charged token。普通 Team 成员只能看到其权限允许的用量。Team 充值和整个 Team 的控制项也只对符合条件的 Team 角色开放。
+
+用量筛选不会显示 Capriole 的内部提供商路由、上游成本或 fallback 诊断信息。它只报告管理 API 访问所需的客户侧模型、请求结果和 Token 计费信息。
+
+## 后续操作
+
+你可以阅读[通过一个 API Key 使用编程代理](/zh/guides/one-api-key-coding-agents)进行初步兼容性测试，也可以打开维护中的 [Codex 集成指南](/zh/integrations/codex)进行客户端专用配置。[API 成本对比](/zh/articles/ai-api-cost-comparison)解释了 Capriole 额度单位与提供商输入、输出价格的区别。
+
+[在有限的免费浏览器聊天中试用 GPT-5.6 Thinking、Claude Fable 5 或 Gemini 3.1 Pro](https://capriole.ai)。需要创建 API Key 和使用每月包含的 API 额度时，可升级到 Premium。
+
+**事实核验日期** 2026-08-10。

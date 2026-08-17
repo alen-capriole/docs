@@ -1,0 +1,88 @@
+---
+title: "クイックスタート"
+description: "最初の Capriole AI API リクエストを送信します。"
+---
+
+## Base URL
+
+`https://api.caprioletech.com`
+
+## 2 ステップで始める
+
+### 1. API キーを作成する
+
+サインイン後、[Capriole AI API ページ](https://capriole.ai?view=api) でキーを作成してください。
+
+### 2. `POST /v1/chat` を呼び出す
+
+簡単なテキスト リクエストを送信します。
+
+<CodeGroup>
+```bash curl
+curl https://api.caprioletech.com/v1/chat \
+  -X POST \
+  -H "Authorization: Bearer YOUR_CAPRIOLE_AI_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "openai-latest",
+    "input": "Hello World!"
+  }'
+```
+
+```python python
+import requests
+
+API_KEY = "YOUR_CAPRIOLE_AI_API_KEY"
+
+response = requests.post(
+    "https://api.caprioletech.com/v1/chat",
+    headers={
+        "Authorization": f"Bearer {API_KEY}",
+        "Content-Type": "application/json",
+    },
+    json={
+        "model": "openai-latest",
+        "input": "Hello World!"
+    },
+)
+
+response.raise_for_status()
+print(response.json())
+```
+</CodeGroup>
+
+## プロトコル互換エンドポイント
+
+OpenAI Responses クライアントでは `POST /v1/responses`、OpenAI Chat Completions クライアントでは `POST /v1/chat/completions`、Anthropic Messages クライアントでは `POST /v1/messages` を使ってください。
+
+対応プロバイダーの推奨旗艦モデルを Capriole AI に選ばせたい場合は、`openai-latest`、`claude-latest`、または `google-latest` を使ってください。特定のモデル バージョンに固定する必要がある場合は、具体的なモデル ID を使ってください。
+
+latest エイリアスは入力のショートカットです。Capriole AI は解決後のモデルに対して使用量を記録し、プロトコル互換レスポンス本文のモデル フィールドは、上流互換エンドポイントが返す値を保持します。
+
+## よくある質問
+
+### Base URL に `/v1` を含めるべきですか？
+
+直接 API を呼び出す場合は `https://api.caprioletech.com` を使ってください。コーディング エージェントによってはプロバイダーの Base URL の入力を求められます。OpenAI 互換クライアントと Anthropic 互換クライアントでは必要な Base URL が異なるため、そのエージェントの統合ページに従ってください。
+
+### 各エンドポイントで使える latest エイリアスはどれですか？
+
+`POST /v1/chat` と `POST /v1/chat/completions` は 3 つの latest エイリアスすべてに対応しています。`POST /v1/responses` は `openai-latest` に対応しています。`POST /v1/messages` は `claude-latest` に加え、`claude-fable-5`、`claude-opus-5`、`claude-opus-4-8`、`claude-opus-4-7`、`claude-opus-4-6`、`claude-sonnet-4-6` などの具体的な Claude Messages ID に対応しています。
+
+### レスポンスのモデルが送信したエイリアスではないのはなぜですか？
+
+想定どおりの動作です。エイリアスはモデルを選ぶためだけに使われます。レスポンスは、選択したエンドポイント本来のモデル命名の動作を保持します。
+
+### unsupported model エラーになるのはなぜですか？
+
+latest エイリアスは、それをサポートするエンドポイントでのみ使うか、`GET /v1/models` が返す具体的なモデル ID に切り替えてください。
+
+### `/v1/messages/count_tokens` は常に使えますか？
+
+`claude-latest` と具体的な Claude Messages ID を受け付けます。トークンカウントが成功するかどうかは、選択した上流が Anthropic のトークンカウントに対応しているかによります。
+
+## SDK で続ける
+
+同じ Capriole AI API キーでプロトコルネイティブの Python または TypeScript クライアントを動かすには、[OpenAI と Anthropic の SDK ガイド](/ja/guides/openai-anthropic-sdks) を使ってください。
+
+最初のリクエストのあと、[API キーと使用量ガイド](/ja/guides/api-keys-usage) でキー、モデル、ステータス、課金トークンの記録を確認してください。

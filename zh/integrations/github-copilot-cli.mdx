@@ -1,0 +1,238 @@
+---
+title: "GitHub Copilot CLI"
+description: "配置 GitHub Copilot CLI 使用 Capriole AI。"
+---
+
+## GitHub Copilot CLI 是什么
+
+GitHub Copilot CLI 是终端原生的编程助手。它的 BYOK 提供商模式可以使用 OpenAI Chat Completions 兼容端点，把模型请求发送到 Capriole AI。
+
+这是 Copilot CLI 的直接模型提供商配置，与 Microsoft 365 Copilot 无关。
+
+本页记录与 Capriole AI 端点兼容的 BYOK 配置值。将这些值用于生产编程代理工作流前，请在已安装的 Copilot CLI 中通过流式 Prompt 和本地工具请求进行验证。
+
+## 前置条件
+
+开始前请确保你已经拥有以下内容。
+
+- Capriole AI 账户，可在[此处注册](https://capriole.ai)
+- Capriole AI API Key，可在[此处获取](https://capriole.ai?view=api)
+- 已安装 GitHub Copilot CLI
+
+## 安装
+
+使用 npm 安装 GitHub Copilot CLI。
+
+```bash
+npm install -g @github/copilot
+```
+
+验证安装。
+
+```bash
+copilot --version
+```
+
+通过 `COPILOT_PROVIDER_BASE_URL` 启用 BYOK 模式时，不需要 GitHub 身份验证。
+
+## 配置
+
+将 Capriole AI 设置为 OpenAI 兼容模型提供商。
+
+```bash
+export CAPRIOLE_AI_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
+export COPILOT_PROVIDER_TYPE="openai"
+export COPILOT_PROVIDER_BASE_URL="https://api.caprioletech.com/v1"
+export COPILOT_PROVIDER_API_KEY="$CAPRIOLE_AI_API_KEY"
+export COPILOT_PROVIDER_WIRE_API="completions"
+```
+
+在 Chat Completions 上选择 OpenAI latest。
+
+```bash
+export COPILOT_PROVIDER_MODEL_ID="gpt-5.5"
+export COPILOT_PROVIDER_WIRE_MODEL="openai-latest"
+```
+
+也可以在 Chat Completions 上选择 GPT 5.4 Mini。
+
+```bash
+export COPILOT_PROVIDER_MODEL_ID="gpt-5.4"
+export COPILOT_PROVIDER_WIRE_MODEL="openai/gpt-5.4-mini"
+```
+
+`COPILOT_PROVIDER_MODEL_ID` 告诉 Copilot CLI 应使用哪一种内置模型行为。`COPILOT_PROVIDER_WIRE_MODEL` 是发送到 `POST /v1/chat/completions` 的 Capriole AI 模型 ID。
+
+## 持久化配置
+
+GitHub Copilot CLI 会在自身配置中保存常规 CLI 设置，但 BYOK 提供商设置使用环境变量。要获得简单的持久化配置，请在 Shell 配置中加入一套 Capriole AI Profile。
+
+把以下端点兼容的 OpenAI latest Responses Profile 添加到 `~/.zshrc`，然后在用于编程代理工作流前，通过已安装的 Copilot CLI 验证。
+
+```bash
+export CAPRIOLE_AI_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
+export COPILOT_PROVIDER_TYPE="openai"
+export COPILOT_PROVIDER_BASE_URL="https://api.caprioletech.com/v1"
+export COPILOT_PROVIDER_API_KEY="$CAPRIOLE_AI_API_KEY"
+export COPILOT_PROVIDER_WIRE_API="responses"
+export COPILOT_PROVIDER_MODEL_ID="gpt-5.5"
+export COPILOT_PROVIDER_WIRE_MODEL="openai-latest"
+alias capriole-copilot="copilot --stream on"
+```
+
+重新加载 Shell。
+
+```bash
+source ~/.zshrc
+```
+
+然后运行。
+
+```bash
+capriole-copilot
+```
+
+发送一次性 Prompt。
+
+```bash
+capriole-copilot -p "Explain this repository structure." --allow-all-tools
+```
+
+切换 Profile 时，只需更改 `COPILOT_PROVIDER_WIRE_API`、`COPILOT_PROVIDER_MODEL_ID` 和 `COPILOT_PROVIDER_WIRE_MODEL`。Claude Messages 还需要使用 `COPILOT_PROVIDER_TYPE`、`COPILOT_PROVIDER_BASE_URL` 和 `COPILOT_PROVIDER_BEARER_TOKEN`。
+
+## 接口选项
+
+### OpenAI Chat Completions
+
+如需在 GitHub Copilot CLI 中使用范围最广的 Capriole AI 模型，请选择此路径。
+
+```bash
+export COPILOT_PROVIDER_TYPE="openai"
+export COPILOT_PROVIDER_BASE_URL="https://api.caprioletech.com/v1"
+export COPILOT_PROVIDER_API_KEY="$CAPRIOLE_AI_API_KEY"
+export COPILOT_PROVIDER_WIRE_API="completions"
+```
+
+与端点兼容的 Wire Model 如下。
+
+- `openai-latest` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
+- `openai/gpt-5.6-terra` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
+- `openai/gpt-5.6-luna` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
+- `openai/gpt-5.5` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
+- `openai/gpt-5.4-mini` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
+- `claude-latest` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
+- `anthropic/claude-fable-5` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
+- `anthropic/claude-opus-5` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
+- `anthropic/claude-opus-4-8` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
+- `anthropic/claude-opus-4-7` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
+- `anthropic/claude-opus-4-6` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
+- `anthropic/claude-sonnet-4-6` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
+- `google-latest` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
+- `google/gemini-3.1-pro-preview` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
+- `google/gemini-3.5-flash` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
+- `xai/grok-4.5` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
+- `zai/glm-5.2` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
+- `moonshot/kimi-k3` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
+
+Copilot CLI 没有原生 Gemini 提供商。Gemini 通过 Capriole AI 的 OpenAI 兼容 Chat Completions 代理运行。
+
+### OpenAI Responses
+
+如需让 GitHub Copilot CLI 调用 Capriole AI 的 Responses 兼容端点，请选择此路径。
+
+```bash
+export COPILOT_PROVIDER_TYPE="openai"
+export COPILOT_PROVIDER_BASE_URL="https://api.caprioletech.com/v1"
+export COPILOT_PROVIDER_API_KEY="$CAPRIOLE_AI_API_KEY"
+export COPILOT_PROVIDER_WIRE_API="responses"
+```
+
+与端点兼容的 Wire Model 如下。
+
+- `openai-latest` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
+- `openai/gpt-5.6-terra` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
+- `openai/gpt-5.6-luna` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
+- `openai/gpt-5.5` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
+- `openai/gpt-5.4-mini` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
+
+Responses 是 Capriole AI 中的 OpenAI Wire Protocol。`POST /v1/responses` 不支持 Claude 和 Gemini 模型 ID。
+
+### Anthropic Messages
+
+如需让 GitHub Copilot CLI 调用 Capriole AI 的 Anthropic Messages 兼容端点，请选择此路径。
+
+```bash
+export COPILOT_PROVIDER_TYPE="anthropic"
+export COPILOT_PROVIDER_BASE_URL="https://api.caprioletech.com"
+export COPILOT_PROVIDER_BEARER_TOKEN="$CAPRIOLE_AI_API_KEY"
+export COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"
+export COPILOT_PROVIDER_WIRE_MODEL="claude-latest"
+```
+
+与端点兼容的 Wire Model 如下。
+
+- `claude-latest` with `COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"`
+- `claude-fable-5` with `COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"`
+- `claude-opus-5` with `COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"`
+- `claude-opus-4-8` with `COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"`
+- `claude-opus-4-7` with `COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"`
+- `claude-opus-4-6` with `COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"`
+- `claude-sonnet-4-6` with `COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"`
+
+此路径请使用 `COPILOT_PROVIDER_BEARER_TOKEN`。`COPILOT_PROVIDER_API_KEY` 会发送提供商样式的身份验证，无法通过 Capriole AI 公共 Bearer Token 身份验证入口。
+
+## 运行 GitHub Copilot CLI
+
+启动交互式会话。
+
+```bash
+copilot --stream on
+```
+
+发送一次性请求。
+
+```bash
+copilot -p "Explain this repository structure." --allow-all-tools --stream on
+```
+
+编写脚本时请保持流式传输开启。对应的 Capriole AI 端点支持流式传输；投入生产前，请先验证已安装的 Copilot CLI 路径。
+
+## 支持的模型
+
+Copilot CLI BYOK 对应的 Capriole AI 端点接受以下 Wire Model。这些值与端点兼容，但仍需在已安装的 Copilot CLI 中验证流式传输和本地 Shell 工具调用。
+
+- Chat Completions 支持 `openai-latest`、`openai/gpt-5.6-terra`、`openai/gpt-5.6-luna`、`openai/gpt-5.5`、`openai/gpt-5.4-mini`、`claude-latest`、`anthropic/claude-fable-5`、`anthropic/claude-opus-5`、`anthropic/claude-opus-4-8`、`anthropic/claude-opus-4-7`、`anthropic/claude-opus-4-6`、`anthropic/claude-sonnet-4-6`、`google-latest`、`google/gemini-3.1-pro-preview`、`google/gemini-3.5-flash`、`xai/grok-4.5`、`zai/glm-5.2` 和 `moonshot/kimi-k3`
+- Responses 支持 `openai-latest`、`openai/gpt-5.6-terra`、`openai/gpt-5.6-luna`、`openai/gpt-5.5` 和 `openai/gpt-5.4-mini`
+- Anthropic Messages 支持 `claude-latest`、`claude-fable-5`、`claude-opus-5`、`claude-opus-4-8`、`claude-opus-4-7`、`claude-opus-4-6` 和 `claude-sonnet-4-6`
+
+`GET /v1/models` 返回的其他公共 Chat Completions 兼容模型 ID，也可以通过同一条 OpenAI 兼容提供商路径测试。工具调用通过验证前，请勿将它们用于编程代理工作流。
+
+GitHub Copilot CLI 1.0.75 可以通过这条 Chat Completions 路径，使用 `anthropic/claude-fable-5`、`xai/grok-4.5`、`zai/glm-5.2` 和 `moonshot/kimi-k3` 完成流式 Shell 工具工作流。
+
+## 故障排除
+
+### 为什么 Copilot CLI 返回身份验证错误
+
+启动 Copilot CLI 前，确认已在同一个 Shell 中导出 `CAPRIOLE_AI_API_KEY`，并且 `COPILOT_PROVIDER_API_KEY` 指向该变量。
+
+### 为什么请求出现端点错误
+
+对于 OpenAI 兼容的 Chat Completions 或 Responses，请确认 `COPILOT_PROVIDER_BASE_URL` 是 `https://api.caprioletech.com/v1`。
+
+对于 Anthropic Messages，请确认 `COPILOT_PROVIDER_BASE_URL` 是不含 `/v1` 的 `https://api.caprioletech.com`。
+
+### 为什么 Copilot CLI 提示缺少模型
+
+同时设置 `COPILOT_PROVIDER_MODEL_ID` 和 `COPILOT_PROVIDER_WIRE_MODEL`。Model ID 应使用 Copilot 侧的基础模型，Wire Model 应使用 Capriole AI 模型 ID。
+
+### 为什么应保持流式传输开启
+
+GitHub 的 BYOK 要求规定模型必须支持流式传输和工具或函数调用。请让 Copilot CLI 保持使用流式路径，以便在投入使用前通过 Capriole AI 验证本地工具调用。
+
+## 说明
+
+- Capriole AI 通过 Chat Completions、Responses 和 Anthropic Messages Profile 形式提供 Copilot CLI BYOK 示例。
+- Chat Completions Profile 使用 `POST /v1/chat/completions`，Responses Profile 使用 `POST /v1/responses`，Anthropic Profile 使用 `POST /v1/messages`。
+- GitHub Copilot CLI 在本地执行编程工具。Capriole AI 只处理模型请求。
+- GitHub Copilot CLI 没有用于 Capriole AI 原生 `POST /v1/chat` 路由的 Wire API。
+- 官方参考资料包括 [GitHub Copilot CLI 安装](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli)、[GitHub Copilot CLI BYOK](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/use-byok-models)和 [GitHub Copilot SDK BYOK](https://docs.github.com/en/copilot/how-tos/copilot-sdk/auth/byok)。

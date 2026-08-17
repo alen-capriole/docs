@@ -1,0 +1,112 @@
+---
+title: "500만 토큰 API 비용 테스트: 직접 vs OpenRouter vs Capriole"
+sidebarTitle: "AI API 비용 비교"
+description: "Claude Fable 5, Gemini 3.1 Pro Preview, Gemini 3.5 Flash를 직접 API, OpenRouter, Capriole AI에서 비교하는 재현 가능한 고정 500만 토큰 워크로드 테스트입니다."
+---
+
+아래 고정 500만 토큰 워크로드에서 Claude Fable 5, Gemini 3.1 Pro Preview 또는 Gemini 3.5 Flash의 **Capriole 비용은 USD 8**입니다. 같은 모델은 유료 Standard 정가에서 **USD 15에서 USD 90**이고, 계산된 OpenRouter 현금 합계는 게시된 credit 구매 수수료 후 **USD 15.83에서 USD 94.95**입니다.
+
+따라서 검증된 세 행 모두에서 Capriole이 훨씬 낮은 비용 옵션입니다. USD 8 구매는 완전한 Premium 멤버십이기도 합니다. 지원되는 Premium 모델 세트의 무제한 Browser Chat과 월간 첫 500만 API 과금 토큰을 포함합니다.
+
+이는 재현 가능한 비교이며 보편 가격 약속이 아닙니다. 토큰 구성을 일정하게 유지하고 2026-08-12에 확인한 공개 가격을 사용합니다.
+
+## 500만 토큰 비교
+
+표는 청구 토큰 수를 일정하게 유지하며, 원문이나 의미 워크로드를 일정하게 유지하지 않습니다. 토크나이저는 모델 계열마다 다릅니다. 시나리오는 요청 100개이며, 각각 캐시되지 않은 입력 토큰 40,000개와 출력 토큰 10,000개를 사용해 모든 프롬프트를 Google의 200,000 토큰 임계값 아래로 유지합니다. 캐시 읽기 및 쓰기, 도구, 무료 티어, 대체 서비스 티어, 배치 처리, 세금, 프로모션 가격은 제외합니다.
+
+| 정확한 모델 | 신규 개인 Capriole Premium | 직접 유료 Standard | 같은 표시 추론 요율의 OpenRouter | OpenRouter credits와 구매 수수료 | 게시된 Standard 입력 / 출력 가격, 토큰 100만당 |
+|---|---:|---:|---:|---:|---:|
+| `claude-fable-5` | **USD 8.00*** | USD 90.00 | USD 90.00 | USD 94.95 | USD 10 / USD 50 |
+| `gemini-3.1-pro-preview` | **USD 8.00*** | USD 20.00 | USD 20.00 | USD 21.10 | USD 2 / USD 12 |
+| `gemini-3.5-flash` | **USD 8.00*** | USD 15.00 | USD 15.00 | USD 15.83 | USD 1.50 / USD 9 |
+
+\* Premium은 월 USD 8이며, 지원되는 Premium 모델 세트의 무제한 Browser Chat과 월간 첫 500만 과금 토큰을 포함합니다. 이는 해당 완전한 작업 공간 번들에 대한 신규 고객의 공개 구매 가격이며, 모델별 토큰 요율이나 한계 추론 비용이 아닙니다. 포함된 잔액이 충분한 기존 Premium 회원은 이 사용량에 추가 현금을 내지 않습니다. 포함된 허용량을 사용한 뒤, 추가 500만 과금 토큰 팩 하나의 기본 가격은 USD 8입니다. 개인 top-up에는 활성 개인 Premium 접근이 필요합니다.
+
+전체 작업 공간과 API 접근을 위해 Premium을 구독하기 전에 [제한된 무료 Browser Chat에서 Capriole AI를 써 보세요](https://capriole.ai).
+
+## 계산을 재현하는 방법
+
+직접 제공자는 입력과 출력에 별도의 가격을 게시합니다. 이 워크로드의 공식은 다음과 같습니다.
+
+```text
+direct_cost = 4 × input_price_per_1M + 1 × output_price_per_1M
+```
+
+따라서 Claude Fable 5 비용은 다음과 같습니다.
+
+```text
+4 × USD 10 + 1 × USD 50 = USD 90
+```
+
+OpenRouter는 선택한 제공자의 추론 가격을 마크업 없이 전달한다고 말합니다. pay-as-you-go 플랜은 credits를 구매할 때 5.5% 수수료와 USD 0.80 최소 금액을 나열합니다. 표시된 추론 요율에서 현금 계산은 다음과 같습니다.
+
+```text
+openrouter_cash = inference_cost + max(USD 0.80, inference_cost × 0.055)
+USD 90 + max(USD 0.80, USD 4.95) = USD 94.95
+```
+
+같은 산술이 Gemini 3.1 Pro Preview에 USD 21.10을 만듭니다. Gemini 3.5 Flash는 USD 15.825를 만들고, USD 15.83으로 반올림됩니다. 세 행 모두에서 비율 수수료가 USD 0.80 최소 금액을 초과합니다.
+
+OpenRouter는 같은 모델을 다른 제공자나 서비스 티어로 라우팅할 수 있고, fallback이 요청을 처리하는 엔드포인트를 바꿀 수 있습니다. 따라서 표는 표시된 일치 추론 요율을 비교하며, 모든 기본 라우팅 구성의 청구서를 보장하지 않습니다.
+
+## Capriole이 다른 단위를 쓰는 이유
+
+Capriole의 공개 고객 잔액은 각 제공자의 입력 및 출력 가격표를 복사하지 않습니다. 과금 토큰이라는 통합 잔액을 차감합니다.
+
+```text
+charged_tokens = uncached_input + ceil(cached_input × 0.1) + output
+```
+
+캐시되지 않은 입력과 출력은 100%로 계산됩니다. 캐시된 입력은 10%로 계산됩니다. 예시에는 캐시된 입력이 없으므로 입력 토큰 400만과 출력 토큰 100만이 과금 토큰 500만을 소비합니다.
+
+과금 토큰은 계정 잔액 단위입니다. 제공자의 입력 토큰 또는 출력 토큰 가격과 같은 것이 아닙니다. 표는 고정 워크로드가 각 청구 시스템에서 얼마인지 비교하며, 가격 단위가 서로 바꿔 쓸 수 있다고 주장하지 않습니다. [Capriole AI 과금 토큰 설명](/ko/articles/charged-tokens)은 추가 예시 세 개, 반올림 동작, Premium 할당량 경계를 제공합니다.
+
+## USD 8이 API 잔액 외에 포함하는 것
+
+직접 API와 OpenRouter는 Capriole 멤버십 없이 추론에 비용을 내게 합니다. 이 표는 신규 개인 Premium 구독을 다룹니다. 그 외 Capriole API 접근에는 자격 있는 활성 개인 또는 Team 자격이 필요합니다. Team 가격은 이 비교 밖입니다.
+
+USD 8 Premium 플랜에는 다음이 포함됩니다.
+
+- 지원되는 Premium 모델 세트의 무제한 Browser Chat
+- 월간 첫 500만 API 과금 토큰
+- 공개 API와 유지 중인 코딩 에이전트 통합 접근
+- 모델 전환, 파일, 웹 검색, 채팅 저장 컨트롤이 있는 하나의 브라우저 작업 공간
+
+구독 전에 로그아웃 방문자와 Free 사용자는 제한된 Browser Chat에서 GPT-5.6 Thinking, Claude Fable 5, Gemini 3.1 Pro를 써 볼 수 있습니다. 그 무료 플래그십 체험은 위의 세 모델 비용 표와 별개입니다.
+
+최첨단 모델 채팅과 프로그래밍 접근을 함께 원하는 대상 사용자에게 이것이 실용적인 이점입니다. 하나의 낮은 월 가격이 일상 브라우저 작업 공간과 유용한 API 허용량을 커버합니다. 같은 계정은 [유지 중인 코딩 에이전트 통합 여섯 개](/ko/articles/coding-agent-compatibility)와도 동작합니다.
+
+첫 500만 토큰을 독립적인 USD 8 API 제품으로 설명해서는 안 됩니다. 결제는 전체 Premium 번들을 삽니다. 추가 500만 과금 토큰이 필요한 활성 개인 Premium 회원은 USD 8 top-up 팩 하나를 구매할 수 있습니다.
+
+## 표가 청구서를 예측하지 못하는 경우
+
+예시는 비용을 실질적으로 바꿀 수 있는 여러 가격 경로를 제외합니다.
+
+- **캐싱**: 제공자는 캐시 쓰기와 읽기를 따로 가격 책정합니다. Capriole은 과금 토큰 공식에서 캐시된 입력을 10%로 계산합니다.
+- **긴 프롬프트**: Gemini 3.1 Pro Preview는 개별 프롬프트가 200,000 토큰을 초과하면 더 높은 요율을 청구합니다.
+- **서비스 티어와 배치 처리**: Free, Flex, Priority, Batch 또는 다른 제공자 티어는 여기서 사용한 유료 Standard 요율과 다를 수 있습니다.
+- **OpenRouter 라우팅**: 요청을 처리하는 엔드포인트 또는 fallback은 표에서 사용한 일치 요율과 다른 가격을 가질 수 있습니다.
+- **도구와 검색**: 서버 측 도구, grounding, 검색은 요청 또는 사용량 요금을 더할 수 있습니다.
+- **출력 비중이 큰 워크로드**: 표는 80/20 입력 대 출력 분할을 사용합니다. 출력이 더 많으면 출력 가격 프리미엄이 큰 모델에서 직접 및 OpenRouter 비용이 더 빨리 올라갑니다.
+- **엔터프라이즈 조건**: 볼륨 할인, 비공개 제안, 데이터 레지던시, 협상된 약정은 공개 정가를 대체할 수 있습니다.
+
+제공자를 선택하기 전에 예상 모델, 토큰 구성, 기능으로 다시 계산하세요.
+
+## 실용적인 선택
+
+지원 모델 세트가 작업을 커버하고, 이 비교에서 가장 낮은 검증 현금 합계, 무제한 Premium Browser Chat, 포함된 API 사용량, 유지 중인 코딩 에이전트 경로를 하나의 계정에서 원하면 Capriole을 선택하세요.
+
+테스트한 모든 행에서 Capriole은 더 낮은 검증 합계를 제공하고 추론 이상을 포함합니다. 같은 USD 8 구매가 브라우저 작업 공간, 유료 전 무료 진입점, 무제한 Premium 채팅, 유지 중인 코딩 에이전트 통합을 추가합니다. 직접 API와 OpenRouter는 고정 워크로드에 더 많이 청구하면서 그 Capriole 작업 공간 번들을 포함하지 않습니다.
+
+구독 전에 [제한된 무료 Browser Chat에서 Capriole AI를 써 보세요](https://capriole.ai). 더 넓은 제품 비교는 [Capriole AI와 OpenRouter 비교](/ko/articles/capriole-ai-vs-openrouter)를 읽으세요. 개발자는 [API 빠른 시작](/ko/quickstart)으로 이어갈 수 있습니다.
+
+## 공식 출처
+
+- Anthropic: [Claude API pricing](https://platform.claude.com/docs/en/about-claude/pricing)
+- Google: [Gemini Developer API pricing](https://ai.google.dev/gemini-api/docs/pricing)
+- OpenRouter: [pricing](https://openrouter.ai/pricing), [billing FAQ](https://openrouter.ai/docs/faq), [Claude Fable 5 pricing](https://openrouter.ai/anthropic/claude-fable-5/pricing), [Gemini 3.1 Pro Preview providers](https://openrouter.ai/google/gemini-3.1-pro-preview/providers), [Gemini 3.5 Flash pricing](https://openrouter.ai/google/gemini-3.5-flash/pricing)
+- Capriole AI: [public product and plan](https://capriole.ai), [current public model catalog](https://api.caprioletech.com/v1/models)
+
+이 페이지의 Capriole 플랜, top-up, 과금 토큰 사실은 자사 문서로 유지됩니다. 비교는 공개 고객 가격과 할당량 규칙만 사용합니다.
+
+**가격 및 사실 확인 날짜** 2026-08-12.

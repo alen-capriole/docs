@@ -1,0 +1,112 @@
+---
+title: "API-Schlüssel verwalten und Nutzung in Capriole AI verfolgen"
+sidebarTitle: "API-Schlüssel und Nutzung"
+description: "Erstellen, benennen, deaktivieren und löschen Sie Capriole AI API-Schlüssel, filtern Sie Anfragen und verstehen Sie gecachte, berechnete und verbleibende Tokens."
+---
+
+Die Capriole AI API-Seite hält Schlüsselverwaltung und Nutzungsabrechnung an einem Ort. Sie können benannte Schlüssel erstellen, sie deaktivieren oder löschen, Anfragen nach Zeit, Schlüssel, Modell oder Status filtern und die rohe Token-Nutzung mit den von Ihrem Guthaben abgezogenen abgerechneten Tokens vergleichen.
+
+API-Zugang erfordert eine aktive Premium-Mitgliedschaft oder berechtigten Team-Zugang. Persönliches Premium kostet USD 8 pro Monat und umfasst 5 Millionen berechnete API-Tokens neben unbegrenztem Browser Chat über die unterstützte Premium-Modellgruppe. Dasselbe Konto deckt daher Alltags-Chat, Anwendungscode und Coding-Agents ab, ohne getrennte Anbieterschlüssel oder Abrechnungsseiten.
+
+## Einen benannten API-Schlüssel erstellen
+
+<Steps>
+<Step title="Die API-Seite öffnen">
+
+Öffnen Sie [Capriole AI API](https://capriole.ai?view=api) und melden Sie sich an. Die Seite zeigt **API keys**, **Playground** und **Usage** für ein Konto mit API-Zugang.
+
+</Step>
+
+<Step title="Den Schlüssel erstellen und benennen">
+
+Wählen Sie **Create key**. Das Feld **Name (Optional)** kann den Client kennzeichnen, der ihn verwendet, etwa `local-codex`, `support-agent` oder `test-script`.
+
+Verwenden Sie getrennte benannte Schlüssel für langlebige Clients oder Teammitglieder. Das erleichtert die Zuordnung einer Anfrage und lässt Sie einen Client widerrufen, ohne jedes Zugangsdatum zu ersetzen.
+
+</Step>
+
+<Step title="Das Secret sofort kopieren">
+
+Wählen Sie **Create** und kopieren Sie den Wert aus dem Dialog **Secret key**. Capriole zeigt das vollständige Secret nur nach der Erstellung. Die Schlüsselliste zeigt später einen maskierten Wert.
+
+<Warning>
+Legen Sie das Secret nicht in die Versionskontrolle, in Screenshots, Supportnachrichten oder clientseitigen Anwendungscode. Wenn der vollständige Wert verloren ist, erstellen Sie einen Ersatzschlüssel.
+</Warning>
+
+</Step>
+
+<Step title="Eine Testanfrage senden">
+
+Folgen Sie dem [API-Schnellstart](/de/quickstart) oder der [OpenAI- und Anthropic-SDK-Anleitung](/de/guides/openai-anthropic-sdks). Kehren Sie nach Abschluss der Anfrage zu **Usage** zurück.
+
+Eine Modellantwort ist nützlich, die Nutzungszeile ist die stärkere Bestätigung. Sie zeigt, dass Capriole die Anfrage unter dem erwarteten Schlüssel und Modell empfangen hat.
+
+</Step>
+</Steps>
+
+## Das aktuelle Guthaben lesen
+
+Der Abschnitt Usage trennt das aktuelle enthaltene Kontingent von gekauften On-Demand-Tokens.
+
+| Zusammenfassung | Bedeutung |
+|---|---|
+| **Included usage** | Aktuelles Mitgliedschaftskontingent, Abrechnungszyklus, verwendete Tokens und verbleibender Prozentsatz |
+| **On-demand usage** | Gekaufte Aufstockungs-Tokens, verwendete Menge und verbleibendes Guthaben |
+| **Total requests** | Erfolgreiche und fehlgeschlagene Anfragen innerhalb der gewählten Nutzungsfilter |
+| **Charged tokens** | Für die gefilterte erfolgreiche Nutzung abgezogenes Kontingent, neben Gesamt- und gecachten Tokens |
+
+Der Filter **Time** ändert die Anfrageanalysen und Zeilen. Er ändert nicht den Abrechnungszyklus und berechnet die Kontingentübersicht nicht für dieses gewählte Fenster neu.
+
+Lesen Sie [Capriole AI abgerechnete Tokens erklärt](/de/articles/charged-tokens) für die Formel zu gecachter Eingabe und die Rundungsregel.
+
+## Die Anfragehistorie filtern
+
+Nutzen Sie die Filter, um jeweils eine Frage zu beantworten.
+
+| Filter | Verfügbare Auswahl | Nützlich für |
+|---|---|---|
+| **Time** | Last 24 hours, 7 Tage, 30 Tage oder gesamter Zeitraum | Eine Bereitstellung oder einen aktuellen Test isolieren |
+| **Key** | Alle Schlüssel oder ein benannter Schlüssel | Bestätigen, welcher Client Traffic gesendet hat |
+| **Model** | Modelle in der sichtbaren Nutzungshistorie | Traffic über Modellrouten vergleichen |
+| **Status** | Alle Status, Success oder Error | Abgeschlossene Aufrufe von Fehlern trennen |
+| **Member** | Teammitglieder, für Owners und Admins | Team-Traffic nach Person prüfen |
+
+Jede Anfragezeile kann Zeit, Schlüssel, Modell, Eingabe-Tokens, gecachte Tokens, Ausgabe-Tokens, abgerechnete Tokens, Gesamt-Tokens, Latenz, Status und eine Fehlermeldung zeigen. Einige Kennzahlen können fehlen, wenn eine Upstream-Antwort oder eine fehlgeschlagene Anfrage sie nicht bereitstellt.
+
+## Prüfen, ob ein Client den vorgesehenen Schlüssel verwendet hat
+
+Nach dem Senden einer Testanfrage:
+
+1. Setzen Sie **Time** auf **Last 24 hours**.
+2. Wählen Sie den benannten **Key**, den der Client verwendet.
+3. Wählen Sie das erwartete **Model**, wenn mehrere Modelle vorhanden sind.
+4. Setzen Sie **Status** auf **Success**.
+5. Bestätigen Sie, dass die neue Zeile die erwartete Zeit und Token-Aktivität hat.
+
+Diese Prüfung fängt einen häufigen Einrichtungsfehler. Ein Coding-Tool kann eine Antwort über einen integrierten oder Fallback-Anbieter erzeugen, auch wenn seine Capriole-Konfiguration nicht aktiv ist. Eine passende Capriole-Nutzungszeile nimmt diese Mehrdeutigkeit.
+
+## Einen Schlüssel deaktivieren, reaktivieren oder löschen
+
+| Aktion | Ergebnis | Kann es rückgängig gemacht werden? |
+|---|---|---|
+| Deactivate | Neue Anfragen mit diesem Schlüssel authentifizieren nicht mehr | Ja, schalten Sie den Schlüssel wieder ein |
+| Reactivate | Der bestehende Schlüssel kann sich wieder authentifizieren | Ja |
+| Delete | Der Schlüssel wird dauerhaft entfernt | Nein |
+
+Nutzen Sie Deactivate, wenn Sie einen Client untersuchen oder Traffic vorübergehend stoppen. Verwenden Sie Delete nach dem Ersetzen eines Schlüssels oder wenn das Zugangsdatum offengelegt worden sein könnte.
+
+Die Liste zeigt die Werte **Created** und **Last used**, um veraltete Schlüssel zu erkennen. Ein angezeigter Status **Inactive** bedeutet, dass der Schlüssel widerrufen ist, bis er reaktiviert wird.
+
+## Team-Sichtbarkeit
+
+Team-Owners und Admins können die Nutzung nach Mitglied filtern und Anfragen oder abgerechnete Tokens über Mitglieder vergleichen. Ein reguläres Teammitglied sieht nur die für dieses Mitglied zulässige Nutzung. Team-Aufstockungen und teamweite Steuerungen sind ebenfalls auf berechtigte Teamrollen beschränkt.
+
+Die Nutzungsfilter legen nicht die interne Anbieterroute, die Upstream-Kosten oder Fallback-Diagnosen von Capriole offen. Sie berichten das kundenseitige Modell, das Anfrageergebnis und die Token-Abrechnung, die zur Verwaltung des API-Zugangs nötig sind.
+
+## Von hier aus fortfahren
+
+Nutzen Sie [einen Schlüssel mit Coding-Agents](/de/guides/one-api-key-coding-agents) für einen ersten Kompatibilitätstest oder öffnen Sie die gepflegten [Integrationsanleitungen](/de/integrations/codex) für client-spezifische Konfiguration. Der [datierte API-Kostenvergleich](/de/articles/ai-api-cost-comparison) erklärt, wie sich die Kontingenteinheiten von Capriole von den Input- und Output-Preisen der Anbieter unterscheiden.
+
+[Probieren Sie GPT-5.6 Thinking, Claude Fable 5 oder Gemini 3.1 Pro im begrenzten kostenlosen Browser Chat](https://capriole.ai). Wechseln Sie zu Premium, wenn Sie einen Schlüssel erstellen und das enthaltene monatliche API-Guthaben nutzen möchten.
+
+**Fakten geprüft:** 2026-08-10.

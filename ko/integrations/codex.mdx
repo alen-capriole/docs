@@ -1,0 +1,90 @@
+---
+title: "Codex"
+description: "Codex가 Capriole AI를 사용하도록 구성합니다."
+---
+
+## Codex란
+
+Codex는 소프트웨어 개발을 위한 OpenAI의 코딩 에이전트입니다. Capriole AI의 Responses 호환 API로 요청을 보내도록 구성한 사용자 지정 모델 제공자를 통해 Capriole AI를 사용할 수 있습니다.
+
+## 사전 준비
+
+시작하기 전에 다음이 있는지 확인하세요.
+
+- Capriole AI 계정([여기에서 가입](https://capriole.ai))
+- Capriole AI API key([키 받기](https://capriole.ai?view=api))
+
+## 설치
+
+### Codex CLI
+
+```bash
+npm install -g @openai/codex
+```
+
+### Codex app
+
+[OpenAI Codex](https://developers.openai.com/codex)에서 앱을 다운로드하세요.
+
+## 구성
+
+`~/.codex/config.toml`을 만들거나 업데이트하세요.
+
+```toml
+model = "openai-latest"
+model_reasoning_effort = "high"
+model_provider = "capriole_ai"
+
+[model_providers.capriole_ai]
+name = "Capriole AI"
+base_url = "https://api.caprioletech.com/v1"
+wire_api = "responses"
+env_key = "CAPRIOLE_AI_API_KEY"
+env_key_instructions = "Export CAPRIOLE_AI_API_KEY before starting Codex"
+```
+
+## Codex 실행
+
+API key를 설정한 다음 Codex를 시작하세요.
+
+```bash
+export CAPRIOLE_AI_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
+codex
+```
+
+## 지원 모델
+
+Codex는 Responses API를 통해 Capriole AI OpenAI 모델을 지원합니다. 새 구성에는 `openai-latest`를 사용해, 구성을 바꾸지 않고도 Capriole AI가 Codex를 권장 OpenAI 플래그십 모델로 라우팅하게 하세요.
+
+- `openai-latest`
+- `openai/gpt-5.6-terra`
+- `openai/gpt-5.6-luna`
+- `openai/gpt-5.5`
+- `openai/gpt-5.4-mini`
+
+## 문제 해결
+
+### Codex가 인증 오류를 반환하는 이유는 무엇인가요?
+
+`codex`를 실행하기 전에 같은 셸에서 `CAPRIOLE_AI_API_KEY`를 내보냈는지 확인하세요.
+
+### Codex가 모델을 찾지 못하는 이유는 무엇인가요?
+
+`model_provider = "capriole_ai"`가 설정되어 있고 `model`이 `openai-latest` 또는 지원되는 Capriole AI OpenAI 모델 ID인지 확인하세요.
+
+### 요청이 엔드포인트 또는 프로토콜 오류로 실패하는 이유는 무엇인가요?
+
+`[model_providers.capriole_ai]` 아래에 `base_url = "https://api.caprioletech.com/v1"`과 `wire_api = "responses"`가 설정되어 있는지 확인하세요.
+
+### Codex가 Capriole AI 제공자를 무시하는 이유는 무엇인가요?
+
+`openai` 같은 예약된 내장 제공자 ID를 사용하지 마세요. 사용자 지정 제공자 ID는 `capriole_ai`로 유지하세요.
+
+### 구성 변경이 적용되지 않는 이유는 무엇인가요?
+
+`~/.codex/config.toml`이 활성 사용자 구성 파일인지 확인하고, 프로젝트 범위 `.codex/config.toml`에 의존하기 전에 프로젝트를 신뢰한 다음 Codex를 다시 시작하세요.
+
+## 참고
+
+- 이 구성은 `env_key`를 사용하므로 API key가 구성 파일이 아니라 셸 환경에 남습니다.
+- 공식 참고: [Codex CLI](https://developers.openai.com/codex/cli), [Codex config basics](https://developers.openai.com/codex/config-basic), [Codex config reference](https://developers.openai.com/codex/config-reference), [sample configuration](https://developers.openai.com/codex/config-sample).
