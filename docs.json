@@ -25,6 +25,13 @@
       {
         "language": "en",
         "default": true,
+        "navbar": {
+          "primary": {
+            "type": "button",
+            "label": "Capriole AI",
+            "href": "https://www.capriole.ai/"
+          }
+        },
         "tabs": [
           {
             "tab": "API reference",
@@ -102,6 +109,13 @@
       },
       {
         "language": "zh-Hans",
+        "navbar": {
+          "primary": {
+            "type": "button",
+            "label": "Capriole AI",
+            "href": "https://www.capriole.ai/zh"
+          }
+        },
         "tabs": [
           {
             "tab": "API 参考",
@@ -179,6 +193,13 @@
       },
       {
         "language": "es",
+        "navbar": {
+          "primary": {
+            "type": "button",
+            "label": "Capriole AI",
+            "href": "https://www.capriole.ai/es"
+          }
+        },
         "tabs": [
           {
             "tab": "Referencia de la API",
@@ -256,6 +277,13 @@
       },
       {
         "language": "pt-BR",
+        "navbar": {
+          "primary": {
+            "type": "button",
+            "label": "Capriole AI",
+            "href": "https://www.capriole.ai/pt-br"
+          }
+        },
         "tabs": [
           {
             "tab": "Referência da API",
@@ -333,6 +361,13 @@
       },
       {
         "language": "de",
+        "navbar": {
+          "primary": {
+            "type": "button",
+            "label": "Capriole AI",
+            "href": "https://www.capriole.ai/de"
+          }
+        },
         "tabs": [
           {
             "tab": "API-Referenz",
@@ -410,6 +445,13 @@
       },
       {
         "language": "ja",
+        "navbar": {
+          "primary": {
+            "type": "button",
+            "label": "Capriole AI",
+            "href": "https://www.capriole.ai/ja"
+          }
+        },
         "tabs": [
           {
             "tab": "API リファレンス",
@@ -487,6 +529,13 @@
       },
       {
         "language": "ko",
+        "navbar": {
+          "primary": {
+            "type": "button",
+            "label": "Capriole AI",
+            "href": "https://www.capriole.ai/ko"
+          }
+        },
         "tabs": [
           {
             "tab": "API 레퍼런스",
@@ -566,15 +615,7 @@
   },
   "logo": {
     "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg",
-    "href": "/"
-  },
-  "navbar": {
-    "primary": {
-      "type": "button",
-      "label": "Capriole AI",
-      "href": "https://capriole.ai"
-    }
+    "dark": "/logo/dark.svg"
   },
   "contextual": {
     "options": [
