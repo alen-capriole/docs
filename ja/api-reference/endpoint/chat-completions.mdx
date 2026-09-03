@@ -6,7 +6,9 @@ openapi: "api-reference/openapi.json POST /v1/chat/completions"
 
 アプリケーション、SDK、またはゲートウェイが OpenAI Chat Completions のリクエストとレスポンス形式を期待する場合は、このエンドポイントを使ってください。
 
-`model` と `messages` を含む標準の Chat Completions ペイロードを送信します。Capriole AI は上流へ送る前に latest エイリアスを選択したプロバイダーのモデル ID に解決し、`messages`、`tools`、`tool_choice`、`response_format`、`stream` などの互換フィールドを転送し、上流の JSON または SSE ストリームをそのまま返します。ストリーミング リクエストでは、使用量を記録できるよう、転送前に `stream_options.include_usage=true` を設定します。
+`model` と `messages` を含む標準の Chat Completions ペイロードを送信します。Capriole AI は上流へ送る前に latest エイリアスを選択したプロバイダーのモデル ID に解決し、`messages`、`tools`、`tool_choice`、`response_format`、`stream` などの互換フィールドを転送し、上流の JSON または SSE ストリームを下記の GLM SSE 修正を除き、そのまま返します。ストリーミング リクエストでは、使用量を記録できるよう、転送前に `stream_options.include_usage=true` を設定します。
+
+VectorEngine の `model="zai/glm-5.3-flash"` の SSE 応答では、Capriole AI はデルタ内の空の旧式フィールド `function_call={"name":"","arguments":""}` だけを削除します。実際の関数呼び出しやその途中のデータ、`tool_calls`、テキスト、使用量は保持します。この例外は非ストリーミング応答や他のモデルには適用されません。
 
 `POST /v1/chat/completions` は `openai-latest`、`claude-latest`、`google-latest`、および `GET /v1/models` が返す公開の具体的なモデル ID を受け付けます。対応プロバイダーの推奨旗艦モデルを Capriole AI に選ばせるには、latest エイリアスを使ってください。
 

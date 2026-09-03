@@ -37,6 +37,14 @@ copilot --version
 
 ## 配置
 
+### 模型验证
+
+GitHub Copilot CLI 1.0.82：`anthropic/claude-fable-5-1`、`google/gemini-3.8-flash` 和 `zai/glm-5.3-flash` 已通过本地文件读取工具和最终答案检查。 `claude-latest` 解析到 Fable 5.1。原有具体模型 ID 继续可用。
+
+新模型的 Chat Completions 检查使用 `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`；Fable 5.1 也通过了使用 `claude-latest` 的 Anthropic Messages 路径检查。
+
+`xai/grok-4.6` 能接受 Chat Completions 请求，但未通过编码 Agent 任务检查，因此不加入下方配置。直接调用上游的检查也发现 Grok 4.5 的工具使用不稳定；API 请求完成不代表 Agent 答案正确。
+
 将 Capriole AI 设置为 OpenAI 兼容模型提供商。
 
 ```bash
@@ -121,6 +129,7 @@ export COPILOT_PROVIDER_WIRE_API="completions"
 - `openai/gpt-5.5` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
 - `openai/gpt-5.4-mini` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
 - `claude-latest` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
+- `anthropic/claude-fable-5-1` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
 - `anthropic/claude-fable-5` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
 - `anthropic/claude-opus-5` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
 - `anthropic/claude-opus-4-8` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
@@ -129,8 +138,10 @@ export COPILOT_PROVIDER_WIRE_API="completions"
 - `anthropic/claude-sonnet-4-6` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
 - `google-latest` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
 - `google/gemini-3.1-pro-preview` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
+- `google/gemini-3.8-flash` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
 - `google/gemini-3.5-flash` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
 - `xai/grok-4.5` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
+- `zai/glm-5.3-flash` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
 - `zai/glm-5.2` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
 - `moonshot/kimi-k3` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
 
@@ -172,6 +183,7 @@ export COPILOT_PROVIDER_WIRE_MODEL="claude-latest"
 与端点兼容的 Wire Model 如下。
 
 - `claude-latest` with `COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"`
+- `claude-fable-5-1` with `COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"`
 - `claude-fable-5` with `COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"`
 - `claude-opus-5` with `COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"`
 - `claude-opus-4-8` with `COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"`
@@ -201,9 +213,9 @@ copilot -p "Explain this repository structure." --allow-all-tools --stream on
 
 Copilot CLI BYOK 对应的 Capriole AI 端点接受以下 Wire Model。这些值与端点兼容，但仍需在已安装的 Copilot CLI 中验证流式传输和本地 Shell 工具调用。
 
-- Chat Completions 支持 `openai-latest`、`openai/gpt-5.6-terra`、`openai/gpt-5.6-luna`、`openai/gpt-5.5`、`openai/gpt-5.4-mini`、`claude-latest`、`anthropic/claude-fable-5`、`anthropic/claude-opus-5`、`anthropic/claude-opus-4-8`、`anthropic/claude-opus-4-7`、`anthropic/claude-opus-4-6`、`anthropic/claude-sonnet-4-6`、`google-latest`、`google/gemini-3.1-pro-preview`、`google/gemini-3.5-flash`、`xai/grok-4.5`、`zai/glm-5.2` 和 `moonshot/kimi-k3`
+- Chat Completions 支持 `openai-latest`、`openai/gpt-5.6-terra`、`openai/gpt-5.6-luna`、`openai/gpt-5.5`、`openai/gpt-5.4-mini`、`claude-latest`、`anthropic/claude-fable-5-1`、`anthropic/claude-fable-5`、`anthropic/claude-opus-5`、`anthropic/claude-opus-4-8`、`anthropic/claude-opus-4-7`、`anthropic/claude-opus-4-6`、`anthropic/claude-sonnet-4-6`、`google-latest`、`google/gemini-3.1-pro-preview`、`google/gemini-3.8-flash`、`google/gemini-3.5-flash`、`xai/grok-4.5`、`zai/glm-5.3-flash`、`zai/glm-5.2` 和 `moonshot/kimi-k3`
 - Responses 支持 `openai-latest`、`openai/gpt-5.6-terra`、`openai/gpt-5.6-luna`、`openai/gpt-5.5` 和 `openai/gpt-5.4-mini`
-- Anthropic Messages 支持 `claude-latest`、`claude-fable-5`、`claude-opus-5`、`claude-opus-4-8`、`claude-opus-4-7`、`claude-opus-4-6` 和 `claude-sonnet-4-6`
+- Anthropic Messages 支持 `claude-latest`、`claude-fable-5-1`、`claude-fable-5`、`claude-opus-5`、`claude-opus-4-8`、`claude-opus-4-7`、`claude-opus-4-6` 和 `claude-sonnet-4-6`
 
 `GET /v1/models` 返回的其他公共 Chat Completions 兼容模型 ID，也可以通过同一条 OpenAI 兼容提供商路径测试。工具调用通过验证前，请勿将它们用于编程代理工作流。
 

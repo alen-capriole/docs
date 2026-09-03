@@ -22,6 +22,16 @@ curl -fsSL https://openclaw.ai/install.sh | bash -s -- --no-onboard
 
 ## 구성
 
+### 모델 검증
+
+OpenClaw 2026.4.21: `anthropic/claude-fable-5-1`, `google/gemini-3.8-flash`, `zai/glm-5.3-flash`는 로컬 파일 읽기 도구 및 최종 답변 검사를 통과했습니다. `claude-latest`는 Fable 5.1로 해석됩니다. 기존 구체 모델 ID도 계속 사용할 수 있습니다.
+
+아래 용량 설정은 [Fable 5.1](https://platform.claude.com/docs/en/models/fable-5-1/overview), [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash), [GLM 5.3 Flash](https://docs.z.ai/guides/vlm/glm-5.3-flash)의 공식 사양을 기준으로 합니다.
+
+이는 클라이언트의 모델 용량 설정이며, 요청마다 목표로 하는 출력량이나 검증된 VectorEngine 한도가 아닙니다. 로컬 작업 검사에는 `contextWindow=200000`과 `maxTokens=2048`을 사용했으며, 최대 용량 요청은 검증하지 않았습니다. Fable 5.1은 Anthropic Messages 경로 검사도 통과했습니다.
+
+`xai/grok-4.6`는 Chat Completions 요청을 받지만 코딩 에이전트 작업 검사를 통과하지 못해 아래 구성에 포함하지 않습니다. 제공자 직접 검사에서도 Grok 4.5의 도구 사용이 불안정했습니다. API 요청 완료가 올바른 에이전트 답변을 뜻하지는 않습니다.
+
 GPT 제공자를 구성하세요.
 
 ```bash
@@ -121,6 +131,16 @@ openclaw config set models.providers.capriole-ai-compatible \
     "api": "openai-completions",
     "models": [
       {
+        "id": "anthropic/claude-fable-5-1",
+        "name": "Fable 5.1",
+        "api": "openai-completions",
+        "contextWindow": 1000000,
+        "maxTokens": 128000,
+        "input": ["text"],
+        "reasoning": true,
+        "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
+      },
+      {
         "id": "anthropic/claude-fable-5",
         "name": "Fable 5",
         "api": "openai-completions",
@@ -141,10 +161,30 @@ openclaw config set models.providers.capriole-ai-compatible \
         "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
       },
       {
+        "id": "google/gemini-3.8-flash",
+        "name": "Gemini 3.8 Flash",
+        "api": "openai-completions",
+        "contextWindow": 1048576,
+        "maxTokens": 65536,
+        "input": ["text"],
+        "reasoning": true,
+        "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
+      },
+      {
         "id": "xai/grok-4.5",
         "name": "Grok 4.5",
         "api": "openai-completions",
         "contextWindow": 500000,
+        "maxTokens": 128000,
+        "input": ["text"],
+        "reasoning": true,
+        "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
+      },
+      {
+        "id": "zai/glm-5.3-flash",
+        "name": "GLM 5.3 Flash",
+        "api": "openai-completions",
+        "contextWindow": 1000000,
         "maxTokens": 128000,
         "input": ["text"],
         "reasoning": true,
@@ -211,6 +251,16 @@ openclaw config set models.providers.capriole-ai-anthropic.models \
     {
       "id": "claude-latest",
       "name": "Claude latest",
+      "api": "anthropic-messages",
+      "contextWindow": 1000000,
+      "maxTokens": 128000,
+      "input": ["text"],
+      "reasoning": true,
+      "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
+    },
+    {
+      "id": "claude-fable-5-1",
+      "name": "Fable 5.1",
       "api": "anthropic-messages",
       "contextWindow": 1000000,
       "maxTokens": 128000,
@@ -286,7 +336,7 @@ openclaw config set models.providers.capriole-ai-anthropic.models \
 
 ```bash
 openclaw config set agents.defaults.models \
-  '{"capriole-ai-openai/openai-latest":{},"capriole-ai-openai/openai/gpt-5.6-terra":{},"capriole-ai-openai/openai/gpt-5.6-luna":{},"capriole-ai-openai/openai/gpt-5.5":{},"capriole-ai-openai/openai/gpt-5.4-mini":{},"capriole-ai-compatible/anthropic/claude-fable-5":{},"capriole-ai-compatible/anthropic/claude-opus-5":{},"capriole-ai-compatible/xai/grok-4.5":{},"capriole-ai-compatible/zai/glm-5.2":{},"capriole-ai-compatible/moonshot/kimi-k3":{},"capriole-ai-anthropic/claude-latest":{},"capriole-ai-anthropic/claude-fable-5":{},"capriole-ai-anthropic/claude-opus-5":{},"capriole-ai-anthropic/claude-opus-4-8":{},"capriole-ai-anthropic/claude-opus-4-7":{},"capriole-ai-anthropic/claude-opus-4-6":{},"capriole-ai-anthropic/claude-sonnet-4-6":{}}' \
+  '{"capriole-ai-openai/openai-latest":{},"capriole-ai-openai/openai/gpt-5.6-terra":{},"capriole-ai-openai/openai/gpt-5.6-luna":{},"capriole-ai-openai/openai/gpt-5.5":{},"capriole-ai-openai/openai/gpt-5.4-mini":{},"capriole-ai-compatible/anthropic/claude-fable-5-1":{},"capriole-ai-compatible/anthropic/claude-fable-5":{},"capriole-ai-compatible/anthropic/claude-opus-5":{},"capriole-ai-compatible/google/gemini-3.8-flash":{},"capriole-ai-compatible/xai/grok-4.5":{},"capriole-ai-compatible/zai/glm-5.3-flash":{},"capriole-ai-compatible/zai/glm-5.2":{},"capriole-ai-compatible/moonshot/kimi-k3":{},"capriole-ai-anthropic/claude-latest":{},"capriole-ai-anthropic/claude-fable-5-1":{},"capriole-ai-anthropic/claude-fable-5":{},"capriole-ai-anthropic/claude-opus-5":{},"capriole-ai-anthropic/claude-opus-4-8":{},"capriole-ai-anthropic/claude-opus-4-7":{},"capriole-ai-anthropic/claude-opus-4-6":{},"capriole-ai-anthropic/claude-sonnet-4-6":{}}' \
   --strict-json
 ```
 
@@ -308,19 +358,23 @@ openclaw tui
 
 ## 지원 모델
 
-OpenClaw는 Capriole AI를 통해 OpenAI latest, GPT 5.6 Thinking, GPT 5.6, GPT 5.5, GPT 5.4 mini, Fable 5, Opus 5, Grok 4.5, GLM 5.2, Kimi K3, Claude latest, Opus 4.8, Opus 4.7, Opus 4.6, Sonnet 4.6을 지원합니다. Fable 5와 Opus 5는 Chat Completions 호환 제공자 또는 Anthropic Messages 제공자를 사용할 수 있습니다.
+OpenClaw는 Capriole AI를 통해 OpenAI latest, GPT 5.6 Thinking, GPT 5.6, GPT 5.5, GPT 5.4 mini, Fable 5.1, Fable 5, Opus 5, Grok 4.5, Gemini 3.8 Flash, GLM 5.3 Flash, GLM 5.2, Kimi K3, Claude latest, Opus 4.8, Opus 4.7, Opus 4.6, Sonnet 4.6을 지원합니다. Fable 5와 Opus 5는 Chat Completions 호환 제공자 또는 Anthropic Messages 제공자를 사용할 수 있습니다.
 
 - `openai-latest`
 - `openai/gpt-5.6-terra`
 - `openai/gpt-5.6-luna`
 - `openai/gpt-5.5`
 - `openai/gpt-5.4-mini`
+- `anthropic/claude-fable-5-1`
 - `anthropic/claude-fable-5`
 - `anthropic/claude-opus-5`
+- `google/gemini-3.8-flash`
 - `xai/grok-4.5`
+- `zai/glm-5.3-flash`
 - `zai/glm-5.2`
 - `moonshot/kimi-k3`
 - `claude-latest`
+- `claude-fable-5-1`
 - `claude-fable-5`
 - `claude-opus-5`
 - `claude-opus-4-8`

@@ -6,7 +6,9 @@ openapi: "api-reference/openapi.json POST /v1/chat/completions"
 
 Use this endpoint when your application, SDK, or gateway expects the OpenAI Chat Completions request and response format.
 
-Send a standard Chat Completions payload with `model` and `messages`. Capriole AI resolves latest aliases to the selected provider model ID before upstream dispatch, forwards compatible fields such as `messages`, `tools`, `tool_choice`, `response_format`, and `stream`, and returns the upstream JSON or SSE stream unchanged. For streaming requests, Capriole AI sets `stream_options.include_usage=true` before forwarding so usage can be recorded.
+Send a standard Chat Completions payload with `model` and `messages`. Capriole AI resolves latest aliases to the selected provider model ID before upstream dispatch, forwards compatible fields such as `messages`, `tools`, `tool_choice`, `response_format`, and `stream`, and returns the upstream JSON or SSE stream unchanged, except for the GLM SSE correction below. For streaming requests, Capriole AI sets `stream_options.include_usage=true` before forwarding so usage can be recorded.
+
+For SSE responses from VectorEngine with `model="zai/glm-5.3-flash"`, Capriole AI removes only the empty legacy `function_call={"name":"","arguments":""}` field from streamed deltas. Real or partial function calls, `tool_calls`, text, and usage remain intact. This exception does not change non-streaming responses or other models.
 
 `POST /v1/chat/completions` accepts `openai-latest`, `claude-latest`, `google-latest`, and public concrete model IDs returned by `GET /v1/models`. Use a latest alias to let Capriole AI choose our recommended flagship model for that provider.
 

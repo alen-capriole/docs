@@ -8,4 +8,4 @@ openapi: "api-reference/openapi.json POST /v1/chat"
 
 `POST /v1/chat` は `openai-latest`、`claude-latest`、`google-latest`、および `GET /v1/models` が返す公開の具体的なモデル ID を受け付けます。対応プロバイダーの推奨旗艦モデルを Capriole AI に選ばせるには、latest エイリアスを使ってください。バージョン固定が重要な場合は、具体的なモデル ID を使ってください。
 
-Capriole AI のウェブチャットと公開 API は、別々の製品サーフェスです。ウェブチャットでは、Fable 5 と Fable 5 Thinking が主な Anthropic モードであり、Opus 5 と Opus 5 Thinking は **Other Models** に表示されます。公開 API は、ウェブチャットの thinking プリセットを独立したモデル ID として公開しません。Claude の Chat API リクエストでは、`claude-latest`、または `anthropic/claude-fable-5`、`anthropic/claude-opus-5`、`anthropic/claude-sonnet-4-6` などの公開の具体的な Claude モデル ID を使ってください。既存の Opus 4.8、Opus 4.7、Opus 4.6 統合は引き続きサポートされます。
+Capriole AI のウェブチャットと公開 API は、別々の製品サーフェスです。ウェブチャットでは、Fable 5.1 と Fable 5.1 Thinking が主な Anthropic モードであり、Fable 5、Fable 5 Thinking、Opus 5、Opus 5 Thinking は **Other Models** に表示されます。公開 API は、ウェブチャットの thinking プリセットを独立したモデル ID として公開しません。Claude の Chat API リクエストでは、`claude-latest`、または `anthropic/claude-fable-5-1`、`anthropic/claude-fable-5`、`anthropic/claude-opus-5`、`anthropic/claude-sonnet-4-6` などの公開の具体的な Claude モデル ID を使ってください。既存の Opus 4.8、Opus 4.7、Opus 4.6 統合は引き続きサポートされます。

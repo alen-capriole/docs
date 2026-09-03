@@ -36,6 +36,14 @@ opencode --version
 
 ## 配置
 
+### 模型验证
+
+OpenCode 1.14.48 的文件读取工具和最终答案检查已通过：Fable 5.1 使用 Anthropic Messages（`claude-latest`），`zai/glm-5.3-flash` 使用 Chat Completions。下方配置采用这两条路径。
+
+通过 Chat Completions 调用 `anthropic/claude-fable-5-1` 和 `google/gemini-3.8-flash` 时，OpenCode 保存的会话包含已完成的文件读取和正确答案，但 `run --format json` 缺少最终文本事件。这两条路径未通过完整终端输出检查，因此不加入下方配置。
+
+`xai/grok-4.6` 能接受 Chat Completions 请求，但未通过编码 Agent 任务检查，因此不加入下方配置。直接调用上游的检查也发现 Grok 4.5 的工具使用不稳定；API 请求完成不代表 Agent 答案正确。
+
 创建或更新 `~/.config/opencode/opencode.json`。
 
 OpenAI 和 OpenAI 兼容提供商使用 `apiKey`，Anthropic 提供商使用 `authToken`。
@@ -170,6 +178,9 @@ OpenAI 和 OpenAI 兼容提供商使用 `apiKey`，Anthropic 提供商使用 `au
         "xai/grok-4.5": {
           "name": "Grok 4.5"
         },
+        "zai/glm-5.3-flash": {
+          "name": "GLM 5.3 Flash"
+        },
         "zai/glm-5.2": {
           "name": "GLM 5.2"
         },
@@ -225,6 +236,9 @@ OpenAI 和 OpenAI 兼容提供商使用 `apiKey`，Anthropic 提供商使用 `au
               "effort": "max"
             }
           }
+        },
+        "claude-fable-5-1": {
+          "name": "Fable 5.1"
         },
         "claude-fable-5": {
           "name": "Fable 5"
@@ -406,11 +420,11 @@ OpenAI 和 OpenAI 兼容提供商使用 `apiKey`，Anthropic 提供商使用 `au
 opencode
 ```
 
-使用 `/models` 选择 OpenAI latest、GPT 5.6 Thinking、GPT 5.6、GPT 5.5、GPT 5.4 mini、Fable 5、Opus 5、Grok 4.5、GLM 5.2、Kimi K3、Claude latest、Opus 4.8、Opus 4.7、Opus 4.6 或 Sonnet 4.6。使用 `Ctrl+T` 循环切换模型 Variant。
+使用 `/models` 选择 OpenAI latest、GPT 5.6 Thinking、GPT 5.6、GPT 5.5、GPT 5.4 mini、Fable 5.1、Fable 5、Opus 5、Grok 4.5、GLM 5.3 Flash、GLM 5.2、Kimi K3、Claude latest、Opus 4.8、Opus 4.7、Opus 4.6 或 Sonnet 4.6。使用 `Ctrl+T` 循环切换模型 Variant。
 
 ## 支持的模型
 
-OpenCode 可以通过 Capriole AI 使用 OpenAI latest、GPT 5.6 Thinking、GPT 5.6、GPT 5.5、GPT 5.4 mini、Fable 5、Opus 5、Grok 4.5、GLM 5.2、Kimi K3、Claude latest、Opus 4.8、Opus 4.7、Opus 4.6 和 Sonnet 4.6。Fable 5 和 Opus 5 可以使用 Chat Completions 兼容提供商，也可以使用 Anthropic Messages 提供商。
+OpenCode 可以通过 Capriole AI 使用 OpenAI latest、GPT 5.6 Thinking、GPT 5.6、GPT 5.5、GPT 5.4 mini、Fable 5.1、Fable 5、Opus 5、Grok 4.5、GLM 5.3 Flash、GLM 5.2、Kimi K3、Claude latest、Opus 4.8、Opus 4.7、Opus 4.6 和 Sonnet 4.6。Fable 5 和 Opus 5 可以使用 Chat Completions 兼容提供商，也可以使用 Anthropic Messages 提供商。
 
 - `openai-latest`
 - `openai/gpt-5.6-terra`
@@ -420,9 +434,11 @@ OpenCode 可以通过 Capriole AI 使用 OpenAI latest、GPT 5.6 Thinking、GPT 
 - `anthropic/claude-fable-5`
 - `anthropic/claude-opus-5`
 - `xai/grok-4.5`
+- `zai/glm-5.3-flash`
 - `zai/glm-5.2`
 - `moonshot/kimi-k3`
 - `claude-latest`
+- `claude-fable-5-1`
 - `claude-fable-5`
 - `claude-opus-5`
 - `claude-opus-4-8`

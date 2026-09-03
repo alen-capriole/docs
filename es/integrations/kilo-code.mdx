@@ -29,6 +29,14 @@ npm install -g @kilocode/cli
 
 ## Configuración
 
+### Validación de modelos
+
+Kilo Code 7.3.16: `anthropic/claude-fable-5-1`, `google/gemini-3.8-flash` y `zai/glm-5.3-flash` superan las pruebas locales de lectura de archivos y respuesta final. `claude-latest` se resuelve a Fable 5.1. Los IDs concretos anteriores siguen disponibles.
+
+Las pruebas de Gemini 3.8 Flash usan `"tool_call": true`; Gemini 3.5 Flash mantiene `"tool_call": false` en la configuración siguiente.
+
+`xai/grok-4.6` acepta solicitudes de Chat Completions, pero no superó las pruebas de tareas de agentes, por lo que no se incluye en la configuración siguiente. Las pruebas directas al proveedor también detectaron un uso de herramientas inconsistente con Grok 4.5; completar una solicitud API no demuestra que la respuesta del agente sea correcta.
+
 Crea o actualiza tu archivo de configuración de Kilo:
 
 - Configuración global: `~/.config/kilo/kilo.jsonc`
@@ -55,6 +63,11 @@ Usa esta configuración de proveedor compatible con OpenAI:
         },
         "claude-latest": {
           "name": "Capriole Claude Latest",
+          "tool_call": true,
+          "reasoning": true
+        },
+        "anthropic/claude-fable-5-1": {
+          "name": "Capriole Fable 5.1",
           "tool_call": true,
           "reasoning": true
         },
@@ -98,6 +111,11 @@ Usa esta configuración de proveedor compatible con OpenAI:
           "tool_call": true,
           "reasoning": true
         },
+        "zai/glm-5.3-flash": {
+          "name": "Capriole GLM 5.3 Flash",
+          "tool_call": true,
+          "reasoning": true
+        },
         "zai/glm-5.2": {
           "name": "Capriole GLM 5.2",
           "tool_call": true,
@@ -129,6 +147,11 @@ Usa esta configuración de proveedor compatible con OpenAI:
           "tool_call": true,
           "reasoning": true
         },
+        "google/gemini-3.8-flash": {
+          "name": "Capriole Gemini 3.8 Flash",
+          "tool_call": true,
+          "reasoning": true
+        },
         "google/gemini-3.5-flash": {
           "name": "Capriole Gemini 3.5 Flash",
           "tool_call": false,
@@ -157,12 +180,15 @@ kilo -m openai-compatible/claude-latest
 kilo -m openai-compatible/google-latest
 kilo -m openai-compatible/openai/gpt-5.5
 kilo -m openai-compatible/openai/gpt-5.4-mini
+kilo -m openai-compatible/anthropic/claude-fable-5-1
 kilo -m openai-compatible/anthropic/claude-fable-5
 kilo -m openai-compatible/anthropic/claude-opus-5
 kilo -m openai-compatible/anthropic/claude-opus-4-8
 kilo -m openai-compatible/anthropic/claude-opus-4-7
 kilo -m openai-compatible/google/gemini-3.1-pro-preview
+kilo -m openai-compatible/google/gemini-3.8-flash
 kilo -m openai-compatible/google/gemini-3.5-flash
+kilo -m openai-compatible/zai/glm-5.3-flash
 kilo -m openai-compatible/moonshot/kimi-k3
 ```
 
@@ -191,6 +217,7 @@ La documentación de Kilo usa el mismo orden de familias que el selector de mode
 - `openai/gpt-5.5`
 - `openai/gpt-5.4-mini`
 - `claude-latest`
+- `anthropic/claude-fable-5-1`
 - `anthropic/claude-fable-5`
 - `anthropic/claude-opus-5`
 - `anthropic/claude-opus-4-8`
@@ -199,8 +226,10 @@ La documentación de Kilo usa el mismo orden de familias que el selector de mode
 - `anthropic/claude-sonnet-4-6`
 - `google-latest`
 - `google/gemini-3.1-pro-preview`
+- `google/gemini-3.8-flash`
 - `google/gemini-3.5-flash`
 - `xai/grok-4.5`
+- `zai/glm-5.3-flash`
 - `zai/glm-5.2`
 - `moonshot/kimi-k3`
 

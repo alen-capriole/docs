@@ -6,7 +6,9 @@ openapi: "api-reference/openapi.json POST /v1/chat/completions"
 
 当应用、SDK 或网关需要 OpenAI Chat Completions 请求与响应格式时，请使用此端点。
 
-发送包含 `model` 和 `messages` 的标准 Chat Completions 请求体。Capriole AI 会在转发给上游前，把 latest alias 解析为所选提供商的模型 ID；继续转发 `messages`、`tools`、`tool_choice`、`response_format` 和 `stream` 等兼容字段；并原样返回上游 JSON 或 SSE 流。对于流式请求，Capriole AI 会在转发前设置 `stream_options.include_usage=true`，以便记录用量。
+发送包含 `model` 和 `messages` 的标准 Chat Completions 请求体。Capriole AI 会在转发给上游前，把 latest alias 解析为所选提供商的模型 ID；继续转发 `messages`、`tools`、`tool_choice`、`response_format` 和 `stream` 等兼容字段；并返回上游 JSON 或 SSE 流，以下 GLM SSE 修正除外。对于流式请求，Capriole AI 会在转发前设置 `stream_options.include_usage=true`，以便记录用量。
+
+对于 VectorEngine 提供的 `model="zai/glm-5.3-flash"` SSE 响应，Capriole AI 仅移除流式增量中空的旧式 `function_call={"name":"","arguments":""}` 字段。真实或尚未拼完的函数调用、`tool_calls`、文本和用量保持不变。此例外不影响非流式响应或其他模型。
 
 `POST /v1/chat/completions` 接受 `openai-latest`、`claude-latest`、`google-latest`，以及 `GET /v1/models` 返回的公开具体模型 ID。使用 latest alias 可以让 Capriole AI 为对应提供商选择当前推荐的旗舰模型。
 

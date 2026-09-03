@@ -37,6 +37,14 @@ BYOK モード用に `COPILOT_PROVIDER_BASE_URL` を設定している場合、G
 
 ## 設定
 
+### モデルの検証
+
+GitHub Copilot CLI 1.0.82：`anthropic/claude-fable-5-1`、`google/gemini-3.8-flash`、`zai/glm-5.3-flash` は、ローカルでのファイル読み取りツールと最終回答の確認に合格しています。 `claude-latest` は Fable 5.1 に解決されます。既存の具体的なモデル ID も利用できます。
+
+新モデルの Chat Completions 検証では `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"` を使用しています。Fable 5.1 は `claude-latest` を使う Anthropic Messages 経由の検証にも合格しています。
+
+`xai/grok-4.6` は Chat Completions リクエストを受け付けますが、コーディングエージェントのタスク検証に不合格のため、下記の設定には含めません。プロバイダーへの直接検証でも Grok 4.5 のツール利用は不安定でした。API リクエストの完了は、エージェントの回答が正しいことを意味しません。
+
 Capriole AI を OpenAI 互換のモデル プロバイダーとして設定します。
 
 ```bash
@@ -121,6 +129,7 @@ export COPILOT_PROVIDER_WIRE_API="completions"
 - `openai/gpt-5.5` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
 - `openai/gpt-5.4-mini` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
 - `claude-latest` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
+- `anthropic/claude-fable-5-1` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
 - `anthropic/claude-fable-5` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
 - `anthropic/claude-opus-5` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
 - `anthropic/claude-opus-4-8` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
@@ -129,8 +138,10 @@ export COPILOT_PROVIDER_WIRE_API="completions"
 - `anthropic/claude-sonnet-4-6` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
 - `google-latest` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
 - `google/gemini-3.1-pro-preview` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
+- `google/gemini-3.8-flash` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
 - `google/gemini-3.5-flash` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
 - `xai/grok-4.5` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
+- `zai/glm-5.3-flash` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
 - `zai/glm-5.2` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
 - `moonshot/kimi-k3` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
 
@@ -172,6 +183,7 @@ export COPILOT_PROVIDER_WIRE_MODEL="claude-latest"
 エンドポイント互換の wire モデル:
 
 - `claude-latest` with `COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"`
+- `claude-fable-5-1` with `COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"`
 - `claude-fable-5` with `COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"`
 - `claude-opus-5` with `COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"`
 - `claude-opus-4-8` with `COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"`
@@ -201,9 +213,9 @@ copilot -p "Explain this repository structure." --allow-all-tools --stream on
 
 これらの wire モデルは、Copilot CLI BYOK 向けの対応 Capriole AI エンドポイントで受け付けられます。エンドポイント互換の値であり、インストール済み Copilot CLI でのストリーミングとローカル シェル ツール利用の検証の代わりにはなりません。
 
-- Chat Completions: `openai-latest`、`openai/gpt-5.6-terra`、`openai/gpt-5.6-luna`、`openai/gpt-5.5`、`openai/gpt-5.4-mini`、`claude-latest`、`anthropic/claude-fable-5`、`anthropic/claude-opus-5`、`anthropic/claude-opus-4-8`、`anthropic/claude-opus-4-7`、`anthropic/claude-opus-4-6`、`anthropic/claude-sonnet-4-6`、`google-latest`、`google/gemini-3.1-pro-preview`、`google/gemini-3.5-flash`、`xai/grok-4.5`、`zai/glm-5.2`、`moonshot/kimi-k3`
+- Chat Completions: `openai-latest`、`openai/gpt-5.6-terra`、`openai/gpt-5.6-luna`、`openai/gpt-5.5`、`openai/gpt-5.4-mini`、`claude-latest`、`anthropic/claude-fable-5-1`、`anthropic/claude-fable-5`、`anthropic/claude-opus-5`、`anthropic/claude-opus-4-8`、`anthropic/claude-opus-4-7`、`anthropic/claude-opus-4-6`、`anthropic/claude-sonnet-4-6`、`google-latest`、`google/gemini-3.1-pro-preview`、`google/gemini-3.8-flash`、`google/gemini-3.5-flash`、`xai/grok-4.5`、`zai/glm-5.3-flash`、`zai/glm-5.2`、`moonshot/kimi-k3`
 - Responses: `openai-latest`、`openai/gpt-5.6-terra`、`openai/gpt-5.6-luna`、`openai/gpt-5.5`、`openai/gpt-5.4-mini`
-- Anthropic Messages: `claude-latest`、`claude-fable-5`、`claude-opus-5`、`claude-opus-4-8`、`claude-opus-4-7`、`claude-opus-4-6`、`claude-sonnet-4-6`
+- Anthropic Messages: `claude-latest`、`claude-fable-5-1`、`claude-fable-5`、`claude-opus-5`、`claude-opus-4-8`、`claude-opus-4-7`、`claude-opus-4-6`、`claude-sonnet-4-6`
 
 `GET /v1/models` が返す他の公開 Chat Completions 互換モデル ID も、同じ OpenAI 互換プロバイダー経路でテストできます。ただし、ツール利用を検証するまでコーディング エージェント ワークフローには使わないでください。
 

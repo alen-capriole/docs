@@ -37,6 +37,14 @@ Eine GitHub-Authentifizierung ist nicht erforderlich, wenn `COPILOT_PROVIDER_BAS
 
 ## Konfiguration
 
+### Modellvalidierung
+
+GitHub Copilot CLI 1.0.82: `anthropic/claude-fable-5-1`, `google/gemini-3.8-flash` und `zai/glm-5.3-flash` bestehen lokale Prüfungen mit Datei-Lesewerkzeug und abschließender Antwort. `claude-latest` wird zu Fable 5.1 aufgelöst. Bisherige konkrete Modell-IDs bleiben verfügbar.
+
+Die neuen Chat Completions-Prüfungen verwenden `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`; Fable 5.1 besteht auch die Prüfung über Anthropic Messages mit `claude-latest`.
+
+`xai/grok-4.6` akzeptiert Chat Completions-Anfragen, besteht aber die Coding-Agent-Aufgabenprüfung nicht und ist daher nicht in der folgenden Konfiguration enthalten. Direkte Anbieterprüfungen zeigen auch bei Grok 4.5 inkonsistente Werkzeugnutzung; eine abgeschlossene API-Anfrage belegt keine korrekte Agent-Antwort.
+
 Setzen Sie Capriole AI als OpenAI-kompatiblen Modellanbieter:
 
 ```bash
@@ -121,6 +129,7 @@ Endpunktkompatible Wire-Modelle:
 - `openai/gpt-5.5` mit `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
 - `openai/gpt-5.4-mini` mit `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
 - `claude-latest` mit `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
+- `anthropic/claude-fable-5-1` mit `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
 - `anthropic/claude-fable-5` mit `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
 - `anthropic/claude-opus-5` mit `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
 - `anthropic/claude-opus-4-8` mit `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
@@ -129,8 +138,10 @@ Endpunktkompatible Wire-Modelle:
 - `anthropic/claude-sonnet-4-6` mit `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
 - `google-latest` mit `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
 - `google/gemini-3.1-pro-preview` mit `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
+- `google/gemini-3.8-flash` mit `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
 - `google/gemini-3.5-flash` mit `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
 - `xai/grok-4.5` mit `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
+- `zai/glm-5.3-flash` mit `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
 - `zai/glm-5.2` mit `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
 - `moonshot/kimi-k3` mit `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
 
@@ -172,6 +183,7 @@ export COPILOT_PROVIDER_WIRE_MODEL="claude-latest"
 Endpunktkompatible Wire-Modelle:
 
 - `claude-latest` mit `COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"`
+- `claude-fable-5-1` mit `COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"`
 - `claude-fable-5` mit `COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"`
 - `claude-opus-5` mit `COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"`
 - `claude-opus-4-8` mit `COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"`
@@ -201,9 +213,9 @@ Für skriptgesteuerte Nutzung lassen Sie Streaming aktiviert. Die passenden Capr
 
 Diese Wire-Modelle werden von den passenden Capriole AI-Endpunkten für Copilot CLI BYOK akzeptiert. Es sind endpunktkompatible Werte, kein Ersatz für die Validierung von Streaming und lokaler Shell-Tool-Nutzung mit Ihrer installierten Copilot CLI:
 
-- Chat Completions: `openai-latest`, `openai/gpt-5.6-terra`, `openai/gpt-5.6-luna`, `openai/gpt-5.5`, `openai/gpt-5.4-mini`, `claude-latest`, `anthropic/claude-fable-5`, `anthropic/claude-opus-5`, `anthropic/claude-opus-4-8`, `anthropic/claude-opus-4-7`, `anthropic/claude-opus-4-6`, `anthropic/claude-sonnet-4-6`, `google-latest`, `google/gemini-3.1-pro-preview`, `google/gemini-3.5-flash`, `xai/grok-4.5`, `zai/glm-5.2` und `moonshot/kimi-k3`
+- Chat Completions: `openai-latest`, `openai/gpt-5.6-terra`, `openai/gpt-5.6-luna`, `openai/gpt-5.5`, `openai/gpt-5.4-mini`, `claude-latest`, `anthropic/claude-fable-5-1`, `anthropic/claude-fable-5`, `anthropic/claude-opus-5`, `anthropic/claude-opus-4-8`, `anthropic/claude-opus-4-7`, `anthropic/claude-opus-4-6`, `anthropic/claude-sonnet-4-6`, `google-latest`, `google/gemini-3.1-pro-preview`, `google/gemini-3.8-flash`, `google/gemini-3.5-flash`, `xai/grok-4.5`, `zai/glm-5.3-flash`, `zai/glm-5.2` und `moonshot/kimi-k3`
 - Responses: `openai-latest`, `openai/gpt-5.6-terra`, `openai/gpt-5.6-luna`, `openai/gpt-5.5` und `openai/gpt-5.4-mini`
-- Anthropic Messages: `claude-latest`, `claude-fable-5`, `claude-opus-5`, `claude-opus-4-8`, `claude-opus-4-7`, `claude-opus-4-6` und `claude-sonnet-4-6`
+- Anthropic Messages: `claude-latest`, `claude-fable-5-1`, `claude-fable-5`, `claude-opus-5`, `claude-opus-4-8`, `claude-opus-4-7`, `claude-opus-4-6` und `claude-sonnet-4-6`
 
 Andere öffentliche Chat Completions-kompatible Modell-IDs aus `GET /v1/models` können über denselben OpenAI-kompatiblen Anbieterpfad getestet werden, sollten aber erst nach validierter Tool-Nutzung für Coding-Agent-Workflows verwendet werden.
 

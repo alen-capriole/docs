@@ -8,7 +8,7 @@ openapi: "api-reference/openapi.json POST /v1/messages"
 
 `model`, `messages`, `max_tokens`가 있는 표준 Messages 페이로드를 보내세요. Capriole AI는 업스트림 전달 전에 latest 별칭을 선택한 업스트림 Claude 모델로 해석하고, `system`, `tools`, `thinking`, `stream` 같은 호환 필드를 전달하며, 업스트림 JSON 또는 SSE 스트림을 그대로 반환합니다.
 
-`POST /v1/messages`는 `claude-latest`, `claude-fable-5`, `claude-opus-5`, `claude-opus-4-8`, `claude-opus-4-7`, `claude-opus-4-6`, `claude-sonnet-4-6`을 받습니다. 구성을 바꾸지 않고 Fable 5를 선택하려면 `claude-latest`를 사용하세요.
+`POST /v1/messages`는 `claude-latest`, `claude-fable-5-1`, `claude-fable-5`, `claude-opus-5`, `claude-opus-4-8`, `claude-opus-4-7`, `claude-opus-4-6`, `claude-sonnet-4-6`을 받습니다. 구성을 바꾸지 않고 Fable 5.1를 선택하려면 `claude-latest`를 사용하세요.
 
 `POST /v1/messages/count_tokens`는 Anthropic 호환 토큰 수 확인에 같은 Claude 모델 ID를 받습니다. 선택한 업스트림의 토큰 수 응답 또는 오류를 반환합니다.
 

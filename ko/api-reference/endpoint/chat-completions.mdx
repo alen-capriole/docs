@@ -6,7 +6,9 @@ openapi: "api-reference/openapi.json POST /v1/chat/completions"
 
 애플리케이션, SDK 또는 게이트웨이가 OpenAI Chat Completions 요청 및 응답 형식을 기대할 때 이 엔드포인트를 사용하세요.
 
-`model`과 `messages`가 있는 표준 Chat Completions 페이로드를 보내세요. Capriole AI는 업스트림 전달 전에 latest 별칭을 선택한 제공자 모델 ID로 해석하고, `messages`, `tools`, `tool_choice`, `response_format`, `stream` 같은 호환 필드를 전달하며, 업스트림 JSON 또는 SSE 스트림을 그대로 반환합니다. 스트리밍 요청의 경우 Capriole AI는 전달 전에 `stream_options.include_usage=true`를 설정해 사용량을 기록할 수 있게 합니다.
+`model`과 `messages`가 있는 표준 Chat Completions 페이로드를 보내세요. Capriole AI는 업스트림 전달 전에 latest 별칭을 선택한 제공자 모델 ID로 해석하고, `messages`, `tools`, `tool_choice`, `response_format`, `stream` 같은 호환 필드를 전달하며, 업스트림 JSON 또는 SSE 스트림을 아래 GLM SSE 보정을 제외하고 그대로 반환합니다. 스트리밍 요청의 경우 Capriole AI는 전달 전에 `stream_options.include_usage=true`를 설정해 사용량을 기록할 수 있게 합니다.
+
+VectorEngine의 `model="zai/glm-5.3-flash"` SSE 응답에서 Capriole AI는 델타의 빈 레거시 `function_call={"name":"","arguments":""}` 필드만 제거합니다. 실제 또는 전송 중인 함수 호출, `tool_calls`, 텍스트, 사용량은 유지됩니다. 이 예외는 비스트리밍 응답이나 다른 모델에 적용되지 않습니다.
 
 `POST /v1/chat/completions`는 `openai-latest`, `claude-latest`, `google-latest`와 `GET /v1/models`가 반환하는 공개 구체 모델 ID를 받습니다. 해당 제공자의 권장 플래그십 모델을 Capriole AI가 선택하게 하려면 latest 별칭을 사용하세요.
 

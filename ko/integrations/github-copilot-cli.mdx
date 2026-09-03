@@ -37,6 +37,14 @@ BYOK 모드로 `COPILOT_PROVIDER_BASE_URL`이 설정되어 있으면 GitHub 인�
 
 ## 구성
 
+### 모델 검증
+
+GitHub Copilot CLI 1.0.82: `anthropic/claude-fable-5-1`, `google/gemini-3.8-flash`, `zai/glm-5.3-flash`는 로컬 파일 읽기 도구 및 최종 답변 검사를 통과했습니다. `claude-latest`는 Fable 5.1로 해석됩니다. 기존 구체 모델 ID도 계속 사용할 수 있습니다.
+
+새 Chat Completions 검사는 `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`를 사용합니다. Fable 5.1은 `claude-latest`를 사용하는 Anthropic Messages 경로 검사도 통과했습니다.
+
+`xai/grok-4.6`는 Chat Completions 요청을 받지만 코딩 에이전트 작업 검사를 통과하지 못해 아래 구성에 포함하지 않습니다. 제공자 직접 검사에서도 Grok 4.5의 도구 사용이 불안정했습니다. API 요청 완료가 올바른 에이전트 답변을 뜻하지는 않습니다.
+
 Capriole AI를 OpenAI 호환 모델 제공자로 설정하세요.
 
 ```bash
@@ -121,6 +129,7 @@ export COPILOT_PROVIDER_WIRE_API="completions"
 - `openai/gpt-5.5` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
 - `openai/gpt-5.4-mini` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
 - `claude-latest` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
+- `anthropic/claude-fable-5-1` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
 - `anthropic/claude-fable-5` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
 - `anthropic/claude-opus-5` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
 - `anthropic/claude-opus-4-8` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
@@ -129,8 +138,10 @@ export COPILOT_PROVIDER_WIRE_API="completions"
 - `anthropic/claude-sonnet-4-6` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
 - `google-latest` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
 - `google/gemini-3.1-pro-preview` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
+- `google/gemini-3.8-flash` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
 - `google/gemini-3.5-flash` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
 - `xai/grok-4.5` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
+- `zai/glm-5.3-flash` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
 - `zai/glm-5.2` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
 - `moonshot/kimi-k3` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
 
@@ -172,6 +183,7 @@ export COPILOT_PROVIDER_WIRE_MODEL="claude-latest"
 엔드포인트 호환 wire 모델:
 
 - `claude-latest` with `COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"`
+- `claude-fable-5-1` with `COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"`
 - `claude-fable-5` with `COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"`
 - `claude-opus-5` with `COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"`
 - `claude-opus-4-8` with `COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"`
@@ -201,9 +213,9 @@ copilot -p "Explain this repository structure." --allow-all-tools --stream on
 
 이 wire 모델은 Copilot CLI BYOK를 위한 대응하는 Capriole AI 엔드포인트에서 허용됩니다. 엔드포인트 호환 값이며, 설치된 Copilot CLI에서 스트리밍과 로컬 셸 도구 사용을 검증하는 대체가 아닙니다.
 
-- Chat Completions: `openai-latest`, `openai/gpt-5.6-terra`, `openai/gpt-5.6-luna`, `openai/gpt-5.5`, `openai/gpt-5.4-mini`, `claude-latest`, `anthropic/claude-fable-5`, `anthropic/claude-opus-5`, `anthropic/claude-opus-4-8`, `anthropic/claude-opus-4-7`, `anthropic/claude-opus-4-6`, `anthropic/claude-sonnet-4-6`, `google-latest`, `google/gemini-3.1-pro-preview`, `google/gemini-3.5-flash`, `xai/grok-4.5`, `zai/glm-5.2`, and `moonshot/kimi-k3`
+- Chat Completions: `openai-latest`, `openai/gpt-5.6-terra`, `openai/gpt-5.6-luna`, `openai/gpt-5.5`, `openai/gpt-5.4-mini`, `claude-latest`, `anthropic/claude-fable-5-1`, `anthropic/claude-fable-5`, `anthropic/claude-opus-5`, `anthropic/claude-opus-4-8`, `anthropic/claude-opus-4-7`, `anthropic/claude-opus-4-6`, `anthropic/claude-sonnet-4-6`, `google-latest`, `google/gemini-3.1-pro-preview`, `google/gemini-3.8-flash`, `google/gemini-3.5-flash`, `xai/grok-4.5`, `zai/glm-5.3-flash`, `zai/glm-5.2`, and `moonshot/kimi-k3`
 - Responses: `openai-latest`, `openai/gpt-5.6-terra`, `openai/gpt-5.6-luna`, `openai/gpt-5.5`, and `openai/gpt-5.4-mini`
-- Anthropic Messages: `claude-latest`, `claude-fable-5`, `claude-opus-5`, `claude-opus-4-8`, `claude-opus-4-7`, `claude-opus-4-6`, and `claude-sonnet-4-6`
+- Anthropic Messages: `claude-latest`, `claude-fable-5-1`, `claude-fable-5`, `claude-opus-5`, `claude-opus-4-8`, `claude-opus-4-7`, `claude-opus-4-6`, and `claude-sonnet-4-6`
 
 `GET /v1/models`가 반환하는 다른 공개 Chat Completions 호환 모델 ID도 같은 OpenAI 호환 제공자 경로로 테스트할 수 있지만, 도구 사용이 검증되기 전에는 코딩 에이전트 워크플로에 사용하지 마세요.
 

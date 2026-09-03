@@ -36,6 +36,14 @@ opencode --version
 
 ## Configuração
 
+### Validação dos modelos
+
+OpenCode 1.14.48 passa nas verificações de leitura de arquivo e resposta final com Fable 5.1 via Anthropic Messages (`claude-latest`) e com `zai/glm-5.3-flash` via Chat Completions. Use essas rotas na configuração abaixo.
+
+Para `anthropic/claude-fable-5-1` e `google/gemini-3.8-flash` via Chat Completions, a sessão salva do OpenCode contém a leitura concluída e a resposta correta, mas `run --format json` omite o evento de texto final. Essas rotas não passam na verificação completa de saída da CLI e não foram adicionadas à configuração abaixo.
+
+`xai/grok-4.6` aceita solicitações de Chat Completions, mas não passou nas verificações de tarefas de agentes e não está na configuração abaixo. Testes diretos no provedor também encontraram uso inconsistente de ferramentas no Grok 4.5; concluir uma solicitação API não comprova uma resposta correta do agente.
+
 Crie ou atualize `~/.config/opencode/opencode.json`:
 
 Use `apiKey` para os provedores OpenAI e compatíveis com OpenAI e `authToken` para o provedor Anthropic.
@@ -170,6 +178,9 @@ Use `apiKey` para os provedores OpenAI e compatíveis com OpenAI e `authToken` p
         "xai/grok-4.5": {
           "name": "Grok 4.5"
         },
+        "zai/glm-5.3-flash": {
+          "name": "GLM 5.3 Flash"
+        },
         "zai/glm-5.2": {
           "name": "GLM 5.2"
         },
@@ -225,6 +236,9 @@ Use `apiKey` para os provedores OpenAI e compatíveis com OpenAI e `authToken` p
               "effort": "max"
             }
           }
+        },
+        "claude-fable-5-1": {
+          "name": "Fable 5.1"
         },
         "claude-fable-5": {
           "name": "Fable 5"
@@ -406,11 +420,11 @@ Depois de substituir `YOUR_CAPRIOLE_AI_API_KEY` na configuração, inicie o Open
 opencode
 ```
 
-Use `/models` para selecionar OpenAI latest, GPT 5.6 Thinking, GPT 5.6, GPT 5.5, GPT 5.4 mini, Fable 5, Opus 5, Grok 4.5, GLM 5.2, Kimi K3, Claude latest, Opus 4.8, Opus 4.7, Opus 4.6 ou Sonnet 4.6. Use `Ctrl+T` para percorrer as variantes de modelo.
+Use `/models` para selecionar OpenAI latest, GPT 5.6 Thinking, GPT 5.6, GPT 5.5, GPT 5.4 mini, Fable 5.1, Fable 5, Opus 5, Grok 4.5, GLM 5.3 Flash, GLM 5.2, Kimi K3, Claude latest, Opus 4.8, Opus 4.7, Opus 4.6 ou Sonnet 4.6. Use `Ctrl+T` para percorrer as variantes de modelo.
 
 ## Modelos suportados
 
-O OpenCode suporta OpenAI latest, GPT 5.6 Thinking, GPT 5.6, GPT 5.5, GPT 5.4 mini, Fable 5, Opus 5, Grok 4.5, GLM 5.2, Kimi K3, Claude latest, Opus 4.8, Opus 4.7, Opus 4.6 e Sonnet 4.6 pela Capriole AI. Fable 5 e Opus 5 podem usar o provedor compatível com Chat Completions ou o provedor Anthropic Messages.
+O OpenCode suporta OpenAI latest, GPT 5.6 Thinking, GPT 5.6, GPT 5.5, GPT 5.4 mini, Fable 5.1, Fable 5, Opus 5, Grok 4.5, GLM 5.3 Flash, GLM 5.2, Kimi K3, Claude latest, Opus 4.8, Opus 4.7, Opus 4.6 e Sonnet 4.6 pela Capriole AI. Fable 5 e Opus 5 podem usar o provedor compatível com Chat Completions ou o provedor Anthropic Messages.
 
 - `openai-latest`
 - `openai/gpt-5.6-terra`
@@ -420,9 +434,11 @@ O OpenCode suporta OpenAI latest, GPT 5.6 Thinking, GPT 5.6, GPT 5.5, GPT 5.4 mi
 - `anthropic/claude-fable-5`
 - `anthropic/claude-opus-5`
 - `xai/grok-4.5`
+- `zai/glm-5.3-flash`
 - `zai/glm-5.2`
 - `moonshot/kimi-k3`
 - `claude-latest`
+- `claude-fable-5-1`
 - `claude-fable-5`
 - `claude-opus-5`
 - `claude-opus-4-8`

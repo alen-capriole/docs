@@ -22,6 +22,16 @@ curl -fsSL https://openclaw.ai/install.sh | bash -s -- --no-onboard
 
 ## Konfiguration
 
+### Modellvalidierung
+
+OpenClaw 2026.4.21: `anthropic/claude-fable-5-1`, `google/gemini-3.8-flash` und `zai/glm-5.3-flash` bestehen lokale Prüfungen mit Datei-Lesewerkzeug und abschließender Antwort. `claude-latest` wird zu Fable 5.1 aufgelöst. Bisherige konkrete Modell-IDs bleiben verfügbar.
+
+Die folgenden Kapazitätseinstellungen basieren auf den veröffentlichten Spezifikationen von [Fable 5.1](https://platform.claude.com/docs/en/models/fable-5-1/overview), [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash) und [GLM 5.3 Flash](https://docs.z.ai/guides/vlm/glm-5.3-flash).
+
+Dies sind Modellkapazitätseinstellungen im Client, keine Ausgabeziele pro Anfrage oder verifizierten VectorEngine-Grenzen. Die lokalen Aufgabenprüfungen verwendeten `contextWindow=200000` und `maxTokens=2048`; Anfragen mit voller Kapazität sind nicht validiert. Fable 5.1 besteht auch die Prüfung über Anthropic Messages.
+
+`xai/grok-4.6` akzeptiert Chat Completions-Anfragen, besteht aber die Coding-Agent-Aufgabenprüfung nicht und ist daher nicht in der folgenden Konfiguration enthalten. Direkte Anbieterprüfungen zeigen auch bei Grok 4.5 inkonsistente Werkzeugnutzung; eine abgeschlossene API-Anfrage belegt keine korrekte Agent-Antwort.
+
 Konfigurieren Sie den GPT-Anbieter:
 
 ```bash
@@ -121,6 +131,16 @@ openclaw config set models.providers.capriole-ai-compatible \
     "api": "openai-completions",
     "models": [
       {
+        "id": "anthropic/claude-fable-5-1",
+        "name": "Fable 5.1",
+        "api": "openai-completions",
+        "contextWindow": 1000000,
+        "maxTokens": 128000,
+        "input": ["text"],
+        "reasoning": true,
+        "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
+      },
+      {
         "id": "anthropic/claude-fable-5",
         "name": "Fable 5",
         "api": "openai-completions",
@@ -141,10 +161,30 @@ openclaw config set models.providers.capriole-ai-compatible \
         "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
       },
       {
+        "id": "google/gemini-3.8-flash",
+        "name": "Gemini 3.8 Flash",
+        "api": "openai-completions",
+        "contextWindow": 1048576,
+        "maxTokens": 65536,
+        "input": ["text"],
+        "reasoning": true,
+        "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
+      },
+      {
         "id": "xai/grok-4.5",
         "name": "Grok 4.5",
         "api": "openai-completions",
         "contextWindow": 500000,
+        "maxTokens": 128000,
+        "input": ["text"],
+        "reasoning": true,
+        "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
+      },
+      {
+        "id": "zai/glm-5.3-flash",
+        "name": "GLM 5.3 Flash",
+        "api": "openai-completions",
+        "contextWindow": 1000000,
         "maxTokens": 128000,
         "input": ["text"],
         "reasoning": true,
@@ -211,6 +251,16 @@ openclaw config set models.providers.capriole-ai-anthropic.models \
     {
       "id": "claude-latest",
       "name": "Claude latest",
+      "api": "anthropic-messages",
+      "contextWindow": 1000000,
+      "maxTokens": 128000,
+      "input": ["text"],
+      "reasoning": true,
+      "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
+    },
+    {
+      "id": "claude-fable-5-1",
+      "name": "Fable 5.1",
       "api": "anthropic-messages",
       "contextWindow": 1000000,
       "maxTokens": 128000,
@@ -286,7 +336,7 @@ Erlauben Sie die konfigurierten Capriole AI-Modelle für den Standard-Agent:
 
 ```bash
 openclaw config set agents.defaults.models \
-  '{"capriole-ai-openai/openai-latest":{},"capriole-ai-openai/openai/gpt-5.6-terra":{},"capriole-ai-openai/openai/gpt-5.6-luna":{},"capriole-ai-openai/openai/gpt-5.5":{},"capriole-ai-openai/openai/gpt-5.4-mini":{},"capriole-ai-compatible/anthropic/claude-fable-5":{},"capriole-ai-compatible/anthropic/claude-opus-5":{},"capriole-ai-compatible/xai/grok-4.5":{},"capriole-ai-compatible/zai/glm-5.2":{},"capriole-ai-compatible/moonshot/kimi-k3":{},"capriole-ai-anthropic/claude-latest":{},"capriole-ai-anthropic/claude-fable-5":{},"capriole-ai-anthropic/claude-opus-5":{},"capriole-ai-anthropic/claude-opus-4-8":{},"capriole-ai-anthropic/claude-opus-4-7":{},"capriole-ai-anthropic/claude-opus-4-6":{},"capriole-ai-anthropic/claude-sonnet-4-6":{}}' \
+  '{"capriole-ai-openai/openai-latest":{},"capriole-ai-openai/openai/gpt-5.6-terra":{},"capriole-ai-openai/openai/gpt-5.6-luna":{},"capriole-ai-openai/openai/gpt-5.5":{},"capriole-ai-openai/openai/gpt-5.4-mini":{},"capriole-ai-compatible/anthropic/claude-fable-5-1":{},"capriole-ai-compatible/anthropic/claude-fable-5":{},"capriole-ai-compatible/anthropic/claude-opus-5":{},"capriole-ai-compatible/google/gemini-3.8-flash":{},"capriole-ai-compatible/xai/grok-4.5":{},"capriole-ai-compatible/zai/glm-5.3-flash":{},"capriole-ai-compatible/zai/glm-5.2":{},"capriole-ai-compatible/moonshot/kimi-k3":{},"capriole-ai-anthropic/claude-latest":{},"capriole-ai-anthropic/claude-fable-5-1":{},"capriole-ai-anthropic/claude-fable-5":{},"capriole-ai-anthropic/claude-opus-5":{},"capriole-ai-anthropic/claude-opus-4-8":{},"capriole-ai-anthropic/claude-opus-4-7":{},"capriole-ai-anthropic/claude-opus-4-6":{},"capriole-ai-anthropic/claude-sonnet-4-6":{}}' \
   --strict-json
 ```
 
@@ -308,19 +358,23 @@ openclaw tui
 
 ## Unterstützte Modelle
 
-OpenClaw unterstützt OpenAI latest, GPT 5.6 Thinking, GPT 5.6, GPT 5.5, GPT 5.4 mini, Fable 5, Opus 5, Grok 4.5, GLM 5.2, Kimi K3, Claude latest, Opus 4.8, Opus 4.7, Opus 4.6 und Sonnet 4.6 über Capriole AI. Fable 5 und Opus 5 können entweder den Chat Completions-kompatiblen Anbieter oder den Anthropic Messages-Anbieter nutzen.
+OpenClaw unterstützt OpenAI latest, GPT 5.6 Thinking, GPT 5.6, GPT 5.5, GPT 5.4 mini, Fable 5.1, Fable 5, Opus 5, Grok 4.5, Gemini 3.8 Flash, GLM 5.3 Flash, GLM 5.2, Kimi K3, Claude latest, Opus 4.8, Opus 4.7, Opus 4.6 und Sonnet 4.6 über Capriole AI. Fable 5 und Opus 5 können entweder den Chat Completions-kompatiblen Anbieter oder den Anthropic Messages-Anbieter nutzen.
 
 - `openai-latest`
 - `openai/gpt-5.6-terra`
 - `openai/gpt-5.6-luna`
 - `openai/gpt-5.5`
 - `openai/gpt-5.4-mini`
+- `anthropic/claude-fable-5-1`
 - `anthropic/claude-fable-5`
 - `anthropic/claude-opus-5`
+- `google/gemini-3.8-flash`
 - `xai/grok-4.5`
+- `zai/glm-5.3-flash`
 - `zai/glm-5.2`
 - `moonshot/kimi-k3`
 - `claude-latest`
+- `claude-fable-5-1`
 - `claude-fable-5`
 - `claude-opus-5`
 - `claude-opus-4-8`

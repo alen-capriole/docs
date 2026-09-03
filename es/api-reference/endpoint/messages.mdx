@@ -8,7 +8,7 @@ Usa este endpoint cuando tu aplicación, SDK o agente espere el formato de solic
 
 Envía un payload estándar de Messages con `model`, `messages` y `max_tokens`. Capriole AI resuelve los alias latest al modelo Claude de upstream seleccionado antes del envío a upstream, reenvía campos compatibles como `system`, `tools`, `thinking` y `stream`, y devuelve el JSON o el flujo SSE de upstream sin cambios.
 
-`POST /v1/messages` acepta `claude-latest`, `claude-fable-5`, `claude-opus-5`, `claude-opus-4-8`, `claude-opus-4-7`, `claude-opus-4-6` y `claude-sonnet-4-6`. Usa `claude-latest` para seleccionar Fable 5 sin cambiar tu configuración.
+`POST /v1/messages` acepta `claude-latest`, `claude-fable-5-1`, `claude-fable-5`, `claude-opus-5`, `claude-opus-4-8`, `claude-opus-4-7`, `claude-opus-4-6` y `claude-sonnet-4-6`. Usa `claude-latest` para seleccionar Fable 5.1 sin cambiar tu configuración.
 
 `POST /v1/messages/count_tokens` acepta los mismos IDs de modelo Claude para comprobaciones de recuento de tokens compatibles con Anthropic. Devuelve la respuesta o el error de recuento de tokens del upstream seleccionado.
 

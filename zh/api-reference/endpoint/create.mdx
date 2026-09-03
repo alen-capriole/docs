@@ -8,4 +8,4 @@ openapi: "api-reference/openapi.json POST /v1/chat"
 
 `POST /v1/chat` 接受 `openai-latest`、`claude-latest`、`google-latest`，以及 `GET /v1/models` 返回的公开具体模型 ID。使用 latest alias 可以让 Capriole AI 为对应提供商选择当前推荐的旗舰模型。需要固定模型版本时，请使用具体模型 ID。
 
-Capriole AI 网页聊天和公开 API 是两个独立的产品界面。在网页聊天中，Fable 5 和 Fable 5 Thinking 是主要 Anthropic 模式，Opus 5 和 Opus 5 Thinking 位于 Other Models。公开 API 不会把网页聊天的 Thinking 预设作为独立模型 ID 暴露。调用 Claude Chat API 时，请使用 `claude-latest`，或 `anthropic/claude-fable-5`、`anthropic/claude-opus-5`、`anthropic/claude-sonnet-4-6` 等公开的具体 Claude 模型 ID。现有 Opus 4.8、Opus 4.7 和 Opus 4.6 集成仍受支持。
+Capriole AI 网页聊天和公开 API 是两个独立的产品界面。在网页聊天中，Fable 5.1 和 Fable 5.1 Thinking 是主要 Anthropic 模式，Fable 5、Fable 5 Thinking、Opus 5 和 Opus 5 Thinking 位于 Other Models。公开 API 不会把网页聊天的 Thinking 预设作为独立模型 ID 暴露。调用 Claude Chat API 时，请使用 `claude-latest`，或 `anthropic/claude-fable-5-1`、`anthropic/claude-fable-5`、`anthropic/claude-opus-5`、`anthropic/claude-sonnet-4-6` 等公开的具体 Claude 模型 ID。现有 Opus 4.8、Opus 4.7 和 Opus 4.6 集成仍受支持。

@@ -24,7 +24,7 @@ openapi: "api-reference/openapi.json GET /v1/models"
 | Latest alias | 解析结果 |
 | --- | --- |
 | `openai-latest` | `openai/gpt-5.6-terra` |
-| `claude-latest` | `anthropic/claude-fable-5` |
+| `claude-latest` | `anthropic/claude-fable-5-1` |
 | `google-latest` | `google/gemini-3.1-pro-preview` |
 
 | 端点 | 支持的 latest alias |
@@ -35,8 +35,8 @@ openapi: "api-reference/openapi.json GET /v1/models"
 | `POST /v1/messages` | `claude-latest` |
 | `POST /v1/messages/count_tokens` | `claude-latest` |
 
-Anthropic Messages 端点也接受 `claude-fable-5`、`claude-opus-5`、`claude-opus-4-8`、`claude-opus-4-7`、`claude-opus-4-6` 和 `claude-sonnet-4-6` 等不带提供商前缀的具体 Claude Messages 模型 ID。
+Anthropic Messages 端点也接受 `claude-fable-5-1`、`claude-fable-5`、`claude-opus-5`、`claude-opus-4-8`、`claude-opus-4-7`、`claude-opus-4-6` 和 `claude-sonnet-4-6` 等不带提供商前缀的具体 Claude Messages 模型 ID。
 
-在 `POST /v1/messages` 和 `POST /v1/messages/count_tokens` 中，`claude-latest` 会解析为 `claude-fable-5`，与 Chat 和 Chat Completions 的 latest alias 保持一致。
+在 `POST /v1/messages` 和 `POST /v1/messages/count_tokens` 中，`claude-latest` 会解析为 `claude-fable-5-1`，与 Chat 和 Chat Completions 的 latest alias 保持一致。
 
 请使用上面列出的 alias ID，不要添加提供商前缀。`openai/openai-latest` 这样的写法属于客户端的提供商选择格式，不是 Capriole AI 模型 ID。
