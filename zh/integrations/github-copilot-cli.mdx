@@ -58,7 +58,7 @@ export COPILOT_PROVIDER_WIRE_API="completions"
 在 Chat Completions 上选择 OpenAI latest。
 
 ```bash
-export COPILOT_PROVIDER_MODEL_ID="gpt-5.5"
+export COPILOT_PROVIDER_MODEL_ID="gpt-6-astra"
 export COPILOT_PROVIDER_WIRE_MODEL="openai-latest"
 ```
 
@@ -69,7 +69,9 @@ export COPILOT_PROVIDER_MODEL_ID="gpt-5.4"
 export COPILOT_PROVIDER_WIRE_MODEL="openai/gpt-5.4-mini"
 ```
 
-`COPILOT_PROVIDER_MODEL_ID` 告诉 Copilot CLI 应使用哪一种内置模型行为。`COPILOT_PROVIDER_WIRE_MODEL` 是发送到 `POST /v1/chat/completions` 的 Capriole AI 模型 ID。
+`COPILOT_PROVIDER_MODEL_ID` 是客户端模型标识，`COPILOT_PROVIDER_WIRE_MODEL` 是发送给 Capriole AI 的模型 ID。GPT-6 Astra 使用 `gpt-6-astra` 搭配 `openai-latest`。Copilot CLI 1.0.82 接受这个自定义标识，但没有内置 Astra 配置，因此客户端配置和 token 上限使用默认值，除非显式覆盖。可运行 `copilot help providers` 查看说明。
+
+使用这个 Astra 客户端标识的本地检查中，Chat Completions 完成了文件读取。Responses 在指定绝对路径后返回了正确内容，但也复现了相对路径解析错误和长时间等待。更换客户端标识不是这些任务问题的修复方案，正式使用前请验证自己的工作流程。
 
 ## 持久化配置
 
@@ -83,7 +85,7 @@ export COPILOT_PROVIDER_TYPE="openai"
 export COPILOT_PROVIDER_BASE_URL="https://api.caprioletech.com/v1"
 export COPILOT_PROVIDER_API_KEY="$CAPRIOLE_AI_API_KEY"
 export COPILOT_PROVIDER_WIRE_API="responses"
-export COPILOT_PROVIDER_MODEL_ID="gpt-5.5"
+export COPILOT_PROVIDER_MODEL_ID="gpt-6-astra"
 export COPILOT_PROVIDER_WIRE_MODEL="openai-latest"
 alias capriole-copilot="copilot --stream on"
 ```
@@ -123,7 +125,8 @@ export COPILOT_PROVIDER_WIRE_API="completions"
 
 与端点兼容的 Wire Model 如下。
 
-- `openai-latest` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
+- `openai-latest` with `COPILOT_PROVIDER_MODEL_ID="gpt-6-astra"`
+- `openai/gpt-6-astra` with `COPILOT_PROVIDER_MODEL_ID="gpt-6-astra"`
 - `openai/gpt-5.6-terra` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
 - `openai/gpt-5.6-luna` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
 - `openai/gpt-5.5` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
@@ -160,7 +163,8 @@ export COPILOT_PROVIDER_WIRE_API="responses"
 
 与端点兼容的 Wire Model 如下。
 
-- `openai-latest` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
+- `openai-latest` with `COPILOT_PROVIDER_MODEL_ID="gpt-6-astra"`
+- `openai/gpt-6-astra` with `COPILOT_PROVIDER_MODEL_ID="gpt-6-astra"`
 - `openai/gpt-5.6-terra` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
 - `openai/gpt-5.6-luna` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
 - `openai/gpt-5.5` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
@@ -213,8 +217,8 @@ copilot -p "Explain this repository structure." --allow-all-tools --stream on
 
 Copilot CLI BYOK 对应的 Capriole AI 端点接受以下 Wire Model。这些值与端点兼容，但仍需在已安装的 Copilot CLI 中验证流式传输和本地 Shell 工具调用。
 
-- Chat Completions 支持 `openai-latest`、`openai/gpt-5.6-terra`、`openai/gpt-5.6-luna`、`openai/gpt-5.5`、`openai/gpt-5.4-mini`、`claude-latest`、`anthropic/claude-fable-5-1`、`anthropic/claude-fable-5`、`anthropic/claude-opus-5`、`anthropic/claude-opus-4-8`、`anthropic/claude-opus-4-7`、`anthropic/claude-opus-4-6`、`anthropic/claude-sonnet-4-6`、`google-latest`、`google/gemini-3.1-pro-preview`、`google/gemini-3.8-flash`、`google/gemini-3.5-flash`、`xai/grok-4.5`、`zai/glm-5.3-flash`、`zai/glm-5.2` 和 `moonshot/kimi-k3`
-- Responses 支持 `openai-latest`、`openai/gpt-5.6-terra`、`openai/gpt-5.6-luna`、`openai/gpt-5.5` 和 `openai/gpt-5.4-mini`
+- Chat Completions 支持 `openai-latest`、`openai/gpt-6-astra`、`openai/gpt-5.6-terra`、`openai/gpt-5.6-luna`、`openai/gpt-5.5`、`openai/gpt-5.4-mini`、`claude-latest`、`anthropic/claude-fable-5-1`、`anthropic/claude-fable-5`、`anthropic/claude-opus-5`、`anthropic/claude-opus-4-8`、`anthropic/claude-opus-4-7`、`anthropic/claude-opus-4-6`、`anthropic/claude-sonnet-4-6`、`google-latest`、`google/gemini-3.1-pro-preview`、`google/gemini-3.8-flash`、`google/gemini-3.5-flash`、`xai/grok-4.5`、`zai/glm-5.3-flash`、`zai/glm-5.2` 和 `moonshot/kimi-k3`
+- Responses 支持 `openai-latest`、`openai/gpt-6-astra`、`openai/gpt-5.6-terra`、`openai/gpt-5.6-luna`、`openai/gpt-5.5` 和 `openai/gpt-5.4-mini`
 - Anthropic Messages 支持 `claude-latest`、`claude-fable-5-1`、`claude-fable-5`、`claude-opus-5`、`claude-opus-4-8`、`claude-opus-4-7`、`claude-opus-4-6` 和 `claude-sonnet-4-6`
 
 `GET /v1/models` 返回的其他公共 Chat Completions 兼容模型 ID，也可以通过同一条 OpenAI 兼容提供商路径测试。工具调用通过验证前，请勿将它们用于编程代理工作流。
@@ -235,7 +239,7 @@ GitHub Copilot CLI 1.0.75 可以通过这条 Chat Completions 路径，使用 `a
 
 ### 为什么 Copilot CLI 提示缺少模型
 
-同时设置 `COPILOT_PROVIDER_MODEL_ID` 和 `COPILOT_PROVIDER_WIRE_MODEL`。Model ID 应使用 Copilot 侧的基础模型，Wire Model 应使用 Capriole AI 模型 ID。
+同时设置 `COPILOT_PROVIDER_MODEL_ID` 和 `COPILOT_PROVIDER_WIRE_MODEL`。GPT-6 Astra 分别填写 `gpt-6-astra` 和 `openai-latest`。
 
 ### 为什么应保持流式传输开启
 

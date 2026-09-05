@@ -26,7 +26,7 @@ curl -fsSL https://openclaw.ai/install.sh | bash -s -- --no-onboard
 
 OpenClaw 2026.4.21: `anthropic/claude-fable-5-1`, `google/gemini-3.8-flash` e `zai/glm-5.3-flash` passam nas verificações locais de leitura de arquivo e resposta final. `claude-latest` resolve para Fable 5.1. Os IDs concretos anteriores continuam disponíveis.
 
-As configurações de capacidade abaixo seguem as especificações publicadas de [Fable 5.1](https://platform.claude.com/docs/en/models/fable-5-1/overview), [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash) e [GLM 5.3 Flash](https://docs.z.ai/guides/vlm/glm-5.3-flash).
+As configurações de capacidade abaixo seguem as especificações publicadas de [GPT-6 Astra](https://developers.openai.com/api/docs/models/gpt-6-astra), [Fable 5.1](https://platform.claude.com/docs/en/models/fable-5-1/overview), [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash) e [GLM 5.3 Flash](https://docs.z.ai/guides/vlm/glm-5.3-flash).
 
 São configurações de capacidade do modelo no cliente, não metas de saída por solicitação nem limites verificados do VectorEngine. As verificações locais de tarefas usaram `contextWindow=200000` e `maxTokens=2048`; solicitações com capacidade máxima não foram validadas. Fable 5.1 também passa pela rota Anthropic Messages.
 
@@ -70,6 +70,16 @@ openclaw config set models.providers.capriole-ai-openai.models \
       "name": "OpenAI latest",
       "api": "openai-responses",
       "contextWindow": 400000,
+      "maxTokens": 128000,
+      "input": ["text"],
+      "reasoning": true,
+      "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
+    },
+    {
+      "id": "openai/gpt-6-astra",
+      "name": "GPT-6 Astra",
+      "api": "openai-responses",
+      "contextWindow": 1050000,
       "maxTokens": 128000,
       "input": ["text"],
       "reasoning": true,
@@ -336,7 +346,7 @@ Permita os modelos configurados da Capriole AI para o agente padrão:
 
 ```bash
 openclaw config set agents.defaults.models \
-  '{"capriole-ai-openai/openai-latest":{},"capriole-ai-openai/openai/gpt-5.6-terra":{},"capriole-ai-openai/openai/gpt-5.6-luna":{},"capriole-ai-openai/openai/gpt-5.5":{},"capriole-ai-openai/openai/gpt-5.4-mini":{},"capriole-ai-compatible/anthropic/claude-fable-5-1":{},"capriole-ai-compatible/anthropic/claude-fable-5":{},"capriole-ai-compatible/anthropic/claude-opus-5":{},"capriole-ai-compatible/google/gemini-3.8-flash":{},"capriole-ai-compatible/xai/grok-4.5":{},"capriole-ai-compatible/zai/glm-5.3-flash":{},"capriole-ai-compatible/zai/glm-5.2":{},"capriole-ai-compatible/moonshot/kimi-k3":{},"capriole-ai-anthropic/claude-latest":{},"capriole-ai-anthropic/claude-fable-5-1":{},"capriole-ai-anthropic/claude-fable-5":{},"capriole-ai-anthropic/claude-opus-5":{},"capriole-ai-anthropic/claude-opus-4-8":{},"capriole-ai-anthropic/claude-opus-4-7":{},"capriole-ai-anthropic/claude-opus-4-6":{},"capriole-ai-anthropic/claude-sonnet-4-6":{}}' \
+  '{"capriole-ai-openai/openai-latest":{},"capriole-ai-openai/openai/gpt-6-astra":{},"capriole-ai-openai/openai/gpt-5.6-terra":{},"capriole-ai-openai/openai/gpt-5.6-luna":{},"capriole-ai-openai/openai/gpt-5.5":{},"capriole-ai-openai/openai/gpt-5.4-mini":{},"capriole-ai-compatible/anthropic/claude-fable-5-1":{},"capriole-ai-compatible/anthropic/claude-fable-5":{},"capriole-ai-compatible/anthropic/claude-opus-5":{},"capriole-ai-compatible/google/gemini-3.8-flash":{},"capriole-ai-compatible/xai/grok-4.5":{},"capriole-ai-compatible/zai/glm-5.3-flash":{},"capriole-ai-compatible/zai/glm-5.2":{},"capriole-ai-compatible/moonshot/kimi-k3":{},"capriole-ai-anthropic/claude-latest":{},"capriole-ai-anthropic/claude-fable-5-1":{},"capriole-ai-anthropic/claude-fable-5":{},"capriole-ai-anthropic/claude-opus-5":{},"capriole-ai-anthropic/claude-opus-4-8":{},"capriole-ai-anthropic/claude-opus-4-7":{},"capriole-ai-anthropic/claude-opus-4-6":{},"capriole-ai-anthropic/claude-sonnet-4-6":{}}' \
   --strict-json
 ```
 
@@ -358,9 +368,10 @@ openclaw tui
 
 ## Modelos suportados
 
-O OpenClaw suporta OpenAI latest, GPT 5.6 Thinking, GPT 5.6, GPT 5.5, GPT 5.4 mini, Fable 5.1, Fable 5, Opus 5, Grok 4.5, Gemini 3.8 Flash, GLM 5.3 Flash, GLM 5.2, Kimi K3, Claude latest, Opus 4.8, Opus 4.7, Opus 4.6 e Sonnet 4.6 pela Capriole AI. Fable 5 e Opus 5 podem usar o provedor compatível com Chat Completions ou o provedor Anthropic Messages.
+O OpenClaw suporta OpenAI latest, GPT-6 Astra, GPT 5.6 Thinking, GPT 5.6, GPT 5.5, GPT 5.4 mini, Fable 5.1, Fable 5, Opus 5, Grok 4.5, Gemini 3.8 Flash, GLM 5.3 Flash, GLM 5.2, Kimi K3, Claude latest, Opus 4.8, Opus 4.7, Opus 4.6 e Sonnet 4.6 pela Capriole AI. Fable 5 e Opus 5 podem usar o provedor compatível com Chat Completions ou o provedor Anthropic Messages.
 
 - `openai-latest`
+- `openai/gpt-6-astra`
 - `openai/gpt-5.6-terra`
 - `openai/gpt-5.6-luna`
 - `openai/gpt-5.5`

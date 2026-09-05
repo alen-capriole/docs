@@ -91,6 +91,12 @@ OpenAI 和 OpenAI 兼容提供商使用 `apiKey`，Anthropic 提供商使用 `au
             }
           }
         },
+        "openai/gpt-6-astra": {
+          "name": "GPT-6 Astra",
+          "options": {
+            "forceReasoning": true
+          }
+        },
         "openai/gpt-5.6-terra": {
           "name": "GPT 5.6 Thinking",
           "options": {
@@ -420,13 +426,14 @@ OpenAI 和 OpenAI 兼容提供商使用 `apiKey`，Anthropic 提供商使用 `au
 opencode
 ```
 
-使用 `/models` 选择 OpenAI latest、GPT 5.6 Thinking、GPT 5.6、GPT 5.5、GPT 5.4 mini、Fable 5.1、Fable 5、Opus 5、Grok 4.5、GLM 5.3 Flash、GLM 5.2、Kimi K3、Claude latest、Opus 4.8、Opus 4.7、Opus 4.6 或 Sonnet 4.6。使用 `Ctrl+T` 循环切换模型 Variant。
+使用 `/models` 选择 OpenAI latest、GPT-6 Astra, GPT 5.6 Thinking、GPT 5.6、GPT 5.5、GPT 5.4 mini、Fable 5.1、Fable 5、Opus 5、Grok 4.5、GLM 5.3 Flash、GLM 5.2、Kimi K3、Claude latest、Opus 4.8、Opus 4.7、Opus 4.6 或 Sonnet 4.6。使用 `Ctrl+T` 循环切换模型 Variant。
 
 ## 支持的模型
 
-OpenCode 可以通过 Capriole AI 使用 OpenAI latest、GPT 5.6 Thinking、GPT 5.6、GPT 5.5、GPT 5.4 mini、Fable 5.1、Fable 5、Opus 5、Grok 4.5、GLM 5.3 Flash、GLM 5.2、Kimi K3、Claude latest、Opus 4.8、Opus 4.7、Opus 4.6 和 Sonnet 4.6。Fable 5 和 Opus 5 可以使用 Chat Completions 兼容提供商，也可以使用 Anthropic Messages 提供商。
+OpenCode 可以通过 Capriole AI 使用 OpenAI latest、GPT-6 Astra, GPT 5.6 Thinking、GPT 5.6、GPT 5.5、GPT 5.4 mini、Fable 5.1、Fable 5、Opus 5、Grok 4.5、GLM 5.3 Flash、GLM 5.2、Kimi K3、Claude latest、Opus 4.8、Opus 4.7、Opus 4.6 和 Sonnet 4.6。Fable 5 和 Opus 5 可以使用 Chat Completions 兼容提供商，也可以使用 Anthropic Messages 提供商。
 
 - `openai-latest`
+- `openai/gpt-6-astra`
 - `openai/gpt-5.6-terra`
 - `openai/gpt-5.6-luna`
 - `openai/gpt-5.5`

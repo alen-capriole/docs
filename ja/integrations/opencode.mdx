@@ -91,6 +91,12 @@ OpenAI および OpenAI 互換プロバイダーでは `apiKey` を、Anthropic 
             }
           }
         },
+        "openai/gpt-6-astra": {
+          "name": "GPT-6 Astra",
+          "options": {
+            "forceReasoning": true
+          }
+        },
         "openai/gpt-5.6-terra": {
           "name": "GPT 5.6 Thinking",
           "options": {
@@ -420,13 +426,14 @@ OpenAI および OpenAI 互換プロバイダーでは `apiKey` を、Anthropic 
 opencode
 ```
 
-`/models` で OpenAI latest、GPT 5.6 Thinking、GPT 5.6、GPT 5.5、GPT 5.4 mini、Fable 5.1、Fable 5、Opus 5、Grok 4.5、GLM 5.3 Flash、GLM 5.2、Kimi K3、Claude latest、Opus 4.8、Opus 4.7、Opus 4.6、または Sonnet 4.6 を選びます。`Ctrl+T` でモデル variant を切り替えます。
+`/models` で OpenAI latest、GPT-6 Astra、GPT 5.6 Thinking、GPT 5.6、GPT 5.5、GPT 5.4 mini、Fable 5.1、Fable 5、Opus 5、Grok 4.5、GLM 5.3 Flash、GLM 5.2、Kimi K3、Claude latest、Opus 4.8、Opus 4.7、Opus 4.6、または Sonnet 4.6 を選びます。`Ctrl+T` でモデル variant を切り替えます。
 
 ## 対応モデル
 
-OpenCode は Capriole AI 経由で OpenAI latest、GPT 5.6 Thinking、GPT 5.6、GPT 5.5、GPT 5.4 mini、Fable 5.1、Fable 5、Opus 5、Grok 4.5、GLM 5.3 Flash、GLM 5.2、Kimi K3、Claude latest、Opus 4.8、Opus 4.7、Opus 4.6、Sonnet 4.6 を使えます。Fable 5 と Opus 5 は、Chat Completions 互換プロバイダーまたは Anthropic Messages プロバイダーのどちらでも使えます。
+OpenCode は Capriole AI 経由で OpenAI latest、GPT-6 Astra、GPT 5.6 Thinking、GPT 5.6、GPT 5.5、GPT 5.4 mini、Fable 5.1、Fable 5、Opus 5、Grok 4.5、GLM 5.3 Flash、GLM 5.2、Kimi K3、Claude latest、Opus 4.8、Opus 4.7、Opus 4.6、Sonnet 4.6 を使えます。Fable 5 と Opus 5 は、Chat Completions 互換プロバイダーまたは Anthropic Messages プロバイダーのどちらでも使えます。
 
 - `openai-latest`
+- `openai/gpt-6-astra`
 - `openai/gpt-5.6-terra`
 - `openai/gpt-5.6-luna`
 - `openai/gpt-5.5`

@@ -8,7 +8,7 @@ Verwenden Sie diesen Endpunkt, wenn Ihre Anwendung, Ihr SDK oder Ihr Agent das A
 
 Senden Sie eine Standard-Responses-Nutzlast mit `model` und `input`. Capriole AI löst Latest-Aliase vor der Upstream-Weiterleitung zur ausgewählten Upstream-Modell-ID auf, leitet kompatible Felder wie `instructions`, `tools`, `reasoning`, `previous_response_id` und `stream` weiter und gibt den Upstream-JSON- oder SSE-Stream unverändert zurück.
 
-`POST /v1/responses` akzeptiert `openai-latest`, `openai/gpt-5.6-terra`, `openai/gpt-5.6-luna`, `openai/gpt-5.5` und `openai/gpt-5.4-mini`. Verwenden Sie `openai-latest`, damit Capriole AI unser empfohlenes Flaggschiff-OpenAI Responses-Modell wählt.
+`POST /v1/responses` akzeptiert `openai-latest`, `openai/gpt-6-astra`, `openai/gpt-5.6-terra`, `openai/gpt-5.6-luna`, `openai/gpt-5.5` und `openai/gpt-5.4-mini`. Verwenden Sie `openai-latest`, damit Capriole AI unser empfohlenes Flaggschiff-OpenAI Responses-Modell wählt.
 
 Claude- und Google Latest-Aliase werden auf diesem Endpunkt nicht unterstützt. Grok 4.5, GLM 5.2 und Kimi K3 nutzen Chat Completions und werden hier ebenfalls nicht unterstützt. Verwenden Sie `POST /v1/chat/completions`, wenn Sie einen OpenAI-kompatiblen Endpunkt für jedes öffentliche Modell nutzen möchten.
 

@@ -17,13 +17,13 @@ openapi: "api-reference/openapi.json GET /v1/models"
 | モデルの選び方 | 向いている用途 |
 | --- | --- |
 | `openai-latest`、`claude-latest`、`google-latest` | 一度設定すれば、Capriole AI が推奨旗艦モデルに合わせ続けます |
-| `openai/gpt-5.6-terra` などの具体的なモデル ID | 特定のモデル バージョンに固定します |
+| `openai/gpt-6-astra` などの具体的なモデル ID | 特定のモデル バージョンに固定します |
 
 `POST /v1/chat` と `POST /v1/chat/completions` では、latest エイリアスは次のように解決されます。
 
 | latest エイリアス | 解決先 |
 | --- | --- |
-| `openai-latest` | `openai/gpt-5.6-terra` |
+| `openai-latest` | `openai/gpt-6-astra` |
 | `claude-latest` | `anthropic/claude-fable-5-1` |
 | `google-latest` | `google/gemini-3.1-pro-preview` |
 

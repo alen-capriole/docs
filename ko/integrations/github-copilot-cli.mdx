@@ -58,7 +58,7 @@ export COPILOT_PROVIDER_WIRE_API="completions"
 Chat Completions에서 OpenAI latest를 선택하세요.
 
 ```bash
-export COPILOT_PROVIDER_MODEL_ID="gpt-5.5"
+export COPILOT_PROVIDER_MODEL_ID="gpt-6-astra"
 export COPILOT_PROVIDER_WIRE_MODEL="openai-latest"
 ```
 
@@ -69,7 +69,9 @@ export COPILOT_PROVIDER_MODEL_ID="gpt-5.4"
 export COPILOT_PROVIDER_WIRE_MODEL="openai/gpt-5.4-mini"
 ```
 
-`COPILOT_PROVIDER_MODEL_ID`는 Copilot CLI가 사용할 내장 모델 동작을 지정합니다. `COPILOT_PROVIDER_WIRE_MODEL`은 `POST /v1/chat/completions`로 보내는 Capriole AI 모델 ID입니다.
+`COPILOT_PROVIDER_MODEL_ID`는 클라이언트 모델 식별자이고, `COPILOT_PROVIDER_WIRE_MODEL`은 Capriole AI로 전송하는 모델 ID입니다. GPT-6 Astra에는 `gpt-6-astra`와 `openai-latest`를 사용하세요. Copilot CLI 1.0.82는 이 사용자 지정 ID를 허용하지만 Astra 전용 설정은 내장하지 않습니다. 명시적으로 덮어쓰지 않으면 클라이언트 기본 설정과 토큰 한도를 사용합니다. 자세한 내용은 `copilot help providers`를 확인하세요.
+
+이 Astra 식별자를 사용한 로컬 검사에서 Chat Completions는 파일 읽기를 완료했습니다. Responses는 절대 경로를 지정하면 올바른 내용을 반환했지만, 상대 경로 해석 오류와 긴 대기도 재현됐습니다. 식별자 변경은 이러한 작업 문제의 해결책이 아니므로 실제 사용 전에 작업 흐름을 검증하세요.
 
 ## 지속 설정
 
@@ -83,7 +85,7 @@ export COPILOT_PROVIDER_TYPE="openai"
 export COPILOT_PROVIDER_BASE_URL="https://api.caprioletech.com/v1"
 export COPILOT_PROVIDER_API_KEY="$CAPRIOLE_AI_API_KEY"
 export COPILOT_PROVIDER_WIRE_API="responses"
-export COPILOT_PROVIDER_MODEL_ID="gpt-5.5"
+export COPILOT_PROVIDER_MODEL_ID="gpt-6-astra"
 export COPILOT_PROVIDER_WIRE_MODEL="openai-latest"
 alias capriole-copilot="copilot --stream on"
 ```
@@ -123,7 +125,8 @@ export COPILOT_PROVIDER_WIRE_API="completions"
 
 엔드포인트 호환 wire 모델:
 
-- `openai-latest` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
+- `openai-latest` with `COPILOT_PROVIDER_MODEL_ID="gpt-6-astra"`
+- `openai/gpt-6-astra` with `COPILOT_PROVIDER_MODEL_ID="gpt-6-astra"`
 - `openai/gpt-5.6-terra` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
 - `openai/gpt-5.6-luna` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
 - `openai/gpt-5.5` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
@@ -160,7 +163,8 @@ export COPILOT_PROVIDER_WIRE_API="responses"
 
 엔드포인트 호환 wire 모델:
 
-- `openai-latest` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
+- `openai-latest` with `COPILOT_PROVIDER_MODEL_ID="gpt-6-astra"`
+- `openai/gpt-6-astra` with `COPILOT_PROVIDER_MODEL_ID="gpt-6-astra"`
 - `openai/gpt-5.6-terra` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
 - `openai/gpt-5.6-luna` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
 - `openai/gpt-5.5` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
@@ -213,8 +217,8 @@ copilot -p "Explain this repository structure." --allow-all-tools --stream on
 
 이 wire 모델은 Copilot CLI BYOK를 위한 대응하는 Capriole AI 엔드포인트에서 허용됩니다. 엔드포인트 호환 값이며, 설치된 Copilot CLI에서 스트리밍과 로컬 셸 도구 사용을 검증하는 대체가 아닙니다.
 
-- Chat Completions: `openai-latest`, `openai/gpt-5.6-terra`, `openai/gpt-5.6-luna`, `openai/gpt-5.5`, `openai/gpt-5.4-mini`, `claude-latest`, `anthropic/claude-fable-5-1`, `anthropic/claude-fable-5`, `anthropic/claude-opus-5`, `anthropic/claude-opus-4-8`, `anthropic/claude-opus-4-7`, `anthropic/claude-opus-4-6`, `anthropic/claude-sonnet-4-6`, `google-latest`, `google/gemini-3.1-pro-preview`, `google/gemini-3.8-flash`, `google/gemini-3.5-flash`, `xai/grok-4.5`, `zai/glm-5.3-flash`, `zai/glm-5.2`, and `moonshot/kimi-k3`
-- Responses: `openai-latest`, `openai/gpt-5.6-terra`, `openai/gpt-5.6-luna`, `openai/gpt-5.5`, and `openai/gpt-5.4-mini`
+- Chat Completions: `openai-latest`, `openai/gpt-6-astra`, `openai/gpt-5.6-terra`, `openai/gpt-5.6-luna`, `openai/gpt-5.5`, `openai/gpt-5.4-mini`, `claude-latest`, `anthropic/claude-fable-5-1`, `anthropic/claude-fable-5`, `anthropic/claude-opus-5`, `anthropic/claude-opus-4-8`, `anthropic/claude-opus-4-7`, `anthropic/claude-opus-4-6`, `anthropic/claude-sonnet-4-6`, `google-latest`, `google/gemini-3.1-pro-preview`, `google/gemini-3.8-flash`, `google/gemini-3.5-flash`, `xai/grok-4.5`, `zai/glm-5.3-flash`, `zai/glm-5.2`, and `moonshot/kimi-k3`
+- Responses: `openai-latest`, `openai/gpt-6-astra`, `openai/gpt-5.6-terra`, `openai/gpt-5.6-luna`, `openai/gpt-5.5`, and `openai/gpt-5.4-mini`
 - Anthropic Messages: `claude-latest`, `claude-fable-5-1`, `claude-fable-5`, `claude-opus-5`, `claude-opus-4-8`, `claude-opus-4-7`, `claude-opus-4-6`, and `claude-sonnet-4-6`
 
 `GET /v1/models`가 반환하는 다른 공개 Chat Completions 호환 모델 ID도 같은 OpenAI 호환 제공자 경로로 테스트할 수 있지만, 도구 사용이 검증되기 전에는 코딩 에이전트 워크플로에 사용하지 마세요.
@@ -235,7 +239,7 @@ Anthropic Messages의 경우 `COPILOT_PROVIDER_BASE_URL`이 `/v1` 없는 `https:
 
 ### Copilot CLI가 모델이 없다고 하는 이유는 무엇인가요?
 
-`COPILOT_PROVIDER_MODEL_ID`와 `COPILOT_PROVIDER_WIRE_MODEL`을 모두 설정하세요. 모델 ID는 Copilot 쪽 기본 모델이어야 하고, wire 모델은 Capriole AI 모델 ID여야 합니다.
+`COPILOT_PROVIDER_MODEL_ID`와 `COPILOT_PROVIDER_WIRE_MODEL`을 모두 설정하세요. GPT-6 Astra에는 각각 `gpt-6-astra`와 `openai-latest`를 사용하세요.
 
 ### 스트리밍을 켜 두어야 하는 이유는 무엇인가요?
 

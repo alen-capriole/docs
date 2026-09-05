@@ -8,4 +8,6 @@ Use this endpoint to send plain text input to a model and receive a plain text r
 
 `POST /v1/chat` accepts `openai-latest`, `claude-latest`, `google-latest`, and public concrete model IDs returned by `GET /v1/models`. Use a latest alias to let Capriole AI choose our recommended flagship model for that provider. Use a concrete model ID when version pinning matters.
 
+GPT-6 Astra has two Web Chat presets: Thinking (`medium`, selected by default) and Fast (`low`). Both GPT-5.6 presets are available under Other Models. The public API uses `openai-latest` or `openai/gpt-6-astra`, not the browser-only Thinking ID. This native Chat endpoint uses Astra's `low` preset; Responses and Chat Completions forward the caller's reasoning options unchanged.
+
 Capriole AI web chat and the public API are separate product surfaces. In web chat, Fable 5.1 and Fable 5.1 Thinking are the primary Anthropic modes, while Fable 5, Fable 5 Thinking, Opus 5, and Opus 5 Thinking appear under Other Models. The public API does not expose web chat thinking presets as separate model IDs; for Claude Chat API requests, use `claude-latest` or a concrete public Claude model ID such as `anthropic/claude-fable-5-1`, `anthropic/claude-fable-5`, `anthropic/claude-opus-5`, or `anthropic/claude-sonnet-4-6`. Existing Opus 4.8, Opus 4.7, and Opus 4.6 integrations remain supported.

@@ -91,6 +91,12 @@ OpenAI 및 OpenAI 호환 제공자에는 `apiKey`를, Anthropic 제공자에는 
             }
           }
         },
+        "openai/gpt-6-astra": {
+          "name": "GPT-6 Astra",
+          "options": {
+            "forceReasoning": true
+          }
+        },
         "openai/gpt-5.6-terra": {
           "name": "GPT 5.6 Thinking",
           "options": {
@@ -420,13 +426,14 @@ OpenAI 및 OpenAI 호환 제공자에는 `apiKey`를, Anthropic 제공자에는 
 opencode
 ```
 
-`/models`로 OpenAI latest, GPT 5.6 Thinking, GPT 5.6, GPT 5.5, GPT 5.4 mini, Fable 5.1, Fable 5, Opus 5, Grok 4.5, GLM 5.3 Flash, GLM 5.2, Kimi K3, Claude latest, Opus 4.8, Opus 4.7, Opus 4.6, Sonnet 4.6을 선택하세요. `Ctrl+T`로 모델 variant를 순환하세요.
+`/models`로 OpenAI latest, GPT-6 Astra, GPT 5.6 Thinking, GPT 5.6, GPT 5.5, GPT 5.4 mini, Fable 5.1, Fable 5, Opus 5, Grok 4.5, GLM 5.3 Flash, GLM 5.2, Kimi K3, Claude latest, Opus 4.8, Opus 4.7, Opus 4.6, Sonnet 4.6을 선택하세요. `Ctrl+T`로 모델 variant를 순환하세요.
 
 ## 지원 모델
 
-OpenCode는 Capriole AI를 통해 OpenAI latest, GPT 5.6 Thinking, GPT 5.6, GPT 5.5, GPT 5.4 mini, Fable 5.1, Fable 5, Opus 5, Grok 4.5, GLM 5.3 Flash, GLM 5.2, Kimi K3, Claude latest, Opus 4.8, Opus 4.7, Opus 4.6, Sonnet 4.6을 지원합니다. Fable 5와 Opus 5는 Chat Completions 호환 제공자 또는 Anthropic Messages 제공자를 사용할 수 있습니다.
+OpenCode는 Capriole AI를 통해 OpenAI latest, GPT-6 Astra, GPT 5.6 Thinking, GPT 5.6, GPT 5.5, GPT 5.4 mini, Fable 5.1, Fable 5, Opus 5, Grok 4.5, GLM 5.3 Flash, GLM 5.2, Kimi K3, Claude latest, Opus 4.8, Opus 4.7, Opus 4.6, Sonnet 4.6을 지원합니다. Fable 5와 Opus 5는 Chat Completions 호환 제공자 또는 Anthropic Messages 제공자를 사용할 수 있습니다.
 
 - `openai-latest`
+- `openai/gpt-6-astra`
 - `openai/gpt-5.6-terra`
 - `openai/gpt-5.6-luna`
 - `openai/gpt-5.5`

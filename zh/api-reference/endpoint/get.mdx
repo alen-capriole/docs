@@ -17,13 +17,13 @@ openapi: "api-reference/openapi.json GET /v1/models"
 | 模型选择 | 适用场景 |
 | --- | --- |
 | `openai-latest`、`claude-latest`、`google-latest` | 配置一次，让 Capriole AI 持续使用当前推荐的旗舰模型 |
-| `openai/gpt-5.6-terra` 等具体模型 ID | 固定到一个特定模型版本 |
+| `openai/gpt-6-astra` 等具体模型 ID | 固定到一个特定模型版本 |
 
 在 `POST /v1/chat` 和 `POST /v1/chat/completions` 中，latest alias 按以下方式解析。
 
 | Latest alias | 解析结果 |
 | --- | --- |
-| `openai-latest` | `openai/gpt-5.6-terra` |
+| `openai-latest` | `openai/gpt-6-astra` |
 | `claude-latest` | `anthropic/claude-fable-5-1` |
 | `google-latest` | `google/gemini-3.1-pro-preview` |
 

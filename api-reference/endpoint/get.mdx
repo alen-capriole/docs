@@ -17,13 +17,13 @@ Use a latest alias when you want Capriole AI to choose our recommended flagship 
 | Model choice | Best for |
 | --- | --- |
 | `openai-latest`, `claude-latest`, `google-latest` | Configure once and let Capriole AI keep you on the recommended flagship |
-| Concrete model IDs such as `openai/gpt-5.6-terra` | Pin one exact model version |
+| Concrete model IDs such as `openai/gpt-6-astra` | Pin one exact model version |
 
 Latest aliases resolve as follows on `POST /v1/chat` and `POST /v1/chat/completions`:
 
 | Latest alias | Resolves to |
 | --- | --- |
-| `openai-latest` | `openai/gpt-5.6-terra` |
+| `openai-latest` | `openai/gpt-6-astra` |
 | `claude-latest` | `anthropic/claude-fable-5-1` |
 | `google-latest` | `google/gemini-3.1-pro-preview` |
 

@@ -58,7 +58,7 @@ export COPILOT_PROVIDER_WIRE_API="completions"
 Wählen Sie OpenAI latest auf Chat Completions:
 
 ```bash
-export COPILOT_PROVIDER_MODEL_ID="gpt-5.5"
+export COPILOT_PROVIDER_MODEL_ID="gpt-6-astra"
 export COPILOT_PROVIDER_WIRE_MODEL="openai-latest"
 ```
 
@@ -69,7 +69,9 @@ export COPILOT_PROVIDER_MODEL_ID="gpt-5.4"
 export COPILOT_PROVIDER_WIRE_MODEL="openai/gpt-5.4-mini"
 ```
 
-`COPILOT_PROVIDER_MODEL_ID` teilt Copilot CLI mit, welches integrierte Modellverhalten verwendet werden soll. `COPILOT_PROVIDER_WIRE_MODEL` ist die Capriole AI Modell-ID, die an `POST /v1/chat/completions` gesendet wird.
+`COPILOT_PROVIDER_MODEL_ID` ist die clientseitige Modellkennung; `COPILOT_PROVIDER_WIRE_MODEL` ist die an Capriole AI gesendete Modell-ID. Verwenden Sie für GPT-6 Astra `gpt-6-astra` mit `openai-latest`. Copilot CLI 1.0.82 akzeptiert diese benutzerdefinierte ID, enthält aber kein Astra-Profil. Ohne explizite Überschreibung gelten die Standardkonfiguration und Standard-Tokenlimits des Clients. Siehe `copilot help providers`.
+
+Lokale Tests mit dieser Astra-Kennung schließen das Dateilesen über Chat Completions ab. Responses liefert bei einem absoluten Pfad den richtigen Inhalt, zeigt aber auch Fehler bei relativen Pfaden und lange Wartezeiten. Eine andere Client-Kennung behebt diese Aufgabenprobleme nicht; prüfen Sie Ihren eigenen Ablauf vor dem Einsatz.
 
 ## Dauerhafte Einrichtung
 
@@ -83,7 +85,7 @@ export COPILOT_PROVIDER_TYPE="openai"
 export COPILOT_PROVIDER_BASE_URL="https://api.caprioletech.com/v1"
 export COPILOT_PROVIDER_API_KEY="$CAPRIOLE_AI_API_KEY"
 export COPILOT_PROVIDER_WIRE_API="responses"
-export COPILOT_PROVIDER_MODEL_ID="gpt-5.5"
+export COPILOT_PROVIDER_MODEL_ID="gpt-6-astra"
 export COPILOT_PROVIDER_WIRE_MODEL="openai-latest"
 alias capriole-copilot="copilot --stream on"
 ```
@@ -123,7 +125,8 @@ export COPILOT_PROVIDER_WIRE_API="completions"
 
 Endpunktkompatible Wire-Modelle:
 
-- `openai-latest` mit `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
+- `openai-latest` mit `COPILOT_PROVIDER_MODEL_ID="gpt-6-astra"`
+- `openai/gpt-6-astra` mit `COPILOT_PROVIDER_MODEL_ID="gpt-6-astra"`
 - `openai/gpt-5.6-terra` mit `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
 - `openai/gpt-5.6-luna` mit `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
 - `openai/gpt-5.5` mit `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
@@ -160,7 +163,8 @@ export COPILOT_PROVIDER_WIRE_API="responses"
 
 Endpunktkompatible Wire-Modelle:
 
-- `openai-latest` mit `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
+- `openai-latest` mit `COPILOT_PROVIDER_MODEL_ID="gpt-6-astra"`
+- `openai/gpt-6-astra` mit `COPILOT_PROVIDER_MODEL_ID="gpt-6-astra"`
 - `openai/gpt-5.6-terra` mit `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
 - `openai/gpt-5.6-luna` mit `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
 - `openai/gpt-5.5` mit `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
@@ -213,8 +217,8 @@ Für skriptgesteuerte Nutzung lassen Sie Streaming aktiviert. Die passenden Capr
 
 Diese Wire-Modelle werden von den passenden Capriole AI-Endpunkten für Copilot CLI BYOK akzeptiert. Es sind endpunktkompatible Werte, kein Ersatz für die Validierung von Streaming und lokaler Shell-Tool-Nutzung mit Ihrer installierten Copilot CLI:
 
-- Chat Completions: `openai-latest`, `openai/gpt-5.6-terra`, `openai/gpt-5.6-luna`, `openai/gpt-5.5`, `openai/gpt-5.4-mini`, `claude-latest`, `anthropic/claude-fable-5-1`, `anthropic/claude-fable-5`, `anthropic/claude-opus-5`, `anthropic/claude-opus-4-8`, `anthropic/claude-opus-4-7`, `anthropic/claude-opus-4-6`, `anthropic/claude-sonnet-4-6`, `google-latest`, `google/gemini-3.1-pro-preview`, `google/gemini-3.8-flash`, `google/gemini-3.5-flash`, `xai/grok-4.5`, `zai/glm-5.3-flash`, `zai/glm-5.2` und `moonshot/kimi-k3`
-- Responses: `openai-latest`, `openai/gpt-5.6-terra`, `openai/gpt-5.6-luna`, `openai/gpt-5.5` und `openai/gpt-5.4-mini`
+- Chat Completions: `openai-latest`, `openai/gpt-6-astra`, `openai/gpt-5.6-terra`, `openai/gpt-5.6-luna`, `openai/gpt-5.5`, `openai/gpt-5.4-mini`, `claude-latest`, `anthropic/claude-fable-5-1`, `anthropic/claude-fable-5`, `anthropic/claude-opus-5`, `anthropic/claude-opus-4-8`, `anthropic/claude-opus-4-7`, `anthropic/claude-opus-4-6`, `anthropic/claude-sonnet-4-6`, `google-latest`, `google/gemini-3.1-pro-preview`, `google/gemini-3.8-flash`, `google/gemini-3.5-flash`, `xai/grok-4.5`, `zai/glm-5.3-flash`, `zai/glm-5.2` und `moonshot/kimi-k3`
+- Responses: `openai-latest`, `openai/gpt-6-astra`, `openai/gpt-5.6-terra`, `openai/gpt-5.6-luna`, `openai/gpt-5.5` und `openai/gpt-5.4-mini`
 - Anthropic Messages: `claude-latest`, `claude-fable-5-1`, `claude-fable-5`, `claude-opus-5`, `claude-opus-4-8`, `claude-opus-4-7`, `claude-opus-4-6` und `claude-sonnet-4-6`
 
 Andere öffentliche Chat Completions-kompatible Modell-IDs aus `GET /v1/models` können über denselben OpenAI-kompatiblen Anbieterpfad getestet werden, sollten aber erst nach validierter Tool-Nutzung für Coding-Agent-Workflows verwendet werden.
@@ -235,7 +239,7 @@ Bestätigen Sie für Anthropic Messages, dass `COPILOT_PROVIDER_BASE_URL` `https
 
 ### Warum sagt Copilot CLI, dass das Modell fehlt?
 
-Setzen Sie sowohl `COPILOT_PROVIDER_MODEL_ID` als auch `COPILOT_PROVIDER_WIRE_MODEL`. Die Modell-ID sollte das Copilot-seitige Basismodell sein, das Wire-Modell die Capriole AI Modell-ID.
+Setzen Sie `COPILOT_PROVIDER_MODEL_ID` und `COPILOT_PROVIDER_WIRE_MODEL`. Verwenden Sie für GPT-6 Astra entsprechend `gpt-6-astra` und `openai-latest`.
 
 ### Warum sollte Streaming aktiviert bleiben?
 

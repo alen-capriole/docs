@@ -17,13 +17,13 @@ openapi: "api-reference/openapi.json GET /v1/models"
 | 모델 선택 | 적합한 경우 |
 | --- | --- |
 | `openai-latest`, `claude-latest`, `google-latest` | 한 번 구성한 뒤 Capriole AI가 권장 플래그십을 유지하게 할 때 |
-| `openai/gpt-5.6-terra` 같은 구체적인 모델 ID | 정확한 모델 버전을 고정할 때 |
+| `openai/gpt-6-astra` 같은 구체적인 모델 ID | 정확한 모델 버전을 고정할 때 |
 
 `POST /v1/chat`와 `POST /v1/chat/completions`에서 latest 별칭은 다음과 같이 해석됩니다.
 
 | Latest 별칭 | 해석 결과 |
 | --- | --- |
-| `openai-latest` | `openai/gpt-5.6-terra` |
+| `openai-latest` | `openai/gpt-6-astra` |
 | `claude-latest` | `anthropic/claude-fable-5-1` |
 | `google-latest` | `google/gemini-3.1-pro-preview` |
 

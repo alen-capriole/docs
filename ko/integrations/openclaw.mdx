@@ -26,7 +26,7 @@ curl -fsSL https://openclaw.ai/install.sh | bash -s -- --no-onboard
 
 OpenClaw 2026.4.21: `anthropic/claude-fable-5-1`, `google/gemini-3.8-flash`, `zai/glm-5.3-flash`는 로컬 파일 읽기 도구 및 최종 답변 검사를 통과했습니다. `claude-latest`는 Fable 5.1로 해석됩니다. 기존 구체 모델 ID도 계속 사용할 수 있습니다.
 
-아래 용량 설정은 [Fable 5.1](https://platform.claude.com/docs/en/models/fable-5-1/overview), [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash), [GLM 5.3 Flash](https://docs.z.ai/guides/vlm/glm-5.3-flash)의 공식 사양을 기준으로 합니다.
+아래 용량 설정은 [GPT-6 Astra](https://developers.openai.com/api/docs/models/gpt-6-astra), [Fable 5.1](https://platform.claude.com/docs/en/models/fable-5-1/overview), [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash), [GLM 5.3 Flash](https://docs.z.ai/guides/vlm/glm-5.3-flash)의 공식 사양을 기준으로 합니다.
 
 이는 클라이언트의 모델 용량 설정이며, 요청마다 목표로 하는 출력량이나 검증된 VectorEngine 한도가 아닙니다. 로컬 작업 검사에는 `contextWindow=200000`과 `maxTokens=2048`을 사용했으며, 최대 용량 요청은 검증하지 않았습니다. Fable 5.1은 Anthropic Messages 경로 검사도 통과했습니다.
 
@@ -70,6 +70,16 @@ openclaw config set models.providers.capriole-ai-openai.models \
       "name": "OpenAI latest",
       "api": "openai-responses",
       "contextWindow": 400000,
+      "maxTokens": 128000,
+      "input": ["text"],
+      "reasoning": true,
+      "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
+    },
+    {
+      "id": "openai/gpt-6-astra",
+      "name": "GPT-6 Astra",
+      "api": "openai-responses",
+      "contextWindow": 1050000,
       "maxTokens": 128000,
       "input": ["text"],
       "reasoning": true,
@@ -336,7 +346,7 @@ openclaw config set models.providers.capriole-ai-anthropic.models \
 
 ```bash
 openclaw config set agents.defaults.models \
-  '{"capriole-ai-openai/openai-latest":{},"capriole-ai-openai/openai/gpt-5.6-terra":{},"capriole-ai-openai/openai/gpt-5.6-luna":{},"capriole-ai-openai/openai/gpt-5.5":{},"capriole-ai-openai/openai/gpt-5.4-mini":{},"capriole-ai-compatible/anthropic/claude-fable-5-1":{},"capriole-ai-compatible/anthropic/claude-fable-5":{},"capriole-ai-compatible/anthropic/claude-opus-5":{},"capriole-ai-compatible/google/gemini-3.8-flash":{},"capriole-ai-compatible/xai/grok-4.5":{},"capriole-ai-compatible/zai/glm-5.3-flash":{},"capriole-ai-compatible/zai/glm-5.2":{},"capriole-ai-compatible/moonshot/kimi-k3":{},"capriole-ai-anthropic/claude-latest":{},"capriole-ai-anthropic/claude-fable-5-1":{},"capriole-ai-anthropic/claude-fable-5":{},"capriole-ai-anthropic/claude-opus-5":{},"capriole-ai-anthropic/claude-opus-4-8":{},"capriole-ai-anthropic/claude-opus-4-7":{},"capriole-ai-anthropic/claude-opus-4-6":{},"capriole-ai-anthropic/claude-sonnet-4-6":{}}' \
+  '{"capriole-ai-openai/openai-latest":{},"capriole-ai-openai/openai/gpt-6-astra":{},"capriole-ai-openai/openai/gpt-5.6-terra":{},"capriole-ai-openai/openai/gpt-5.6-luna":{},"capriole-ai-openai/openai/gpt-5.5":{},"capriole-ai-openai/openai/gpt-5.4-mini":{},"capriole-ai-compatible/anthropic/claude-fable-5-1":{},"capriole-ai-compatible/anthropic/claude-fable-5":{},"capriole-ai-compatible/anthropic/claude-opus-5":{},"capriole-ai-compatible/google/gemini-3.8-flash":{},"capriole-ai-compatible/xai/grok-4.5":{},"capriole-ai-compatible/zai/glm-5.3-flash":{},"capriole-ai-compatible/zai/glm-5.2":{},"capriole-ai-compatible/moonshot/kimi-k3":{},"capriole-ai-anthropic/claude-latest":{},"capriole-ai-anthropic/claude-fable-5-1":{},"capriole-ai-anthropic/claude-fable-5":{},"capriole-ai-anthropic/claude-opus-5":{},"capriole-ai-anthropic/claude-opus-4-8":{},"capriole-ai-anthropic/claude-opus-4-7":{},"capriole-ai-anthropic/claude-opus-4-6":{},"capriole-ai-anthropic/claude-sonnet-4-6":{}}' \
   --strict-json
 ```
 
@@ -358,9 +368,10 @@ openclaw tui
 
 ## 지원 모델
 
-OpenClaw는 Capriole AI를 통해 OpenAI latest, GPT 5.6 Thinking, GPT 5.6, GPT 5.5, GPT 5.4 mini, Fable 5.1, Fable 5, Opus 5, Grok 4.5, Gemini 3.8 Flash, GLM 5.3 Flash, GLM 5.2, Kimi K3, Claude latest, Opus 4.8, Opus 4.7, Opus 4.6, Sonnet 4.6을 지원합니다. Fable 5와 Opus 5는 Chat Completions 호환 제공자 또는 Anthropic Messages 제공자를 사용할 수 있습니다.
+OpenClaw는 Capriole AI를 통해 OpenAI latest, GPT-6 Astra, GPT 5.6 Thinking, GPT 5.6, GPT 5.5, GPT 5.4 mini, Fable 5.1, Fable 5, Opus 5, Grok 4.5, Gemini 3.8 Flash, GLM 5.3 Flash, GLM 5.2, Kimi K3, Claude latest, Opus 4.8, Opus 4.7, Opus 4.6, Sonnet 4.6을 지원합니다. Fable 5와 Opus 5는 Chat Completions 호환 제공자 또는 Anthropic Messages 제공자를 사용할 수 있습니다.
 
 - `openai-latest`
+- `openai/gpt-6-astra`
 - `openai/gpt-5.6-terra`
 - `openai/gpt-5.6-luna`
 - `openai/gpt-5.5`

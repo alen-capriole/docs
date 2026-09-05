@@ -8,4 +8,6 @@ openapi: "api-reference/openapi.json POST /v1/chat"
 
 `POST /v1/chat`는 `openai-latest`, `claude-latest`, `google-latest`와 `GET /v1/models`가 반환하는 공개 구체 모델 ID를 받습니다. 해당 제공자의 권장 플래그십 모델을 Capriole AI가 선택하게 하려면 latest 별칭을 사용하세요. 버전 고정이 중요하면 구체적인 모델 ID를 사용하세요.
 
+GPT-6 Astra의 Web Chat은 Thinking(`medium`, 기본 선택)과 Fast(`low`)를 제공합니다. GPT-5.6의 두 모드는 Other Models에 있습니다. 공개 API는 브라우저 전용 Thinking ID 대신 `openai-latest` 또는 `openai/gpt-6-astra`를 사용합니다. 이 네이티브 Chat 엔드포인트는 Astra의 `low` 설정을 사용하며, Responses와 Chat Completions는 호출자의 추론 옵션을 그대로 전달합니다.
+
 Capriole AI 웹 채팅과 공개 API는 서로 다른 제품 표면입니다. 웹 채팅에서 Fable 5.1과 Fable 5.1 Thinking이 기본 Anthropic 모드이고, Fable 5, Fable 5 Thinking, Opus 5, Opus 5 Thinking은 **Other Models**에 표시됩니다. 공개 API는 웹 채팅 Thinking 프리셋을 별도의 모델 ID로 노출하지 않습니다. Claude Chat API 요청에는 `claude-latest` 또는 `anthropic/claude-fable-5-1`, `anthropic/claude-fable-5`, `anthropic/claude-opus-5`, `anthropic/claude-sonnet-4-6` 같은 공개 구체 Claude 모델 ID를 사용하세요. 기존 Opus 4.8, Opus 4.7, Opus 4.6 통합은 계속 지원됩니다.

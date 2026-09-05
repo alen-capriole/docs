@@ -86,6 +86,11 @@ Gemini 3.8 Flash 的检查使用 `"tool_call": true`；下方 Gemini 3.5 Flash �
           "tool_call": true,
           "reasoning": true
         },
+        "openai/gpt-6-astra": {
+          "name": "Capriole GPT-6 Astra",
+          "tool_call": true,
+          "reasoning": true
+        },
         "openai/gpt-5.6-terra": {
           "name": "Capriole GPT 5.6 Thinking",
           "tool_call": true,
@@ -212,6 +217,7 @@ kilo run -m openai-compatible/openai-latest "Explain this repository structure."
 Kilo 文档采用与 Capriole AI 模型选择器相同的模型系列顺序，依次为 OpenAI、Anthropic 和 Google。公共 API 集成不包含 Fable 5 Thinking 和 Opus 5 Thinking 等仅用于 Browser Chat 的预设。
 
 - `openai-latest`
+- `openai/gpt-6-astra`
 - `openai/gpt-5.6-terra`
 - `openai/gpt-5.6-luna`
 - `openai/gpt-5.5`

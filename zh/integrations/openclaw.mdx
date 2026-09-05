@@ -26,7 +26,7 @@ curl -fsSL https://openclaw.ai/install.sh | bash -s -- --no-onboard
 
 OpenClaw 2026.4.21：`anthropic/claude-fable-5-1`、`google/gemini-3.8-flash` 和 `zai/glm-5.3-flash` 已通过本地文件读取工具和最终答案检查。 `claude-latest` 解析到 Fable 5.1。原有具体模型 ID 继续可用。
 
-下方容量配置参考 [Fable 5.1](https://platform.claude.com/docs/en/models/fable-5-1/overview)、[Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash) 和 [GLM 5.3 Flash](https://docs.z.ai/guides/vlm/glm-5.3-flash) 的官方规格。
+下方容量配置参考 [GPT-6 Astra](https://developers.openai.com/api/docs/models/gpt-6-astra)、[Fable 5.1](https://platform.claude.com/docs/en/models/fable-5-1/overview)、[Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash) 和 [GLM 5.3 Flash](https://docs.z.ai/guides/vlm/glm-5.3-flash) 的官方规格。
 
 这些是客户端的模型容量设置，不是每次请求的输出目标，也不是已验证的 VectorEngine 上限。本地任务检查使用 `contextWindow=200000` 和 `maxTokens=2048`，尚未验证满容量请求。Fable 5.1 也通过了 Anthropic Messages 路径检查。
 
@@ -70,6 +70,16 @@ openclaw config set models.providers.capriole-ai-openai.models \
       "name": "OpenAI latest",
       "api": "openai-responses",
       "contextWindow": 400000,
+      "maxTokens": 128000,
+      "input": ["text"],
+      "reasoning": true,
+      "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
+    },
+    {
+      "id": "openai/gpt-6-astra",
+      "name": "GPT-6 Astra",
+      "api": "openai-responses",
+      "contextWindow": 1050000,
       "maxTokens": 128000,
       "input": ["text"],
       "reasoning": true,
@@ -336,7 +346,7 @@ openclaw config set models.providers.capriole-ai-anthropic.models \
 
 ```bash
 openclaw config set agents.defaults.models \
-  '{"capriole-ai-openai/openai-latest":{},"capriole-ai-openai/openai/gpt-5.6-terra":{},"capriole-ai-openai/openai/gpt-5.6-luna":{},"capriole-ai-openai/openai/gpt-5.5":{},"capriole-ai-openai/openai/gpt-5.4-mini":{},"capriole-ai-compatible/anthropic/claude-fable-5-1":{},"capriole-ai-compatible/anthropic/claude-fable-5":{},"capriole-ai-compatible/anthropic/claude-opus-5":{},"capriole-ai-compatible/google/gemini-3.8-flash":{},"capriole-ai-compatible/xai/grok-4.5":{},"capriole-ai-compatible/zai/glm-5.3-flash":{},"capriole-ai-compatible/zai/glm-5.2":{},"capriole-ai-compatible/moonshot/kimi-k3":{},"capriole-ai-anthropic/claude-latest":{},"capriole-ai-anthropic/claude-fable-5-1":{},"capriole-ai-anthropic/claude-fable-5":{},"capriole-ai-anthropic/claude-opus-5":{},"capriole-ai-anthropic/claude-opus-4-8":{},"capriole-ai-anthropic/claude-opus-4-7":{},"capriole-ai-anthropic/claude-opus-4-6":{},"capriole-ai-anthropic/claude-sonnet-4-6":{}}' \
+  '{"capriole-ai-openai/openai-latest":{},"capriole-ai-openai/openai/gpt-6-astra":{},"capriole-ai-openai/openai/gpt-5.6-terra":{},"capriole-ai-openai/openai/gpt-5.6-luna":{},"capriole-ai-openai/openai/gpt-5.5":{},"capriole-ai-openai/openai/gpt-5.4-mini":{},"capriole-ai-compatible/anthropic/claude-fable-5-1":{},"capriole-ai-compatible/anthropic/claude-fable-5":{},"capriole-ai-compatible/anthropic/claude-opus-5":{},"capriole-ai-compatible/google/gemini-3.8-flash":{},"capriole-ai-compatible/xai/grok-4.5":{},"capriole-ai-compatible/zai/glm-5.3-flash":{},"capriole-ai-compatible/zai/glm-5.2":{},"capriole-ai-compatible/moonshot/kimi-k3":{},"capriole-ai-anthropic/claude-latest":{},"capriole-ai-anthropic/claude-fable-5-1":{},"capriole-ai-anthropic/claude-fable-5":{},"capriole-ai-anthropic/claude-opus-5":{},"capriole-ai-anthropic/claude-opus-4-8":{},"capriole-ai-anthropic/claude-opus-4-7":{},"capriole-ai-anthropic/claude-opus-4-6":{},"capriole-ai-anthropic/claude-sonnet-4-6":{}}' \
   --strict-json
 ```
 
@@ -358,9 +368,10 @@ openclaw tui
 
 ## 支持的模型
 
-OpenClaw 可以通过 Capriole AI 使用 OpenAI latest、GPT 5.6 Thinking、GPT 5.6、GPT 5.5、GPT 5.4 mini、Fable 5.1、Fable 5、Opus 5、Grok 4.5、Gemini 3.8 Flash、GLM 5.3 Flash、GLM 5.2、Kimi K3、Claude latest、Opus 4.8、Opus 4.7、Opus 4.6 和 Sonnet 4.6。Fable 5 和 Opus 5 可以使用 Chat Completions 兼容提供商，也可以使用 Anthropic Messages 提供商。
+OpenClaw 可以通过 Capriole AI 使用 OpenAI latest、GPT-6 Astra, GPT 5.6 Thinking、GPT 5.6、GPT 5.5、GPT 5.4 mini、Fable 5.1、Fable 5、Opus 5、Grok 4.5、Gemini 3.8 Flash、GLM 5.3 Flash、GLM 5.2、Kimi K3、Claude latest、Opus 4.8、Opus 4.7、Opus 4.6 和 Sonnet 4.6。Fable 5 和 Opus 5 可以使用 Chat Completions 兼容提供商，也可以使用 Anthropic Messages 提供商。
 
 - `openai-latest`
+- `openai/gpt-6-astra`
 - `openai/gpt-5.6-terra`
 - `openai/gpt-5.6-luna`
 - `openai/gpt-5.5`

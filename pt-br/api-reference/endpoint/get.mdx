@@ -17,13 +17,13 @@ Use um alias latest quando quiser que a Capriole AI escolha o modelo principal q
 | Escolha de modelo | Melhor para |
 | --- | --- |
 | `openai-latest`, `claude-latest`, `google-latest` | Configure uma vez e deixe a Capriole AI manter você no modelo principal recomendado |
-| IDs de modelo concretos, como `openai/gpt-5.6-terra` | Fixar uma versão exata do modelo |
+| IDs de modelo concretos, como `openai/gpt-6-astra` | Fixar uma versão exata do modelo |
 
 Os aliases latest são resolvidos da seguinte forma em `POST /v1/chat` e `POST /v1/chat/completions`:
 
 | Alias latest | Resolve para |
 | --- | --- |
-| `openai-latest` | `openai/gpt-5.6-terra` |
+| `openai-latest` | `openai/gpt-6-astra` |
 | `claude-latest` | `anthropic/claude-fable-5-1` |
 | `google-latest` | `google/gemini-3.1-pro-preview` |
 

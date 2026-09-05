@@ -86,6 +86,11 @@ Kilo 구성 파일을 만들거나 업데이트하세요.
           "tool_call": true,
           "reasoning": true
         },
+        "openai/gpt-6-astra": {
+          "name": "Capriole GPT-6 Astra",
+          "tool_call": true,
+          "reasoning": true
+        },
         "openai/gpt-5.6-terra": {
           "name": "Capriole GPT 5.6 Thinking",
           "tool_call": true,
@@ -212,6 +217,7 @@ kilo run -m openai-compatible/openai-latest "Explain this repository structure."
 Kilo 문서는 Capriole AI 모델 선택기와 같은 계열 순서를 사용합니다. OpenAI, Anthropic, 그다음 Google입니다. 공개 API 통합은 Fable 5 Thinking과 Opus 5 Thinking 같은 웹 채팅 전용 프리셋을 제외합니다.
 
 - `openai-latest`
+- `openai/gpt-6-astra`
 - `openai/gpt-5.6-terra`
 - `openai/gpt-5.6-luna`
 - `openai/gpt-5.5`

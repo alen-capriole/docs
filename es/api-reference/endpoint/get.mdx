@@ -17,13 +17,13 @@ Usa un alias latest cuando quieras que Capriole AI elija nuestro modelo insignia
 | Elección de modelo | Ideal para |
 | --- | --- |
 | `openai-latest`, `claude-latest`, `google-latest` | Configurar una vez y dejar que Capriole AI te mantenga en el modelo insignia recomendado |
-| IDs de modelo concretos como `openai/gpt-5.6-terra` | Fijar una versión exacta de modelo |
+| IDs de modelo concretos como `openai/gpt-6-astra` | Fijar una versión exacta de modelo |
 
 Los alias latest se resuelven así en `POST /v1/chat` y `POST /v1/chat/completions`:
 
 | Alias latest | Se resuelve a |
 | --- | --- |
-| `openai-latest` | `openai/gpt-5.6-terra` |
+| `openai-latest` | `openai/gpt-6-astra` |
 | `claude-latest` | `anthropic/claude-fable-5-1` |
 | `google-latest` | `google/gemini-3.1-pro-preview` |
 

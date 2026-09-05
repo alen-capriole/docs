@@ -8,7 +8,7 @@ Use this endpoint when your application, SDK, or agent expects the OpenAI Respon
 
 Send a standard Responses payload with `model` and `input`. Capriole AI resolves latest aliases to the selected upstream model ID before upstream dispatch, forwards compatible fields such as `instructions`, `tools`, `reasoning`, `previous_response_id`, and `stream`, and returns the upstream JSON or SSE stream unchanged.
 
-`POST /v1/responses` accepts `openai-latest`, `openai/gpt-5.6-terra`, `openai/gpt-5.6-luna`, `openai/gpt-5.5`, and `openai/gpt-5.4-mini`. Use `openai-latest` to let Capriole AI choose our recommended flagship OpenAI Responses model.
+`POST /v1/responses` accepts `openai-latest`, `openai/gpt-6-astra`, `openai/gpt-5.6-terra`, `openai/gpt-5.6-luna`, `openai/gpt-5.5`, and `openai/gpt-5.4-mini`. Use `openai-latest` to let Capriole AI choose our recommended flagship OpenAI Responses model.
 
 Claude and Google latest aliases are not supported on this endpoint. Grok 4.5, GLM 5.2, and Kimi K3 use Chat Completions and are also not supported here. Use `POST /v1/chat/completions` when you want one OpenAI-compatible endpoint that can call every public model.
 
