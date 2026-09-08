@@ -80,9 +80,6 @@
                           "id": "google/gemini-3.8-flash"
                         },
                         {
-                          "id": "google/gemini-3.5-flash"
-                        },
-                        {
                           "id": "xai/grok-4.6"
                         },
                         {
@@ -670,7 +667,6 @@
               "google-latest",
               "google/gemini-3.1-pro-preview",
               "google/gemini-3.8-flash",
-              "google/gemini-3.5-flash",
               "xai/grok-4.6",
               "xai/grok-4.5",
               "zai/glm-5.3-flash",
@@ -876,7 +872,6 @@
               "google-latest",
               "google/gemini-3.1-pro-preview",
               "google/gemini-3.8-flash",
-              "google/gemini-3.5-flash",
               "xai/grok-4.6",
               "xai/grok-4.5",
               "zai/glm-5.3-flash",
