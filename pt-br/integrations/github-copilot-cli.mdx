@@ -62,13 +62,6 @@ export COPILOT_PROVIDER_MODEL_ID="gpt-6-astra"
 export COPILOT_PROVIDER_WIRE_MODEL="openai-latest"
 ```
 
-Ou escolha GPT 5.4 Mini em Chat Completions:
-
-```bash
-export COPILOT_PROVIDER_MODEL_ID="gpt-5.4"
-export COPILOT_PROVIDER_WIRE_MODEL="openai/gpt-5.4-mini"
-```
-
 `COPILOT_PROVIDER_MODEL_ID` é o identificador do modelo no cliente; `COPILOT_PROVIDER_WIRE_MODEL` é o ID enviado à Capriole AI. Para GPT-6 Astra, use `gpt-6-astra` com `openai-latest`. O Copilot CLI 1.0.82 aceita esse ID personalizado, mas não inclui um perfil Astra: usa as configurações e os limites de tokens padrão, salvo quando substituídos explicitamente. Consulte `copilot help providers`.
 
 Nos testes locais com esse ID Astra, Chat Completions conclui a leitura de arquivos. Responses retorna o conteúdo correto com um caminho absoluto, mas também reproduz erros com caminhos relativos e longas esperas. Trocar o ID não corrige esses problemas de execução; valide seu fluxo antes de usar em produção.
@@ -130,7 +123,6 @@ Modelos de transmissão compatíveis com o endpoint:
 - `openai/gpt-5.6-terra` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
 - `openai/gpt-5.6-luna` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
 - `openai/gpt-5.5` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
-- `openai/gpt-5.4-mini` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
 - `claude-latest` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
 - `anthropic/claude-fable-5-1` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
 - `anthropic/claude-fable-5` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
@@ -168,7 +160,6 @@ Modelos de transmissão compatíveis com o endpoint:
 - `openai/gpt-5.6-terra` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
 - `openai/gpt-5.6-luna` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
 - `openai/gpt-5.5` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
-- `openai/gpt-5.4-mini` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
 
 Responses é um protocolo de transmissão OpenAI na Capriole AI. IDs de modelo Claude e Gemini não são suportados em `POST /v1/responses`.
 
@@ -217,8 +208,8 @@ Para uso em scripts, mantenha o streaming ativado. Os endpoints correspondentes 
 
 Estes modelos de transmissão são aceitos pelos endpoints correspondentes da Capriole AI para BYOK do Copilot CLI. São valores compatíveis com o endpoint, não um substituto para validar streaming e uso de ferramentas locais do shell no Copilot CLI instalado:
 
-- Chat Completions: `openai-latest`, `openai/gpt-6-astra`, `openai/gpt-5.6-terra`, `openai/gpt-5.6-luna`, `openai/gpt-5.5`, `openai/gpt-5.4-mini`, `claude-latest`, `anthropic/claude-fable-5-1`, `anthropic/claude-fable-5`, `anthropic/claude-opus-5`, `anthropic/claude-opus-4-8`, `anthropic/claude-opus-4-7`, `anthropic/claude-opus-4-6`, `anthropic/claude-sonnet-4-6`, `google-latest`, `google/gemini-3.1-pro-preview`, `google/gemini-3.8-flash`, `google/gemini-3.5-flash`, `xai/grok-4.5`, `zai/glm-5.3-flash`, `zai/glm-5.2` e `moonshot/kimi-k3`
-- Responses: `openai-latest`, `openai/gpt-6-astra`, `openai/gpt-5.6-terra`, `openai/gpt-5.6-luna`, `openai/gpt-5.5` e `openai/gpt-5.4-mini`
+- Chat Completions: `openai-latest`, `openai/gpt-6-astra`, `openai/gpt-5.6-terra`, `openai/gpt-5.6-luna`, `openai/gpt-5.5`, `claude-latest`, `anthropic/claude-fable-5-1`, `anthropic/claude-fable-5`, `anthropic/claude-opus-5`, `anthropic/claude-opus-4-8`, `anthropic/claude-opus-4-7`, `anthropic/claude-opus-4-6`, `anthropic/claude-sonnet-4-6`, `google-latest`, `google/gemini-3.1-pro-preview`, `google/gemini-3.8-flash`, `google/gemini-3.5-flash`, `xai/grok-4.5`, `zai/glm-5.3-flash`, `zai/glm-5.2` e `moonshot/kimi-k3`
+- Responses: `openai-latest`, `openai/gpt-6-astra`, `openai/gpt-5.6-terra`, `openai/gpt-5.6-luna` e `openai/gpt-5.5`
 - Anthropic Messages: `claude-latest`, `claude-fable-5-1`, `claude-fable-5`, `claude-opus-5`, `claude-opus-4-8`, `claude-opus-4-7`, `claude-opus-4-6` e `claude-sonnet-4-6`
 
 Outros IDs públicos de modelo compatíveis com Chat Completions retornados por `GET /v1/models` podem ser testados pelo mesmo caminho de provedor compatível com OpenAI, mas não os use em fluxos de agente de programação até validar o uso de ferramentas.

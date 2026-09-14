@@ -44,9 +44,6 @@
                           "id": "openai/gpt-5.5"
                         },
                         {
-                          "id": "openai/gpt-5.4-mini"
-                        },
-                        {
                           "id": "claude-latest"
                         },
                         {
@@ -655,7 +652,6 @@
               "openai/gpt-5.6-terra",
               "openai/gpt-5.6-luna",
               "openai/gpt-5.5",
-              "openai/gpt-5.4-mini",
               "claude-latest",
               "anthropic/claude-fable-5-1",
               "anthropic/claude-fable-5",
@@ -769,8 +765,7 @@
               "openai/gpt-6-astra",
               "openai/gpt-5.6-terra",
               "openai/gpt-5.6-luna",
-              "openai/gpt-5.5",
-              "openai/gpt-5.4-mini"
+              "openai/gpt-5.5"
             ]
           },
           "input": {
@@ -860,7 +855,6 @@
               "openai/gpt-5.6-terra",
               "openai/gpt-5.6-luna",
               "openai/gpt-5.5",
-              "openai/gpt-5.4-mini",
               "claude-latest",
               "anthropic/claude-fable-5-1",
               "anthropic/claude-fable-5",
