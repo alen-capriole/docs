@@ -1,7 +1,7 @@
 ---
-title: "Usa archivos y búsqueda web en Capriole AI"
-sidebarTitle: "Archivos y búsqueda web"
-description: "Sube documentos, imágenes, diapositivas y hojas de cálculo en Capriole AI Browser Chat, pide información web actual e inspecciona las fuentes devueltas."
+title: "Usa archivos, generación de imágenes y búsqueda web en Capriole AI"
+sidebarTitle: "Archivos, imágenes y búsqueda web"
+description: "Genera imágenes gratis con GPT Image 2.5, sube archivos y busca en la web. Conoce los requisitos de inicio de sesión y Server Storage."
 ---
 
 Capriole AI Browser Chat puede combinar un archivo de trabajo subido con información actual de la web. Adjunta el material que quieres que el modelo lea, formula una pregunta concreta y pide información reciente cuando la respuesta dependa de lo que ha cambiado.
@@ -9,6 +9,19 @@ Capriole AI Browser Chat puede combinar un archivo de trabajo subido con informa
 El mismo espacio de trabajo puede continuar la tarea con GPT-6 Astra, Claude Fable 5.1 o Gemini 3.1 Pro sin copiar el material a productos separados. Premium cuesta USD 8 al mes y hace ilimitado el chat del navegador en el conjunto de modelos Premium compatible.
 
 Las subidas de archivos requieren un chat con sesión iniciada que use el almacenamiento sincronizado de la cuenta por defecto. La búsqueda web es una herramienta de Browser Chat que el modelo llama cuando la pregunta necesita información pública actual.
+
+## Crea imágenes con GPT Image 2.5
+
+Capriole AI también ofrece generación gratuita con **GPT Image 2.5** en el chat web para cuentas Free, Premium y Team con sesión iniciada y **Server Storage**. Usa el modo **Image** o pídeselo al **Text Agent** durante la conversación. La generación de imágenes no consume la asignación de tokens de API; los mensajes del Text Agent siguen los límites normales del chat. Es una función del navegador, no una API pública de imágenes ni un modelo para agentes de programación.
+
+1. Inicia sesión y usa **Server Storage**: en **Account** → **Settings**, desactiva **Enable local storage** y **Enable No Storage**.
+2. Abre el selector de modelos, elige la pestaña **Image** y selecciona **GPT Image 2.5**. Describe la imagen.
+3. Elige la relación de aspecto, **Resolution** y un lote de **1–4 imágenes**; después envía la solicitud. Las relaciones son **1:1, 3:2, 2:3, 4:3, 3:4, 16:9 y 9:16**, con resoluciones **1K, 2K y 4K**.
+4. Espera a que termine en la conversación. Puedes volver a abrir la conversación guardada, ver cada imagen terminada, consultar **Info** o descargarla.
+
+Cada cuenta puede tener hasta **cuatro imágenes activas**. En modo Text puedes pedirle al Text Agent que cree una imagen sin cambiar de pestaña; usa el mismo servicio. Por ahora se admite generación a partir de texto, no edición de imágenes existentes, máscaras ni imágenes de referencia. Solo se muestran como resultados las imágenes terminadas.
+
+Consulta los detalles oficiales del lanzamiento en el [registro de cambios de OpenAI](https://developers.openai.com/api/docs/changelog). Las funciones disponibles en Capriole AI se describen arriba.
 
 ## Revisa el archivo antes de subirlo
 

@@ -1,7 +1,7 @@
 ---
-title: "Use Files and Web Search in Capriole AI"
-sidebarTitle: "Files and Web Search"
-description: "Upload documents, images, slides, and spreadsheets in Capriole AI Browser Chat, then ask for current web information and inspect returned sources."
+title: "Use Files, Image Generation and Web Search in Capriole AI"
+sidebarTitle: "Files, Images and Web Search"
+description: "Generate images with GPT Image 2.5 for free, upload files, and use web search in Browser Chat. Learn the sign-in and Server Storage requirements."
 ---
 
 Capriole AI Browser Chat can combine an uploaded work file with current information from the web. Attach the material you want the model to read, ask a specific question, and request recent information when the answer depends on what has changed.
@@ -9,6 +9,19 @@ Capriole AI Browser Chat can combine an uploaded work file with current informat
 The same workspace can continue the task with GPT-6 Astra, Claude Fable 5.1, or Gemini 3.1 Pro without copying the material into separate products. Premium costs USD 8 per month and makes browser chat unlimited across the supported Premium model set.
 
 File uploads require a signed-in chat using default account-synced storage. Web search is a Browser Chat tool that the model calls when the question needs current public information.
+
+## Create images with GPT Image 2.5
+
+Capriole AI also offers free **GPT Image 2.5** generation in Browser Chat for signed-in Free, Premium, and Team accounts using **Server Storage**. Create in **Image** mode or ask the **Text Agent** while you chat. The image generation itself does not consume your API token allowance; Text Agent messages still follow normal chat limits. This is a browser feature, not a public image API or coding-agent model.
+
+1. Sign in and use **Server Storage**: in **Account** → **Settings**, leave **Enable local storage** and **Enable No Storage** off.
+2. Open the model selector, choose the **Image** tab, and select **GPT Image 2.5**. Describe the image you want.
+3. Choose an aspect ratio, **Resolution**, and a batch of **1–4 images**, then send. Supported ratios are **1:1, 3:2, 2:3, 4:3, 3:4, 16:9, and 9:16**; resolutions are **1K, 2K, and 4K**.
+4. Wait for completion in the thread. You can reopen the saved conversation, view each completed image, inspect **Info**, or download it.
+
+You can have up to **four active images** per account. In Text mode, ask the Text Agent to create an image instead of switching tabs; it uses the same image-generation service. The browser currently supports text-to-image generation, not editing existing images, masks, or reference-image inputs. Only completed images are shown as results.
+
+For the model's official release details, see [OpenAI's changelog](https://developers.openai.com/api/docs/changelog). The features available in Capriole AI are described above.
 
 ## Check the file before uploading
 
