@@ -1,7 +1,7 @@
 ---
 title: "在 Capriole AI 中使用文件、生图和网页搜索"
 sidebarTitle: "文件、生图与网页搜索"
-description: "在网页聊天中用 GPT Image 2 免费生图、上传文件和搜索网页，了解登录及 Server Storage 要求。"
+description: "在网页聊天中用 GPT Image 2.5 免费生图、上传文件和搜索网页，了解登录及 Server Storage 要求。"
 ---
 
 Capriole AI Browser Chat 可以结合上传的工作文件与最新网页信息。附加希望模型读取的材料，提出具体问题；如果答案取决于近期变化，请明确要求获取最新信息。
@@ -10,18 +10,18 @@ Capriole AI Browser Chat 可以结合上传的工作文件与最新网页信息�
 
 上传文件需要登录，并使用默认的账户同步存储。网页搜索是 Browser Chat 工具，问题需要最新公开信息时，模型可以调用它。
 
-## 用 GPT Image 2 生成图片
+## 用 GPT Image 2.5 生成图片
 
-Capriole AI 还为已登录并使用 **Server Storage** 的 Free、Premium 和 Team 用户提供免费的 **GPT Image 2** 网页生图。可以使用 **Image** 模式，也可以在聊天中让 **Text Agent** 生成图片。生图本身不消耗 API token 额度；Text Agent 的文字对话仍遵循普通聊天限制。这是网页功能，不是公开图片 API 或 Coding Agent 模型。
+Capriole AI 还为已登录并使用 **Server Storage** 的 Free、Premium 和 Team 用户提供免费的 **GPT Image 2.5** 网页生图。可以使用 **Image** 模式，也可以在聊天中让 **Text Agent** 生成图片。生图本身不消耗 API token 额度；Text Agent 的文字对话仍遵循普通聊天限制。这是网页功能，不是公开图片 API 或 Coding Agent 模型。
 
 1. 登录并使用 **Server Storage**：在 **Account** → **Settings** 中关闭 **Enable local storage** 和 **Enable No Storage**。
-2. 打开模型选择器，切换到 **Image**，选择 **GPT Image 2**，输入想要的画面。
+2. 打开模型选择器，切换到 **Image**，选择 **GPT Image 2.5**，输入想要的画面。
 3. 选择比例、**Resolution** 和每批 **1–4 张**，然后发送。支持 **1:1、3:2、2:3、4:3、3:4、16:9、9:16** 七种比例，以及 **1K、2K、4K** 三档分辨率。
 4. 等待对话中的任务完成。之后可以重新打开已保存的对话，查看图片、打开 **Info** 或下载。
 
 每个账号最多同时生成 **4 张图片**。在 Text 模式中，也可以直接让 Text Agent 生图，无需切换页签；两种入口使用同一套生图服务。目前支持文字生图，不支持修改已有图片、蒙版或参考图输入。只有完成的图片才会作为结果展示。
 
-模型的官方发布信息见 [OpenAI 更新日志](https://developers.openai.com/api/docs/changelog)。Capriole AI 提供的功能以上文说明为准。
+模型的官方能力说明见 [OpenAI 模型文档](https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst)。Capriole AI 提供的功能以上文说明为准。
 
 ## 上传前检查文件
 

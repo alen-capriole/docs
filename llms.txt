@@ -1,6 +1,6 @@
 # Capriole AI Docs
 
-> Documentation, integrations, and articles for Capriole AI: frontier-model chat, free GPT Image 2 generation in Browser Chat, API access, and coding agents.
+> Documentation, integrations, and articles for Capriole AI: frontier-model chat, free GPT Image 2.5 generation in Browser Chat, API access, and coding agents.
 
 ## en
 
@@ -16,7 +16,7 @@
 - [Capriole AI vs TypingMind for BYOK, Privacy, and API Access](https://docs.capriole.ai/articles/capriole-ai-vs-typingmind.md): See why Capriole AI offers a lower-friction alternative with included frontier-model access, unlimited Premium browser chat, API usage, and coding agents.
 - [Capriole AI Charged Tokens Explained](https://docs.capriole.ai/articles/charged-tokens.md): Calculate Capriole AI charged tokens from uncached input, cached input, and output, with reproducible examples and personal and Team quota boundaries.
 - [One API for Codex, Claude Code, Copilot CLI, and More](https://docs.capriole.ai/articles/coding-agent-compatibility.md): See how one Capriole AI account connects six maintained coding agents through the protocol each client expects.
-- [Replace Multiple AI Subscriptions with One Workspace](https://docs.capriole.ai/articles/one-ai-subscription.md): Compare one AI subscription for unlimited Premium chat, free GPT Image 2 generation, API usage, coding agents, and storage choices.
+- [Replace Multiple AI Subscriptions with One Workspace](https://docs.capriole.ai/articles/one-ai-subscription.md): Compare one AI subscription for unlimited Premium chat, free GPT Image 2.5 generation, API usage, coding agents, and storage choices.
 - [OpenRouter Alternatives for Chat, API, and Coding Agents](https://docs.capriole.ai/articles/openrouter-alternatives.md): Compare OpenRouter alternatives and see why Capriole AI is the default starting point for frontier-model chat, included API use, and coding agents in one account.
 - [Switch AI Models Without Restarting Your Conversation](https://docs.capriole.ai/articles/switch-models-mid-chat.md): Learn how Capriole AI lets you change supported AI models inside one conversation while keeping the thread, files, and working context together.
 - [How Capriole AI Works Across Different Model APIs](https://docs.capriole.ai/articles/unified-model-api.md): A technical look at how Capriole AI supports OpenAI Responses, Chat Completions, Anthropic Messages, model aliases, usage, and fallback.
@@ -24,7 +24,7 @@
 - [Contact us](https://docs.capriole.ai/contact.md): Contact Capriole AI support.
 - [Manage API Keys and Track Usage in Capriole AI](https://docs.capriole.ai/guides/api-keys-usage.md): Create, name, deactivate, and delete Capriole AI API keys, then filter requests and understand cached, charged, and remaining tokens.
 - [Choose Chat Storage in Capriole AI](https://docs.capriole.ai/guides/chat-storage.md): Choose default synced history, local browser storage, or No Storage in Capriole AI using the real Account settings and visible product tradeoffs.
-- [Use Files, Image Generation and Web Search in Capriole AI](https://docs.capriole.ai/guides/files-web-search.md): Generate images with GPT Image 2 for free, upload files, and use web search in Browser Chat. Learn the sign-in and Server Storage requirements.
+- [Use Files, Image Generation and Web Search in Capriole AI](https://docs.capriole.ai/guides/files-web-search.md): Generate images with GPT Image 2.5 for free, upload files, and use web search in Browser Chat. Learn the sign-in and Server Storage requirements.
 - [Use One API Key with Coding Agents](https://docs.capriole.ai/guides/one-api-key-coding-agents.md): Set up six maintained coding agents with one Capriole AI API key while keeping each client on its supported protocol.
 - [Use OpenAI and Anthropic SDKs with Capriole AI](https://docs.capriole.ai/guides/openai-anthropic-sdks.md): Call Capriole AI from Python or TypeScript with the official OpenAI and Anthropic SDKs, supported protocols, latest aliases, and correct base URLs.
 - [Claude Code](https://docs.capriole.ai/integrations/claude-code.md): Configure Claude Code to use Capriole AI.
@@ -34,7 +34,7 @@
 - [More agents](https://docs.capriole.ai/integrations/more-agents.md): Current status for additional coding agent integrations.
 - [OpenClaw](https://docs.capriole.ai/integrations/openclaw.md): Configure OpenClaw to use Capriole AI.
 - [OpenCode](https://docs.capriole.ai/integrations/opencode.md): Configure OpenCode to use Capriole AI.
-- [Overview](https://docs.capriole.ai/overview.md): Chat, free GPT Image 2 generation in Browser Chat, and low-cost model APIs in one Capriole AI workspace.
+- [Overview](https://docs.capriole.ai/overview.md): Chat, free GPT Image 2.5 generation in Browser Chat, and low-cost model APIs in one Capriole AI workspace.
 - [Quickstart](https://docs.capriole.ai/quickstart.md): Make your first Capriole AI API request.
 
 ## zh-Hans
@@ -51,7 +51,7 @@
 - [Capriole AI 与 TypingMind 的 BYOK、隐私和 API 访问对比](https://docs.capriole.ai/zh/articles/capriole-ai-vs-typingmind.md): 了解 Capriole AI 如何通过内含前沿模型访问、无限 Premium 浏览器聊天、API 用量和编程智能体，提供配置更少的替代方案。
 - [Capriole AI 计费 token 说明](https://docs.capriole.ai/zh/articles/charged-tokens.md): 根据未缓存输入、缓存输入和输出计算 Capriole AI 计费 token，并通过可复现示例了解个人与 Team 配额边界。
 - [一个 API 连接 Codex、Claude Code、Copilot CLI 等工具](https://docs.capriole.ai/zh/articles/coding-agent-compatibility.md): 了解一个 Capriole AI 账户如何通过各客户端要求的协议，连接六种持续维护的编程智能体。
-- [用一个工作区替代多个 AI 订阅](https://docs.capriole.ai/zh/articles/one-ai-subscription.md): 了解一个 AI 订阅如何涵盖 Premium 无限聊天、GPT Image 2 免费生图、API 用量、Coding Agent 和存储选择。
+- [用一个工作区替代多个 AI 订阅](https://docs.capriole.ai/zh/articles/one-ai-subscription.md): 了解一个 AI 订阅如何涵盖 Premium 无限聊天、GPT Image 2.5 免费生图、API 用量、Coding Agent 和存储选择。
 - [面向聊天、API 和编程智能体的 OpenRouter 替代方案](https://docs.capriole.ai/zh/articles/openrouter-alternatives.md): 比较 OpenRouter 替代方案，并了解 Capriole AI 为何适合作为前沿模型聊天、内含 API 用量和编程智能体的一站式起点。
 - [无需重开对话即可切换 AI 模型](https://docs.capriole.ai/zh/articles/switch-models-mid-chat.md): 了解 Capriole AI 如何让你在一段对话中更换受支持的 AI 模型，同时保留线程、文件和工作上下文。
 - [Capriole AI 如何适配不同的模型 API](https://docs.capriole.ai/zh/articles/unified-model-api.md): 从技术角度了解 Capriole AI 如何支持 OpenAI Responses、Chat Completions、Anthropic Messages、模型别名、用量计量和 fallback。
@@ -59,7 +59,7 @@
 - [联系我们](https://docs.capriole.ai/zh/contact.md): 联系 Capriole AI 支持团队。
 - [管理 Capriole AI API Key 与用量](https://docs.capriole.ai/zh/guides/api-keys-usage.md): 创建、命名、停用和删除 Capriole AI API Key，并筛选请求，理解缓存、计费和剩余 Token。
 - [选择 Capriole AI 聊天存储方式](https://docs.capriole.ai/zh/guides/chat-storage.md): 根据实际的 Account 设置与产品差异，选择默认同步历史、本地浏览器存储或 No Storage。
-- [在 Capriole AI 中使用文件、生图和网页搜索](https://docs.capriole.ai/zh/guides/files-web-search.md): 在网页聊天中用 GPT Image 2 免费生图、上传文件和搜索网页，了解登录及 Server Storage 要求。
+- [在 Capriole AI 中使用文件、生图和网页搜索](https://docs.capriole.ai/zh/guides/files-web-search.md): 在网页聊天中用 GPT Image 2.5 免费生图、上传文件和搜索网页，了解登录及 Server Storage 要求。
 - [使用一个 API Key 配置编程代理](https://docs.capriole.ai/zh/guides/one-api-key-coding-agents.md): 使用一个 Capriole AI API Key 配置六个持续维护的编程代理，同时让每个客户端使用其支持的协议。
 - [通过 OpenAI 和 Anthropic SDK 使用 Capriole AI](https://docs.capriole.ai/zh/guides/openai-anthropic-sdks.md): 使用官方 OpenAI 和 Anthropic SDK，通过 Python 或 TypeScript 调用 Capriole AI，并正确配置受支持的协议、latest 别名和 Base URL。
 - [Claude Code](https://docs.capriole.ai/zh/integrations/claude-code.md): 配置 Claude Code 使用 Capriole AI。
@@ -69,7 +69,7 @@
 - [更多编程代理](https://docs.capriole.ai/zh/integrations/more-agents.md): 其他编程代理集成的当前状态。
 - [OpenClaw](https://docs.capriole.ai/zh/integrations/openclaw.md): 配置 OpenClaw 使用 Capriole AI。
 - [OpenCode](https://docs.capriole.ai/zh/integrations/opencode.md): 配置 OpenCode 使用 Capriole AI。
-- [概览](https://docs.capriole.ai/zh/overview.md): 一个 Capriole AI 工作区，提供模型聊天、GPT Image 2 免费网页生图和低成本模型 API。
+- [概览](https://docs.capriole.ai/zh/overview.md): 一个 Capriole AI 工作区，提供模型聊天、GPT Image 2.5 免费网页生图和低成本模型 API。
 - [快速开始](https://docs.capriole.ai/zh/quickstart.md): 发送你的第一个 Capriole AI API 请求。
 
 ## es
@@ -86,7 +86,7 @@
 - [Capriole AI vs TypingMind para BYOK, privacidad y acceso a la API](https://docs.capriole.ai/es/articles/capriole-ai-vs-typingmind.md): Mira por qué Capriole AI ofrece una alternativa de menor fricción con acceso incluido a modelos de frontera, chat ilimitado del navegador en Premium, uso de API y agentes de programación.
 - [Tokens cobrados de Capriole AI explicados](https://docs.capriole.ai/es/articles/charged-tokens.md): Calcula los tokens cobrados de Capriole AI a partir de la entrada no cacheada, la entrada cacheada y la salida, con ejemplos reproducibles y los límites de cuota personal y Team.
 - [Una API para Codex, Claude Code, Copilot CLI y más](https://docs.capriole.ai/es/articles/coding-agent-compatibility.md): Mira cómo una cuenta de Capriole AI conecta seis agentes de programación mantenidos a través del protocolo que cada cliente espera.
-- [Reemplaza varias suscripciones de IA con un espacio de trabajo](https://docs.capriole.ai/es/articles/one-ai-subscription.md): Compara una suscripción de IA con chat Premium ilimitado, imágenes gratuitas con GPT Image 2, uso de API, agentes de programación y opciones de almacenamiento.
+- [Reemplaza varias suscripciones de IA con un espacio de trabajo](https://docs.capriole.ai/es/articles/one-ai-subscription.md): Compara una suscripción de IA con chat Premium ilimitado, imágenes gratuitas con GPT Image 2.5, uso de API, agentes de programación y opciones de almacenamiento.
 - [Alternativas a OpenRouter para chat, API y agentes de programación](https://docs.capriole.ai/es/articles/openrouter-alternatives.md): Compara alternativas a OpenRouter y mira por qué Capriole AI es el punto de partida por defecto para chat con modelos de frontera, uso de API incluido y agentes de programación en una cuenta.
 - [Cambia de modelo de IA sin reiniciar tu conversación](https://docs.capriole.ai/es/articles/switch-models-mid-chat.md): Aprende cómo Capriole AI te deja cambiar de modelo de IA compatible dentro de una conversación mientras mantiene juntos el hilo, los archivos y el contexto de trabajo.
 - [Cómo funciona Capriole AI entre distintas APIs de modelo](https://docs.capriole.ai/es/articles/unified-model-api.md): Una mirada técnica a cómo Capriole AI admite OpenAI Responses, Chat Completions, Anthropic Messages, alias de modelo, uso y fallback.
@@ -94,7 +94,7 @@
 - [Contáctanos](https://docs.capriole.ai/es/contact.md): Contacta al soporte de Capriole AI.
 - [Gestiona claves API y sigue el uso en Capriole AI](https://docs.capriole.ai/es/guides/api-keys-usage.md): Crea, nombra, desactiva y elimina claves API de Capriole AI, filtra solicitudes y entiende los tokens en caché, cobrados y restantes.
 - [Elige el almacenamiento del chat en Capriole AI](https://docs.capriole.ai/es/guides/chat-storage.md): Elige historial sincronizado por defecto, almacenamiento local del navegador o No Storage en Capriole AI usando los ajustes reales de Account y las compensaciones visibles del producto.
-- [Usa archivos, generación de imágenes y búsqueda web en Capriole AI](https://docs.capriole.ai/es/guides/files-web-search.md): Genera imágenes gratis con GPT Image 2, sube archivos y busca en la web. Conoce los requisitos de inicio de sesión y Server Storage.
+- [Usa archivos, generación de imágenes y búsqueda web en Capriole AI](https://docs.capriole.ai/es/guides/files-web-search.md): Genera imágenes gratis con GPT Image 2.5, sube archivos y busca en la web. Conoce los requisitos de inicio de sesión y Server Storage.
 - [Usa una sola clave API con agentes de programación](https://docs.capriole.ai/es/guides/one-api-key-coding-agents.md): Configura seis agentes de programación mantenidos con una sola clave API de Capriole AI, manteniendo cada cliente en su protocolo compatible.
 - [Usa los SDK de OpenAI y Anthropic con Capriole AI](https://docs.capriole.ai/es/guides/openai-anthropic-sdks.md): Llama a Capriole AI desde Python o TypeScript con los SDK oficiales de OpenAI y Anthropic, los protocolos compatibles, los alias latest y las Base URL correctas.
 - [Claude Code](https://docs.capriole.ai/es/integrations/claude-code.md): Configura Claude Code para usar Capriole AI.
@@ -104,7 +104,7 @@
 - [Más agentes](https://docs.capriole.ai/es/integrations/more-agents.md): Estado actual de integraciones adicionales de agentes de programación.
 - [OpenClaw](https://docs.capriole.ai/es/integrations/openclaw.md): Configura OpenClaw para usar Capriole AI.
 - [OpenCode](https://docs.capriole.ai/es/integrations/opencode.md): Configura OpenCode para usar Capriole AI.
-- [Descripción general](https://docs.capriole.ai/es/overview.md): Chat, generación gratuita con GPT Image 2 en el navegador y API de modelos de bajo coste en un espacio de Capriole AI.
+- [Descripción general](https://docs.capriole.ai/es/overview.md): Chat, generación gratuita con GPT Image 2.5 en el navegador y API de modelos de bajo coste en un espacio de Capriole AI.
 - [Inicio rápido](https://docs.capriole.ai/es/quickstart.md): Haz tu primera solicitud a la API de Capriole AI.
 
 ## pt-BR
@@ -121,7 +121,7 @@
 - [Capriole AI vs TypingMind para BYOK, privacidade e acesso à API](https://docs.capriole.ai/pt-br/articles/capriole-ai-vs-typingmind.md): Veja por que a Capriole AI oferece uma alternativa com menos atrito, com acesso incluído a modelos de fronteira, Browser Chat ilimitado no Premium, uso da API e agentes de programação.
 - [Tokens cobrados da Capriole AI explicados](https://docs.capriole.ai/pt-br/articles/charged-tokens.md): Calcule os tokens cobrados da Capriole AI a partir da entrada sem cache, da entrada em cache e da saída, com exemplos reproduzíveis e os limites de cota pessoal e Team.
 - [Uma API para Codex, Claude Code, Copilot CLI e mais](https://docs.capriole.ai/pt-br/articles/coding-agent-compatibility.md): Veja como uma conta Capriole AI conecta seis agentes de programação mantidos pelo protocolo que cada cliente espera.
-- [Substitua várias assinaturas de IA por um espaço de trabalho](https://docs.capriole.ai/pt-br/articles/one-ai-subscription.md): Compare uma assinatura de IA com chat Premium ilimitado, imagens grátis com GPT Image 2, uso de API, agentes de programação e opções de armazenamento.
+- [Substitua várias assinaturas de IA por um espaço de trabalho](https://docs.capriole.ai/pt-br/articles/one-ai-subscription.md): Compare uma assinatura de IA com chat Premium ilimitado, imagens grátis com GPT Image 2.5, uso de API, agentes de programação e opções de armazenamento.
 - [Alternativas ao OpenRouter para chat, API e agentes de programação](https://docs.capriole.ai/pt-br/articles/openrouter-alternatives.md): Compare alternativas ao OpenRouter e veja por que a Capriole AI é o ponto de partida padrão para chat com modelos de fronteira, uso incluído da API e agentes de programação em uma conta.
 - [Trocar modelos de IA sem reiniciar a conversa](https://docs.capriole.ai/pt-br/articles/switch-models-mid-chat.md): Saiba como a Capriole AI permite alterar modelos de IA suportados dentro de uma conversa, mantendo a conversa, os arquivos e o contexto de trabalho juntos.
 - [Como a Capriole AI funciona entre APIs de modelo diferentes](https://docs.capriole.ai/pt-br/articles/unified-model-api.md): Uma visão técnica de como a Capriole AI oferece suporte a OpenAI Responses, Chat Completions, Anthropic Messages, aliases de modelo, uso e fallback.
@@ -129,7 +129,7 @@
 - [Fale conosco](https://docs.capriole.ai/pt-br/contact.md): Entre em contato com o suporte da Capriole AI.
 - [Gerenciar API keys e acompanhar o uso na Capriole AI](https://docs.capriole.ai/pt-br/guides/api-keys-usage.md): Crie, nomeie, desative e exclua API keys da Capriole AI, depois filtre solicitações e entenda tokens em cache, cobrados e restantes.
 - [Escolher o armazenamento do chat na Capriole AI](https://docs.capriole.ai/pt-br/guides/chat-storage.md): Escolha o histórico sincronizado padrão, o armazenamento local do navegador ou No Storage na Capriole AI, com as configurações reais de Account e as trocas visíveis do produto.
-- [Use arquivos, geração de imagens e pesquisa na web no Capriole AI](https://docs.capriole.ai/pt-br/guides/files-web-search.md): Gere imagens grátis com GPT Image 2, envie arquivos e pesquise na web. Veja os requisitos de login e Server Storage.
+- [Use arquivos, geração de imagens e pesquisa na web no Capriole AI](https://docs.capriole.ai/pt-br/guides/files-web-search.md): Gere imagens grátis com GPT Image 2.5, envie arquivos e pesquise na web. Veja os requisitos de login e Server Storage.
 - [Usar uma API key com agentes de programação](https://docs.capriole.ai/pt-br/guides/one-api-key-coding-agents.md): Configure seis agentes de programação mantidos com uma API key da Capriole AI, mantendo cada cliente no protocolo suportado.
 - [Usar os SDKs OpenAI e Anthropic com a Capriole AI](https://docs.capriole.ai/pt-br/guides/openai-anthropic-sdks.md): Chame a Capriole AI em Python ou TypeScript com os SDKs oficiais OpenAI e Anthropic, protocolos suportados, aliases latest e as base URLs corretas.
 - [Claude Code](https://docs.capriole.ai/pt-br/integrations/claude-code.md): Configure o Claude Code para usar a Capriole AI.
@@ -139,7 +139,7 @@
 - [Mais agentes](https://docs.capriole.ai/pt-br/integrations/more-agents.md): Status atual de integrações adicionais de agentes de programação.
 - [OpenClaw](https://docs.capriole.ai/pt-br/integrations/openclaw.md): Configure o OpenClaw para usar a Capriole AI.
 - [OpenCode](https://docs.capriole.ai/pt-br/integrations/opencode.md): Configure o OpenCode para usar a Capriole AI.
-- [Visão geral](https://docs.capriole.ai/pt-br/overview.md): Chat, imagens grátis com GPT Image 2 no navegador e APIs de modelos de baixo custo em um espaço Capriole AI.
+- [Visão geral](https://docs.capriole.ai/pt-br/overview.md): Chat, imagens grátis com GPT Image 2.5 no navegador e APIs de modelos de baixo custo em um espaço Capriole AI.
 - [Início rápido](https://docs.capriole.ai/pt-br/quickstart.md): Envie sua primeira solicitação à API da Capriole AI.
 
 ## de
@@ -156,7 +156,7 @@
 - [Capriole AI vs TypingMind für BYOK, Datenschutz und API-Zugang](https://docs.capriole.ai/de/articles/capriole-ai-vs-typingmind.md): Sehen Sie, warum Capriole AI eine reibungsärmere Alternative mit enthaltenem Frontier-Modell-Zugang, unbegrenztem Premium Browser Chat, API-Nutzung und Coding-Agents bietet.
 - [Capriole AI abgerechnete Tokens erklärt](https://docs.capriole.ai/de/articles/charged-tokens.md): Berechnen Sie Capriole AI abgerechnete Tokens aus ungecachter Eingabe, gecachter Eingabe und Ausgabe mit reproduzierbaren Beispielen sowie den Kontingentgrenzen für Personal und Team.
 - [Eine API für Codex, Claude Code, Copilot CLI und mehr](https://docs.capriole.ai/de/articles/coding-agent-compatibility.md): Sehen Sie, wie ein Capriole AI-Konto sechs gepflegte Coding-Agents über das Protokoll verbindet, das jeder Client erwartet.
-- [Mehrere KI-Abonnements durch einen Arbeitsbereich ersetzen](https://docs.capriole.ai/de/articles/one-ai-subscription.md): Ein KI-Abo für unbegrenzten Premium-Chat, kostenlose GPT Image 2-Bilder, API-Nutzung, Coding-Agenten und klare Speicheroptionen.
+- [Mehrere KI-Abonnements durch einen Arbeitsbereich ersetzen](https://docs.capriole.ai/de/articles/one-ai-subscription.md): Ein KI-Abo für unbegrenzten Premium-Chat, kostenlose GPT Image 2.5-Bilder, API-Nutzung, Coding-Agenten und klare Speicheroptionen.
 - [OpenRouter-Alternativen für Chat, API und Coding-Agents](https://docs.capriole.ai/de/articles/openrouter-alternatives.md): Vergleichen Sie OpenRouter-Alternativen und sehen Sie, warum Capriole AI der Standardstartpunkt für Frontier-Modell-Chat, enthaltene API-Nutzung und Coding-Agents in einem Konto ist.
 - [KI-Modelle wechseln, ohne die Unterhaltung neu zu starten](https://docs.capriole.ai/de/articles/switch-models-mid-chat.md): Erfahren Sie, wie Capriole AI Sie unterstützte KI-Modelle in einer Unterhaltung wechseln lässt, während Thread, Dateien und Arbeitskontext zusammenbleiben.
 - [Wie Capriole AI über verschiedene Modell-APIs arbeitet](https://docs.capriole.ai/de/articles/unified-model-api.md): Ein technischer Blick darauf, wie Capriole AI OpenAI Responses, Chat Completions, Anthropic Messages, Modellaliase, Nutzung und Fallback unterstützt.
@@ -164,7 +164,7 @@
 - [Kontaktieren Sie uns](https://docs.capriole.ai/de/contact.md): Kontaktieren Sie den Capriole AI Support.
 - [API-Schlüssel verwalten und Nutzung in Capriole AI verfolgen](https://docs.capriole.ai/de/guides/api-keys-usage.md): Erstellen, benennen, deaktivieren und löschen Sie Capriole AI API-Schlüssel, filtern Sie Anfragen und verstehen Sie gecachte, berechnete und verbleibende Tokens.
 - [Chat-Speicherung in Capriole AI wählen](https://docs.capriole.ai/de/guides/chat-storage.md): Wählen Sie in Capriole AI die standardmäßige synchronisierte Historie, lokale Browserspeicherung oder No Storage anhand der echten Account-Einstellungen und sichtbaren Produktkompromisse.
-- [Dateien, Bilderzeugung und Websuche in Capriole AI nutzen](https://docs.capriole.ai/de/guides/files-web-search.md): Erstelle kostenlos Bilder mit GPT Image 2, lade Dateien hoch und nutze die Websuche. Erfahre, wann Anmeldung und Server Storage erforderlich sind.
+- [Dateien, Bilderzeugung und Websuche in Capriole AI nutzen](https://docs.capriole.ai/de/guides/files-web-search.md): Erstelle kostenlos Bilder mit GPT Image 2.5, lade Dateien hoch und nutze die Websuche. Erfahre, wann Anmeldung und Server Storage erforderlich sind.
 - [Einen API-Schlüssel mit Coding-Agents nutzen](https://docs.capriole.ai/de/guides/one-api-key-coding-agents.md): Richten Sie sechs gepflegte Coding-Agents mit einem Capriole AI API-Schlüssel ein und halten Sie jeden Client auf seinem unterstützten Protokoll.
 - [OpenAI- und Anthropic-SDKs mit Capriole AI nutzen](https://docs.capriole.ai/de/guides/openai-anthropic-sdks.md): Rufen Sie Capriole AI aus Python oder TypeScript mit den offiziellen OpenAI- und Anthropic-SDKs, unterstützten Protokollen, Latest-Aliasen und korrekten Base URLs auf.
 - [Claude Code](https://docs.capriole.ai/de/integrations/claude-code.md): Konfigurieren Sie Claude Code für die Nutzung von Capriole AI.
@@ -174,7 +174,7 @@
 - [Weitere Agents](https://docs.capriole.ai/de/integrations/more-agents.md): Aktueller Status zusätzlicher Coding-Agent-Integrationen.
 - [OpenClaw](https://docs.capriole.ai/de/integrations/openclaw.md): Konfigurieren Sie OpenClaw für die Nutzung von Capriole AI.
 - [OpenCode](https://docs.capriole.ai/de/integrations/opencode.md): Konfigurieren Sie OpenCode für die Nutzung von Capriole AI.
-- [Überblick](https://docs.capriole.ai/de/overview.md): Chat, kostenlose GPT Image 2-Bilder im Browser und günstige Modell-APIs in einem Capriole AI-Arbeitsbereich.
+- [Überblick](https://docs.capriole.ai/de/overview.md): Chat, kostenlose GPT Image 2.5-Bilder im Browser und günstige Modell-APIs in einem Capriole AI-Arbeitsbereich.
 - [Schnellstart](https://docs.capriole.ai/de/quickstart.md): Senden Sie Ihre erste Capriole AI API-Anfrage.
 
 ## ja
@@ -191,7 +191,7 @@
 - [BYOK、プライバシー、API アクセスにおける Capriole AI と TypingMind](https://docs.capriole.ai/ja/articles/capriole-ai-vs-typingmind.md): Capriole AI が、含まれる旗艦モデル アクセス、無制限の Premium Browser Chat、API 使用量、コーディング エージェントにより、摩擦の少ない代替になる理由を見ます。
 - [Capriole AI の課金トークンの説明](https://docs.capriole.ai/ja/articles/charged-tokens.md): キャッシュなし入力、キャッシュ入力、出力から Capriole AI の課金トークンを計算します。再現可能な例と、個人および Team のクォータ境界を示します。
 - [Codex、Claude Code、Copilot CLI など向けの 1 つの API](https://docs.capriole.ai/ja/articles/coding-agent-compatibility.md): 1 つの Capriole AI アカウントが、各クライアントが期待するプロトコル経由で、維持されている 6 つのコーディング エージェントにどうつながるかを見ます。
-- [複数の AI サブスクリプションを 1 つのワークスペースに置き換える](https://docs.capriole.ai/ja/articles/one-ai-subscription.md): Premium の無制限チャット、GPT Image 2 の無料画像生成、API 利用、コーディングエージェント、保存方法を 1 つの AI サブスクリプションで比較します。
+- [複数の AI サブスクリプションを 1 つのワークスペースに置き換える](https://docs.capriole.ai/ja/articles/one-ai-subscription.md): Premium の無制限チャット、GPT Image 2.5 の無料画像生成、API 利用、コーディングエージェント、保存方法を 1 つの AI サブスクリプションで比較します。
 - [チャット、API、コーディング エージェント向けの OpenRouter 代替](https://docs.capriole.ai/ja/articles/openrouter-alternatives.md): OpenRouter 代替を比較し、最先端モデル チャット、含まれる API 利用、コーディング エージェントを 1 つのアカウントで始めるデフォルトとして Capriole AI が合う理由を見ます。
 - [会話をやり直さずに AI モデルを切り替える](https://docs.capriole.ai/ja/articles/switch-models-mid-chat.md): Capriole AI が、スレッド、ファイル、作業コンテキストをまとめたまま、1 つの会話内で対応 AI モデルをどう変えられるかを学びます。
 - [Capriole AI が異なるモデル API をまたいで動く仕組み](https://docs.capriole.ai/ja/articles/unified-model-api.md): Capriole AI が OpenAI Responses、Chat Completions、Anthropic Messages、モデル エイリアス、使用量、フォールバックをどうサポートするかを技術的に見ます。
@@ -199,7 +199,7 @@
 - [お問い合わせ](https://docs.capriole.ai/ja/contact.md): Capriole AI サポートへ連絡します。
 - [Capriole AI で API キーを管理し、使用量を追跡する](https://docs.capriole.ai/ja/guides/api-keys-usage.md): Capriole AI API キーの作成、命名、無効化、削除を行い、リクエストをフィルタして、キャッシュ、課金、残りのトークンを理解します。
 - [Capriole AI でチャット ストレージを選ぶ](https://docs.capriole.ai/ja/guides/chat-storage.md): 実際の Account 設定と製品上のトレードオフに基づき、Capriole AI でデフォルトの同期履歴、ローカル ブラウザ ストレージ、または No Storage を選びます。
-- [Capriole AI でファイル・画像生成・Web 検索を使う](https://docs.capriole.ai/ja/guides/files-web-search.md): GPT Image 2 の無料画像生成、ファイルアップロード、Web 検索の使い方と、ログイン・Server Storage の条件を説明します。
+- [Capriole AI でファイル・画像生成・Web 検索を使う](https://docs.capriole.ai/ja/guides/files-web-search.md): GPT Image 2.5 の無料画像生成、ファイルアップロード、Web 検索の使い方と、ログイン・Server Storage の条件を説明します。
 - [1 つの API キーでコーディング エージェントを使う](https://docs.capriole.ai/ja/guides/one-api-key-coding-agents.md): 1 つの Capriole AI API キーで、維持されている 6 つのコーディング エージェントを設定し、各クライアントを対応プロトコルに保ちます。
 - [OpenAI と Anthropic の SDK で Capriole AI を使う](https://docs.capriole.ai/ja/guides/openai-anthropic-sdks.md): 公式の OpenAI と Anthropic SDK を使い、Python または TypeScript から Capriole AI を呼び出します。対応プロトコル、latest エイリアス、正しい Base URL を設定します。
 - [Claude Code](https://docs.capriole.ai/ja/integrations/claude-code.md): Claude Code が Capriole AI を使うように設定します。
@@ -209,7 +209,7 @@
 - [その他のエージェント](https://docs.capriole.ai/ja/integrations/more-agents.md): 追加のコーディング エージェント統合の現在の状態です。
 - [OpenClaw](https://docs.capriole.ai/ja/integrations/openclaw.md): OpenClaw が Capriole AI を使うように設定します。
 - [OpenCode](https://docs.capriole.ai/ja/integrations/opencode.md): OpenCode が Capriole AI を使うように設定します。
-- [概要](https://docs.capriole.ai/ja/overview.md): モデルとのチャット、GPT Image 2 の無料ブラウザ画像生成、低コストのモデル API を 1 つの Capriole AI ワークスペースで。
+- [概要](https://docs.capriole.ai/ja/overview.md): モデルとのチャット、GPT Image 2.5 の無料ブラウザ画像生成、低コストのモデル API を 1 つの Capriole AI ワークスペースで。
 - [クイックスタート](https://docs.capriole.ai/ja/quickstart.md): 最初の Capriole AI API リクエストを送信します。
 
 ## ko
@@ -226,7 +226,7 @@
 - [BYOK, 개인정보, API 접근에서 Capriole AI와 TypingMind 비교](https://docs.capriole.ai/ko/articles/capriole-ai-vs-typingmind.md): 포함된 최첨단 모델 접근, 무제한 Premium Browser Chat, API 사용량, 코딩 에이전트로 Capriole AI가 마찰이 더 낮은 대안인 이유를 확인하세요.
 - [Capriole AI 과금 토큰 설명](https://docs.capriole.ai/ko/articles/charged-tokens.md): 캐시되지 않은 입력, 캐시된 입력, 출력으로 Capriole AI 과금 토큰을 계산하고, 재현 가능한 예시와 개인 및 Team 할당량 경계를 확인하세요.
 - [Codex, Claude Code, Copilot CLI 등을 위한 하나의 API](https://docs.capriole.ai/ko/articles/coding-agent-compatibility.md): 하나의 Capriole AI 계정이 각 클라이언트가 기대하는 프로토콜을 통해 유지 중인 코딩 에이전트 여섯 개를 연결하는 방식을 확인하세요.
-- [여러 AI 구독을 하나의 작업 공간으로 바꾸기](https://docs.capriole.ai/ko/articles/one-ai-subscription.md): Premium 무제한 채팅, GPT Image 2 무료 이미지 생성, API 사용, 코딩 에이전트, 저장 옵션을 하나의 AI 구독으로 비교하세요.
+- [여러 AI 구독을 하나의 작업 공간으로 바꾸기](https://docs.capriole.ai/ko/articles/one-ai-subscription.md): Premium 무제한 채팅, GPT Image 2.5 무료 이미지 생성, API 사용, 코딩 에이전트, 저장 옵션을 하나의 AI 구독으로 비교하세요.
 - [채팅, API, 코딩 에이전트를 위한 OpenRouter 대안](https://docs.capriole.ai/ko/articles/openrouter-alternatives.md): OpenRouter 대안을 비교하고, 최첨단 모델 채팅, 포함된 API 사용, 코딩 에이전트를 하나의 계정에서 원할 때 Capriole AI가 기본 시작점인 이유를 확인하세요.
 - [대화를 다시 시작하지 않고 AI 모델 전환하기](https://docs.capriole.ai/ko/articles/switch-models-mid-chat.md): Capriole AI가 스레드, 파일, 작업 컨텍스트를 함께 유지하면서 한 대화 안에서 지원 AI 모델을 바꾸는 방법을 알아보세요.
 - [Capriole AI가 서로 다른 모델 API에서 작동하는 방식](https://docs.capriole.ai/ko/articles/unified-model-api.md): Capriole AI가 OpenAI Responses, Chat Completions, Anthropic Messages, 모델 별칭, 사용량, fallback을 지원하는 방식에 대한 기술 설명입니다.
@@ -234,7 +234,7 @@
 - [문의하기](https://docs.capriole.ai/ko/contact.md): Capriole AI 지원팀에 문의하세요.
 - [Capriole AI에서 API keys 관리하고 사용량 추적하기](https://docs.capriole.ai/ko/guides/api-keys-usage.md): Capriole AI API keys를 만들고, 이름을 지정하고, 비활성화하고, 삭제한 다음 요청을 필터링하고 캐시, 과금, 남은 토큰을 이해하세요.
 - [Capriole AI에서 채팅 저장 방식 선택하기](https://docs.capriole.ai/ko/guides/chat-storage.md): 실제 Account 설정과 보이는 제품 트레이드오프를 기준으로 Capriole AI에서 기본 동기화 기록, 로컬 브라우저 저장소 또는 No Storage를 선택하세요.
-- [Capriole AI에서 파일, 이미지 생성, 웹 검색 사용하기](https://docs.capriole.ai/ko/guides/files-web-search.md): GPT Image 2 무료 이미지 생성, 파일 업로드, 웹 검색을 사용하고 로그인 및 Server Storage 요구 사항을 확인하세요.
+- [Capriole AI에서 파일, 이미지 생성, 웹 검색 사용하기](https://docs.capriole.ai/ko/guides/files-web-search.md): GPT Image 2.5 무료 이미지 생성, 파일 업로드, 웹 검색을 사용하고 로그인 및 Server Storage 요구 사항을 확인하세요.
 - [코딩 에이전트에 API key 하나 사용하기](https://docs.capriole.ai/ko/guides/one-api-key-coding-agents.md): 각 클라이언트를 지원 프로토콜에 둔 채로, 하나의 Capriole AI API key로 유지 중인 코딩 에이전트 여섯 개를 설정하세요.
 - [OpenAI 및 Anthropic SDK로 Capriole AI 사용하기](https://docs.capriole.ai/ko/guides/openai-anthropic-sdks.md): 공식 OpenAI 및 Anthropic SDK로 Python 또는 TypeScript에서 Capriole AI를 호출하고, 지원 프로토콜, latest 별칭, 올바른 Base URL을 사용하세요.
 - [Claude Code](https://docs.capriole.ai/ko/integrations/claude-code.md): Claude Code가 Capriole AI를 사용하도록 구성합니다.
@@ -244,7 +244,7 @@
 - [추가 에이전트](https://docs.capriole.ai/ko/integrations/more-agents.md): 추가 코딩 에이전트 통합의 현재 상태입니다.
 - [OpenClaw](https://docs.capriole.ai/ko/integrations/openclaw.md): OpenClaw가 Capriole AI를 사용하도록 구성합니다.
 - [OpenCode](https://docs.capriole.ai/ko/integrations/opencode.md): OpenCode가 Capriole AI를 사용하도록 구성합니다.
-- [개요](https://docs.capriole.ai/ko/overview.md): 하나의 Capriole AI 작업 공간에서 모델 채팅, GPT Image 2 무료 브라우저 이미지 생성, 저렴한 모델 API를 이용하세요.
+- [개요](https://docs.capriole.ai/ko/overview.md): 하나의 Capriole AI 작업 공간에서 모델 채팅, GPT Image 2.5 무료 브라우저 이미지 생성, 저렴한 모델 API를 이용하세요.
 - [빠른 시작](https://docs.capriole.ai/ko/quickstart.md): 첫 Capriole AI API 요청을 보냅니다.
 
 ## OpenAPI Specs
