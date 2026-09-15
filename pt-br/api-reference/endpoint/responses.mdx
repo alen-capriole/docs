@@ -10,6 +10,8 @@ Envie um payload padrão de Responses com `model` e `input`. A Capriole AI resol
 
 `POST /v1/responses` aceita `openai-latest`, `openai/gpt-6-astra`, `openai/gpt-5.6-terra`, `openai/gpt-5.6-luna` e `openai/gpt-5.5`. Use `openai-latest` para deixar a Capriole AI escolher o modelo principal de OpenAI Responses que recomendamos.
 
+Você também pode enviar IDs nativos da OpenAI sem o prefixo `openai/`, como `gpt-6-astra`. Os IDs nativos e os que têm prefixo usam a mesma entrada de modelo para roteamento, preços e cota.
+
 Aliases latest de Claude e Google não são suportados neste endpoint. Grok 4.5, GLM 5.2 e Kimi K3 usam Chat Completions e também não são suportados aqui. Use `POST /v1/chat/completions` quando quiser um único endpoint compatível com OpenAI que possa chamar todos os modelos públicos.
 
 Para geração de texto nativa da Capriole, use `POST /v1/chat`. Use `POST /v1/responses` quando o comportamento de transmissão do OpenAI Responses for necessário.

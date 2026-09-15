@@ -10,6 +10,8 @@ openapi: "api-reference/openapi.json POST /v1/responses"
 
 `POST /v1/responses`는 `openai-latest`, `openai/gpt-6-astra`, `openai/gpt-5.6-terra`, `openai/gpt-5.6-luna`, `openai/gpt-5.5`를 받습니다. Capriole AI가 권장 OpenAI Responses 플래그십 모델을 선택하게 하려면 `openai-latest`를 사용하세요.
 
+`gpt-6-astra`처럼 `openai/` 접두사가 없는 네이티브 OpenAI ID도 보낼 수 있습니다. 네이티브 ID와 접두사가 붙은 ID는 라우팅, 요금 계산, 할당량 차감에 동일한 모델 항목을 사용합니다.
+
 이 엔드포인트는 Claude 및 Google latest 별칭을 지원하지 않습니다. Grok 4.5, GLM 5.2, Kimi K3는 Chat Completions를 사용하므로 여기에서도 지원되지 않습니다. 모든 공개 모델을 하나의 OpenAI 호환 엔드포인트로 호출하려면 `POST /v1/chat/completions`를 사용하세요.
 
 간단한 Capriole 네이티브 텍스트 생성에는 `POST /v1/chat`를 사용하세요. OpenAI Responses 전송 동작이 필요하면 `POST /v1/responses`를 사용하세요.

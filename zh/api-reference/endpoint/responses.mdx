@@ -10,6 +10,8 @@ openapi: "api-reference/openapi.json POST /v1/responses"
 
 `POST /v1/responses` 接受 `openai-latest`、`openai/gpt-6-astra`、`openai/gpt-5.6-terra`、`openai/gpt-5.6-luna` 和 `openai/gpt-5.5`。使用 `openai-latest` 可以让 Capriole AI 选择当前推荐的 OpenAI Responses 旗舰模型。
 
+也可以发送不带 `openai/` 前缀的原生 OpenAI ID，例如 `gpt-6-astra`。原生 ID 与带前缀的 ID 使用同一模型记录进行路由、计价和额度扣减。
+
 此端点不支持 Claude 和 Google latest alias，也不支持通过 Chat Completions 调用的 Grok 4.5、GLM 5.2 和 Kimi K3。如果需要通过一个 OpenAI 兼容端点调用全部公开模型，请使用 `POST /v1/chat/completions`。
 
 简单的 Capriole 原生文本生成使用 `POST /v1/chat`。需要 OpenAI Responses 传输格式时，请使用 `POST /v1/responses`。

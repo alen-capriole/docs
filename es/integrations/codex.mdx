@@ -31,7 +31,7 @@ Descarga la app desde [OpenAI Codex](https://developers.openai.com/codex).
 Crea o actualiza `~/.codex/config.toml`:
 
 ```toml
-model = "openai-latest"
+model = "gpt-6-astra"
 model_reasoning_effort = "high"
 model_provider = "capriole_ai"
 
@@ -54,13 +54,14 @@ codex
 
 ## Modelos compatibles
 
-Codex admite los modelos OpenAI de Capriole AI a través de la API Responses. Usa `openai-latest` en las configuraciones nuevas para que Capriole AI enrute Codex a nuestro modelo insignia recomendado de OpenAI sin cambiar tu config.
+Codex usa los modelos OpenAI de Capriole AI a través de la API Responses. Usa los ID nativos de abajo con el selector de modelos y los ajustes de razonamiento integrados de Codex. No necesitas un `model_catalog_json` personalizado. Solo puedes invocar modelos compatibles con Capriole AI.
 
-- `openai-latest`
-- `openai/gpt-6-astra`
-- `openai/gpt-5.6-terra`
-- `openai/gpt-5.6-luna`
-- `openai/gpt-5.5`
+- `gpt-6-astra`
+- `gpt-5.6-terra`
+- `gpt-5.6-luna`
+- `gpt-5.5`
+
+La API también acepta los ID con el prefijo `openai/` y `openai-latest`. El alias `openai-latest` sigue el modelo insignia de OpenAI recomendado por Capriole AI.
 
 ## Solución de problemas
 

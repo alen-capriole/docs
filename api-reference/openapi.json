@@ -759,8 +759,12 @@
         "properties": {
           "model": {
             "type": "string",
-            "description": "Public Responses-compatible model identifier or OpenAI latest alias",
+            "description": "Native OpenAI ID, public Responses-compatible model key, or OpenAI latest alias",
             "enum": [
+              "gpt-6-astra",
+              "gpt-5.6-terra",
+              "gpt-5.6-luna",
+              "gpt-5.5",
               "openai-latest",
               "openai/gpt-6-astra",
               "openai/gpt-5.6-terra",

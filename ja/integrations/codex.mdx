@@ -31,7 +31,7 @@ npm install -g @openai/codex
 `~/.codex/config.toml` を作成または更新します。
 
 ```toml
-model = "openai-latest"
+model = "gpt-6-astra"
 model_reasoning_effort = "high"
 model_provider = "capriole_ai"
 
@@ -54,13 +54,14 @@ codex
 
 ## 対応モデル
 
-Codex は Responses API 経由で Capriole AI の OpenAI モデルを使えます。新規セットアップでは `openai-latest` を使い、設定を変えずに推奨の旗艦 OpenAI モデルへ Codex をルーティングしてください。
+Codex は Responses API 経由で Capriole AI の OpenAI モデルを使えます。以下のネイティブモデル ID を使うと、Codex 標準のモデル選択と推論設定を利用できます。独自の `model_catalog_json` は不要です。呼び出せるのは Capriole AI が対応しているモデルのみです。
 
-- `openai-latest`
-- `openai/gpt-6-astra`
-- `openai/gpt-5.6-terra`
-- `openai/gpt-5.6-luna`
-- `openai/gpt-5.5`
+- `gpt-6-astra`
+- `gpt-5.6-terra`
+- `gpt-5.6-luna`
+- `gpt-5.5`
+
+API は `openai/` プレフィックス付きの ID と `openai-latest` も受け付けます。`openai-latest` エイリアスは Capriole AI が推奨する OpenAI の旗艦モデルを指定します。
 
 ## トラブルシューティング
 
