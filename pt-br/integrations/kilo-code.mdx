@@ -33,7 +33,7 @@ npm install -g @kilocode/cli
 
 Kilo Code 7.3.16: `anthropic/claude-fable-5-1`, `google/gemini-3.8-flash` e `zai/glm-5.3-flash` passam nas verificações locais de leitura de arquivo e resposta final. `claude-latest` resolve para Fable 5.1. Os IDs concretos anteriores continuam disponíveis.
 
-As verificações do Gemini 3.8 Flash usam `"tool_call": true`; o Gemini 3.5 Flash mantém `"tool_call": false` na configuração abaixo.
+As verificações do Gemini 3.8 Flash usam `"tool_call": true`.
 
 `xai/grok-4.6` aceita solicitações de Chat Completions, mas não passou nas verificações de tarefas de agentes e não está na configuração abaixo. Testes diretos no provedor também encontraram uso inconsistente de ferramentas no Grok 4.5; concluir uma solicitação API não comprova uma resposta correta do agente.
 
@@ -151,11 +151,6 @@ Use esta configuração de provedor compatível com OpenAI:
           "name": "Capriole Gemini 3.8 Flash",
           "tool_call": true,
           "reasoning": true
-        },
-        "google/gemini-3.5-flash": {
-          "name": "Capriole Gemini 3.5 Flash",
-          "tool_call": false,
-          "reasoning": true
         }
       }
     }
@@ -186,15 +181,14 @@ kilo -m openai-compatible/anthropic/claude-opus-4-8
 kilo -m openai-compatible/anthropic/claude-opus-4-7
 kilo -m openai-compatible/google/gemini-3.1-pro-preview
 kilo -m openai-compatible/google/gemini-3.8-flash
-kilo -m openai-compatible/google/gemini-3.5-flash
 kilo -m openai-compatible/zai/glm-5.3-flash
 kilo -m openai-compatible/moonshot/kimi-k3
 ```
 
-Execute uma solicitação pontual com Gemini 3.5 Flash:
+Execute uma solicitação pontual com Gemini 3.8 Flash:
 
 ```bash
-kilo run --agent ask -m openai-compatible/google/gemini-3.5-flash "Summarize this project."
+kilo run --agent ask -m openai-compatible/google/gemini-3.8-flash "Summarize this project."
 ```
 
 Para uma solicitação pontual na CLI, passe um prompt para `kilo run`:
@@ -226,13 +220,10 @@ A documentação do Kilo usa a mesma ordem de famílias do seletor de modelos da
 - `google-latest`
 - `google/gemini-3.1-pro-preview`
 - `google/gemini-3.8-flash`
-- `google/gemini-3.5-flash`
 - `xai/grok-4.5`
 - `zai/glm-5.3-flash`
 - `zai/glm-5.2`
 - `moonshot/kimi-k3`
-
-Mantenha `"tool_call": false` para Gemini 3.5 Flash no Kilo Code. A Capriole AI suporta chamadas de ferramenta simples de Chat Completions para este modelo, e o Kilo Code pode executar fluxos de ferramenta locais com esta configuração, mas ativar declarações nativas de função do Gemini ainda pode expor o subconjunto mais estreito de schema OpenAPI do Gemini.
 
 Outros IDs públicos de modelo compatíveis com Chat Completions retornados por `GET /v1/models` também podem ser configurados quando você quiser testá-los. Valide o uso de ferramentas antes de usar um modelo em fluxos de edição de código.
 
@@ -256,9 +247,7 @@ Confirme que o modelo selecionado usa o formato `openai-compatible/<model-id>` e
 
 ### Por que o uso de ferramentas falha?
 
-Para entradas de GPT, Claude, Gemini 3.1 Pro e aliases latest, confirme que a entrada do modelo inclui `"tool_call": true`. O Kilo Code executa ferramentas localmente e envia solicitações de acompanhamento de Chat Completions para a Capriole AI.
-
-Para Gemini 3.5 Flash, mantenha `"tool_call": false`. O Gemini suporta chamada de função, mas as declarações de função usam um subconjunto suportado do schema OpenAPI. Alguns schemas nativos de ferramenta são mais amplos do que esse subconjunto.
+Para entradas de GPT, Claude, Gemini 3.1 Pro, Gemini 3.8 Flash e aliases latest, confirme que a entrada do modelo inclui `"tool_call": true`. O Kilo Code executa ferramentas localmente e envia solicitações de acompanhamento de Chat Completions para a Capriole AI.
 
 ## Observações
 

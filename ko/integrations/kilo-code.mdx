@@ -33,7 +33,7 @@ npm install -g @kilocode/cli
 
 Kilo Code 7.3.16: `anthropic/claude-fable-5-1`, `google/gemini-3.8-flash`, `zai/glm-5.3-flash`는 로컬 파일 읽기 도구 및 최종 답변 검사를 통과했습니다. `claude-latest`는 Fable 5.1로 해석됩니다. 기존 구체 모델 ID도 계속 사용할 수 있습니다.
 
-Gemini 3.8 Flash 검사는 `"tool_call": true`를 사용하며, 아래 Gemini 3.5 Flash 설정은 `"tool_call": false`를 유지합니다.
+Gemini 3.8 Flash 검사는 `"tool_call": true`를 사용합니다.
 
 `xai/grok-4.6`는 Chat Completions 요청을 받지만 코딩 에이전트 작업 검사를 통과하지 못해 아래 구성에 포함하지 않습니다. 제공자 직접 검사에서도 Grok 4.5의 도구 사용이 불안정했습니다. API 요청 완료가 올바른 에이전트 답변을 뜻하지는 않습니다.
 
@@ -151,11 +151,6 @@ Kilo 구성 파일을 만들거나 업데이트하세요.
           "name": "Capriole Gemini 3.8 Flash",
           "tool_call": true,
           "reasoning": true
-        },
-        "google/gemini-3.5-flash": {
-          "name": "Capriole Gemini 3.5 Flash",
-          "tool_call": false,
-          "reasoning": true
         }
       }
     }
@@ -186,15 +181,14 @@ kilo -m openai-compatible/anthropic/claude-opus-4-8
 kilo -m openai-compatible/anthropic/claude-opus-4-7
 kilo -m openai-compatible/google/gemini-3.1-pro-preview
 kilo -m openai-compatible/google/gemini-3.8-flash
-kilo -m openai-compatible/google/gemini-3.5-flash
 kilo -m openai-compatible/zai/glm-5.3-flash
 kilo -m openai-compatible/moonshot/kimi-k3
 ```
 
-Gemini 3.5 Flash로 일회성 요청을 실행하세요.
+Gemini 3.8 Flash로 일회성 요청을 실행하세요.
 
 ```bash
-kilo run --agent ask -m openai-compatible/google/gemini-3.5-flash "Summarize this project."
+kilo run --agent ask -m openai-compatible/google/gemini-3.8-flash "Summarize this project."
 ```
 
 일회성 CLI 요청은 `kilo run`에 프롬프트를 전달하세요.
@@ -226,13 +220,10 @@ Kilo 문서는 Capriole AI 모델 선택기와 같은 계열 순서를 사용합
 - `google-latest`
 - `google/gemini-3.1-pro-preview`
 - `google/gemini-3.8-flash`
-- `google/gemini-3.5-flash`
 - `xai/grok-4.5`
 - `zai/glm-5.3-flash`
 - `zai/glm-5.2`
 - `moonshot/kimi-k3`
-
-Kilo Code에서 Gemini 3.5 Flash는 `"tool_call": false`를 유지하세요. Capriole AI는 이 모델의 간단한 Chat Completions 도구 호출을 지원하고, 이 설정으로 Kilo Code가 로컬 도구 워크플로를 실행할 수 있습니다. 다만 네이티브 Gemini function declarations를 켜면 Gemini의 더 좁은 OpenAPI 스키마 하위 집합이 드러날 수 있습니다.
 
 `GET /v1/models`가 반환하는 다른 공개 Chat Completions 호환 모델 ID도 테스트하고 싶을 때 구성할 수 있습니다. 코드 편집 워크플로에 모델을 쓰기 전에 도구 사용을 검증하세요.
 
@@ -256,9 +247,7 @@ Kilo Code에서 Gemini 3.5 Flash는 `"tool_call": false`를 유지하세요. Cap
 
 ### 도구 사용이 실패하는 이유는 무엇인가요?
 
-GPT, Claude, Gemini 3.1 Pro, latest 별칭 항목에는 모델 항목에 `"tool_call": true`가 포함되어 있는지 확인하세요. Kilo Code는 도구를 로컬에서 실행하고 후속 Chat Completions 요청을 Capriole AI로 보냅니다.
-
-Gemini 3.5 Flash는 `"tool_call": false`를 유지하세요. Gemini는 function calling을 지원하지만, function declarations는 지원되는 OpenAPI 스키마 하위 집합을 사용합니다. 일부 네이티브 도구 스키마는 그 하위 집합보다 넓습니다.
+GPT, Claude, Gemini 3.1 Pro, Gemini 3.8 Flash, latest 별칭 항목에는 모델 항목에 `"tool_call": true`가 포함되어 있는지 확인하세요. Kilo Code는 도구를 로컬에서 실행하고 후속 Chat Completions 요청을 Capriole AI로 보냅니다.
 
 ## 참고
 

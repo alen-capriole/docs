@@ -33,7 +33,7 @@ npm install -g @kilocode/cli
 
 Kilo Code 7.3.16：`anthropic/claude-fable-5-1`、`google/gemini-3.8-flash` 和 `zai/glm-5.3-flash` 已通过本地文件读取工具和最终答案检查。 `claude-latest` 解析到 Fable 5.1。原有具体模型 ID 继续可用。
 
-Gemini 3.8 Flash 的检查使用 `"tool_call": true`；下方 Gemini 3.5 Flash 的设置保持 `"tool_call": false`。
+Gemini 3.8 Flash 的检查使用 `"tool_call": true`。
 
 `xai/grok-4.6` 能接受 Chat Completions 请求，但未通过编码 Agent 任务检查，因此不加入下方配置。直接调用上游的检查也发现 Grok 4.5 的工具使用不稳定；API 请求完成不代表 Agent 答案正确。
 
@@ -151,11 +151,6 @@ Gemini 3.8 Flash 的检查使用 `"tool_call": true`；下方 Gemini 3.5 Flash �
           "name": "Capriole Gemini 3.8 Flash",
           "tool_call": true,
           "reasoning": true
-        },
-        "google/gemini-3.5-flash": {
-          "name": "Capriole Gemini 3.5 Flash",
-          "tool_call": false,
-          "reasoning": true
         }
       }
     }
@@ -186,15 +181,14 @@ kilo -m openai-compatible/anthropic/claude-opus-4-8
 kilo -m openai-compatible/anthropic/claude-opus-4-7
 kilo -m openai-compatible/google/gemini-3.1-pro-preview
 kilo -m openai-compatible/google/gemini-3.8-flash
-kilo -m openai-compatible/google/gemini-3.5-flash
 kilo -m openai-compatible/zai/glm-5.3-flash
 kilo -m openai-compatible/moonshot/kimi-k3
 ```
 
-使用 Gemini 3.5 Flash 发送一次性请求。
+使用 Gemini 3.8 Flash 发送一次性请求。
 
 ```bash
-kilo run --agent ask -m openai-compatible/google/gemini-3.5-flash "Summarize this project."
+kilo run --agent ask -m openai-compatible/google/gemini-3.8-flash "Summarize this project."
 ```
 
 发送一次性 CLI 请求时，把 Prompt 传给 `kilo run`。
@@ -226,13 +220,10 @@ Kilo 文档采用与 Capriole AI 模型选择器相同的模型系列顺序，�
 - `google-latest`
 - `google/gemini-3.1-pro-preview`
 - `google/gemini-3.8-flash`
-- `google/gemini-3.5-flash`
 - `xai/grok-4.5`
 - `zai/glm-5.3-flash`
 - `zai/glm-5.2`
 - `moonshot/kimi-k3`
-
-在 Kilo Code 中使用 Gemini 3.5 Flash 时，请保留 `"tool_call": false`。Capriole AI 支持该模型的简单 Chat Completions 工具调用，Kilo Code 也能在此设置下运行本地工具工作流，但启用原生 Gemini 函数声明仍可能遇到 Gemini 较窄的 OpenAPI Schema 子集限制。
 
 需要测试其他模型时，也可以配置 `GET /v1/models` 返回的公共 Chat Completions 兼容模型 ID。将模型用于代码编辑工作流前，请先验证工具调用。
 
@@ -256,9 +247,7 @@ Kilo 文档采用与 Capriole AI 模型选择器相同的模型系列顺序，�
 
 ### 为什么工具调用失败
 
-对于 GPT、Claude、Gemini 3.1 Pro 和 latest 别名条目，请确认模型条目包含 `"tool_call": true`。Kilo Code 在本地执行工具，并向 Capriole AI 发送后续 Chat Completions 请求。
-
-对于 Gemini 3.5 Flash，请保留 `"tool_call": false`。Gemini 支持函数调用，但函数声明只能使用受支持的 OpenAPI Schema 子集。部分原生工具 Schema 超出了该子集。
+对于 GPT、Claude、Gemini 3.1 Pro、Gemini 3.8 Flash 和 latest 别名条目，请确认模型条目包含 `"tool_call": true`。Kilo Code 在本地执行工具，并向 Capriole AI 发送后续 Chat Completions 请求。
 
 ## 说明
 
