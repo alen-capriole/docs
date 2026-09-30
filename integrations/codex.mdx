@@ -57,11 +57,14 @@ codex
 Codex uses Capriole AI OpenAI models through the Responses API. Use the native model IDs below with Codex's built-in model picker and reasoning settings. You do not need a custom `model_catalog_json`. Only models supported by Capriole AI can be called.
 
 - `gpt-6-astra`
+- `gpt-6.1-sol`
 - `gpt-6-sol`
 - `gpt-6-luna`
 - `gpt-5.6-terra`
 - `gpt-5.6-luna`
 - `gpt-5.5`
+
+Use Codex 0.159.2 or later for `gpt-6.1-sol`. Older versions do not include its model metadata and fall back to generic settings.
 
 The API also accepts the `openai/`-prefixed forms and `openai-latest`. The `openai-latest` alias follows Capriole AI's recommended OpenAI flagship model.
 

@@ -8,7 +8,7 @@ openapi: "api-reference/openapi.json POST /v1/responses"
 
 `model` と `input` を含む標準の Responses ペイロードを送信します。Capriole AI は上流へ送る前に latest エイリアスを選択した上流モデル ID に解決し、`instructions`、`tools`、`reasoning`、`previous_response_id`、`stream` などの互換フィールドを転送し、上流の JSON または SSE ストリームをそのまま返します。
 
-`POST /v1/responses` は `openai-latest`、`openai/gpt-6-astra`、`openai/gpt-6-sol`、`openai/gpt-6-luna`、`openai/gpt-5.6-terra`、`openai/gpt-5.6-luna`、`openai/gpt-5.5` を受け付けます。推奨する旗艦 OpenAI Responses モデルを Capriole AI に選ばせるには、`openai-latest` を使ってください。
+`POST /v1/responses` は `openai-latest`、`openai/gpt-6-astra`、`openai/gpt-6.1-sol`、`openai/gpt-6-sol`、`openai/gpt-6-luna`、`openai/gpt-5.6-terra`、`openai/gpt-5.6-luna`、`openai/gpt-5.5` を受け付けます。推奨する旗艦 OpenAI Responses モデルを Capriole AI に選ばせるには、`openai-latest` を使ってください。
 
 `gpt-6-astra` のように、`openai/` プレフィックスのないネイティブ OpenAI ID も送信できます。ネイティブ ID とプレフィックス付き ID は、ルーティング、料金、利用枠の計算に同じモデルレコードを使います。
 

@@ -8,7 +8,7 @@ Usa este endpoint cuando tu aplicación, SDK o agente espere el formato de solic
 
 Envía un payload estándar de Responses con `model` e `input`. Capriole AI resuelve los alias latest al ID de modelo de upstream seleccionado antes del envío a upstream, reenvía campos compatibles como `instructions`, `tools`, `reasoning`, `previous_response_id` y `stream`, y devuelve el JSON o el flujo SSE de upstream sin cambios.
 
-`POST /v1/responses` acepta `openai-latest`, `openai/gpt-6-astra`, `openai/gpt-6-sol`, `openai/gpt-6-luna`, `openai/gpt-5.6-terra`, `openai/gpt-5.6-luna` y `openai/gpt-5.5`. Usa `openai-latest` para que Capriole AI elija nuestro modelo insignia recomendado de OpenAI Responses.
+`POST /v1/responses` acepta `openai-latest`, `openai/gpt-6-astra`, `openai/gpt-6.1-sol`, `openai/gpt-6-sol`, `openai/gpt-6-luna`, `openai/gpt-5.6-terra`, `openai/gpt-5.6-luna` y `openai/gpt-5.5`. Usa `openai-latest` para que Capriole AI elija nuestro modelo insignia recomendado de OpenAI Responses.
 
 También puedes enviar ID nativos de OpenAI sin el prefijo `openai/`, como `gpt-6-astra`. Los ID nativos y los que llevan prefijo se resuelven a la misma entrada de modelo para el enrutamiento, los precios y la cuota.
 

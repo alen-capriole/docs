@@ -649,6 +649,7 @@
             "enum": [
               "openai-latest",
               "openai/gpt-6-astra",
+              "openai/gpt-6.1-sol",
               "openai/gpt-6-sol",
               "openai/gpt-6-luna",
               "openai/gpt-5.6-terra",
@@ -765,6 +766,7 @@
             "description": "Native OpenAI ID, public Responses-compatible model key, or OpenAI latest alias",
             "enum": [
               "gpt-6-astra",
+              "gpt-6.1-sol",
               "gpt-6-sol",
               "gpt-6-luna",
               "gpt-5.6-terra",
@@ -772,6 +774,7 @@
               "gpt-5.5",
               "openai-latest",
               "openai/gpt-6-astra",
+              "openai/gpt-6.1-sol",
               "openai/gpt-6-sol",
               "openai/gpt-6-luna",
               "openai/gpt-5.6-terra",
@@ -863,6 +866,7 @@
             "enum": [
               "openai-latest",
               "openai/gpt-6-astra",
+              "openai/gpt-6.1-sol",
               "openai/gpt-6-sol",
               "openai/gpt-6-luna",
               "openai/gpt-5.6-terra",
