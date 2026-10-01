@@ -211,6 +211,16 @@ openclaw config set models.providers.capriole-ai-compatible \
         "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
       },
       {
+        "id": "xai/grok-4.7",
+        "name": "Grok 4.7",
+        "api": "openai-completions",
+        "contextWindow": 500000,
+        "maxTokens": 128000,
+        "input": ["text"],
+        "reasoning": true,
+        "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
+      },
+      {
         "id": "xai/grok-4.5",
         "name": "Grok 4.5",
         "api": "openai-completions",
@@ -386,7 +396,7 @@ Allow the configured Capriole AI models for the default agent:
 
 ```bash
 openclaw config set agents.defaults.models \
-  '{"capriole-ai-openai/openai-latest":{},"capriole-ai-openai/openai/gpt-6-astra":{},"capriole-ai-openai/openai/gpt-6.1-sol":{},"capriole-ai-openai/openai/gpt-6-sol":{},"capriole-ai-openai/openai/gpt-6-luna":{},"capriole-ai-openai/openai/gpt-5.6-terra":{},"capriole-ai-openai/openai/gpt-5.6-luna":{},"capriole-ai-openai/openai/gpt-5.5":{},"capriole-ai-compatible/anthropic/claude-fable-5-1":{},"capriole-ai-compatible/anthropic/claude-fable-5":{},"capriole-ai-compatible/anthropic/claude-opus-5-5":{},"capriole-ai-compatible/anthropic/claude-opus-5":{},"capriole-ai-compatible/google/gemini-3.8-flash":{},"capriole-ai-compatible/xai/grok-4.5":{},"capriole-ai-compatible/zai/glm-5.3-flash":{},"capriole-ai-compatible/zai/glm-5.2":{},"capriole-ai-compatible/moonshot/kimi-k3":{},"capriole-ai-anthropic/claude-latest":{},"capriole-ai-anthropic/claude-fable-5-1":{},"capriole-ai-anthropic/claude-fable-5":{},"capriole-ai-anthropic/claude-opus-5-5":{},"capriole-ai-anthropic/claude-opus-5":{},"capriole-ai-anthropic/claude-opus-4-8":{},"capriole-ai-anthropic/claude-opus-4-7":{},"capriole-ai-anthropic/claude-opus-4-6":{},"capriole-ai-anthropic/claude-sonnet-4-6":{}}' \
+  '{"capriole-ai-openai/openai-latest":{},"capriole-ai-openai/openai/gpt-6-astra":{},"capriole-ai-openai/openai/gpt-6.1-sol":{},"capriole-ai-openai/openai/gpt-6-sol":{},"capriole-ai-openai/openai/gpt-6-luna":{},"capriole-ai-openai/openai/gpt-5.6-terra":{},"capriole-ai-openai/openai/gpt-5.6-luna":{},"capriole-ai-openai/openai/gpt-5.5":{},"capriole-ai-compatible/anthropic/claude-fable-5-1":{},"capriole-ai-compatible/anthropic/claude-fable-5":{},"capriole-ai-compatible/anthropic/claude-opus-5-5":{},"capriole-ai-compatible/anthropic/claude-opus-5":{},"capriole-ai-compatible/google/gemini-3.8-flash":{},"capriole-ai-compatible/xai/grok-4.7":{},"capriole-ai-compatible/xai/grok-4.5":{},"capriole-ai-compatible/zai/glm-5.3-flash":{},"capriole-ai-compatible/zai/glm-5.2":{},"capriole-ai-compatible/moonshot/kimi-k3":{},"capriole-ai-anthropic/claude-latest":{},"capriole-ai-anthropic/claude-fable-5-1":{},"capriole-ai-anthropic/claude-fable-5":{},"capriole-ai-anthropic/claude-opus-5-5":{},"capriole-ai-anthropic/claude-opus-5":{},"capriole-ai-anthropic/claude-opus-4-8":{},"capriole-ai-anthropic/claude-opus-4-7":{},"capriole-ai-anthropic/claude-opus-4-6":{},"capriole-ai-anthropic/claude-sonnet-4-6":{}}' \
   --strict-json
 ```
 
@@ -408,7 +418,7 @@ openclaw tui
 
 ## Supported models
 
-OpenClaw supports OpenAI latest, GPT-6 Astra, GPT-6.1 Sol, GPT-6 Sol, GPT-6 Luna, GPT 5.6 Thinking, GPT 5.6, GPT 5.5, Fable 5.1, Fable 5, Opus 5.5, Opus 5, Grok 4.5, Gemini 3.8 Flash, GLM 5.3 Flash, GLM 5.2, Kimi K3, Claude latest, Opus 4.8, Opus 4.7, Opus 4.6, and Sonnet 4.6 through Capriole AI. Fable 5 and Opus 5 can use either the Chat Completions-compatible provider or the Anthropic Messages provider.
+OpenClaw supports OpenAI latest, GPT-6 Astra, GPT-6.1 Sol, GPT-6 Sol, GPT-6 Luna, GPT 5.6 Thinking, GPT 5.6, GPT 5.5, Fable 5.1, Fable 5, Opus 5.5, Opus 5, Grok 4.7, Grok 4.5, Gemini 3.8 Flash, GLM 5.3 Flash, GLM 5.2, Kimi K3, Claude latest, Opus 4.8, Opus 4.7, Opus 4.6, and Sonnet 4.6 through Capriole AI. Fable 5 and Opus 5 can use either the Chat Completions-compatible provider or the Anthropic Messages provider.
 
 - `openai-latest`
 - `openai/gpt-6-astra`
@@ -423,6 +433,7 @@ OpenClaw supports OpenAI latest, GPT-6 Astra, GPT-6.1 Sol, GPT-6 Sol, GPT-6 Luna
 - `anthropic/claude-opus-5-5`
 - `anthropic/claude-opus-5`
 - `google/gemini-3.8-flash`
+- `xai/grok-4.7`
 - `xai/grok-4.5`
 - `zai/glm-5.3-flash`
 - `zai/glm-5.2`
