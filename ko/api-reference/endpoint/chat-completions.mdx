@@ -14,4 +14,18 @@ openapi: "api-reference/openapi.json POST /v1/chat/completions"
 
 Latest 별칭은 입력 단축키입니다. 사용량은 해석된 모델에 대해 기록되고, 응답 본문은 선택한 호환 엔드포인트의 모델 이름 지정 방식을 유지합니다.
 
-Capriole 네이티브 텍스트 생성에는 `POST /v1/chat`를 사용하세요. OpenAI 호환 전송 동작이 필요하면 `POST /v1/chat/completions`를 사용하세요.
+## 웹 검색
+
+이 엔드포인트는 웹 검색을 제공하지 않습니다. Grok 모델에서 `web_search_options` 또는 `search_parameters` 필드가 null이 아닌 요청은 HTTP 400으로 실패합니다.
+
+```json
+{
+  "detail": "Web search is not supported for xai/grok-4.7 on /v1/chat/completions. Use POST /v1/responses with tools: [{\"type\": \"web_search\"}]."
+}
+```
+
+클라이언트가 정의한 함수 도구는 이름이 `web_search`여도 그대로 전달됩니다. GPT 또는 Grok으로 웹을 검색하려면 [`POST /v1/responses`](/ko/api-reference/endpoint/responses)에서 `"tools": [{"type": "web_search"}]`를 사용하세요.
+
+## 긴 작업
+
+긴 추론 같은 긴 작업에는 `"stream": true`를 설정하세요. 스트리밍을 사용하지 않으면 약 2분 후 연결이 시간 초과될 수 있습니다.

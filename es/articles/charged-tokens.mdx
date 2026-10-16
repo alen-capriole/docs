@@ -98,7 +98,7 @@ Capriole guarda el uso normalizado por protocolo y el uso cobrado como campos se
 - tokens cobrados descontados de la cuota;
 - el modelo resuelto y el estado de la solicitud.
 
-La respuesta nativa de Capriole `POST /v1/chat` expone `cached_tokens` y `charged_tokens` dentro de `usage`. Los endpoints compatibles con el protocolo Responses, Chat Completions y Messages conservan sus formas de respuesta de upstream, mientras que Capriole registra el valor coincidente de tokens cobrados para el uso de la cuenta.
+Los endpoints Responses, Chat Completions y Messages conservan sus formas de respuesta de upstream y no devuelven un campo `charged_tokens`. Capriole registra el valor coincidente de tokens cobrados para el uso de la cuenta; puedes verlo en la columna **Charged tokens** de la tabla de uso de la [página de API](https://capriole.ai?view=api).
 
 ## Confirma si la entrada cacheada redujo un cargo
 
@@ -113,7 +113,7 @@ Abre la [página de API](https://capriole.ai?view=api) de Capriole AI y usa los 
 
 Un valor positivo de tokens cacheados confirma que los metadatos de uso compatibles del proveedor informaron un acierto de caché. No prueba que cada solicitud repetida acierte la misma caché del proveedor. El enrutamiento del proveedor, la vida de la caché, la estructura de la solicitud y el comportamiento del modelo pueden cambiar el resultado.
 
-Para `POST /v1/chat` nativo de Capriole, la misma comprobación está disponible en `usage.cached_tokens` y `usage.charged_tokens`. Las demás respuestas de protocolo conservan sus esquemas de upstream, así que la tabla de uso de la cuenta es el lugar coherente para comparar solicitudes entre rutas.
+Las respuestas de la API conservan sus esquemas de upstream, así que la tabla de uso de la cuenta es el lugar coherente para comparar solicitudes entre rutas.
 
 ## Preguntas frecuentes
 

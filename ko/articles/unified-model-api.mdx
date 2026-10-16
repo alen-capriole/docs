@@ -6,7 +6,7 @@ description: "Capriole AI가 OpenAI Responses, Chat Completions, Anthropic Messa
 
 Capriole AI는 지원되는 모델 계열에 하나의 계정과 API key를 제공합니다. Premium은 무제한 Browser Chat과 함께 월 500만 과금 API 토큰을 포함하므로, 같은 저비용 멤버십이 애플리케이션, 코딩 에이전트, 일상 채팅을 커버할 수 있습니다.
 
-Capriole은 네 가지 공개 경로를 유지합니다. OpenAI Responses, OpenAI 호환 Chat Completions, Anthropic Messages, 간단한 Capriole 네이티브 채팅 엔드포인트입니다.
+Capriole은 세 가지 공개 경로를 유지합니다. OpenAI Responses, OpenAI 호환 Chat Completions, Anthropic Messages입니다.
 
 공유 계정과 청구 계층이 그 프로토콜별 경로 위에 있습니다.
 
@@ -20,7 +20,6 @@ Capriole은 네 가지 공개 경로를 유지합니다. OpenAI Responses, OpenA
 
 | 경로 | 의도된 계약 | 일반적인 용도 |
 |---|---|---|
-| `POST /v1/chat` | Capriole 네이티브 텍스트 요청 | 간단한 애플리케이션 호출 |
 | `POST /v1/chat/completions` | OpenAI 호환 Chat Completions | 호환 클라이언트와 에이전트 |
 | `POST /v1/responses` | OpenAI Responses | Responses 기반 애플리케이션과 Codex |
 | `POST /v1/messages` | Anthropic Messages | Claude 네이티브 클라이언트와 Claude Code |
@@ -45,7 +44,7 @@ OpenAI Responses는 출력을 타입이 있는 이벤트와 항목으로 표현�
 
 모든 공개 생성 경로는 같은 Capriole API key와 계정 잔액을 사용합니다. 요청한 모델은 여전히 선택한 프로토콜에 속해야 합니다.
 
-예를 들어 Responses 경로는 유지 중인 OpenAI 별칭과 지원되는 Responses 호환 OpenAI 모델을 받습니다. Messages 경로는 유지 중인 Claude 별칭과 지원되는 Claude Messages 모델 ID를 받습니다. 호환 채팅 경로는 더 넓은 공개 채팅 모델 집합을 노출할 수 있습니다.
+예를 들어 Responses 경로는 유지 중인 OpenAI 별칭, 지원되는 Responses 호환 OpenAI 모델, 그리고 `xai/` 접두사를 붙여 보낸 Grok 모델을 받습니다. Messages 경로는 유지 중인 Claude 별칭과 지원되는 Claude Messages 모델 ID를 받습니다. 호환 채팅 경로는 더 넓은 공개 채팅 모델 집합을 노출할 수 있습니다.
 
 모델이 선택한 경로에 유효하지 않으면 요청은 검증에 실패해야 합니다. Capriole은 지원되지 않는 폐기된 키를 다른 것으로 조용히 다시 매핑하지 않습니다.
 

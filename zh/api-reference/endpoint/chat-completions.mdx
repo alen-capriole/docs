@@ -14,4 +14,18 @@ openapi: "api-reference/openapi.json POST /v1/chat/completions"
 
 Latest alias 只是请求输入的快捷方式。用量按解析后的具体模型记录，响应体则保留所选兼容端点原有的模型命名方式。
 
-Capriole 原生文本生成使用 `POST /v1/chat`。需要 OpenAI 兼容的传输格式时，请使用 `POST /v1/chat/completions`。
+## 网页搜索
+
+此端点不提供网页搜索。对于 Grok 模型，如果请求中的 `web_search_options` 或 `search_parameters` 字段不为 null，请求会以 HTTP 400 失败：
+
+```json
+{
+  "detail": "Web search is not supported for xai/grok-4.7 on /v1/chat/completions. Use POST /v1/responses with tools: [{\"type\": \"web_search\"}]."
+}
+```
+
+客户端自行定义的函数工具会原样转发，即使名为 `web_search` 也是如此。如需让 GPT 或 Grok 搜索网页，请使用 [`POST /v1/responses`](/zh/api-reference/endpoint/responses) 并设置 `"tools": [{"type": "web_search"}]`。
+
+## 长任务
+
+长时间推理等长任务请设置 `"stream": true`。不使用流式传输时，连接可能在约 2 分钟后超时。

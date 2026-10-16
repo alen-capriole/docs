@@ -11,5 +11,3 @@ openapi: "api-reference/openapi.json POST /v1/messages"
 `POST /v1/messages` 接受 `claude-latest`、`claude-fable-5-1`、`claude-fable-5`、`claude-opus-5-5`、`claude-opus-5`、`claude-opus-4-8`、`claude-opus-4-7`、`claude-opus-4-6` 和 `claude-sonnet-4-6`。使用 `claude-latest` 可以在不修改配置的情况下选择 Fable 5.1。
 
 `POST /v1/messages/count_tokens` 接受相同的 Claude 模型 ID，用于执行 Anthropic 兼容的 Token 计数检查。它会返回所选上游的 Token 计数响应或错误。
-
-简单的 Capriole 原生文本生成使用 `POST /v1/chat`。需要 Anthropic Messages 传输格式时，请使用 `POST /v1/messages`。

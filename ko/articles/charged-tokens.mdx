@@ -98,7 +98,7 @@ Capriole은 프로토콜 정규화 사용량과 과금 사용량을 별도 필�
 - 할당량에서 차감된 과금 토큰
 - 해석된 모델과 요청 상태
 
-Capriole 네이티브 `POST /v1/chat` 응답은 `usage` 안에 `cached_tokens`와 `charged_tokens`를 노출합니다. 프로토콜 호환 Responses, Chat Completions, Messages 엔드포인트는 업스트림 응답 형태를 유지하고, Capriole은 계정 사용량에 맞는 과금 토큰 값을 기록합니다.
+Responses, Chat Completions, Messages 엔드포인트는 업스트림 응답 형태를 유지하며 `charged_tokens` 필드를 반환하지 않습니다. Capriole은 계정 사용량에 맞는 과금 토큰 값을 기록하며, 이 값은 [API 페이지](https://capriole.ai?view=api) 사용량 표의 **Charged tokens** 열에서 확인할 수 있습니다.
 
 ## 캐시된 입력이 청구를 줄였는지 확인하기
 
@@ -113,7 +113,7 @@ Capriole AI [API 페이지](https://capriole.ai?view=api)를 연 다음 **Key**,
 
 양수 캐시 토큰 값은 호환 제공자 사용량 메타데이터가 cache hit를 보고했음을 확인합니다. 모든 반복 요청이 같은 제공자 캐시에 적중한다고 증명하지는 않습니다. 제공자 라우팅, 캐시 수명, 요청 구조, 모델 동작이 결과를 바꿀 수 있습니다.
 
-Capriole 네이티브 `POST /v1/chat`에서는 `usage.cached_tokens`와 `usage.charged_tokens`로 같은 확인이 가능합니다. 다른 프로토콜 응답은 업스트림 스키마를 유지하므로, 경로 간 요청을 비교하는 일관된 위치는 계정 사용량 표입니다.
+API 응답은 업스트림 스키마를 유지하므로, 경로 간 요청을 비교하는 일관된 위치는 계정 사용량 표입니다.
 
 ## 자주 묻는 질문
 

@@ -13,19 +13,21 @@ description: "最初の Capriole AI API リクエストを送信します。"
 
 サインイン後、[Capriole AI API ページ](https://capriole.ai?view=api) でキーを作成してください。
 
-### 2. `POST /v1/chat` を呼び出す
+### 2. `POST /v1/chat/completions` を呼び出す
 
 簡単なテキスト リクエストを送信します。
 
 <CodeGroup>
 ```bash curl
-curl https://api.caprioletech.com/v1/chat \
+curl https://api.caprioletech.com/v1/chat/completions \
   -X POST \
   -H "Authorization: Bearer YOUR_CAPRIOLE_AI_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
     "model": "openai-latest",
-    "input": "Hello World!"
+    "messages": [
+      {"role": "user", "content": "Hello World!"}
+    ]
   }'
 ```
 
@@ -35,14 +37,16 @@ import requests
 API_KEY = "YOUR_CAPRIOLE_AI_API_KEY"
 
 response = requests.post(
-    "https://api.caprioletech.com/v1/chat",
+    "https://api.caprioletech.com/v1/chat/completions",
     headers={
         "Authorization": f"Bearer {API_KEY}",
         "Content-Type": "application/json",
     },
     json={
         "model": "openai-latest",
-        "input": "Hello World!"
+        "messages": [
+            {"role": "user", "content": "Hello World!"}
+        ]
     },
 )
 
@@ -50,6 +54,8 @@ response.raise_for_status()
 print(response.json())
 ```
 </CodeGroup>
+
+ウェブ検索や長い推論などの長時間タスクでは `"stream": true` を設定してください。ストリーミングを使わない場合、約 2 分で接続がタイムアウトすることがあります。
 
 ## プロトコル互換エンドポイント
 
@@ -67,7 +73,7 @@ latest エイリアスは入力のショートカットです。Capriole AI は�
 
 ### 各エンドポイントで使える latest エイリアスはどれですか？
 
-`POST /v1/chat` と `POST /v1/chat/completions` は 3 つの latest エイリアスすべてに対応しています。`POST /v1/responses` は `openai-latest` に対応しています。`POST /v1/messages` は `claude-latest` に加え、`claude-fable-5`、`claude-opus-5-5`、`claude-opus-5`、`claude-opus-4-8`、`claude-opus-4-7`、`claude-opus-4-6`、`claude-sonnet-4-6` などの具体的な Claude Messages ID に対応しています。
+`POST /v1/chat/completions` は 3 つの latest エイリアスすべてに対応しています。`POST /v1/responses` は `openai-latest` に対応しています。`POST /v1/messages` は `claude-latest` に加え、`claude-fable-5`、`claude-opus-5-5`、`claude-opus-5`、`claude-opus-4-8`、`claude-opus-4-7`、`claude-opus-4-6`、`claude-sonnet-4-6` などの具体的な Claude Messages ID に対応しています。
 
 ### レスポンスのモデルが送信したエイリアスではないのはなぜですか？
 

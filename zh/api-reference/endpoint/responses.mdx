@@ -12,6 +12,31 @@ openapi: "api-reference/openapi.json POST /v1/responses"
 
 也可以发送不带 `openai/` 前缀的原生 OpenAI ID，例如 `gpt-6-astra`。原生 ID 与带前缀的 ID 使用同一模型记录进行路由、计价和额度扣减。
 
-此端点不支持 Claude 和 Google latest alias，也不支持通过 Chat Completions 调用的 Grok 4.5、GLM 5.2 和 Kimi K3。如果需要通过一个 OpenAI 兼容端点调用全部公开模型，请使用 `POST /v1/chat/completions`。
+此端点也接受 Grok 模型 `xai/grok-4.7`、`xai/grok-4.6` 和 `xai/grok-4.5`。Grok ID 必须带 `xai/` 前缀发送；`grok-4.7` 这类不带前缀的 ID 会被视为原生 OpenAI ID 并被拒绝。Grok 请求会直接转发到 xAI 自己的 Responses API，不做格式转换。
 
-简单的 Capriole 原生文本生成使用 `POST /v1/chat`。需要 OpenAI Responses 传输格式时，请使用 `POST /v1/responses`。
+此端点不支持 Claude 和 Google latest alias，也不支持通过 Chat Completions 调用的 GLM 5.2 和 Kimi K3。如果需要通过一个 OpenAI 兼容端点调用全部公开模型，请使用 `POST /v1/chat/completions`。
+
+## 网页搜索
+
+添加内置的 `web_search` 工具，即可让 GPT 或 Grok 模型搜索网页：
+
+```bash
+curl https://api.caprioletech.com/v1/responses \
+  -X POST \
+  -H "Authorization: Bearer YOUR_CAPRIOLE_AI_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "xai/grok-4.7",
+    "input": "Summarize the latest AI news.",
+    "tools": [{"type": "web_search"}],
+    "stream": true
+  }'
+```
+
+网页搜索会把检索到的搜索结果计入请求的输入 token，因此一次带搜索的回答使用的输入 token 可能远多于提示词本身。
+
+`POST /v1/chat/completions` 不提供网页搜索。
+
+## 长任务
+
+网页搜索、长时间推理等长任务请设置 `"stream": true`。不使用流式传输时，连接可能在约 2 分钟后超时。

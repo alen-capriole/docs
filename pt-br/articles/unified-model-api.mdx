@@ -6,7 +6,7 @@ description: "Uma visão técnica de como a Capriole AI oferece suporte a OpenAI
 
 A Capriole AI oferece uma conta e uma API key nas famílias de modelo suportadas. O Premium inclui 5 milhões de tokens cobrados de API por mês, junto com Browser Chat ilimitado, então a mesma assinatura de baixo custo pode cobrir aplicativos, agentes de programação e o chat do dia a dia.
 
-A Capriole mantém quatro caminhos públicos: OpenAI Responses, Chat Completions compatível com OpenAI, Anthropic Messages e um endpoint de chat nativo simples da Capriole.
+A Capriole mantém três caminhos públicos: OpenAI Responses, Chat Completions compatível com OpenAI e Anthropic Messages.
 
 A camada compartilhada de conta e cobrança fica acima dessas rotas específicas de protocolo.
 
@@ -20,7 +20,6 @@ Essa é a vantagem prática em relação a montar contas de provedor separadas. 
 
 | Caminho | Contrato pretendido | Uso típico |
 |---|---|---|
-| `POST /v1/chat` | Solicitação de texto nativa da Capriole | Chamadas simples de aplicativo |
 | `POST /v1/chat/completions` | Chat Completions compatível com OpenAI | Clientes e agentes compatíveis |
 | `POST /v1/responses` | OpenAI Responses | Aplicativos baseados em Responses e Codex |
 | `POST /v1/messages` | Anthropic Messages | Clientes nativos de Claude e Claude Code |
@@ -45,7 +44,7 @@ A Capriole, portanto, possui várias rotas que preservam o protocolo atrás de u
 
 Todas as rotas públicas de geração usam a mesma API key e o mesmo saldo da conta da Capriole. O modelo pedido ainda precisa pertencer ao protocolo selecionado.
 
-Por exemplo, o caminho Responses aceita o alias OpenAI mantido e os modelos OpenAI compatíveis com Responses suportados. O caminho Messages aceita o alias Claude mantido e os IDs de modelo Claude Messages suportados. Caminhos de chat compatíveis podem expor um conjunto mais amplo de modelos públicos de chat.
+Por exemplo, o caminho Responses aceita o alias OpenAI mantido e os modelos OpenAI compatíveis com Responses suportados, além dos modelos Grok enviados com o prefixo `xai/`. O caminho Messages aceita o alias Claude mantido e os IDs de modelo Claude Messages suportados. Caminhos de chat compatíveis podem expor um conjunto mais amplo de modelos públicos de chat.
 
 Se um modelo não for válido para a rota escolhida, a solicitação deve falhar na validação. A Capriole não remapeia em silêncio uma key aposentada não suportada para outra coisa.
 

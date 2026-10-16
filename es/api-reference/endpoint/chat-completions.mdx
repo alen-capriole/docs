@@ -14,4 +14,18 @@ En las respuestas SSE de la pasarela configurada de Tian, RelayRouter o VE con `
 
 Los alias latest son atajos de entrada. El uso se registra contra el modelo resuelto, mientras que el cuerpo de la respuesta conserva el comportamiento de nombres de modelo del endpoint compatible seleccionado.
 
-Para generación de texto nativa de Capriole, usa `POST /v1/chat`. Usa `POST /v1/chat/completions` cuando se requiera el comportamiento de transmisión compatible con OpenAI.
+## Búsqueda web
+
+Este endpoint no ofrece búsqueda web. Para los modelos Grok, una solicitud con un campo `web_search_options` o `search_parameters` distinto de null falla con HTTP 400:
+
+```json
+{
+  "detail": "Web search is not supported for xai/grok-4.7 on /v1/chat/completions. Use POST /v1/responses with tools: [{\"type\": \"web_search\"}]."
+}
+```
+
+Las herramientas de función que define tu cliente, incluso una llamada `web_search`, se reenvían sin cambios. Para buscar en la web con GPT o Grok, usa [`POST /v1/responses`](/es/api-reference/endpoint/responses) con `"tools": [{"type": "web_search"}]`.
+
+## Tareas largas
+
+Para tareas largas, como razonamiento extenso, establece `"stream": true`. Sin streaming, la conexión puede agotar el tiempo de espera después de unos 2 minutos.

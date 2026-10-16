@@ -14,4 +14,18 @@ openapi: "api-reference/openapi.json POST /v1/chat/completions"
 
 latest エイリアスは入力のショートカットです。使用量は解決後のモデルに対して記録され、レスポンス本文は選択した互換エンドポイント本来のモデル命名の動作を保持します。
 
-Capriole ネイティブのテキスト生成には `POST /v1/chat` を使ってください。OpenAI 互換のワイヤ動作が必要な場合は `POST /v1/chat/completions` を使ってください。
+## ウェブ検索
+
+このエンドポイントはウェブ検索を提供しません。Grok モデルでは、`web_search_options` または `search_parameters` フィールドが null 以外のリクエストは HTTP 400 で失敗します。
+
+```json
+{
+  "detail": "Web search is not supported for xai/grok-4.7 on /v1/chat/completions. Use POST /v1/responses with tools: [{\"type\": \"web_search\"}]."
+}
+```
+
+クライアントが定義した関数ツールは、`web_search` という名前でもそのまま転送されます。GPT または Grok でウェブを検索するには、[`POST /v1/responses`](/ja/api-reference/endpoint/responses) で `"tools": [{"type": "web_search"}]` を使ってください。
+
+## 長時間のタスク
+
+長い推論などの長時間タスクでは `"stream": true` を設定してください。ストリーミングを使わない場合、約 2 分で接続がタイムアウトすることがあります。

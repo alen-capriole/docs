@@ -5,7 +5,6 @@
 ## en
 
 - [Chat completions](https://docs.capriole.ai/api-reference/endpoint/chat-completions.md): Create OpenAI-compatible chat completions with Capriole AI models.
-- [Chat](https://docs.capriole.ai/api-reference/endpoint/create.md): Creates a text response from a model.
 - [List models](https://docs.capriole.ai/api-reference/endpoint/get.md): Returns the current public model catalog.
 - [Messages](https://docs.capriole.ai/api-reference/endpoint/messages.md): Create Anthropic Messages-compatible output with Capriole AI Claude models.
 - [Responses](https://docs.capriole.ai/api-reference/endpoint/responses.md): Create OpenAI Responses-compatible output with Capriole AI Responses models.
@@ -40,7 +39,6 @@
 ## zh-Hans
 
 - [Chat completions](https://docs.capriole.ai/zh/api-reference/endpoint/chat-completions.md): 通过 Capriole AI 模型创建 OpenAI 兼容的 Chat Completions。
-- [Chat](https://docs.capriole.ai/zh/api-reference/endpoint/create.md): 使用模型创建文本响应。
 - [列出模型](https://docs.capriole.ai/zh/api-reference/endpoint/get.md): 返回当前公开模型目录。
 - [Messages](https://docs.capriole.ai/zh/api-reference/endpoint/messages.md): 通过 Capriole AI Claude 模型创建 Anthropic Messages 兼容输出。
 - [Responses](https://docs.capriole.ai/zh/api-reference/endpoint/responses.md): 通过 Capriole AI Responses 模型创建 OpenAI Responses 兼容输出。
@@ -75,7 +73,6 @@
 ## es
 
 - [Chat completions](https://docs.capriole.ai/es/api-reference/endpoint/chat-completions.md): Crea Chat Completions compatibles con OpenAI con modelos de Capriole AI.
-- [Chat](https://docs.capriole.ai/es/api-reference/endpoint/create.md): Crea una respuesta de texto a partir de un modelo.
 - [Listar modelos](https://docs.capriole.ai/es/api-reference/endpoint/get.md): Devuelve el catálogo público de modelos actual.
 - [Messages](https://docs.capriole.ai/es/api-reference/endpoint/messages.md): Crea salida compatible con Anthropic Messages con los modelos Claude de Capriole AI.
 - [Responses](https://docs.capriole.ai/es/api-reference/endpoint/responses.md): Crea salida compatible con OpenAI Responses con los modelos Responses de Capriole AI.
@@ -110,7 +107,6 @@
 ## pt-BR
 
 - [Chat completions](https://docs.capriole.ai/pt-br/api-reference/endpoint/chat-completions.md): Crie Chat Completions compatíveis com OpenAI com os modelos da Capriole AI.
-- [Chat](https://docs.capriole.ai/pt-br/api-reference/endpoint/create.md): Cria uma resposta de texto a partir de um modelo.
 - [Listar modelos](https://docs.capriole.ai/pt-br/api-reference/endpoint/get.md): Retorna o catálogo público atual de modelos.
 - [Messages](https://docs.capriole.ai/pt-br/api-reference/endpoint/messages.md): Crie saída compatível com Anthropic Messages com os modelos Claude da Capriole AI.
 - [Responses](https://docs.capriole.ai/pt-br/api-reference/endpoint/responses.md): Crie saída compatível com OpenAI Responses com os modelos Responses da Capriole AI.
@@ -145,7 +141,6 @@
 ## de
 
 - [Chat completions](https://docs.capriole.ai/de/api-reference/endpoint/chat-completions.md): Erstellen Sie OpenAI-kompatible Chat Completions mit Capriole AI Modellen.
-- [Chat](https://docs.capriole.ai/de/api-reference/endpoint/create.md): Erstellt eine Textantwort von einem Modell.
 - [Modelle auflisten](https://docs.capriole.ai/de/api-reference/endpoint/get.md): Gibt den aktuellen öffentlichen Modellkatalog zurück.
 - [Messages](https://docs.capriole.ai/de/api-reference/endpoint/messages.md): Erstellen Sie Anthropic Messages-kompatible Ausgabe mit Capriole AI Claude-Modellen.
 - [Responses](https://docs.capriole.ai/de/api-reference/endpoint/responses.md): Erstellen Sie OpenAI Responses-kompatible Ausgabe mit Capriole AI Responses-Modellen.
@@ -180,7 +175,6 @@
 ## ja
 
 - [Chat completions](https://docs.capriole.ai/ja/api-reference/endpoint/chat-completions.md): Capriole AI モデルで OpenAI 互換の Chat Completions を作成します。
-- [Chat](https://docs.capriole.ai/ja/api-reference/endpoint/create.md): モデルからテキスト応答を作成します。
 - [モデル一覧](https://docs.capriole.ai/ja/api-reference/endpoint/get.md): 現在の公開モデルカタログを返します。
 - [Messages](https://docs.capriole.ai/ja/api-reference/endpoint/messages.md): Capriole AI の Claude モデルで Anthropic Messages 互換の出力を作成します。
 - [Responses](https://docs.capriole.ai/ja/api-reference/endpoint/responses.md): Capriole AI の Responses モデルで OpenAI Responses 互換の出力を作成します。
@@ -215,7 +209,6 @@
 ## ko
 
 - [Chat completions](https://docs.capriole.ai/ko/api-reference/endpoint/chat-completions.md): Capriole AI 모델로 OpenAI 호환 chat completions를 만듭니다.
-- [Chat](https://docs.capriole.ai/ko/api-reference/endpoint/create.md): 모델에서 텍스트 응답을 만듭니다.
 - [모델 목록](https://docs.capriole.ai/ko/api-reference/endpoint/get.md): 현재 공개 모델 카탈로그를 반환합니다.
 - [Messages](https://docs.capriole.ai/ko/api-reference/endpoint/messages.md): Capriole AI Claude 모델로 Anthropic Messages 호환 출력을 만듭니다.
 - [Responses](https://docs.capriole.ai/ko/api-reference/endpoint/responses.md): Capriole AI Responses 모델로 OpenAI Responses 호환 출력을 만듭니다.

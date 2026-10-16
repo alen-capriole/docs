@@ -13,19 +13,21 @@ description: "Haz tu primera solicitud a la API de Capriole AI."
 
 Crea tu clave en la [página de API de Capriole AI](https://capriole.ai?view=api) después de iniciar sesión.
 
-### 2. Llama a `POST /v1/chat`
+### 2. Llama a `POST /v1/chat/completions`
 
 Envía una solicitud de texto simple.
 
 <CodeGroup>
 ```bash curl
-curl https://api.caprioletech.com/v1/chat \
+curl https://api.caprioletech.com/v1/chat/completions \
   -X POST \
   -H "Authorization: Bearer YOUR_CAPRIOLE_AI_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
     "model": "openai-latest",
-    "input": "Hello World!"
+    "messages": [
+      {"role": "user", "content": "Hello World!"}
+    ]
   }'
 ```
 
@@ -35,14 +37,16 @@ import requests
 API_KEY = "YOUR_CAPRIOLE_AI_API_KEY"
 
 response = requests.post(
-    "https://api.caprioletech.com/v1/chat",
+    "https://api.caprioletech.com/v1/chat/completions",
     headers={
         "Authorization": f"Bearer {API_KEY}",
         "Content-Type": "application/json",
     },
     json={
         "model": "openai-latest",
-        "input": "Hello World!"
+        "messages": [
+            {"role": "user", "content": "Hello World!"}
+        ]
     },
 )
 
@@ -50,6 +54,8 @@ response.raise_for_status()
 print(response.json())
 ```
 </CodeGroup>
+
+Para tareas largas, como búsqueda web o razonamiento extenso, establece `"stream": true`. Sin streaming, la conexión puede agotar el tiempo de espera después de unos 2 minutos.
 
 ## Endpoints compatibles con el protocolo
 
@@ -67,7 +73,7 @@ Usa `https://api.caprioletech.com` para llamadas directas a la API. Algunos agen
 
 ### ¿Qué alias latest funcionan en cada endpoint?
 
-`POST /v1/chat` y `POST /v1/chat/completions` admiten los tres alias latest. `POST /v1/responses` admite `openai-latest`. `POST /v1/messages` admite `claude-latest` más IDs concretos de Claude Messages como `claude-fable-5`, `claude-opus-5-5`, `claude-opus-5`, `claude-opus-4-8`, `claude-opus-4-7`, `claude-opus-4-6` y `claude-sonnet-4-6`.
+`POST /v1/chat/completions` admite los tres alias latest. `POST /v1/responses` admite `openai-latest`. `POST /v1/messages` admite `claude-latest` más IDs concretos de Claude Messages como `claude-fable-5`, `claude-opus-5-5`, `claude-opus-5`, `claude-opus-4-8`, `claude-opus-4-7`, `claude-opus-4-6` y `claude-sonnet-4-6`.
 
 ### ¿Por qué el modelo de la respuesta no muestra el alias que envié?
 

@@ -48,7 +48,6 @@
                 "group": "Endpoints",
                 "pages": [
                   "api-reference/endpoint/get",
-                  "api-reference/endpoint/create",
                   "api-reference/endpoint/chat-completions",
                   "api-reference/endpoint/responses",
                   "api-reference/endpoint/messages"
@@ -132,7 +131,6 @@
                 "group": "端点",
                 "pages": [
                   "zh/api-reference/endpoint/get",
-                  "zh/api-reference/endpoint/create",
                   "zh/api-reference/endpoint/chat-completions",
                   "zh/api-reference/endpoint/responses",
                   "zh/api-reference/endpoint/messages"
@@ -216,7 +214,6 @@
                 "group": "Endpoints",
                 "pages": [
                   "es/api-reference/endpoint/get",
-                  "es/api-reference/endpoint/create",
                   "es/api-reference/endpoint/chat-completions",
                   "es/api-reference/endpoint/responses",
                   "es/api-reference/endpoint/messages"
@@ -300,7 +297,6 @@
                 "group": "Endpoints",
                 "pages": [
                   "pt-br/api-reference/endpoint/get",
-                  "pt-br/api-reference/endpoint/create",
                   "pt-br/api-reference/endpoint/chat-completions",
                   "pt-br/api-reference/endpoint/responses",
                   "pt-br/api-reference/endpoint/messages"
@@ -384,7 +380,6 @@
                 "group": "Endpunkte",
                 "pages": [
                   "de/api-reference/endpoint/get",
-                  "de/api-reference/endpoint/create",
                   "de/api-reference/endpoint/chat-completions",
                   "de/api-reference/endpoint/responses",
                   "de/api-reference/endpoint/messages"
@@ -468,7 +463,6 @@
                 "group": "エンドポイント",
                 "pages": [
                   "ja/api-reference/endpoint/get",
-                  "ja/api-reference/endpoint/create",
                   "ja/api-reference/endpoint/chat-completions",
                   "ja/api-reference/endpoint/responses",
                   "ja/api-reference/endpoint/messages"
@@ -552,7 +546,6 @@
                 "group": "엔드포인트",
                 "pages": [
                   "ko/api-reference/endpoint/get",
-                  "ko/api-reference/endpoint/create",
                   "ko/api-reference/endpoint/chat-completions",
                   "ko/api-reference/endpoint/responses",
                   "ko/api-reference/endpoint/messages"
@@ -613,6 +606,36 @@
       }
     ]
   },
+  "redirects": [
+    {
+      "source": "/api-reference/endpoint/create",
+      "destination": "/api-reference/endpoint/chat-completions"
+    },
+    {
+      "source": "/zh/api-reference/endpoint/create",
+      "destination": "/zh/api-reference/endpoint/chat-completions"
+    },
+    {
+      "source": "/es/api-reference/endpoint/create",
+      "destination": "/es/api-reference/endpoint/chat-completions"
+    },
+    {
+      "source": "/pt-br/api-reference/endpoint/create",
+      "destination": "/pt-br/api-reference/endpoint/chat-completions"
+    },
+    {
+      "source": "/de/api-reference/endpoint/create",
+      "destination": "/de/api-reference/endpoint/chat-completions"
+    },
+    {
+      "source": "/ja/api-reference/endpoint/create",
+      "destination": "/ja/api-reference/endpoint/chat-completions"
+    },
+    {
+      "source": "/ko/api-reference/endpoint/create",
+      "destination": "/ko/api-reference/endpoint/chat-completions"
+    }
+  ],
   "logo": {
     "light": "/logo/light.svg",
     "dark": "/logo/dark.svg"

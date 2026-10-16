@@ -98,7 +98,7 @@ Capriole keeps protocol-normalized usage and charged usage as separate fields. A
 - charged tokens deducted from quota;
 - the resolved model and request status.
 
-The Capriole-native `POST /v1/chat` response exposes `cached_tokens` and `charged_tokens` inside `usage`. Protocol-compatible Responses, Chat Completions, and Messages endpoints preserve their upstream response shapes, while Capriole records the matching charged-token value for account usage.
+The Responses, Chat Completions, and Messages endpoints keep their upstream response shapes and do not return a `charged_tokens` field. Capriole records the matching charged-token value for account usage; you can see it in the **Charged tokens** column of the usage table on the [API page](https://capriole.ai?view=api).
 
 ## Confirm whether cached input reduced a charge
 
@@ -113,7 +113,7 @@ Open the Capriole AI [API page](https://capriole.ai?view=api), then use the **Ke
 
 A positive cached-token value confirms that compatible provider usage metadata reported a cache hit. It does not prove that every repeated request will hit the same provider cache. Provider routing, cache lifetime, request structure, and model behavior can change the result.
 
-For Capriole-native `POST /v1/chat`, the same check is available in `usage.cached_tokens` and `usage.charged_tokens`. Other protocol responses keep their upstream schemas, so the account usage table is the consistent place to compare requests across routes.
+API responses keep their upstream schemas, so the account usage table is the consistent place to compare requests across routes.
 
 ## Common questions
 

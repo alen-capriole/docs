@@ -13,19 +13,21 @@ description: "发送你的第一个 Capriole AI API 请求。"
 
 登录后，在 [Capriole AI API 页面](https://capriole.ai?view=api)创建 API Key。
 
-### 2. 调用 `POST /v1/chat`
+### 2. 调用 `POST /v1/chat/completions`
 
 发送一个简单的文本请求。
 
 <CodeGroup>
 ```bash curl
-curl https://api.caprioletech.com/v1/chat \
+curl https://api.caprioletech.com/v1/chat/completions \
   -X POST \
   -H "Authorization: Bearer YOUR_CAPRIOLE_AI_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
     "model": "openai-latest",
-    "input": "Hello World!"
+    "messages": [
+      {"role": "user", "content": "Hello World!"}
+    ]
   }'
 ```
 
@@ -35,14 +37,16 @@ import requests
 API_KEY = "YOUR_CAPRIOLE_AI_API_KEY"
 
 response = requests.post(
-    "https://api.caprioletech.com/v1/chat",
+    "https://api.caprioletech.com/v1/chat/completions",
     headers={
         "Authorization": f"Bearer {API_KEY}",
         "Content-Type": "application/json",
     },
     json={
         "model": "openai-latest",
-        "input": "Hello World!"
+        "messages": [
+            {"role": "user", "content": "Hello World!"}
+        ]
     },
 )
 
@@ -50,6 +54,8 @@ response.raise_for_status()
 print(response.json())
 ```
 </CodeGroup>
+
+网页搜索、长时间推理等长任务请设置 `"stream": true`。不使用流式传输时，连接可能在约 2 分钟后超时。
 
 ## 协议兼容端点
 
@@ -67,7 +73,7 @@ Latest alias 只是请求输入的快捷方式。Capriole AI 按解析后的具�
 
 ### 每个端点支持哪些 latest alias
 
-`POST /v1/chat` 和 `POST /v1/chat/completions` 支持三个 latest alias。`POST /v1/responses` 支持 `openai-latest`。`POST /v1/messages` 支持 `claude-latest`，也支持 `claude-fable-5`、`claude-opus-5-5`、`claude-opus-5`、`claude-opus-4-8`、`claude-opus-4-7`、`claude-opus-4-6` 和 `claude-sonnet-4-6` 等具体的 Claude Messages 模型 ID。
+`POST /v1/chat/completions` 支持三个 latest alias。`POST /v1/responses` 支持 `openai-latest`。`POST /v1/messages` 支持 `claude-latest`，也支持 `claude-fable-5`、`claude-opus-5-5`、`claude-opus-5`、`claude-opus-4-8`、`claude-opus-4-7`、`claude-opus-4-6` 和 `claude-sonnet-4-6` 等具体的 Claude Messages 模型 ID。
 
 ### 为什么响应中的模型不是我发送的 alias
 

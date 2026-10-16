@@ -6,7 +6,7 @@ description: "Una mirada técnica a cómo Capriole AI admite OpenAI Responses, C
 
 Capriole AI ofrece una cuenta y una clave API en las familias de modelo compatibles. Premium incluye 5 millones de tokens cobrados de API al mes junto con chat ilimitado del navegador, así que la misma membresía de bajo costo puede cubrir aplicaciones, agentes de programación y el chat cotidiano.
 
-Capriole mantiene cuatro rutas públicas: OpenAI Responses, Chat Completions compatible con OpenAI, Anthropic Messages y un endpoint de chat nativo de Capriole simple.
+Capriole mantiene tres rutas públicas: OpenAI Responses, Chat Completions compatible con OpenAI y Anthropic Messages.
 
 La capa compartida de cuenta y facturación se sitúa por encima de esas rutas específicas de protocolo.
 
@@ -20,7 +20,6 @@ Esta es la ventaja práctica frente a armar cuentas de proveedor por separado. L
 
 | Ruta | Contrato previsto | Uso típico |
 |---|---|---|
-| `POST /v1/chat` | Solicitud de texto nativa de Capriole | Llamadas simples de aplicación |
 | `POST /v1/chat/completions` | Chat Completions compatible con OpenAI | Clientes y agentes compatibles |
 | `POST /v1/responses` | OpenAI Responses | Aplicaciones basadas en Responses y Codex |
 | `POST /v1/messages` | Anthropic Messages | Clientes nativos de Claude y Claude Code |
@@ -45,7 +44,7 @@ Capriole por tanto posee varias rutas que conservan el protocolo detrás de una 
 
 Todas las rutas públicas de generación usan la misma clave API y el mismo saldo de cuenta de Capriole. El modelo solicitado sigue teniendo que pertenecer al protocolo seleccionado.
 
-Por ejemplo, la ruta Responses acepta el alias OpenAI mantenido y los modelos OpenAI compatibles con Responses. La ruta Messages acepta el alias Claude mantenido y los IDs de modelo de Claude Messages compatibles. Las rutas de chat compatibles pueden exponer un conjunto más amplio de modelos de chat públicos.
+Por ejemplo, la ruta Responses acepta el alias OpenAI mantenido y los modelos OpenAI compatibles con Responses, además de los modelos Grok enviados con el prefijo `xai/`. La ruta Messages acepta el alias Claude mantenido y los IDs de modelo de Claude Messages compatibles. Las rutas de chat compatibles pueden exponer un conjunto más amplio de modelos de chat públicos.
 
 Si un modelo no es válido para la ruta elegida, la solicitud debe fallar la validación. Capriole no reasigna en silencio una clave retirada no compatible a otra cosa.
 

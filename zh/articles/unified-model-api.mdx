@@ -6,7 +6,7 @@ description: "从技术角度了解 Capriole AI 如何支持 OpenAI Responses、
 
 一个 Capriole AI 账户和 API key 可以用于多个受支持的模型家族。Premium 每月包含 500 万 API 计费 token，同时提供无限浏览器聊天，因此同一份低价会员可以覆盖应用、编程智能体和日常聊天。
 
-Capriole 维护四条公共路径，包括 OpenAI Responses、OpenAI-compatible Chat Completions、Anthropic Messages 和简洁的 Capriole-native chat endpoint。
+Capriole 维护三条公共路径，包括 OpenAI Responses、OpenAI-compatible Chat Completions 和 Anthropic Messages。
 
 共享账户和账单层位于这些协议特定路由之上。
 
@@ -20,7 +20,6 @@ Capriole 维护四条公共路径，包括 OpenAI Responses、OpenAI-compatible 
 
 | 路径 | 预期契约 | 典型用途 |
 |---|---|---|
-| `POST /v1/chat` | Capriole-native text request | 简单应用调用 |
 | `POST /v1/chat/completions` | OpenAI-compatible Chat Completions | 兼容的客户端和智能体 |
 | `POST /v1/responses` | OpenAI Responses | 基于 Responses 的应用和 Codex |
 | `POST /v1/messages` | Anthropic Messages | Claude-native clients 和 Claude Code |
@@ -45,7 +44,7 @@ OpenAI Responses 用带类型的事件和 items 表达输出。Anthropic Message
 
 所有公共生成路由共用同一个 Capriole API key 和账户余额，所请求的模型仍须属于所选协议。
 
-例如，Responses 路径接受持续维护的 OpenAI 别名和受支持的 Responses-compatible OpenAI 模型。Messages 路径接受持续维护的 Claude 别名和受支持的 Claude Messages model ID。Compatible chat 路径则可以提供范围更广的公共聊天模型。
+例如，Responses 路径接受持续维护的 OpenAI 别名和受支持的 Responses-compatible OpenAI 模型，也接受带 `xai/` 前缀发送的 Grok 模型。Messages 路径接受持续维护的 Claude 别名和受支持的 Claude Messages model ID。Compatible chat 路径则可以提供范围更广的公共聊天模型。
 
 模型不适用于所选路由时，请求应当验证失败。Capriole 不会把已经停用且不受支持的旧 key 悄悄改映射到其他模型。
 

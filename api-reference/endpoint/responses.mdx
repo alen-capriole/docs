@@ -12,6 +12,31 @@ Send a standard Responses payload with `model` and `input`. Capriole AI resolves
 
 You can also send native OpenAI IDs without the `openai/` prefix, such as `gpt-6-astra`. Native and prefixed IDs resolve to the same model entry for routing, pricing, and quota.
 
-Claude and Google latest aliases are not supported on this endpoint. Grok 4.5, GLM 5.2, and Kimi K3 use Chat Completions and are also not supported here. Use `POST /v1/chat/completions` when you want one OpenAI-compatible endpoint that can call every public model.
+This endpoint also accepts the Grok models `xai/grok-4.7`, `xai/grok-4.6`, and `xai/grok-4.5`. Always send Grok IDs with the `xai/` prefix; a bare ID such as `grok-4.7` is treated as a native OpenAI ID and is rejected. Grok requests are forwarded to xAI's own Responses API without format conversion.
 
-For simple Capriole-native text generation, use `POST /v1/chat`. Use `POST /v1/responses` when OpenAI Responses wire behavior is required.
+Claude and Google latest aliases are not supported on this endpoint. GLM 5.2 and Kimi K3 use Chat Completions and are also not supported here. Use `POST /v1/chat/completions` when you want one OpenAI-compatible endpoint that can call every public model.
+
+## Web search
+
+Add the built-in `web_search` tool to let GPT or Grok models search the web:
+
+```bash
+curl https://api.caprioletech.com/v1/responses \
+  -X POST \
+  -H "Authorization: Bearer YOUR_CAPRIOLE_AI_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "xai/grok-4.7",
+    "input": "Summarize the latest AI news.",
+    "tools": [{"type": "web_search"}],
+    "stream": true
+  }'
+```
+
+Web search adds the retrieved search results to the request's input tokens, so a searched answer can use many more input tokens than the prompt alone.
+
+`POST /v1/chat/completions` does not provide web search.
+
+## Long tasks
+
+For long tasks such as web search or long reasoning, set `"stream": true`. Without streaming, the connection can time out after about 2 minutes.

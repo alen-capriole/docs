@@ -98,7 +98,7 @@ Capriole 会把经过协议统一的用量和计费用量记录为不同字段�
 - 从配额中扣除的计费 token
 - 解析后的模型和请求状态
 
-Capriole-native `POST /v1/chat` 响应会在 `usage` 中提供 `cached_tokens` 和 `charged_tokens`。与协议兼容的 Responses、Chat Completions 和 Messages endpoint 保留各自的上游响应结构，Capriole 同时为账户用量记录相应的计费 token。
+Responses、Chat Completions 和 Messages endpoint 保留各自的上游响应结构，不会返回 `charged_tokens` 字段。Capriole 会为账户用量记录相应的计费 token，你可以在 [API 页面](https://capriole.ai?view=api)用量表格的 **Charged tokens** 列中查看。
 
 ## 确认缓存输入是否减少了扣费
 
@@ -113,7 +113,7 @@ Capriole-native `POST /v1/chat` 响应会在 `usage` 中提供 `cached_tokens` �
 
 缓存 token 大于零，可以确认兼容的提供商用量 metadata 报告了 cache hit。它无法证明每个重复请求都会命中相同的提供商缓存。提供商路由、缓存时限、请求结构和模型行为都可能改变结果。
 
-对于 Capriole-native `POST /v1/chat`，同样可以检查 `usage.cached_tokens` 和 `usage.charged_tokens`。其他协议响应会保留上游 schema，因此账户用量表是跨路由比较请求的一致位置。
+API 响应会保留上游 schema，因此账户用量表是跨路由比较请求的一致位置。
 
 ## 常见问题
 

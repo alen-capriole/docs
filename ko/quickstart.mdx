@@ -13,19 +13,21 @@ description: "첫 Capriole AI API 요청을 보냅니다."
 
 로그인 후 [Capriole AI API 페이지](https://capriole.ai?view=api)에서 키를 만드세요.
 
-### 2. `POST /v1/chat` 호출하기
+### 2. `POST /v1/chat/completions` 호출하기
 
 간단한 텍스트 요청을 보냅니다.
 
 <CodeGroup>
 ```bash curl
-curl https://api.caprioletech.com/v1/chat \
+curl https://api.caprioletech.com/v1/chat/completions \
   -X POST \
   -H "Authorization: Bearer YOUR_CAPRIOLE_AI_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
     "model": "openai-latest",
-    "input": "Hello World!"
+    "messages": [
+      {"role": "user", "content": "Hello World!"}
+    ]
   }'
 ```
 
@@ -35,14 +37,16 @@ import requests
 API_KEY = "YOUR_CAPRIOLE_AI_API_KEY"
 
 response = requests.post(
-    "https://api.caprioletech.com/v1/chat",
+    "https://api.caprioletech.com/v1/chat/completions",
     headers={
         "Authorization": f"Bearer {API_KEY}",
         "Content-Type": "application/json",
     },
     json={
         "model": "openai-latest",
-        "input": "Hello World!"
+        "messages": [
+            {"role": "user", "content": "Hello World!"}
+        ]
     },
 )
 
@@ -50,6 +54,8 @@ response.raise_for_status()
 print(response.json())
 ```
 </CodeGroup>
+
+웹 검색이나 긴 추론 같은 긴 작업에는 `"stream": true`를 설정하세요. 스트리밍을 사용하지 않으면 약 2분 후 연결이 시간 초과될 수 있습니다.
 
 ## 프로토콜 호환 엔드포인트
 
@@ -67,7 +73,7 @@ Latest 별칭은 입력 단축키입니다. Capriole AI는 해석된 모델에 �
 
 ### 각 엔드포인트에서 사용할 수 있는 latest 별칭은 무엇인가요?
 
-`POST /v1/chat`와 `POST /v1/chat/completions`는 세 latest 별칭을 모두 지원합니다. `POST /v1/responses`는 `openai-latest`를 지원합니다. `POST /v1/messages`는 `claude-latest`와 `claude-fable-5`, `claude-opus-5-5`, `claude-opus-5`, `claude-opus-4-8`, `claude-opus-4-7`, `claude-opus-4-6`, `claude-sonnet-4-6` 같은 구체적인 Claude Messages ID를 지원합니다.
+`POST /v1/chat/completions`는 세 latest 별칭을 모두 지원합니다. `POST /v1/responses`는 `openai-latest`를 지원합니다. `POST /v1/messages`는 `claude-latest`와 `claude-fable-5`, `claude-opus-5-5`, `claude-opus-5`, `claude-opus-4-8`, `claude-opus-4-7`, `claude-opus-4-6`, `claude-sonnet-4-6` 같은 구체적인 Claude Messages ID를 지원합니다.
 
 ### 응답의 모델이 보낸 별칭과 다른 이유는 무엇인가요?
 

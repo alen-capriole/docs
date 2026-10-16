@@ -6,7 +6,7 @@ description: "Ein technischer Blick darauf, wie Capriole AI OpenAI Responses, Ch
 
 Capriole AI stellt ein Konto und einen API-Schlüssel über unterstützte Modellfamilien bereit. Premium umfasst 5 Millionen monatliche berechnete API-Tokens neben unbegrenztem Browser Chat, sodass dieselbe kostengünstige Mitgliedschaft Anwendungen, Coding-Agents und Alltags-Chat abdecken kann.
 
-Capriole unterhält vier öffentliche Pfade: OpenAI Responses, OpenAI-kompatible Chat Completions, Anthropic Messages und einen einfachen Capriole-nativen Chat-Endpunkt.
+Capriole unterhält drei öffentliche Pfade: OpenAI Responses, OpenAI-kompatible Chat Completions und Anthropic Messages.
 
 Die gemeinsame Konto- und Abrechnungsschicht sitzt über diesen protokollspezifischen Routen.
 
@@ -20,7 +20,6 @@ Das ist der praktische Vorteil gegenüber dem getrennten Zusammenstellen von Anb
 
 | Pfad | Vorgesehener Vertrag | Typische Nutzung |
 |---|---|---|
-| `POST /v1/chat` | Capriole-native Textanfrage | Einfache Anwendungsaufrufe |
 | `POST /v1/chat/completions` | OpenAI-kompatible Chat Completions | Kompatible Clients und Agents |
 | `POST /v1/responses` | OpenAI Responses | Responses-basierte Anwendungen und Codex |
 | `POST /v1/messages` | Anthropic Messages | Claude-native Clients und Claude Code |
@@ -45,7 +44,7 @@ Capriole besitzt daher mehrere protokollerhaltende Routen hinter einer Authentif
 
 Alle öffentlichen Generierungsrouten verwenden denselben Capriole API-Schlüssel und dasselbe Kontoguthaben. Das angeforderte Modell muss weiterhin zum gewählten Protokoll gehören.
 
-Zum Beispiel akzeptiert der Responses-Pfad den gepflegten OpenAI-Alias und unterstützte Responses-kompatible OpenAI-Modelle. Der Messages-Pfad akzeptiert den gepflegten Claude-Alias und unterstützte Claude Messages-Modell-IDs. Kompatible Chat-Pfade können eine breitere Gruppe öffentlicher Chat-Modelle bereitstellen.
+Zum Beispiel akzeptiert der Responses-Pfad den gepflegten OpenAI-Alias und unterstützte Responses-kompatible OpenAI-Modelle sowie Grok-Modelle, die mit dem Präfix `xai/` gesendet werden. Der Messages-Pfad akzeptiert den gepflegten Claude-Alias und unterstützte Claude Messages-Modell-IDs. Kompatible Chat-Pfade können eine breitere Gruppe öffentlicher Chat-Modelle bereitstellen.
 
 Wenn ein Modell für die gewählte Route nicht gültig ist, sollte die Anfrage die Validierung nicht bestehen. Capriole mappt einen nicht unterstützten zurückgezogenen Schlüssel nicht still auf etwas anderes.
 

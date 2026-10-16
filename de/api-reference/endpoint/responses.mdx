@@ -12,6 +12,31 @@ Senden Sie eine Standard-Responses-Nutzlast mit `model` und `input`. Capriole AI
 
 Sie können auch native OpenAI-IDs ohne das Präfix `openai/` senden, etwa `gpt-6-astra`. Native IDs und IDs mit Präfix werden für Routing, Preise und Kontingente demselben Modelleintrag zugeordnet.
 
-Claude- und Google Latest-Aliase werden auf diesem Endpunkt nicht unterstützt. Grok 4.5, GLM 5.2 und Kimi K3 nutzen Chat Completions und werden hier ebenfalls nicht unterstützt. Verwenden Sie `POST /v1/chat/completions`, wenn Sie einen OpenAI-kompatiblen Endpunkt für jedes öffentliche Modell nutzen möchten.
+Dieser Endpunkt akzeptiert auch die Grok-Modelle `xai/grok-4.7`, `xai/grok-4.6` und `xai/grok-4.5`. Senden Sie Grok-IDs immer mit dem Präfix `xai/`; eine ID ohne Präfix wie `grok-4.7` wird als native OpenAI-ID behandelt und abgelehnt. Grok-Anfragen werden ohne Formatumwandlung an die eigene Responses API von xAI weitergeleitet.
 
-Für einfache Capriole-native Textgenerierung verwenden Sie `POST /v1/chat`. Verwenden Sie `POST /v1/responses`, wenn OpenAI Responses-Wire-Verhalten erforderlich ist.
+Claude- und Google Latest-Aliase werden auf diesem Endpunkt nicht unterstützt. GLM 5.2 und Kimi K3 nutzen Chat Completions und werden hier ebenfalls nicht unterstützt. Verwenden Sie `POST /v1/chat/completions`, wenn Sie einen OpenAI-kompatiblen Endpunkt für jedes öffentliche Modell nutzen möchten.
+
+## Websuche
+
+Fügen Sie das integrierte Tool `web_search` hinzu, damit GPT- oder Grok-Modelle im Web suchen:
+
+```bash
+curl https://api.caprioletech.com/v1/responses \
+  -X POST \
+  -H "Authorization: Bearer YOUR_CAPRIOLE_AI_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "xai/grok-4.7",
+    "input": "Summarize the latest AI news.",
+    "tools": [{"type": "web_search"}],
+    "stream": true
+  }'
+```
+
+Die Websuche fügt die abgerufenen Suchergebnisse den Eingabe-Tokens der Anfrage hinzu, daher kann eine Antwort mit Suche deutlich mehr Eingabe-Tokens verbrauchen als der Prompt allein.
+
+`POST /v1/chat/completions` bietet keine Websuche.
+
+## Lange Aufgaben
+
+Setzen Sie für lange Aufgaben wie Websuche oder ausgedehntes Reasoning `"stream": true`. Ohne Streaming kann die Verbindung nach etwa 2 Minuten in ein Timeout laufen.

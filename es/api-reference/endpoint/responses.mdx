@@ -12,6 +12,31 @@ Envía un payload estándar de Responses con `model` e `input`. Capriole AI resu
 
 También puedes enviar ID nativos de OpenAI sin el prefijo `openai/`, como `gpt-6-astra`. Los ID nativos y los que llevan prefijo se resuelven a la misma entrada de modelo para el enrutamiento, los precios y la cuota.
 
-Los alias latest de Claude y Google no son compatibles en este endpoint. Grok 4.5, GLM 5.2 y Kimi K3 usan Chat Completions y tampoco son compatibles aquí. Usa `POST /v1/chat/completions` cuando quieras un solo endpoint compatible con OpenAI que pueda llamar a todos los modelos públicos.
+Este endpoint también acepta los modelos Grok `xai/grok-4.7`, `xai/grok-4.6` y `xai/grok-4.5`. Envía siempre los ID de Grok con el prefijo `xai/`; un ID sin prefijo como `grok-4.7` se trata como un ID nativo de OpenAI y se rechaza. Las solicitudes de Grok se reenvían a la propia API de Responses de xAI sin conversión de formato.
 
-Para generación de texto nativa de Capriole simple, usa `POST /v1/chat`. Usa `POST /v1/responses` cuando se requiera el comportamiento de transmisión de OpenAI Responses.
+Los alias latest de Claude y Google no son compatibles en este endpoint. GLM 5.2 y Kimi K3 usan Chat Completions y tampoco son compatibles aquí. Usa `POST /v1/chat/completions` cuando quieras un solo endpoint compatible con OpenAI que pueda llamar a todos los modelos públicos.
+
+## Búsqueda web
+
+Añade la herramienta integrada `web_search` para que los modelos GPT o Grok busquen en la web:
+
+```bash
+curl https://api.caprioletech.com/v1/responses \
+  -X POST \
+  -H "Authorization: Bearer YOUR_CAPRIOLE_AI_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "xai/grok-4.7",
+    "input": "Summarize the latest AI news.",
+    "tools": [{"type": "web_search"}],
+    "stream": true
+  }'
+```
+
+La búsqueda web añade los resultados obtenidos a los tokens de entrada de la solicitud, por lo que una respuesta con búsqueda puede usar muchos más tokens de entrada que el prompt por sí solo.
+
+`POST /v1/chat/completions` no ofrece búsqueda web.
+
+## Tareas largas
+
+Para tareas largas, como búsqueda web o razonamiento extenso, establece `"stream": true`. Sin streaming, la conexión puede agotar el tiempo de espera después de unos 2 minutos.

@@ -98,7 +98,7 @@ Capriole hält protokolnormalisierte Nutzung und berechnete Nutzung als getrennt
 - vom Kontingent abgezogene abgerechnete Tokens;
 - das aufgelöste Modell und den Anfragestatus.
 
-Die Capriole-native Antwort von `POST /v1/chat` stellt `cached_tokens` und `charged_tokens` in `usage` bereit. Protokollkompatible Responses-, Chat Completions- und Messages-Endpunkte bewahren ihre Upstream-Antwortformen, während Capriole den passenden Wert der abgerechneten Tokens für die Kontonutzung erfasst.
+Die Responses-, Chat Completions- und Messages-Endpunkte bewahren ihre Upstream-Antwortformen und geben kein Feld `charged_tokens` zurück. Capriole erfasst den passenden Wert der abgerechneten Tokens für die Kontonutzung; Sie sehen ihn in der Spalte **Charged tokens** der Nutzungstabelle auf der [API-Seite](https://capriole.ai?view=api).
 
 ## Bestätigen, ob gecachte Eingabe eine Belastung reduziert hat
 
@@ -113,7 +113,7 @@ Die Capriole-native Antwort von `POST /v1/chat` stellt `cached_tokens` und `char
 
 Ein positiver Wert für gecachte Tokens bestätigt, dass kompatible Anbieternutzungsmetadaten einen Cache-Treffer gemeldet haben. Er beweist nicht, dass jede wiederholte Anfrage denselben Anbieter-Cache trifft. Anbieterrouting, Cache-Lebensdauer, Anfragestruktur und Modellverhalten können das Ergebnis ändern.
 
-Für Capriole-natives `POST /v1/chat` ist dieselbe Prüfung in `usage.cached_tokens` und `usage.charged_tokens` verfügbar. Andere Protokollantworten behalten ihre Upstream-Schemata, daher ist die Kontonutzungstabelle der konsistente Ort, um Anfragen über Routen zu vergleichen.
+API-Antworten behalten ihre Upstream-Schemata, daher ist die Kontonutzungstabelle der konsistente Ort, um Anfragen über Routen zu vergleichen.
 
 ## Häufige Fragen
 

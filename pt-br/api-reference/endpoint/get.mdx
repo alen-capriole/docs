@@ -19,7 +19,7 @@ Use um alias latest quando quiser que a Capriole AI escolha o modelo principal q
 | `openai-latest`, `claude-latest`, `google-latest` | Configure uma vez e deixe a Capriole AI manter você no modelo principal recomendado |
 | IDs de modelo concretos, como `openai/gpt-6-astra` | Fixar uma versão exata do modelo |
 
-Os aliases latest são resolvidos da seguinte forma em `POST /v1/chat` e `POST /v1/chat/completions`:
+Os aliases latest são resolvidos da seguinte forma em `POST /v1/chat/completions`:
 
 | Alias latest | Resolve para |
 | --- | --- |
@@ -29,7 +29,6 @@ Os aliases latest são resolvidos da seguinte forma em `POST /v1/chat` e `POST /
 
 | Endpoint | Aliases latest |
 | --- | --- |
-| `POST /v1/chat` | `openai-latest`, `claude-latest`, `google-latest` |
 | `POST /v1/chat/completions` | `openai-latest`, `claude-latest`, `google-latest` |
 | `POST /v1/responses` | `openai-latest` |
 | `POST /v1/messages` | `claude-latest` |
@@ -37,6 +36,6 @@ Os aliases latest são resolvidos da seguinte forma em `POST /v1/chat` e `POST /
 
 Os endpoints Anthropic Messages também aceitam IDs concretos de Claude Messages sem prefixo, como `claude-fable-5-1`, `claude-fable-5`, `claude-opus-5-5`, `claude-opus-5`, `claude-opus-4-8`, `claude-opus-4-7`, `claude-opus-4-6` e `claude-sonnet-4-6`.
 
-Em `POST /v1/messages` e `POST /v1/messages/count_tokens`, `claude-latest` resolve para `claude-fable-5-1`, alinhado ao alias latest de Chat e Chat Completions.
+Em `POST /v1/messages` e `POST /v1/messages/count_tokens`, `claude-latest` resolve para `claude-fable-5-1`, alinhado ao alias latest de Chat Completions.
 
 Use os IDs de alias sem prefixo mostrados acima. Prefixos de provedor como `openai/openai-latest` são padrões de seletor no lado do cliente, não IDs de modelo da Capriole AI.

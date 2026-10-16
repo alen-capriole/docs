@@ -6,7 +6,7 @@ description: "Capriole AI が OpenAI Responses、Chat Completions、Anthropic Me
 
 Capriole AI は、対応するモデル系統に対して 1 つのアカウントと API キーを提供します。Premium は無制限の Browser Chat に加え、毎月 500 万の課金 API トークンを含むため、同じ低コストのメンバーシップでアプリケーション、コーディング エージェント、日常チャットをカバーできます。
 
-Capriole は 4 つの公開経路を維持します。OpenAI Responses、OpenAI 互換 Chat Completions、Anthropic Messages、シンプルな Capriole ネイティブ チャット エンドポイントです。
+Capriole は 3 つの公開経路を維持します。OpenAI Responses、OpenAI 互換 Chat Completions、Anthropic Messages です。
 
 共有アカウントと請求レイヤーは、それらのプロトコル固有ルートの上にあります。
 
@@ -20,7 +20,6 @@ Capriole は 4 つの公開経路を維持します。OpenAI Responses、OpenAI 
 
 | 経路 | 想定する契約 | 典型的な用途 |
 |---|---|---|
-| `POST /v1/chat` | Capriole ネイティブのテキスト リクエスト | シンプルなアプリケーション呼び出し |
 | `POST /v1/chat/completions` | OpenAI 互換 Chat Completions | 互換クライアントとエージェント |
 | `POST /v1/responses` | OpenAI Responses | Responses ベースのアプリケーションと Codex |
 | `POST /v1/messages` | Anthropic Messages | Claude ネイティブ クライアントと Claude Code |
@@ -45,7 +44,7 @@ OpenAI Responses は出力を型付きイベントとアイテムとして表し
 
 すべての公開生成ルートは、同じ Capriole API キーとアカウント残高を使います。要求されたモデルは、それでも選択したプロトコルに属している必要があります。
 
-たとえば、Responses 経路は維持されている OpenAI エイリアスと、対応する Responses 互換 OpenAI モデルを受け付けます。Messages 経路は維持されている Claude エイリアスと、対応する Claude Messages モデル ID を受け付けます。互換チャット経路は、より広い公開チャット モデル集合を公開できます。
+たとえば、Responses 経路は維持されている OpenAI エイリアスと、対応する Responses 互換 OpenAI モデルに加え、`xai/` プレフィックス付きで送信する Grok モデルを受け付けます。Messages 経路は維持されている Claude エイリアスと、対応する Claude Messages モデル ID を受け付けます。互換チャット経路は、より広い公開チャット モデル集合を公開できます。
 
 モデルが選んだルートで無効な場合、リクエストは検証に失敗する必要があります。Capriole は、サポートされない廃止キーを別のものへ静かに再マップしません。
 

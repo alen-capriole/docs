@@ -6,7 +6,7 @@ description: "A technical look at how Capriole AI supports OpenAI Responses, Cha
 
 Capriole AI provides one account and API key across supported model families. Premium includes 5 million monthly charged API tokens alongside unlimited browser chat, so the same low-cost membership can cover applications, coding agents, and everyday chat.
 
-Capriole maintains four public paths: OpenAI Responses, OpenAI-compatible Chat Completions, Anthropic Messages, and a simple Capriole-native chat endpoint.
+Capriole maintains three public paths: OpenAI Responses, OpenAI-compatible Chat Completions, and Anthropic Messages.
 
 The shared account and billing layer sits above those protocol-specific routes.
 
@@ -20,7 +20,6 @@ This is the practical advantage over assembling provider accounts separately. Th
 
 | Path | Intended contract | Typical use |
 |---|---|---|
-| `POST /v1/chat` | Capriole-native text request | Simple application calls |
 | `POST /v1/chat/completions` | OpenAI-compatible Chat Completions | Compatible clients and agents |
 | `POST /v1/responses` | OpenAI Responses | Responses-based applications and Codex |
 | `POST /v1/messages` | Anthropic Messages | Claude-native clients and Claude Code |
@@ -45,7 +44,7 @@ Capriole therefore owns multiple protocol-preserving routes behind one authentic
 
 All public generation routes use the same Capriole API key and account balance. The requested model still has to belong to the selected protocol.
 
-For example, the Responses path accepts the maintained OpenAI alias and supported Responses-compatible OpenAI models. The Messages path accepts the maintained Claude alias and supported Claude Messages model IDs. Compatible chat paths can expose a broader set of public chat models.
+For example, the Responses path accepts the maintained OpenAI alias and supported Responses-compatible OpenAI models, plus Grok models sent with the `xai/` prefix. The Messages path accepts the maintained Claude alias and supported Claude Messages model IDs. Compatible chat paths can expose a broader set of public chat models.
 
 If a model is not valid for the chosen route, the request should fail validation. Capriole does not quietly remap an unsupported retired key to something else.
 

@@ -19,7 +19,7 @@ openapi: "api-reference/openapi.json GET /v1/models"
 | `openai-latest`、`claude-latest`、`google-latest` | 一度設定すれば、Capriole AI が推奨旗艦モデルに合わせ続けます |
 | `openai/gpt-6-astra` などの具体的なモデル ID | 特定のモデル バージョンに固定します |
 
-`POST /v1/chat` と `POST /v1/chat/completions` では、latest エイリアスは次のように解決されます。
+`POST /v1/chat/completions` では、latest エイリアスは次のように解決されます。
 
 | latest エイリアス | 解決先 |
 | --- | --- |
@@ -29,7 +29,6 @@ openapi: "api-reference/openapi.json GET /v1/models"
 
 | エンドポイント | latest エイリアス |
 | --- | --- |
-| `POST /v1/chat` | `openai-latest`、`claude-latest`、`google-latest` |
 | `POST /v1/chat/completions` | `openai-latest`、`claude-latest`、`google-latest` |
 | `POST /v1/responses` | `openai-latest` |
 | `POST /v1/messages` | `claude-latest` |
@@ -37,6 +36,6 @@ openapi: "api-reference/openapi.json GET /v1/models"
 
 Anthropic Messages エンドポイントは、`claude-fable-5-1`、`claude-fable-5`、`claude-opus-5-5`、`claude-opus-5`、`claude-opus-4-8`、`claude-opus-4-7`、`claude-opus-4-6`、`claude-sonnet-4-6` などのプレフィックスなしの具体的な Claude Messages ID も受け付けます。
 
-`POST /v1/messages` と `POST /v1/messages/count_tokens` では、`claude-latest` は `claude-fable-5-1` に解決されます。これは Chat と Chat Completions の latest エイリアスと一致します。
+`POST /v1/messages` と `POST /v1/messages/count_tokens` では、`claude-latest` は `claude-fable-5-1` に解決されます。これは Chat Completions の latest エイリアスと一致します。
 
 上に示したそのままのエイリアス ID を使ってください。`openai/openai-latest` のようなプロバイダー プレフィックスはクライアント側のセレクター形式であり、Capriole AI のモデル ID ではありません。

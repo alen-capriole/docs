@@ -12,6 +12,31 @@ openapi: "api-reference/openapi.json POST /v1/responses"
 
 `gpt-6-astra` のように、`openai/` プレフィックスのないネイティブ OpenAI ID も送信できます。ネイティブ ID とプレフィックス付き ID は、ルーティング、料金、利用枠の計算に同じモデルレコードを使います。
 
-このエンドポイントでは Claude と Google の latest エイリアスはサポートされません。Grok 4.5、GLM 5.2、Kimi K3 は Chat Completions を使うため、ここでもサポートされません。公開モデルをすべて呼べる 1 つの OpenAI 互換エンドポイントが必要な場合は、`POST /v1/chat/completions` を使ってください。
+このエンドポイントは Grok モデル `xai/grok-4.7`、`xai/grok-4.6`、`xai/grok-4.5` も受け付けます。Grok の ID は必ず `xai/` プレフィックス付きで送信してください。`grok-4.7` のようなプレフィックスのない ID はネイティブ OpenAI ID として扱われ、拒否されます。Grok のリクエストは形式を変換せずに xAI 自身の Responses API へ転送されます。
 
-シンプルな Capriole ネイティブのテキスト生成には `POST /v1/chat` を使ってください。OpenAI Responses のワイヤ動作が必要な場合は `POST /v1/responses` を使ってください。
+このエンドポイントでは Claude と Google の latest エイリアスはサポートされません。GLM 5.2 と Kimi K3 は Chat Completions を使うため、ここでもサポートされません。公開モデルをすべて呼べる 1 つの OpenAI 互換エンドポイントが必要な場合は、`POST /v1/chat/completions` を使ってください。
+
+## ウェブ検索
+
+組み込みの `web_search` ツールを追加すると、GPT または Grok モデルがウェブを検索できます。
+
+```bash
+curl https://api.caprioletech.com/v1/responses \
+  -X POST \
+  -H "Authorization: Bearer YOUR_CAPRIOLE_AI_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "xai/grok-4.7",
+    "input": "Summarize the latest AI news.",
+    "tools": [{"type": "web_search"}],
+    "stream": true
+  }'
+```
+
+ウェブ検索では取得した検索結果がリクエストの入力トークンに加算されるため、検索を伴う回答はプロンプトだけの場合よりはるかに多くの入力トークンを使うことがあります。
+
+`POST /v1/chat/completions` はウェブ検索を提供しません。
+
+## 長時間のタスク
+
+ウェブ検索や長い推論などの長時間タスクでは `"stream": true` を設定してください。ストリーミングを使わない場合、約 2 分で接続がタイムアウトすることがあります。

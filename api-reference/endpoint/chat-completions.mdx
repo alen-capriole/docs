@@ -14,4 +14,18 @@ For SSE responses from the configured Tian, RelayRouter, or VE gateway with `mod
 
 Latest aliases are input shortcuts. Usage is recorded against the resolved model, while the response body keeps the model naming behavior of the selected compatible endpoint.
 
-For Capriole-native text generation, use `POST /v1/chat`. Use `POST /v1/chat/completions` when OpenAI-compatible wire behavior is required.
+## Web search
+
+This endpoint does not provide web search. For Grok models, a request with a non-null `web_search_options` or `search_parameters` field fails with HTTP 400:
+
+```json
+{
+  "detail": "Web search is not supported for xai/grok-4.7 on /v1/chat/completions. Use POST /v1/responses with tools: [{\"type\": \"web_search\"}]."
+}
+```
+
+Function tools that your client defines, even one named `web_search`, are forwarded unchanged. To search the web with GPT or Grok, use [`POST /v1/responses`](/api-reference/endpoint/responses) with `"tools": [{"type": "web_search"}]`.
+
+## Long tasks
+
+For long tasks such as long reasoning, set `"stream": true`. Without streaming, the connection can time out after about 2 minutes.

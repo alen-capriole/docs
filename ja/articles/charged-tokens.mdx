@@ -98,7 +98,7 @@ Capriole は、プロトコル正規化済み使用量と課金使用量を別�
 - クォータから差し引かれた課金トークン
 - 解決後のモデルとリクエスト ステータス
 
-Capriole ネイティブの `POST /v1/chat` レスポンスは、`usage` 内に `cached_tokens` と `charged_tokens` を公開します。プロトコル互換の Responses、Chat Completions、Messages エンドポイントは上流のレスポンス形状を保持し、Capriole はアカウント使用量向けに対応する課金トークン値を記録します。
+Responses、Chat Completions、Messages エンドポイントは上流のレスポンス形状を保持し、`charged_tokens` フィールドは返しません。Capriole はアカウント使用量向けに対応する課金トークン値を記録します。この値は [API ページ](https://capriole.ai?view=api) の使用量テーブルの **Charged tokens** 列で確認できます。
 
 ## キャッシュ入力が課金を減らしたかを確認する
 
@@ -113,7 +113,7 @@ Capriole AI の [API ページ](https://capriole.ai?view=api) を開き、**Key*
 
 正のキャッシュ トークン値は、互換のプロバイダー使用量メタデータが cache hit を報告したことを確認します。繰り返すすべてのリクエストが同じプロバイダー キャッシュに当たることは証明しません。プロバイダー ルーティング、キャッシュ寿命、リクエスト構造、モデル動作は結果を変える場合があります。
 
-Capriole ネイティブの `POST /v1/chat` では、同じ確認を `usage.cached_tokens` と `usage.charged_tokens` で行えます。他のプロトコル レスポンスは上流スキーマを保持するため、ルートをまたいでリクエストを比較する一貫した場所はアカウント使用量テーブルです。
+API レスポンスは上流スキーマを保持するため、ルートをまたいでリクエストを比較する一貫した場所はアカウント使用量テーブルです。
 
 ## よくある質問
 

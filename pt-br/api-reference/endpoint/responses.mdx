@@ -12,6 +12,31 @@ Envie um payload padrão de Responses com `model` e `input`. A Capriole AI resol
 
 Você também pode enviar IDs nativos da OpenAI sem o prefixo `openai/`, como `gpt-6-astra`. Os IDs nativos e os que têm prefixo usam a mesma entrada de modelo para roteamento, preços e cota.
 
-Aliases latest de Claude e Google não são suportados neste endpoint. Grok 4.5, GLM 5.2 e Kimi K3 usam Chat Completions e também não são suportados aqui. Use `POST /v1/chat/completions` quando quiser um único endpoint compatível com OpenAI que possa chamar todos os modelos públicos.
+Este endpoint também aceita os modelos Grok `xai/grok-4.7`, `xai/grok-4.6` e `xai/grok-4.5`. Sempre envie os IDs do Grok com o prefixo `xai/`; um ID sem prefixo, como `grok-4.7`, é tratado como ID nativo da OpenAI e é rejeitado. As solicitações do Grok são encaminhadas para a própria API de Responses da xAI sem conversão de formato.
 
-Para geração de texto nativa da Capriole, use `POST /v1/chat`. Use `POST /v1/responses` quando o comportamento de transmissão do OpenAI Responses for necessário.
+Aliases latest de Claude e Google não são suportados neste endpoint. GLM 5.2 e Kimi K3 usam Chat Completions e também não são suportados aqui. Use `POST /v1/chat/completions` quando quiser um único endpoint compatível com OpenAI que possa chamar todos os modelos públicos.
+
+## Pesquisa na web
+
+Adicione a ferramenta integrada `web_search` para que os modelos GPT ou Grok pesquisem na web:
+
+```bash
+curl https://api.caprioletech.com/v1/responses \
+  -X POST \
+  -H "Authorization: Bearer YOUR_CAPRIOLE_AI_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "xai/grok-4.7",
+    "input": "Summarize the latest AI news.",
+    "tools": [{"type": "web_search"}],
+    "stream": true
+  }'
+```
+
+A pesquisa na web adiciona os resultados obtidos aos tokens de entrada da solicitação, então uma resposta com pesquisa pode usar muito mais tokens de entrada do que o prompt sozinho.
+
+`POST /v1/chat/completions` não oferece pesquisa na web.
+
+## Tarefas longas
+
+Para tarefas longas, como pesquisa na web ou raciocínio extenso, defina `"stream": true`. Sem streaming, a conexão pode expirar após cerca de 2 minutos.

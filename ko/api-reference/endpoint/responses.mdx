@@ -12,6 +12,31 @@ openapi: "api-reference/openapi.json POST /v1/responses"
 
 `gpt-6-astra`처럼 `openai/` 접두사가 없는 네이티브 OpenAI ID도 보낼 수 있습니다. 네이티브 ID와 접두사가 붙은 ID는 라우팅, 요금 계산, 할당량 차감에 동일한 모델 항목을 사용합니다.
 
-이 엔드포인트는 Claude 및 Google latest 별칭을 지원하지 않습니다. Grok 4.5, GLM 5.2, Kimi K3는 Chat Completions를 사용하므로 여기에서도 지원되지 않습니다. 모든 공개 모델을 하나의 OpenAI 호환 엔드포인트로 호출하려면 `POST /v1/chat/completions`를 사용하세요.
+이 엔드포인트는 Grok 모델 `xai/grok-4.7`, `xai/grok-4.6`, `xai/grok-4.5`도 받습니다. Grok ID는 항상 `xai/` 접두사를 붙여 보내세요. `grok-4.7`처럼 접두사가 없는 ID는 네이티브 OpenAI ID로 처리되어 거부됩니다. Grok 요청은 형식 변환 없이 xAI 자체 Responses API로 전달됩니다.
 
-간단한 Capriole 네이티브 텍스트 생성에는 `POST /v1/chat`를 사용하세요. OpenAI Responses 전송 동작이 필요하면 `POST /v1/responses`를 사용하세요.
+이 엔드포인트는 Claude 및 Google latest 별칭을 지원하지 않습니다. GLM 5.2와 Kimi K3는 Chat Completions를 사용하므로 여기에서도 지원되지 않습니다. 모든 공개 모델을 하나의 OpenAI 호환 엔드포인트로 호출하려면 `POST /v1/chat/completions`를 사용하세요.
+
+## 웹 검색
+
+내장 `web_search` 도구를 추가하면 GPT 또는 Grok 모델이 웹을 검색할 수 있습니다.
+
+```bash
+curl https://api.caprioletech.com/v1/responses \
+  -X POST \
+  -H "Authorization: Bearer YOUR_CAPRIOLE_AI_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "xai/grok-4.7",
+    "input": "Summarize the latest AI news.",
+    "tools": [{"type": "web_search"}],
+    "stream": true
+  }'
+```
+
+웹 검색은 가져온 검색 결과를 요청의 입력 토큰에 더하므로, 검색을 사용한 답변은 프롬프트만 보낼 때보다 훨씬 많은 입력 토큰을 사용할 수 있습니다.
+
+`POST /v1/chat/completions`는 웹 검색을 제공하지 않습니다.
+
+## 긴 작업
+
+웹 검색이나 긴 추론 같은 긴 작업에는 `"stream": true`를 설정하세요. 스트리밍을 사용하지 않으면 약 2분 후 연결이 시간 초과될 수 있습니다.
