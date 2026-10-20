@@ -107,6 +107,12 @@
                 ]
               }
             ]
+          },
+          {
+            "tab": "Changelog",
+            "pages": [
+              "changelog"
+            ]
           }
         ]
       },
@@ -193,6 +199,12 @@
                   "zh/articles/why-we-built-capriole-ai"
                 ]
               }
+            ]
+          },
+          {
+            "tab": "更新日志",
+            "pages": [
+              "zh/changelog"
             ]
           }
         ]
@@ -281,6 +293,12 @@
                 ]
               }
             ]
+          },
+          {
+            "tab": "Registro de cambios",
+            "pages": [
+              "es/changelog"
+            ]
           }
         ]
       },
@@ -367,6 +385,12 @@
                   "pt-br/articles/why-we-built-capriole-ai"
                 ]
               }
+            ]
+          },
+          {
+            "tab": "Registro de alterações",
+            "pages": [
+              "pt-br/changelog"
             ]
           }
         ]
@@ -455,6 +479,12 @@
                 ]
               }
             ]
+          },
+          {
+            "tab": "Änderungsprotokoll",
+            "pages": [
+              "de/changelog"
+            ]
           }
         ]
       },
@@ -542,6 +572,12 @@
                 ]
               }
             ]
+          },
+          {
+            "tab": "更新履歴",
+            "pages": [
+              "ja/changelog"
+            ]
           }
         ]
       },
@@ -628,6 +664,12 @@
                   "ko/articles/why-we-built-capriole-ai"
                 ]
               }
+            ]
+          },
+          {
+            "tab": "업데이트 내역",
+            "pages": [
+              "ko/changelog"
             ]
           }
         ]

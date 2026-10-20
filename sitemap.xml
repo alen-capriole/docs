@@ -1233,6 +1233,83 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/articles/why-we-built-capriole-ai" />
   </url>
   <url>
+    <loc>https://docs.capriole.ai/changelog</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/changelog" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/changelog" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/changelog" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/changelog" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/changelog" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/changelog" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/changelog" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/changelog" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/zh/changelog</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/changelog" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/changelog" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/changelog" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/changelog" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/changelog" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/changelog" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/changelog" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/changelog" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/es/changelog</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/changelog" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/changelog" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/changelog" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/changelog" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/changelog" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/changelog" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/changelog" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/changelog" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/pt-br/changelog</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/changelog" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/changelog" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/changelog" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/changelog" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/changelog" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/changelog" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/changelog" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/changelog" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/de/changelog</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/changelog" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/changelog" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/changelog" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/changelog" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/changelog" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/changelog" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/changelog" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/changelog" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/ja/changelog</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/changelog" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/changelog" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/changelog" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/changelog" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/changelog" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/changelog" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/changelog" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/changelog" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/ko/changelog</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/changelog" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/changelog" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/changelog" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/changelog" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/changelog" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/changelog" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/changelog" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/changelog" />
+  </url>
+  <url>
     <loc>https://docs.capriole.ai/contact</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/contact" />
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/contact" />
