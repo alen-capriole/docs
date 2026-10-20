@@ -5,7 +5,7 @@ description: "配置 Kilo Code 使用 Capriole AI。"
 
 ## Kilo Code 是什么
 
-Kilo Code 是用于 IDE 和终端的 AI 编程助手。它可以通过 Kilo 的 OpenAI 兼容提供商使用 Capriole AI，并把请求发送到 Capriole AI 的 Chat Completions 兼容 API。
+Kilo Code 是适用于 VS Code 和终端的 AI 编程代理。这套配置把 Capriole AI 添加为一个自定义提供商，其中每个模型都使用 Capriole AI 为该模型系列提供的 API 协议。
 
 ## 前置条件
 
@@ -13,13 +13,8 @@ Kilo Code 是用于 IDE 和终端的 AI 编程助手。它可以通过 Kilo 的 
 
 - Capriole AI 账户，可在[此处注册](https://capriole.ai)
 - Capriole AI API Key，可在[此处获取](https://capriole.ai?view=api)
-- 已在 VS Code 中安装 Kilo Code，或已安装 Kilo CLI
 
 ## 安装
-
-### VS Code 扩展
-
-从 VS Code Extensions 视图安装 Kilo Code。搜索 `Kilo Code`，然后安装 Pre-release 版本。
 
 ### Kilo CLI
 
@@ -27,136 +22,140 @@ Kilo Code 是用于 IDE 和终端的 AI 编程助手。它可以通过 Kilo 的 
 npm install -g @kilocode/cli
 ```
 
+验证安装。
+
+```bash
+kilo --version
+```
+
+### VS Code 扩展
+
+在 VS Code 的扩展视图中安装 Kilo Code。该扩展与 CLI 读取同一个全局配置文件。
+
 ## 配置
 
 ### 模型验证
 
-Kilo Code 7.3.16：`anthropic/claude-fable-5-1`、`google/gemini-3.8-flash` 和 `zai/glm-5.3-flash` 已通过本地文件读取工具和最终答案检查。 `claude-latest` 解析到 Fable 5.1。原有具体模型 ID 继续可用。
+使用下方配置，Kilo CLI 7.8.15 经 Capriole AI 调用“支持的模型”一节中的每个模型，都通过了文件读取、文件写入和最终答案检查。
 
-Gemini 3.8 Flash 的检查使用 `"tool_call": true`。
-
-`xai/grok-4.6` 能接受 Chat Completions 请求，但未通过编码 Agent 任务检查，因此不加入下方配置。直接调用上游的检查也发现 Grok 4.5 的工具使用不稳定；API 请求完成不代表 Agent 答案正确。
-
-创建或更新 Kilo 配置文件。
-
-- 全局配置 `~/.config/kilo/kilo.jsonc`
-- 项目配置位于项目根目录中的 `kilo.jsonc` 或 `.kilo/kilo.jsonc`
-
-使用以下 OpenAI 兼容提供商配置。
+创建或更新 `~/.config/kilo/kilo.jsonc`。
 
 ```jsonc
 {
   "$schema": "https://app.kilo.ai/config.json",
-  "model": "openai-compatible/openai-latest",
-  "enabled_providers": ["openai-compatible"],
+  "model": "capriole-ai/claude-latest",
+  "small_model": "capriole-ai/zai/glm-5.3-flash",
   "provider": {
-    "openai-compatible": {
+    "capriole-ai": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Capriole AI",
       "options": {
+        "baseURL": "https://api.caprioletech.com/v1",
         "apiKey": "{env:CAPRIOLE_AI_API_KEY}",
-        "baseURL": "https://api.caprioletech.com/v1"
+        "headers": {
+          "Authorization": "Bearer {env:CAPRIOLE_AI_API_KEY}"
+        }
       },
       "models": {
         "openai-latest": {
-          "name": "Capriole OpenAI Latest",
-          "tool_call": true,
-          "reasoning": true
+          "name": "OpenAI latest",
+          "provider": {
+            "npm": "@ai-sdk/openai"
+          },
+          "limit": {
+            "context": 1050000,
+            "output": 128000
+          },
+          "options": {
+            "forceReasoning": true
+          },
+          "tool_call": true
+        },
+        "openai/gpt-6.1-sol": {
+          "name": "GPT-6.1 Sol",
+          "provider": {
+            "npm": "@ai-sdk/openai"
+          },
+          "limit": {
+            "context": 1050000,
+            "output": 128000
+          },
+          "options": {
+            "forceReasoning": true
+          },
+          "tool_call": true
         },
         "claude-latest": {
-          "name": "Capriole Claude Latest",
-          "tool_call": true,
-          "reasoning": true
-        },
-        "anthropic/claude-fable-5-1": {
-          "name": "Capriole Fable 5.1",
-          "tool_call": true,
-          "reasoning": true
-        },
-        "anthropic/claude-fable-5": {
-          "name": "Capriole Fable 5",
-          "tool_call": true,
-          "reasoning": true
-        },
-        "anthropic/claude-opus-5": {
-          "name": "Capriole Opus 5",
-          "tool_call": true,
-          "reasoning": true
-        },
-        "google-latest": {
-          "name": "Capriole Google Latest",
-          "tool_call": true,
-          "reasoning": true
-        },
-        "openai/gpt-6-astra": {
-          "name": "Capriole GPT-6 Astra",
-          "tool_call": true,
-          "reasoning": true
-        },
-        "openai/gpt-5.6-terra": {
-          "name": "Capriole GPT 5.6 Thinking",
-          "tool_call": true,
-          "reasoning": true
-        },
-        "openai/gpt-5.6-luna": {
-          "name": "Capriole GPT 5.6",
-          "tool_call": true,
-          "reasoning": true
-        },
-        "openai/gpt-5.5": {
-          "name": "Capriole GPT 5.5",
-          "tool_call": true,
-          "reasoning": true
-        },
-        "xai/grok-4.5": {
-          "name": "Capriole Grok 4.5",
-          "tool_call": true,
-          "reasoning": true
-        },
-        "zai/glm-5.3-flash": {
-          "name": "Capriole GLM 5.3 Flash",
-          "tool_call": true,
-          "reasoning": true
-        },
-        "zai/glm-5.2": {
-          "name": "Capriole GLM 5.2",
-          "tool_call": true,
-          "reasoning": true
-        },
-        "moonshot/kimi-k3": {
-          "name": "Capriole Kimi K3",
-          "tool_call": true,
-          "reasoning": true
-        },
-        "anthropic/claude-opus-4-8": {
-          "name": "Capriole Opus 4.8",
+          "name": "Claude latest",
+          "provider": {
+            "npm": "@ai-sdk/anthropic"
+          },
+          "limit": {
+            "context": 1000000,
+            "output": 128000
+          },
           "tool_call": true
         },
-        "anthropic/claude-opus-4-7": {
-          "name": "Capriole Opus 4.7",
+        "claude-opus-5-5": {
+          "name": "Opus 5.5",
+          "provider": {
+            "npm": "@ai-sdk/anthropic"
+          },
+          "limit": {
+            "context": 1000000,
+            "output": 128000
+          },
           "tool_call": true
-        },
-        "anthropic/claude-opus-4-6": {
-          "name": "Capriole Opus 4.6",
-          "tool_call": true
-        },
-        "anthropic/claude-sonnet-4-6": {
-          "name": "Capriole Sonnet 4.6",
-          "tool_call": true
-        },
-        "google/gemini-3.1-pro-preview": {
-          "name": "Capriole Gemini 3.1 Pro Preview",
-          "tool_call": true,
-          "reasoning": true
         },
         "google/gemini-3.8-flash": {
-          "name": "Capriole Gemini 3.8 Flash",
-          "tool_call": true,
-          "reasoning": true
+          "name": "Gemini 3.8 Flash",
+          "limit": {
+            "context": 1048576,
+            "output": 65536
+          },
+          "tool_call": true
+        },
+        "xai/grok-4.7": {
+          "name": "Grok 4.7",
+          "limit": {
+            "context": 500000,
+            "output": 128000
+          },
+          "tool_call": true
+        },
+        "zai/glm-5.3-flash": {
+          "name": "GLM 5.3 Flash",
+          "limit": {
+            "context": 1000000,
+            "output": 128000
+          },
+          "tool_call": true
+        },
+        "moonshot/kimi-k3": {
+          "name": "Kimi K3",
+          "limit": {
+            "context": 1048576,
+            "output": 131072
+          },
+          "tool_call": true
         }
       }
     }
   }
 }
 ```
+
+各项设置的作用如下。
+
+- `npm: "@ai-sdk/openai-compatible"` 是该提供商的默认包，因此 Gemini、Grok、GLM 和 Kimi 使用 Chat Completions。
+- 每个 GPT 模型都用 `@ai-sdk/openai` 覆盖 `provider.npm`，从而使用 Responses API。每个 Claude 模型都用 `@ai-sdk/anthropic` 覆盖它，从而使用 Anthropic Messages。
+- `{env:CAPRIOLE_AI_API_KEY}` 从环境变量读取你的 API Key。`Authorization` 请求头让每个包都以 Bearer Token 形式发送 Key。没有它时，Anthropic 包会在 `x-api-key` 请求头中发送 Key，而 Capriole AI 不接受这种方式。
+- `tool_call: true` 允许模型调用 Kilo 的工具。
+- `limit` 设置每个模型的上下文窗口和输出上限。没有它时，Kilo 会把两者都视为 `0`，不会压缩长会话。
+
+请把这个提供商保存在全局配置中。Kilo 不会解析项目级配置中的 `{env:...}` 引用。
+
+编辑文件后运行 `kilo config check`。
 
 ## 运行 Kilo Code
 
@@ -167,92 +166,55 @@ export CAPRIOLE_AI_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
 kilo
 ```
 
-使用指定模型启动。
+指定模型启动。
 
 ```bash
-kilo -m openai-compatible/openai-latest
-kilo -m openai-compatible/claude-latest
-kilo -m openai-compatible/google-latest
-kilo -m openai-compatible/openai/gpt-5.5
-kilo -m openai-compatible/anthropic/claude-fable-5-1
-kilo -m openai-compatible/anthropic/claude-fable-5
-kilo -m openai-compatible/anthropic/claude-opus-5
-kilo -m openai-compatible/anthropic/claude-opus-4-8
-kilo -m openai-compatible/anthropic/claude-opus-4-7
-kilo -m openai-compatible/google/gemini-3.1-pro-preview
-kilo -m openai-compatible/google/gemini-3.8-flash
-kilo -m openai-compatible/zai/glm-5.3-flash
-kilo -m openai-compatible/moonshot/kimi-k3
+kilo -m capriole-ai/openai-latest
 ```
 
-使用 Gemini 3.8 Flash 发送一次性请求。
+如需执行一次性请求，请把提示词传给 `kilo run`。
 
 ```bash
-kilo run --agent ask -m openai-compatible/google/gemini-3.8-flash "Summarize this project."
-```
-
-发送一次性 CLI 请求时，把 Prompt 传给 `kilo run`。
-
-```bash
-export CAPRIOLE_AI_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
-kilo run -m openai-compatible/openai-latest "Explain this repository structure."
+kilo run -m capriole-ai/claude-latest "Explain this repository."
 ```
 
 ## 支持的模型
 
-新的 Kilo Code 配置请先使用 `openai-latest`。需要让 Capriole AI 路由到我们推荐的旗舰 Claude 或 Gemini 模型时，请使用 `claude-latest` 或 `google-latest`；需要准确的模型版本时，请使用具体模型 ID。
+模型引用格式为 `capriole-ai/<model-id>`。
 
-Kilo 文档采用与 Capriole AI 模型选择器相同的模型系列顺序，依次为 OpenAI、Anthropic 和 Google。公共 API 集成不包含 Fable 5 Thinking 和 Opus 5 Thinking 等仅用于 Browser Chat 的预设。
+| 模型 | 模型 ID | 协议 |
+| --- | --- | --- |
+| OpenAI latest | `openai-latest` | Responses |
+| GPT-6.1 Sol | `openai/gpt-6.1-sol` | Responses |
+| Claude latest | `claude-latest` | Anthropic Messages |
+| Opus 5.5 | `claude-opus-5-5` | Anthropic Messages |
+| Gemini 3.8 Flash | `google/gemini-3.8-flash` | Chat Completions |
+| Grok 4.7 | `xai/grok-4.7` | Chat Completions |
+| GLM 5.3 Flash | `zai/glm-5.3-flash` | Chat Completions |
+| Kimi K3 | `moonshot/kimi-k3` | Chat Completions |
 
-- `openai-latest`
-- `openai/gpt-6-astra`
-- `openai/gpt-5.6-terra`
-- `openai/gpt-5.6-luna`
-- `openai/gpt-5.5`
-- `claude-latest`
-- `anthropic/claude-fable-5-1`
-- `anthropic/claude-fable-5`
-- `anthropic/claude-opus-5`
-- `anthropic/claude-opus-4-8`
-- `anthropic/claude-opus-4-7`
-- `anthropic/claude-opus-4-6`
-- `anthropic/claude-sonnet-4-6`
-- `google-latest`
-- `google/gemini-3.1-pro-preview`
-- `google/gemini-3.8-flash`
-- `xai/grok-4.5`
-- `zai/glm-5.3-flash`
-- `zai/glm-5.2`
-- `moonshot/kimi-k3`
-
-需要测试其他模型时，也可以配置 `GET /v1/models` 返回的公共 Chat Completions 兼容模型 ID。将模型用于代码编辑工作流前，请先验证工具调用。
+`openai-latest` 和 `claude-latest` 始终指向各自系列中我们最新的旗舰模型。
 
 ## 故障排除
 
 ### 为什么 Kilo Code 返回身份验证错误
 
-运行 `kilo` 前，确认已在同一个 Shell 中导出 `CAPRIOLE_AI_API_KEY`。
+运行 `kilo` 前，确认已在同一个 Shell 中导出 `CAPRIOLE_AI_API_KEY`，并确认提供商位于 `~/.config/kilo/kilo.jsonc` 中，而不是项目配置中。
 
-### 应该编辑哪个配置文件
+### 为什么 Claude 请求因 `Unsupported Claude Messages model` 失败
 
-当前 Kilo CLI 和 VS Code 扩展使用 `~/.config/kilo/kilo.jsonc`。编辑后运行 `kilo config check`。
-
-### 为什么请求出现端点错误
-
-确认 `baseURL` 是 `https://api.caprioletech.com/v1`。Kilo 会向 `/v1/chat/completions` 发送 Chat Completions 请求。
+使用 `@ai-sdk/anthropic` 的 Claude 模型需要不带前缀的 Claude ID，例如 `claude-opus-5-5`。带 `anthropic/` 前缀的 ID 用于 Chat Completions。
 
 ### 为什么 Kilo Code 提示缺少模型
 
-确认所选模型使用 `openai-compatible/<model-id>` 格式，并且 `provider.openai-compatible.models` 包含对应的模型条目。例如，`openai-compatible/openai-latest` 映射到 `openai-latest` 配置 Key。
+确认所选模型使用 `capriole-ai/<model-id>` 格式，并确认 `provider.capriole-ai.models` 中有对应条目。运行 `kilo models capriole-ai` 可以列出 Kilo 已加载的模型。
 
 ### 为什么工具调用失败
 
-对于 GPT、Claude、Gemini 3.1 Pro、Gemini 3.8 Flash 和 latest 别名条目，请确认模型条目包含 `"tool_call": true`。Kilo Code 在本地执行工具，并向 Capriole AI 发送后续 Chat Completions 请求。
+确认模型条目包含 `"tool_call": true`。
 
 ## 说明
 
-- Capriole AI 通过 `POST /v1/chat/completions` 支持 Kilo Code。
-- Kilo Code 在本地执行编程工具。Capriole AI 只处理模型请求。
-- Kilo Code 7.3.16 可以使用 Kimi K3 完成流式 Bash 工具调用和后续助手轮次。
-- 先保持提供商配置精简。只有确实需要客户端侧上下文管理时，才添加 Kilo 模型限制或其他模型选项。
-- 官方参考资料包括 [Kilo OpenAI Compatible 提供商](https://kilo.ai/docs/ai-providers/openai-compatible)、[Kilo 设置](https://kilo.ai/docs/getting-started/settings)、[Kilo 自定义模型](https://kilo.ai/docs/code-with-ai/agents/custom-models)、[Kilo CLI](https://kilo.ai/docs/cli)和 [Gemini 函数调用](https://ai.google.dev/gemini-api/docs/function-calling)。
+- Kilo Code 在你的电脑上运行编程工具。Capriole AI 只处理模型请求。
+- 如需添加其他 Capriole AI 模型，请复制同一系列中某个模型的条目并修改 ID。`GET https://api.caprioletech.com/v1/models` 会列出所有模型 ID。
+- 官方参考资料包括 [Kilo CLI](https://kilo.ai/docs/cli)、[Kilo 自定义模型](https://kilo.ai/docs/code-with-ai/agents/custom-models)、[Kilo 设置](https://kilo.ai/docs/getting-started/settings)和 [OpenCode 提供商](https://opencode.ai/docs/providers)。

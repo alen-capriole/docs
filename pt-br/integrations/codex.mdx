@@ -18,8 +18,22 @@ Antes de começar, confira se você tem:
 
 ### Codex CLI
 
+Instale o Codex CLI com o instalador oficial:
+
+```bash
+curl -fsSL https://chatgpt.com/codex/install.sh | sh
+```
+
+Ou instale com npm:
+
 ```bash
 npm install -g @openai/codex
+```
+
+Verifique a instalação:
+
+```bash
+codex --version
 ```
 
 ### Codex app
@@ -27,6 +41,10 @@ npm install -g @openai/codex
 Baixe o aplicativo em [OpenAI Codex](https://developers.openai.com/codex).
 
 ## Configuração
+
+### Validação dos modelos
+
+O Codex CLI 0.160.1 passa nas verificações de leitura de arquivo, escrita de arquivo e resposta final pela Capriole AI com a configuração abaixo.
 
 Crie ou atualize `~/.codex/config.toml`:
 
@@ -43,18 +61,32 @@ env_key = "CAPRIOLE_AI_API_KEY"
 env_key_instructions = "Export CAPRIOLE_AI_API_KEY before starting Codex"
 ```
 
+O que cada configuração faz:
+
+- `model` é o modelo padrão. Altere-o com `/model` em uma sessão ou com `--model` na linha de comando.
+- `model_provider` seleciona o provedor Capriole AI definido logo abaixo.
+- `base_url` inclui `/v1`, porque o próprio Codex adiciona `/responses`.
+- `wire_api = "responses"` usa a API Responses, o único protocolo que o Codex suporta para provedores personalizados.
+- `env_key` lê sua key do ambiente e a envia como Bearer token.
+
 ## Executar Codex
 
-Defina sua API key e inicie o Codex:
+Defina sua API key e inicie o Codex no diretório do projeto:
 
 ```bash
 export CAPRIOLE_AI_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
 codex
 ```
 
+Para uma execução não interativa, use `codex exec`:
+
+```bash
+codex exec "Explain this repository."
+```
+
 ## Modelos suportados
 
-O Codex usa os modelos OpenAI da Capriole AI pela API Responses. Use os IDs nativos abaixo com o seletor de modelos e as configurações de raciocínio integrados do Codex. Você não precisa de um `model_catalog_json` personalizado. Só é possível chamar modelos compatíveis com a Capriole AI.
+O Codex usa os modelos OpenAI da Capriole AI pela API Responses. Use os IDs de modelo nativos abaixo com o seletor de modelos e as configurações de raciocínio integrados do Codex. Você não precisa de um `model_catalog_json` personalizado. Só é possível chamar modelos suportados pela Capriole AI.
 
 - `gpt-6-astra`
 - `gpt-6.1-sol`
@@ -66,7 +98,11 @@ O Codex usa os modelos OpenAI da Capriole AI pela API Responses. Use os IDs nati
 
 Use o Codex 0.159.2 ou posterior com `gpt-6.1-sol`. Versões anteriores não incluem os metadados desse modelo e usam configurações genéricas.
 
-A API também aceita os IDs com o prefixo `openai/` e `openai-latest`. O alias `openai-latest` acompanha o modelo principal da OpenAI recomendado pela Capriole AI.
+A API também aceita as formas com o prefixo `openai/` e `openai-latest`. O alias `openai-latest` acompanha o modelo principal da OpenAI recomendado pela Capriole AI.
+
+O Codex também pode executar `xai/grok-4.7` pelo mesmo provedor, porque a Capriole AI oferece o Grok na API Responses.
+
+O Codex só tem metadados integrados para os IDs de modelo nativos da OpenAI. Para `openai-latest` e `xai/grok-4.7`, ele exibe `Model metadata ... not found` e usa configurações de fallback. A sessão continua funcionando, mas use um ID nativo, como `gpt-6-astra`, para ter os melhores resultados.
 
 ## Solução de problemas
 
@@ -76,7 +112,7 @@ Confirme que `CAPRIOLE_AI_API_KEY` está exportada no mesmo shell antes de execu
 
 ### Por que o Codex não encontra o modelo?
 
-Confirme que `model_provider = "capriole_ai"` está definido e que `model` é `openai-latest` ou um ID de modelo OpenAI suportado pela Capriole AI.
+Confirme que `model_provider = "capriole_ai"` está definido e que `model` é um dos IDs listados em Modelos suportados.
 
 ### Por que as solicitações falham com erros de endpoint ou protocolo?
 
@@ -84,7 +120,7 @@ Confirme que `base_url = "https://api.caprioletech.com/v1"` e `wire_api = "respo
 
 ### Por que o Codex ignora o provedor Capriole AI?
 
-Não use um ID de provedor interno reservado, como `openai`; mantenha o ID do provedor personalizado como `capriole_ai`.
+Não use um ID de provedor integrado reservado, como `openai`; mantenha o ID do provedor personalizado como `capriole_ai`.
 
 ### Por que as mudanças de configuração não se aplicam?
 
@@ -92,5 +128,5 @@ Confirme que `~/.codex/config.toml` é o arquivo de configuração ativo do usu�
 
 ## Observações
 
-- A configuração usa `env_key` para a API key permanecer no ambiente do shell, e não no arquivo de configuração.
-- Referências oficiais: [Codex CLI](https://developers.openai.com/codex/cli), [Fundamentos de configuração do Codex](https://developers.openai.com/codex/config-basic), [Referência de configuração do Codex](https://developers.openai.com/codex/config-reference) e [Configuração de exemplo](https://developers.openai.com/codex/config-sample).
+- A configuração usa `env_key` para que sua API key fique no ambiente do shell, e não no arquivo de configuração.
+- Referências oficiais: [Codex CLI](https://developers.openai.com/codex/cli), [Fundamentos de configuração do Codex](https://developers.openai.com/codex/config-basic), [Referência de configuração do Codex](https://developers.openai.com/codex/config-reference) e [configuração de exemplo](https://developers.openai.com/codex/config-sample).

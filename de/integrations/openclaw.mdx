@@ -5,7 +5,7 @@ description: "Konfigurieren Sie OpenClaw für die Nutzung von Capriole AI."
 
 ## Was ist OpenClaw
 
-OpenClaw ist ein selbst gehosteter Open-Source-KI-Assistent und Gateway, der Chat-Kanäle wie WhatsApp, Slack, Discord, Telegram, iMessage und WebChat mit KI-Agents verbindet. Er kann unterstützte Modellanfragen über Capriole AI senden, indem benutzerdefinierte OpenAI-kompatible und Anthropic-kompatible Modellanbieter konfiguriert werden.
+OpenClaw ist ein selbst gehosteter, persönlicher Open-Source-KI-Assistent und Gateway. Er verbindet Chat-Kanäle wie WhatsApp, Slack, Discord, Telegram, iMessage und WebChat mit KI-Agents. Dieses Setup fügt Capriole AI als drei benutzerdefinierte Modellanbieter hinzu, einen für jedes API-Protokoll, das Capriole AI bereitstellt.
 
 ## Voraussetzungen
 
@@ -16,473 +16,232 @@ Bevor Sie beginnen, stellen Sie sicher, dass Sie Folgendes haben:
 
 ## Installation
 
+Installieren Sie OpenClaw mit dem offiziellen Installationsskript:
+
 ```bash
-curl -fsSL https://openclaw.ai/install.sh | bash -s -- --no-onboard
+curl -fsSL https://openclaw.ai/install.sh | bash
+```
+
+Schließen Sie anschließend die eigene Einrichtung von OpenClaw ab:
+
+```bash
+openclaw onboard
 ```
 
 ## Konfiguration
 
 ### Modellvalidierung
 
-OpenClaw 2026.4.21: `openai/gpt-6.1-sol`, `openai/gpt-6-sol`, `openai/gpt-6-luna`, `anthropic/claude-fable-5-1`, `anthropic/claude-opus-5-5`, `google/gemini-3.8-flash` und `zai/glm-5.3-flash` bestehen lokale Prüfungen mit Datei-Lesewerkzeug und abschließender Antwort. `claude-latest` wird zu Fable 5.1 aufgelöst. Bisherige konkrete Modell-IDs bleiben verfügbar.
+OpenClaw 2026.4.21 besteht mit der folgenden Konfiguration für jedes Modell im Abschnitt „Unterstützte Modelle“ eine Prüfung aus Dateilesen, Dateischreiben und abschließender Antwort über Capriole AI.
 
-Die folgenden Kapazitätseinstellungen basieren auf den veröffentlichten Spezifikationen von [GPT-6 Astra](https://developers.openai.com/api/docs/models/gpt-6-astra), [GPT-6.1 Sol](https://developers.openai.com/api/docs/models/gpt-6.1-sol), [GPT-6 Sol](https://developers.openai.com/api/docs/models/gpt-6-sol), [GPT-6 Luna](https://developers.openai.com/api/docs/models/gpt-6-luna), [Fable 5.1](https://platform.claude.com/docs/en/models/fable-5-1/overview), [Opus 5.5](https://platform.claude.com/docs/en/models/opus-5-5/overview), [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash) und [GLM 5.3 Flash](https://docs.z.ai/guides/vlm/glm-5.3-flash).
+Fügen Sie den folgenden `models`-Block und die Modelleinstellungen unter `agents.defaults` zu `~/.openclaw/openclaw.json` hinzu. Behalten Sie die übrigen Einstellungen bei, die `openclaw onboard` geschrieben hat.
 
-Dies sind Modellkapazitätseinstellungen im Client, keine Ausgabeziele pro Anfrage oder verifizierten VectorEngine-Grenzen. Die lokalen Aufgabenprüfungen verwendeten `contextWindow=200000` und `maxTokens=2048`; Anfragen mit voller Kapazität sind nicht validiert. Fable 5.1 besteht auch die Prüfung über Anthropic Messages.
-
-`xai/grok-4.6` akzeptiert Chat Completions-Anfragen, besteht aber die Coding-Agent-Aufgabenprüfung nicht und ist daher nicht in der folgenden Konfiguration enthalten. Direkte Anbieterprüfungen zeigen auch bei Grok 4.5 inkonsistente Werkzeugnutzung; eine abgeschlossene API-Anfrage belegt keine korrekte Agent-Antwort.
-
-Konfigurieren Sie den GPT-Anbieter:
-
-```bash
-export CUSTOM_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
-export CAPRIOLE_OPENAI_BASE_URL="https://api.caprioletech.com/v1"
-
-openclaw onboard --non-interactive \
-  --accept-risk \
-  --mode local \
-  --auth-choice custom-api-key \
-  --custom-base-url "$CAPRIOLE_OPENAI_BASE_URL" \
-  --custom-model-id "openai-latest" \
-  --custom-provider-id "capriole-ai-openai" \
-  --custom-compatibility openai \
-  --secret-input-mode ref \
-  --gateway-port 18789 \
-  --gateway-bind loopback \
-  --skip-channels \
-  --skip-search \
-  --skip-skills \
-  --skip-health \
-  --no-install-daemon
-
-openclaw config set models.providers.capriole-ai-openai.request.auth \
-  '{"mode":"authorization-bearer","token":"${CUSTOM_API_KEY}"}' \
-  --strict-json
-
-openclaw config set models.providers.capriole-ai-openai.api \
-  '"openai-responses"' \
-  --strict-json
-
-openclaw config set models.providers.capriole-ai-openai.models \
-  '[
-    {
-      "id": "openai-latest",
-      "name": "OpenAI latest",
-      "api": "openai-responses",
-      "contextWindow": 400000,
-      "maxTokens": 128000,
-      "input": ["text"],
-      "reasoning": true,
-      "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
-    },
-    {
-      "id": "openai/gpt-6-astra",
-      "name": "GPT-6 Astra",
-      "api": "openai-responses",
-      "contextWindow": 1050000,
-      "maxTokens": 128000,
-      "input": ["text"],
-      "reasoning": true,
-      "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
-    },
-    {
-      "id": "openai/gpt-6.1-sol",
-      "name": "GPT-6.1 Sol",
-      "api": "openai-responses",
-      "contextWindow": 1050000,
-      "maxTokens": 128000,
-      "input": ["text"],
-      "reasoning": true,
-      "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
-    },
-    {
-      "id": "openai/gpt-6-sol",
-      "name": "GPT-6 Sol",
-      "api": "openai-responses",
-      "contextWindow": 1050000,
-      "maxTokens": 128000,
-      "input": ["text"],
-      "reasoning": true,
-      "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
-    },
-    {
-      "id": "openai/gpt-6-luna",
-      "name": "GPT-6 Luna",
-      "api": "openai-responses",
-      "contextWindow": 1050000,
-      "maxTokens": 128000,
-      "input": ["text"],
-      "reasoning": true,
-      "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
-    },
-    {
-      "id": "openai/gpt-5.6-terra",
-      "name": "GPT 5.6 Thinking",
-      "api": "openai-responses",
-      "contextWindow": 1050000,
-      "maxTokens": 128000,
-      "input": ["text"],
-      "reasoning": true,
-      "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
-    },
-    {
-      "id": "openai/gpt-5.6-luna",
-      "name": "GPT 5.6",
-      "api": "openai-responses",
-      "contextWindow": 1050000,
-      "maxTokens": 128000,
-      "input": ["text"],
-      "reasoning": true,
-      "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
-    },
-    {
-      "id": "openai/gpt-5.5",
-      "name": "GPT 5.5",
-      "api": "openai-responses",
-      "contextWindow": 400000,
-      "maxTokens": 128000,
-      "input": ["text"],
-      "reasoning": true,
-      "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
-    }
-  ]' \
-  --strict-json
-```
-
-Konfigurieren Sie den Claude-, Grok-, GLM- und Kimi Chat Completions-Anbieter:
-
-```bash
-export CUSTOM_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
-
-openclaw config set models.providers.capriole-ai-compatible \
-  '{
-    "baseUrl": "https://api.caprioletech.com/v1",
-    "apiKey": "${CUSTOM_API_KEY}",
-    "api": "openai-completions",
-    "models": [
-      {
-        "id": "anthropic/claude-fable-5-1",
-        "name": "Fable 5.1",
-        "api": "openai-completions",
-        "contextWindow": 1000000,
-        "maxTokens": 128000,
-        "input": ["text"],
-        "reasoning": true,
-        "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
+```json
+{
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "capriole-ai-anthropic/claude-latest"
       },
-      {
-        "id": "anthropic/claude-fable-5",
-        "name": "Fable 5",
-        "api": "openai-completions",
-        "contextWindow": 1000000,
-        "maxTokens": 128000,
-        "input": ["text"],
-        "reasoning": true,
-        "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
-      },
-      {
-        "id": "anthropic/claude-opus-5-5",
-        "name": "Opus 5.5",
-        "api": "openai-completions",
-        "contextWindow": 1000000,
-        "maxTokens": 128000,
-        "input": ["text"],
-        "reasoning": true,
-        "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
-      },
-      {
-        "id": "anthropic/claude-opus-5",
-        "name": "Opus 5",
-        "api": "openai-completions",
-        "contextWindow": 1000000,
-        "maxTokens": 128000,
-        "input": ["text"],
-        "reasoning": true,
-        "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
-      },
-      {
-        "id": "google/gemini-3.8-flash",
-        "name": "Gemini 3.8 Flash",
-        "api": "openai-completions",
-        "contextWindow": 1048576,
-        "maxTokens": 65536,
-        "input": ["text"],
-        "reasoning": true,
-        "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
-      },
-      {
-        "id": "xai/grok-4.7",
-        "name": "Grok 4.7",
-        "api": "openai-completions",
-        "contextWindow": 500000,
-        "maxTokens": 128000,
-        "input": ["text"],
-        "reasoning": true,
-        "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
-      },
-      {
-        "id": "xai/grok-4.5",
-        "name": "Grok 4.5",
-        "api": "openai-completions",
-        "contextWindow": 500000,
-        "maxTokens": 128000,
-        "input": ["text"],
-        "reasoning": true,
-        "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
-      },
-      {
-        "id": "zai/glm-5.3-flash",
-        "name": "GLM 5.3 Flash",
-        "api": "openai-completions",
-        "contextWindow": 1000000,
-        "maxTokens": 128000,
-        "input": ["text"],
-        "reasoning": true,
-        "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
-      },
-      {
-        "id": "zai/glm-5.2",
-        "name": "GLM 5.2",
-        "api": "openai-completions",
-        "contextWindow": 1000000,
-        "maxTokens": 128000,
-        "input": ["text"],
-        "reasoning": true,
-        "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
-      },
-      {
-        "id": "moonshot/kimi-k3",
-        "name": "Kimi K3",
-        "api": "openai-completions",
-        "contextWindow": 1048576,
-        "maxTokens": 131072,
-        "input": ["text"],
-        "reasoning": true,
-        "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
+      "models": {
+        "capriole-ai-openai/openai-latest": {},
+        "capriole-ai-openai/openai/gpt-6.1-sol": {},
+        "capriole-ai-anthropic/claude-latest": {},
+        "capriole-ai-anthropic/claude-opus-5-5": {},
+        "capriole-ai-compatible/zai/glm-5.3-flash": {},
+        "capriole-ai-compatible/moonshot/kimi-k3": {},
+        "capriole-ai-compatible/xai/grok-4.7": {},
+        "capriole-ai-compatible/google/gemini-3.8-flash": {}
       }
-    ]
-  }' \
-  --strict-json
-```
-
-Konfigurieren Sie den Anthropic-Anbieter:
-
-```bash
-export CUSTOM_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
-export CAPRIOLE_ANTHROPIC_BASE_URL="https://api.caprioletech.com"
-
-openclaw onboard --non-interactive \
-  --accept-risk \
-  --mode local \
-  --auth-choice custom-api-key \
-  --custom-base-url "$CAPRIOLE_ANTHROPIC_BASE_URL" \
-  --custom-model-id "claude-latest" \
-  --custom-provider-id "capriole-ai-anthropic" \
-  --custom-compatibility anthropic \
-  --secret-input-mode ref \
-  --gateway-port 18789 \
-  --gateway-bind loopback \
-  --skip-channels \
-  --skip-search \
-  --skip-skills \
-  --skip-health \
-  --no-install-daemon
-
-openclaw config set models.providers.capriole-ai-anthropic.request.auth \
-  '{"mode":"authorization-bearer","token":"${CUSTOM_API_KEY}"}' \
-  --strict-json
-
-openclaw config set models.providers.capriole-ai-anthropic.api \
-  '"anthropic-messages"' \
-  --strict-json
-
-openclaw config set models.providers.capriole-ai-anthropic.models \
-  '[
-    {
-      "id": "claude-latest",
-      "name": "Claude latest",
-      "api": "anthropic-messages",
-      "contextWindow": 1000000,
-      "maxTokens": 128000,
-      "input": ["text"],
-      "reasoning": true,
-      "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
-    },
-    {
-      "id": "claude-fable-5-1",
-      "name": "Fable 5.1",
-      "api": "anthropic-messages",
-      "contextWindow": 1000000,
-      "maxTokens": 128000,
-      "input": ["text"],
-      "reasoning": true,
-      "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
-    },
-    {
-      "id": "claude-fable-5",
-      "name": "Fable 5",
-      "api": "anthropic-messages",
-      "contextWindow": 1000000,
-      "maxTokens": 128000,
-      "input": ["text"],
-      "reasoning": true,
-      "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
-    },
-    {
-      "id": "claude-opus-5-5",
-      "name": "Opus 5.5",
-      "api": "anthropic-messages",
-      "contextWindow": 1000000,
-      "maxTokens": 128000,
-      "input": ["text"],
-      "reasoning": true,
-      "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
-    },
-    {
-      "id": "claude-opus-5",
-      "name": "Opus 5",
-      "api": "anthropic-messages",
-      "contextWindow": 1000000,
-      "maxTokens": 128000,
-      "input": ["text"],
-      "reasoning": true,
-      "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
-    },
-    {
-      "id": "claude-opus-4-8",
-      "name": "Opus 4.8",
-      "api": "anthropic-messages",
-      "contextWindow": 200000,
-      "maxTokens": 32000,
-      "input": ["text"],
-      "reasoning": true,
-      "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
-    },
-    {
-      "id": "claude-opus-4-7",
-      "name": "Opus 4.7",
-      "api": "anthropic-messages",
-      "contextWindow": 200000,
-      "maxTokens": 32000,
-      "input": ["text"],
-      "reasoning": true,
-      "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
-    },
-    {
-      "id": "claude-opus-4-6",
-      "name": "Opus 4.6",
-      "api": "anthropic-messages",
-      "contextWindow": 200000,
-      "maxTokens": 32000,
-      "input": ["text"],
-      "reasoning": true,
-      "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
-    },
-    {
-      "id": "claude-sonnet-4-6",
-      "name": "Sonnet 4.6",
-      "api": "anthropic-messages",
-      "contextWindow": 200000,
-      "maxTokens": 32000,
-      "input": ["text"],
-      "reasoning": true,
-      "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}
     }
-  ]' \
-  --strict-json
+  },
+  "models": {
+    "mode": "merge",
+    "providers": {
+      "capriole-ai-openai": {
+        "baseUrl": "https://api.caprioletech.com/v1",
+        "apiKey": "${CAPRIOLE_AI_API_KEY}",
+        "api": "openai-responses",
+        "models": [
+          {
+            "id": "openai-latest",
+            "name": "OpenAI latest",
+            "reasoning": true,
+            "input": ["text"],
+            "contextWindow": 1050000,
+            "maxTokens": 128000,
+            "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 },
+            "api": "openai-responses"
+          },
+          {
+            "id": "openai/gpt-6.1-sol",
+            "name": "GPT-6.1 Sol",
+            "reasoning": true,
+            "input": ["text"],
+            "contextWindow": 1050000,
+            "maxTokens": 128000,
+            "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 },
+            "api": "openai-responses"
+          }
+        ]
+      },
+      "capriole-ai-anthropic": {
+        "baseUrl": "https://api.caprioletech.com",
+        "apiKey": "${CAPRIOLE_AI_API_KEY}",
+        "api": "anthropic-messages",
+        "request": {
+          "auth": {
+            "mode": "authorization-bearer",
+            "token": "${CAPRIOLE_AI_API_KEY}"
+          }
+        },
+        "models": [
+          {
+            "id": "claude-latest",
+            "name": "Claude latest",
+            "reasoning": true,
+            "input": ["text"],
+            "contextWindow": 1000000,
+            "maxTokens": 128000,
+            "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 },
+            "api": "anthropic-messages"
+          },
+          {
+            "id": "claude-opus-5-5",
+            "name": "Opus 5.5",
+            "reasoning": false,
+            "input": ["text"],
+            "contextWindow": 1000000,
+            "maxTokens": 128000,
+            "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 },
+            "api": "anthropic-messages"
+          }
+        ]
+      },
+      "capriole-ai-compatible": {
+        "baseUrl": "https://api.caprioletech.com/v1",
+        "apiKey": "${CAPRIOLE_AI_API_KEY}",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "zai/glm-5.3-flash",
+            "name": "GLM 5.3 Flash",
+            "reasoning": true,
+            "input": ["text"],
+            "contextWindow": 1000000,
+            "maxTokens": 128000,
+            "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 }
+          },
+          {
+            "id": "moonshot/kimi-k3",
+            "name": "Kimi K3",
+            "reasoning": true,
+            "input": ["text"],
+            "contextWindow": 1048576,
+            "maxTokens": 131072,
+            "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 }
+          },
+          {
+            "id": "xai/grok-4.7",
+            "name": "Grok 4.7",
+            "reasoning": true,
+            "input": ["text"],
+            "contextWindow": 500000,
+            "maxTokens": 128000,
+            "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 }
+          },
+          {
+            "id": "google/gemini-3.8-flash",
+            "name": "Gemini 3.8 Flash",
+            "reasoning": true,
+            "input": ["text"],
+            "contextWindow": 1048576,
+            "maxTokens": 65536,
+            "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 }
+          }
+        ]
+      }
+    }
+  }
+}
 ```
 
-Erlauben Sie die konfigurierten Capriole AI-Modelle für den Standard-Agent:
+Was die einzelnen Einstellungen bewirken:
 
-```bash
-openclaw config set agents.defaults.models \
-  '{"capriole-ai-openai/openai-latest":{},"capriole-ai-openai/openai/gpt-6-astra":{},"capriole-ai-openai/openai/gpt-6.1-sol":{},"capriole-ai-openai/openai/gpt-6-sol":{},"capriole-ai-openai/openai/gpt-6-luna":{},"capriole-ai-openai/openai/gpt-5.6-terra":{},"capriole-ai-openai/openai/gpt-5.6-luna":{},"capriole-ai-openai/openai/gpt-5.5":{},"capriole-ai-compatible/anthropic/claude-fable-5-1":{},"capriole-ai-compatible/anthropic/claude-fable-5":{},"capriole-ai-compatible/anthropic/claude-opus-5-5":{},"capriole-ai-compatible/anthropic/claude-opus-5":{},"capriole-ai-compatible/google/gemini-3.8-flash":{},"capriole-ai-compatible/xai/grok-4.7":{},"capriole-ai-compatible/xai/grok-4.5":{},"capriole-ai-compatible/zai/glm-5.3-flash":{},"capriole-ai-compatible/zai/glm-5.2":{},"capriole-ai-compatible/moonshot/kimi-k3":{},"capriole-ai-anthropic/claude-latest":{},"capriole-ai-anthropic/claude-fable-5-1":{},"capriole-ai-anthropic/claude-fable-5":{},"capriole-ai-anthropic/claude-opus-5-5":{},"capriole-ai-anthropic/claude-opus-5":{},"capriole-ai-anthropic/claude-opus-4-8":{},"capriole-ai-anthropic/claude-opus-4-7":{},"capriole-ai-anthropic/claude-opus-4-6":{},"capriole-ai-anthropic/claude-sonnet-4-6":{}}' \
-  --strict-json
-```
+- `capriole-ai-openai` sendet GPT-Modelle an die Responses API. `capriole-ai-anthropic` sendet Claude-Modelle an Anthropic Messages. `capriole-ai-compatible` sendet Gemini-, Grok-, GLM- und Kimi-Modelle an Chat Completions.
+- `${CAPRIOLE_AI_API_KEY}` liest Ihren Schlüssel aus der Umgebung.
+- `request.auth` mit `authorization-bearer` sorgt dafür, dass der Anthropic-Anbieter den Schlüssel als Bearer-Token sendet. Ohne diese Einstellung landet der Schlüssel in einem `x-api-key`-Header, den Capriole AI nicht akzeptiert.
+- Die Anthropic-`baseUrl` hat kein `/v1`, da OpenClaw `/v1/messages` selbst ergänzt.
+- `reasoning` ist für Opus 5.5 auf `false` gesetzt. Bei `true` sendet OpenClaw ein Thinking-Budget, das Opus 5.5 mit `requires adaptive thinking` ablehnt.
+- `contextWindow` und `maxTokens` teilen OpenClaw die Limits jedes Modells mit.
+- `agents.defaults.models` ist die Liste der Modelle, die Agents verwenden können. `agents.defaults.model.primary` ist das Standardmodell.
 
 ## OpenClaw ausführen
+
+Exportieren Sie Ihren Schlüssel in jedem Terminal, in dem Sie OpenClaw starten:
+
+```bash
+export CAPRIOLE_AI_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
+```
 
 Starten Sie das Gateway:
 
 ```bash
-export CUSTOM_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
-openclaw gateway --force --port 18789
+openclaw gateway
 ```
 
-Öffnen Sie die TUI in einem anderen Terminal:
+Öffnen Sie die Terminal-UI in einem anderen Terminal:
 
 ```bash
-export CUSTOM_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
 openclaw tui
+```
+
+Für einen einmaligen lokalen Lauf ohne Gateway:
+
+```bash
+openclaw agent --local --session-id capriole-test --message "Summarize the files in my workspace."
 ```
 
 ## Unterstützte Modelle
 
-OpenClaw unterstützt OpenAI latest, GPT-6 Astra, GPT-6.1 Sol, GPT-6 Sol, GPT-6 Luna, GPT 5.6 Thinking, GPT 5.6, GPT 5.5, Fable 5.1, Fable 5, Opus 5.5, Opus 5, Grok 4.7, Grok 4.5, Gemini 3.8 Flash, GLM 5.3 Flash, GLM 5.2, Kimi K3, Claude latest, Opus 4.8, Opus 4.7, Opus 4.6 und Sonnet 4.6 über Capriole AI. Fable 5 und Opus 5 können entweder den Chat Completions-kompatiblen Anbieter oder den Anthropic Messages-Anbieter nutzen.
+Modellreferenzen haben die Form `<provider-id>/<model-id>`.
 
-- `openai-latest`
-- `openai/gpt-6-astra`
-- `openai/gpt-6.1-sol`
-- `openai/gpt-6-sol`
-- `openai/gpt-6-luna`
-- `openai/gpt-5.6-terra`
-- `openai/gpt-5.6-luna`
-- `openai/gpt-5.5`
-- `anthropic/claude-fable-5-1`
-- `anthropic/claude-fable-5`
-- `anthropic/claude-opus-5-5`
-- `anthropic/claude-opus-5`
-- `google/gemini-3.8-flash`
-- `xai/grok-4.7`
-- `xai/grok-4.5`
-- `zai/glm-5.3-flash`
-- `zai/glm-5.2`
-- `moonshot/kimi-k3`
-- `claude-latest`
-- `claude-fable-5-1`
-- `claude-fable-5`
-- `claude-opus-5-5`
-- `claude-opus-5`
-- `claude-opus-4-8`
-- `claude-opus-4-7`
-- `claude-opus-4-6`
-- `claude-sonnet-4-6`
+| Modell | Modellreferenz | Protokoll |
+| --- | --- | --- |
+| OpenAI latest | `capriole-ai-openai/openai-latest` | Responses |
+| GPT-6.1 Sol | `capriole-ai-openai/openai/gpt-6.1-sol` | Responses |
+| Claude latest | `capriole-ai-anthropic/claude-latest` | Anthropic Messages |
+| Opus 5.5 | `capriole-ai-anthropic/claude-opus-5-5` | Anthropic Messages |
+| Gemini 3.8 Flash | `capriole-ai-compatible/google/gemini-3.8-flash` | Chat Completions |
+| Grok 4.7 | `capriole-ai-compatible/xai/grok-4.7` | Chat Completions |
+| GLM 5.3 Flash | `capriole-ai-compatible/zai/glm-5.3-flash` | Chat Completions |
+| Kimi K3 | `capriole-ai-compatible/moonshot/kimi-k3` | Chat Completions |
+
+`openai-latest` und `claude-latest` zeigen immer auf unser neuestes Flaggschiff-Modell der jeweiligen Familie.
 
 ## Fehlerbehebung
 
-### Warum schlagen GPT-Anfragen fehl?
-
-Bestätigen Sie, dass `models.providers.capriole-ai-openai.api` auf `"openai-responses"` gesetzt ist und `baseUrl` `https://api.caprioletech.com/v1` ist.
-
-### Warum schlagen Grok-, GLM- oder Kimi-Anfragen fehl?
-
-Bestätigen Sie, dass `models.providers.capriole-ai-compatible.api` auf `"openai-completions"` gesetzt ist und `baseUrl` `https://api.caprioletech.com/v1` ist.
-
-### Warum schlagen Anthropic-Anfragen fehl?
-
-Bestätigen Sie, dass `models.providers.capriole-ai-anthropic.api` auf `"anthropic-messages"` gesetzt ist und die Anthropic-`baseUrl` `https://api.caprioletech.com` ohne `/v1` ist.
-
 ### Warum schlägt die Authentifizierung fehl?
 
-Exportieren Sie `CUSTOM_API_KEY` in dem Terminal, das `openclaw gateway` startet, und in dem Terminal, das `openclaw tui` startet.
+Exportieren Sie `CAPRIOLE_AI_API_KEY` in dem Terminal, das `openclaw gateway` oder `openclaw agent` startet. OpenClaw gibt `missing env var` aus, wenn die Variable nicht gesetzt ist.
 
-### Warum meldet OpenClaw, dass ein Modell nicht erlaubt oder nicht verfügbar ist?
+### Warum schlägt Opus 5.5 mit `requires adaptive thinking` fehl?
 
-Führen Sie `openclaw models list` aus und bestätigen Sie, dass das ausgewählte Modell und jede Allowlist unter `agents.defaults.models` die Capriole AI-Modellreferenz enthalten, etwa `capriole-ai-openai/openai-latest`, `capriole-ai-compatible/xai/grok-4.5`, `capriole-ai-compatible/moonshot/kimi-k3` oder `capriole-ai-anthropic/claude-latest`.
+Setzen Sie `reasoning` für `claude-opus-5-5` auf `false`.
 
-Wenn ein Capriole AI-Modell als fehlend erscheint, aktualisieren Sie den Modelleintrag mit dem vollständigen oben gezeigten Objekt. Aktuelle OpenClaw-Releases benötigen für benutzerdefinierte Anbietermodelle mehr als `id` und `name`.
+### Warum meldet OpenClaw, dass ein Modell nicht erlaubt ist oder fehlt?
+
+Führen Sie `openclaw models list` aus. Bestätigen Sie, dass die Modellreferenz in `agents.defaults.models` steht und dass der Modelleintrag das vollständige oben gezeigte Objekt enthält, nicht nur `id` und `name`.
+
+### Warum beginnt eine neue Sitzung mit einem Einrichtungsdialog?
+
+Das ist die Workspace-Einrichtung von OpenClaw beim ersten Start, kein Problem von Capriole AI. Schließen Sie sie einmal in `openclaw tui` ab oder führen Sie `openclaw onboard` erneut aus.
 
 ### Warum startet das Gateway nicht?
 
-Führen Sie `openclaw status`, `openclaw gateway status`, `openclaw logs --follow` und `openclaw doctor` aus. Beheben Sie Schema-, `gateway.mode`- oder Dienstprobleme, bevor Sie es erneut versuchen.
-
-### Warum schlägt Port `18789` fehl?
-
-Wählen Sie einen anderen lokalen Port und verwenden Sie denselben Port für Gateway und Client-Einrichtung. Führen Sie bei Installationen im Service-Modus nach der Portänderung `openclaw doctor --fix` oder `openclaw gateway install --force` aus.
+Führen Sie `openclaw status`, `openclaw gateway status`, `openclaw logs --follow` und `openclaw doctor` aus.
 
 ## Hinweise
 
-- Benutzerdefinierte OpenClaw-Anbieter erfordern, dass der API-Modus des Anbieters zur Capriole AI-Endpunktfamilie passt.
-- OpenClaw 2026.4.21 schließt lokale `exec`-Tool-Workflows mit Grok 4.5, GLM 5.2 und Kimi K3 über `openai-completions` ab.
-- Capriole AI verarbeitet die Modellanfrage. OpenClaw kann das endgültige Assistentenverhalten weiterhin über Gateway, Kanäle und Agent-Einstellungen formen.
-- Offizielle Referenzen: [OpenClaw-Installation](https://docs.openclaw.ai/install), [OpenClaw Custom Providers](https://docs.openclaw.ai/gateway/config-tools), [OpenClaw-Modellanbieter](https://documentation.openclaw.ai/concepts/model-providers) und [OpenClaw-Fehlerbehebung](https://docs.openclaw.ai/gateway/troubleshooting).
+- Um ein weiteres Capriole AI-Modell hinzuzufügen, kopieren Sie den Eintrag eines Modells derselben Familie, ändern Sie die ID und fügen Sie seine Referenz zu `agents.defaults.models` hinzu. `GET https://api.caprioletech.com/v1/models` listet alle Modell-IDs auf.
+- Offizielle Referenzen: [OpenClaw-Installation](https://docs.openclaw.ai/install), [Benutzerdefinierte Anbieter in OpenClaw](https://docs.openclaw.ai/gateway/config-tools), [OpenClaw-Modellanbieter](https://documentation.openclaw.ai/concepts/model-providers) und [OpenClaw-Fehlerbehebung](https://docs.openclaw.ai/gateway/troubleshooting).

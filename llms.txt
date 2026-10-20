@@ -27,12 +27,16 @@
 - [Use One API Key with Coding Agents](https://docs.capriole.ai/guides/one-api-key-coding-agents.md): Set up six maintained coding agents with one Capriole AI API key while keeping each client on its supported protocol.
 - [Use OpenAI and Anthropic SDKs with Capriole AI](https://docs.capriole.ai/guides/openai-anthropic-sdks.md): Call Capriole AI from Python or TypeScript with the official OpenAI and Anthropic SDKs, supported protocols, latest aliases, and correct base URLs.
 - [Claude Code](https://docs.capriole.ai/integrations/claude-code.md): Configure Claude Code to use Capriole AI.
+- [Cline](https://docs.capriole.ai/integrations/cline.md): Configure Cline to use Capriole AI.
 - [Codex](https://docs.capriole.ai/integrations/codex.md): Configure Codex to use Capriole AI.
+- [Crush](https://docs.capriole.ai/integrations/crush.md): Configure Crush to use Capriole AI.
 - [GitHub Copilot CLI](https://docs.capriole.ai/integrations/github-copilot-cli.md): Configure GitHub Copilot CLI to use Capriole AI.
 - [Kilo Code](https://docs.capriole.ai/integrations/kilo-code.md): Configure Kilo Code to use Capriole AI.
-- [More agents](https://docs.capriole.ai/integrations/more-agents.md): Current status for additional coding agent integrations.
+- [More agents](https://docs.capriole.ai/integrations/more-agents.md): Use Capriole AI with a coding agent that has no page here.
 - [OpenClaw](https://docs.capriole.ai/integrations/openclaw.md): Configure OpenClaw to use Capriole AI.
 - [OpenCode](https://docs.capriole.ai/integrations/opencode.md): Configure OpenCode to use Capriole AI.
+- [Pi](https://docs.capriole.ai/integrations/pi.md): Configure Pi to use Capriole AI.
+- [Qwen Code](https://docs.capriole.ai/integrations/qwen-code.md): Configure Qwen Code to use Capriole AI.
 - [Overview](https://docs.capriole.ai/overview.md): Chat, free GPT Image 2.5 and Nano Banana 2.1 generation in Browser Chat, and low-cost model APIs in one Capriole AI workspace.
 - [Quickstart](https://docs.capriole.ai/quickstart.md): Make your first Capriole AI API request.
 
@@ -61,12 +65,16 @@
 - [使用一个 API Key 配置编程代理](https://docs.capriole.ai/zh/guides/one-api-key-coding-agents.md): 使用一个 Capriole AI API Key 配置六个持续维护的编程代理，同时让每个客户端使用其支持的协议。
 - [通过 OpenAI 和 Anthropic SDK 使用 Capriole AI](https://docs.capriole.ai/zh/guides/openai-anthropic-sdks.md): 使用官方 OpenAI 和 Anthropic SDK，通过 Python 或 TypeScript 调用 Capriole AI，并正确配置受支持的协议、latest 别名和 Base URL。
 - [Claude Code](https://docs.capriole.ai/zh/integrations/claude-code.md): 配置 Claude Code 使用 Capriole AI。
+- [Cline](https://docs.capriole.ai/zh/integrations/cline.md): 配置 Cline 使用 Capriole AI。
 - [Codex](https://docs.capriole.ai/zh/integrations/codex.md): 配置 Codex 使用 Capriole AI。
+- [Crush](https://docs.capriole.ai/zh/integrations/crush.md): 配置 Crush 使用 Capriole AI。
 - [GitHub Copilot CLI](https://docs.capriole.ai/zh/integrations/github-copilot-cli.md): 配置 GitHub Copilot CLI 使用 Capriole AI。
 - [Kilo Code](https://docs.capriole.ai/zh/integrations/kilo-code.md): 配置 Kilo Code 使用 Capriole AI。
-- [更多编程代理](https://docs.capriole.ai/zh/integrations/more-agents.md): 其他编程代理集成的当前状态。
+- [更多编程代理](https://docs.capriole.ai/zh/integrations/more-agents.md): 在本站没有专属页面的编程代理中使用 Capriole AI。
 - [OpenClaw](https://docs.capriole.ai/zh/integrations/openclaw.md): 配置 OpenClaw 使用 Capriole AI。
 - [OpenCode](https://docs.capriole.ai/zh/integrations/opencode.md): 配置 OpenCode 使用 Capriole AI。
+- [Pi](https://docs.capriole.ai/zh/integrations/pi.md): 配置 Pi 使用 Capriole AI。
+- [Qwen Code](https://docs.capriole.ai/zh/integrations/qwen-code.md): 配置 Qwen Code 使用 Capriole AI。
 - [概览](https://docs.capriole.ai/zh/overview.md): 一个 Capriole AI 工作区，提供模型聊天、GPT Image 2.5 和 Nano Banana 2.1 免费网页生图，以及低成本模型 API。
 - [快速开始](https://docs.capriole.ai/zh/quickstart.md): 发送你的第一个 Capriole AI API 请求。
 
@@ -95,12 +103,16 @@
 - [Usa una sola clave API con agentes de programación](https://docs.capriole.ai/es/guides/one-api-key-coding-agents.md): Configura seis agentes de programación mantenidos con una sola clave API de Capriole AI, manteniendo cada cliente en su protocolo compatible.
 - [Usa los SDK de OpenAI y Anthropic con Capriole AI](https://docs.capriole.ai/es/guides/openai-anthropic-sdks.md): Llama a Capriole AI desde Python o TypeScript con los SDK oficiales de OpenAI y Anthropic, los protocolos compatibles, los alias latest y las Base URL correctas.
 - [Claude Code](https://docs.capriole.ai/es/integrations/claude-code.md): Configura Claude Code para usar Capriole AI.
+- [Cline](https://docs.capriole.ai/es/integrations/cline.md): Configura Cline para usar Capriole AI.
 - [Codex](https://docs.capriole.ai/es/integrations/codex.md): Configura Codex para usar Capriole AI.
+- [Crush](https://docs.capriole.ai/es/integrations/crush.md): Configura Crush para usar Capriole AI.
 - [GitHub Copilot CLI](https://docs.capriole.ai/es/integrations/github-copilot-cli.md): Configura GitHub Copilot CLI para usar Capriole AI.
 - [Kilo Code](https://docs.capriole.ai/es/integrations/kilo-code.md): Configura Kilo Code para usar Capriole AI.
-- [Más agentes](https://docs.capriole.ai/es/integrations/more-agents.md): Estado actual de integraciones adicionales de agentes de programación.
+- [Más agentes](https://docs.capriole.ai/es/integrations/more-agents.md): Usa Capriole AI con un agente de programación que no tiene página aquí.
 - [OpenClaw](https://docs.capriole.ai/es/integrations/openclaw.md): Configura OpenClaw para usar Capriole AI.
 - [OpenCode](https://docs.capriole.ai/es/integrations/opencode.md): Configura OpenCode para usar Capriole AI.
+- [Pi](https://docs.capriole.ai/es/integrations/pi.md): Configura Pi para usar Capriole AI.
+- [Qwen Code](https://docs.capriole.ai/es/integrations/qwen-code.md): Configura Qwen Code para usar Capriole AI.
 - [Descripción general](https://docs.capriole.ai/es/overview.md): Chat, generación gratuita con GPT Image 2.5 y Nano Banana 2.1 en el navegador y API de modelos de bajo coste en un espacio de Capriole AI.
 - [Inicio rápido](https://docs.capriole.ai/es/quickstart.md): Haz tu primera solicitud a la API de Capriole AI.
 
@@ -129,12 +141,16 @@
 - [Usar uma API key com agentes de programação](https://docs.capriole.ai/pt-br/guides/one-api-key-coding-agents.md): Configure seis agentes de programação mantidos com uma API key da Capriole AI, mantendo cada cliente no protocolo suportado.
 - [Usar os SDKs OpenAI e Anthropic com a Capriole AI](https://docs.capriole.ai/pt-br/guides/openai-anthropic-sdks.md): Chame a Capriole AI em Python ou TypeScript com os SDKs oficiais OpenAI e Anthropic, protocolos suportados, aliases latest e as base URLs corretas.
 - [Claude Code](https://docs.capriole.ai/pt-br/integrations/claude-code.md): Configure o Claude Code para usar a Capriole AI.
+- [Cline](https://docs.capriole.ai/pt-br/integrations/cline.md): Configure o Cline para usar a Capriole AI.
 - [Codex](https://docs.capriole.ai/pt-br/integrations/codex.md): Configure o Codex para usar a Capriole AI.
+- [Crush](https://docs.capriole.ai/pt-br/integrations/crush.md): Configure o Crush para usar a Capriole AI.
 - [GitHub Copilot CLI](https://docs.capriole.ai/pt-br/integrations/github-copilot-cli.md): Configure o GitHub Copilot CLI para usar a Capriole AI.
 - [Kilo Code](https://docs.capriole.ai/pt-br/integrations/kilo-code.md): Configure o Kilo Code para usar a Capriole AI.
-- [Mais agentes](https://docs.capriole.ai/pt-br/integrations/more-agents.md): Status atual de integrações adicionais de agentes de programação.
+- [Mais agentes](https://docs.capriole.ai/pt-br/integrations/more-agents.md): Use a Capriole AI com um agente de programação que não tem uma página aqui.
 - [OpenClaw](https://docs.capriole.ai/pt-br/integrations/openclaw.md): Configure o OpenClaw para usar a Capriole AI.
 - [OpenCode](https://docs.capriole.ai/pt-br/integrations/opencode.md): Configure o OpenCode para usar a Capriole AI.
+- [Pi](https://docs.capriole.ai/pt-br/integrations/pi.md): Configure o Pi para usar a Capriole AI.
+- [Qwen Code](https://docs.capriole.ai/pt-br/integrations/qwen-code.md): Configure o Qwen Code para usar a Capriole AI.
 - [Visão geral](https://docs.capriole.ai/pt-br/overview.md): Chat, imagens grátis com GPT Image 2.5 e Nano Banana 2.1 no navegador e APIs de modelos de baixo custo em um espaço Capriole AI.
 - [Início rápido](https://docs.capriole.ai/pt-br/quickstart.md): Envie sua primeira solicitação à API da Capriole AI.
 
@@ -163,12 +179,16 @@
 - [Einen API-Schlüssel mit Coding-Agents nutzen](https://docs.capriole.ai/de/guides/one-api-key-coding-agents.md): Richten Sie sechs gepflegte Coding-Agents mit einem Capriole AI API-Schlüssel ein und halten Sie jeden Client auf seinem unterstützten Protokoll.
 - [OpenAI- und Anthropic-SDKs mit Capriole AI nutzen](https://docs.capriole.ai/de/guides/openai-anthropic-sdks.md): Rufen Sie Capriole AI aus Python oder TypeScript mit den offiziellen OpenAI- und Anthropic-SDKs, unterstützten Protokollen, Latest-Aliasen und korrekten Base URLs auf.
 - [Claude Code](https://docs.capriole.ai/de/integrations/claude-code.md): Konfigurieren Sie Claude Code für die Nutzung von Capriole AI.
+- [Cline](https://docs.capriole.ai/de/integrations/cline.md): Konfigurieren Sie Cline für die Nutzung von Capriole AI.
 - [Codex](https://docs.capriole.ai/de/integrations/codex.md): Konfigurieren Sie Codex für die Nutzung von Capriole AI.
+- [Crush](https://docs.capriole.ai/de/integrations/crush.md): Konfigurieren Sie Crush für die Nutzung von Capriole AI.
 - [GitHub Copilot CLI](https://docs.capriole.ai/de/integrations/github-copilot-cli.md): Konfigurieren Sie GitHub Copilot CLI für die Nutzung von Capriole AI.
 - [Kilo Code](https://docs.capriole.ai/de/integrations/kilo-code.md): Konfigurieren Sie Kilo Code für die Nutzung von Capriole AI.
-- [Weitere Agents](https://docs.capriole.ai/de/integrations/more-agents.md): Aktueller Status zusätzlicher Coding-Agent-Integrationen.
+- [Weitere Agents](https://docs.capriole.ai/de/integrations/more-agents.md): Nutzen Sie Capriole AI mit einem Coding-Agent, für den es hier keine eigene Seite gibt.
 - [OpenClaw](https://docs.capriole.ai/de/integrations/openclaw.md): Konfigurieren Sie OpenClaw für die Nutzung von Capriole AI.
 - [OpenCode](https://docs.capriole.ai/de/integrations/opencode.md): Konfigurieren Sie OpenCode für die Nutzung von Capriole AI.
+- [Pi](https://docs.capriole.ai/de/integrations/pi.md): Konfigurieren Sie Pi für die Nutzung von Capriole AI.
+- [Qwen Code](https://docs.capriole.ai/de/integrations/qwen-code.md): Konfigurieren Sie Qwen Code für die Nutzung von Capriole AI.
 - [Überblick](https://docs.capriole.ai/de/overview.md): Chat, kostenlose Bilder mit GPT Image 2.5 und Nano Banana 2.1 im Browser und günstige Modell-APIs in einem Capriole AI-Arbeitsbereich.
 - [Schnellstart](https://docs.capriole.ai/de/quickstart.md): Senden Sie Ihre erste Capriole AI API-Anfrage.
 
@@ -197,12 +217,16 @@
 - [1 つの API キーでコーディング エージェントを使う](https://docs.capriole.ai/ja/guides/one-api-key-coding-agents.md): 1 つの Capriole AI API キーで、維持されている 6 つのコーディング エージェントを設定し、各クライアントを対応プロトコルに保ちます。
 - [OpenAI と Anthropic の SDK で Capriole AI を使う](https://docs.capriole.ai/ja/guides/openai-anthropic-sdks.md): 公式の OpenAI と Anthropic SDK を使い、Python または TypeScript から Capriole AI を呼び出します。対応プロトコル、latest エイリアス、正しい Base URL を設定します。
 - [Claude Code](https://docs.capriole.ai/ja/integrations/claude-code.md): Claude Code が Capriole AI を使うように設定します。
+- [Cline](https://docs.capriole.ai/ja/integrations/cline.md): Cline が Capriole AI を使うように設定します。
 - [Codex](https://docs.capriole.ai/ja/integrations/codex.md): Codex が Capriole AI を使うように設定します。
+- [Crush](https://docs.capriole.ai/ja/integrations/crush.md): Crush が Capriole AI を使うように設定します。
 - [GitHub Copilot CLI](https://docs.capriole.ai/ja/integrations/github-copilot-cli.md): GitHub Copilot CLI が Capriole AI を使うように設定します。
 - [Kilo Code](https://docs.capriole.ai/ja/integrations/kilo-code.md): Kilo Code が Capriole AI を使うように設定します。
-- [その他のエージェント](https://docs.capriole.ai/ja/integrations/more-agents.md): 追加のコーディング エージェント統合の現在の状態です。
+- [その他のエージェント](https://docs.capriole.ai/ja/integrations/more-agents.md): 専用ページのないコーディング エージェントで Capriole AI を使います。
 - [OpenClaw](https://docs.capriole.ai/ja/integrations/openclaw.md): OpenClaw が Capriole AI を使うように設定します。
 - [OpenCode](https://docs.capriole.ai/ja/integrations/opencode.md): OpenCode が Capriole AI を使うように設定します。
+- [Pi](https://docs.capriole.ai/ja/integrations/pi.md): Pi が Capriole AI を使うように設定します。
+- [Qwen Code](https://docs.capriole.ai/ja/integrations/qwen-code.md): Qwen Code が Capriole AI を使うように設定します。
 - [概要](https://docs.capriole.ai/ja/overview.md): モデルとのチャット、GPT Image 2.5 と Nano Banana 2.1 の無料ブラウザ画像生成、低コストのモデル API を 1 つの Capriole AI ワークスペースで。
 - [クイックスタート](https://docs.capriole.ai/ja/quickstart.md): 最初の Capriole AI API リクエストを送信します。
 
@@ -231,12 +255,16 @@
 - [코딩 에이전트에 API key 하나 사용하기](https://docs.capriole.ai/ko/guides/one-api-key-coding-agents.md): 각 클라이언트를 지원 프로토콜에 둔 채로, 하나의 Capriole AI API key로 유지 중인 코딩 에이전트 여섯 개를 설정하세요.
 - [OpenAI 및 Anthropic SDK로 Capriole AI 사용하기](https://docs.capriole.ai/ko/guides/openai-anthropic-sdks.md): 공식 OpenAI 및 Anthropic SDK로 Python 또는 TypeScript에서 Capriole AI를 호출하고, 지원 프로토콜, latest 별칭, 올바른 Base URL을 사용하세요.
 - [Claude Code](https://docs.capriole.ai/ko/integrations/claude-code.md): Claude Code가 Capriole AI를 사용하도록 구성합니다.
+- [Cline](https://docs.capriole.ai/ko/integrations/cline.md): Cline이 Capriole AI를 사용하도록 구성합니다.
 - [Codex](https://docs.capriole.ai/ko/integrations/codex.md): Codex가 Capriole AI를 사용하도록 구성합니다.
+- [Crush](https://docs.capriole.ai/ko/integrations/crush.md): Crush가 Capriole AI를 사용하도록 구성합니다.
 - [GitHub Copilot CLI](https://docs.capriole.ai/ko/integrations/github-copilot-cli.md): GitHub Copilot CLI가 Capriole AI를 사용하도록 구성합니다.
 - [Kilo Code](https://docs.capriole.ai/ko/integrations/kilo-code.md): Kilo Code가 Capriole AI를 사용하도록 구성합니다.
-- [추가 에이전트](https://docs.capriole.ai/ko/integrations/more-agents.md): 추가 코딩 에이전트 통합의 현재 상태입니다.
+- [추가 에이전트](https://docs.capriole.ai/ko/integrations/more-agents.md): 이 문서에 전용 페이지가 없는 코딩 에이전트에서 Capriole AI를 사용합니다.
 - [OpenClaw](https://docs.capriole.ai/ko/integrations/openclaw.md): OpenClaw가 Capriole AI를 사용하도록 구성합니다.
 - [OpenCode](https://docs.capriole.ai/ko/integrations/opencode.md): OpenCode가 Capriole AI를 사용하도록 구성합니다.
+- [Pi](https://docs.capriole.ai/ko/integrations/pi.md): Pi가 Capriole AI를 사용하도록 구성합니다.
+- [Qwen Code](https://docs.capriole.ai/ko/integrations/qwen-code.md): Qwen Code가 Capriole AI를 사용하도록 구성합니다.
 - [개요](https://docs.capriole.ai/ko/overview.md): 하나의 Capriole AI 작업 공간에서 모델 채팅, GPT Image 2.5 및 Nano Banana 2.1 무료 브라우저 이미지 생성, 저렴한 모델 API를 이용하세요.
 - [빠른 시작](https://docs.capriole.ai/ko/quickstart.md): 첫 Capriole AI API 요청을 보냅니다.
 

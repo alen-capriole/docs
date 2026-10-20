@@ -5,11 +5,7 @@ description: "GitHub Copilot CLI가 Capriole AI를 사용하도록 구성합니�
 
 ## GitHub Copilot CLI란
 
-GitHub Copilot CLI는 터미널 네이티브 코딩 어시스턴트입니다. BYOK 제공자 모드는 OpenAI Chat Completions 호환 엔드포인트를 사용할 수 있어, 모델 요청을 Capriole AI로 보낼 수 있습니다.
-
-이는 Copilot CLI를 위한 직접 모델 제공자 구성입니다. Microsoft 365 Copilot과는 별개입니다.
-
-이 페이지는 Capriole AI 엔드포인트 호환 BYOK 값을 문서화합니다. 프로덕션 코딩 에이전트 워크플로에 이 값을 쓰기 전에, 설치된 Copilot CLI에서 스트리밍 프롬프트와 로컬 도구 요청으로 검증하세요.
+GitHub Copilot CLI는 터미널용 GitHub 코딩 에이전트입니다. BYOK(bring-your-own-key) 모드는 환경 변수로 설정한 제공자에게 모델 요청을 보냅니다. 이 구성은 그 제공자를 Capriole AI로 지정합니다.
 
 ## 사전 준비
 
@@ -17,7 +13,6 @@ GitHub Copilot CLI는 터미널 네이티브 코딩 어시스턴트입니다. BY
 
 - Capriole AI 계정([여기에서 가입](https://capriole.ai))
 - Capriole AI API key([키 받기](https://capriole.ai?view=api))
-- 설치된 GitHub Copilot CLI
 
 ## 설치
 
@@ -33,44 +28,22 @@ npm install -g @github/copilot
 copilot --version
 ```
 
-BYOK 모드로 `COPILOT_PROVIDER_BASE_URL`이 설정되어 있으면 GitHub 인증은 필요하지 않습니다.
+`COPILOT_PROVIDER_BASE_URL`이 설정되어 있으면 GitHub에 로그인할 필요가 없습니다.
 
 ## 구성
 
 ### 모델 검증
 
-GitHub Copilot CLI 1.0.82: `anthropic/claude-fable-5-1`, `google/gemini-3.8-flash`, `zai/glm-5.3-flash`는 로컬 파일 읽기 도구 및 최종 답변 검사를 통과했습니다. `claude-latest`는 Fable 5.1로 해석됩니다. 기존 구체 모델 ID도 계속 사용할 수 있습니다.
+GitHub Copilot CLI 1.0.100 버전은 아래 프로필로 지원 모델 섹션의 모든 모델에서 Capriole AI를 통한 파일 읽기, 파일 쓰기, 최종 답변 검사를 통과합니다.
 
-새 Chat Completions 검사는 `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`를 사용합니다. Fable 5.1은 `claude-latest`를 사용하는 Anthropic Messages 경로 검사도 통과했습니다.
+Copilot CLI는 한 번에 하나의 제공자만 사용하므로 원하는 모델 계열의 프로필을 선택하세요. 각 프로필은 모델 값 두 개를 설정합니다.
 
-`xai/grok-4.6`는 Chat Completions 요청을 받지만 코딩 에이전트 작업 검사를 통과하지 못해 아래 구성에 포함하지 않습니다. 제공자 직접 검사에서도 Grok 4.5의 도구 사용이 불안정했습니다. API 요청 완료가 올바른 에이전트 답변을 뜻하지는 않습니다.
+- `COPILOT_PROVIDER_WIRE_MODEL`은 Copilot이 보내는 Capriole AI 모델 ID입니다.
+- `COPILOT_PROVIDER_MODEL_ID`는 Copilot이 알고 있는 모델입니다. Copilot은 이 값으로 도구, 프롬프트, 토큰 한도를 정합니다.
 
-Capriole AI를 OpenAI 호환 모델 제공자로 설정하세요.
+### GPT 모델
 
-```bash
-export CAPRIOLE_AI_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
-export COPILOT_PROVIDER_TYPE="openai"
-export COPILOT_PROVIDER_BASE_URL="https://api.caprioletech.com/v1"
-export COPILOT_PROVIDER_API_KEY="$CAPRIOLE_AI_API_KEY"
-export COPILOT_PROVIDER_WIRE_API="completions"
-```
-
-Chat Completions에서 OpenAI latest를 선택하세요.
-
-```bash
-export COPILOT_PROVIDER_MODEL_ID="gpt-6-astra"
-export COPILOT_PROVIDER_WIRE_MODEL="openai-latest"
-```
-
-`COPILOT_PROVIDER_MODEL_ID`는 클라이언트 모델 식별자이고, `COPILOT_PROVIDER_WIRE_MODEL`은 Capriole AI로 전송하는 모델 ID입니다. GPT-6 Astra에는 `gpt-6-astra`와 `openai-latest`를 사용하세요. Copilot CLI 1.0.82는 이 사용자 지정 ID를 허용하지만 Astra 전용 설정은 내장하지 않습니다. 명시적으로 덮어쓰지 않으면 클라이언트 기본 설정과 토큰 한도를 사용합니다. 자세한 내용은 `copilot help providers`를 확인하세요.
-
-이 Astra 식별자를 사용한 로컬 검사에서 Chat Completions는 파일 읽기를 완료했습니다. Responses는 절대 경로를 지정하면 올바른 내용을 반환했지만, 상대 경로 해석 오류와 긴 대기도 재현됐습니다. 식별자 변경은 이러한 작업 문제의 해결책이 아니므로 실제 사용 전에 작업 흐름을 검증하세요.
-
-## 지속 설정
-
-GitHub Copilot CLI는 일반 CLI 설정을 자체 구성에 저장하지만, BYOK 제공자 설정은 환경 변수입니다. 간단한 지속 설정을 위해 셸 구성에 Capriole AI 프로필 하나를 넣으세요.
-
-이 엔드포인트 호환 OpenAI latest Responses 프로필을 `~/.zshrc`에 추가한 다음, 코딩 에이전트 워크플로에 쓰기 전에 설치된 Copilot CLI로 검증하세요.
+GPT 모델은 Responses API를 사용합니다.
 
 ```bash
 export CAPRIOLE_AI_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
@@ -80,173 +53,98 @@ export COPILOT_PROVIDER_API_KEY="$CAPRIOLE_AI_API_KEY"
 export COPILOT_PROVIDER_WIRE_API="responses"
 export COPILOT_PROVIDER_MODEL_ID="gpt-6-astra"
 export COPILOT_PROVIDER_WIRE_MODEL="openai-latest"
-alias capriole-copilot="copilot --stream on"
 ```
 
-셸을 다시 로드하세요.
+GPT-6.1 Sol에는 `COPILOT_PROVIDER_MODEL_ID="gpt-6.1-sol"`과 `COPILOT_PROVIDER_WIRE_MODEL="openai/gpt-6.1-sol"`을 설정하세요.
+
+### Claude 모델
+
+Claude 모델은 Anthropic Messages를 사용합니다.
 
 ```bash
-source ~/.zshrc
-```
-
-그런 다음 실행하세요.
-
-```bash
-capriole-copilot
-```
-
-일회성 프롬프트는 다음과 같습니다.
-
-```bash
-capriole-copilot -p "Explain this repository structure." --allow-all-tools
-```
-
-프로필을 전환할 때는 `COPILOT_PROVIDER_WIRE_API`, `COPILOT_PROVIDER_MODEL_ID`, `COPILOT_PROVIDER_WIRE_MODEL`만 바꾸고, Claude Messages에는 `COPILOT_PROVIDER_TYPE`, `COPILOT_PROVIDER_BASE_URL`, `COPILOT_PROVIDER_BEARER_TOKEN`을 사용하세요.
-
-## 인터페이스 옵션
-
-### OpenAI Chat Completions
-
-GitHub Copilot CLI에서 가장 넓은 Capriole AI 모델 범위를 원할 때 이 경로를 사용하세요.
-
-```bash
-export COPILOT_PROVIDER_TYPE="openai"
-export COPILOT_PROVIDER_BASE_URL="https://api.caprioletech.com/v1"
-export COPILOT_PROVIDER_API_KEY="$CAPRIOLE_AI_API_KEY"
-export COPILOT_PROVIDER_WIRE_API="completions"
-```
-
-엔드포인트 호환 wire 모델:
-
-- `openai-latest` with `COPILOT_PROVIDER_MODEL_ID="gpt-6-astra"`
-- `openai/gpt-6-astra` with `COPILOT_PROVIDER_MODEL_ID="gpt-6-astra"`
-- `openai/gpt-6.1-sol` with `COPILOT_PROVIDER_MODEL_ID="gpt-6.1-sol"`
-- `openai/gpt-6-sol` with `COPILOT_PROVIDER_MODEL_ID="gpt-6-sol"`
-- `openai/gpt-6-luna` with `COPILOT_PROVIDER_MODEL_ID="gpt-6-luna"`
-- `openai/gpt-5.6-terra` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
-- `openai/gpt-5.6-luna` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
-- `openai/gpt-5.5` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
-- `claude-latest` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
-- `anthropic/claude-fable-5-1` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
-- `anthropic/claude-fable-5` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
-- `anthropic/claude-opus-5-5` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
-- `anthropic/claude-opus-5` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
-- `anthropic/claude-opus-4-8` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
-- `anthropic/claude-opus-4-7` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
-- `anthropic/claude-opus-4-6` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
-- `anthropic/claude-sonnet-4-6` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
-- `google-latest` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
-- `google/gemini-3.1-pro-preview` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
-- `google/gemini-3.8-flash` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
-- `xai/grok-4.7` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
-- `xai/grok-4.5` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
-- `zai/glm-5.3-flash` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.4"`
-- `zai/glm-5.2` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
-- `moonshot/kimi-k3` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
-
-Copilot CLI에는 네이티브 Gemini 제공자가 없습니다. Gemini는 Capriole AI의 OpenAI 호환 Chat Completions 프록시를 통해 실행됩니다.
-
-### OpenAI Responses
-
-GitHub Copilot CLI가 Capriole AI의 Responses 호환 엔드포인트를 호출하게 하려면 이 경로를 사용하세요.
-
-```bash
-export COPILOT_PROVIDER_TYPE="openai"
-export COPILOT_PROVIDER_BASE_URL="https://api.caprioletech.com/v1"
-export COPILOT_PROVIDER_API_KEY="$CAPRIOLE_AI_API_KEY"
-export COPILOT_PROVIDER_WIRE_API="responses"
-```
-
-엔드포인트 호환 wire 모델:
-
-- `openai-latest` with `COPILOT_PROVIDER_MODEL_ID="gpt-6-astra"`
-- `openai/gpt-6-astra` with `COPILOT_PROVIDER_MODEL_ID="gpt-6-astra"`
-- `openai/gpt-6.1-sol` with `COPILOT_PROVIDER_MODEL_ID="gpt-6.1-sol"`
-- `openai/gpt-6-sol` with `COPILOT_PROVIDER_MODEL_ID="gpt-6-sol"`
-- `openai/gpt-6-luna` with `COPILOT_PROVIDER_MODEL_ID="gpt-6-luna"`
-- `openai/gpt-5.6-terra` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
-- `openai/gpt-5.6-luna` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
-- `openai/gpt-5.5` with `COPILOT_PROVIDER_MODEL_ID="gpt-5.5"`
-
-Responses는 Capriole AI의 OpenAI wire 프로토콜입니다. Claude 및 Gemini 모델 ID는 `POST /v1/responses`에서 지원되지 않습니다.
-
-### Anthropic Messages
-
-GitHub Copilot CLI가 Capriole AI의 Anthropic Messages 호환 엔드포인트를 호출하게 하려면 이 경로를 사용하세요.
-
-```bash
+export CAPRIOLE_AI_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
 export COPILOT_PROVIDER_TYPE="anthropic"
 export COPILOT_PROVIDER_BASE_URL="https://api.caprioletech.com"
 export COPILOT_PROVIDER_BEARER_TOKEN="$CAPRIOLE_AI_API_KEY"
-export COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"
+export COPILOT_PROVIDER_MODEL_ID="claude-opus-4.6"
 export COPILOT_PROVIDER_WIRE_MODEL="claude-latest"
 ```
 
-엔드포인트 호환 wire 모델:
+Opus 5.5에는 `COPILOT_PROVIDER_WIRE_MODEL="claude-opus-5-5"`를 설정하세요.
 
-- `claude-latest` with `COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"`
-- `claude-fable-5-1` with `COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"`
-- `claude-fable-5` with `COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"`
-- `claude-opus-5-5` with `COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"`
-- `claude-opus-5` with `COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"`
-- `claude-opus-4-8` with `COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"`
-- `claude-opus-4-7` with `COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"`
-- `claude-opus-4-6` with `COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"`
-- `claude-sonnet-4-6` with `COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"`
+- `COPILOT_PROVIDER_BEARER_TOKEN`은 키를 Bearer 토큰으로 보냅니다. `COPILOT_PROVIDER_API_KEY`를 쓰면 키가 `x-api-key` 헤더로 전송되는데, Capriole AI는 이를 받지 않습니다.
+- Copilot이 `/v1/messages`를 직접 추가하므로 Base URL에는 `/v1`이 없습니다.
+- `COPILOT_PROVIDER_MODEL_ID="claude-opus-4.6"`을 유지하세요. `claude-sonnet-4` 같은 이전 프로필을 쓰면 Copilot이 thinking 예산을 보내고, Opus 5.5는 `requires adaptive thinking`으로 이를 거부합니다.
 
-이 경로에는 `COPILOT_PROVIDER_BEARER_TOKEN`을 사용하세요. `COPILOT_PROVIDER_API_KEY`는 제공자 스타일 인증을 보내며 Capriole AI의 공개 Bearer 토큰 인증 게이트를 충족하지 않습니다.
+### Gemini, Grok, GLM, Kimi 모델
+
+이 모델은 Chat Completions를 사용합니다.
+
+```bash
+export CAPRIOLE_AI_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
+export COPILOT_PROVIDER_TYPE="openai"
+export COPILOT_PROVIDER_BASE_URL="https://api.caprioletech.com/v1"
+export COPILOT_PROVIDER_API_KEY="$CAPRIOLE_AI_API_KEY"
+export COPILOT_PROVIDER_WIRE_API="completions"
+export COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"
+export COPILOT_PROVIDER_WIRE_MODEL="moonshot/kimi-k3"
+```
+
+다른 모델은 `COPILOT_PROVIDER_WIRE_MODEL`을 `google/gemini-3.8-flash`, `xai/grok-4.7` 또는 `zai/glm-5.3-flash`로 바꾸세요.
+
+`COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"`를 유지하세요. `gpt-5.4` 같은 GPT 프로필을 쓰면 Copilot이 이 모델들이 거부하는 도구 유형을 보냅니다.
+
+프로필을 계속 사용하려면 해당 줄을 `~/.zshrc` 또는 `~/.bashrc`에 추가한 다음 새 터미널을 여세요.
 
 ## GitHub Copilot CLI 실행
 
-대화형 세션을 시작하세요.
+프로젝트 디렉터리에서 Copilot CLI를 시작하세요.
 
 ```bash
-copilot --stream on
+copilot
 ```
 
-일회성 요청을 실행하세요.
+비대화형으로 실행하려면 `-p`로 프롬프트를 전달하세요.
 
 ```bash
-copilot -p "Explain this repository structure." --allow-all-tools --stream on
+copilot -p "Explain this repository." --allow-all-tools
 ```
-
-스크립트 사용 시 스트리밍을 켜 두세요. 대응하는 Capriole AI 엔드포인트는 스트리밍을 지원합니다. 프로덕션 배포 전에 설치된 Copilot CLI 경로를 검증하세요.
 
 ## 지원 모델
 
-이 wire 모델은 Copilot CLI BYOK를 위한 대응하는 Capriole AI 엔드포인트에서 허용됩니다. 엔드포인트 호환 값이며, 설치된 Copilot CLI에서 스트리밍과 로컬 셸 도구 사용을 검증하는 대체가 아닙니다.
+| 모델 | `COPILOT_PROVIDER_WIRE_MODEL` | `COPILOT_PROVIDER_MODEL_ID` | 프로토콜 |
+| --- | --- | --- | --- |
+| OpenAI latest | `openai-latest` | `gpt-6-astra` | Responses |
+| GPT-6.1 Sol | `openai/gpt-6.1-sol` | `gpt-6.1-sol` | Responses |
+| Claude latest | `claude-latest` | `claude-opus-4.6` | Anthropic Messages |
+| Opus 5.5 | `claude-opus-5-5` | `claude-opus-4.6` | Anthropic Messages |
+| Gemini 3.8 Flash | `google/gemini-3.8-flash` | `claude-sonnet-4` | Chat Completions |
+| Grok 4.7 | `xai/grok-4.7` | `claude-sonnet-4` | Chat Completions |
+| GLM 5.3 Flash | `zai/glm-5.3-flash` | `claude-sonnet-4` | Chat Completions |
+| Kimi K3 | `moonshot/kimi-k3` | `claude-sonnet-4` | Chat Completions |
 
-- Chat Completions: `openai-latest`, `openai/gpt-6-astra`, `openai/gpt-6.1-sol`, `openai/gpt-6-sol`, `openai/gpt-6-luna`, `openai/gpt-5.6-terra`, `openai/gpt-5.6-luna`, `openai/gpt-5.5`, `claude-latest`, `anthropic/claude-fable-5-1`, `anthropic/claude-fable-5`, `anthropic/claude-opus-5-5`, `anthropic/claude-opus-5`, `anthropic/claude-opus-4-8`, `anthropic/claude-opus-4-7`, `anthropic/claude-opus-4-6`, `anthropic/claude-sonnet-4-6`, `google-latest`, `google/gemini-3.1-pro-preview`, `google/gemini-3.8-flash`, `xai/grok-4.7`, `xai/grok-4.5`, `zai/glm-5.3-flash`, `zai/glm-5.2`, and `moonshot/kimi-k3`
-- Responses: `openai-latest`, `openai/gpt-6-astra`, `openai/gpt-6.1-sol`, `openai/gpt-6-sol`, `openai/gpt-6-luna`, `openai/gpt-5.6-terra`, `openai/gpt-5.6-luna`, and `openai/gpt-5.5`
-- Anthropic Messages: `claude-latest`, `claude-fable-5-1`, `claude-fable-5`, `claude-opus-5-5`, `claude-opus-5`, `claude-opus-4-8`, `claude-opus-4-7`, `claude-opus-4-6`, and `claude-sonnet-4-6`
-
-`GET /v1/models`가 반환하는 다른 공개 Chat Completions 호환 모델 ID도 같은 OpenAI 호환 제공자 경로로 테스트할 수 있지만, 도구 사용이 검증되기 전에는 코딩 에이전트 워크플로에 사용하지 마세요.
-
-GitHub Copilot CLI 1.0.75는 이 Chat Completions 경로를 통해 `anthropic/claude-fable-5`, `xai/grok-4.5`, `zai/glm-5.2`, `moonshot/kimi-k3`로 스트리밍 셸 도구 워크플로를 완료합니다.
+`openai-latest`와 `claude-latest`는 항상 각 계열의 최신 플래그십 모델을 가리킵니다.
 
 ## 문제 해결
 
 ### Copilot CLI가 인증 오류를 반환하는 이유는 무엇인가요?
 
-Copilot CLI를 시작하기 전에 같은 셸에서 `CAPRIOLE_AI_API_KEY`가 내보내졌고 `COPILOT_PROVIDER_API_KEY`가 이를 가리키는지 확인하세요.
+같은 셸에서 `CAPRIOLE_AI_API_KEY`를 내보냈는지 확인하세요. Claude 모델에는 `COPILOT_PROVIDER_API_KEY`가 아니라 `COPILOT_PROVIDER_BEARER_TOKEN`을 사용하세요.
 
 ### 요청이 엔드포인트 오류로 실패하는 이유는 무엇인가요?
 
-OpenAI 호환 Chat Completions 또는 Responses의 경우 `COPILOT_PROVIDER_BASE_URL`이 `https://api.caprioletech.com/v1`인지 확인하세요.
+GPT, Gemini, Grok, GLM, Kimi 모델에서 `COPILOT_PROVIDER_BASE_URL`은 `https://api.caprioletech.com/v1`입니다. Claude 모델에서는 `/v1` 없는 `https://api.caprioletech.com`입니다.
 
-Anthropic Messages의 경우 `COPILOT_PROVIDER_BASE_URL`이 `/v1` 없는 `https://api.caprioletech.com`인지 확인하세요.
+### Opus 5.5가 `requires adaptive thinking`으로 실패하는 이유는 무엇인가요?
 
-### Copilot CLI가 모델이 없다고 하는 이유는 무엇인가요?
+`COPILOT_PROVIDER_MODEL_ID="claude-opus-4.6"`을 설정하세요.
 
-`COPILOT_PROVIDER_MODEL_ID`와 `COPILOT_PROVIDER_WIRE_MODEL`을 모두 설정하세요. GPT-6 Astra에는 각각 `gpt-6-astra`와 `openai-latest`를 사용하세요.
+### Gemini, Grok, GLM, Kimi 요청이 도구 오류로 실패하는 이유는 무엇인가요?
 
-### 스트리밍을 켜 두어야 하는 이유는 무엇인가요?
-
-GitHub BYOK 요구사항은 모델이 스트리밍과 도구/함수 호출을 지원해야 한다고 명시합니다. 배포 전에 Capriole AI에 대해 로컬 도구 호출을 검증할 수 있도록 Copilot CLI를 스트리밍 경로에 두세요.
+`COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"`를 설정하세요. GPT 프로필은 OpenAI 모델만 받는 도구 유형을 보냅니다.
 
 ## 참고
 
-- Capriole AI는 Chat Completions, Responses, Anthropic Messages 프로필 형태로 Copilot CLI BYOK 예제를 제공합니다.
-- Chat Completions 프로필은 `POST /v1/chat/completions`, Responses 프로필은 `POST /v1/responses`, Anthropic 프로필은 `POST /v1/messages`를 사용합니다.
-- GitHub Copilot CLI는 코딩 도구를 로컬에서 실행합니다. Capriole AI는 모델 요청만 처리합니다.
-- 공식 참고: [GitHub Copilot CLI installation](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli), [GitHub Copilot CLI BYOK](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/use-byok-models), [GitHub Copilot SDK BYOK](https://docs.github.com/en/copilot/how-tos/copilot-sdk/auth/byok).
+- Copilot CLI는 사용자 컴퓨터에서 코딩 도구를 실행합니다. Capriole AI는 모델 요청만 처리합니다.
+- 모든 BYOK 환경 변수를 보려면 `copilot help providers`를 실행하세요.
+- 공식 참고: [Install GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli), [Use BYOK models in Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/use-byok-models).

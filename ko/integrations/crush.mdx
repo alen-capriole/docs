@@ -1,0 +1,121 @@
+---
+title: "Crush"
+description: "Crush가 Capriole AI를 사용하도록 구성합니다."
+---
+
+## Crush란
+
+Crush는 Charm의 터미널용 오픈 소스 코딩 에이전트입니다. Crush는 `crushrc` 파일에서 구성을 읽으며, 이 파일은 Crush 전용 명령을 쓸 수 있는 Bash 스크립트입니다. 이 구성은 Capriole AI를 OpenAI 호환 제공자 하나로 추가합니다.
+
+## 사전 준비
+
+시작하기 전에 다음이 있는지 확인하세요.
+
+- Capriole AI 계정([여기에서 가입](https://capriole.ai))
+- Capriole AI API key([키 받기](https://capriole.ai?view=api))
+
+## 설치
+
+Homebrew로 Crush를 설치하세요.
+
+```bash
+brew install charmbracelet/tap/crush
+```
+
+또는 npm으로 설치하세요.
+
+```bash
+npm install -g @charmland/crush
+```
+
+설치를 확인하세요.
+
+```bash
+crush --version
+```
+
+## 구성
+
+### 모델 검증
+
+Crush 0.98.1 버전은 아래 구성으로 지원 모델 섹션의 모든 모델에서 Capriole AI를 통한 파일 읽기, 파일 쓰기, 최종 답변 검사를 통과합니다.
+
+`~/.config/crush/crushrc`를 만들거나 업데이트하세요.
+
+```bash
+provider add capriole --name "Capriole AI" --type openai-compat \
+  --base-url "https://api.caprioletech.com/v1" \
+  --api-key "$CAPRIOLE_AI_API_KEY" \
+  --discover-models false
+
+model add capriole/openai-latest --name "OpenAI latest" --context-window 1050000 --default-max-tokens 32000 --can-reason true
+model add capriole/openai/gpt-6.1-sol --name "GPT-6.1 Sol" --context-window 1050000 --default-max-tokens 32000 --can-reason true
+model add capriole/claude-latest --name "Claude latest" --context-window 1000000 --default-max-tokens 32000 --can-reason true
+model add capriole/anthropic/claude-opus-5-5 --name "Opus 5.5" --context-window 1000000 --default-max-tokens 32000 --can-reason true
+model add capriole/google/gemini-3.8-flash --name "Gemini 3.8 Flash" --context-window 1048576 --default-max-tokens 32000 --can-reason true
+model add capriole/xai/grok-4.7 --name "Grok 4.7" --context-window 500000 --default-max-tokens 32000 --can-reason true
+model add capriole/zai/glm-5.3-flash --name "GLM 5.3 Flash" --context-window 1000000 --default-max-tokens 32000 --can-reason true
+model add capriole/moonshot/kimi-k3 --name "Kimi K3" --context-window 1048576 --default-max-tokens 32000 --can-reason true
+
+model large capriole/claude-latest
+model small capriole/zai/glm-5.3-flash
+```
+
+각 설정의 역할은 다음과 같습니다.
+
+- `--type openai-compat`은 모든 모델을 Chat Completions로 보냅니다. Capriole AI는 이 모델을 모두 Chat Completions로 제공합니다.
+- `--api-key "$CAPRIOLE_AI_API_KEY"`는 Crush가 파일을 불러올 때 환경 변수에서 키를 읽으며, Crush는 이 키를 Bearer 토큰으로 보냅니다.
+- `--discover-models false`는 목록을 직접 추가한 모델로만 제한합니다.
+- `model large`는 주 코딩 모델입니다. `model small`은 세션 제목 생성 같은 가벼운 작업용 모델입니다.
+
+## Crush 실행
+
+API key를 설정한 다음 프로젝트 디렉터리에서 Crush를 시작하세요.
+
+```bash
+export CAPRIOLE_AI_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
+crush
+```
+
+`Ctrl+L`을 눌러 모델을 전환하세요. 비대화형으로 실행하려면 `crush run`을 사용하세요.
+
+```bash
+crush run -m capriole/xai/grok-4.7 "Explain this repository."
+```
+
+## 지원 모델
+
+모델 참조는 `capriole/<model-id>` 형식을 사용합니다.
+
+| 모델 | 모델 ID |
+| --- | --- |
+| OpenAI latest | `openai-latest` |
+| GPT-6.1 Sol | `openai/gpt-6.1-sol` |
+| Claude latest | `claude-latest` |
+| Opus 5.5 | `anthropic/claude-opus-5-5` |
+| Gemini 3.8 Flash | `google/gemini-3.8-flash` |
+| Grok 4.7 | `xai/grok-4.7` |
+| GLM 5.3 Flash | `zai/glm-5.3-flash` |
+| Kimi K3 | `moonshot/kimi-k3` |
+
+`openai-latest`와 `claude-latest`는 항상 각 계열의 최신 플래그십 모델을 가리킵니다.
+
+## 문제 해결
+
+### Crush가 인증 오류를 반환하는 이유는 무엇인가요?
+
+Crush를 시작하기 전에 `CAPRIOLE_AI_API_KEY`를 내보내세요. Crush는 `crushrc`를 불러올 때 이 변수를 읽습니다.
+
+### Claude 모델이 `Unsupported chat model_key`로 실패하는 이유는 무엇인가요?
+
+Chat Completions에서는 `anthropic/claude-opus-5-5`처럼 `anthropic/` 접두사가 붙은 Claude ID를 사용하세요. `claude-opus-5-5` 같은 접두사 없는 ID는 Anthropic Messages용입니다.
+
+### 구성 변경이 적용되지 않는 이유는 무엇인가요?
+
+프로젝트 디렉터리의 `.crushrc` 또는 `crushrc` 파일은 `~/.config/crush/crushrc`보다 우선합니다. 이런 파일이 있는지 확인한 다음 Crush를 다시 시작하세요.
+
+## 참고
+
+- `crushrc`는 셸 스크립트로 실행됩니다. 키를 이 파일에 붙여 넣지 마세요.
+- 다른 Capriole AI 모델을 추가하려면 `model add` 줄을 하나 더 추가하세요. `GET https://api.caprioletech.com/v1/models`는 모든 모델 ID를 나열합니다.
+- 공식 참고: [Crush](https://github.com/charmbracelet/crush), [Crush configuration](https://github.com/charmbracelet/crush#configuration).

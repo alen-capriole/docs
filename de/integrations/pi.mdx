@@ -1,0 +1,172 @@
+---
+title: "Pi"
+description: "Konfigurieren Sie Pi für die Nutzung von Capriole AI."
+---
+
+## Was ist Pi
+
+Pi ist ein minimalistischer Open-Source-Coding-Agent für das Terminal. Er liest benutzerdefinierte Endpunkte aus `models.json`, und jedes Modell kann ein anderes API-Protokoll verwenden. Dieses Setup fügt Capriole AI als einen Anbieter in dieser Datei hinzu.
+
+## Voraussetzungen
+
+Bevor Sie beginnen, stellen Sie sicher, dass Sie Folgendes haben:
+
+- Ein Capriole AI-Konto ([Hier registrieren](https://capriole.ai))
+- Einen Capriole AI API-Schlüssel ([Schlüssel abrufen](https://capriole.ai?view=api))
+
+## Installation
+
+Installieren Sie Pi mit dem offiziellen Installationsskript:
+
+```bash
+curl -fsSL https://pi.dev/install.sh | sh
+```
+
+Oder installieren Sie es mit npm (Node.js 22.19 oder neuer):
+
+```bash
+npm install -g --ignore-scripts @earendil-works/pi-coding-agent
+```
+
+## Konfiguration
+
+### Modellvalidierung
+
+Pi 1.3.0 besteht mit der folgenden Konfiguration für jedes Modell im Abschnitt „Unterstützte Modelle“ eine Prüfung aus Dateilesen, Dateischreiben und abschließender Antwort über Capriole AI.
+
+Erstellen oder aktualisieren Sie `~/.pi/agent/models.json`:
+
+```json
+{
+  "providers": {
+    "capriole": {
+      "name": "Capriole AI",
+      "baseUrl": "https://api.caprioletech.com/v1",
+      "api": "openai-completions",
+      "apiKey": "$CAPRIOLE_AI_API_KEY",
+      "authHeader": true,
+      "models": [
+        {
+          "id": "openai-latest",
+          "contextWindow": 1050000,
+          "maxTokens": 128000,
+          "reasoning": true,
+          "api": "openai-responses"
+        },
+        {
+          "id": "openai/gpt-6.1-sol",
+          "contextWindow": 1050000,
+          "maxTokens": 128000,
+          "reasoning": true,
+          "api": "openai-responses"
+        },
+        {
+          "id": "claude-latest",
+          "contextWindow": 1000000,
+          "maxTokens": 128000,
+          "reasoning": true,
+          "api": "anthropic-messages",
+          "baseUrl": "https://api.caprioletech.com",
+          "compat": { "forceAdaptiveThinking": true }
+        },
+        {
+          "id": "claude-opus-5-5",
+          "contextWindow": 1000000,
+          "maxTokens": 128000,
+          "reasoning": true,
+          "api": "anthropic-messages",
+          "baseUrl": "https://api.caprioletech.com",
+          "compat": { "forceAdaptiveThinking": true }
+        },
+        {
+          "id": "zai/glm-5.3-flash",
+          "contextWindow": 1000000,
+          "maxTokens": 128000,
+          "reasoning": true
+        },
+        {
+          "id": "moonshot/kimi-k3",
+          "contextWindow": 1048576,
+          "maxTokens": 131072,
+          "reasoning": true
+        },
+        {
+          "id": "xai/grok-4.7",
+          "contextWindow": 500000,
+          "maxTokens": 128000,
+          "reasoning": true
+        }
+      ]
+    }
+  }
+}
+```
+
+Legen Sie anschließend Capriole AI in `~/.pi/agent/settings.json` als Standard fest:
+
+```json
+{
+  "defaultProvider": "capriole",
+  "defaultModel": "claude-latest"
+}
+```
+
+Was die einzelnen Einstellungen bewirken:
+
+- Das `api` des Anbieters ist `openai-completions`, sodass Grok, GLM und Kimi Chat Completions verwenden. GPT-Modelle überschreiben es mit `openai-responses`, Claude-Modelle mit `anthropic-messages` und einer `baseUrl` ohne `/v1`.
+- `$CAPRIOLE_AI_API_KEY` liest Ihren Schlüssel aus der Umgebung.
+- `authHeader: true` sendet den Schlüssel bei jedem Protokoll als Bearer-Token. Ohne diese Einstellung senden Claude-Modelle den Schlüssel in einem `x-api-key`-Header, den Capriole AI nicht akzeptiert.
+- `forceAdaptiveThinking` sorgt dafür, dass Claude-Modelle adaptives Thinking verwenden. Opus 5.5 lehnt ein festes Thinking-Budget ab.
+- `contextWindow` und `maxTokens` teilen Pi die Limits jedes Modells mit.
+
+## Pi ausführen
+
+Setzen Sie Ihren API-Schlüssel und starten Sie Pi aus Ihrem Projektverzeichnis:
+
+```bash
+export CAPRIOLE_AI_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
+pi
+```
+
+Wechseln Sie das Modell mit `/model`. Für einen nicht interaktiven Lauf verwenden Sie den Print-Modus:
+
+```bash
+pi -p --model xai/grok-4.7 "Explain this repository."
+```
+
+## Unterstützte Modelle
+
+| Modell | Modell-ID | Protokoll |
+| --- | --- | --- |
+| OpenAI latest | `openai-latest` | Responses |
+| GPT-6.1 Sol | `openai/gpt-6.1-sol` | Responses |
+| Claude latest | `claude-latest` | Anthropic Messages |
+| Opus 5.5 | `claude-opus-5-5` | Anthropic Messages |
+| Grok 4.7 | `xai/grok-4.7` | Chat Completions |
+| GLM 5.3 Flash | `zai/glm-5.3-flash` | Chat Completions |
+| Kimi K3 | `moonshot/kimi-k3` | Chat Completions |
+
+`openai-latest` und `claude-latest` zeigen immer auf unser neuestes Flaggschiff-Modell der jeweiligen Familie.
+
+## Fehlerbehebung
+
+### Warum erscheinen Capriole AI-Modelle nicht in `/model`?
+
+Pi blendet ein benutzerdefiniertes Modell aus, bis es dessen Schlüssel auflösen kann. Exportieren Sie `CAPRIOLE_AI_API_KEY` in derselben Shell, bevor Sie Pi starten.
+
+### Warum gibt Pi einen Authentifizierungsfehler zurück?
+
+Bestätigen Sie, dass der Anbieter `"authHeader": true` enthält.
+
+### Warum schlägt Opus 5.5 mit `requires adaptive thinking` fehl?
+
+Bestätigen Sie, dass die Claude-Modelleinträge `"compat": { "forceAdaptiveThinking": true }` enthalten.
+
+### Warum schlagen Claude-Anfragen mit `Unsupported Claude Messages model` fehl?
+
+Claude-Modelle auf `anthropic-messages` benötigen die Claude-IDs ohne Präfix, etwa `claude-opus-5-5`. Die IDs mit dem Präfix `anthropic/` sind für Chat Completions gedacht.
+
+## Hinweise
+
+- Um ein weiteres Capriole AI-Modell hinzuzufügen, kopieren Sie den Eintrag eines Modells derselben Familie und ändern Sie die ID. `GET https://api.caprioletech.com/v1/models` listet alle Modell-IDs auf.
+- Offizielle Referenzen: [Pi](https://pi.dev), [Pi-Dokumentation](https://pi.dev/docs), [Modell auswählen](https://github.com/earendil-works/pi/blob/main/packages/coding-agent/docs/models.md) und [Pi-Konfiguration](https://github.com/earendil-works/pi/blob/main/packages/coding-agent/docs/configuration.md).

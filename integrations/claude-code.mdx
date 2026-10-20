@@ -5,7 +5,7 @@ description: "Configure Claude Code to use Capriole AI."
 
 ## What is Claude Code
 
-Claude Code is Anthropic's agentic coding tool for reading codebases, editing files, running commands, and integrating with development tools. This CLI setup uses Capriole AI by configuring Claude Code's API endpoint, auth token, and model environment variables.
+Claude Code is Anthropic's agentic coding tool for reading codebases, editing files, running commands, and integrating with development tools. This setup points Claude Code at Capriole AI through its gateway settings: the API endpoint, the auth token, and the model for each alias.
 
 ## Prerequisites
 
@@ -16,105 +16,124 @@ Before you begin, make sure you have:
 
 ## Installation
 
+Install Claude Code with the official native installer:
+
+```bash
+curl -fsSL https://claude.ai/install.sh | bash
+```
+
+Or install it with Homebrew:
+
+```bash
+brew install --cask claude-code
+```
+
+Or install it with npm (Node.js 22 or later):
+
 ```bash
 npm install -g @anthropic-ai/claude-code
 ```
 
+Verify the install:
+
+```bash
+claude --version
+```
+
 ## Configuration
 
-Create or update `~/.claude/settings.json` for persistent setup:
+### Model validation
+
+Claude Code 2.1.304 passes a file-read, file-write, and final-answer check through Capriole AI with every model in [Supported models](#supported-models), using the configuration below.
+
+Create or update `~/.claude/settings.json`:
 
 ```json
 {
-  "model": "claude-latest",
-  "effortLevel": "high",
+  "model": "claude-fable-5-1",
   "env": {
     "ANTHROPIC_BASE_URL": "https://api.caprioletech.com",
     "ANTHROPIC_AUTH_TOKEN": "YOUR_CAPRIOLE_AI_API_KEY",
-    "ANTHROPIC_MODEL": "claude-latest",
-    "ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-latest",
-    "ANTHROPIC_DEFAULT_SONNET_MODEL": "claude-latest",
-    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "claude-latest",
-    "ANTHROPIC_SMALL_FAST_MODEL": "claude-latest",
-    "CLAUDE_CODE_SUBAGENT_MODEL": "claude-latest"
+    "ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-opus-5-5",
+    "ANTHROPIC_DEFAULT_SONNET_MODEL": "claude-fable-5-1",
+    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "claude-sonnet-4-6"
   }
 }
 ```
 
-For a one-time shell setup, export the same values before launching Claude Code:
+What each setting does:
+
+- `model` is the default model for new sessions. A model you pick with `/model` is saved and used next time.
+- `ANTHROPIC_BASE_URL` sends requests to Capriole AI. Do not add `/v1`; Claude Code adds `/v1/messages` itself.
+- `ANTHROPIC_AUTH_TOKEN` sends your key as a Bearer token, which Capriole AI requires.
+- The three `ANTHROPIC_DEFAULT_*_MODEL` values point the `opus`, `sonnet`, and `haiku` aliases at models that Capriole AI serves. `haiku` is the model Claude Code uses for quick background work.
+
+For a one-time shell setup, export the endpoint and token, then pass the model:
 
 ```bash
 export ANTHROPIC_BASE_URL="https://api.caprioletech.com"
 export ANTHROPIC_AUTH_TOKEN="YOUR_CAPRIOLE_AI_API_KEY"
-
-export ANTHROPIC_MODEL="claude-latest"
-export ANTHROPIC_DEFAULT_OPUS_MODEL="claude-latest"
-export ANTHROPIC_DEFAULT_SONNET_MODEL="claude-latest"
-export ANTHROPIC_DEFAULT_HAIKU_MODEL="claude-latest"
-export ANTHROPIC_SMALL_FAST_MODEL="claude-latest"
-export CLAUDE_CODE_SUBAGENT_MODEL="claude-latest"
+claude --model claude-fable-5-1
 ```
 
 ## Run Claude Code
 
-After saving `~/.claude/settings.json` or exporting the variables, start Claude Code from your project directory:
+Start Claude Code from your project directory:
 
 ```bash
 claude
 ```
 
-For a one-time non-interactive run without a saved settings file, pass the model explicitly:
+Switch models in a session with `/model`, for example `/model opus` for Opus 5.5. For a non-interactive run, use print mode:
 
 ```bash
-claude --model claude-latest -p "Explain this repository."
+claude -p "Explain this repository."
 ```
 
 ## Supported models
 
-Claude Code supports Claude latest, Fable 5.1, Fable 5, Opus 5.5, Opus 5, Opus 4.8, Opus 4.7, Opus 4.6, and Sonnet 4.6 through Capriole AI. Use `claude-latest` for new setups; it resolves to Fable 5.1.
+Claude Code uses the Anthropic Messages protocol, so it supports Capriole AI's Claude models:
 
-- `claude-latest`
-- `claude-fable-5-1`
+- `claude-fable-5-1` (Fable 5.1, the recommended default)
+- `claude-opus-5-5` (Opus 5.5)
 - `claude-fable-5`
-- `claude-opus-5-5`
 - `claude-opus-5`
 - `claude-opus-4-8`
 - `claude-opus-4-7`
 - `claude-opus-4-6`
 - `claude-sonnet-4-6`
+- `claude-latest`, which always points to our latest Claude flagship (currently Fable 5.1)
+
+Claude Code does not recognize `claude-latest` as a model name, so it assumes a 200K context window for it. Use a concrete ID such as `claude-fable-5-1` to get the model's full context window.
 
 ## Troubleshooting
 
 ### Why does Claude Code return an authentication error?
 
-Confirm that `ANTHROPIC_AUTH_TOKEN` is exported in the same shell before launching `claude`. Use `ANTHROPIC_AUTH_TOKEN`, not `ANTHROPIC_API_KEY`, for this setup.
+Use `ANTHROPIC_AUTH_TOKEN`, not `ANTHROPIC_API_KEY`. `ANTHROPIC_API_KEY` sends the key in an `x-api-key` header, and Capriole AI accepts only a Bearer token.
 
 ### Why do requests fail with endpoint errors?
 
-Confirm that `ANTHROPIC_BASE_URL` is `https://api.caprioletech.com` without `/v1`; Claude Code sends requests to `/v1/messages` and `/v1/messages/count_tokens`.
+Confirm that `ANTHROPIC_BASE_URL` is `https://api.caprioletech.com` without `/v1`.
 
-### Why doesn't Claude Code use Claude latest?
+### Why does Claude Code switch back to another model on every launch?
 
-Confirm that `model`, `ANTHROPIC_MODEL`, `ANTHROPIC_SMALL_FAST_MODEL`, and the default model environment variables are set before launch, then check `/model` or `/status` for an active session or settings override.
+Remove `ANTHROPIC_MODEL` from your settings and shell. When it is set, Claude Code returns to that model on the next launch instead of the model you saved with `/model`.
 
-### Why doesn't Claude Code use the configured effort level?
+### Why does `/model opus` or `/model sonnet` fail?
 
-Set `"effortLevel": "high"` in `~/.claude/settings.json`, then restart Claude Code. Claude Code settings accept `low`, `medium`, `high`, and `xhigh`; `max` is not accepted in `effortLevel`.
+Keep the three `ANTHROPIC_DEFAULT_*_MODEL` values. Without them, Claude Code sends Anthropic's own alias targets. For example, `sonnet` requests `claude-sonnet-5-5`, which Capriole AI does not serve, and the request fails with `Unsupported Claude Messages model`.
 
-For the absolute maximum effort in a session, use `/effort max`, launch with `claude --effort max`, or set `CLAUDE_CODE_EFFORT_LEVEL=max` before launching `claude`.
+### Why doesn't Claude Code use my effort level?
 
-### Why can't Claude Code select a concrete Opus model?
+Claude Code saves the effort level separately for each model. Choose it with `/effort` while the model is active. A top-level `effortLevel` in your user settings does not apply to Opus 5.5.
 
-Update Claude Code with `claude update`, then run `claude --version`.
+### Why does token counting fail?
 
-### Why does token counting or startup model discovery fail?
-
-Keep the model environment variables in place and confirm that the model ID is `claude-latest` or a supported concrete Claude model ID. Capriole AI proxies `/v1/messages/count_tokens` to the selected upstream, so token-count preflight depends on that upstream supporting Anthropic token counting.
+Capriole AI forwards `/v1/messages/count_tokens` to the selected upstream. When that upstream does not support token counting, Claude Code estimates the count instead, and the session keeps working.
 
 ## Notes
 
-- `~/.claude/settings.json` applies to your user account across projects. Use `YOUR_CAPRIOLE_AI_API_KEY` as a placeholder and replace it with your actual Capriole AI API key.
-- `ANTHROPIC_BASE_URL` changes where Claude Code sends requests. The model environment variables control which model ID is sent.
-- `ANTHROPIC_SMALL_FAST_MODEL` should match `claude-latest` so Claude Code helper requests use the same Capriole AI latest alias as the main conversation.
-- This setup uses `high` as the documented default effort level. `xhigh` is also a persistent `effortLevel` option, while `max` is a session-level override and can spend more thinking tokens.
-- Official references: [Claude Code setup](https://code.claude.com/docs/en/setup), [environment variables](https://code.claude.com/docs/en/env-vars), [model configuration](https://code.claude.com/docs/en/model-config), and [Claude effort](https://platform.claude.com/docs/en/build-with-claude/effort).
+- `~/.claude/settings.json` applies to your user account in every project. Replace `YOUR_CAPRIOLE_AI_API_KEY` with your Capriole AI API key.
+- Gemini, Grok, GLM, and Kimi models do not run in Claude Code, because it speaks only the Anthropic Messages protocol. Use OpenCode, Kilo Code, or another multi-protocol agent for those models.
+- Official references: [Claude Code setup](https://code.claude.com/docs/en/setup), [model configuration](https://code.claude.com/docs/en/model-config), and [LLM gateway configuration](https://code.claude.com/docs/en/llm-gateway-connect).

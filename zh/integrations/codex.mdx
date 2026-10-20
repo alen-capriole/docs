@@ -5,7 +5,7 @@ description: "配置 Codex 使用 Capriole AI。"
 
 ## Codex 是什么
 
-Codex 是 OpenAI 面向软件开发的编程代理。你可以配置自定义模型提供商，让 Codex 通过 Capriole AI 的 Responses 兼容 API 使用 Capriole AI。
+Codex 是 OpenAI 面向软件开发的编程代理。你可以配置自定义模型提供商，让 Codex 把请求发送到 Capriole AI 的 Responses 兼容 API。
 
 ## 前置条件
 
@@ -18,8 +18,22 @@ Codex 是 OpenAI 面向软件开发的编程代理。你可以配置自定义模
 
 ### Codex CLI
 
+使用官方安装程序安装 Codex CLI。
+
+```bash
+curl -fsSL https://chatgpt.com/codex/install.sh | sh
+```
+
+也可以使用 npm 安装。
+
 ```bash
 npm install -g @openai/codex
+```
+
+验证安装。
+
+```bash
+codex --version
 ```
 
 ### Codex app
@@ -27,6 +41,10 @@ npm install -g @openai/codex
 从 [OpenAI Codex](https://developers.openai.com/codex) 下载应用。
 
 ## 配置
+
+### 模型验证
+
+使用下方配置，Codex CLI 0.160.1 经 Capriole AI 通过了文件读取、文件写入和最终答案检查。
 
 创建或更新 `~/.codex/config.toml`。
 
@@ -43,18 +61,32 @@ env_key = "CAPRIOLE_AI_API_KEY"
 env_key_instructions = "Export CAPRIOLE_AI_API_KEY before starting Codex"
 ```
 
+各项设置的作用如下。
+
+- `model` 是默认模型。可以在会话中通过 `/model` 更改，也可以在命令行中通过 `--model` 更改。
+- `model_provider` 选择在它下方定义的 Capriole AI 提供商。
+- `base_url` 包含 `/v1`，因为 Codex 会自行添加 `/responses`。
+- `wire_api = "responses"` 使用 Responses API，这是 Codex 自定义提供商唯一支持的协议。
+- `env_key` 从环境变量读取你的 API Key，并以 Bearer Token 形式发送。
+
 ## 运行 Codex
 
-设置 API Key，然后启动 Codex。
+设置 API Key，然后在项目目录中启动 Codex。
 
 ```bash
 export CAPRIOLE_AI_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
 codex
 ```
 
+如需非交互式运行，请使用 `codex exec`。
+
+```bash
+codex exec "Explain this repository."
+```
+
 ## 支持的模型
 
-Codex 通过 Responses API 使用 Capriole AI 提供的 OpenAI 模型。使用下面的原生模型 ID，即可沿用 Codex 内置的模型选择和推理设置，无需自定义 `model_catalog_json`。只能调用 Capriole AI 已支持的模型。
+Codex 通过 Responses API 使用 Capriole AI 提供的 OpenAI 模型。使用下面的原生模型 ID，即可沿用 Codex 内置的模型选择器和推理设置，无需自定义 `model_catalog_json`。只能调用 Capriole AI 已支持的模型。
 
 - `gpt-6-astra`
 - `gpt-6.1-sol`
@@ -66,7 +98,11 @@ Codex 通过 Responses API 使用 Capriole AI 提供的 OpenAI 模型。使用�
 
 使用 `gpt-6.1-sol` 需要 Codex 0.159.2 或更高版本。更早的版本没有该模型的元数据，会退回通用设置。
 
-API 也接受带 `openai/` 前缀的模型 ID 和 `openai-latest`。`openai-latest` 会跟随 Capriole AI 推荐的 OpenAI 旗舰模型。
+API 也接受带 `openai/` 前缀的模型 ID 和 `openai-latest`。`openai-latest` 别名会跟随 Capriole AI 推荐的 OpenAI 旗舰模型。
+
+由于 Capriole AI 在 Responses API 上提供 Grok，Codex 也可以通过同一个提供商运行 `xai/grok-4.7`。
+
+Codex 只内置了 OpenAI 原生模型 ID 的元数据。对于 `openai-latest` 和 `xai/grok-4.7`，它会输出 `Model metadata ... not found` 并使用后备设置。会话仍可正常进行，但使用 `gpt-6-astra` 等原生 ID 效果最好。
 
 ## 故障排除
 
@@ -76,7 +112,7 @@ API 也接受带 `openai/` 前缀的模型 ID 和 `openai-latest`。`openai-late
 
 ### 为什么 Codex 找不到模型
 
-确认已经设置 `model_provider = "capriole_ai"`，并确认 `model` 是 `openai-latest` 或 Capriole AI 支持的 OpenAI 模型 ID。
+确认已经设置 `model_provider = "capriole_ai"`，并确认 `model` 是“支持的模型”一节中列出的 ID 之一。
 
 ### 为什么请求出现端点或协议错误
 
@@ -88,7 +124,7 @@ API 也接受带 `openai/` 前缀的模型 ID 和 `openai-latest`。`openai-late
 
 ### 为什么配置修改没有生效
 
-确认 `~/.codex/config.toml` 是当前用户配置文件。使用项目级 `.codex/config.toml` 前先信任该项目，然后重新启动 Codex。
+确认 `~/.codex/config.toml` 是当前生效的用户配置文件。如需依赖项目级 `.codex/config.toml`，请先信任该项目，然后重新启动 Codex。
 
 ## 说明
 

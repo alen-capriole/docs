@@ -1,12 +1,24 @@
 ---
 title: "その他のエージェント"
-description: "追加のコーディング エージェント統合の現在の状態です。"
+description: "専用ページのないコーディング エージェントで Capriole AI を使います。"
 ---
 
-## 現在の状態
+## 他のエージェント
 
-現時点で、未対応のコーディング エージェント統合はありません。
+ほとんどのコーディング エージェントは、カスタム エンドポイントを設定できれば Capriole AI を使えます。エージェントが対応しているプロトコルに合わせて、以下の値を使ってください。
+
+| プロトコル | ベース URL | モデル ID |
+| --- | --- | --- |
+| Chat Completions | `https://api.caprioletech.com/v1` | `GET /v1/models` が返すすべての ID（例: `claude-latest`、`anthropic/claude-opus-5-5`、`moonshot/kimi-k3`） |
+| Responses | `https://api.caprioletech.com/v1` | `openai-latest` などの GPT モデルと `xai/grok-4.7` |
+| Anthropic Messages | `https://api.caprioletech.com` | `claude-latest` や `claude-opus-5-5` などのプレフィックスなしの Claude ID |
+
+Chat Completions はすべてのモデルを提供しているため、最もシンプルな選択肢です。
+
+## 認証
+
+Capriole AI は、`Authorization` ヘッダーの Bearer トークンとしてのみキーを受け付けます。多くの Anthropic クライアントのように、エージェントがキーを `x-api-key` ヘッダーで送る場合は、カスタムの `Authorization: Bearer YOUR_CAPRIOLE_AI_API_KEY` ヘッダーを設定するか、代わりにエージェントの OpenAI 互換オプションを使ってください。
 
 ## エージェントをリクエストする
 
-別のコーディング エージェントで Capriole AI を使いたい場合は、エージェント名と公式の設定ドキュメントを添えてご連絡ください。公開 Capriole AI API で動作できるかを確認します。
+別のコーディング エージェントのセットアップ ページが必要な場合は、エージェント名と公式の設定ドキュメントを添えてご連絡ください。

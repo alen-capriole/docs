@@ -1,12 +1,24 @@
 ---
 title: "Más agentes"
-description: "Estado actual de integraciones adicionales de agentes de programación."
+description: "Usa Capriole AI con un agente de programación que no tiene página aquí."
 ---
 
-## Estado actual
+## Otros agentes
 
-No hay integraciones de agentes de programación pendientes en este momento.
+La mayoría de los agentes de programación pueden usar Capriole AI si te permiten definir un endpoint personalizado. Usa los valores siguientes según el protocolo que admita el agente.
+
+| Protocolo | URL base | IDs de modelo |
+| --- | --- | --- |
+| Chat Completions | `https://api.caprioletech.com/v1` | Todos los IDs de `GET /v1/models`, por ejemplo `claude-latest`, `anthropic/claude-opus-5-5` o `moonshot/kimi-k3` |
+| Responses | `https://api.caprioletech.com/v1` | Modelos GPT como `openai-latest`, y `xai/grok-4.7` |
+| Anthropic Messages | `https://api.caprioletech.com` | IDs de Claude sin prefijo, como `claude-latest` y `claude-opus-5-5` |
+
+Chat Completions es la opción más sencilla, porque sirve todos los modelos.
+
+## Autenticación
+
+Capriole AI solo acepta la clave como token Bearer en la cabecera `Authorization`. Si un agente envía la clave en una cabecera `x-api-key`, como hacen muchos clientes de Anthropic, define una cabecera personalizada `Authorization: Bearer YOUR_CAPRIOLE_AI_API_KEY` o usa en su lugar la opción compatible con OpenAI del agente.
 
 ## Solicitar un agente
 
-Si quieres usar Capriole AI con otro agente de programación, contáctanos con el nombre del agente y su documentación oficial de configuración. Revisaremos si puede funcionar con la API pública de Capriole AI.
+Si quieres una página de configuración para otro agente de programación, contáctanos con el nombre del agente y su documentación oficial de configuración.

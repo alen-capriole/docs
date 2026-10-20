@@ -18,8 +18,22 @@ Before you begin, make sure you have:
 
 ### Codex CLI
 
+Install Codex CLI with the official installer:
+
+```bash
+curl -fsSL https://chatgpt.com/codex/install.sh | sh
+```
+
+Or install it with npm:
+
 ```bash
 npm install -g @openai/codex
+```
+
+Verify the install:
+
+```bash
+codex --version
 ```
 
 ### Codex app
@@ -27,6 +41,10 @@ npm install -g @openai/codex
 Download the app from [OpenAI Codex](https://developers.openai.com/codex).
 
 ## Configuration
+
+### Model validation
+
+Codex CLI 0.160.1 passes a file-read, file-write, and final-answer check through Capriole AI with the configuration below.
 
 Create or update `~/.codex/config.toml`:
 
@@ -43,13 +61,27 @@ env_key = "CAPRIOLE_AI_API_KEY"
 env_key_instructions = "Export CAPRIOLE_AI_API_KEY before starting Codex"
 ```
 
+What each setting does:
+
+- `model` is the default model. Change it with `/model` in a session or `--model` on the command line.
+- `model_provider` selects the Capriole AI provider defined below it.
+- `base_url` includes `/v1`, because Codex adds `/responses` itself.
+- `wire_api = "responses"` uses the Responses API, the only protocol Codex supports for custom providers.
+- `env_key` reads your key from the environment and sends it as a Bearer token.
+
 ## Run Codex
 
-Set your API key, then start Codex:
+Set your API key, then start Codex from your project directory:
 
 ```bash
 export CAPRIOLE_AI_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
 codex
+```
+
+For a non-interactive run, use `codex exec`:
+
+```bash
+codex exec "Explain this repository."
 ```
 
 ## Supported models
@@ -68,6 +100,10 @@ Use Codex 0.159.2 or later for `gpt-6.1-sol`. Older versions do not include its 
 
 The API also accepts the `openai/`-prefixed forms and `openai-latest`. The `openai-latest` alias follows Capriole AI's recommended OpenAI flagship model.
 
+Codex can also run `xai/grok-4.7` through the same provider, because Capriole AI serves Grok on the Responses API.
+
+Codex has built-in metadata only for OpenAI's native model IDs. For `openai-latest` and `xai/grok-4.7`, it prints `Model metadata ... not found` and uses fallback settings. The session still works, but use a native ID such as `gpt-6-astra` for the best results.
+
 ## Troubleshooting
 
 ### Why does Codex return an authentication error?
@@ -76,7 +112,7 @@ Confirm that `CAPRIOLE_AI_API_KEY` is exported in the same shell before running 
 
 ### Why can't Codex find the model?
 
-Confirm that `model_provider = "capriole_ai"` is set and that `model` is `openai-latest` or a supported Capriole AI OpenAI model ID.
+Confirm that `model_provider = "capriole_ai"` is set and that `model` is one of the IDs in [Supported models](#supported-models).
 
 ### Why do requests fail with endpoint or protocol errors?
 

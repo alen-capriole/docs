@@ -1,12 +1,24 @@
 ---
 title: "Weitere Agents"
-description: "Aktueller Status zusätzlicher Coding-Agent-Integrationen."
+description: "Nutzen Sie Capriole AI mit einem Coding-Agent, für den es hier keine eigene Seite gibt."
 ---
 
-## Aktueller Status
+## Andere Agents
 
-Derzeit stehen keine weiteren Coding-Agent-Integrationen aus.
+Die meisten Coding-Agents können Capriole AI nutzen, wenn sie einen benutzerdefinierten Endpunkt zulassen. Verwenden Sie die folgenden Werte für das Protokoll, das der Agent unterstützt.
+
+| Protokoll | Basis-URL | Modell-IDs |
+| --- | --- | --- |
+| Chat Completions | `https://api.caprioletech.com/v1` | Jede ID aus `GET /v1/models`, zum Beispiel `claude-latest`, `anthropic/claude-opus-5-5` oder `moonshot/kimi-k3` |
+| Responses | `https://api.caprioletech.com/v1` | GPT-Modelle wie `openai-latest` sowie `xai/grok-4.7` |
+| Anthropic Messages | `https://api.caprioletech.com` | Claude-IDs ohne Präfix wie `claude-latest` und `claude-opus-5-5` |
+
+Chat Completions ist die einfachste Wahl, da darüber jedes Modell bereitgestellt wird.
+
+## Authentifizierung
+
+Capriole AI akzeptiert den Schlüssel nur als Bearer-Token im `Authorization`-Header. Wenn ein Agent den Schlüssel in einem `x-api-key`-Header sendet, wie es viele Anthropic-Clients tun, setzen Sie einen benutzerdefinierten Header `Authorization: Bearer YOUR_CAPRIOLE_AI_API_KEY` oder verwenden Sie stattdessen die OpenAI-kompatible Option des Agents.
 
 ## Einen Agent anfragen
 
-Wenn Sie Capriole AI mit einem anderen Coding-Agent nutzen möchten, kontaktieren Sie uns mit dem Agent-Namen und seiner offiziellen Konfigurationsdokumentation. Wir prüfen, ob er mit der öffentlichen Capriole AI API funktionieren kann.
+Wenn Sie eine Einrichtungsseite für einen anderen Coding-Agent wünschen, kontaktieren Sie uns mit dem Agent-Namen und seiner offiziellen Konfigurationsdokumentation.

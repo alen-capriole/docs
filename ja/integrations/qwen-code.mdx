@@ -1,0 +1,199 @@
+---
+title: "Qwen Code"
+description: "Qwen Code が Capriole AI を使うように設定します。"
+---
+
+## Qwen Code とは
+
+Qwen Code は、ターミナル向けのオープンソースのコーディング エージェントです。`modelProviders` 設定には、使えるモデルとそれぞれの API プロトコルを列挙します。このセットアップでは、その一覧に Capriole AI のモデルを追加します。
+
+## 前提条件
+
+始める前に、次を用意してください。
+
+- Capriole AI アカウント（[こちらから登録](https://capriole.ai)）
+- Capriole AI API キー（[キーを取得](https://capriole.ai?view=api)）
+
+## インストール
+
+npm で Qwen Code をインストールします（Node.js 22 以降）。
+
+```bash
+npm install -g @qwen-code/qwen-code@latest
+```
+
+または、Homebrew でインストールします。
+
+```bash
+brew install qwen-code
+```
+
+インストールを確認します。
+
+```bash
+qwen --version
+```
+
+## 設定
+
+### モデルの検証
+
+Qwen Code 0.25.3 は、下記の設定を使い、「対応モデル」のすべてのモデルで、Capriole AI 経由のファイル読み取り、ファイル書き込み、最終回答の確認に合格しています。
+
+キーを `~/.qwen/.env` に記述します。
+
+```bash
+CAPRIOLE_AI_API_KEY=YOUR_CAPRIOLE_AI_API_KEY
+```
+
+`~/.qwen/settings.json` を作成または更新します。
+
+```json
+{
+  "security": {
+    "auth": {
+      "selectedType": "openai"
+    }
+  },
+  "model": {
+    "name": "openai-latest"
+  },
+  "modelProviders": {
+    "openai": [
+      {
+        "id": "openai-latest",
+        "name": "openai-latest",
+        "baseUrl": "https://api.caprioletech.com/v1",
+        "envKey": "CAPRIOLE_AI_API_KEY",
+        "generationConfig": {
+          "contextWindowSize": 1050000
+        },
+        "wireApi": "responses"
+      },
+      {
+        "id": "openai/gpt-6.1-sol",
+        "name": "openai/gpt-6.1-sol",
+        "baseUrl": "https://api.caprioletech.com/v1",
+        "envKey": "CAPRIOLE_AI_API_KEY",
+        "generationConfig": {
+          "contextWindowSize": 1050000
+        },
+        "wireApi": "responses"
+      },
+      {
+        "id": "zai/glm-5.3-flash",
+        "name": "zai/glm-5.3-flash",
+        "baseUrl": "https://api.caprioletech.com/v1",
+        "envKey": "CAPRIOLE_AI_API_KEY",
+        "generationConfig": {
+          "contextWindowSize": 1000000
+        }
+      },
+      {
+        "id": "moonshot/kimi-k3",
+        "name": "moonshot/kimi-k3",
+        "baseUrl": "https://api.caprioletech.com/v1",
+        "envKey": "CAPRIOLE_AI_API_KEY",
+        "generationConfig": {
+          "contextWindowSize": 1048576
+        }
+      },
+      {
+        "id": "xai/grok-4.7",
+        "name": "xai/grok-4.7",
+        "baseUrl": "https://api.caprioletech.com/v1",
+        "envKey": "CAPRIOLE_AI_API_KEY",
+        "generationConfig": {
+          "contextWindowSize": 500000
+        }
+      },
+      {
+        "id": "google/gemini-3.8-flash",
+        "name": "google/gemini-3.8-flash",
+        "baseUrl": "https://api.caprioletech.com/v1",
+        "envKey": "CAPRIOLE_AI_API_KEY",
+        "generationConfig": {
+          "contextWindowSize": 1048576
+        }
+      }
+    ],
+    "anthropic": [
+      {
+        "id": "claude-latest",
+        "name": "claude-latest",
+        "baseUrl": "https://api.caprioletech.com",
+        "envKey": "CAPRIOLE_AI_API_KEY",
+        "generationConfig": {
+          "contextWindowSize": 1000000
+        }
+      },
+      {
+        "id": "claude-opus-5-5",
+        "name": "claude-opus-5-5",
+        "baseUrl": "https://api.caprioletech.com",
+        "envKey": "CAPRIOLE_AI_API_KEY",
+        "generationConfig": {
+          "contextWindowSize": 1000000
+        }
+      }
+    ]
+  }
+}
+```
+
+各設定の役割は次のとおりです。
+
+- `openai` の下のモデルは Chat Completions を使います。GPT モデルは `wireApi: "responses"` を追加して Responses API を使います。
+- `anthropic` の下のモデルは Anthropic Messages を使います。その `baseUrl` には `/v1` を付けません。
+- `envKey` は、キーを格納する環境変数の名前です。Qwen Code はキーを Bearer トークンとして Capriole AI に送ります。
+- `contextWindowSize` は各モデルのコンテキスト ウィンドウを Qwen Code に伝えます。
+- `security.auth.selectedType` と `model.name` はデフォルト モデルを設定します。`/model` でモデルを切り替えると、両方が更新されます。
+
+## Qwen Code を実行する
+
+プロジェクト ディレクトリから Qwen Code を起動します。
+
+```bash
+qwen
+```
+
+`/model` でモデルを切り替えます。単発で実行するには、プロンプト、モデル、そのモデルのグループの認証タイプを渡します。
+
+```bash
+qwen "Explain this repository." -m claude-latest --auth-type anthropic
+```
+
+## 対応モデル
+
+| モデル | モデル ID | グループ | プロトコル |
+| --- | --- | --- | --- |
+| OpenAI latest | `openai-latest` | `openai` | Responses |
+| GPT-6.1 Sol | `openai/gpt-6.1-sol` | `openai` | Responses |
+| Claude latest | `claude-latest` | `anthropic` | Anthropic Messages |
+| Opus 5.5 | `claude-opus-5-5` | `anthropic` | Anthropic Messages |
+| Gemini 3.8 Flash | `google/gemini-3.8-flash` | `openai` | Chat Completions |
+| Grok 4.7 | `xai/grok-4.7` | `openai` | Chat Completions |
+| GLM 5.3 Flash | `zai/glm-5.3-flash` | `openai` | Chat Completions |
+| Kimi K3 | `moonshot/kimi-k3` | `openai` | Chat Completions |
+
+`openai-latest` と `claude-latest` は、常に各ファミリーの最新の旗艦モデルを指します。
+
+## トラブルシューティング
+
+### Qwen Code が認証エラーを返すのはなぜですか？
+
+`~/.qwen/.env` で `CAPRIOLE_AI_API_KEY` が設定されていることを確認するか、同じシェルで変数をエクスポートしてください。
+
+### モデルがプロトコル エラーで失敗するのはなぜですか？
+
+モデルのグループの認証タイプで実行してください。`openai` の下のモデルには `--auth-type openai`、`anthropic` の下のモデルには `--auth-type anthropic` を使います。`/model` を使うと、これは自動で設定されます。
+
+### Claude のリクエストが `Unsupported Claude Messages model` で失敗するのはなぜですか？
+
+`anthropic` の下の Claude モデルには、`claude-opus-5-5` などのプレフィックスなしの Claude ID が必要です。
+
+## 注意事項
+
+- キーは `settings.json` ではなく `~/.qwen/.env` に置いてください。
+- Capriole AI の別のモデルを追加するには、同じファミリーのモデルのエントリーをコピーして ID を変更します。`GET https://api.caprioletech.com/v1/models` ですべてのモデル ID を一覧できます。
+- 公式リファレンス: [Qwen Code](https://github.com/QwenLM/qwen-code)、[Qwen Code のモデル プロバイダー](https://qwenlm.github.io/qwen-code-docs/en/users/configuration/model-providers/)。

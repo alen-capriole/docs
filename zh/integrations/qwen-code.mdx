@@ -1,0 +1,199 @@
+---
+title: "Qwen Code"
+description: "配置 Qwen Code 使用 Capriole AI。"
+---
+
+## Qwen Code 是什么
+
+Qwen Code 是面向终端的开源编程代理。它的 `modelProviders` 设置会列出你可以使用的模型以及每个模型的 API 协议。这套配置把 Capriole AI 模型添加到该列表中。
+
+## 前置条件
+
+开始前请确保你已经拥有以下内容。
+
+- Capriole AI 账户，可在[此处注册](https://capriole.ai)
+- Capriole AI API Key，可在[此处获取](https://capriole.ai?view=api)
+
+## 安装
+
+使用 npm 安装 Qwen Code（需要 Node.js 22 或更高版本）。
+
+```bash
+npm install -g @qwen-code/qwen-code@latest
+```
+
+也可以使用 Homebrew 安装。
+
+```bash
+brew install qwen-code
+```
+
+验证安装。
+
+```bash
+qwen --version
+```
+
+## 配置
+
+### 模型验证
+
+使用下方配置，Qwen Code 0.25.3 经 Capriole AI 调用“支持的模型”一节中的每个模型，都通过了文件读取、文件写入和最终答案检查。
+
+把 API Key 写入 `~/.qwen/.env`。
+
+```bash
+CAPRIOLE_AI_API_KEY=YOUR_CAPRIOLE_AI_API_KEY
+```
+
+创建或更新 `~/.qwen/settings.json`。
+
+```json
+{
+  "security": {
+    "auth": {
+      "selectedType": "openai"
+    }
+  },
+  "model": {
+    "name": "openai-latest"
+  },
+  "modelProviders": {
+    "openai": [
+      {
+        "id": "openai-latest",
+        "name": "openai-latest",
+        "baseUrl": "https://api.caprioletech.com/v1",
+        "envKey": "CAPRIOLE_AI_API_KEY",
+        "generationConfig": {
+          "contextWindowSize": 1050000
+        },
+        "wireApi": "responses"
+      },
+      {
+        "id": "openai/gpt-6.1-sol",
+        "name": "openai/gpt-6.1-sol",
+        "baseUrl": "https://api.caprioletech.com/v1",
+        "envKey": "CAPRIOLE_AI_API_KEY",
+        "generationConfig": {
+          "contextWindowSize": 1050000
+        },
+        "wireApi": "responses"
+      },
+      {
+        "id": "zai/glm-5.3-flash",
+        "name": "zai/glm-5.3-flash",
+        "baseUrl": "https://api.caprioletech.com/v1",
+        "envKey": "CAPRIOLE_AI_API_KEY",
+        "generationConfig": {
+          "contextWindowSize": 1000000
+        }
+      },
+      {
+        "id": "moonshot/kimi-k3",
+        "name": "moonshot/kimi-k3",
+        "baseUrl": "https://api.caprioletech.com/v1",
+        "envKey": "CAPRIOLE_AI_API_KEY",
+        "generationConfig": {
+          "contextWindowSize": 1048576
+        }
+      },
+      {
+        "id": "xai/grok-4.7",
+        "name": "xai/grok-4.7",
+        "baseUrl": "https://api.caprioletech.com/v1",
+        "envKey": "CAPRIOLE_AI_API_KEY",
+        "generationConfig": {
+          "contextWindowSize": 500000
+        }
+      },
+      {
+        "id": "google/gemini-3.8-flash",
+        "name": "google/gemini-3.8-flash",
+        "baseUrl": "https://api.caprioletech.com/v1",
+        "envKey": "CAPRIOLE_AI_API_KEY",
+        "generationConfig": {
+          "contextWindowSize": 1048576
+        }
+      }
+    ],
+    "anthropic": [
+      {
+        "id": "claude-latest",
+        "name": "claude-latest",
+        "baseUrl": "https://api.caprioletech.com",
+        "envKey": "CAPRIOLE_AI_API_KEY",
+        "generationConfig": {
+          "contextWindowSize": 1000000
+        }
+      },
+      {
+        "id": "claude-opus-5-5",
+        "name": "claude-opus-5-5",
+        "baseUrl": "https://api.caprioletech.com",
+        "envKey": "CAPRIOLE_AI_API_KEY",
+        "generationConfig": {
+          "contextWindowSize": 1000000
+        }
+      }
+    ]
+  }
+}
+```
+
+各项设置的作用如下。
+
+- `openai` 下的模型使用 Chat Completions。GPT 模型额外添加 `wireApi: "responses"`，以使用 Responses API。
+- `anthropic` 下的模型使用 Anthropic Messages。它们的 `baseUrl` 不含 `/v1`。
+- `envKey` 指定保存 API Key 的环境变量名。Qwen Code 会以 Bearer Token 形式把 Key 发送给 Capriole AI。
+- `contextWindowSize` 告诉 Qwen Code 每个模型的上下文窗口。
+- `security.auth.selectedType` 和 `model.name` 设置默认模型。使用 `/model` 切换时，这两项会同时更新。
+
+## 运行 Qwen Code
+
+在项目目录中启动 Qwen Code。
+
+```bash
+qwen
+```
+
+使用 `/model` 切换模型。如需一次性运行，请传入提示词、模型以及该模型所在分组的身份验证类型。
+
+```bash
+qwen "Explain this repository." -m claude-latest --auth-type anthropic
+```
+
+## 支持的模型
+
+| 模型 | 模型 ID | 分组 | 协议 |
+| --- | --- | --- | --- |
+| OpenAI latest | `openai-latest` | `openai` | Responses |
+| GPT-6.1 Sol | `openai/gpt-6.1-sol` | `openai` | Responses |
+| Claude latest | `claude-latest` | `anthropic` | Anthropic Messages |
+| Opus 5.5 | `claude-opus-5-5` | `anthropic` | Anthropic Messages |
+| Gemini 3.8 Flash | `google/gemini-3.8-flash` | `openai` | Chat Completions |
+| Grok 4.7 | `xai/grok-4.7` | `openai` | Chat Completions |
+| GLM 5.3 Flash | `zai/glm-5.3-flash` | `openai` | Chat Completions |
+| Kimi K3 | `moonshot/kimi-k3` | `openai` | Chat Completions |
+
+`openai-latest` 和 `claude-latest` 始终指向各自系列中我们最新的旗舰模型。
+
+## 故障排除
+
+### 为什么 Qwen Code 返回身份验证错误
+
+确认 `~/.qwen/.env` 设置了 `CAPRIOLE_AI_API_KEY`，或者在同一个 Shell 中导出该变量。
+
+### 为什么模型出现协议错误
+
+使用模型所在分组的身份验证类型运行它：`openai` 下的模型使用 `--auth-type openai`，`anthropic` 下的模型使用 `--auth-type anthropic`。`/model` 会自动完成这项设置。
+
+### 为什么 Claude 请求因 `Unsupported Claude Messages model` 失败
+
+`anthropic` 下的 Claude 模型需要不带前缀的 Claude ID，例如 `claude-opus-5-5`。
+
+## 说明
+
+- 把 API Key 保存在 `~/.qwen/.env` 中，不要写入 `settings.json`。
+- 如需添加其他 Capriole AI 模型，请复制同一系列中某个模型的条目并修改 ID。`GET https://api.caprioletech.com/v1/models` 会列出所有模型 ID。
+- 官方参考资料包括 [Qwen Code](https://github.com/QwenLM/qwen-code)和 [Qwen Code 模型提供商](https://qwenlm.github.io/qwen-code-docs/en/users/configuration/model-providers/)。

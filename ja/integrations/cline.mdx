@@ -1,0 +1,105 @@
+---
+title: "Cline"
+description: "Cline が Capriole AI を使うように設定します。"
+---
+
+## Cline とは
+
+Cline は、ターミナルと VS Code 向けのオープンソースのコーディング エージェントです。Cline の OpenAI Compatible プロバイダーは、Chat Completions 経由で Capriole AI にモデル リクエストを送ります。
+
+## 前提条件
+
+始める前に、次を用意してください。
+
+- Capriole AI アカウント（[こちらから登録](https://capriole.ai)）
+- Capriole AI API キー（[キーを取得](https://capriole.ai?view=api)）
+
+## インストール
+
+npm で Cline CLI をインストールします。
+
+```bash
+npm install -g cline
+```
+
+インストールを確認します。
+
+```bash
+cline --version
+```
+
+## 設定
+
+### モデルの検証
+
+Cline CLI 3.0.73 は、下記の設定を使い、「対応モデル」のすべてのモデルで、Capriole AI 経由のファイル読み取り、ファイル書き込み、最終回答の確認に合格しています。
+
+Capriole AI をプロバイダーとして保存します。
+
+```bash
+export CAPRIOLE_AI_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
+cline auth -p openai-compatible \
+  -k "$CAPRIOLE_AI_API_KEY" \
+  -b "https://api.caprioletech.com/v1" \
+  -m claude-latest
+```
+
+各設定の役割は次のとおりです。
+
+- `-p openai-compatible` は Cline の OpenAI Compatible プロバイダーを使います。このプロバイダーはキーを Bearer トークンとして送ります。
+- `-b` はベース URL です。Cline が `/chat/completions` を自動で付加するため、`/v1` を含めます。
+- `-m` はデフォルト モデルです。
+
+Cline はこれらの値を `~/.cline` に保存するため、`cline auth` の実行は 1 回だけで済みます。
+
+VS Code 拡張機能では、Cline の設定を開いて **OpenAI Compatible** を選び、同じベース URL、API キー、モデル ID を入力します。
+
+## Cline を実行する
+
+プロジェクト ディレクトリから Cline を起動します。
+
+```bash
+cline
+```
+
+単発のタスクでは、プロンプトを渡します。その実行で別のモデルを使うには、`-m` を指定します。
+
+```bash
+cline -m moonshot/kimi-k3 "Explain this repository."
+```
+
+## 対応モデル
+
+すべてのモデルが Chat Completions を使います。
+
+| モデル | モデル ID |
+| --- | --- |
+| OpenAI latest | `openai-latest` |
+| GPT-6.1 Sol | `openai/gpt-6.1-sol` |
+| Claude latest | `claude-latest` |
+| Opus 5.5 | `anthropic/claude-opus-5-5` |
+| Gemini 3.8 Flash | `google/gemini-3.8-flash` |
+| Grok 4.7 | `xai/grok-4.7` |
+| GLM 5.3 Flash | `zai/glm-5.3-flash` |
+| Kimi K3 | `moonshot/kimi-k3` |
+
+`openai-latest` と `claude-latest` は、常に各ファミリーの最新の旗艦モデルを指します。`GET https://api.caprioletech.com/v1/models` ですべてのモデル ID を一覧できます。
+
+## トラブルシューティング
+
+### Cline が認証エラーを返すのはなぜですか？
+
+現在の Capriole AI API キーで `cline auth` を再度実行してください。
+
+### Claude モデルが `Unsupported chat model_key` で失敗するのはなぜですか？
+
+Chat Completions では、`anthropic/claude-opus-5-5` などの `anthropic/` プレフィックス付きの Claude ID を使ってください。`claude-opus-5-5` などのプレフィックスなしの ID は Anthropic Messages 用です。
+
+### エンドポイント エラーでリクエストが失敗するのはなぜですか？
+
+ベース URL が `https://api.caprioletech.com/v1` であることを確認してください。
+
+## 注意事項
+
+- Cline はコーディング ツールをお使いのコンピューター上で実行します。Capriole AI が処理するのはモデル リクエストだけです。
+- 公式リファレンス: [Cline CLI](https://docs.cline.bot/cline-cli/overview)、[Cline の OpenAI Compatible プロバイダー](https://docs.cline.bot/provider-config/openai-compatible)。

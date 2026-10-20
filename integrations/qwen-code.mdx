@@ -1,0 +1,199 @@
+---
+title: "Qwen Code"
+description: "Configure Qwen Code to use Capriole AI."
+---
+
+## What is Qwen Code
+
+Qwen Code is an open-source coding agent for the terminal. Its `modelProviders` setting lists the models you can use and the API protocol of each. This setup adds Capriole AI models to that list.
+
+## Prerequisites
+
+Before you begin, make sure you have:
+
+- A Capriole AI account ([Sign up here](https://capriole.ai))
+- A Capriole AI API key ([Get your key](https://capriole.ai?view=api))
+
+## Installation
+
+Install Qwen Code with npm (Node.js 22 or later):
+
+```bash
+npm install -g @qwen-code/qwen-code@latest
+```
+
+Or install it with Homebrew:
+
+```bash
+brew install qwen-code
+```
+
+Verify the install:
+
+```bash
+qwen --version
+```
+
+## Configuration
+
+### Model validation
+
+Qwen Code 0.25.3 passes a file-read, file-write, and final-answer check through Capriole AI with every model in [Supported models](#supported-models), using the configuration below.
+
+Put your key in `~/.qwen/.env`:
+
+```bash
+CAPRIOLE_AI_API_KEY=YOUR_CAPRIOLE_AI_API_KEY
+```
+
+Create or update `~/.qwen/settings.json`:
+
+```json
+{
+  "security": {
+    "auth": {
+      "selectedType": "openai"
+    }
+  },
+  "model": {
+    "name": "openai-latest"
+  },
+  "modelProviders": {
+    "openai": [
+      {
+        "id": "openai-latest",
+        "name": "openai-latest",
+        "baseUrl": "https://api.caprioletech.com/v1",
+        "envKey": "CAPRIOLE_AI_API_KEY",
+        "generationConfig": {
+          "contextWindowSize": 1050000
+        },
+        "wireApi": "responses"
+      },
+      {
+        "id": "openai/gpt-6.1-sol",
+        "name": "openai/gpt-6.1-sol",
+        "baseUrl": "https://api.caprioletech.com/v1",
+        "envKey": "CAPRIOLE_AI_API_KEY",
+        "generationConfig": {
+          "contextWindowSize": 1050000
+        },
+        "wireApi": "responses"
+      },
+      {
+        "id": "zai/glm-5.3-flash",
+        "name": "zai/glm-5.3-flash",
+        "baseUrl": "https://api.caprioletech.com/v1",
+        "envKey": "CAPRIOLE_AI_API_KEY",
+        "generationConfig": {
+          "contextWindowSize": 1000000
+        }
+      },
+      {
+        "id": "moonshot/kimi-k3",
+        "name": "moonshot/kimi-k3",
+        "baseUrl": "https://api.caprioletech.com/v1",
+        "envKey": "CAPRIOLE_AI_API_KEY",
+        "generationConfig": {
+          "contextWindowSize": 1048576
+        }
+      },
+      {
+        "id": "xai/grok-4.7",
+        "name": "xai/grok-4.7",
+        "baseUrl": "https://api.caprioletech.com/v1",
+        "envKey": "CAPRIOLE_AI_API_KEY",
+        "generationConfig": {
+          "contextWindowSize": 500000
+        }
+      },
+      {
+        "id": "google/gemini-3.8-flash",
+        "name": "google/gemini-3.8-flash",
+        "baseUrl": "https://api.caprioletech.com/v1",
+        "envKey": "CAPRIOLE_AI_API_KEY",
+        "generationConfig": {
+          "contextWindowSize": 1048576
+        }
+      }
+    ],
+    "anthropic": [
+      {
+        "id": "claude-latest",
+        "name": "claude-latest",
+        "baseUrl": "https://api.caprioletech.com",
+        "envKey": "CAPRIOLE_AI_API_KEY",
+        "generationConfig": {
+          "contextWindowSize": 1000000
+        }
+      },
+      {
+        "id": "claude-opus-5-5",
+        "name": "claude-opus-5-5",
+        "baseUrl": "https://api.caprioletech.com",
+        "envKey": "CAPRIOLE_AI_API_KEY",
+        "generationConfig": {
+          "contextWindowSize": 1000000
+        }
+      }
+    ]
+  }
+}
+```
+
+What each setting does:
+
+- Models under `openai` use Chat Completions. GPT models add `wireApi: "responses"` to use the Responses API.
+- Models under `anthropic` use Anthropic Messages. Their `baseUrl` has no `/v1`.
+- `envKey` names the environment variable that holds your key. Qwen Code sends the key as a Bearer token to Capriole AI.
+- `contextWindowSize` tells Qwen Code each model's context window.
+- `security.auth.selectedType` and `model.name` set the default model. `/model` updates both when you switch.
+
+## Run Qwen Code
+
+Start Qwen Code from your project directory:
+
+```bash
+qwen
+```
+
+Switch models with `/model`. For a one-shot run, pass the prompt, the model, and the auth type of its group:
+
+```bash
+qwen "Explain this repository." -m claude-latest --auth-type anthropic
+```
+
+## Supported models
+
+| Model | Model ID | Group | Protocol |
+| --- | --- | --- | --- |
+| OpenAI latest | `openai-latest` | `openai` | Responses |
+| GPT-6.1 Sol | `openai/gpt-6.1-sol` | `openai` | Responses |
+| Claude latest | `claude-latest` | `anthropic` | Anthropic Messages |
+| Opus 5.5 | `claude-opus-5-5` | `anthropic` | Anthropic Messages |
+| Gemini 3.8 Flash | `google/gemini-3.8-flash` | `openai` | Chat Completions |
+| Grok 4.7 | `xai/grok-4.7` | `openai` | Chat Completions |
+| GLM 5.3 Flash | `zai/glm-5.3-flash` | `openai` | Chat Completions |
+| Kimi K3 | `moonshot/kimi-k3` | `openai` | Chat Completions |
+
+`openai-latest` and `claude-latest` always point to our latest flagship in each family.
+
+## Troubleshooting
+
+### Why does Qwen Code return an authentication error?
+
+Confirm that `~/.qwen/.env` sets `CAPRIOLE_AI_API_KEY`, or export the variable in the same shell.
+
+### Why does a model fail with a protocol error?
+
+Run the model with the auth type of its group: `--auth-type openai` for models under `openai`, and `--auth-type anthropic` for models under `anthropic`. `/model` sets this for you.
+
+### Why do Claude requests fail with `Unsupported Claude Messages model`?
+
+Claude models under `anthropic` need the bare Claude IDs, such as `claude-opus-5-5`.
+
+## Notes
+
+- Keep your key in `~/.qwen/.env`, not in `settings.json`.
+- To add another Capriole AI model, copy the entry of a model from the same family and change the ID. `GET https://api.caprioletech.com/v1/models` lists every model ID.
+- Official references: [Qwen Code](https://github.com/QwenLM/qwen-code) and [Qwen Code model providers](https://qwenlm.github.io/qwen-code-docs/en/users/configuration/model-providers/).

@@ -1,12 +1,24 @@
 ---
 title: "更多编程代理"
-description: "其他编程代理集成的当前状态。"
+description: "在本站没有专属页面的编程代理中使用 Capriole AI。"
 ---
 
-## 当前状态
+## 其他代理
 
-目前没有待处理的编程代理集成。
+大多数编程代理只要允许设置自定义端点，就可以使用 Capriole AI。请根据代理支持的协议使用下表中的值。
 
-## 请求支持新的编程代理
+| 协议 | Base URL | 模型 ID |
+| --- | --- | --- |
+| Chat Completions | `https://api.caprioletech.com/v1` | `GET /v1/models` 返回的所有 ID，例如 `claude-latest`、`anthropic/claude-opus-5-5` 或 `moonshot/kimi-k3` |
+| Responses | `https://api.caprioletech.com/v1` | `openai-latest` 等 GPT 模型，以及 `xai/grok-4.7` |
+| Anthropic Messages | `https://api.caprioletech.com` | `claude-latest` 和 `claude-opus-5-5` 等不带前缀的 Claude ID |
 
-如果你希望在其他编程代理中使用 Capriole AI，请联系我们，并提供该代理的名称和官方配置文档。我们会评估它能否使用 Capriole AI 公共 API。
+Chat Completions 是最简单的选择，因为它支持所有模型。
+
+## 身份验证
+
+Capriole AI 只接受通过 `Authorization` 请求头以 Bearer Token 形式发送的 Key。如果代理在 `x-api-key` 请求头中发送 Key（许多 Anthropic 客户端都是这样），请设置自定义请求头 `Authorization: Bearer YOUR_CAPRIOLE_AI_API_KEY`，或者改用该代理的 OpenAI 兼容选项。
+
+## 请求支持新的代理
+
+如果你希望我们为其他编程代理提供配置页面，请联系我们，并提供该代理的名称和官方配置文档。

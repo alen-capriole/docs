@@ -1,0 +1,199 @@
+---
+title: "Qwen Code"
+description: "Configura Qwen Code para usar Capriole AI."
+---
+
+## Qué es Qwen Code
+
+Qwen Code es un agente de programación de código abierto para la terminal. Su ajuste `modelProviders` enumera los modelos que puedes usar y el protocolo de API de cada uno. Esta configuración añade modelos de Capriole AI a esa lista.
+
+## Requisitos previos
+
+Antes de empezar, asegúrate de tener:
+
+- Una cuenta de Capriole AI ([Regístrate aquí](https://capriole.ai))
+- Una clave API de Capriole AI ([Obtén tu clave](https://capriole.ai?view=api))
+
+## Instalación
+
+Instala Qwen Code con npm (Node.js 22 o posterior):
+
+```bash
+npm install -g @qwen-code/qwen-code@latest
+```
+
+O instálalo con Homebrew:
+
+```bash
+brew install qwen-code
+```
+
+Verifica la instalación:
+
+```bash
+qwen --version
+```
+
+## Configuración
+
+### Validación de modelos
+
+Qwen Code 0.25.3 supera una prueba de lectura de archivos, escritura de archivos y respuesta final a través de Capriole AI con todos los modelos de la sección Modelos compatibles, usando la configuración siguiente.
+
+Guarda tu clave en `~/.qwen/.env`:
+
+```bash
+CAPRIOLE_AI_API_KEY=YOUR_CAPRIOLE_AI_API_KEY
+```
+
+Crea o actualiza `~/.qwen/settings.json`:
+
+```json
+{
+  "security": {
+    "auth": {
+      "selectedType": "openai"
+    }
+  },
+  "model": {
+    "name": "openai-latest"
+  },
+  "modelProviders": {
+    "openai": [
+      {
+        "id": "openai-latest",
+        "name": "openai-latest",
+        "baseUrl": "https://api.caprioletech.com/v1",
+        "envKey": "CAPRIOLE_AI_API_KEY",
+        "generationConfig": {
+          "contextWindowSize": 1050000
+        },
+        "wireApi": "responses"
+      },
+      {
+        "id": "openai/gpt-6.1-sol",
+        "name": "openai/gpt-6.1-sol",
+        "baseUrl": "https://api.caprioletech.com/v1",
+        "envKey": "CAPRIOLE_AI_API_KEY",
+        "generationConfig": {
+          "contextWindowSize": 1050000
+        },
+        "wireApi": "responses"
+      },
+      {
+        "id": "zai/glm-5.3-flash",
+        "name": "zai/glm-5.3-flash",
+        "baseUrl": "https://api.caprioletech.com/v1",
+        "envKey": "CAPRIOLE_AI_API_KEY",
+        "generationConfig": {
+          "contextWindowSize": 1000000
+        }
+      },
+      {
+        "id": "moonshot/kimi-k3",
+        "name": "moonshot/kimi-k3",
+        "baseUrl": "https://api.caprioletech.com/v1",
+        "envKey": "CAPRIOLE_AI_API_KEY",
+        "generationConfig": {
+          "contextWindowSize": 1048576
+        }
+      },
+      {
+        "id": "xai/grok-4.7",
+        "name": "xai/grok-4.7",
+        "baseUrl": "https://api.caprioletech.com/v1",
+        "envKey": "CAPRIOLE_AI_API_KEY",
+        "generationConfig": {
+          "contextWindowSize": 500000
+        }
+      },
+      {
+        "id": "google/gemini-3.8-flash",
+        "name": "google/gemini-3.8-flash",
+        "baseUrl": "https://api.caprioletech.com/v1",
+        "envKey": "CAPRIOLE_AI_API_KEY",
+        "generationConfig": {
+          "contextWindowSize": 1048576
+        }
+      }
+    ],
+    "anthropic": [
+      {
+        "id": "claude-latest",
+        "name": "claude-latest",
+        "baseUrl": "https://api.caprioletech.com",
+        "envKey": "CAPRIOLE_AI_API_KEY",
+        "generationConfig": {
+          "contextWindowSize": 1000000
+        }
+      },
+      {
+        "id": "claude-opus-5-5",
+        "name": "claude-opus-5-5",
+        "baseUrl": "https://api.caprioletech.com",
+        "envKey": "CAPRIOLE_AI_API_KEY",
+        "generationConfig": {
+          "contextWindowSize": 1000000
+        }
+      }
+    ]
+  }
+}
+```
+
+Qué hace cada ajuste:
+
+- Los modelos dentro de `openai` usan Chat Completions. Los modelos GPT añaden `wireApi: "responses"` para usar la API Responses.
+- Los modelos dentro de `anthropic` usan Anthropic Messages. Su `baseUrl` no lleva `/v1`.
+- `envKey` indica la variable de entorno que contiene tu clave. Qwen Code envía la clave a Capriole AI como token Bearer.
+- `contextWindowSize` indica a Qwen Code la ventana de contexto de cada modelo.
+- `security.auth.selectedType` y `model.name` definen el modelo por defecto. `/model` actualiza ambos cuando cambias de modelo.
+
+## Ejecutar Qwen Code
+
+Inicia Qwen Code desde el directorio de tu proyecto:
+
+```bash
+qwen
+```
+
+Cambia de modelo con `/model`. Para una ejecución puntual, pasa el prompt, el modelo y el tipo de autenticación de su grupo:
+
+```bash
+qwen "Explain this repository." -m claude-latest --auth-type anthropic
+```
+
+## Modelos compatibles
+
+| Modelo | ID de modelo | Grupo | Protocolo |
+| --- | --- | --- | --- |
+| OpenAI latest | `openai-latest` | `openai` | Responses |
+| GPT-6.1 Sol | `openai/gpt-6.1-sol` | `openai` | Responses |
+| Claude latest | `claude-latest` | `anthropic` | Anthropic Messages |
+| Opus 5.5 | `claude-opus-5-5` | `anthropic` | Anthropic Messages |
+| Gemini 3.8 Flash | `google/gemini-3.8-flash` | `openai` | Chat Completions |
+| Grok 4.7 | `xai/grok-4.7` | `openai` | Chat Completions |
+| GLM 5.3 Flash | `zai/glm-5.3-flash` | `openai` | Chat Completions |
+| Kimi K3 | `moonshot/kimi-k3` | `openai` | Chat Completions |
+
+`openai-latest` y `claude-latest` siempre apuntan a nuestro modelo insignia más reciente de cada familia.
+
+## Solución de problemas
+
+### ¿Por qué Qwen Code devuelve un error de autenticación?
+
+Confirma que `~/.qwen/.env` define `CAPRIOLE_AI_API_KEY` o exporta la variable en el mismo shell.
+
+### ¿Por qué un modelo falla con un error de protocolo?
+
+Ejecuta el modelo con el tipo de autenticación de su grupo: `--auth-type openai` para los modelos dentro de `openai` y `--auth-type anthropic` para los modelos dentro de `anthropic`. `/model` lo configura por ti.
+
+### ¿Por qué las solicitudes de Claude fallan con `Unsupported Claude Messages model`?
+
+Los modelos Claude dentro de `anthropic` necesitan los IDs de Claude sin prefijo, como `claude-opus-5-5`.
+
+## Notas
+
+- Guarda tu clave en `~/.qwen/.env`, no en `settings.json`.
+- Para añadir otro modelo de Capriole AI, copia la entrada de un modelo de la misma familia y cambia el ID. `GET https://api.caprioletech.com/v1/models` devuelve la lista de todos los IDs de modelo.
+- Referencias oficiales: [Qwen Code](https://github.com/QwenLM/qwen-code) y [proveedores de modelos de Qwen Code](https://qwenlm.github.io/qwen-code-docs/en/users/configuration/model-providers/).

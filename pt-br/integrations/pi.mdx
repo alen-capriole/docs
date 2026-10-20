@@ -1,0 +1,172 @@
+---
+title: "Pi"
+description: "Configure o Pi para usar a Capriole AI."
+---
+
+## O que é Pi
+
+O Pi é um agente de programação minimalista e de código aberto para o terminal. Ele lê endpoints personalizados de `models.json`, e cada modelo pode usar um protocolo de API diferente. Esta configuração adiciona a Capriole AI como um provedor nesse arquivo.
+
+## Pré-requisitos
+
+Antes de começar, confira se você tem:
+
+- Uma conta Capriole AI ([Cadastre-se aqui](https://capriole.ai))
+- Uma API key da Capriole AI ([Obtenha sua key](https://capriole.ai?view=api))
+
+## Instalação
+
+Instale o Pi com o script oficial de instalação:
+
+```bash
+curl -fsSL https://pi.dev/install.sh | sh
+```
+
+Ou instale com npm (Node.js 22.19 ou posterior):
+
+```bash
+npm install -g --ignore-scripts @earendil-works/pi-coding-agent
+```
+
+## Configuração
+
+### Validação dos modelos
+
+O Pi 1.3.0 passa nas verificações de leitura de arquivo, escrita de arquivo e resposta final pela Capriole AI com todos os modelos da seção Modelos suportados, usando a configuração abaixo.
+
+Crie ou atualize `~/.pi/agent/models.json`:
+
+```json
+{
+  "providers": {
+    "capriole": {
+      "name": "Capriole AI",
+      "baseUrl": "https://api.caprioletech.com/v1",
+      "api": "openai-completions",
+      "apiKey": "$CAPRIOLE_AI_API_KEY",
+      "authHeader": true,
+      "models": [
+        {
+          "id": "openai-latest",
+          "contextWindow": 1050000,
+          "maxTokens": 128000,
+          "reasoning": true,
+          "api": "openai-responses"
+        },
+        {
+          "id": "openai/gpt-6.1-sol",
+          "contextWindow": 1050000,
+          "maxTokens": 128000,
+          "reasoning": true,
+          "api": "openai-responses"
+        },
+        {
+          "id": "claude-latest",
+          "contextWindow": 1000000,
+          "maxTokens": 128000,
+          "reasoning": true,
+          "api": "anthropic-messages",
+          "baseUrl": "https://api.caprioletech.com",
+          "compat": { "forceAdaptiveThinking": true }
+        },
+        {
+          "id": "claude-opus-5-5",
+          "contextWindow": 1000000,
+          "maxTokens": 128000,
+          "reasoning": true,
+          "api": "anthropic-messages",
+          "baseUrl": "https://api.caprioletech.com",
+          "compat": { "forceAdaptiveThinking": true }
+        },
+        {
+          "id": "zai/glm-5.3-flash",
+          "contextWindow": 1000000,
+          "maxTokens": 128000,
+          "reasoning": true
+        },
+        {
+          "id": "moonshot/kimi-k3",
+          "contextWindow": 1048576,
+          "maxTokens": 131072,
+          "reasoning": true
+        },
+        {
+          "id": "xai/grok-4.7",
+          "contextWindow": 500000,
+          "maxTokens": 128000,
+          "reasoning": true
+        }
+      ]
+    }
+  }
+}
+```
+
+Depois, defina a Capriole AI como padrão em `~/.pi/agent/settings.json`:
+
+```json
+{
+  "defaultProvider": "capriole",
+  "defaultModel": "claude-latest"
+}
+```
+
+O que cada configuração faz:
+
+- O `api` do provedor é `openai-completions`, então Grok, GLM e Kimi usam Chat Completions. Os modelos GPT o substituem por `openai-responses`, e os modelos Claude o substituem por `anthropic-messages` e um `baseUrl` sem `/v1`.
+- `$CAPRIOLE_AI_API_KEY` lê sua key do ambiente.
+- `authHeader: true` envia a key como Bearer token em todos os protocolos. Sem ele, os modelos Claude enviam a key em um cabeçalho `x-api-key`, que a Capriole AI não aceita.
+- `forceAdaptiveThinking` faz os modelos Claude usarem thinking adaptativo. O Opus 5.5 rejeita um orçamento fixo de thinking.
+- `contextWindow` e `maxTokens` informam ao Pi os limites de cada modelo.
+
+## Executar Pi
+
+Defina sua API key e inicie o Pi no diretório do projeto:
+
+```bash
+export CAPRIOLE_AI_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
+pi
+```
+
+Troque de modelo com `/model`. Para uma execução não interativa, use o modo print:
+
+```bash
+pi -p --model xai/grok-4.7 "Explain this repository."
+```
+
+## Modelos suportados
+
+| Modelo | ID do modelo | Protocolo |
+| --- | --- | --- |
+| OpenAI latest | `openai-latest` | Responses |
+| GPT-6.1 Sol | `openai/gpt-6.1-sol` | Responses |
+| Claude latest | `claude-latest` | Anthropic Messages |
+| Opus 5.5 | `claude-opus-5-5` | Anthropic Messages |
+| Grok 4.7 | `xai/grok-4.7` | Chat Completions |
+| GLM 5.3 Flash | `zai/glm-5.3-flash` | Chat Completions |
+| Kimi K3 | `moonshot/kimi-k3` | Chat Completions |
+
+`openai-latest` e `claude-latest` sempre apontam para o nosso modelo principal mais recente de cada família.
+
+## Solução de problemas
+
+### Por que os modelos da Capriole AI não aparecem em `/model`?
+
+O Pi oculta um modelo personalizado até conseguir resolver a key dele. Exporte `CAPRIOLE_AI_API_KEY` no mesmo shell antes de iniciar o Pi.
+
+### Por que o Pi retorna um erro de autenticação?
+
+Confirme que o provedor tem `"authHeader": true`.
+
+### Por que o Opus 5.5 falha com `requires adaptive thinking`?
+
+Confirme que as entradas dos modelos Claude têm `"compat": { "forceAdaptiveThinking": true }`.
+
+### Por que as solicitações Claude falham com `Unsupported Claude Messages model`?
+
+Os modelos Claude em `anthropic-messages` precisam dos IDs Claude sem prefixo, como `claude-opus-5-5`. Os IDs com o prefixo `anthropic/` são para Chat Completions.
+
+## Observações
+
+- Para adicionar outro modelo da Capriole AI, copie a entrada de um modelo da mesma família e altere o ID. `GET https://api.caprioletech.com/v1/models` lista todos os IDs de modelo.
+- Referências oficiais: [Pi](https://pi.dev), [Documentação do Pi](https://pi.dev/docs), [Escolher um modelo](https://github.com/earendil-works/pi/blob/main/packages/coding-agent/docs/models.md) e [Configuração do Pi](https://github.com/earendil-works/pi/blob/main/packages/coding-agent/docs/configuration.md).

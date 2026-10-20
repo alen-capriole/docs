@@ -1,0 +1,121 @@
+---
+title: "Crush"
+description: "Configura Crush para usar Capriole AI."
+---
+
+## Qué es Crush
+
+Crush es el agente de programación de código abierto de Charm para la terminal. Lee su configuración de un archivo `crushrc`, que es Bash con comandos propios de Crush. Esta configuración añade Capriole AI como un único proveedor compatible con OpenAI.
+
+## Requisitos previos
+
+Antes de empezar, asegúrate de tener:
+
+- Una cuenta de Capriole AI ([Regístrate aquí](https://capriole.ai))
+- Una clave API de Capriole AI ([Obtén tu clave](https://capriole.ai?view=api))
+
+## Instalación
+
+Instala Crush con Homebrew:
+
+```bash
+brew install charmbracelet/tap/crush
+```
+
+O instálalo con npm:
+
+```bash
+npm install -g @charmland/crush
+```
+
+Verifica la instalación:
+
+```bash
+crush --version
+```
+
+## Configuración
+
+### Validación de modelos
+
+Crush 0.98.1 supera una prueba de lectura de archivos, escritura de archivos y respuesta final a través de Capriole AI con todos los modelos de la sección Modelos compatibles, usando la configuración siguiente.
+
+Crea o actualiza `~/.config/crush/crushrc`:
+
+```bash
+provider add capriole --name "Capriole AI" --type openai-compat \
+  --base-url "https://api.caprioletech.com/v1" \
+  --api-key "$CAPRIOLE_AI_API_KEY" \
+  --discover-models false
+
+model add capriole/openai-latest --name "OpenAI latest" --context-window 1050000 --default-max-tokens 32000 --can-reason true
+model add capriole/openai/gpt-6.1-sol --name "GPT-6.1 Sol" --context-window 1050000 --default-max-tokens 32000 --can-reason true
+model add capriole/claude-latest --name "Claude latest" --context-window 1000000 --default-max-tokens 32000 --can-reason true
+model add capriole/anthropic/claude-opus-5-5 --name "Opus 5.5" --context-window 1000000 --default-max-tokens 32000 --can-reason true
+model add capriole/google/gemini-3.8-flash --name "Gemini 3.8 Flash" --context-window 1048576 --default-max-tokens 32000 --can-reason true
+model add capriole/xai/grok-4.7 --name "Grok 4.7" --context-window 500000 --default-max-tokens 32000 --can-reason true
+model add capriole/zai/glm-5.3-flash --name "GLM 5.3 Flash" --context-window 1000000 --default-max-tokens 32000 --can-reason true
+model add capriole/moonshot/kimi-k3 --name "Kimi K3" --context-window 1048576 --default-max-tokens 32000 --can-reason true
+
+model large capriole/claude-latest
+model small capriole/zai/glm-5.3-flash
+```
+
+Qué hace cada ajuste:
+
+- `--type openai-compat` envía todos los modelos a Chat Completions. Capriole AI sirve todos estos modelos en Chat Completions.
+- `--api-key "$CAPRIOLE_AI_API_KEY"` lee tu clave del entorno cuando Crush carga el archivo, y Crush la envía como token Bearer.
+- `--discover-models false` limita la lista a los modelos que añades.
+- `model large` es el modelo principal de programación. `model small` es el modelo para tareas ligeras, como los títulos de sesión.
+
+## Ejecutar Crush
+
+Define tu clave API y luego inicia Crush desde el directorio de tu proyecto:
+
+```bash
+export CAPRIOLE_AI_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
+crush
+```
+
+Pulsa `Ctrl+L` para cambiar de modelo. Para una ejecución no interactiva, usa `crush run`:
+
+```bash
+crush run -m capriole/xai/grok-4.7 "Explain this repository."
+```
+
+## Modelos compatibles
+
+Las referencias de modelo usan el formato `capriole/<model-id>`.
+
+| Modelo | ID de modelo |
+| --- | --- |
+| OpenAI latest | `openai-latest` |
+| GPT-6.1 Sol | `openai/gpt-6.1-sol` |
+| Claude latest | `claude-latest` |
+| Opus 5.5 | `anthropic/claude-opus-5-5` |
+| Gemini 3.8 Flash | `google/gemini-3.8-flash` |
+| Grok 4.7 | `xai/grok-4.7` |
+| GLM 5.3 Flash | `zai/glm-5.3-flash` |
+| Kimi K3 | `moonshot/kimi-k3` |
+
+`openai-latest` y `claude-latest` siempre apuntan a nuestro modelo insignia más reciente de cada familia.
+
+## Solución de problemas
+
+### ¿Por qué Crush devuelve un error de autenticación?
+
+Exporta `CAPRIOLE_AI_API_KEY` antes de iniciar Crush. Crush lee la variable cuando carga `crushrc`.
+
+### ¿Por qué un modelo Claude falla con `Unsupported chat model_key`?
+
+En Chat Completions, usa los IDs de Claude con el prefijo `anthropic/`, como `anthropic/claude-opus-5-5`. Los IDs sin prefijo, como `claude-opus-5-5`, son para Anthropic Messages.
+
+### ¿Por qué no se aplican los cambios de configuración?
+
+Un archivo `.crushrc` o `crushrc` en el directorio del proyecto tiene prioridad sobre `~/.config/crush/crushrc`. Comprueba si existe uno y luego reinicia Crush.
+
+## Notas
+
+- `crushrc` se ejecuta como un script de shell. No pegues tu clave en él.
+- Para añadir otro modelo de Capriole AI, añade otra línea `model add`. `GET https://api.caprioletech.com/v1/models` devuelve la lista de todos los IDs de modelo.
+- Referencias oficiales: [Crush](https://github.com/charmbracelet/crush) y [configuración de Crush](https://github.com/charmbracelet/crush#configuration).

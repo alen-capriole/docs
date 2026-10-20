@@ -1,12 +1,24 @@
 ---
 title: "추가 에이전트"
-description: "추가 코딩 에이전트 통합의 현재 상태입니다."
+description: "이 문서에 전용 페이지가 없는 코딩 에이전트에서 Capriole AI를 사용합니다."
 ---
 
-## 현재 상태
+## 다른 에이전트
 
-현재 대기 중인 코딩 에이전트 통합은 없습니다.
+대부분의 코딩 에이전트는 사용자 지정 엔드포인트를 설정할 수 있으면 Capriole AI를 사용할 수 있습니다. 에이전트가 지원하는 프로토콜에 맞는 아래 값을 사용하세요.
+
+| 프로토콜 | Base URL | 모델 ID |
+| --- | --- | --- |
+| Chat Completions | `https://api.caprioletech.com/v1` | `GET /v1/models`의 모든 ID(예: `claude-latest`, `anthropic/claude-opus-5-5`, `moonshot/kimi-k3`) |
+| Responses | `https://api.caprioletech.com/v1` | `openai-latest` 같은 GPT 모델과 `xai/grok-4.7` |
+| Anthropic Messages | `https://api.caprioletech.com` | `claude-latest`, `claude-opus-5-5` 같은 접두사 없는 Claude ID |
+
+Chat Completions는 모든 모델을 제공하므로 가장 간단한 선택입니다.
+
+## 인증
+
+Capriole AI는 `Authorization` 헤더의 Bearer 토큰으로만 키를 받습니다. 많은 Anthropic 클라이언트처럼 에이전트가 키를 `x-api-key` 헤더로 보낸다면, 사용자 지정 `Authorization: Bearer YOUR_CAPRIOLE_AI_API_KEY` 헤더를 설정하거나 에이전트의 OpenAI 호환 옵션을 대신 사용하세요.
 
 ## 에이전트 요청하기
 
-다른 코딩 에이전트와 Capriole AI를 사용하려면 에이전트 이름과 공식 구성 문서를 함께 보내 주세요. 공개 Capriole AI API와 함께 사용할 수 있는지 검토합니다.
+다른 코딩 에이전트의 설정 페이지가 필요하면 에이전트 이름과 공식 구성 문서를 함께 보내 문의해 주세요.

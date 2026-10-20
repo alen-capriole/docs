@@ -18,8 +18,22 @@ Codex は、ソフトウェア開発向けの OpenAI のコーディング エ�
 
 ### Codex CLI
 
+公式インストーラーで Codex CLI をインストールします。
+
+```bash
+curl -fsSL https://chatgpt.com/codex/install.sh | sh
+```
+
+または、npm でインストールします。
+
 ```bash
 npm install -g @openai/codex
+```
+
+インストールを確認します。
+
+```bash
+codex --version
 ```
 
 ### Codex app
@@ -27,6 +41,10 @@ npm install -g @openai/codex
 [OpenAI Codex](https://developers.openai.com/codex) からアプリをダウンロードしてください。
 
 ## 設定
+
+### モデルの検証
+
+Codex CLI 0.160.1 は、下記の設定を使い、Capriole AI 経由のファイル読み取り、ファイル書き込み、最終回答の確認に合格しています。
 
 `~/.codex/config.toml` を作成または更新します。
 
@@ -43,18 +61,32 @@ env_key = "CAPRIOLE_AI_API_KEY"
 env_key_instructions = "Export CAPRIOLE_AI_API_KEY before starting Codex"
 ```
 
+各設定の役割は次のとおりです。
+
+- `model` はデフォルト モデルです。セッション中は `/model`、コマンドラインでは `--model` で変更できます。
+- `model_provider` は、その下で定義している Capriole AI プロバイダーを選択します。
+- Codex が `/responses` を自動で付加するため、`base_url` には `/v1` を含めます。
+- `wire_api = "responses"` は Responses API を使います。Codex がカスタム プロバイダーで対応しているプロトコルはこれだけです。
+- `env_key` は環境変数からキーを読み取り、Bearer トークンとして送ります。
+
 ## Codex を実行する
 
-API キーを設定してから、Codex を起動します。
+API キーを設定してから、プロジェクト ディレクトリから Codex を起動します。
 
 ```bash
 export CAPRIOLE_AI_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
 codex
 ```
 
+非対話で実行するには、`codex exec` を使います。
+
+```bash
+codex exec "Explain this repository."
+```
+
 ## 対応モデル
 
-Codex は Responses API 経由で Capriole AI の OpenAI モデルを使えます。以下のネイティブモデル ID を使うと、Codex 標準のモデル選択と推論設定を利用できます。独自の `model_catalog_json` は不要です。呼び出せるのは Capriole AI が対応しているモデルのみです。
+Codex は Responses API 経由で Capriole AI の OpenAI モデルを使えます。以下のネイティブ モデル ID を使うと、Codex 標準のモデル選択と推論設定を利用できます。独自の `model_catalog_json` は不要です。呼び出せるのは Capriole AI が対応しているモデルのみです。
 
 - `gpt-6-astra`
 - `gpt-6.1-sol`
@@ -66,7 +98,11 @@ Codex は Responses API 経由で Capriole AI の OpenAI モデルを使えま�
 
 `gpt-6.1-sol` には Codex 0.159.2 以降を使ってください。それより前のバージョンにはこのモデルのメタデータがなく、汎用設定にフォールバックします。
 
-API は `openai/` プレフィックス付きの ID と `openai-latest` も受け付けます。`openai-latest` エイリアスは Capriole AI が推奨する OpenAI の旗艦モデルを指定します。
+API は `openai/` プレフィックス付きの ID と `openai-latest` も受け付けます。`openai-latest` エイリアスは、Capriole AI が推奨する OpenAI の旗艦モデルに追従します。
+
+Capriole AI は Grok を Responses API で提供しているため、Codex は同じプロバイダー経由で `xai/grok-4.7` も実行できます。
+
+Codex に組み込まれているメタデータは、OpenAI のネイティブ モデル ID 用のものだけです。`openai-latest` と `xai/grok-4.7` では `Model metadata ... not found` と表示され、フォールバック設定が使われます。セッションはそのまま動作しますが、最良の結果を得るには `gpt-6-astra` などのネイティブ ID を使ってください。
 
 ## トラブルシューティング
 
@@ -76,7 +112,7 @@ API は `openai/` プレフィックス付きの ID と `openai-latest` も受�
 
 ### Codex がモデルを見つけられないのはなぜですか？
 
-`model_provider = "capriole_ai"` が設定されており、`model` が `openai-latest` または対応する Capriole AI の OpenAI モデル ID であることを確認してください。
+`model_provider = "capriole_ai"` が設定されており、`model` が「対応モデル」に記載した ID のいずれかであることを確認してください。
 
 ### エンドポイントまたはプロトコル エラーでリクエストが失敗するのはなぜですか？
 

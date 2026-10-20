@@ -5,7 +5,7 @@ description: "Kilo Code가 Capriole AI를 사용하도록 구성합니다."
 
 ## Kilo Code란
 
-Kilo Code는 IDE와 터미널용 AI 코딩 어시스턴트입니다. Kilo의 OpenAI 호환 제공자를 통해 Capriole AI를 사용할 수 있으며, 요청은 Capriole AI의 Chat Completions 호환 API로 전송됩니다.
+Kilo Code는 VS Code와 터미널을 위한 AI 코딩 에이전트입니다. 이 구성은 Capriole AI를 하나의 사용자 지정 제공자로 추가합니다. 제공자의 각 모델은 Capriole AI가 해당 모델 계열에 제공하는 API 프로토콜을 사용합니다.
 
 ## 사전 준비
 
@@ -13,13 +13,8 @@ Kilo Code는 IDE와 터미널용 AI 코딩 어시스턴트입니다. Kilo의 Ope
 
 - Capriole AI 계정([여기에서 가입](https://capriole.ai))
 - Capriole AI API key([키 받기](https://capriole.ai?view=api))
-- VS Code에 설치한 Kilo Code 또는 Kilo CLI
 
 ## 설치
-
-### VS Code extension
-
-VS Code Extensions 보기에서 Kilo Code를 설치하세요. `Kilo Code`를 검색한 다음 pre-release 버전을 설치하세요.
 
 ### Kilo CLI
 
@@ -27,136 +22,140 @@ VS Code Extensions 보기에서 Kilo Code를 설치하세요. `Kilo Code`를 검
 npm install -g @kilocode/cli
 ```
 
+설치를 확인하세요.
+
+```bash
+kilo --version
+```
+
+### VS Code 확장
+
+VS Code의 확장 보기에서 Kilo Code를 설치하세요. 확장은 CLI와 같은 전역 구성 파일을 읽습니다.
+
 ## 구성
 
 ### 모델 검증
 
-Kilo Code 7.3.16: `anthropic/claude-fable-5-1`, `google/gemini-3.8-flash`, `zai/glm-5.3-flash`는 로컬 파일 읽기 도구 및 최종 답변 검사를 통과했습니다. `claude-latest`는 Fable 5.1로 해석됩니다. 기존 구체 모델 ID도 계속 사용할 수 있습니다.
+Kilo CLI 7.8.15 버전은 아래 구성으로 지원 모델 섹션의 모든 모델에서 Capriole AI를 통한 파일 읽기, 파일 쓰기, 최종 답변 검사를 통과합니다.
 
-Gemini 3.8 Flash 검사는 `"tool_call": true`를 사용합니다.
-
-`xai/grok-4.6`는 Chat Completions 요청을 받지만 코딩 에이전트 작업 검사를 통과하지 못해 아래 구성에 포함하지 않습니다. 제공자 직접 검사에서도 Grok 4.5의 도구 사용이 불안정했습니다. API 요청 완료가 올바른 에이전트 답변을 뜻하지는 않습니다.
-
-Kilo 구성 파일을 만들거나 업데이트하세요.
-
-- 전역 구성: `~/.config/kilo/kilo.jsonc`
-- 프로젝트 구성: 프로젝트 루트의 `kilo.jsonc` 또는 `.kilo/kilo.jsonc`
-
-다음 OpenAI 호환 제공자 구성을 사용하세요.
+`~/.config/kilo/kilo.jsonc`를 만들거나 업데이트하세요.
 
 ```jsonc
 {
   "$schema": "https://app.kilo.ai/config.json",
-  "model": "openai-compatible/openai-latest",
-  "enabled_providers": ["openai-compatible"],
+  "model": "capriole-ai/claude-latest",
+  "small_model": "capriole-ai/zai/glm-5.3-flash",
   "provider": {
-    "openai-compatible": {
+    "capriole-ai": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Capriole AI",
       "options": {
+        "baseURL": "https://api.caprioletech.com/v1",
         "apiKey": "{env:CAPRIOLE_AI_API_KEY}",
-        "baseURL": "https://api.caprioletech.com/v1"
+        "headers": {
+          "Authorization": "Bearer {env:CAPRIOLE_AI_API_KEY}"
+        }
       },
       "models": {
         "openai-latest": {
-          "name": "Capriole OpenAI Latest",
-          "tool_call": true,
-          "reasoning": true
+          "name": "OpenAI latest",
+          "provider": {
+            "npm": "@ai-sdk/openai"
+          },
+          "limit": {
+            "context": 1050000,
+            "output": 128000
+          },
+          "options": {
+            "forceReasoning": true
+          },
+          "tool_call": true
+        },
+        "openai/gpt-6.1-sol": {
+          "name": "GPT-6.1 Sol",
+          "provider": {
+            "npm": "@ai-sdk/openai"
+          },
+          "limit": {
+            "context": 1050000,
+            "output": 128000
+          },
+          "options": {
+            "forceReasoning": true
+          },
+          "tool_call": true
         },
         "claude-latest": {
-          "name": "Capriole Claude Latest",
-          "tool_call": true,
-          "reasoning": true
-        },
-        "anthropic/claude-fable-5-1": {
-          "name": "Capriole Fable 5.1",
-          "tool_call": true,
-          "reasoning": true
-        },
-        "anthropic/claude-fable-5": {
-          "name": "Capriole Fable 5",
-          "tool_call": true,
-          "reasoning": true
-        },
-        "anthropic/claude-opus-5": {
-          "name": "Capriole Opus 5",
-          "tool_call": true,
-          "reasoning": true
-        },
-        "google-latest": {
-          "name": "Capriole Google Latest",
-          "tool_call": true,
-          "reasoning": true
-        },
-        "openai/gpt-6-astra": {
-          "name": "Capriole GPT-6 Astra",
-          "tool_call": true,
-          "reasoning": true
-        },
-        "openai/gpt-5.6-terra": {
-          "name": "Capriole GPT 5.6 Thinking",
-          "tool_call": true,
-          "reasoning": true
-        },
-        "openai/gpt-5.6-luna": {
-          "name": "Capriole GPT 5.6",
-          "tool_call": true,
-          "reasoning": true
-        },
-        "openai/gpt-5.5": {
-          "name": "Capriole GPT 5.5",
-          "tool_call": true,
-          "reasoning": true
-        },
-        "xai/grok-4.5": {
-          "name": "Capriole Grok 4.5",
-          "tool_call": true,
-          "reasoning": true
-        },
-        "zai/glm-5.3-flash": {
-          "name": "Capriole GLM 5.3 Flash",
-          "tool_call": true,
-          "reasoning": true
-        },
-        "zai/glm-5.2": {
-          "name": "Capriole GLM 5.2",
-          "tool_call": true,
-          "reasoning": true
-        },
-        "moonshot/kimi-k3": {
-          "name": "Capriole Kimi K3",
-          "tool_call": true,
-          "reasoning": true
-        },
-        "anthropic/claude-opus-4-8": {
-          "name": "Capriole Opus 4.8",
+          "name": "Claude latest",
+          "provider": {
+            "npm": "@ai-sdk/anthropic"
+          },
+          "limit": {
+            "context": 1000000,
+            "output": 128000
+          },
           "tool_call": true
         },
-        "anthropic/claude-opus-4-7": {
-          "name": "Capriole Opus 4.7",
+        "claude-opus-5-5": {
+          "name": "Opus 5.5",
+          "provider": {
+            "npm": "@ai-sdk/anthropic"
+          },
+          "limit": {
+            "context": 1000000,
+            "output": 128000
+          },
           "tool_call": true
-        },
-        "anthropic/claude-opus-4-6": {
-          "name": "Capriole Opus 4.6",
-          "tool_call": true
-        },
-        "anthropic/claude-sonnet-4-6": {
-          "name": "Capriole Sonnet 4.6",
-          "tool_call": true
-        },
-        "google/gemini-3.1-pro-preview": {
-          "name": "Capriole Gemini 3.1 Pro Preview",
-          "tool_call": true,
-          "reasoning": true
         },
         "google/gemini-3.8-flash": {
-          "name": "Capriole Gemini 3.8 Flash",
-          "tool_call": true,
-          "reasoning": true
+          "name": "Gemini 3.8 Flash",
+          "limit": {
+            "context": 1048576,
+            "output": 65536
+          },
+          "tool_call": true
+        },
+        "xai/grok-4.7": {
+          "name": "Grok 4.7",
+          "limit": {
+            "context": 500000,
+            "output": 128000
+          },
+          "tool_call": true
+        },
+        "zai/glm-5.3-flash": {
+          "name": "GLM 5.3 Flash",
+          "limit": {
+            "context": 1000000,
+            "output": 128000
+          },
+          "tool_call": true
+        },
+        "moonshot/kimi-k3": {
+          "name": "Kimi K3",
+          "limit": {
+            "context": 1048576,
+            "output": 131072
+          },
+          "tool_call": true
         }
       }
     }
   }
 }
 ```
+
+각 설정의 역할은 다음과 같습니다.
+
+- `npm: "@ai-sdk/openai-compatible"`은 제공자의 기본 패키지이므로 Gemini, Grok, GLM, Kimi는 Chat Completions를 사용합니다.
+- 각 GPT 모델은 `provider.npm`을 Responses API를 사용하는 `@ai-sdk/openai`로 재정의합니다. 각 Claude 모델은 Anthropic Messages를 사용하는 `@ai-sdk/anthropic`으로 재정의합니다.
+- `{env:CAPRIOLE_AI_API_KEY}`는 환경 변수에서 키를 읽습니다. `Authorization` 헤더는 모든 패키지에서 키를 Bearer 토큰으로 보냅니다. 이 헤더가 없으면 Anthropic 패키지가 키를 `x-api-key` 헤더로 보내는데, Capriole AI는 이를 받지 않습니다.
+- `tool_call: true`는 모델이 Kilo의 도구를 호출할 수 있게 합니다.
+- `limit`은 각 모델의 컨텍스트 창과 출력 한도를 설정합니다. 이 값이 없으면 Kilo는 두 값을 모두 `0`으로 처리해 긴 세션을 압축하지 않습니다.
+
+이 제공자는 전역 구성에 두세요. Kilo는 프로젝트 수준 구성의 `{env:...}` 참조를 해석하지 않습니다.
+
+파일을 수정한 뒤 `kilo config check`를 실행하세요.
 
 ## Kilo Code 실행
 
@@ -170,89 +169,52 @@ kilo
 특정 모델로 시작하세요.
 
 ```bash
-kilo -m openai-compatible/openai-latest
-kilo -m openai-compatible/claude-latest
-kilo -m openai-compatible/google-latest
-kilo -m openai-compatible/openai/gpt-5.5
-kilo -m openai-compatible/anthropic/claude-fable-5-1
-kilo -m openai-compatible/anthropic/claude-fable-5
-kilo -m openai-compatible/anthropic/claude-opus-5
-kilo -m openai-compatible/anthropic/claude-opus-4-8
-kilo -m openai-compatible/anthropic/claude-opus-4-7
-kilo -m openai-compatible/google/gemini-3.1-pro-preview
-kilo -m openai-compatible/google/gemini-3.8-flash
-kilo -m openai-compatible/zai/glm-5.3-flash
-kilo -m openai-compatible/moonshot/kimi-k3
+kilo -m capriole-ai/openai-latest
 ```
 
-Gemini 3.8 Flash로 일회성 요청을 실행하세요.
+일회성 요청은 `kilo run`에 프롬프트를 전달하세요.
 
 ```bash
-kilo run --agent ask -m openai-compatible/google/gemini-3.8-flash "Summarize this project."
-```
-
-일회성 CLI 요청은 `kilo run`에 프롬프트를 전달하세요.
-
-```bash
-export CAPRIOLE_AI_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
-kilo run -m openai-compatible/openai-latest "Explain this repository structure."
+kilo run -m capriole-ai/claude-latest "Explain this repository."
 ```
 
 ## 지원 모델
 
-새 Kilo Code 구성은 `openai-latest`로 시작하세요. Capriole AI가 권장 Claude 또는 Gemini 플래그십 모델로 라우팅하게 하려면 `claude-latest` 또는 `google-latest`를 사용하고, 정확한 모델 버전이 필요하면 구체적인 모델 ID를 사용하세요.
+모델 참조는 `capriole-ai/<model-id>` 형식을 사용합니다.
 
-Kilo 문서는 Capriole AI 모델 선택기와 같은 계열 순서를 사용합니다. OpenAI, Anthropic, 그다음 Google입니다. 공개 API 통합은 Fable 5 Thinking과 Opus 5 Thinking 같은 웹 채팅 전용 프리셋을 제외합니다.
+| 모델 | 모델 ID | 프로토콜 |
+| --- | --- | --- |
+| OpenAI latest | `openai-latest` | Responses |
+| GPT-6.1 Sol | `openai/gpt-6.1-sol` | Responses |
+| Claude latest | `claude-latest` | Anthropic Messages |
+| Opus 5.5 | `claude-opus-5-5` | Anthropic Messages |
+| Gemini 3.8 Flash | `google/gemini-3.8-flash` | Chat Completions |
+| Grok 4.7 | `xai/grok-4.7` | Chat Completions |
+| GLM 5.3 Flash | `zai/glm-5.3-flash` | Chat Completions |
+| Kimi K3 | `moonshot/kimi-k3` | Chat Completions |
 
-- `openai-latest`
-- `openai/gpt-6-astra`
-- `openai/gpt-5.6-terra`
-- `openai/gpt-5.6-luna`
-- `openai/gpt-5.5`
-- `claude-latest`
-- `anthropic/claude-fable-5-1`
-- `anthropic/claude-fable-5`
-- `anthropic/claude-opus-5`
-- `anthropic/claude-opus-4-8`
-- `anthropic/claude-opus-4-7`
-- `anthropic/claude-opus-4-6`
-- `anthropic/claude-sonnet-4-6`
-- `google-latest`
-- `google/gemini-3.1-pro-preview`
-- `google/gemini-3.8-flash`
-- `xai/grok-4.5`
-- `zai/glm-5.3-flash`
-- `zai/glm-5.2`
-- `moonshot/kimi-k3`
-
-`GET /v1/models`가 반환하는 다른 공개 Chat Completions 호환 모델 ID도 테스트하고 싶을 때 구성할 수 있습니다. 코드 편집 워크플로에 모델을 쓰기 전에 도구 사용을 검증하세요.
+`openai-latest`와 `claude-latest`는 항상 각 계열의 최신 플래그십 모델을 가리킵니다.
 
 ## 문제 해결
 
 ### Kilo Code가 인증 오류를 반환하는 이유는 무엇인가요?
 
-`kilo`를 실행하기 전에 같은 셸에서 `CAPRIOLE_AI_API_KEY`를 내보냈는지 확인하세요.
+`kilo`를 실행하기 전에 같은 셸에서 `CAPRIOLE_AI_API_KEY`를 내보냈는지, 제공자가 프로젝트 구성이 아니라 `~/.config/kilo/kilo.jsonc`에 있는지 확인하세요.
 
-### 어떤 구성 파일을 편집해야 하나요?
+### Claude 요청이 `Unsupported Claude Messages model`로 실패하는 이유는 무엇인가요?
 
-현재 Kilo CLI와 VS Code extension에는 `~/.config/kilo/kilo.jsonc`를 사용하세요. 편집 후 `kilo config check`를 실행하세요.
+`@ai-sdk/anthropic`을 사용하는 Claude 모델에는 `claude-opus-5-5` 같은 접두사 없는 Claude ID가 필요합니다. `anthropic/` 접두사가 붙은 ID는 Chat Completions용입니다.
 
-### 요청이 엔드포인트 오류로 실패하는 이유는 무엇인가요?
+### Kilo Code가 모델이 없다고 표시하는 이유는 무엇인가요?
 
-`baseURL`이 `https://api.caprioletech.com/v1`인지 확인하세요. Kilo는 Chat Completions 요청을 `/v1/chat/completions`로 보냅니다.
-
-### Kilo Code가 모델이 없다고 하는 이유는 무엇인가요?
-
-선택한 모델이 `openai-compatible/<model-id>` 형식이고 `provider.openai-compatible.models`에 일치하는 모델 항목이 있는지 확인하세요. 예를 들어 `openai-compatible/openai-latest`는 `openai-latest` 구성 키에 매핑됩니다.
+선택한 모델이 `capriole-ai/<model-id>` 형식을 사용하는지, `provider.capriole-ai.models`에 일치하는 항목이 있는지 확인하세요. `kilo models capriole-ai`를 실행하면 Kilo가 불러온 모델 목록을 볼 수 있습니다.
 
 ### 도구 사용이 실패하는 이유는 무엇인가요?
 
-GPT, Claude, Gemini 3.1 Pro, Gemini 3.8 Flash, latest 별칭 항목에는 모델 항목에 `"tool_call": true`가 포함되어 있는지 확인하세요. Kilo Code는 도구를 로컬에서 실행하고 후속 Chat Completions 요청을 Capriole AI로 보냅니다.
+모델 항목에 `"tool_call": true`가 포함되어 있는지 확인하세요.
 
 ## 참고
 
-- Capriole AI는 `POST /v1/chat/completions`를 통해 Kilo Code를 노출합니다.
-- Kilo Code는 코딩 도구를 로컬에서 실행합니다. Capriole AI는 모델 요청만 처리합니다.
-- Kilo Code 7.3.16은 Kimi K3로 스트리밍 bash 도구 호출과 후속 assistant 턴을 완료합니다.
-- 제공자 구성은 먼저 최소한으로 유지하세요. 클라이언트 쪽 컨텍스트 관리를 의도적으로 원할 때만 Kilo 모델 제한이나 다른 모델 옵션을 추가하세요.
-- 공식 참고: [Kilo OpenAI Compatible provider](https://kilo.ai/docs/ai-providers/openai-compatible), [Kilo settings](https://kilo.ai/docs/getting-started/settings), [Kilo custom models](https://kilo.ai/docs/code-with-ai/agents/custom-models), [Kilo CLI](https://kilo.ai/docs/cli), [Gemini function calling](https://ai.google.dev/gemini-api/docs/function-calling).
+- Kilo Code는 사용자 컴퓨터에서 코딩 도구를 실행합니다. Capriole AI는 모델 요청만 처리합니다.
+- 다른 Capriole AI 모델을 추가하려면 같은 계열 모델의 항목을 복사하고 ID를 바꾸세요. `GET https://api.caprioletech.com/v1/models`는 모든 모델 ID를 나열합니다.
+- 공식 참고: [Kilo CLI](https://kilo.ai/docs/cli), [Kilo custom models](https://kilo.ai/docs/code-with-ai/agents/custom-models), [Kilo settings](https://kilo.ai/docs/getting-started/settings), [OpenCode providers](https://opencode.ai/docs/providers).

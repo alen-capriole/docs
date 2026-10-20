@@ -1,0 +1,105 @@
+---
+title: "Cline"
+description: "Configure o Cline para usar a Capriole AI."
+---
+
+## O que é Cline
+
+O Cline é um agente de programação de código aberto para o terminal e o VS Code. O provedor OpenAI Compatible dele envia solicitações de modelo para a Capriole AI por Chat Completions.
+
+## Pré-requisitos
+
+Antes de começar, confira se você tem:
+
+- Uma conta Capriole AI ([Cadastre-se aqui](https://capriole.ai))
+- Uma API key da Capriole AI ([Obtenha sua key](https://capriole.ai?view=api))
+
+## Instalação
+
+Instale a Cline CLI com npm:
+
+```bash
+npm install -g cline
+```
+
+Verifique a instalação:
+
+```bash
+cline --version
+```
+
+## Configuração
+
+### Validação dos modelos
+
+A Cline CLI 3.0.73 passa nas verificações de leitura de arquivo, escrita de arquivo e resposta final pela Capriole AI com todos os modelos da seção Modelos suportados, usando a configuração abaixo.
+
+Salve a Capriole AI como provedor:
+
+```bash
+export CAPRIOLE_AI_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
+cline auth -p openai-compatible \
+  -k "$CAPRIOLE_AI_API_KEY" \
+  -b "https://api.caprioletech.com/v1" \
+  -m claude-latest
+```
+
+O que cada configuração faz:
+
+- `-p openai-compatible` usa o provedor OpenAI Compatible do Cline, que envia a key como Bearer token.
+- `-b` é a URL base. Ela inclui `/v1`, porque o próprio Cline adiciona `/chat/completions`.
+- `-m` é o modelo padrão.
+
+O Cline salva esses valores em `~/.cline`, então você só executa `cline auth` uma vez.
+
+Na extensão do VS Code, abra as configurações do Cline, escolha **OpenAI Compatible** e informe a mesma URL base, API key e ID do modelo.
+
+## Executar Cline
+
+Inicie o Cline no diretório do projeto:
+
+```bash
+cline
+```
+
+Para uma tarefa pontual, passe o prompt. Use `-m` para escolher outro modelo nessa execução:
+
+```bash
+cline -m moonshot/kimi-k3 "Explain this repository."
+```
+
+## Modelos suportados
+
+Todos os modelos usam Chat Completions.
+
+| Modelo | ID do modelo |
+| --- | --- |
+| OpenAI latest | `openai-latest` |
+| GPT-6.1 Sol | `openai/gpt-6.1-sol` |
+| Claude latest | `claude-latest` |
+| Opus 5.5 | `anthropic/claude-opus-5-5` |
+| Gemini 3.8 Flash | `google/gemini-3.8-flash` |
+| Grok 4.7 | `xai/grok-4.7` |
+| GLM 5.3 Flash | `zai/glm-5.3-flash` |
+| Kimi K3 | `moonshot/kimi-k3` |
+
+`openai-latest` e `claude-latest` sempre apontam para o nosso modelo principal mais recente de cada família. `GET https://api.caprioletech.com/v1/models` lista todos os IDs de modelo.
+
+## Solução de problemas
+
+### Por que o Cline retorna um erro de autenticação?
+
+Execute `cline auth` de novo com sua API key atual da Capriole AI.
+
+### Por que um modelo Claude falha com `Unsupported chat model_key`?
+
+No Chat Completions, use os IDs Claude com o prefixo `anthropic/`, como `anthropic/claude-opus-5-5`. Os IDs sem prefixo, como `claude-opus-5-5`, são para Anthropic Messages.
+
+### Por que as solicitações falham com erros de endpoint?
+
+Confirme que a URL base é `https://api.caprioletech.com/v1`.
+
+## Observações
+
+- O Cline executa ferramentas de programação no seu computador. A Capriole AI só trata as solicitações de modelo.
+- Referências oficiais: [Cline CLI](https://docs.cline.bot/cline-cli/overview) e [Provedor OpenAI Compatible do Cline](https://docs.cline.bot/provider-config/openai-compatible).

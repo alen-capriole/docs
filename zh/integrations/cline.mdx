@@ -1,0 +1,105 @@
+---
+title: "Cline"
+description: "配置 Cline 使用 Capriole AI。"
+---
+
+## Cline 是什么
+
+Cline 是适用于终端和 VS Code 的开源编程代理。它的 OpenAI Compatible 提供商通过 Chat Completions 把模型请求发送到 Capriole AI。
+
+## 前置条件
+
+开始前请确保你已经拥有以下内容。
+
+- Capriole AI 账户，可在[此处注册](https://capriole.ai)
+- Capriole AI API Key，可在[此处获取](https://capriole.ai?view=api)
+
+## 安装
+
+使用 npm 安装 Cline CLI。
+
+```bash
+npm install -g cline
+```
+
+验证安装。
+
+```bash
+cline --version
+```
+
+## 配置
+
+### 模型验证
+
+使用下方配置，Cline CLI 3.0.73 经 Capriole AI 调用“支持的模型”一节中的每个模型，都通过了文件读取、文件写入和最终答案检查。
+
+把 Capriole AI 保存为提供商。
+
+```bash
+export CAPRIOLE_AI_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
+cline auth -p openai-compatible \
+  -k "$CAPRIOLE_AI_API_KEY" \
+  -b "https://api.caprioletech.com/v1" \
+  -m claude-latest
+```
+
+各项设置的作用如下。
+
+- `-p openai-compatible` 使用 Cline 的 OpenAI Compatible 提供商，它会以 Bearer Token 形式发送 Key。
+- `-b` 是 Base URL。它包含 `/v1`，因为 Cline 会自行添加 `/chat/completions`。
+- `-m` 是默认模型。
+
+Cline 会把这些值保存在 `~/.cline` 中，因此 `cline auth` 只需运行一次。
+
+在 VS Code 扩展中，打开 Cline 的设置，选择 **OpenAI Compatible**，然后填入相同的 Base URL、API Key 和模型 ID。
+
+## 运行 Cline
+
+在项目目录中启动 Cline。
+
+```bash
+cline
+```
+
+如需执行一次性任务，请传入提示词。使用 `-m` 可以为这次运行选择其他模型。
+
+```bash
+cline -m moonshot/kimi-k3 "Explain this repository."
+```
+
+## 支持的模型
+
+所有模型都使用 Chat Completions。
+
+| 模型 | 模型 ID |
+| --- | --- |
+| OpenAI latest | `openai-latest` |
+| GPT-6.1 Sol | `openai/gpt-6.1-sol` |
+| Claude latest | `claude-latest` |
+| Opus 5.5 | `anthropic/claude-opus-5-5` |
+| Gemini 3.8 Flash | `google/gemini-3.8-flash` |
+| Grok 4.7 | `xai/grok-4.7` |
+| GLM 5.3 Flash | `zai/glm-5.3-flash` |
+| Kimi K3 | `moonshot/kimi-k3` |
+
+`openai-latest` 和 `claude-latest` 始终指向各自系列中我们最新的旗舰模型。`GET https://api.caprioletech.com/v1/models` 会列出所有模型 ID。
+
+## 故障排除
+
+### 为什么 Cline 返回身份验证错误
+
+使用你当前的 Capriole AI API Key 重新运行 `cline auth`。
+
+### 为什么 Claude 模型因 `Unsupported chat model_key` 失败
+
+在 Chat Completions 上，请使用带 `anthropic/` 前缀的 Claude ID，例如 `anthropic/claude-opus-5-5`。`claude-opus-5-5` 等不带前缀的 ID 用于 Anthropic Messages。
+
+### 为什么请求出现端点错误
+
+确认 Base URL 是 `https://api.caprioletech.com/v1`。
+
+## 说明
+
+- Cline 在你的电脑上运行编程工具。Capriole AI 只处理模型请求。
+- 官方参考资料包括 [Cline CLI](https://docs.cline.bot/cline-cli/overview)和 [Cline OpenAI Compatible 提供商](https://docs.cline.bot/provider-config/openai-compatible)。

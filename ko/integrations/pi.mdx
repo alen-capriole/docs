@@ -1,0 +1,172 @@
+---
+title: "Pi"
+description: "Pi가 Capriole AI를 사용하도록 구성합니다."
+---
+
+## Pi란
+
+Pi는 터미널용 미니멀 오픈 소스 코딩 에이전트입니다. `models.json`에서 사용자 지정 엔드포인트를 읽으며, 모델마다 다른 API 프로토콜을 사용할 수 있습니다. 이 구성은 이 파일에 Capriole AI를 제공자 하나로 추가합니다.
+
+## 사전 준비
+
+시작하기 전에 다음이 있는지 확인하세요.
+
+- Capriole AI 계정([여기에서 가입](https://capriole.ai))
+- Capriole AI API key([키 받기](https://capriole.ai?view=api))
+
+## 설치
+
+공식 설치 스크립트로 Pi를 설치하세요.
+
+```bash
+curl -fsSL https://pi.dev/install.sh | sh
+```
+
+또는 npm으로 설치하세요(Node.js 22.19 이상).
+
+```bash
+npm install -g --ignore-scripts @earendil-works/pi-coding-agent
+```
+
+## 구성
+
+### 모델 검증
+
+Pi 1.3.0 버전은 아래 구성으로 지원 모델 섹션의 모든 모델에서 Capriole AI를 통한 파일 읽기, 파일 쓰기, 최종 답변 검사를 통과합니다.
+
+`~/.pi/agent/models.json`을 만들거나 업데이트하세요.
+
+```json
+{
+  "providers": {
+    "capriole": {
+      "name": "Capriole AI",
+      "baseUrl": "https://api.caprioletech.com/v1",
+      "api": "openai-completions",
+      "apiKey": "$CAPRIOLE_AI_API_KEY",
+      "authHeader": true,
+      "models": [
+        {
+          "id": "openai-latest",
+          "contextWindow": 1050000,
+          "maxTokens": 128000,
+          "reasoning": true,
+          "api": "openai-responses"
+        },
+        {
+          "id": "openai/gpt-6.1-sol",
+          "contextWindow": 1050000,
+          "maxTokens": 128000,
+          "reasoning": true,
+          "api": "openai-responses"
+        },
+        {
+          "id": "claude-latest",
+          "contextWindow": 1000000,
+          "maxTokens": 128000,
+          "reasoning": true,
+          "api": "anthropic-messages",
+          "baseUrl": "https://api.caprioletech.com",
+          "compat": { "forceAdaptiveThinking": true }
+        },
+        {
+          "id": "claude-opus-5-5",
+          "contextWindow": 1000000,
+          "maxTokens": 128000,
+          "reasoning": true,
+          "api": "anthropic-messages",
+          "baseUrl": "https://api.caprioletech.com",
+          "compat": { "forceAdaptiveThinking": true }
+        },
+        {
+          "id": "zai/glm-5.3-flash",
+          "contextWindow": 1000000,
+          "maxTokens": 128000,
+          "reasoning": true
+        },
+        {
+          "id": "moonshot/kimi-k3",
+          "contextWindow": 1048576,
+          "maxTokens": 131072,
+          "reasoning": true
+        },
+        {
+          "id": "xai/grok-4.7",
+          "contextWindow": 500000,
+          "maxTokens": 128000,
+          "reasoning": true
+        }
+      ]
+    }
+  }
+}
+```
+
+그런 다음 `~/.pi/agent/settings.json`에서 Capriole AI를 기본값으로 설정하세요.
+
+```json
+{
+  "defaultProvider": "capriole",
+  "defaultModel": "claude-latest"
+}
+```
+
+각 설정의 역할은 다음과 같습니다.
+
+- 제공자의 `api`가 `openai-completions`이므로 Grok, GLM, Kimi는 Chat Completions를 사용합니다. GPT 모델은 이 값을 `openai-responses`로 재정의하고, Claude 모델은 `anthropic-messages`와 `/v1` 없는 `baseUrl`로 재정의합니다.
+- `$CAPRIOLE_AI_API_KEY`는 환경 변수에서 키를 읽습니다.
+- `authHeader: true`는 모든 프로토콜에서 키를 Bearer 토큰으로 보냅니다. 이 설정이 없으면 Claude 모델이 키를 `x-api-key` 헤더로 보내는데, Capriole AI는 이를 받지 않습니다.
+- `forceAdaptiveThinking`은 Claude 모델이 adaptive thinking을 사용하게 합니다. Opus 5.5는 고정된 thinking 예산을 거부합니다.
+- `contextWindow`와 `maxTokens`는 Pi에 각 모델의 한도를 알려 줍니다.
+
+## Pi 실행
+
+API key를 설정한 다음 프로젝트 디렉터리에서 Pi를 시작하세요.
+
+```bash
+export CAPRIOLE_AI_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
+pi
+```
+
+`/model`로 모델을 전환하세요. 비대화형으로 실행하려면 print 모드를 사용하세요.
+
+```bash
+pi -p --model xai/grok-4.7 "Explain this repository."
+```
+
+## 지원 모델
+
+| 모델 | 모델 ID | 프로토콜 |
+| --- | --- | --- |
+| OpenAI latest | `openai-latest` | Responses |
+| GPT-6.1 Sol | `openai/gpt-6.1-sol` | Responses |
+| Claude latest | `claude-latest` | Anthropic Messages |
+| Opus 5.5 | `claude-opus-5-5` | Anthropic Messages |
+| Grok 4.7 | `xai/grok-4.7` | Chat Completions |
+| GLM 5.3 Flash | `zai/glm-5.3-flash` | Chat Completions |
+| Kimi K3 | `moonshot/kimi-k3` | Chat Completions |
+
+`openai-latest`와 `claude-latest`는 항상 각 계열의 최신 플래그십 모델을 가리킵니다.
+
+## 문제 해결
+
+### Capriole AI 모델이 `/model`에 나타나지 않는 이유는 무엇인가요?
+
+Pi는 키를 확인할 수 있을 때까지 사용자 지정 모델을 숨깁니다. Pi를 시작하기 전에 같은 셸에서 `CAPRIOLE_AI_API_KEY`를 내보내세요.
+
+### Pi가 인증 오류를 반환하는 이유는 무엇인가요?
+
+제공자에 `"authHeader": true`가 있는지 확인하세요.
+
+### Opus 5.5가 `requires adaptive thinking`으로 실패하는 이유는 무엇인가요?
+
+Claude 모델 항목에 `"compat": { "forceAdaptiveThinking": true }`가 있는지 확인하세요.
+
+### Claude 요청이 `Unsupported Claude Messages model`로 실패하는 이유는 무엇인가요?
+
+`anthropic-messages`를 사용하는 Claude 모델에는 `claude-opus-5-5` 같은 접두사 없는 Claude ID가 필요합니다. `anthropic/` 접두사가 붙은 ID는 Chat Completions용입니다.
+
+## 참고
+
+- 다른 Capriole AI 모델을 추가하려면 같은 계열 모델의 항목을 복사하고 ID를 바꾸세요. `GET https://api.caprioletech.com/v1/models`는 모든 모델 ID를 나열합니다.
+- 공식 참고: [Pi](https://pi.dev), [Pi docs](https://pi.dev/docs), [Choose a model](https://github.com/earendil-works/pi/blob/main/packages/coding-agent/docs/models.md), [Pi configuration](https://github.com/earendil-works/pi/blob/main/packages/coding-agent/docs/configuration.md).

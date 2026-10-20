@@ -5,7 +5,7 @@ description: "Konfigurieren Sie Claude Code für die Nutzung von Capriole AI."
 
 ## Was ist Claude Code
 
-Claude Code ist das agentische Coding-Tool von Anthropic zum Lesen von Codebasen, Bearbeiten von Dateien, Ausführen von Befehlen und zur Integration mit Entwicklungswerkzeugen. Dieses CLI-Setup nutzt Capriole AI, indem Endpunkt, Auth-Token und Modell-Umgebungsvariablen von Claude Code konfiguriert werden.
+Claude Code ist das agentische Coding-Tool von Anthropic zum Lesen von Codebasen, Bearbeiten von Dateien, Ausführen von Befehlen und zur Integration mit Entwicklungswerkzeugen. Dieses Setup leitet Claude Code über seine Gateway-Einstellungen an Capriole AI weiter: API-Endpunkt, Auth-Token und das Modell für jeden Alias.
 
 ## Voraussetzungen
 
@@ -16,105 +16,124 @@ Bevor Sie beginnen, stellen Sie sicher, dass Sie Folgendes haben:
 
 ## Installation
 
+Installieren Sie Claude Code mit dem offiziellen nativen Installationsprogramm:
+
+```bash
+curl -fsSL https://claude.ai/install.sh | bash
+```
+
+Oder installieren Sie es mit Homebrew:
+
+```bash
+brew install --cask claude-code
+```
+
+Oder installieren Sie es mit npm (Node.js 22 oder neuer):
+
 ```bash
 npm install -g @anthropic-ai/claude-code
 ```
 
+Prüfen Sie die Installation:
+
+```bash
+claude --version
+```
+
 ## Konfiguration
 
-Erstellen oder aktualisieren Sie `~/.claude/settings.json` für eine dauerhafte Einrichtung:
+### Modellvalidierung
+
+Claude Code 2.1.304 besteht mit der folgenden Konfiguration für jedes Modell im Abschnitt „Unterstützte Modelle“ eine Prüfung aus Dateilesen, Dateischreiben und abschließender Antwort über Capriole AI.
+
+Erstellen oder aktualisieren Sie `~/.claude/settings.json`:
 
 ```json
 {
-  "model": "claude-latest",
-  "effortLevel": "high",
+  "model": "claude-fable-5-1",
   "env": {
     "ANTHROPIC_BASE_URL": "https://api.caprioletech.com",
     "ANTHROPIC_AUTH_TOKEN": "YOUR_CAPRIOLE_AI_API_KEY",
-    "ANTHROPIC_MODEL": "claude-latest",
-    "ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-latest",
-    "ANTHROPIC_DEFAULT_SONNET_MODEL": "claude-latest",
-    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "claude-latest",
-    "ANTHROPIC_SMALL_FAST_MODEL": "claude-latest",
-    "CLAUDE_CODE_SUBAGENT_MODEL": "claude-latest"
+    "ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-opus-5-5",
+    "ANTHROPIC_DEFAULT_SONNET_MODEL": "claude-fable-5-1",
+    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "claude-sonnet-4-6"
   }
 }
 ```
 
-Für eine einmalige Shell-Einrichtung exportieren Sie dieselben Werte, bevor Sie Claude Code starten:
+Was die einzelnen Einstellungen bewirken:
+
+- `model` ist das Standardmodell für neue Sitzungen. Ein Modell, das Sie mit `/model` auswählen, wird gespeichert und beim nächsten Mal verwendet.
+- `ANTHROPIC_BASE_URL` sendet Anfragen an Capriole AI. Fügen Sie kein `/v1` hinzu; Claude Code ergänzt `/v1/messages` selbst.
+- `ANTHROPIC_AUTH_TOKEN` sendet Ihren Schlüssel als Bearer-Token, was Capriole AI voraussetzt.
+- Die drei `ANTHROPIC_DEFAULT_*_MODEL`-Werte richten die Aliase `opus`, `sonnet` und `haiku` auf Modelle aus, die Capriole AI bereitstellt. `haiku` ist das Modell, das Claude Code für schnelle Hintergrundaufgaben verwendet.
+
+Für eine einmalige Shell-Einrichtung exportieren Sie Endpunkt und Token und übergeben dann das Modell:
 
 ```bash
 export ANTHROPIC_BASE_URL="https://api.caprioletech.com"
 export ANTHROPIC_AUTH_TOKEN="YOUR_CAPRIOLE_AI_API_KEY"
-
-export ANTHROPIC_MODEL="claude-latest"
-export ANTHROPIC_DEFAULT_OPUS_MODEL="claude-latest"
-export ANTHROPIC_DEFAULT_SONNET_MODEL="claude-latest"
-export ANTHROPIC_DEFAULT_HAIKU_MODEL="claude-latest"
-export ANTHROPIC_SMALL_FAST_MODEL="claude-latest"
-export CLAUDE_CODE_SUBAGENT_MODEL="claude-latest"
+claude --model claude-fable-5-1
 ```
 
 ## Claude Code ausführen
 
-Nach dem Speichern von `~/.claude/settings.json` oder dem Export der Variablen starten Sie Claude Code aus Ihrem Projektverzeichnis:
+Starten Sie Claude Code aus Ihrem Projektverzeichnis:
 
 ```bash
 claude
 ```
 
-Für einen einmaligen nicht interaktiven Lauf ohne gespeicherte Einstellungsdatei übergeben Sie das Modell explizit:
+Wechseln Sie das Modell in einer Sitzung mit `/model`, zum Beispiel `/model opus` für Opus 5.5. Für einen nicht interaktiven Lauf verwenden Sie den Print-Modus:
 
 ```bash
-claude --model claude-latest -p "Explain this repository."
+claude -p "Explain this repository."
 ```
 
 ## Unterstützte Modelle
 
-Claude Code unterstützt Claude latest, Fable 5.1, Fable 5, Opus 5.5, Opus 5, Opus 4.8, Opus 4.7, Opus 4.6 und Sonnet 4.6 über Capriole AI. Verwenden Sie `claude-latest` für neue Setups; der Alias wird zu Fable 5.1 aufgelöst.
+Claude Code verwendet das Anthropic Messages-Protokoll und unterstützt daher die Claude-Modelle von Capriole AI:
 
-- `claude-latest`
-- `claude-fable-5-1`
+- `claude-fable-5-1` (Fable 5.1, der empfohlene Standard)
+- `claude-opus-5-5` (Opus 5.5)
 - `claude-fable-5`
-- `claude-opus-5-5`
 - `claude-opus-5`
 - `claude-opus-4-8`
 - `claude-opus-4-7`
 - `claude-opus-4-6`
 - `claude-sonnet-4-6`
+- `claude-latest`, das immer auf unser neuestes Claude-Flaggschiff-Modell zeigt (derzeit Fable 5.1)
+
+Claude Code erkennt `claude-latest` nicht als Modellnamen und nimmt dafür deshalb ein Kontextfenster von 200K an. Verwenden Sie eine konkrete ID wie `claude-fable-5-1`, um das volle Kontextfenster des Modells zu erhalten.
 
 ## Fehlerbehebung
 
 ### Warum gibt Claude Code einen Authentifizierungsfehler zurück?
 
-Bestätigen Sie, dass `ANTHROPIC_AUTH_TOKEN` in derselben Shell exportiert ist, bevor Sie `claude` starten. Verwenden Sie für dieses Setup `ANTHROPIC_AUTH_TOKEN`, nicht `ANTHROPIC_API_KEY`.
+Verwenden Sie `ANTHROPIC_AUTH_TOKEN`, nicht `ANTHROPIC_API_KEY`. `ANTHROPIC_API_KEY` sendet den Schlüssel in einem `x-api-key`-Header, und Capriole AI akzeptiert nur ein Bearer-Token.
 
 ### Warum schlagen Anfragen mit Endpunktfehlern fehl?
 
-Bestätigen Sie, dass `ANTHROPIC_BASE_URL` `https://api.caprioletech.com` ohne `/v1` ist; Claude Code sendet Anfragen an `/v1/messages` und `/v1/messages/count_tokens`.
+Bestätigen Sie, dass `ANTHROPIC_BASE_URL` `https://api.caprioletech.com` ohne `/v1` ist.
 
-### Warum verwendet Claude Code nicht Claude latest?
+### Warum wechselt Claude Code bei jedem Start zu einem anderen Modell zurück?
 
-Bestätigen Sie, dass `model`, `ANTHROPIC_MODEL`, `ANTHROPIC_SMALL_FAST_MODEL` und die Standard-Modell-Umgebungsvariablen vor dem Start gesetzt sind, und prüfen Sie dann `/model` oder `/status` auf eine aktive Sitzung oder eine Einstellungsüberschreibung.
+Entfernen Sie `ANTHROPIC_MODEL` aus Ihren Einstellungen und Ihrer Shell. Wenn die Variable gesetzt ist, kehrt Claude Code beim nächsten Start zu diesem Modell zurück statt zu dem Modell, das Sie mit `/model` gespeichert haben.
 
-### Warum verwendet Claude Code nicht die konfigurierte Effort-Stufe?
+### Warum schlägt `/model opus` oder `/model sonnet` fehl?
 
-Setzen Sie `"effortLevel": "high"` in `~/.claude/settings.json` und starten Sie Claude Code neu. Die Claude Code-Einstellungen akzeptieren `low`, `medium`, `high` und `xhigh`; `max` wird in `effortLevel` nicht akzeptiert.
+Behalten Sie die drei `ANTHROPIC_DEFAULT_*_MODEL`-Werte bei. Ohne sie sendet Claude Code die eigenen Alias-Ziele von Anthropic. Zum Beispiel fordert `sonnet` `claude-sonnet-5-5` an, das Capriole AI nicht bereitstellt, und die Anfrage schlägt mit `Unsupported Claude Messages model` fehl.
 
-Für die absolute maximale Effort-Stufe in einer Sitzung verwenden Sie `/effort max`, starten Sie mit `claude --effort max` oder setzen Sie `CLAUDE_CODE_EFFORT_LEVEL=max`, bevor Sie `claude` starten.
+### Warum verwendet Claude Code nicht meine Effort-Stufe?
 
-### Warum kann Claude Code kein konkretes Opus-Modell auswählen?
+Claude Code speichert die Effort-Stufe für jedes Modell separat. Wählen Sie sie mit `/effort`, während das Modell aktiv ist. Ein `effortLevel` auf oberster Ebene in Ihren Benutzereinstellungen gilt nicht für Opus 5.5.
 
-Aktualisieren Sie Claude Code mit `claude update` und führen Sie dann `claude --version` aus.
+### Warum schlägt die Token-Zählung fehl?
 
-### Warum schlagen Token-Zählung oder die Modellermittlung beim Start fehl?
-
-Behalten Sie die Modell-Umgebungsvariablen bei und bestätigen Sie, dass die Modell-ID `claude-latest` oder eine unterstützte konkrete Claude-Modell-ID ist. Capriole AI proxied `/v1/messages/count_tokens` an das gewählte Upstream, daher hängt der Token-Zähl-Preflight davon ab, dass dieses Upstream Anthropic Token Counting unterstützt.
+Capriole AI leitet `/v1/messages/count_tokens` an das gewählte Upstream weiter. Wenn dieses Upstream keine Token-Zählung unterstützt, schätzt Claude Code die Anzahl stattdessen, und die Sitzung funktioniert weiter.
 
 ## Hinweise
 
-- `~/.claude/settings.json` gilt für Ihr Benutzerkonto über Projekte hinweg. Verwenden Sie `YOUR_CAPRIOLE_AI_API_KEY` als Platzhalter und ersetzen Sie ihn durch Ihren tatsächlichen Capriole AI API-Schlüssel.
-- `ANTHROPIC_BASE_URL` ändert, wohin Claude Code Anfragen sendet. Die Modell-Umgebungsvariablen steuern, welche Modell-ID gesendet wird.
-- `ANTHROPIC_SMALL_FAST_MODEL` sollte `claude-latest` entsprechen, damit Hilfsanfragen von Claude Code denselben Capriole AI Latest-Alias wie die Hauptunterhaltung verwenden.
-- Dieses Setup verwendet `high` als dokumentierte Standard-Effort-Stufe. `xhigh` ist ebenfalls eine dauerhafte `effortLevel`-Option, während `max` eine sitzungsbezogene Überschreibung ist und mehr Thinking-Tokens verbrauchen kann.
-- Offizielle Referenzen: [Claude Code-Einrichtung](https://code.claude.com/docs/en/setup), [Umgebungsvariablen](https://code.claude.com/docs/en/env-vars), [Modellkonfiguration](https://code.claude.com/docs/en/model-config) und [Claude Effort](https://platform.claude.com/docs/en/build-with-claude/effort).
+- `~/.claude/settings.json` gilt für Ihr Benutzerkonto in allen Projekten. Ersetzen Sie `YOUR_CAPRIOLE_AI_API_KEY` durch Ihren Capriole AI API-Schlüssel.
+- Gemini-, Grok-, GLM- und Kimi-Modelle laufen nicht in Claude Code, da es nur das Anthropic Messages-Protokoll spricht. Verwenden Sie für diese Modelle OpenCode, Kilo Code oder einen anderen Agent, der mehrere Protokolle unterstützt.
+- Offizielle Referenzen: [Claude Code-Einrichtung](https://code.claude.com/docs/en/setup), [Modellkonfiguration](https://code.claude.com/docs/en/model-config) und [LLM-Gateway-Konfiguration](https://code.claude.com/docs/en/llm-gateway-connect).

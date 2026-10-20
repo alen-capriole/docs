@@ -1772,6 +1772,83 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/integrations/claude-code" />
   </url>
   <url>
+    <loc>https://docs.capriole.ai/integrations/cline</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/integrations/cline" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/integrations/cline" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/integrations/cline" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/integrations/cline" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/integrations/cline" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/integrations/cline" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/integrations/cline" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/integrations/cline" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/zh/integrations/cline</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/integrations/cline" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/integrations/cline" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/integrations/cline" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/integrations/cline" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/integrations/cline" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/integrations/cline" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/integrations/cline" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/integrations/cline" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/es/integrations/cline</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/integrations/cline" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/integrations/cline" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/integrations/cline" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/integrations/cline" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/integrations/cline" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/integrations/cline" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/integrations/cline" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/integrations/cline" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/pt-br/integrations/cline</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/integrations/cline" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/integrations/cline" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/integrations/cline" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/integrations/cline" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/integrations/cline" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/integrations/cline" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/integrations/cline" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/integrations/cline" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/de/integrations/cline</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/integrations/cline" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/integrations/cline" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/integrations/cline" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/integrations/cline" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/integrations/cline" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/integrations/cline" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/integrations/cline" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/integrations/cline" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/ja/integrations/cline</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/integrations/cline" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/integrations/cline" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/integrations/cline" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/integrations/cline" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/integrations/cline" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/integrations/cline" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/integrations/cline" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/integrations/cline" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/ko/integrations/cline</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/integrations/cline" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/integrations/cline" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/integrations/cline" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/integrations/cline" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/integrations/cline" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/integrations/cline" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/integrations/cline" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/integrations/cline" />
+  </url>
+  <url>
     <loc>https://docs.capriole.ai/integrations/codex</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/integrations/codex" />
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/integrations/codex" />
@@ -1847,6 +1924,83 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/integrations/codex" />
     <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/integrations/codex" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/integrations/codex" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/integrations/crush</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/integrations/crush" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/integrations/crush" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/integrations/crush" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/integrations/crush" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/integrations/crush" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/integrations/crush" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/integrations/crush" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/integrations/crush" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/zh/integrations/crush</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/integrations/crush" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/integrations/crush" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/integrations/crush" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/integrations/crush" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/integrations/crush" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/integrations/crush" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/integrations/crush" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/integrations/crush" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/es/integrations/crush</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/integrations/crush" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/integrations/crush" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/integrations/crush" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/integrations/crush" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/integrations/crush" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/integrations/crush" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/integrations/crush" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/integrations/crush" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/pt-br/integrations/crush</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/integrations/crush" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/integrations/crush" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/integrations/crush" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/integrations/crush" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/integrations/crush" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/integrations/crush" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/integrations/crush" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/integrations/crush" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/de/integrations/crush</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/integrations/crush" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/integrations/crush" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/integrations/crush" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/integrations/crush" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/integrations/crush" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/integrations/crush" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/integrations/crush" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/integrations/crush" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/ja/integrations/crush</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/integrations/crush" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/integrations/crush" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/integrations/crush" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/integrations/crush" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/integrations/crush" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/integrations/crush" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/integrations/crush" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/integrations/crush" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/ko/integrations/crush</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/integrations/crush" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/integrations/crush" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/integrations/crush" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/integrations/crush" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/integrations/crush" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/integrations/crush" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/integrations/crush" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/integrations/crush" />
   </url>
   <url>
     <loc>https://docs.capriole.ai/integrations/github-copilot-cli</loc>
@@ -2232,6 +2386,160 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/integrations/opencode" />
     <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/integrations/opencode" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/integrations/opencode" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/integrations/pi</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/integrations/pi" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/integrations/pi" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/integrations/pi" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/integrations/pi" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/integrations/pi" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/integrations/pi" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/integrations/pi" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/integrations/pi" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/zh/integrations/pi</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/integrations/pi" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/integrations/pi" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/integrations/pi" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/integrations/pi" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/integrations/pi" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/integrations/pi" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/integrations/pi" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/integrations/pi" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/es/integrations/pi</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/integrations/pi" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/integrations/pi" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/integrations/pi" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/integrations/pi" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/integrations/pi" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/integrations/pi" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/integrations/pi" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/integrations/pi" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/pt-br/integrations/pi</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/integrations/pi" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/integrations/pi" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/integrations/pi" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/integrations/pi" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/integrations/pi" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/integrations/pi" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/integrations/pi" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/integrations/pi" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/de/integrations/pi</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/integrations/pi" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/integrations/pi" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/integrations/pi" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/integrations/pi" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/integrations/pi" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/integrations/pi" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/integrations/pi" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/integrations/pi" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/ja/integrations/pi</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/integrations/pi" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/integrations/pi" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/integrations/pi" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/integrations/pi" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/integrations/pi" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/integrations/pi" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/integrations/pi" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/integrations/pi" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/ko/integrations/pi</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/integrations/pi" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/integrations/pi" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/integrations/pi" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/integrations/pi" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/integrations/pi" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/integrations/pi" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/integrations/pi" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/integrations/pi" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/integrations/qwen-code</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/integrations/qwen-code" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/integrations/qwen-code" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/integrations/qwen-code" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/integrations/qwen-code" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/integrations/qwen-code" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/integrations/qwen-code" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/integrations/qwen-code" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/integrations/qwen-code" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/zh/integrations/qwen-code</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/integrations/qwen-code" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/integrations/qwen-code" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/integrations/qwen-code" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/integrations/qwen-code" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/integrations/qwen-code" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/integrations/qwen-code" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/integrations/qwen-code" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/integrations/qwen-code" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/es/integrations/qwen-code</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/integrations/qwen-code" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/integrations/qwen-code" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/integrations/qwen-code" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/integrations/qwen-code" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/integrations/qwen-code" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/integrations/qwen-code" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/integrations/qwen-code" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/integrations/qwen-code" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/pt-br/integrations/qwen-code</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/integrations/qwen-code" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/integrations/qwen-code" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/integrations/qwen-code" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/integrations/qwen-code" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/integrations/qwen-code" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/integrations/qwen-code" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/integrations/qwen-code" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/integrations/qwen-code" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/de/integrations/qwen-code</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/integrations/qwen-code" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/integrations/qwen-code" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/integrations/qwen-code" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/integrations/qwen-code" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/integrations/qwen-code" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/integrations/qwen-code" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/integrations/qwen-code" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/integrations/qwen-code" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/ja/integrations/qwen-code</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/integrations/qwen-code" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/integrations/qwen-code" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/integrations/qwen-code" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/integrations/qwen-code" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/integrations/qwen-code" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/integrations/qwen-code" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/integrations/qwen-code" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/integrations/qwen-code" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/ko/integrations/qwen-code</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/integrations/qwen-code" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/integrations/qwen-code" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/integrations/qwen-code" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/integrations/qwen-code" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/integrations/qwen-code" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/integrations/qwen-code" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/integrations/qwen-code" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/integrations/qwen-code" />
   </url>
   <url>
     <loc>https://docs.capriole.ai/overview</loc>

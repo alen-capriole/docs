@@ -18,8 +18,22 @@ Codex는 소프트웨어 개발을 위한 OpenAI의 코딩 에이전트입니다
 
 ### Codex CLI
 
+공식 설치 프로그램으로 Codex CLI를 설치하세요.
+
+```bash
+curl -fsSL https://chatgpt.com/codex/install.sh | sh
+```
+
+또는 npm으로 설치하세요.
+
 ```bash
 npm install -g @openai/codex
+```
+
+설치를 확인하세요.
+
+```bash
+codex --version
 ```
 
 ### Codex app
@@ -27,6 +41,10 @@ npm install -g @openai/codex
 [OpenAI Codex](https://developers.openai.com/codex)에서 앱을 다운로드하세요.
 
 ## 구성
+
+### 모델 검증
+
+Codex CLI 0.160.1 버전은 아래 구성으로 Capriole AI를 통한 파일 읽기, 파일 쓰기, 최종 답변 검사를 통과합니다.
 
 `~/.codex/config.toml`을 만들거나 업데이트하세요.
 
@@ -43,13 +61,27 @@ env_key = "CAPRIOLE_AI_API_KEY"
 env_key_instructions = "Export CAPRIOLE_AI_API_KEY before starting Codex"
 ```
 
+각 설정의 역할은 다음과 같습니다.
+
+- `model`은 기본 모델입니다. 세션에서는 `/model`로, 명령줄에서는 `--model`로 바꾸세요.
+- `model_provider`는 그 아래에 정의된 Capriole AI 제공자를 선택합니다.
+- Codex가 `/responses`를 직접 추가하므로 `base_url`에는 `/v1`이 포함됩니다.
+- `wire_api = "responses"`는 Codex가 사용자 지정 제공자에 지원하는 유일한 프로토콜인 Responses API를 사용합니다.
+- `env_key`는 환경 변수에서 키를 읽어 Bearer 토큰으로 보냅니다.
+
 ## Codex 실행
 
-API key를 설정한 다음 Codex를 시작하세요.
+API key를 설정한 다음 프로젝트 디렉터리에서 Codex를 시작하세요.
 
 ```bash
 export CAPRIOLE_AI_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
 codex
+```
+
+비대화형으로 실행하려면 `codex exec`을 사용하세요.
+
+```bash
+codex exec "Explain this repository."
 ```
 
 ## 지원 모델
@@ -68,6 +100,10 @@ Codex는 Responses API를 통해 Capriole AI의 OpenAI 모델을 사용합니다
 
 API는 `openai/` 접두사가 붙은 ID와 `openai-latest`도 받습니다. `openai-latest` 별칭은 Capriole AI가 권장하는 OpenAI 플래그십 모델을 따릅니다.
 
+Capriole AI는 Responses API로 Grok을 제공하므로 Codex는 같은 제공자로 `xai/grok-4.7`도 실행할 수 있습니다.
+
+Codex에는 OpenAI 네이티브 모델 ID의 메타데이터만 내장되어 있습니다. `openai-latest`와 `xai/grok-4.7`에서는 `Model metadata ... not found`를 출력하고 대체 설정을 사용합니다. 세션은 그대로 작동하지만, 최상의 결과를 얻으려면 `gpt-6-astra` 같은 네이티브 ID를 사용하세요.
+
 ## 문제 해결
 
 ### Codex가 인증 오류를 반환하는 이유는 무엇인가요?
@@ -76,7 +112,7 @@ API는 `openai/` 접두사가 붙은 ID와 `openai-latest`도 받습니다. `ope
 
 ### Codex가 모델을 찾지 못하는 이유는 무엇인가요?
 
-`model_provider = "capriole_ai"`가 설정되어 있고 `model`이 `openai-latest` 또는 지원되는 Capriole AI OpenAI 모델 ID인지 확인하세요.
+`model_provider = "capriole_ai"`가 설정되어 있고 `model`이 지원 모델 섹션의 ID 중 하나인지 확인하세요.
 
 ### 요청이 엔드포인트 또는 프로토콜 오류로 실패하는 이유는 무엇인가요?
 

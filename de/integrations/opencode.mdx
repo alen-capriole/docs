@@ -5,7 +5,7 @@ description: "Konfigurieren Sie OpenCode für die Nutzung von Capriole AI."
 
 ## Was ist OpenCode
 
-OpenCode ist ein Open-Source-KI-Coding-Agent als Terminaloberfläche, Desktop-App und IDE-Erweiterung. Mit einer Anbieterkonfiguration kann es unterstützte Modellanfragen über die OpenAI-kompatiblen und Anthropic-kompatiblen Endpunkte von Capriole AI senden.
+OpenCode ist ein Open-Source-KI-Coding-Agent als Terminaloberfläche, Desktop-App und IDE-Erweiterung. Dieses Setup fügt Capriole AI als einen benutzerdefinierten Anbieter hinzu. Jedes Modell darin verwendet das API-Protokoll, das Capriole AI für die jeweilige Modellfamilie bereitstellt.
 
 ## Voraussetzungen
 
@@ -38,350 +38,99 @@ opencode --version
 
 ### Modellvalidierung
 
-OpenCode 1.14.48 besteht die Prüfung mit Datei-Lesewerkzeug und abschließender Antwort für Fable 5.1 über Anthropic Messages (`claude-latest`) und für `zai/glm-5.3-flash` über Chat Completions. Verwenden Sie diese Wege in der folgenden Konfiguration.
-
-Bei `anthropic/claude-fable-5-1` und `google/gemini-3.8-flash` über Chat Completions enthält die gespeicherte OpenCode-Sitzung den abgeschlossenen Lesevorgang und die korrekte Antwort, aber `run --format json` lässt das abschließende Textereignis aus. Diese Wege bestehen die vollständige CLI-Ausgabeprüfung nicht und sind nicht in der folgenden Konfiguration enthalten.
-
-`xai/grok-4.6` akzeptiert Chat Completions-Anfragen, besteht aber die Coding-Agent-Aufgabenprüfung nicht und ist daher nicht in der folgenden Konfiguration enthalten. Direkte Anbieterprüfungen zeigen auch bei Grok 4.5 inkonsistente Werkzeugnutzung; eine abgeschlossene API-Anfrage belegt keine korrekte Agent-Antwort.
+OpenCode 1.19.3 besteht mit der folgenden Konfiguration für jedes Modell im Abschnitt „Unterstützte Modelle“ eine Prüfung aus Dateilesen, Dateischreiben und abschließender Antwort über Capriole AI.
 
 Erstellen oder aktualisieren Sie `~/.config/opencode/opencode.json`:
-
-Verwenden Sie `apiKey` für die OpenAI- und OpenAI-kompatiblen Anbieter und `authToken` für den Anthropic-Anbieter.
 
 ```json
 {
   "$schema": "https://opencode.ai/config.json",
-  "model": "capriole-ai-openai/openai-latest",
-  "small_model": "capriole-ai-openai/openai-latest",
-  "enabled_providers": ["capriole-ai-openai", "capriole-ai-compatible", "capriole-ai-anthropic"],
+  "model": "capriole-ai/claude-latest",
+  "small_model": "capriole-ai/zai/glm-5.3-flash",
   "provider": {
-    "capriole-ai-openai": {
-      "npm": "@ai-sdk/openai",
-      "name": "Capriole AI OpenAI",
+    "capriole-ai": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Capriole AI",
       "options": {
         "baseURL": "https://api.caprioletech.com/v1",
-        "apiKey": "YOUR_CAPRIOLE_AI_API_KEY"
+        "apiKey": "{env:CAPRIOLE_AI_API_KEY}",
+        "headers": {
+          "Authorization": "Bearer {env:CAPRIOLE_AI_API_KEY}"
+        }
       },
       "models": {
         "openai-latest": {
           "name": "OpenAI latest",
-          "options": {
-            "forceReasoning": true
+          "provider": {
+            "npm": "@ai-sdk/openai"
           },
-          "variants": {
-            "minimal": {
-              "reasoningEffort": "minimal",
-              "reasoningSummary": "auto"
-            },
-            "low": {
-              "reasoningEffort": "low",
-              "reasoningSummary": "auto"
-            },
-            "medium": {
-              "reasoningEffort": "medium",
-              "reasoningSummary": "auto"
-            },
-            "high": {
-              "reasoningEffort": "high",
-              "reasoningSummary": "auto"
-            },
-            "xhigh": {
-              "reasoningEffort": "xhigh",
-              "reasoningSummary": "auto"
-            }
-          }
-        },
-        "openai/gpt-6-astra": {
-          "name": "GPT-6 Astra",
-          "options": {
-            "forceReasoning": true
-          }
-        },
-        "openai/gpt-5.6-terra": {
-          "name": "GPT 5.6 Thinking",
-          "options": {
-            "forceReasoning": true
-          }
-        },
-        "openai/gpt-5.6-luna": {
-          "name": "GPT 5.6",
-          "options": {
-            "forceReasoning": true
-          }
-        },
-        "openai/gpt-5.5": {
-          "name": "GPT 5.5",
-          "options": {
-            "forceReasoning": true
+          "limit": {
+            "context": 1050000,
+            "output": 128000
           },
-          "variants": {
-            "minimal": {
-              "reasoningEffort": "minimal",
-              "reasoningSummary": "auto"
-            },
-            "low": {
-              "reasoningEffort": "low",
-              "reasoningSummary": "auto"
-            },
-            "medium": {
-              "reasoningEffort": "medium",
-              "reasoningSummary": "auto"
-            },
-            "high": {
-              "reasoningEffort": "high",
-              "reasoningSummary": "auto"
-            },
-            "xhigh": {
-              "reasoningEffort": "xhigh",
-              "reasoningSummary": "auto"
-            }
+          "options": {
+            "forceReasoning": true
           }
-        }
-      }
-    },
-    "capriole-ai-compatible": {
-      "npm": "@ai-sdk/openai-compatible",
-      "name": "Capriole AI Compatible",
-      "options": {
-        "baseURL": "https://api.caprioletech.com/v1",
-        "apiKey": "YOUR_CAPRIOLE_AI_API_KEY"
-      },
-      "models": {
-        "anthropic/claude-fable-5": {
-          "name": "Fable 5"
         },
-        "anthropic/claude-opus-5": {
-          "name": "Opus 5"
+        "openai/gpt-6.1-sol": {
+          "name": "GPT-6.1 Sol",
+          "provider": {
+            "npm": "@ai-sdk/openai"
+          },
+          "limit": {
+            "context": 1050000,
+            "output": 128000
+          },
+          "options": {
+            "forceReasoning": true
+          }
         },
-        "xai/grok-4.5": {
-          "name": "Grok 4.5"
-        },
-        "zai/glm-5.3-flash": {
-          "name": "GLM 5.3 Flash"
-        },
-        "zai/glm-5.2": {
-          "name": "GLM 5.2"
-        },
-        "moonshot/kimi-k3": {
-          "name": "Kimi K3"
-        }
-      }
-    },
-    "capriole-ai-anthropic": {
-      "npm": "@ai-sdk/anthropic",
-      "name": "Capriole AI Anthropic",
-      "options": {
-        "baseURL": "https://api.caprioletech.com/v1",
-        "authToken": "YOUR_CAPRIOLE_AI_API_KEY"
-      },
-      "models": {
         "claude-latest": {
           "name": "Claude latest",
-          "variants": {
-            "low": {
-              "thinking": {
-                "type": "adaptive",
-                "display": "summarized"
-              },
-              "effort": "low"
-            },
-            "medium": {
-              "thinking": {
-                "type": "adaptive",
-                "display": "summarized"
-              },
-              "effort": "medium"
-            },
-            "high": {
-              "thinking": {
-                "type": "adaptive",
-                "display": "summarized"
-              },
-              "effort": "high"
-            },
-            "xhigh": {
-              "thinking": {
-                "type": "adaptive",
-                "display": "summarized"
-              },
-              "effort": "xhigh"
-            },
-            "max": {
-              "thinking": {
-                "type": "adaptive",
-                "display": "summarized"
-              },
-              "effort": "max"
-            }
+          "provider": {
+            "npm": "@ai-sdk/anthropic"
+          },
+          "limit": {
+            "context": 1000000,
+            "output": 128000
           }
         },
-        "claude-fable-5-1": {
-          "name": "Fable 5.1"
-        },
-        "claude-fable-5": {
-          "name": "Fable 5"
-        },
-        "claude-opus-5": {
-          "name": "Opus 5"
-        },
-        "claude-opus-4-8": {
-          "name": "Opus 4.8",
-          "variants": {
-            "low": {
-              "thinking": {
-                "type": "adaptive",
-                "display": "summarized"
-              },
-              "effort": "low"
-            },
-            "medium": {
-              "thinking": {
-                "type": "adaptive",
-                "display": "summarized"
-              },
-              "effort": "medium"
-            },
-            "high": {
-              "thinking": {
-                "type": "adaptive",
-                "display": "summarized"
-              },
-              "effort": "high"
-            },
-            "xhigh": {
-              "thinking": {
-                "type": "adaptive",
-                "display": "summarized"
-              },
-              "effort": "xhigh"
-            },
-            "max": {
-              "thinking": {
-                "type": "adaptive",
-                "display": "summarized"
-              },
-              "effort": "max"
-            }
+        "claude-opus-5-5": {
+          "name": "Opus 5.5",
+          "provider": {
+            "npm": "@ai-sdk/anthropic"
+          },
+          "limit": {
+            "context": 1000000,
+            "output": 128000
           }
         },
-        "claude-opus-4-7": {
-          "name": "Opus 4.7",
-          "variants": {
-            "low": {
-              "thinking": {
-                "type": "adaptive",
-                "display": "summarized"
-              },
-              "effort": "low"
-            },
-            "medium": {
-              "thinking": {
-                "type": "adaptive",
-                "display": "summarized"
-              },
-              "effort": "medium"
-            },
-            "high": {
-              "thinking": {
-                "type": "adaptive",
-                "display": "summarized"
-              },
-              "effort": "high"
-            },
-            "xhigh": {
-              "thinking": {
-                "type": "adaptive",
-                "display": "summarized"
-              },
-              "effort": "xhigh"
-            },
-            "max": {
-              "thinking": {
-                "type": "adaptive",
-                "display": "summarized"
-              },
-              "effort": "max"
-            }
+        "google/gemini-3.8-flash": {
+          "name": "Gemini 3.8 Flash",
+          "limit": {
+            "context": 1048576,
+            "output": 65536
           }
         },
-        "claude-opus-4-6": {
-          "name": "Opus 4.6",
-          "variants": {
-            "low": {
-              "thinking": {
-                "type": "adaptive",
-                "display": "summarized"
-              },
-              "effort": "low"
-            },
-            "medium": {
-              "thinking": {
-                "type": "adaptive",
-                "display": "summarized"
-              },
-              "effort": "medium"
-            },
-            "high": {
-              "thinking": {
-                "type": "adaptive",
-                "display": "summarized"
-              },
-              "effort": "high"
-            },
-            "xhigh": {
-              "thinking": {
-                "type": "adaptive",
-                "display": "summarized"
-              },
-              "effort": "xhigh"
-            },
-            "max": {
-              "thinking": {
-                "type": "adaptive",
-                "display": "summarized"
-              },
-              "effort": "max"
-            }
+        "xai/grok-4.7": {
+          "name": "Grok 4.7",
+          "limit": {
+            "context": 500000,
+            "output": 128000
           }
         },
-        "claude-sonnet-4-6": {
-          "name": "Sonnet 4.6",
-          "variants": {
-            "low": {
-              "thinking": {
-                "type": "adaptive",
-                "display": "summarized"
-              },
-              "effort": "low"
-            },
-            "medium": {
-              "thinking": {
-                "type": "adaptive",
-                "display": "summarized"
-              },
-              "effort": "medium"
-            },
-            "high": {
-              "thinking": {
-                "type": "adaptive",
-                "display": "summarized"
-              },
-              "effort": "high"
-            },
-            "xhigh": {
-              "thinking": {
-                "type": "adaptive",
-                "display": "summarized"
-              },
-              "effort": "xhigh"
-            },
-            "max": {
-              "thinking": {
-                "type": "adaptive",
-                "display": "summarized"
-              },
-              "effort": "max"
-            }
+        "zai/glm-5.3-flash": {
+          "name": "GLM 5.3 Flash",
+          "limit": {
+            "context": 1000000,
+            "output": 128000
+          }
+        },
+        "moonshot/kimi-k3": {
+          "name": "Kimi K3",
+          "limit": {
+            "context": 1048576,
+            "output": 131072
           }
         }
       }
@@ -390,77 +139,75 @@ Verwenden Sie `apiKey` für die OpenAI- und OpenAI-kompatiblen Anbieter und `aut
 }
 ```
 
+Was die einzelnen Einstellungen bewirken:
+
+- `npm: "@ai-sdk/openai-compatible"` ist das Standardpaket für den Anbieter, sodass Gemini, Grok, GLM und Kimi Chat Completions verwenden.
+- Jedes GPT-Modell überschreibt `provider.npm` mit `@ai-sdk/openai`, das die Responses API verwendet. Jedes Claude-Modell überschreibt es mit `@ai-sdk/anthropic`, das Anthropic Messages verwendet.
+- `baseURL` enthält für jedes Paket `/v1`.
+- `{env:CAPRIOLE_AI_API_KEY}` liest Ihren Schlüssel aus der Umgebung. Der `Authorization`-Header sendet ihn für jedes Paket als Bearer-Token. Ohne diesen Header sendet das Anthropic-Paket den Schlüssel in einem `x-api-key`-Header, den Capriole AI nicht akzeptiert.
+- `limit` teilt OpenCode das Kontextfenster und das Ausgabelimit jedes Modells mit, damit es den Kontext verfolgen und die Sitzung rechtzeitig komprimieren kann.
+- `small_model` ist das Modell, das OpenCode für leichte Aufgaben wie Sitzungstitel verwendet.
+
 ## OpenCode ausführen
 
-Nachdem Sie `YOUR_CAPRIOLE_AI_API_KEY` in der Konfiguration ersetzt haben, starten Sie OpenCode:
+Setzen Sie Ihren API-Schlüssel und starten Sie OpenCode aus Ihrem Projektverzeichnis:
 
 ```bash
+export CAPRIOLE_AI_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
 opencode
 ```
 
-Verwenden Sie `/models`, um OpenAI latest, GPT-6 Astra, GPT 5.6 Thinking, GPT 5.6, GPT 5.5, Fable 5.1, Fable 5, Opus 5, Grok 4.5, GLM 5.3 Flash, GLM 5.2, Kimi K3, Claude latest, Opus 4.8, Opus 4.7, Opus 4.6 oder Sonnet 4.6 auszuwählen. Verwenden Sie `Ctrl+T`, um Modellvarianten zu durchlaufen.
+Verwenden Sie `/models`, um das Modell zu wechseln. Für einen nicht interaktiven Lauf verwenden Sie `opencode run`:
+
+```bash
+opencode run -m capriole-ai/claude-latest "Explain this repository."
+```
 
 ## Unterstützte Modelle
 
-OpenCode unterstützt OpenAI latest, GPT-6 Astra, GPT 5.6 Thinking, GPT 5.6, GPT 5.5, Fable 5.1, Fable 5, Opus 5, Grok 4.5, GLM 5.3 Flash, GLM 5.2, Kimi K3, Claude latest, Opus 4.8, Opus 4.7, Opus 4.6 und Sonnet 4.6 über Capriole AI. Fable 5 und Opus 5 können entweder den Chat Completions-kompatiblen Anbieter oder den Anthropic Messages-Anbieter nutzen.
+Modellreferenzen haben die Form `capriole-ai/<model-id>`.
 
-- `openai-latest`
-- `openai/gpt-6-astra`
-- `openai/gpt-5.6-terra`
-- `openai/gpt-5.6-luna`
-- `openai/gpt-5.5`
-- `anthropic/claude-fable-5`
-- `anthropic/claude-opus-5`
-- `xai/grok-4.5`
-- `zai/glm-5.3-flash`
-- `zai/glm-5.2`
-- `moonshot/kimi-k3`
-- `claude-latest`
-- `claude-fable-5-1`
-- `claude-fable-5`
-- `claude-opus-5`
-- `claude-opus-4-8`
-- `claude-opus-4-7`
-- `claude-opus-4-6`
-- `claude-sonnet-4-6`
+| Modell | Modell-ID | Protokoll |
+| --- | --- | --- |
+| OpenAI latest | `openai-latest` | Responses |
+| GPT-6.1 Sol | `openai/gpt-6.1-sol` | Responses |
+| Claude latest | `claude-latest` | Anthropic Messages |
+| Opus 5.5 | `claude-opus-5-5` | Anthropic Messages |
+| Gemini 3.8 Flash | `google/gemini-3.8-flash` | Chat Completions |
+| Grok 4.7 | `xai/grok-4.7` | Chat Completions |
+| GLM 5.3 Flash | `zai/glm-5.3-flash` | Chat Completions |
+| Kimi K3 | `moonshot/kimi-k3` | Chat Completions |
+
+`openai-latest` und `claude-latest` zeigen immer auf unser neuestes Flaggschiff-Modell der jeweiligen Familie.
 
 ## Fehlerbehebung
 
 ### Warum gibt OpenCode einen Authentifizierungsfehler zurück?
 
-Bestätigen Sie, dass sowohl `apiKey` als auch `authToken` in `~/.config/opencode/opencode.json` Ihren Capriole AI API-Schlüssel verwenden und nicht `YOUR_CAPRIOLE_AI_API_KEY`.
+Bestätigen Sie, dass `CAPRIOLE_AI_API_KEY` in derselben Shell exportiert ist, bevor Sie OpenCode starten, und dass der `Authorization`-Header unter `options.headers` vorhanden ist.
+
+### Warum schlagen Claude-Anfragen mit `Unsupported Claude Messages model` fehl?
+
+Claude-Modelle, die `@ai-sdk/anthropic` verwenden, benötigen die Claude-IDs ohne Präfix, etwa `claude-opus-5-5`. Die IDs mit dem Präfix `anthropic/` sind für Chat Completions gedacht.
 
 ### Warum schlagen GPT-Anfragen fehl?
 
-Bestätigen Sie, dass der GPT-Anbieter `npm: "@ai-sdk/openai"` und `baseURL: "https://api.caprioletech.com/v1"` verwendet, damit Anfragen die Responses API nutzen.
+Bestätigen Sie, dass jedes GPT-Modell `"provider": { "npm": "@ai-sdk/openai" }` enthält, damit seine Anfragen die Responses API verwenden.
 
-### Warum schlagen Grok-, GLM- oder Kimi-Anfragen fehl?
+### Warum werden keine Capriole AI-Modelle angezeigt?
 
-Bestätigen Sie, dass `capriole-ai-compatible` `npm: "@ai-sdk/openai-compatible"` und `baseURL: "https://api.caprioletech.com/v1"` verwendet, damit beide Modelle Chat Completions nutzen.
-
-### Warum schlagen Anthropic-Anfragen fehl?
-
-Bestätigen Sie, dass der Anthropic-Anbieter `npm: "@ai-sdk/anthropic"`, `authToken` und `baseURL: "https://api.caprioletech.com/v1"` verwendet.
-
-### Warum erscheinen Capriole AI-Modelle nicht?
-
-Bestätigen Sie, dass die Modellreferenz `<providerId>/<modelId>` verwendet, etwa `capriole-ai-openai/openai-latest`, `capriole-ai-compatible/moonshot/kimi-k3` oder `capriole-ai-anthropic/claude-latest`, und dass `enabled_providers` die Capriole AI-Anbieter enthält, während `disabled_providers` sie nicht blockiert.
-
-### Warum erscheinen Modellvarianten nicht?
-
-Bestätigen Sie, dass Sie OpenCode nach der Aktualisierung von `~/.config/opencode/opencode.json` neu gestartet haben, öffnen Sie dann `/models` und drücken Sie `Ctrl+T`, um Varianten zu durchlaufen.
+Bestätigen Sie, dass die Modellreferenz `capriole-ai/<model-id>` verwendet, etwa `capriole-ai/moonshot/kimi-k3`, und dass `disabled_providers` `capriole-ai` nicht blockiert.
 
 ### Warum greifen Konfigurationsänderungen nicht?
 
-Prüfen Sie auf projektbezogene `opencode.json`- oder `OPENCODE_CONFIG`-Überschreibungen und starten Sie OpenCode anschließend neu.
+Prüfen Sie, ob eine projektbezogene `opencode.json` oder eine `OPENCODE_CONFIG`-Überschreibung vorhanden ist, und starten Sie OpenCode dann neu.
 
-### Warum erscheinen Fehler zur Anbieterinitialisierung oder zu Anbieterpaketen?
+### Warum treten Fehler mit Anbieterpaketen auf?
 
-Prüfen Sie bei `ProviderInitError` zuerst die Anbieterkonfiguration. Löschen Sie bei Fehlern zu Anbieterpaketen `~/.cache/opencode` und starten Sie OpenCode neu, damit Anbieterpakete neu installiert werden.
+Leeren Sie `~/.cache/opencode` und starten Sie OpenCode neu, damit es die Anbieterpakete neu installiert.
 
 ## Hinweise
 
-- Der Anthropic-Anbieter verwendet `authToken`, damit der AI SDK Anthropic-Anbieter die Authentifizierung `Authorization: Bearer` sendet.
-- OpenCode 1.14.48 schließt Shell-Tool-Workflows mit Grok 4.5, GLM 5.2 und Kimi K3 über `@ai-sdk/openai-compatible` ab.
-- OpenCode-Varianten sind clientseitige Modelleinstellungen. Sie erzeugen keine neuen Capriole AI API-Modell-IDs.
-- Offizielle Referenzen: [OpenCode-Installation](https://opencode.ai/docs), [OpenCode-Konfiguration](https://opencode.ai/docs/config), [OpenCode-Anbieter](https://opencode.ai/docs/providers), [OpenCode-Modelle und Varianten](https://opencode.ai/docs/models), [OpenCode-Tastenkombinationen](https://opencode.ai/docs/keybinds), [OpenCode-Fehlerbehebung](https://opencode.ai/docs/troubleshooting), [OpenAI Responses API](https://developers.openai.com/api/reference/resources/responses/methods/create), [AI SDK OpenAI-Anbieter](https://ai-sdk.dev/v7/providers/ai-sdk-providers/openai), [AI SDK Anthropic-Anbieter](https://ai-sdk.dev/v7/providers/ai-sdk-providers/anthropic), [Anthropic Adaptive Thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking) und [Anthropic Effort](https://platform.claude.com/docs/en/build-with-claude/effort).
+- Bewahren Sie Ihren Schlüssel in der Umgebung auf. Fügen Sie ihn nicht in `opencode.json` ein.
+- Um ein weiteres Capriole AI-Modell hinzuzufügen, kopieren Sie den Eintrag eines Modells derselben Familie und ändern Sie die ID. `GET https://api.caprioletech.com/v1/models` listet alle Modell-IDs auf.
+- Offizielle Referenzen: [OpenCode-Installation](https://opencode.ai/docs), [OpenCode-Konfiguration](https://opencode.ai/docs/config), [OpenCode-Anbieter](https://opencode.ai/docs/providers), [OpenCode-Modelle](https://opencode.ai/docs/models) und [OpenCode-Fehlerbehebung](https://opencode.ai/docs/troubleshooting).

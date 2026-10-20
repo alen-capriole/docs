@@ -62,6 +62,10 @@
                   "integrations/opencode",
                   "integrations/openclaw",
                   "integrations/kilo-code",
+                  "integrations/cline",
+                  "integrations/qwen-code",
+                  "integrations/crush",
+                  "integrations/pi",
                   "integrations/more-agents"
                 ]
               }
@@ -145,6 +149,10 @@
                   "zh/integrations/opencode",
                   "zh/integrations/openclaw",
                   "zh/integrations/kilo-code",
+                  "zh/integrations/cline",
+                  "zh/integrations/qwen-code",
+                  "zh/integrations/crush",
+                  "zh/integrations/pi",
                   "zh/integrations/more-agents"
                 ]
               }
@@ -228,6 +236,10 @@
                   "es/integrations/opencode",
                   "es/integrations/openclaw",
                   "es/integrations/kilo-code",
+                  "es/integrations/cline",
+                  "es/integrations/qwen-code",
+                  "es/integrations/crush",
+                  "es/integrations/pi",
                   "es/integrations/more-agents"
                 ]
               }
@@ -311,6 +323,10 @@
                   "pt-br/integrations/opencode",
                   "pt-br/integrations/openclaw",
                   "pt-br/integrations/kilo-code",
+                  "pt-br/integrations/cline",
+                  "pt-br/integrations/qwen-code",
+                  "pt-br/integrations/crush",
+                  "pt-br/integrations/pi",
                   "pt-br/integrations/more-agents"
                 ]
               }
@@ -394,6 +410,10 @@
                   "de/integrations/opencode",
                   "de/integrations/openclaw",
                   "de/integrations/kilo-code",
+                  "de/integrations/cline",
+                  "de/integrations/qwen-code",
+                  "de/integrations/crush",
+                  "de/integrations/pi",
                   "de/integrations/more-agents"
                 ]
               }
@@ -477,6 +497,10 @@
                   "ja/integrations/opencode",
                   "ja/integrations/openclaw",
                   "ja/integrations/kilo-code",
+                  "ja/integrations/cline",
+                  "ja/integrations/qwen-code",
+                  "ja/integrations/crush",
+                  "ja/integrations/pi",
                   "ja/integrations/more-agents"
                 ]
               }
@@ -560,6 +584,10 @@
                   "ko/integrations/opencode",
                   "ko/integrations/openclaw",
                   "ko/integrations/kilo-code",
+                  "ko/integrations/cline",
+                  "ko/integrations/qwen-code",
+                  "ko/integrations/crush",
+                  "ko/integrations/pi",
                   "ko/integrations/more-agents"
                 ]
               }

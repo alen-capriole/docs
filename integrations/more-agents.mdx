@@ -1,12 +1,24 @@
 ---
 title: "More agents"
-description: "Current status for additional coding agent integrations."
+description: "Use Capriole AI with a coding agent that has no page here."
 ---
 
-## Current status
+## Other agents
 
-There are no pending coding agent integrations at this time.
+Most coding agents can use Capriole AI if they let you set a custom endpoint. Use the values below for the protocol that the agent supports.
+
+| Protocol | Base URL | Model IDs |
+| --- | --- | --- |
+| Chat Completions | `https://api.caprioletech.com/v1` | Every ID from `GET /v1/models`, for example `claude-latest`, `anthropic/claude-opus-5-5`, or `moonshot/kimi-k3` |
+| Responses | `https://api.caprioletech.com/v1` | GPT models such as `openai-latest`, and `xai/grok-4.7` |
+| Anthropic Messages | `https://api.caprioletech.com` | Bare Claude IDs such as `claude-latest` and `claude-opus-5-5` |
+
+Chat Completions is the simplest choice, because it serves every model.
+
+## Authentication
+
+Capriole AI accepts the key only as a Bearer token in the `Authorization` header. If an agent sends the key in an `x-api-key` header, which many Anthropic clients do, set a custom `Authorization: Bearer YOUR_CAPRIOLE_AI_API_KEY` header or use the agent's OpenAI-compatible option instead.
 
 ## Request an agent
 
-If you want to use Capriole AI with another coding agent, contact us with the agent name and its official configuration docs. We will review whether it can work with the public Capriole AI API.
+If you want a setup page for another coding agent, contact us with the agent name and its official configuration docs.
