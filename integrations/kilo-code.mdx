@@ -131,6 +131,14 @@ Create or update `~/.config/kilo/kilo.jsonc`:
           },
           "tool_call": true
         },
+        "moonshot/kimi-k3.1-pro": {
+          "name": "Kimi K3.1 Pro",
+          "limit": {
+            "context": 1048576,
+            "output": 131072
+          },
+          "tool_call": true
+        },
         "moonshot/kimi-k3": {
           "name": "Kimi K3",
           "limit": {
@@ -191,6 +199,7 @@ Model references use the form `capriole-ai/<model-id>`.
 | Gemini 3.8 Flash | `google/gemini-3.8-flash` | Chat Completions |
 | Grok 4.7 | `xai/grok-4.7` | Chat Completions |
 | GLM 5.3 Flash | `zai/glm-5.3-flash` | Chat Completions |
+| Kimi K3.1 Pro | `moonshot/kimi-k3.1-pro` | Chat Completions |
 | Kimi K3 | `moonshot/kimi-k3` | Chat Completions |
 
 `openai-latest` and `claude-latest` always point to our latest flagship in each family.

@@ -90,6 +90,15 @@ Crea o actualiza `~/.qwen/settings.json`:
         }
       },
       {
+        "id": "moonshot/kimi-k3.1-pro",
+        "name": "moonshot/kimi-k3.1-pro",
+        "baseUrl": "https://api.caprioletech.com/v1",
+        "envKey": "CAPRIOLE_AI_API_KEY",
+        "generationConfig": {
+          "contextWindowSize": 1048576
+        }
+      },
+      {
         "id": "moonshot/kimi-k3",
         "name": "moonshot/kimi-k3",
         "baseUrl": "https://api.caprioletech.com/v1",
@@ -174,6 +183,7 @@ qwen "Explain this repository." -m claude-latest --auth-type anthropic
 | Gemini 3.8 Flash | `google/gemini-3.8-flash` | `openai` | Chat Completions |
 | Grok 4.7 | `xai/grok-4.7` | `openai` | Chat Completions |
 | GLM 5.3 Flash | `zai/glm-5.3-flash` | `openai` | Chat Completions |
+| Kimi K3.1 Pro | `moonshot/kimi-k3.1-pro` | `openai` | Chat Completions |
 | Kimi K3 | `moonshot/kimi-k3` | `openai` | Chat Completions |
 
 `openai-latest` y `claude-latest` siempre apuntan a nuestro modelo insignia más reciente de cada familia.

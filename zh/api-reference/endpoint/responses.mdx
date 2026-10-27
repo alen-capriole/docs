@@ -14,7 +14,7 @@ openapi: "api-reference/openapi.json POST /v1/responses"
 
 此端点也接受 Grok 模型 `xai/grok-4.7`、`xai/grok-4.6` 和 `xai/grok-4.5`。Grok ID 必须带 `xai/` 前缀发送；`grok-4.7` 这类不带前缀的 ID 会被视为原生 OpenAI ID 并被拒绝。Grok 请求会直接转发到 xAI 自己的 Responses API，不做格式转换。
 
-此端点不支持 Claude 和 Google latest alias，也不支持通过 Chat Completions 调用的 GLM 5.2 和 Kimi K3。如果需要通过一个 OpenAI 兼容端点调用全部公开模型，请使用 `POST /v1/chat/completions`。
+此端点不支持 Claude 和 Google latest alias，也不支持通过 Chat Completions 调用的 GLM 5.2、Kimi K3.1 Pro 和 Kimi K3。如果需要通过一个 OpenAI 兼容端点调用全部公开模型，请使用 `POST /v1/chat/completions`。
 
 ## 网页搜索
 

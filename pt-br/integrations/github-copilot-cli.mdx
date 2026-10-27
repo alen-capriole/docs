@@ -94,6 +94,8 @@ Para os outros modelos, altere `COPILOT_PROVIDER_WIRE_MODEL` para `google/gemini
 
 Mantenha `COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"`. Com um perfil GPT, como `gpt-5.4`, o Copilot envia tipos de ferramenta que esses modelos rejeitam.
 
+Para o Kimi K3.1 Pro, defina `COPILOT_PROVIDER_MODEL_ID="claude-opus-4.6"` e `COPILOT_PROVIDER_WIRE_MODEL="moonshot/kimi-k3.1-pro"`. O perfil `claude-sonnet-4` envia `temperature: 0`, que o Kimi K3.1 Pro rejeita.
+
 Para manter um perfil, adicione as linhas dele a `~/.zshrc` ou `~/.bashrc` e abra um novo terminal.
 
 ## Executar GitHub Copilot CLI
@@ -121,6 +123,7 @@ copilot -p "Explain this repository." --allow-all-tools
 | Gemini 3.8 Flash | `google/gemini-3.8-flash` | `claude-sonnet-4` | Chat Completions |
 | Grok 4.7 | `xai/grok-4.7` | `claude-sonnet-4` | Chat Completions |
 | GLM 5.3 Flash | `zai/glm-5.3-flash` | `claude-sonnet-4` | Chat Completions |
+| Kimi K3.1 Pro | `moonshot/kimi-k3.1-pro` | `claude-opus-4.6` | Chat Completions |
 | Kimi K3 | `moonshot/kimi-k3` | `claude-sonnet-4` | Chat Completions |
 
 `openai-latest` e `claude-latest` sempre apontam para o nosso modelo principal mais recente de cada família.
@@ -141,7 +144,7 @@ Defina `COPILOT_PROVIDER_MODEL_ID="claude-opus-4.6"`.
 
 ### Por que as solicitações Gemini, Grok, GLM ou Kimi falham com um erro de ferramentas?
 
-Defina `COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"`. Um perfil GPT envia tipos de ferramenta que só os modelos OpenAI aceitam.
+Defina `COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"`, ou `"claude-opus-4.6"` para o Kimi K3.1 Pro. Um perfil GPT envia tipos de ferramenta que só os modelos OpenAI aceitam.
 
 ## Observações
 

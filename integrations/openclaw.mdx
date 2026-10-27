@@ -49,6 +49,7 @@ Add the `models` block and the `agents.defaults` model settings below to `~/.ope
         "capriole-ai-anthropic/claude-latest": {},
         "capriole-ai-anthropic/claude-opus-5-5": {},
         "capriole-ai-compatible/zai/glm-5.3-flash": {},
+        "capriole-ai-compatible/moonshot/kimi-k3.1-pro": {},
         "capriole-ai-compatible/moonshot/kimi-k3": {},
         "capriole-ai-compatible/xai/grok-4.7": {},
         "capriole-ai-compatible/google/gemini-3.8-flash": {}
@@ -130,6 +131,15 @@ Add the `models` block and the `agents.defaults` model settings below to `~/.ope
             "input": ["text"],
             "contextWindow": 1000000,
             "maxTokens": 128000,
+            "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 }
+          },
+          {
+            "id": "moonshot/kimi-k3.1-pro",
+            "name": "Kimi K3.1 Pro",
+            "reasoning": true,
+            "input": ["text"],
+            "contextWindow": 1048576,
+            "maxTokens": 131072,
             "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 }
           },
           {
@@ -215,6 +225,7 @@ Model references use the form `<provider-id>/<model-id>`.
 | Gemini 3.8 Flash | `capriole-ai-compatible/google/gemini-3.8-flash` | Chat Completions |
 | Grok 4.7 | `capriole-ai-compatible/xai/grok-4.7` | Chat Completions |
 | GLM 5.3 Flash | `capriole-ai-compatible/zai/glm-5.3-flash` | Chat Completions |
+| Kimi K3.1 Pro | `capriole-ai-compatible/moonshot/kimi-k3.1-pro` | Chat Completions |
 | Kimi K3 | `capriole-ai-compatible/moonshot/kimi-k3` | Chat Completions |
 
 `openai-latest` and `claude-latest` always point to our latest flagship in each family.

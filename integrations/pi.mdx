@@ -85,6 +85,13 @@ Create or update `~/.pi/agent/models.json`:
           "reasoning": true
         },
         {
+          "id": "moonshot/kimi-k3.1-pro",
+          "contextWindow": 1048576,
+          "maxTokens": 131072,
+          "reasoning": true,
+          "compat": { "supportsDeveloperRole": false }
+        },
+        {
           "id": "moonshot/kimi-k3",
           "contextWindow": 1048576,
           "maxTokens": 131072,
@@ -117,6 +124,7 @@ What each setting does:
 - `$CAPRIOLE_AI_API_KEY` reads your key from the environment.
 - `authHeader: true` sends the key as a Bearer token for every protocol. Without it, Claude models send the key in an `x-api-key` header, which Capriole AI does not accept.
 - `forceAdaptiveThinking` makes Claude models use adaptive thinking. Opus 5.5 rejects a fixed thinking budget.
+- Pi sends the system prompt with the `developer` role for reasoning models, which Kimi K3.1 Pro does not accept, so its entry sets `supportsDeveloperRole: false`.
 - `contextWindow` and `maxTokens` tell Pi each model's limits.
 
 ## Run Pi
@@ -144,6 +152,7 @@ pi -p --model xai/grok-4.7 "Explain this repository."
 | Opus 5.5 | `claude-opus-5-5` | Anthropic Messages |
 | Grok 4.7 | `xai/grok-4.7` | Chat Completions |
 | GLM 5.3 Flash | `zai/glm-5.3-flash` | Chat Completions |
+| Kimi K3.1 Pro | `moonshot/kimi-k3.1-pro` | Chat Completions |
 | Kimi K3 | `moonshot/kimi-k3` | Chat Completions |
 
 `openai-latest` and `claude-latest` always point to our latest flagship in each family.

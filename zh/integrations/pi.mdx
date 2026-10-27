@@ -85,6 +85,13 @@ npm install -g --ignore-scripts @earendil-works/pi-coding-agent
           "reasoning": true
         },
         {
+          "id": "moonshot/kimi-k3.1-pro",
+          "contextWindow": 1048576,
+          "maxTokens": 131072,
+          "reasoning": true,
+          "compat": { "supportsDeveloperRole": false }
+        },
+        {
           "id": "moonshot/kimi-k3",
           "contextWindow": 1048576,
           "maxTokens": 131072,
@@ -117,6 +124,7 @@ npm install -g --ignore-scripts @earendil-works/pi-coding-agent
 - `$CAPRIOLE_AI_API_KEY` 从环境变量读取你的 API Key。
 - `authHeader: true` 让每种协议都以 Bearer Token 形式发送 Key。没有它时，Claude 模型会在 `x-api-key` 请求头中发送 Key，而 Capriole AI 不接受这种方式。
 - `forceAdaptiveThinking` 让 Claude 模型使用自适应思考。Opus 5.5 会拒绝固定的思考预算。
+- Pi 对推理模型会用 `developer` 角色发送系统提示词，而 Kimi K3.1 Pro 不接受这个角色，因此它的条目设置了 `supportsDeveloperRole: false`。
 - `contextWindow` 和 `maxTokens` 告诉 Pi 每个模型的限制。
 
 ## 运行 Pi
@@ -144,6 +152,7 @@ pi -p --model xai/grok-4.7 "Explain this repository."
 | Opus 5.5 | `claude-opus-5-5` | Anthropic Messages |
 | Grok 4.7 | `xai/grok-4.7` | Chat Completions |
 | GLM 5.3 Flash | `zai/glm-5.3-flash` | Chat Completions |
+| Kimi K3.1 Pro | `moonshot/kimi-k3.1-pro` | Chat Completions |
 | Kimi K3 | `moonshot/kimi-k3` | Chat Completions |
 
 `openai-latest` 和 `claude-latest` 始终指向各自系列中我们最新的旗舰模型。

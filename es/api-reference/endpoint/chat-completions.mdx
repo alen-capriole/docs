@@ -14,6 +14,10 @@ En las respuestas SSE de la pasarela configurada de Tian, RelayRouter o VE con `
 
 Los alias latest son atajos de entrada. El uso se registra contra el modelo resuelto, mientras que el cuerpo de la respuesta conserva el comportamiento de nombres de modelo del endpoint compatible seleccionado.
 
+## Kimi K3.1 Pro
+
+Kimi K3.1 Pro fija `temperature` en 1 y `top_p` en 0,95. Omite `temperature`, `top_p`, `n`, `presence_penalty` y `frequency_penalty` con este modelo, y envía las instrucciones con el rol `system` en lugar de `developer`.
+
 ## Búsqueda web
 
 Este endpoint no ofrece búsqueda web. Para los modelos Grok, una solicitud con un campo `web_search_options` o `search_parameters` distinto de null falla con HTTP 400:

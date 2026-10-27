@@ -55,6 +55,7 @@ model add capriole/anthropic/claude-opus-5-5 --name "Opus 5.5" --context-window 
 model add capriole/google/gemini-3.8-flash --name "Gemini 3.8 Flash" --context-window 1048576 --default-max-tokens 32000 --can-reason true
 model add capriole/xai/grok-4.7 --name "Grok 4.7" --context-window 500000 --default-max-tokens 32000 --can-reason true
 model add capriole/zai/glm-5.3-flash --name "GLM 5.3 Flash" --context-window 1000000 --default-max-tokens 32000 --can-reason true
+model add capriole/moonshot/kimi-k3.1-pro --name "Kimi K3.1 Pro" --context-window 1048576 --default-max-tokens 32000 --can-reason true
 model add capriole/moonshot/kimi-k3 --name "Kimi K3" --context-window 1048576 --default-max-tokens 32000 --can-reason true
 
 model large capriole/claude-latest
@@ -96,6 +97,7 @@ Model references use the form `capriole/<model-id>`.
 | Gemini 3.8 Flash | `google/gemini-3.8-flash` |
 | Grok 4.7 | `xai/grok-4.7` |
 | GLM 5.3 Flash | `zai/glm-5.3-flash` |
+| Kimi K3.1 Pro | `moonshot/kimi-k3.1-pro` |
 | Kimi K3 | `moonshot/kimi-k3` |
 
 `openai-latest` and `claude-latest` always point to our latest flagship in each family.

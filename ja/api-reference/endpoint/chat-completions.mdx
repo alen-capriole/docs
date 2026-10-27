@@ -14,6 +14,10 @@ openapi: "api-reference/openapi.json POST /v1/chat/completions"
 
 latest エイリアスは入力のショートカットです。使用量は解決後のモデルに対して記録され、レスポンス本文は選択した互換エンドポイント本来のモデル命名の動作を保持します。
 
+## Kimi K3.1 Pro
+
+Kimi K3.1 Pro は `temperature` を 1、`top_p` を 0.95 に固定しています。このモデルでは `temperature`、`top_p`、`n`、`presence_penalty`、`frequency_penalty` を省略し、指示は `developer` ではなく `system` ロールで送ってください。
+
 ## ウェブ検索
 
 このエンドポイントはウェブ検索を提供しません。Grok モデルでは、`web_search_options` または `search_parameters` フィールドが null 以外のリクエストは HTTP 400 で失敗します。

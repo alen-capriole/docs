@@ -94,6 +94,8 @@ export COPILOT_PROVIDER_WIRE_MODEL="moonshot/kimi-k3"
 
 `COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"` はそのままにしてください。`gpt-5.4` などの GPT プロファイルでは、これらのモデルが受け付けないツール タイプを Copilot が送ります。
 
+Kimi K3.1 Pro では、`COPILOT_PROVIDER_MODEL_ID="claude-opus-4.6"` と `COPILOT_PROVIDER_WIRE_MODEL="moonshot/kimi-k3.1-pro"` を設定してください。`claude-sonnet-4` プロファイルは `temperature: 0` を送りますが、Kimi K3.1 Pro はこれを受け付けません。
+
 プロファイルを保持するには、その行を `~/.zshrc` または `~/.bashrc` に追加してから、新しいターミナルを開きます。
 
 ## GitHub Copilot CLI を実行する
@@ -121,6 +123,7 @@ copilot -p "Explain this repository." --allow-all-tools
 | Gemini 3.8 Flash | `google/gemini-3.8-flash` | `claude-sonnet-4` | Chat Completions |
 | Grok 4.7 | `xai/grok-4.7` | `claude-sonnet-4` | Chat Completions |
 | GLM 5.3 Flash | `zai/glm-5.3-flash` | `claude-sonnet-4` | Chat Completions |
+| Kimi K3.1 Pro | `moonshot/kimi-k3.1-pro` | `claude-opus-4.6` | Chat Completions |
 | Kimi K3 | `moonshot/kimi-k3` | `claude-sonnet-4` | Chat Completions |
 
 `openai-latest` と `claude-latest` は、常に各ファミリーの最新の旗艦モデルを指します。
@@ -141,7 +144,7 @@ GPT、Gemini、Grok、GLM、Kimi のモデルでは、`COPILOT_PROVIDER_BASE_URL
 
 ### Gemini、Grok、GLM、Kimi のリクエストがツール エラーで失敗するのはなぜですか？
 
-`COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"` を設定してください。GPT プロファイルでは、OpenAI モデルしか受け付けないツール タイプが送られます。
+`COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"`（Kimi K3.1 Pro では `"claude-opus-4.6"`）を設定してください。GPT プロファイルでは、OpenAI モデルしか受け付けないツール タイプが送られます。
 
 ## 注意事項
 

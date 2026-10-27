@@ -95,6 +95,9 @@
                           "id": "zai/glm-5.2"
                         },
                         {
+                          "id": "moonshot/kimi-k3.1-pro"
+                        },
+                        {
                           "id": "moonshot/kimi-k3"
                         }
                       ]
@@ -703,6 +706,7 @@
               "xai/grok-4.5",
               "zai/glm-5.3-flash",
               "zai/glm-5.2",
+              "moonshot/kimi-k3.1-pro",
               "moonshot/kimi-k3"
             ]
           },

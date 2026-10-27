@@ -14,6 +14,10 @@ Bei SSE-Antworten des konfigurierten Tian-, RelayRouter- oder VE-Gateways mit `m
 
 Latest-Aliase sind Eingabe-Kurzformen. Die Nutzung wird für das aufgelöste Modell erfasst, während der Antwortkörper das Modellbenennungsverhalten des gewählten kompatiblen Endpunkts beibehält.
 
+## Kimi K3.1 Pro
+
+Bei Kimi K3.1 Pro sind `temperature` auf 1 und `top_p` auf 0,95 festgelegt. Lassen Sie `temperature`, `top_p`, `n`, `presence_penalty` und `frequency_penalty` bei diesem Modell weg, und senden Sie Anweisungen mit der Rolle `system` statt `developer`.
+
 ## Websuche
 
 Dieser Endpunkt bietet keine Websuche. Bei Grok-Modellen schlägt eine Anfrage mit einem Feld `web_search_options` oder `search_parameters`, das nicht null ist, mit HTTP 400 fehl:

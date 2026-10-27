@@ -14,6 +14,10 @@ For SSE responses from the configured Tian, RelayRouter, or VE gateway with `mod
 
 Latest aliases are input shortcuts. Usage is recorded against the resolved model, while the response body keeps the model naming behavior of the selected compatible endpoint.
 
+## Kimi K3.1 Pro
+
+Kimi K3.1 Pro fixes `temperature` at 1 and `top_p` at 0.95. Omit `temperature`, `top_p`, `n`, `presence_penalty`, and `frequency_penalty` for this model, and send instructions with the `system` role rather than `developer`.
+
 ## Web search
 
 This endpoint does not provide web search. For Grok models, a request with a non-null `web_search_options` or `search_parameters` field fails with HTTP 400:

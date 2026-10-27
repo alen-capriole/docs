@@ -14,6 +14,10 @@ openapi: "api-reference/openapi.json POST /v1/chat/completions"
 
 Latest 별칭은 입력 단축키입니다. 사용량은 해석된 모델에 대해 기록되고, 응답 본문은 선택한 호환 엔드포인트의 모델 이름 지정 방식을 유지합니다.
 
+## Kimi K3.1 Pro
+
+Kimi K3.1 Pro는 `temperature`를 1, `top_p`를 0.95로 고정합니다. 이 모델에서는 `temperature`, `top_p`, `n`, `presence_penalty`, `frequency_penalty`를 생략하고, 지침은 `developer`가 아닌 `system` 역할로 보내세요.
+
 ## 웹 검색
 
 이 엔드포인트는 웹 검색을 제공하지 않습니다. Grok 모델에서 `web_search_options` 또는 `search_parameters` 필드가 null이 아닌 요청은 HTTP 400으로 실패합니다.

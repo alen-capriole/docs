@@ -94,6 +94,8 @@ export COPILOT_PROVIDER_WIRE_MODEL="moonshot/kimi-k3"
 
 保持 `COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"`。如果使用 `gpt-5.4` 等 GPT 模型配置，Copilot 会发送这些模型不接受的工具类型。
 
+使用 Kimi K3.1 Pro 时，请设置 `COPILOT_PROVIDER_MODEL_ID="claude-opus-4.6"` 和 `COPILOT_PROVIDER_WIRE_MODEL="moonshot/kimi-k3.1-pro"`。`claude-sonnet-4` 模型配置会发送 `temperature: 0`，而 Kimi K3.1 Pro 不接受这个值。
+
 如需长期保留某个配置方案，请把它的各行添加到 `~/.zshrc` 或 `~/.bashrc`，然后打开新的终端。
 
 ## 运行 GitHub Copilot CLI
@@ -121,6 +123,7 @@ copilot -p "Explain this repository." --allow-all-tools
 | Gemini 3.8 Flash | `google/gemini-3.8-flash` | `claude-sonnet-4` | Chat Completions |
 | Grok 4.7 | `xai/grok-4.7` | `claude-sonnet-4` | Chat Completions |
 | GLM 5.3 Flash | `zai/glm-5.3-flash` | `claude-sonnet-4` | Chat Completions |
+| Kimi K3.1 Pro | `moonshot/kimi-k3.1-pro` | `claude-opus-4.6` | Chat Completions |
 | Kimi K3 | `moonshot/kimi-k3` | `claude-sonnet-4` | Chat Completions |
 
 `openai-latest` 和 `claude-latest` 始终指向各自系列中我们最新的旗舰模型。
@@ -141,7 +144,7 @@ copilot -p "Explain this repository." --allow-all-tools
 
 ### 为什么 Gemini、Grok、GLM 或 Kimi 请求出现工具错误
 
-设置 `COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"`。GPT 模型配置会发送只有 OpenAI 模型才接受的工具类型。
+设置 `COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"`（Kimi K3.1 Pro 设为 `"claude-opus-4.6"`）。GPT 模型配置会发送只有 OpenAI 模型才接受的工具类型。
 
 ## 说明
 
