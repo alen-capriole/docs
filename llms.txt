@@ -8,7 +8,7 @@
 - [List models](https://docs.capriole.ai/api-reference/endpoint/get.md): Returns the current public model catalog.
 - [Messages](https://docs.capriole.ai/api-reference/endpoint/messages.md): Create Anthropic Messages-compatible output with Capriole AI Claude models.
 - [Responses](https://docs.capriole.ai/api-reference/endpoint/responses.md): Create OpenAI Responses-compatible output with Capriole AI Responses models.
-- [5M-Token API Cost Test: Direct vs OpenRouter vs Capriole](https://docs.capriole.ai/articles/ai-api-cost-comparison.md): A reproducible fixed 5M-token workload test for Claude Fable 5, Gemini 3.1 Pro Preview, and Gemini 3.5 Flash across direct APIs, OpenRouter, and Capriole AI.
+- [OpenRouter Pricing vs Direct APIs: 5M-Token Cost Test](https://docs.capriole.ai/articles/ai-api-cost-comparison.md): OpenRouter charges provider list prices plus a 5.5% fee (8% on Business) when you buy credits. Compare 5M-token totals for direct APIs, OpenRouter, and Capriole AI's USD 8 plan.
 - [Capriole AI vs OpenRouter for Chat, API, and Coding Agents](https://docs.capriole.ai/articles/capriole-ai-vs-openrouter.md): See why Capriole AI is the lower-cost all-in-one choice for frontier-model chat, API access, coding agents, and explicit storage controls.
 - [Capriole AI vs Poe for Chat, API Access, and Coding Agents](https://docs.capriole.ai/articles/capriole-ai-vs-poe.md): See why Capriole AI is the stronger value for frontier-model chat, unlimited Premium browser chat, API access, coding agents, and storage controls.
 - [Capriole AI vs T3 Chat for Chat, BYOK, and API Access](https://docs.capriole.ai/articles/capriole-ai-vs-t3-chat.md): See why Capriole AI goes beyond chat with low-cost frontier models, unlimited Premium browser chat, API access, coding agents, and storage controls.
@@ -47,7 +47,7 @@
 - [列出模型](https://docs.capriole.ai/zh/api-reference/endpoint/get.md): 返回当前公开模型目录。
 - [Messages](https://docs.capriole.ai/zh/api-reference/endpoint/messages.md): 通过 Capriole AI Claude 模型创建 Anthropic Messages 兼容输出。
 - [Responses](https://docs.capriole.ai/zh/api-reference/endpoint/responses.md): 通过 Capriole AI Responses 模型创建 OpenAI Responses 兼容输出。
-- [500 万 token API 成本测试，直连、OpenRouter 与 Capriole 对比](https://docs.capriole.ai/zh/articles/ai-api-cost-comparison.md): 使用固定且可复现的 500 万 token 工作负载，对比 Claude Fable 5、Gemini 3.1 Pro Preview 和 Gemini 3.5 Flash 在官方直连 API、OpenRouter 与 Capriole AI 下的成本。
+- [OpenRouter 价格与官方直连对比：500 万 token 成本测试](https://docs.capriole.ai/zh/articles/ai-api-cost-comparison.md): OpenRouter 按各提供商的公开价格计费，充值时另收 5.5% 手续费（Business 方案为 8%）。对比 500 万 token 下官方直连 API、OpenRouter 与 Capriole AI USD 8 方案的总成本。
 - [Capriole AI 与 OpenRouter 的聊天、API 和编程智能体对比](https://docs.capriole.ai/zh/articles/capriole-ai-vs-openrouter.md): 了解 Capriole AI 为何是成本更低的一站式选择，能够提供前沿模型聊天、API 访问、编程智能体和明确的存储控制。
 - [Capriole AI 与 Poe 的聊天、API 访问和编程智能体对比](https://docs.capriole.ai/zh/articles/capriole-ai-vs-poe.md): 了解 Capriole AI 为何在前沿模型聊天、无限 Premium 浏览器聊天、API 访问、编程智能体和存储控制方面提供更强价值。
 - [Capriole AI 与 T3 Chat 的聊天、BYOK 和 API 访问对比](https://docs.capriole.ai/zh/articles/capriole-ai-vs-t3-chat.md): 了解 Capriole AI 如何用低价前沿模型、无限 Premium 浏览器聊天、API 访问、编程智能体和存储控制，把能力延伸到聊天之外。
@@ -86,7 +86,7 @@
 - [Listar modelos](https://docs.capriole.ai/es/api-reference/endpoint/get.md): Devuelve el catálogo público de modelos actual.
 - [Messages](https://docs.capriole.ai/es/api-reference/endpoint/messages.md): Crea salida compatible con Anthropic Messages con los modelos Claude de Capriole AI.
 - [Responses](https://docs.capriole.ai/es/api-reference/endpoint/responses.md): Crea salida compatible con OpenAI Responses con los modelos Responses de Capriole AI.
-- [Prueba de costo de API de 5M tokens: directo vs OpenRouter vs Capriole](https://docs.capriole.ai/es/articles/ai-api-cost-comparison.md): Una prueba reproducible de carga de trabajo fija de 5M tokens para Claude Fable 5, Gemini 3.1 Pro Preview y Gemini 3.5 Flash entre APIs directas, OpenRouter y Capriole AI.
+- [Precios de OpenRouter vs APIs directas: prueba de costo de 5M tokens](https://docs.capriole.ai/es/articles/ai-api-cost-comparison.md): OpenRouter cobra el precio de lista de cada proveedor más una tarifa del 5.5% (8% en el plan Business) al comprar créditos. Compara el total de 5M tokens en APIs directas, OpenRouter y el plan de USD 8 de Capriole AI.
 - [Capriole AI vs OpenRouter para chat, API y agentes de programación](https://docs.capriole.ai/es/articles/capriole-ai-vs-openrouter.md): Mira por qué Capriole AI es la opción todo en uno de menor costo para chat con modelos de frontera, acceso a la API, agentes de programación y controles explícitos de almacenamiento.
 - [Capriole AI vs Poe para chat, acceso a la API y agentes de programación](https://docs.capriole.ai/es/articles/capriole-ai-vs-poe.md): Mira por qué Capriole AI es el valor más sólido para chat con modelos de frontera, chat ilimitado del navegador en Premium, acceso a la API, agentes de programación y controles de almacenamiento.
 - [Capriole AI vs T3 Chat para chat, BYOK y acceso a la API](https://docs.capriole.ai/es/articles/capriole-ai-vs-t3-chat.md): Mira por qué Capriole AI va más allá del chat con modelos de frontera de bajo costo, chat ilimitado del navegador en Premium, acceso a la API, agentes de programación y controles de almacenamiento.
@@ -125,7 +125,7 @@
 - [Listar modelos](https://docs.capriole.ai/pt-br/api-reference/endpoint/get.md): Retorna o catálogo público atual de modelos.
 - [Messages](https://docs.capriole.ai/pt-br/api-reference/endpoint/messages.md): Crie saída compatível com Anthropic Messages com os modelos Claude da Capriole AI.
 - [Responses](https://docs.capriole.ai/pt-br/api-reference/endpoint/responses.md): Crie saída compatível com OpenAI Responses com os modelos Responses da Capriole AI.
-- [Teste de custo da API com 5M tokens: direto vs OpenRouter vs Capriole](https://docs.capriole.ai/pt-br/articles/ai-api-cost-comparison.md): Um teste reproduzível de carga de trabalho fixa de 5M tokens para Claude Fable 5, Gemini 3.1 Pro Preview e Gemini 3.5 Flash nas APIs diretas, no OpenRouter e na Capriole AI.
+- [Preços do OpenRouter vs APIs diretas: teste de custo com 5M tokens](https://docs.capriole.ai/pt-br/articles/ai-api-cost-comparison.md): O OpenRouter cobra o preço de lista de cada provedor mais uma taxa de 5.5% (8% no plano Business) na compra de créditos. Compare o total de 5M tokens nas APIs diretas, no OpenRouter e no plano de USD 8 da Capriole AI.
 - [Capriole AI vs OpenRouter para chat, API e agentes de programação](https://docs.capriole.ai/pt-br/articles/capriole-ai-vs-openrouter.md): Veja por que a Capriole AI é a escolha tudo em um de menor custo para chat com modelos de fronteira, acesso à API, agentes de programação e controles explícitos de armazenamento.
 - [Capriole AI vs Poe para chat, acesso à API e agentes de programação](https://docs.capriole.ai/pt-br/articles/capriole-ai-vs-poe.md): Veja por que a Capriole AI é o valor mais forte para chat com modelos de fronteira, Browser Chat ilimitado no Premium, acesso à API, agentes de programação e controles de armazenamento.
 - [Capriole AI vs T3 Chat para chat, BYOK e acesso à API](https://docs.capriole.ai/pt-br/articles/capriole-ai-vs-t3-chat.md): Veja por que a Capriole AI vai além do chat, com modelos de fronteira de baixo custo, Browser Chat ilimitado no Premium, acesso à API, agentes de programação e controles de armazenamento.
@@ -164,7 +164,7 @@
 - [Modelle auflisten](https://docs.capriole.ai/de/api-reference/endpoint/get.md): Gibt den aktuellen öffentlichen Modellkatalog zurück.
 - [Messages](https://docs.capriole.ai/de/api-reference/endpoint/messages.md): Erstellen Sie Anthropic Messages-kompatible Ausgabe mit Capriole AI Claude-Modellen.
 - [Responses](https://docs.capriole.ai/de/api-reference/endpoint/responses.md): Erstellen Sie OpenAI Responses-kompatible Ausgabe mit Capriole AI Responses-Modellen.
-- [5M-Token-API-Kostentest: Direkt vs OpenRouter vs Capriole](https://docs.capriole.ai/de/articles/ai-api-cost-comparison.md): Ein reproduzierbarer fester 5M-Token-Arbeitslasttest für Claude Fable 5, Gemini 3.1 Pro Preview und Gemini 3.5 Flash über direkte APIs, OpenRouter und Capriole AI.
+- [OpenRouter-Preise vs direkte APIs: 5M-Token-Kostentest](https://docs.capriole.ai/de/articles/ai-api-cost-comparison.md): OpenRouter berechnet den Listenpreis des jeweiligen Anbieters plus 5.5% Gebühr (8% im Business-Plan) beim Kauf von Credits. Vergleichen Sie die 5M-Token-Summen für direkte APIs, OpenRouter und den USD 8-Plan von Capriole AI.
 - [Capriole AI vs OpenRouter für Chat, API und Coding-Agents](https://docs.capriole.ai/de/articles/capriole-ai-vs-openrouter.md): Sehen Sie, warum Capriole AI die kostengünstigere All-in-one-Wahl für Frontier-Modell-Chat, API-Zugang, Coding-Agents und explizite Speichersteuerungen ist.
 - [Capriole AI vs Poe für Chat, API-Zugang und Coding-Agents](https://docs.capriole.ai/de/articles/capriole-ai-vs-poe.md): Sehen Sie, warum Capriole AI der stärkere Wert für Frontier-Modell-Chat, unbegrenzten Premium Browser Chat, API-Zugang, Coding-Agents und Speichersteuerungen ist.
 - [Capriole AI vs T3 Chat für Chat, BYOK und API-Zugang](https://docs.capriole.ai/de/articles/capriole-ai-vs-t3-chat.md): Sehen Sie, warum Capriole AI über Chat hinausgeht mit kostengünstigen Frontier-Modellen, unbegrenztem Premium Browser Chat, API-Zugang, Coding-Agents und Speichersteuerungen.
@@ -203,7 +203,7 @@
 - [モデル一覧](https://docs.capriole.ai/ja/api-reference/endpoint/get.md): 現在の公開モデルカタログを返します。
 - [Messages](https://docs.capriole.ai/ja/api-reference/endpoint/messages.md): Capriole AI の Claude モデルで Anthropic Messages 互換の出力を作成します。
 - [Responses](https://docs.capriole.ai/ja/api-reference/endpoint/responses.md): Capriole AI の Responses モデルで OpenAI Responses 互換の出力を作成します。
-- [500 万トークン API コスト テスト: 直接 vs OpenRouter vs Capriole](https://docs.capriole.ai/ja/articles/ai-api-cost-comparison.md): Claude Fable 5、Gemini 3.1 Pro Preview、Gemini 3.5 Flash について、直接 API、OpenRouter、Capriole AI をまたぐ、再現可能な固定 500 万トークン ワークロード テストです。
+- [OpenRouter の料金と直接 API の比較: 500 万トークン コスト テスト](https://docs.capriole.ai/ja/articles/ai-api-cost-comparison.md): OpenRouter は各プロバイダーの公開価格で課金し、クレジット購入時に 5.5% の手数料（Business プランは 8%）がかかります。直接 API、OpenRouter、Capriole AI の USD 8 プランで 500 万トークンの合計を比較します。
 - [チャット、API、コーディング エージェントにおける Capriole AI と OpenRouter](https://docs.capriole.ai/ja/articles/capriole-ai-vs-openrouter.md): 最先端モデル チャット、API アクセス、コーディング エージェント、明示的なストレージ制御で、Capriole AI がより低コストなオールインワン選択である理由を見ます。
 - [チャット、API アクセス、コーディング エージェントにおける Capriole AI と Poe](https://docs.capriole.ai/ja/articles/capriole-ai-vs-poe.md): 最先端モデル チャット、無制限の Premium Browser Chat、API アクセス、コーディング エージェント、ストレージ制御で、Capriole AI のほうが強い価値である理由を見ます。
 - [チャット、BYOK、API アクセスにおける Capriole AI と T3 Chat](https://docs.capriole.ai/ja/articles/capriole-ai-vs-t3-chat.md): Capriole AI が低コストの最先端モデル、無制限の Premium Browser Chat、API アクセス、コーディング エージェント、ストレージ制御で、チャットを超える理由を見ます。
@@ -242,7 +242,7 @@
 - [모델 목록](https://docs.capriole.ai/ko/api-reference/endpoint/get.md): 현재 공개 모델 카탈로그를 반환합니다.
 - [Messages](https://docs.capriole.ai/ko/api-reference/endpoint/messages.md): Capriole AI Claude 모델로 Anthropic Messages 호환 출력을 만듭니다.
 - [Responses](https://docs.capriole.ai/ko/api-reference/endpoint/responses.md): Capriole AI Responses 모델로 OpenAI Responses 호환 출력을 만듭니다.
-- [500만 토큰 API 비용 테스트: 직접 vs OpenRouter vs Capriole](https://docs.capriole.ai/ko/articles/ai-api-cost-comparison.md): Claude Fable 5, Gemini 3.1 Pro Preview, Gemini 3.5 Flash를 직접 API, OpenRouter, Capriole AI에서 비교하는 재현 가능한 고정 500만 토큰 워크로드 테스트입니다.
+- [OpenRouter 요금 vs 직접 API: 500만 토큰 비용 테스트](https://docs.capriole.ai/ko/articles/ai-api-cost-comparison.md): OpenRouter는 각 제공자의 정가로 과금하고 credit 구매 시 5.5% 수수료(Business 플랜은 8%)를 더합니다. 직접 API, OpenRouter, Capriole AI USD 8 플랜의 500만 토큰 합계를 비교합니다.
 - [채팅, API, 코딩 에이전트에서 Capriole AI와 OpenRouter 비교](https://docs.capriole.ai/ko/articles/capriole-ai-vs-openrouter.md): 최첨단 모델 채팅, API 접근, 코딩 에이전트, 명시적 저장 컨트롤에서 Capriole AI가 더 낮은 비용의 올인원 선택인 이유를 확인하세요.
 - [채팅, API 접근, 코딩 에이전트에서 Capriole AI와 Poe 비교](https://docs.capriole.ai/ko/articles/capriole-ai-vs-poe.md): 최첨단 모델 채팅, 무제한 Premium Browser Chat, API 접근, 코딩 에이전트, 저장 컨트롤에서 Capriole AI가 더 강한 가치인 이유를 확인하세요.
 - [채팅, BYOK, API 접근에서 Capriole AI와 T3 Chat 비교](https://docs.capriole.ai/ko/articles/capriole-ai-vs-t3-chat.md): 저비용 최첨단 모델, 무제한 Premium Browser Chat, API 접근, 코딩 에이전트, 저장 컨트롤로 Capriole AI가 채팅을 넘어서는 이유를 확인하세요.

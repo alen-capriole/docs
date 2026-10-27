@@ -683,6 +683,14 @@
   },
   "redirects": [
     {
+      "source": "/v1/chat/completions",
+      "destination": "/api-reference/endpoint/chat-completions"
+    },
+    {
+      "source": "/models",
+      "destination": "/api-reference/endpoint/get"
+    },
+    {
       "source": "/api-reference/endpoint/create",
       "destination": "/api-reference/endpoint/chat-completions"
     },
