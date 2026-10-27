@@ -20,6 +20,11 @@
   "metadata": {
     "timestamp": true
   },
+  "integrations": {
+    "ga4": {
+      "measurementId": "G-SP3LYPYCXC"
+    }
+  },
   "navigation": {
     "languages": [
       {
