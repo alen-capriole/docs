@@ -5,6 +5,24 @@ rss: true
 ---
 
 <Update label="27 de outubro de 2026">
+## Personalização
+
+Diga ao Capriole AI como chamar você, o que melhor descreve seu trabalho e como você prefere as respostas, na nova seção **Personalização** da página **Conta**. Todos os chats seguem essas informações a partir da sua próxima mensagem, inclusive os que você já tem. As instruções aceitam até 1.500 caracteres. Elas valem para o chat web e o app, não para a API.
+
+<Frame>
+  <img className="block dark:hidden" src="/images/changelog/2026-10-27-personalization-light.png" alt="A seção Personalização da página Conta, com um nome, uma categoria de trabalho e instruções preenchidos" />
+  <img className="hidden dark:block" src="/images/changelog/2026-10-27-personalization-dark.png" alt="A seção Personalização da página Conta, com um nome, uma categoria de trabalho e instruções preenchidos" />
+</Frame>
+
+## Chats de visitante continuam depois do login
+
+Comece um chat sem conta e depois faça login ou crie uma conta na mesma aba. O chat abre como um chat salvo na sua conta, com todas as mensagens, e a próxima resposta lembra o que você perguntou antes. Salvar o chat não conta no seu uso.
+
+<Frame>
+  <img className="block dark:hidden" src="/images/changelog/2026-10-27-guest-chat-kept-light.png" alt="Um chat começado como visitante, aberto como chat salvo depois do login" />
+  <img className="hidden dark:block" src="/images/changelog/2026-10-27-guest-chat-kept-dark.png" alt="Um chat começado como visitante, aberto como chat salvo depois do login" />
+</Frame>
+
 ## Kimi K3.1 Pro
 
 O Kimi K3.1 Pro, da Moonshot AI, já está disponível. É o modelo mais capaz do Kimi, com ganhos expressivos em programação, criação 3D e pesquisa financeira, e uma janela de contexto de 1M de tokens. No chat web, escolha **Kimi K3.1 Pro Thinking** para tarefas mais difíceis ou **Kimi K3.1 Pro** para respostas mais rápidas. Pela API, chame `moonshot/kimi-k3.1-pro` em [Chat Completions](/pt-br/api-reference/endpoint/chat-completions); os [guias de agentes de programação](/pt-br/integrations/opencode) também o incluem. O Kimi K3 continua disponível em **Mais modelos**.

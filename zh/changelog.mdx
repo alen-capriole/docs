@@ -5,6 +5,24 @@ rss: true
 ---
 
 <Update label="2026 年 10 月 27 日">
+## 个性化设置
+
+在 **账户** 页新增的 **个性化** 区块里，告诉 Capriole AI 怎么称呼你、哪一项最符合你的工作、你希望它怎样回答。从你的下一条消息开始，所有对话都会照做，包括已有的对话。指令最多 1,500 个字符。这些设置适用于网页聊天和 App，不适用于 API。
+
+<Frame>
+  <img className="block dark:hidden" src="/images/changelog/2026-10-27-personalization-light.png" alt="账户页的个性化区块，已填写称呼、工作类别和指令" />
+  <img className="hidden dark:block" src="/images/changelog/2026-10-27-personalization-dark.png" alt="账户页的个性化区块，已填写称呼、工作类别和指令" />
+</Frame>
+
+## 登录后保留访客聊天
+
+不登录也可以先开始聊天。之后在同一个标签页登录或注册，这段聊天会作为已保存的对话出现在你的账户里，消息一条不少，接下来的回复也记得你之前问过什么。保存这段聊天不计入你的用量。
+
+<Frame>
+  <img className="block dark:hidden" src="/images/changelog/2026-10-27-guest-chat-kept-light.png" alt="以访客身份开始的聊天，登录后作为已保存的对话打开" />
+  <img className="hidden dark:block" src="/images/changelog/2026-10-27-guest-chat-kept-dark.png" alt="以访客身份开始的聊天，登录后作为已保存的对话打开" />
+</Frame>
+
 ## Kimi K3.1 Pro
 
 Moonshot AI 的 Kimi K3.1 Pro 现已上线。这是 Kimi 最强的模型，在编程、3D 创作和金融研究方面都有大幅提升，并支持 1M token 的上下文窗口。在网页聊天中，处理更难的任务时选择 **Kimi K3.1 Pro Thinking**，需要更快回复时选择 **Kimi K3.1 Pro**。通过 API，可在 [Chat Completions](/zh/api-reference/endpoint/chat-completions) 上调用 `moonshot/kimi-k3.1-pro`；[编程代理指南](/zh/integrations/opencode)也已收录该模型。Kimi K3 仍可在 **更多模型** 中使用。

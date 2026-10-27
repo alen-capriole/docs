@@ -5,6 +5,24 @@ rss: true
 ---
 
 <Update label="2026年10月27日">
+## パーソナライズ
+
+**アカウント** ページに新しい **パーソナライズ** セクションを追加しました。Capriole AI にあなたの呼び名、お仕事、回答の好みを伝えられます。既存のチャットを含むすべてのチャットで、次のメッセージから反映されます。指示は最大 1,500 文字です。ウェブチャットとアプリに適用され、API には適用されません。
+
+<Frame>
+  <img className="block dark:hidden" src="/images/changelog/2026-10-27-personalization-light.png" alt="アカウントページのパーソナライズ セクション。呼び名、仕事の分類、指示を入力した状態" />
+  <img className="hidden dark:block" src="/images/changelog/2026-10-27-personalization-dark.png" alt="アカウントページのパーソナライズ セクション。呼び名、仕事の分類、指示を入力した状態" />
+</Frame>
+
+## ゲストのチャットがログイン後も残ります
+
+アカウントなしでチャットを始め、同じタブでログインまたは新規登録すると、そのチャットはアカウントに保存されたチャットとして開きます。メッセージはすべてそのまま残り、次の返信もそれまでのやり取りを踏まえます。保存しても使用量にはカウントされません。
+
+<Frame>
+  <img className="block dark:hidden" src="/images/changelog/2026-10-27-guest-chat-kept-light.png" alt="ゲストとして始めたチャットが、ログイン後に保存済みのチャットとして開いた画面" />
+  <img className="hidden dark:block" src="/images/changelog/2026-10-27-guest-chat-kept-dark.png" alt="ゲストとして始めたチャットが、ログイン後に保存済みのチャットとして開いた画面" />
+</Frame>
+
 ## Kimi K3.1 Pro
 
 Moonshot AI の Kimi K3.1 Pro を利用できるようになりました。Kimi で最も高性能なモデルで、コーディング、3D 制作、金融リサーチの性能が大きく向上し、1M トークンのコンテキスト ウィンドウを備えています。ウェブチャットでは、難しい作業には **Kimi K3.1 Pro Thinking**、すばやい回答には **Kimi K3.1 Pro** を選んでください。API では [Chat Completions](/ja/api-reference/endpoint/chat-completions) で `moonshot/kimi-k3.1-pro` を呼び出せます。[コーディングエージェントのガイド](/ja/integrations/opencode)にも掲載しています。Kimi K3 は引き続き **その他のモデル** から利用できます。
