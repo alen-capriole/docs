@@ -2619,6 +2619,160 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/integrations/qwen-code" />
   </url>
   <url>
+    <loc>https://docs.capriole.ai/legal/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/legal/privacy" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/legal/privacy" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/legal/privacy" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/legal/privacy" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/legal/privacy" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/legal/privacy" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/legal/privacy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/legal/privacy" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/zh/legal/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/legal/privacy" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/legal/privacy" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/legal/privacy" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/legal/privacy" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/legal/privacy" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/legal/privacy" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/legal/privacy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/legal/privacy" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/es/legal/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/legal/privacy" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/legal/privacy" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/legal/privacy" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/legal/privacy" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/legal/privacy" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/legal/privacy" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/legal/privacy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/legal/privacy" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/pt-br/legal/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/legal/privacy" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/legal/privacy" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/legal/privacy" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/legal/privacy" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/legal/privacy" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/legal/privacy" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/legal/privacy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/legal/privacy" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/de/legal/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/legal/privacy" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/legal/privacy" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/legal/privacy" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/legal/privacy" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/legal/privacy" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/legal/privacy" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/legal/privacy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/legal/privacy" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/ja/legal/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/legal/privacy" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/legal/privacy" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/legal/privacy" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/legal/privacy" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/legal/privacy" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/legal/privacy" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/legal/privacy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/legal/privacy" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/ko/legal/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/legal/privacy" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/legal/privacy" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/legal/privacy" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/legal/privacy" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/legal/privacy" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/legal/privacy" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/legal/privacy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/legal/privacy" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/legal/terms</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/legal/terms" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/legal/terms" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/legal/terms" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/legal/terms" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/legal/terms" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/legal/terms" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/legal/terms" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/legal/terms" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/zh/legal/terms</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/legal/terms" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/legal/terms" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/legal/terms" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/legal/terms" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/legal/terms" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/legal/terms" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/legal/terms" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/legal/terms" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/es/legal/terms</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/legal/terms" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/legal/terms" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/legal/terms" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/legal/terms" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/legal/terms" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/legal/terms" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/legal/terms" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/legal/terms" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/pt-br/legal/terms</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/legal/terms" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/legal/terms" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/legal/terms" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/legal/terms" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/legal/terms" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/legal/terms" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/legal/terms" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/legal/terms" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/de/legal/terms</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/legal/terms" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/legal/terms" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/legal/terms" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/legal/terms" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/legal/terms" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/legal/terms" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/legal/terms" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/legal/terms" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/ja/legal/terms</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/legal/terms" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/legal/terms" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/legal/terms" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/legal/terms" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/legal/terms" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/legal/terms" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/legal/terms" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/legal/terms" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/ko/legal/terms</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/legal/terms" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/legal/terms" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/legal/terms" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/legal/terms" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/legal/terms" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/legal/terms" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/legal/terms" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/legal/terms" />
+  </url>
+  <url>
     <loc>https://docs.capriole.ai/overview</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/overview" />
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/overview" />

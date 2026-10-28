@@ -38,6 +38,8 @@
 - [OpenCode](https://docs.capriole.ai/integrations/opencode.md): Configure OpenCode to use Capriole AI.
 - [Pi](https://docs.capriole.ai/integrations/pi.md): Configure Pi to use Capriole AI.
 - [Qwen Code](https://docs.capriole.ai/integrations/qwen-code.md): Configure Qwen Code to use Capriole AI.
+- [Privacy Policy](https://docs.capriole.ai/legal/privacy.md): How Capriole AI collects, uses and shares personal information.
+- [Terms of Service](https://docs.capriole.ai/legal/terms.md): The terms for using Capriole AI.
 - [Overview](https://docs.capriole.ai/overview.md): Chat, free GPT Image 2.5 and Nano Banana 2.1 generation in Browser Chat, and low-cost model APIs in one Capriole AI workspace.
 - [Quickstart](https://docs.capriole.ai/quickstart.md): Make your first Capriole AI API request.
 
@@ -77,6 +79,8 @@
 - [OpenCode](https://docs.capriole.ai/zh/integrations/opencode.md): 配置 OpenCode 使用 Capriole AI。
 - [Pi](https://docs.capriole.ai/zh/integrations/pi.md): 配置 Pi 使用 Capriole AI。
 - [Qwen Code](https://docs.capriole.ai/zh/integrations/qwen-code.md): 配置 Qwen Code 使用 Capriole AI。
+- [隐私政策](https://docs.capriole.ai/zh/legal/privacy.md): Capriole AI 如何收集、使用和分享个人信息。
+- [服务条款](https://docs.capriole.ai/zh/legal/terms.md): 使用 Capriole AI 的条款。
 - [概览](https://docs.capriole.ai/zh/overview.md): 一个 Capriole AI 工作区，提供模型聊天、GPT Image 2.5 和 Nano Banana 2.1 免费网页生图，以及低成本模型 API。
 - [快速开始](https://docs.capriole.ai/zh/quickstart.md): 发送你的第一个 Capriole AI API 请求。
 
@@ -116,6 +120,8 @@
 - [OpenCode](https://docs.capriole.ai/es/integrations/opencode.md): Configura OpenCode para usar Capriole AI.
 - [Pi](https://docs.capriole.ai/es/integrations/pi.md): Configura Pi para usar Capriole AI.
 - [Qwen Code](https://docs.capriole.ai/es/integrations/qwen-code.md): Configura Qwen Code para usar Capriole AI.
+- [Política de privacidad](https://docs.capriole.ai/es/legal/privacy.md): Cómo Capriole AI recopila, usa y comparte información personal.
+- [Términos del servicio](https://docs.capriole.ai/es/legal/terms.md): Las condiciones de uso de Capriole AI.
 - [Descripción general](https://docs.capriole.ai/es/overview.md): Chat, generación gratuita con GPT Image 2.5 y Nano Banana 2.1 en el navegador y API de modelos de bajo coste en un espacio de Capriole AI.
 - [Inicio rápido](https://docs.capriole.ai/es/quickstart.md): Haz tu primera solicitud a la API de Capriole AI.
 
@@ -155,6 +161,8 @@
 - [OpenCode](https://docs.capriole.ai/pt-br/integrations/opencode.md): Configure o OpenCode para usar a Capriole AI.
 - [Pi](https://docs.capriole.ai/pt-br/integrations/pi.md): Configure o Pi para usar a Capriole AI.
 - [Qwen Code](https://docs.capriole.ai/pt-br/integrations/qwen-code.md): Configure o Qwen Code para usar a Capriole AI.
+- [Política de privacidade](https://docs.capriole.ai/pt-br/legal/privacy.md): Como o Capriole AI coleta, usa e compartilha informações pessoais.
+- [Termos de serviço](https://docs.capriole.ai/pt-br/legal/terms.md): Os termos de uso do Capriole AI.
 - [Visão geral](https://docs.capriole.ai/pt-br/overview.md): Chat, imagens grátis com GPT Image 2.5 e Nano Banana 2.1 no navegador e APIs de modelos de baixo custo em um espaço Capriole AI.
 - [Início rápido](https://docs.capriole.ai/pt-br/quickstart.md): Envie sua primeira solicitação à API da Capriole AI.
 
@@ -194,6 +202,8 @@
 - [OpenCode](https://docs.capriole.ai/de/integrations/opencode.md): Konfigurieren Sie OpenCode für die Nutzung von Capriole AI.
 - [Pi](https://docs.capriole.ai/de/integrations/pi.md): Konfigurieren Sie Pi für die Nutzung von Capriole AI.
 - [Qwen Code](https://docs.capriole.ai/de/integrations/qwen-code.md): Konfigurieren Sie Qwen Code für die Nutzung von Capriole AI.
+- [Datenschutzerklärung](https://docs.capriole.ai/de/legal/privacy.md): Wie Capriole AI personenbezogene Daten erhebt, nutzt und weitergibt.
+- [Nutzungsbedingungen](https://docs.capriole.ai/de/legal/terms.md): Die Bedingungen für die Nutzung von Capriole AI.
 - [Überblick](https://docs.capriole.ai/de/overview.md): Chat, kostenlose Bilder mit GPT Image 2.5 und Nano Banana 2.1 im Browser und günstige Modell-APIs in einem Capriole AI-Arbeitsbereich.
 - [Schnellstart](https://docs.capriole.ai/de/quickstart.md): Senden Sie Ihre erste Capriole AI API-Anfrage.
 
@@ -233,6 +243,8 @@
 - [OpenCode](https://docs.capriole.ai/ja/integrations/opencode.md): OpenCode が Capriole AI を使うように設定します。
 - [Pi](https://docs.capriole.ai/ja/integrations/pi.md): Pi が Capriole AI を使うように設定します。
 - [Qwen Code](https://docs.capriole.ai/ja/integrations/qwen-code.md): Qwen Code が Capriole AI を使うように設定します。
+- [プライバシーポリシー](https://docs.capriole.ai/ja/legal/privacy.md): Capriole AI が個人情報をどのように収集、利用、共有するかを説明します。
+- [利用規約](https://docs.capriole.ai/ja/legal/terms.md): Capriole AI の利用条件です。
 - [概要](https://docs.capriole.ai/ja/overview.md): モデルとのチャット、GPT Image 2.5 と Nano Banana 2.1 の無料ブラウザ画像生成、低コストのモデル API を 1 つの Capriole AI ワークスペースで。
 - [クイックスタート](https://docs.capriole.ai/ja/quickstart.md): 最初の Capriole AI API リクエストを送信します。
 
@@ -272,6 +284,8 @@
 - [OpenCode](https://docs.capriole.ai/ko/integrations/opencode.md): OpenCode가 Capriole AI를 사용하도록 구성합니다.
 - [Pi](https://docs.capriole.ai/ko/integrations/pi.md): Pi가 Capriole AI를 사용하도록 구성합니다.
 - [Qwen Code](https://docs.capriole.ai/ko/integrations/qwen-code.md): Qwen Code가 Capriole AI를 사용하도록 구성합니다.
+- [개인정보 처리방침](https://docs.capriole.ai/ko/legal/privacy.md): Capriole AI가 개인정보를 수집, 이용, 공유하는 방법입니다.
+- [이용약관](https://docs.capriole.ai/ko/legal/terms.md): Capriole AI 이용 조건입니다.
 - [개요](https://docs.capriole.ai/ko/overview.md): 하나의 Capriole AI 작업 공간에서 모델 채팅, GPT Image 2.5 및 Nano Banana 2.1 무료 브라우저 이미지 생성, 저렴한 모델 API를 이용하세요.
 - [빠른 시작](https://docs.capriole.ai/ko/quickstart.md): 첫 Capriole AI API 요청을 보냅니다.
 

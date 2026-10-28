@@ -118,6 +118,13 @@
             "pages": [
               "changelog"
             ]
+          },
+          {
+            "tab": "Legal",
+            "pages": [
+              "legal/terms",
+              "legal/privacy"
+            ]
           }
         ]
       },
@@ -210,6 +217,13 @@
             "tab": "更新日志",
             "pages": [
               "zh/changelog"
+            ]
+          },
+          {
+            "tab": "法律条款",
+            "pages": [
+              "zh/legal/terms",
+              "zh/legal/privacy"
             ]
           }
         ]
@@ -304,6 +318,13 @@
             "pages": [
               "es/changelog"
             ]
+          },
+          {
+            "tab": "Legal",
+            "pages": [
+              "es/legal/terms",
+              "es/legal/privacy"
+            ]
           }
         ]
       },
@@ -396,6 +417,13 @@
             "tab": "Registro de alterações",
             "pages": [
               "pt-br/changelog"
+            ]
+          },
+          {
+            "tab": "Jurídico",
+            "pages": [
+              "pt-br/legal/terms",
+              "pt-br/legal/privacy"
             ]
           }
         ]
@@ -490,6 +518,13 @@
             "pages": [
               "de/changelog"
             ]
+          },
+          {
+            "tab": "Rechtliches",
+            "pages": [
+              "de/legal/terms",
+              "de/legal/privacy"
+            ]
           }
         ]
       },
@@ -583,6 +618,13 @@
             "pages": [
               "ja/changelog"
             ]
+          },
+          {
+            "tab": "法的情報",
+            "pages": [
+              "ja/legal/terms",
+              "ja/legal/privacy"
+            ]
           }
         ]
       },
@@ -675,6 +717,13 @@
             "tab": "업데이트 내역",
             "pages": [
               "ko/changelog"
+            ]
+          },
+          {
+            "tab": "법적 고지",
+            "pages": [
+              "ko/legal/terms",
+              "ko/legal/privacy"
             ]
           }
         ]
