@@ -85,6 +85,7 @@
                   "guides/files-web-search",
                   "guides/api-keys-usage",
                   "guides/chat-storage",
+                  "guides/projects",
                   "guides/openai-anthropic-sdks",
                   "guides/one-api-key-coding-agents"
                 ]
@@ -185,6 +186,7 @@
                   "zh/guides/files-web-search",
                   "zh/guides/api-keys-usage",
                   "zh/guides/chat-storage",
+                  "zh/guides/projects",
                   "zh/guides/openai-anthropic-sdks",
                   "zh/guides/one-api-key-coding-agents"
                 ]
@@ -285,6 +287,7 @@
                   "es/guides/files-web-search",
                   "es/guides/api-keys-usage",
                   "es/guides/chat-storage",
+                  "es/guides/projects",
                   "es/guides/openai-anthropic-sdks",
                   "es/guides/one-api-key-coding-agents"
                 ]
@@ -385,6 +388,7 @@
                   "pt-br/guides/files-web-search",
                   "pt-br/guides/api-keys-usage",
                   "pt-br/guides/chat-storage",
+                  "pt-br/guides/projects",
                   "pt-br/guides/openai-anthropic-sdks",
                   "pt-br/guides/one-api-key-coding-agents"
                 ]
@@ -485,6 +489,7 @@
                   "de/guides/files-web-search",
                   "de/guides/api-keys-usage",
                   "de/guides/chat-storage",
+                  "de/guides/projects",
                   "de/guides/openai-anthropic-sdks",
                   "de/guides/one-api-key-coding-agents"
                 ]
@@ -585,6 +590,7 @@
                   "ja/guides/files-web-search",
                   "ja/guides/api-keys-usage",
                   "ja/guides/chat-storage",
+                  "ja/guides/projects",
                   "ja/guides/openai-anthropic-sdks",
                   "ja/guides/one-api-key-coding-agents"
                 ]
@@ -685,6 +691,7 @@
                   "ko/guides/files-web-search",
                   "ko/guides/api-keys-usage",
                   "ko/guides/chat-storage",
+                  "ko/guides/projects",
                   "ko/guides/openai-anthropic-sdks",
                   "ko/guides/one-api-key-coding-agents"
                 ]

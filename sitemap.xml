@@ -1772,6 +1772,83 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/guides/openai-anthropic-sdks" />
   </url>
   <url>
+    <loc>https://docs.capriole.ai/guides/projects</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/guides/projects" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/guides/projects" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/guides/projects" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/guides/projects" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/guides/projects" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/guides/projects" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/guides/projects" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/guides/projects" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/zh/guides/projects</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/guides/projects" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/guides/projects" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/guides/projects" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/guides/projects" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/guides/projects" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/guides/projects" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/guides/projects" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/guides/projects" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/es/guides/projects</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/guides/projects" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/guides/projects" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/guides/projects" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/guides/projects" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/guides/projects" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/guides/projects" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/guides/projects" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/guides/projects" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/pt-br/guides/projects</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/guides/projects" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/guides/projects" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/guides/projects" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/guides/projects" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/guides/projects" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/guides/projects" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/guides/projects" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/guides/projects" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/de/guides/projects</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/guides/projects" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/guides/projects" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/guides/projects" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/guides/projects" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/guides/projects" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/guides/projects" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/guides/projects" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/guides/projects" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/ja/guides/projects</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/guides/projects" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/guides/projects" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/guides/projects" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/guides/projects" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/guides/projects" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/guides/projects" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/guides/projects" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/guides/projects" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/ko/guides/projects</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/guides/projects" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/guides/projects" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/guides/projects" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/guides/projects" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/guides/projects" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/guides/projects" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/guides/projects" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/guides/projects" />
+  </url>
+  <url>
     <loc>https://docs.capriole.ai/integrations/claude-code</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/integrations/claude-code" />
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/integrations/claude-code" />

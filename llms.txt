@@ -27,6 +27,7 @@
 - [Use Files, Image Generation and Web Search in Capriole AI](https://docs.capriole.ai/guides/files-web-search.md): Create free images with GPT Image 2.5 and Nano Banana 2.1, upload files, and use web search in Browser Chat. Learn the sign-in and Server Storage requirements.
 - [Use One API Key with Coding Agents](https://docs.capriole.ai/guides/one-api-key-coding-agents.md): Set up six maintained coding agents with one Capriole AI API key while keeping each client on its supported protocol.
 - [Use OpenAI and Anthropic SDKs with Capriole AI](https://docs.capriole.ai/guides/openai-anthropic-sdks.md): Call Capriole AI from Python or TypeScript with the official OpenAI and Anthropic SDKs, supported protocols, latest aliases, and correct base URLs.
+- [Organize Chats into Projects in Capriole AI](https://docs.capriole.ai/guides/projects.md): Group related chats into projects in Capriole AI, give each project its own instructions, and move chats in and out from the sidebar.
 - [Claude Code](https://docs.capriole.ai/integrations/claude-code.md): Configure Claude Code to use Capriole AI.
 - [Cline](https://docs.capriole.ai/integrations/cline.md): Configure Cline to use Capriole AI.
 - [Codex](https://docs.capriole.ai/integrations/codex.md): Configure Codex to use Capriole AI.
@@ -68,6 +69,7 @@
 - [在 Capriole AI 中使用文件、生图和网页搜索](https://docs.capriole.ai/zh/guides/files-web-search.md): 在网页聊天中用 GPT Image 2.5 和 Nano Banana 2.1 免费生图、上传文件和搜索网页，了解登录及 Server Storage 要求。
 - [使用一个 API Key 配置编程代理](https://docs.capriole.ai/zh/guides/one-api-key-coding-agents.md): 使用一个 Capriole AI API Key 配置六个持续维护的编程代理，同时让每个客户端使用其支持的协议。
 - [通过 OpenAI 和 Anthropic SDK 使用 Capriole AI](https://docs.capriole.ai/zh/guides/openai-anthropic-sdks.md): 使用官方 OpenAI 和 Anthropic SDK，通过 Python 或 TypeScript 调用 Capriole AI，并正确配置受支持的协议、latest 别名和 Base URL。
+- [在 Capriole AI 中用项目整理对话](https://docs.capriole.ai/zh/guides/projects.md): 在 Capriole AI 中把相关对话归入项目，为每个项目设置专属指令，并在侧栏中把对话移入或移出项目。
 - [Claude Code](https://docs.capriole.ai/zh/integrations/claude-code.md): 配置 Claude Code 使用 Capriole AI。
 - [Cline](https://docs.capriole.ai/zh/integrations/cline.md): 配置 Cline 使用 Capriole AI。
 - [Codex](https://docs.capriole.ai/zh/integrations/codex.md): 配置 Codex 使用 Capriole AI。
@@ -109,6 +111,7 @@
 - [Usa archivos, generación de imágenes y búsqueda web en Capriole AI](https://docs.capriole.ai/es/guides/files-web-search.md): Genera imágenes gratis con GPT Image 2.5 y Nano Banana 2.1, sube archivos y busca en la web. Conoce los requisitos de inicio de sesión y Server Storage.
 - [Usa una sola clave API con agentes de programación](https://docs.capriole.ai/es/guides/one-api-key-coding-agents.md): Configura seis agentes de programación mantenidos con una sola clave API de Capriole AI, manteniendo cada cliente en su protocolo compatible.
 - [Usa los SDK de OpenAI y Anthropic con Capriole AI](https://docs.capriole.ai/es/guides/openai-anthropic-sdks.md): Llama a Capriole AI desde Python o TypeScript con los SDK oficiales de OpenAI y Anthropic, los protocolos compatibles, los alias latest y las Base URL correctas.
+- [Organiza tus chats en proyectos en Capriole AI](https://docs.capriole.ai/es/guides/projects.md): Agrupa chats relacionados en proyectos en Capriole AI, dale a cada proyecto sus propias instrucciones y mueve chats dentro y fuera desde la barra lateral.
 - [Claude Code](https://docs.capriole.ai/es/integrations/claude-code.md): Configura Claude Code para usar Capriole AI.
 - [Cline](https://docs.capriole.ai/es/integrations/cline.md): Configura Cline para usar Capriole AI.
 - [Codex](https://docs.capriole.ai/es/integrations/codex.md): Configura Codex para usar Capriole AI.
@@ -150,6 +153,7 @@
 - [Use arquivos, geração de imagens e pesquisa na web no Capriole AI](https://docs.capriole.ai/pt-br/guides/files-web-search.md): Gere imagens grátis com GPT Image 2.5 e Nano Banana 2.1, envie arquivos e pesquise na web. Veja os requisitos de login e Server Storage.
 - [Usar uma API key com agentes de programação](https://docs.capriole.ai/pt-br/guides/one-api-key-coding-agents.md): Configure seis agentes de programação mantidos com uma API key da Capriole AI, mantendo cada cliente no protocolo suportado.
 - [Usar os SDKs OpenAI e Anthropic com a Capriole AI](https://docs.capriole.ai/pt-br/guides/openai-anthropic-sdks.md): Chame a Capriole AI em Python ou TypeScript com os SDKs oficiais OpenAI e Anthropic, protocolos suportados, aliases latest e as base URLs corretas.
+- [Organize seus chats em projetos no Capriole AI](https://docs.capriole.ai/pt-br/guides/projects.md): Agrupe chats relacionados em projetos no Capriole AI, dê a cada projeto as próprias instruções e mova chats para dentro e para fora pela barra lateral.
 - [Claude Code](https://docs.capriole.ai/pt-br/integrations/claude-code.md): Configure o Claude Code para usar a Capriole AI.
 - [Cline](https://docs.capriole.ai/pt-br/integrations/cline.md): Configure o Cline para usar a Capriole AI.
 - [Codex](https://docs.capriole.ai/pt-br/integrations/codex.md): Configure o Codex para usar a Capriole AI.
@@ -191,6 +195,7 @@
 - [Dateien, Bilderzeugung und Websuche in Capriole AI nutzen](https://docs.capriole.ai/de/guides/files-web-search.md): Erstelle kostenlos Bilder mit GPT Image 2.5 und Nano Banana 2.1, lade Dateien hoch und nutze die Websuche. Erfahre, wann Anmeldung und Server Storage nötig sind.
 - [Einen API-Schlüssel mit Coding-Agents nutzen](https://docs.capriole.ai/de/guides/one-api-key-coding-agents.md): Richten Sie sechs gepflegte Coding-Agents mit einem Capriole AI API-Schlüssel ein und halten Sie jeden Client auf seinem unterstützten Protokoll.
 - [OpenAI- und Anthropic-SDKs mit Capriole AI nutzen](https://docs.capriole.ai/de/guides/openai-anthropic-sdks.md): Rufen Sie Capriole AI aus Python oder TypeScript mit den offiziellen OpenAI- und Anthropic-SDKs, unterstützten Protokollen, Latest-Aliasen und korrekten Base URLs auf.
+- [Chats in Capriole AI in Projekten ordnen](https://docs.capriole.ai/de/guides/projects.md): Fassen Sie zusammengehörige Chats in Capriole AI zu Projekten zusammen, geben Sie jedem Projekt eigene Anweisungen und verschieben Sie Chats über die Seitenleiste hinein und heraus.
 - [Claude Code](https://docs.capriole.ai/de/integrations/claude-code.md): Konfigurieren Sie Claude Code für die Nutzung von Capriole AI.
 - [Cline](https://docs.capriole.ai/de/integrations/cline.md): Konfigurieren Sie Cline für die Nutzung von Capriole AI.
 - [Codex](https://docs.capriole.ai/de/integrations/codex.md): Konfigurieren Sie Codex für die Nutzung von Capriole AI.
@@ -232,6 +237,7 @@
 - [Capriole AI でファイル・画像生成・Web 検索を使う](https://docs.capriole.ai/ja/guides/files-web-search.md): GPT Image 2.5 と Nano Banana 2.1 の無料画像生成、ファイルアップロード、Web 検索の使い方と、ログイン・Server Storage の条件を説明します。
 - [1 つの API キーでコーディング エージェントを使う](https://docs.capriole.ai/ja/guides/one-api-key-coding-agents.md): 1 つの Capriole AI API キーで、維持されている 6 つのコーディング エージェントを設定し、各クライアントを対応プロトコルに保ちます。
 - [OpenAI と Anthropic の SDK で Capriole AI を使う](https://docs.capriole.ai/ja/guides/openai-anthropic-sdks.md): 公式の OpenAI と Anthropic SDK を使い、Python または TypeScript から Capriole AI を呼び出します。対応プロトコル、latest エイリアス、正しい Base URL を設定します。
+- [Capriole AI でチャットをプロジェクトに整理する](https://docs.capriole.ai/ja/guides/projects.md): Capriole AI で関連するチャットをプロジェクトにまとめ、プロジェクトごとの指示を設定し、サイドバーからチャットを出し入れします。
 - [Claude Code](https://docs.capriole.ai/ja/integrations/claude-code.md): Claude Code が Capriole AI を使うように設定します。
 - [Cline](https://docs.capriole.ai/ja/integrations/cline.md): Cline が Capriole AI を使うように設定します。
 - [Codex](https://docs.capriole.ai/ja/integrations/codex.md): Codex が Capriole AI を使うように設定します。
@@ -273,6 +279,7 @@
 - [Capriole AI에서 파일, 이미지 생성, 웹 검색 사용하기](https://docs.capriole.ai/ko/guides/files-web-search.md): GPT Image 2.5 및 Nano Banana 2.1 무료 이미지 생성, 파일 업로드, 웹 검색을 사용하고 로그인 및 Server Storage 요구 사항을 확인하세요.
 - [코딩 에이전트에 API key 하나 사용하기](https://docs.capriole.ai/ko/guides/one-api-key-coding-agents.md): 각 클라이언트를 지원 프로토콜에 둔 채로, 하나의 Capriole AI API key로 유지 중인 코딩 에이전트 여섯 개를 설정하세요.
 - [OpenAI 및 Anthropic SDK로 Capriole AI 사용하기](https://docs.capriole.ai/ko/guides/openai-anthropic-sdks.md): 공식 OpenAI 및 Anthropic SDK로 Python 또는 TypeScript에서 Capriole AI를 호출하고, 지원 프로토콜, latest 별칭, 올바른 Base URL을 사용하세요.
+- [Capriole AI에서 프로젝트로 채팅 정리하기](https://docs.capriole.ai/ko/guides/projects.md): Capriole AI에서 관련 채팅을 프로젝트로 묶고, 프로젝트마다 지침을 정하고, 사이드바에서 채팅을 넣고 빼세요.
 - [Claude Code](https://docs.capriole.ai/ko/integrations/claude-code.md): Claude Code가 Capriole AI를 사용하도록 구성합니다.
 - [Cline](https://docs.capriole.ai/ko/integrations/cline.md): Cline이 Capriole AI를 사용하도록 구성합니다.
 - [Codex](https://docs.capriole.ai/ko/integrations/codex.md): Codex가 Capriole AI를 사용하도록 구성합니다.
