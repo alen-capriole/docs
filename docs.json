@@ -897,7 +897,7 @@
         "description": "Explain this page in Capriole AI",
         "icon": "/favicon.ico",
         "href": {
-          "base": "https://capriole.ai",
+          "base": "https://www.capriole.ai",
           "query": [
             {
               "key": "ask",
