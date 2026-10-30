@@ -1,10 +1,10 @@
 ---
 title: "Organize Chats into Projects in Capriole AI"
 sidebarTitle: "Organize Chats into Projects"
-description: "Group related chats into projects in Capriole AI, give each project its own instructions, and move chats in and out from the sidebar."
+description: "Group related chats into projects in Capriole AI, give each project its own instructions and files, and move chats in and out from the sidebar."
 ---
 
-A project keeps related chats together under one name in the sidebar, with instructions that every chat in it follows. Use one for a client, a course, or any work you come back to, and tell Capriole AI once how to work there instead of repeating it in each chat.
+A project keeps related chats together under one name in the sidebar, with instructions that every chat in it follows and files they can all read. Use one for a client, a course, or any work you come back to, and tell Capriole AI once how to work there instead of repeating it in each chat.
 
 ## Who can use projects
 
@@ -15,9 +15,9 @@ Projects are available on every plan to signed-in users who keep chats on the se
 1. In the sidebar, point to **Projects** and select **+**.
 2. Enter a name and select **Create**.
 
-The project appears under **Projects**, above **Pinned** and **Recents**. Select its name to open its page, which has a **New chat** button and the **Chats** and **Instructions** tabs. **Chats** lists every chat in the project.
+The project appears under **Projects**, between **Pinned** and **Recents**. Select its name to open its page, which has a **New chat** button and the **Chats**, **Files**, and **Instructions** tabs. **Chats** lists every chat in the project.
 
-To list the project's chats under it in the sidebar, select the icon to the left of its name. The sidebar shows five at a time; select **Load more** to see more.
+Selecting the name also lists the project's chats under it in the sidebar, five at a time; select **Load more** to see more. To hide or show the list, select the icon to the left of the name.
 
 ## Start a chat in a project
 
@@ -30,7 +30,7 @@ A chat belongs either to **Recents** or to one project.
 - **From the chat's menu**: In the sidebar, open the chat's menu, choose **Project**, then a project. To move the chat back to **Recents**, choose **Remove from** followed by the project's name.
 - **By dragging**: On a computer, drag the chat from the sidebar onto a project.
 
-A chat moved into a project follows the project's instructions from its next reply; a chat moved out stops following them.
+A chat moved into a project follows the project's instructions and can use the project's files from its next reply; a chat moved out loses both.
 
 ## Set project instructions
 
@@ -40,17 +40,37 @@ Saved instructions apply to every chat in the project, including the ones alread
 
 Capriole AI also knows the project's name in these chats, so you can refer to "this project".
 
+## Add files to a project
+
+Open the project and select the **Files** tab. Select **Add files**, or drag files onto the tab. You can add the same documents and images as chat attachments; the [files and web search guide](/guides/files-web-search) lists the types.
+
+The limits are the same on every plan:
+
+- Up to 40 files in a project.
+- Up to 10 MB per file, or 4 MB for documents other than PDF.
+- Up to 1 GB of project files in your account.
+
+Each file in a project needs its own name.
+
+Every chat in the project can use these files, including chats already there. Capriole AI sees the list of files and reads a file when your question needs it; the chat shows **Reading** followed by the file's name while it does.
+
+To delete a file, point to it and select **×**. The file is deleted at once and is no longer available to the project's chats; replies that used it stay as they are.
+
 ## Pin a chat in a project
 
-Pinning changes only where the sidebar shows a chat. A pinned project chat shows under **Pinned** instead of under its project, and returns under the project when you unpin it. It stays in the project: it keeps following the project's instructions, and the project's **Chats** tab still lists it.
+Pinning changes only where the sidebar shows a chat. A pinned project chat shows under **Pinned** instead of under its project, and returns under the project when you unpin it. It stays in the project: it keeps the project's instructions and files, and the project's **Chats** tab still lists it.
 
 ## Rename or delete a project
 
 In the sidebar, point to the project, open its three-dot menu, and choose **Rename** or **Delete**. The same menu is next to **New chat** on the project page.
 
 <Warning>
-Once you confirm, Capriole AI permanently deletes the project, its instructions, and every chat in it. Move out any chat you want to keep first.
+Once you confirm, Capriole AI permanently deletes the project, its instructions, its files, and every chat in it. First move out any chat you want to keep, or export the project.
 </Warning>
+
+## Export a project
+
+Open the same three-dot menu, choose **Export**, and select **Export** in the dialog. Capriole AI prepares a ZIP and shows its progress; when it is ready, select **Download**. The ZIP has the project's chats as Markdown files and a `projects/` folder with the project's instructions and files. **Export chat history** in **Account** → **Settings** includes all your projects the same way.
 
 ## Common questions
 
@@ -58,6 +78,6 @@ Once you confirm, Capriole AI permanently deletes the project, its instructions,
 
 Select **Search Chats** in the sidebar and type part of the chat's title. Search covers all your chats, including those in projects.
 
-### Does deleting all chat history remove my projects?
+### Does deleting all chat history remove my projects or their files?
 
-No. It deletes every chat, including those in your projects, but the projects keep their names and instructions.
+No. It deletes every chat, including those in your projects, but the projects keep their names, instructions, and files.

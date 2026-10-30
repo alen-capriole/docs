@@ -37,6 +37,7 @@ Os chats de visitantes não são salvos nos nossos servidores. Uma cópia fica n
 | Conta | Seu endereço de e-mail, nome e foto de perfil do login. A conta é compartilhada com o Capriole Quant. |
 | Chats | Mensagens, arquivos anexados, imagens criadas e títulos dos chats, conforme o seu modo de armazenamento |
 | Personalização | O nome, o trabalho e as instruções que você adiciona à sua conta |
+| Projetos | Nomes, instruções e os arquivos que você adiciona a eles |
 | Entrada de voz | Nada. As gravações são enviadas para transcrição sem armazenar o áudio nem o texto. |
 | Registros de uso | Para cada chat e cada solicitação à API: horário, modelo, contagem de tokens, status, latência, custo e endereço IP, além da key usada nas solicitações à API. Nenhum conteúdo de mensagem. |
 | Pagamentos | O status da sua assinatura e os identificadores de cobrança. O Stripe processa o pagamento; não recebemos o número do seu cartão. |
@@ -53,7 +54,7 @@ Nossos servidores principais e nosso banco de dados ficam na Índia. Nossos forn
 
 ## Exporte seus chats
 
-Em **Conta** → **Configurações**, selecione **Exportar histórico de chats**. Você recebe um ZIP com cada chat em um arquivo Markdown, os arquivos que você anexou e as imagens que gerou, além do `conversations.json`, que reúne todos os chats em um formato que programas conseguem ler.
+Em **Conta** → **Configurações**, selecione **Exportar histórico de chats**. Você recebe um ZIP com cada chat em um arquivo Markdown, os arquivos que você anexou e as imagens que gerou, além do `conversations.json`, que reúne todos os chats em um formato que programas conseguem ler. As instruções e os arquivos dos seus projetos ficam em uma pasta `projects/`, e o `conversations.json` registra o projeto de cada chat.
 
 Um histórico grande leva alguns minutos. O download fica disponível por 24 horas, e você pode exportar mesmo depois que um plano pago termina.
 
@@ -62,10 +63,11 @@ Para exportar um único chat, abra o menu dele na barra lateral e escolha **Expo
 ## Exclua chats ou sua conta
 
 - **Um chat**: abra o menu do chat na barra lateral e escolha **Excluir**.
-- **Todos os chats**: em **Conta** → **Configurações**, selecione **Excluir tudo** ao lado de **Excluir todo o histórico de chats**.
+- **Todos os chats**: em **Conta** → **Configurações**, selecione **Excluir tudo** ao lado de **Excluir todo o histórico de chats**. Seus projetos mantêm as instruções e os arquivos.
+- **Um projeto**: abra o menu dele e escolha **Excluir**. As instruções, os arquivos e os chats dele também são excluídos.
 - **Sua conta**: envie um e-mail para [info@capriole.ai](mailto:info@capriole.ai). Como a conta é compartilhada com o Capriole Quant, você também deixa de conseguir entrar no Capriole Quant.
 
-Excluir um chat, ou todo o histórico de chats, remove esse conteúdo permanentemente dos nossos servidores. Os dados excluídos podem permanecer em backups do banco de dados por até 7 dias. Os chats em Local Storage ficam no seu navegador até você apagá-los.
+Excluir um chat, todo o histórico de chats ou um projeto remove esse conteúdo permanentemente dos nossos servidores. Os dados excluídos podem permanecer em backups do banco de dados por até 7 dias. Os chats em Local Storage ficam no seu navegador até você apagá-los.
 
 ## Quem recebe seus dados
 

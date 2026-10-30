@@ -37,6 +37,7 @@ Los chats de invitado no se guardan en nuestros servidores. Queda una copia en l
 | Cuenta | Tu dirección de correo, tu nombre y tu foto de perfil del inicio de sesión. La cuenta se comparte con Capriole Quant. |
 | Chats | Mensajes, archivos adjuntos, imágenes creadas y títulos de chat, según tu modo de almacenamiento |
 | Personalización | El nombre, el trabajo y las instrucciones que agregas a tu cuenta |
+| Proyectos | Nombres, instrucciones y los archivos que les agregas |
 | Entrada de voz | Nada. Las grabaciones se envían para transcribirlas sin guardar el audio ni el texto. |
 | Registros de uso | Para cada chat y cada solicitud a la API: hora, modelo, número de tokens, estado, latencia, costo y dirección IP, además de la clave usada en las solicitudes a la API. Ningún contenido de los mensajes. |
 | Pagos | El estado de tu suscripción y tus identificadores de facturación. Stripe procesa el pago; no recibimos el número de tu tarjeta. |
@@ -53,7 +54,7 @@ Nuestros servidores principales y nuestra base de datos están en India. Nuestro
 
 ## Exporta tus chats
 
-En **Cuenta** → **Ajustes**, selecciona **Exportar historial de chat**. Recibes un ZIP con cada chat como archivo Markdown, los archivos que adjuntaste y las imágenes que generaste, además de `conversations.json`, que contiene todos los chats en un formato que los programas pueden leer.
+En **Cuenta** → **Ajustes**, selecciona **Exportar historial de chat**. Recibes un ZIP con cada chat como archivo Markdown, los archivos que adjuntaste y las imágenes que generaste, además de `conversations.json`, que contiene todos los chats en un formato que los programas pueden leer. Las instrucciones y los archivos de tus proyectos están en una carpeta `projects/`, y `conversations.json` indica el proyecto de cada chat.
 
 Un historial grande tarda unos minutos. La descarga queda disponible durante 24 horas, y puedes exportar incluso después de que termine un plan de pago.
 
@@ -62,10 +63,11 @@ Para exportar un solo chat, abre su menú en la barra lateral y elige **Exportar
 ## Elimina chats o tu cuenta
 
 - **Un chat**: abre el menú del chat en la barra lateral y elige **Eliminar**.
-- **Todos los chats**: en **Cuenta** → **Ajustes**, selecciona **Eliminar todo** junto a **Eliminar todo el historial de chat**.
+- **Todos los chats**: en **Cuenta** → **Ajustes**, selecciona **Eliminar todo** junto a **Eliminar todo el historial de chat**. Tus proyectos conservan sus instrucciones y archivos.
+- **Un proyecto**: abre su menú y elige **Eliminar**. También se borran sus instrucciones, archivos y chats.
 - **Tu cuenta**: escribe a [info@capriole.ai](mailto:info@capriole.ai). Como la cuenta se comparte con Capriole Quant, también dejarás de poder iniciar sesión en Capriole Quant.
 
-Eliminar un chat, o todo el historial de chat, lo borra de forma permanente de nuestros servidores. Los datos eliminados pueden permanecer en las copias de seguridad de la base de datos hasta 7 días. Los chats de Local Storage se quedan en tu navegador hasta que los borres.
+Eliminar un chat, todo el historial de chat o un proyecto lo borra de forma permanente de nuestros servidores. Los datos eliminados pueden permanecer en las copias de seguridad de la base de datos hasta 7 días. Los chats de Local Storage se quedan en tu navegador hasta que los borres.
 
 ## Quién recibe tus datos
 

@@ -1,10 +1,10 @@
 ---
 title: "Organiza tus chats en proyectos en Capriole AI"
 sidebarTitle: "Organiza tus chats en proyectos"
-description: "Agrupa chats relacionados en proyectos en Capriole AI, dale a cada proyecto sus propias instrucciones y mueve chats dentro y fuera desde la barra lateral."
+description: "Agrupa chats relacionados en proyectos en Capriole AI, dale a cada proyecto sus propias instrucciones y archivos, y mueve chats dentro y fuera desde la barra lateral."
 ---
 
-Un proyecto reúne chats relacionados bajo un mismo nombre en la barra lateral, con instrucciones que sigue cada chat que contiene. Crea uno para un cliente, un curso o cualquier trabajo al que vuelvas, y dile a Capriole AI una sola vez cómo trabajar ahí en lugar de repetirlo en cada chat.
+Un proyecto reúne chats relacionados bajo un mismo nombre en la barra lateral, con instrucciones que sigue cada chat que contiene y archivos que cada uno de ellos puede leer. Crea uno para un cliente, un curso o cualquier trabajo al que vuelvas, y dile a Capriole AI una sola vez cómo trabajar ahí en lugar de repetirlo en cada chat.
 
 ## Quién puede usar proyectos
 
@@ -15,9 +15,9 @@ Los proyectos están disponibles en todos los planes para usuarios con sesión i
 1. En la barra lateral, coloca el puntero sobre **Proyectos** y selecciona **+**.
 2. Escribe un nombre y selecciona **Crear**.
 
-El proyecto aparece en **Proyectos**, encima de **Fijados** y **Recientes**. Selecciona su nombre para abrir su página, que tiene un botón **Nuevo chat** y las pestañas **Chats** e **Instrucciones**; **Chats** muestra todos los chats del proyecto.
+El proyecto aparece en **Proyectos**, entre **Fijados** y **Recientes**. Selecciona su nombre para abrir su página, que tiene un botón **Nuevo chat** y las pestañas **Chats**, **Archivos** e **Instrucciones**; **Chats** muestra todos los chats del proyecto.
 
-Para ver los chats del proyecto debajo de él en la barra lateral, selecciona el icono a la izquierda de su nombre. La barra lateral los muestra de cinco en cinco; selecciona **Cargar más** para ver más.
+Al seleccionar el nombre, la barra lateral también muestra los chats del proyecto debajo de él, de cinco en cinco; selecciona **Cargar más** para ver más. Para ocultar o mostrar la lista, selecciona el icono a la izquierda del nombre.
 
 ## Empieza un chat en un proyecto
 
@@ -30,7 +30,7 @@ Un chat pertenece a **Recientes** o a un solo proyecto.
 - **Desde el menú del chat**: en la barra lateral, abre el menú del chat, elige **Proyecto** y luego un proyecto. Para devolver el chat a **Recientes**, elige **Quitar de** seguido del nombre del proyecto.
 - **Arrastrándolo**: en una computadora, arrastra el chat desde la barra lateral hasta un proyecto.
 
-Un chat que mueves a un proyecto sigue sus instrucciones desde su siguiente respuesta; un chat que sacas deja de seguirlas.
+Un chat que mueves a un proyecto sigue sus instrucciones y puede usar los archivos del proyecto desde su siguiente respuesta; un chat que sacas pierde ambas cosas.
 
 ## Define las instrucciones del proyecto
 
@@ -40,17 +40,37 @@ Las instrucciones guardadas se aplican a cada chat del proyecto, incluidos los q
 
 En estos chats, Capriole AI también conoce el nombre del proyecto, así que puedes referirte a «este proyecto».
 
+## Añade archivos a un proyecto
+
+Abre el proyecto y selecciona la pestaña **Archivos**. Selecciona **Añadir archivos** o arrastra archivos hasta la pestaña. Puedes añadir los mismos documentos e imágenes que se aceptan como adjuntos del chat; la [guía de archivos y búsqueda web](/es/guides/files-web-search) enumera los tipos.
+
+Los límites son los mismos en todos los planes:
+
+- Hasta 40 archivos por proyecto.
+- Hasta 10 MB por archivo, o 4 MB para documentos que no sean PDF.
+- Hasta 1 GB de archivos de proyectos en tu cuenta.
+
+Cada archivo de un proyecto necesita su propio nombre.
+
+Todos los chats del proyecto pueden usar estos archivos, incluidos los que ya estaban. Capriole AI ve la lista de archivos y lee uno cuando tu pregunta lo necesita; mientras tanto, el chat muestra **Leyendo** seguido del nombre del archivo.
+
+Para eliminar un archivo, coloca el puntero sobre él y selecciona **×**. El archivo se elimina al instante y los chats del proyecto ya no pueden usarlo; las respuestas que lo usaron no cambian.
+
 ## Fija un chat de un proyecto
 
-Fijar solo cambia dónde muestra la barra lateral un chat. Un chat fijado de un proyecto aparece en **Fijados** en lugar de debajo de su proyecto, y vuelve debajo del proyecto cuando lo desfijas. Permanece en el proyecto: sigue sus instrucciones y también aparece en la pestaña **Chats** del proyecto.
+Fijar solo cambia dónde muestra la barra lateral un chat. Un chat fijado de un proyecto aparece en **Fijados** en lugar de debajo de su proyecto, y vuelve debajo del proyecto cuando lo desfijas. Permanece en el proyecto: conserva las instrucciones y los archivos del proyecto, y la pestaña **Chats** del proyecto lo sigue mostrando.
 
 ## Renombra o elimina un proyecto
 
 En la barra lateral, coloca el puntero sobre el proyecto, abre su menú de tres puntos y elige **Renombrar** o **Eliminar**. El mismo menú está junto a **Nuevo chat** en la página del proyecto.
 
 <Warning>
-Al confirmar la eliminación de un proyecto, se borran de forma permanente el proyecto, sus instrucciones y todos sus chats. Antes, saca los chats que quieras conservar.
+Al confirmar la eliminación de un proyecto, se borran de forma permanente el proyecto, sus instrucciones, sus archivos y todos sus chats. Antes, saca los chats que quieras conservar o exporta el proyecto.
 </Warning>
+
+## Exporta un proyecto
+
+En el mismo menú de tres puntos, elige **Exportar** y luego selecciona **Exportar** en el cuadro de diálogo. Capriole AI prepara un ZIP y muestra su progreso; cuando esté listo, selecciona **Descargar**. El ZIP contiene los chats del proyecto como archivos Markdown y una carpeta `projects/` con las instrucciones y los archivos del proyecto. **Exportar historial de chat**, en **Cuenta** → **Ajustes**, incluye todos tus proyectos de la misma forma.
 
 ## Preguntas frecuentes
 
@@ -58,6 +78,6 @@ Al confirmar la eliminación de un proyecto, se borran de forma permanente el pr
 
 Selecciona **Buscar chats** en la barra lateral y escribe parte del título del chat. La búsqueda abarca todos tus chats, incluidos los de proyectos.
 
-### ¿Eliminar todo el historial de chat borra mis proyectos?
+### ¿Eliminar todo el historial de chat borra mis proyectos o sus archivos?
 
-No. Elimina todos los chats, incluidos los de tus proyectos, pero los proyectos conservan sus nombres e instrucciones.
+No. Elimina todos los chats, incluidos los de tus proyectos, pero los proyectos conservan sus nombres, instrucciones y archivos.

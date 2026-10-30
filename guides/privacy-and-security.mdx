@@ -37,6 +37,7 @@ Guest chats are not saved on our servers. A copy stays in your browser tab so it
 | Account | Your email address, name, and profile picture from sign-in. The account is shared with Capriole Quant. |
 | Chats | Messages, attached files, created images, and chat titles, depending on your storage mode |
 | Personalization | The name, work, and instructions you add to your account |
+| Projects | Names, instructions, and the files you add to them |
 | Voice input | Nothing. Recordings are sent for transcription without storing the audio or the text. |
 | Usage records | For each chat and API request: time, model, token counts, status, latency, cost, and IP address, plus the key used for API requests. No message content. |
 | Payments | Your subscription status and billing identifiers. Stripe processes the payment; we do not receive your card number. |
@@ -53,7 +54,7 @@ Our main servers and database are in India. Our providers process data in other 
 
 ## Export your chats
 
-In **Account** → **Settings**, select **Export chat history**. You get a ZIP with every chat as a Markdown file, the files you attached, and the images you generated, plus `conversations.json`, which holds every chat in a format programs can read.
+In **Account** → **Settings**, select **Export chat history**. You get a ZIP with every chat as a Markdown file, the files you attached, and the images you generated, plus `conversations.json`, which holds every chat in a format programs can read. Your projects' instructions and files are in a `projects/` folder, and `conversations.json` records each chat's project.
 
 A large history takes a few minutes. The download stays available for 24 hours, and you can export even after a paid plan ends.
 
@@ -62,10 +63,11 @@ To export one chat, open its menu in the sidebar and choose **Export**. A projec
 ## Delete chats or your account
 
 - **One chat**: open the chat's menu in the sidebar and choose **Delete**.
-- **All chats**: in **Account** → **Settings**, select **Delete all** next to **Delete all chat history**.
+- **All chats**: in **Account** → **Settings**, select **Delete all** next to **Delete all chat history**. Your projects keep their instructions and files.
+- **A project**: open its menu and choose **Delete**. This also deletes its instructions, files, and chats.
 - **Your account**: email [info@capriole.ai](mailto:info@capriole.ai). Because the account is shared with Capriole Quant, this also ends your Capriole Quant sign-in.
 
-Deleting a chat, or all chat history, permanently removes it from our servers. Deleted data can remain in database backups for up to 7 days. Local Storage chats stay in your browser until you clear them.
+Deleting a chat, all chat history, or a project permanently removes it from our servers. Deleted data can remain in database backups for up to 7 days. Local Storage chats stay in your browser until you clear them.
 
 ## Who receives your data
 
