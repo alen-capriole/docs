@@ -1,0 +1,127 @@
+---
+title: "OpenAI API 가격: GPT-6 Astra·Sol"
+sidebarTitle: "OpenAI API 가격"
+description: "OpenAI API의 GPT-6 Astra는 100만 토큰당 입력 USD 10·출력 USD 50입니다. Sol·Luna 비교, 계산 예시, 공식 가격보다 최대 92% 저렴한 API를 보세요."
+---
+
+OpenAI API는 **GPT-6 Astra에 입력 토큰 100만당 USD 10, 출력 토큰 100만당 USD 50**을 청구하며, 캐시된 입력은 USD 1입니다. GPT-6.1 Sol과 GPT-6 Sol은 USD 2와 USD 10, GPT-6 Luna는 USD 0.10과 USD 0.50입니다. 출력 토큰 1개당 입력 토큰 3개 비율로 계산하면, OpenAI 표준 요율에서 GPT-6 Astra 500만 토큰 비용은 USD 100입니다.
+
+Capriole AI Premium은 월 USD 8에 GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5, Gemini 4 Argon과의 웹 채팅을 무제한으로 제공합니다. API는 OpenAI Responses와 Chat Completions로 GPT-6 Astra를 제공하며, 가격은 지원 모델 어느 것이든 500만 토큰당 USD 8로 공식 API 가격보다 최대 92% 저렴합니다. API key 하나로 직접 만든 앱과 Codex 같은 코딩 에이전트를 모두 사용할 수 있습니다.
+
+## 100만 토큰당 OpenAI API 가격
+
+OpenAI는 [API 가격 페이지](https://developers.openai.com/api/docs/pricing)에 다음 표준 요율을 게시합니다. 모든 가격은 입력 토큰 27만 2,000개 이하 프롬프트 기준이며, 100만 토큰당 USD입니다.
+
+| 모델 | API 모델 ID | 입력 | 캐시된 입력 | 캐시 쓰기(30분) | 캐시 쓰기(12시간) | 출력 |
+|---|---|---:|---:|---:|---:|---:|
+| GPT-6 Astra | `gpt-6-astra` | USD 10 | USD 1 | USD 12.50 | USD 25 | USD 50 |
+| GPT-6.1 Sol | `gpt-6.1-sol` | USD 2 | USD 0.10 | USD 2.50 | USD 5 | USD 10 |
+| GPT-6 Sol | `gpt-6-sol` | USD 2 | USD 0.20 | USD 2.50 | USD 5 | USD 10 |
+| GPT-6 Luna | `gpt-6-luna` | USD 0.10 | USD 0.01 | USD 0.125 | USD 0.25 | USD 0.50 |
+
+OpenAI의 가격 페이지와 모델 페이지에는 이 요율을 바꾸는 규칙도 나와 있습니다.
+
+- **Batch와 Flex**: 둘 다 표준 요율의 50%입니다. GPT-6 Astra는 입력 USD 5, 출력 USD 25입니다.
+- **긴 프롬프트**: 입력 토큰이 27만 2,000개를 넘는 요청은 요청 전체에 입력 및 캐시 요율의 2배, 출력 요율의 1.5배가 적용됩니다.
+- **Fast 모드**: 표준 요율의 2배입니다. Fast 모드의 GPT-6 Astra는 입력 USD 20, 출력 USD 100입니다.
+- **지역 처리**: 사용할 수 있는 경우 10%가 추가됩니다.
+
+## 100만 토큰과 500만 토큰의 비용
+
+다음 예시는 표준 요율, 캐싱 없음, 27만 2,000 토큰 미만 프롬프트, 출력 토큰 1개당 입력 토큰 3개를 기준으로 합니다.
+
+```text
+official_cost = input_millions × input_price + output_millions × output_price
+```
+
+| 토큰 | 입력 / 출력 | GPT-6 Astra | GPT-6.1 Sol 또는 GPT-6 Sol | GPT-6 Luna | Capriole AI, 모든 모델 |
+|---|---|---:|---:|---:|---:|
+| 100만 | 75만 / 25만 | USD 20 | USD 4 | USD 0.20 | USD 1.60 |
+| 500만 | 375만 / 125만 | USD 100 | USD 20 | USD 1 | **USD 8** |
+
+GPT-6 Astra에서 500만 토큰은 3.75 × USD 10 + 1.25 × USD 50 = USD 100이므로, Capriole의 USD 8은 92% 저렴합니다. GPT-6.1 Sol과 GPT-6 Sol에서는 USD 8이 60% 저렴합니다. GPT-6 Luna는 같은 워크로드가 USD 1이라 OpenAI에서 직접 쓰는 편이 더 저렴하므로, Capriole은 작업이 Astra나 Sol에서 실행될 때 이득입니다. Capriole은 API 토큰을 500만 단위 팩으로 판매하며, 100만 토큰 금액은 비교를 위해 팩의 5분의 1로 표시한 값입니다.
+
+Capriole의 과금 토큰 공식에는 긴 프롬프트 구간이 없으므로, 30만 토큰 프롬프트도 짧은 프롬프트와 같은 토큰당 요율로 계산됩니다.
+
+[무료로 채팅을 시작하거나](https://www.capriole.ai/ko) [API key를 받으세요](https://www.capriole.ai/ko?view=api).
+
+## 캐싱과 배치가 비교를 바꾸는 방식
+
+- **캐시된 입력**: OpenAI는 입력 요율의 10%, 즉 GPT-6 Astra 기준 캐시된 토큰 100만당 USD 1을 청구합니다. Capriole도 캐시된 입력을 10%로 계산하며, 이는 캐시된 토큰 100만당 USD 0.16에 해당합니다. 공식은 [과금 토큰 설명](/ko/articles/charged-tokens)에서 확인하세요.
+- **캐시 쓰기**: OpenAI는 30분 캐시 쓰기에 입력의 1.25배, 12시간 캐시 쓰기에 2.5배를 청구합니다. Capriole은 캐시 쓰기를 포함해 캐시되지 않은 모든 입력 토큰을 일반 요율로 계산합니다.
+- **Batch와 Flex**: 절반 가격이면 500만 토큰 GPT-6 Astra 예시는 USD 50입니다. Capriole에는 배치 엔드포인트가 없지만, 이 워크로드에서도 USD 8은 84% 저렴합니다.
+
+OpenRouter의 credit 수수료까지 포함한 500만 토큰 테스트는 [AI API 비용 비교](/ko/articles/ai-api-cost-comparison)를 참고하세요.
+
+## Capriole API로 GPT-6 Astra 호출하기
+
+Capriole의 API는 `POST /v1/responses`의 OpenAI Responses, `POST /v1/chat/completions`의 OpenAI Chat Completions와 호환됩니다. OpenAI SDK의 base URL을 `https://api.caprioletech.com/v1`로 설정하세요.
+
+- `openai-latest`는 GPT-6 Astra를 선택하므로, 구성이 현재 권장 OpenAI 모델을 따라갑니다.
+- Responses에서는 `gpt-6-astra` 같은 기본 ID와 `openai/gpt-6-astra` 같은 접두사 ID가 같은 모델을 선택합니다.
+- Chat Completions는 `openai-latest`와 `GET /v1/models`가 반환하는 모델 ID를 받습니다.
+
+```python
+import os
+
+from openai import OpenAI
+
+client = OpenAI(
+    api_key=os.environ["CAPRIOLE_AI_API_KEY"],
+    base_url="https://api.caprioletech.com/v1",
+)
+
+response = client.responses.create(
+    model="openai-latest",
+    input="Write a release note for this change.",
+)
+print(response.output_text)
+```
+
+키마다 분당 300개 요청을 보낼 수 있습니다. 허용되는 모든 모델 ID는 [Responses 레퍼런스](/ko/api-reference/endpoint/responses)와 [Chat Completions 레퍼런스](/ko/api-reference/endpoint/chat-completions)에서, Capriole 키로 Codex를 실행하는 방법은 [Codex 설정](/ko/integrations/codex)에서 확인하세요.
+
+## 월 USD 8에 포함되는 것
+
+- GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5, Gemini 4 Argon을 비롯한 모든 지원 모델과의 무제한 웹 채팅. 로그인한 채팅에는 스크립트를 이용한 남용을 막기 위해 계정당 UTC 기준 하루 200개 메시지의 공정 사용 한도가 있으며, 일반적인 사용은 이 한도에 훨씬 못 미칩니다.
+- 앱과 코딩 에이전트에 쓰는 월 500만 API 토큰.
+- 추가 API 토큰은 500만당 USD 8이며, 한 번에 1~11개 팩을 구매할 수 있고 여러 팩을 사면 최대 15% 할인됩니다.
+- GPT Image 2.5와 Nano Banana 2.1 무료 이미지 생성, 파일과 웹 검색, 프로젝트, 채팅 내보내기, [문서화된 코딩 에이전트 10개](/ko/articles/coding-agent-compatibility).
+
+API key를 만들려면 Premium 또는 Team이 필요합니다. Team은 월 USD 70이며 좌석 5개와 API 토큰 5,000만이 포함됩니다. 계정 없이도 하루 5개 메시지까지 웹 채팅을 써 볼 수 있고, 무료 계정은 API 접근 없이 매월 50만 토큰의 웹 채팅을 받습니다.
+
+## 공식 API가 더 적합한 경우
+
+워크로드가 GPT-6 Luna에서만 실행되거나, Batch API, 지역 처리, 또는 OpenAI와의 직접 계약이 필요하다면 OpenAI를 직접 이용하세요.
+
+## 자주 묻는 질문
+
+### GPT-6 Astra 비용은 얼마인가요?
+
+GPT-6 Astra는 입력 토큰 100만당 USD 10, 캐시된 입력 토큰 100만당 USD 1, 출력 토큰 100만당 USD 50입니다. Batch와 Flex 요청은 절반 가격입니다.
+
+### 가장 저렴한 GPT-6 모델은 무엇인가요?
+
+GPT-6 Luna입니다. 입력 토큰 100만당 USD 0.10, 출력 토큰 100만당 USD 0.50입니다.
+
+### OpenAI는 긴 프롬프트에 더 많이 청구하나요?
+
+예. 입력 토큰이 27만 2,000개를 넘는 요청은 요청 전체에 입력 및 캐시 요율의 2배, 출력 요율의 1.5배를 냅니다.
+
+### Capriole AI에서 `openai-latest`는 무엇을 뜻하나요?
+
+`openai-latest`는 GPT-6 Astra를 가리킵니다. `/v1/responses`와 `/v1/chat/completions`에서 작동합니다.
+
+### Capriole AI 키로 Codex를 쓸 수 있나요?
+
+예. Codex는 사용자 지정 모델 제공자를 통해 Responses API로 연결됩니다. 전체 구성은 [Codex 설정](/ko/integrations/codex)에 있습니다.
+
+## Capriole AI 시작하기
+
+계정 없이 [무료로 채팅을 시작하거나](https://www.capriole.ai/ko) Premium으로 [API key를 받으세요](https://www.capriole.ai/ko?view=api). 첫 요청은 [API 빠른 시작](/ko/quickstart)에서 다룹니다.
+
+## 공식 출처
+
+- OpenAI: [API pricing](https://developers.openai.com/api/docs/pricing)
+- OpenAI: [GPT-6 Astra](https://developers.openai.com/api/docs/models/gpt-6-astra), [GPT-6.1 Sol](https://developers.openai.com/api/docs/models/gpt-6.1-sol), [GPT-6 Sol](https://developers.openai.com/api/docs/models/gpt-6-sol), [GPT-6 Luna](https://developers.openai.com/api/docs/models/gpt-6-luna) 모델 페이지
+
+이 페이지의 Capriole AI 플랜, 충전, 과금 토큰 사실은 자사 문서로 유지됩니다.

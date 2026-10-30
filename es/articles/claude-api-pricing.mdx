@@ -1,0 +1,125 @@
+---
+title: "Precio de la API de Claude: Fable 5.1 y Opus 5.5 por 1M tokens"
+sidebarTitle: "Precios de la API de Claude"
+description: "Claude Fable 5.1 cuesta USD 10 de entrada y USD 50 de salida por 1M de tokens; Opus 5.5, USD 4 y USD 20. Mira ejemplos y una API hasta un 92% más barata."
+---
+
+La API de Claude de Anthropic cobra **USD 10 por 1M de tokens de entrada y USD 50 por 1M de tokens de salida en Claude Fable 5.1**, y **USD 4 y USD 20 en Claude Opus 5.5**. Con tres tokens de entrada por cada token de salida, 5M de tokens cuestan USD 100 en Fable 5.1 y USD 40 en Opus 5.5 con las tarifas estándar de Anthropic.
+
+Capriole AI Premium cuesta USD 8 al mes e incluye chat web ilimitado con GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5 y Gemini 4 Argon. Su API ofrece los dos modelos de Claude a través de un endpoint compatible con Anthropic Messages a USD 8 por 5M de tokens de cualquier modelo compatible, hasta un 92% menos que los precios oficiales de la API. Una sola clave API funciona en tus propias aplicaciones y en agentes de programación como Claude Code.
+
+## Precios de la API de Claude por 1M de tokens
+
+Anthropic publica estas tarifas estándar en su [página de precios de la API de Claude](https://platform.claude.com/docs/en/about-claude/pricing). Todos los precios están en USD por 1M de tokens.
+
+| Modelo | ID de modelo de la API | Entrada | Salida | Lectura de caché | Escritura de caché de 5 minutos | Escritura de caché de 1 hora |
+|---|---|---:|---:|---:|---:|---:|
+| Claude Fable 5.1 | `claude-fable-5-1` | USD 10 | USD 50 | USD 0.25 | USD 12.50 | USD 20 |
+| Claude Opus 5.5 | `claude-opus-5-5` | USD 4 | USD 20 | USD 0.20 | USD 5 | USD 8 |
+
+La misma página indica las reglas que cambian estas tarifas:
+
+- **Batch API**: Los lotes asíncronos cuestan un 50% menos en entrada y salida. Fable 5.1 cuesta USD 5 y USD 25; Opus 5.5 cuesta USD 2 y USD 10.
+- **Contexto largo**: Ambos modelos incluyen la ventana de contexto completa de 1M de tokens con las tarifas estándar.
+- **Inferencia solo en EE. UU.**: Configurar `inference_geo` como `"us"` multiplica el precio de cada token por 1.1.
+- **Modo rápido**: Opus 5.5 en modo rápido cuesta USD 8 de entrada y USD 40 de salida, y el modo rápido no funciona con la Batch API.
+
+## Cuánto cuestan 1M y 5M de tokens
+
+Estos ejemplos usan las tarifas estándar, sin caché, y tres tokens de entrada por cada token de salida.
+
+```text
+official_cost = input_millions × input_price + output_millions × output_price
+```
+
+| Tokens | Entrada / salida | Claude Fable 5.1 | Claude Opus 5.5 | Capriole AI, cualquiera de los dos modelos |
+|---|---|---:|---:|---:|
+| 1M | 750K / 250K | USD 20 | USD 8 | USD 1.60 |
+| 5M | 3.75M / 1.25M | USD 100 | USD 40 | **USD 8** |
+
+En Fable 5.1, 5M de tokens cuestan 3.75 × USD 10 + 1.25 × USD 50 = USD 100, así que los USD 8 de Capriole son un 92% menos. En Opus 5.5, la misma carga de trabajo cuesta USD 40, así que USD 8 es un 80% menos. Capriole vende tokens de API en paquetes de 5M; la cifra de 1M es una quinta parte de un paquete y se muestra para comparar.
+
+Anthropic cobra la salida a cinco veces el precio de la entrada. Capriole cuenta la entrada y la salida a una misma tarifa, así que tu propia mezcla decide el ahorro. Por ejemplo, 5M de tokens solo de entrada cuestan USD 50 en Fable 5.1 y USD 20 en Opus 5.5.
+
+[Empieza a chatear gratis](https://www.capriole.ai/es) o [consigue una clave API](https://www.capriole.ai/es?view=api).
+
+## Cómo cambian la comparación la caché y el procesamiento por lotes
+
+- **Lecturas de caché**: Anthropic cobra USD 0.25 por 1M de tokens cacheados en Fable 5.1 y USD 0.20 en Opus 5.5. Capriole cuenta la entrada cacheada al 10%, lo que equivale a USD 0.16 por 1M de tokens cacheados. [Tokens cobrados explicados](/es/articles/charged-tokens) muestra la fórmula.
+- **Escrituras de caché**: Anthropic cobra 1.25 veces el precio de entrada por las escrituras de 5 minutos y 2 veces por las de 1 hora. Capriole cuenta las escrituras de caché como entrada normal.
+- **Batch**: Con las tarifas por lotes de Anthropic, el ejemplo de 5M de tokens cuesta USD 50 en Fable 5.1 y USD 20 en Opus 5.5. Capriole no tiene endpoint de lotes, y sus USD 8 siguen siendo un 84% y un 60% menos para esa carga de trabajo.
+
+Para una prueba de 5M de tokens que también incluye la tarifa de créditos de OpenRouter, consulta la [comparación de costos de API de IA](/es/articles/ai-api-cost-comparison).
+
+## Llama a Claude con la API Messages de Capriole
+
+La API de Capriole es compatible con Anthropic Messages. Apunta el SDK de Anthropic, o cualquier cliente de Messages, a `https://api.caprioletech.com` y llama a `POST /v1/messages`.
+
+- `claude-latest` selecciona Claude Fable 5.1, así que tu configuración sigue el modelo de Claude recomendado en cada momento.
+- `claude-fable-5-1` y `claude-opus-5-5` seleccionan un modelo de forma explícita.
+- Envía tu clave como token Bearer. En el SDK de Anthropic, pásala como `auth_token`.
+
+```python
+import os
+
+from anthropic import Anthropic
+
+client = Anthropic(
+    auth_token=os.environ["CAPRIOLE_AI_API_KEY"],
+    base_url="https://api.caprioletech.com",
+)
+
+message = client.messages.create(
+    model="claude-latest",
+    max_tokens=1024,
+    messages=[{"role": "user", "content": "Summarize this pull request."}],
+)
+print(message.content[0].text)
+```
+
+La misma clave funciona con OpenAI Chat Completions en `/v1/chat/completions`, que también acepta `claude-latest`. Cada clave permite 300 solicitudes por minuto. Consulta la [referencia de Messages](/es/api-reference/endpoint/messages) para ver todos los IDs de modelo de Claude aceptados, y la [configuración de Claude Code](/es/integrations/claude-code) para usar Claude Code con tu clave de Capriole.
+
+## Qué incluyen USD 8 al mes
+
+- Chat web ilimitado con GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5, Gemini 4 Argon y todos los demás modelos compatibles. El chat con sesión iniciada tiene un límite de uso justo de 200 mensajes por cuenta y día UTC para frenar el abuso automatizado mediante scripts; el uso normal queda muy por debajo.
+- 5M de tokens de API al mes para tus aplicaciones y agentes de programación.
+- Más tokens de API a USD 8 por cada 5M, de 1 a 11 paquetes por compra, con descuentos por varios paquetes de hasta el 15%.
+- Generación gratuita de imágenes con GPT Image 2.5 y Nano Banana 2.1, archivos y búsqueda web, proyectos, exportación de chats y [10 agentes de programación documentados](/es/articles/coding-agent-compatibility).
+
+Una clave API requiere Premium o Team. Team cuesta USD 70 al mes por 5 plazas y 50M de tokens de API. Puedes probar el chat web sin cuenta, con 5 mensajes al día, y una cuenta gratuita recibe 500.000 tokens de chat web al mes sin acceso a la API.
+
+## Cuándo encaja mejor la API oficial
+
+Ve directamente a Anthropic cuando necesites la Batch API u otras funciones más allá de Messages y el conteo de tokens, inferencia solo en EE. UU. o un contrato con la propia Anthropic.
+
+## Preguntas frecuentes
+
+### ¿Cuánto cuesta la API de Claude?
+
+Claude Fable 5.1 cuesta USD 10 por 1M de tokens de entrada y USD 50 por 1M de tokens de salida. Claude Opus 5.5 cuesta USD 4 y USD 20. Las solicitudes por lotes cuestan la mitad.
+
+### ¿Claude Opus 5.5 es más barato que Claude Fable 5.1?
+
+Sí. En la API de Anthropic, Opus 5.5 cuesta un 60% menos por token que Fable 5.1. En Capriole AI, ambos cuestan lo mismo: USD 8 por 5M de tokens.
+
+### ¿Qué significa `claude-latest` en Capriole AI?
+
+`claude-latest` apunta a Claude Fable 5.1. Funciona en `/v1/messages` y `/v1/chat/completions`.
+
+### ¿Puedo usar Claude Code con una clave de Capriole AI?
+
+Sí. Configura `ANTHROPIC_BASE_URL` como `https://api.caprioletech.com` y `ANTHROPIC_AUTH_TOKEN` como tu clave de Capriole. La [configuración de Claude Code](/es/integrations/claude-code) incluye todos los ajustes.
+
+### ¿El chat ilimitado incluye el uso de la API?
+
+No. Lo ilimitado cubre el chat web. Las solicitudes de API y de agentes de programación usan tu saldo de tokens de API.
+
+## Empieza con Capriole AI
+
+[Empieza a chatear gratis](https://www.capriole.ai/es) sin cuenta, o [consigue una clave API](https://www.capriole.ai/es?view=api) con Premium. El [inicio rápido de la API](/es/quickstart) cubre tu primera solicitud.
+
+## Fuentes oficiales
+
+- Anthropic: [Claude API pricing](https://platform.claude.com/docs/en/about-claude/pricing)
+
+Los hechos de plan, recarga y tokens cobrados de Capriole AI en esta página se mantienen como documentación de primera parte.

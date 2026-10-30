@@ -1,0 +1,127 @@
+---
+title: "GPT-6 Astra・Claude・Gemini の選び方"
+sidebarTitle: "モデルを選ぶ"
+description: "GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5、Gemini 4 Argon を開発元の説明、コンテキスト長、公式価格で比較し、Thinking か Fast を選びます。"
+---
+
+Capriole AI には 4 つの旗艦モデルがあります。OpenAI の GPT-6 Astra、Anthropic の Claude Fable 5.1 と Claude Opus 5.5、Google の Gemini 4 Argon です。Premium なら月額 USD 8 で 4 つすべてとウェブチャットで無制限に会話でき、API は公式 API 価格より最大 92% 安く使えます。ウェブチャットは GPT-6 Astra Thinking で始まります。以下の要約で、別のモデルの開発元がそのモデルをあなたの作業向けと説明していれば、そちらに切り替えてください。
+
+## 4 つの旗艦モデル
+
+| モデル | 開発元が想定する用途 | コンテキスト ウィンドウ | 公式 API 価格（100 万トークンあたり、入力 / 出力） |
+|---|---|---|---|
+| [GPT-6 Astra](https://developers.openai.com/api/docs/models/gpt-6-astra)（OpenAI） | 複雑な推論、コーディング、コンピューター操作、リサーチ、ドキュメント作成 | 105 万トークン | USD 10 / USD 50 |
+| [Claude Fable 5.1](https://platform.claude.com/docs/en/models/fable-5-1/overview)（Anthropic） | 高度な推論と長期にわたるエージェント作業 | 100 万トークン | USD 10 / USD 50 |
+| [Claude Opus 5.5](https://platform.claude.com/docs/en/models/opus-5-5/overview)（Anthropic） | 長時間のエージェント型コーディングとナレッジワーク | 100 万トークン | USD 4 / USD 20 |
+| [Gemini 4 Argon](https://ai.google.dev/gemini-api/docs/latest-model)（Google） | 最も難しい問題。複雑なコーディング、エージェント、数学、科学のタスクでより長く推論します | 100 万トークン | 2026 年 11 月 30 日まで USD 2 / USD 10、その後は USD 4 / USD 20 |
+
+Capriole AI では、この表のどのモデルも Premium と Team のウェブチャットで無制限です。API では、トークンの料金はどのモデルでも同じで、500 万トークンあたり USD 8 です。
+
+### GPT-6 Astra
+
+OpenAI は GPT-6 Astra を、最も要求の高い作業向けの最も高性能なモデルと位置づけています。OpenAI が示すコンテキスト ウィンドウは 105 万トークン、出力は最大 128,000 トークンです。Capriole AI では **GPT-6 Astra Thinking** がウェブチャットの既定で、API では `openai-latest` が GPT-6 Astra を使います。
+
+### Claude Fable 5.1
+
+Anthropic は Claude Fable 5.1 を、高度な推論と長期にわたるエージェント作業向けに位置づけています。Anthropic によると、長時間のエージェント型コーディング、多段階のリサーチ、ドキュメント・スプレッドシート・スライドの作業で Claude Fable 5 より向上しています。Anthropic の評価では、速度は Claude Opus 5.5 より遅くなります。`claude-latest` は Claude Fable 5.1 を使います。
+
+### Claude Opus 5.5
+
+Anthropic は Claude Opus 5.5 を、長時間のエージェント型コーディングとナレッジワーク向けに、Fable 5.1 の公式価格の半分未満で提供しています。Anthropic は、ほとんどの作業を Opus 5.5 から始め、推論レベルを上げても Opus 5.5 で足りない場合に Fable 5.1 へ移ることを勧めています。思考は常にオンのため、Capriole AI の **Fast** は思考をオフにせず、推論レベルを下げます。
+
+### Gemini 4 Argon
+
+Google は Gemini 4 Argon を、最も難しい問題を解くために作られた最も高性能なモデルとしています。Google によると、複雑なコーディング、エージェント、数学、科学のタスクでより長く推論できます。100 万トークンのコンテキスト ウィンドウは、入力、思考、出力で共有されます。`google-latest` は Gemini 4 Argon を使います。
+
+## その他のモデル
+
+以下のモデルもウェブチャットと API で使えます。
+
+| モデル | 開発元が想定する用途 | コンテキスト ウィンドウ | 公式 API 価格（100 万トークンあたり、入力 / 出力） | API ID |
+|---|---|---|---|---|
+| GPT-6.1 Sol（OpenAI） | 低コストで Astra に近い性能。複雑なコーディング、コンピューター操作、専門業務向け | 105 万トークン | USD 2 / USD 10 | `openai/gpt-6.1-sol` |
+| GPT-6 Sol（OpenAI） | 複雑なコーディングとエージェント型ワークフロー | 105 万トークン | USD 2 / USD 10 | `openai/gpt-6-sol` |
+| GPT-6 Luna（OpenAI） | OpenAI で最も効率的なモデルとして、対象を絞った大量処理タスク向け | 105 万トークン | USD 0.10 / USD 0.50 | `openai/gpt-6-luna` |
+| Gemini 3.8 Flash（Google） | Google で最も賢い Flash モデル。長期にわたるソフトウェア開発、自律エージェント、複雑な企業ワークフロー向け | 記載なし | 2026 年 12 月 31 日まで USD 0.75 / USD 3.75、その後は USD 1.50 / USD 7.50 | `google/gemini-3.8-flash` |
+| Grok 4.7（xAI） | コーディング、エージェント タスク、ナレッジワーク | 50 万トークン | 20 万トークン未満のプロンプトで USD 2 / USD 6 | `xai/grok-4.7` |
+| GLM 5.3 Flash（Z.ai） | 非常に低いコストで GLM 5.2 を上回る性能。オフィス業務、金融リサーチ、ドキュメント処理など | 100 万トークン | USD 0.15 / USD 0.50 | `zai/glm-5.3-flash` |
+| Kimi K3.1 Pro（Moonshot AI） | Moonshot で最も高性能な Kimi モデル。コーディング、3D 制作、金融リサーチが向上 | 100 万トークン | USD 2 / USD 10 | `moonshot/kimi-k3.1-pro` |
+
+ウェブチャットのモデル メニューでは、GPT-6.1 Sol、GPT-6 Sol、GPT-6 Luna と、Claude Fable 5 や Gemini 3.1 Pro などの以前のバージョンは **その他のモデル** にあります。以前のバージョンは、既存のチャットや API の設定のために引き続き利用できます。
+
+## Thinking と Fast
+
+ウェブチャットのほとんどのモデルには、2 つのプリセットがあります。メッセージ ボックスのモデル メニューの横で **Thinking** か **Fast** を選びます。
+
+- **Thinking** は答える前により多く推論するため、複雑なタスクに向いています。Claude の Thinking プリセットは思考の要約を表示します。
+- **Fast** は推論レベルを下げて、より速く返信します。
+
+Thinking はより多くのトークンを使います。Premium と Team では、どちらを選んでもウェブチャットは無制限のままです。Free では、Thinking は毎月の枠をより多く使います。
+
+| モデル | ウェブチャットのプリセット |
+|---|---|
+| GPT-6 Astra、GPT-6.1 Sol、GPT-6 Sol、GPT-6 Luna、Claude Fable 5.1 | **Thinking**（推論レベル中）と **Fast**（推論レベル低） |
+| Claude Opus 5.5 | 思考は常にオン。**Fast** は推論レベルを下げます。 |
+| Gemini 4 Argon | ウェブチャットで使えるのは **Thinking** プリセットのみです。**Fast** を選ぶと、チャットは Gemini 3.8 Flash に切り替わります。 |
+| Kimi K3.1 Pro | 常に思考するモデルです。**Thinking** は推論レベル高、**Fast** は推論レベル低を使います。 |
+| GLM | **Fast** は GLM 5.3 Flash です。**Thinking** は以前の GLM 5.2（API では `zai/glm-5.2`）を使います。 |
+| Grok 4.7 | プリセットは 1 つ |
+
+Thinking プリセットはウェブチャット専用です。API でより多くの推論が必要なときは、モデルの ID を呼び出し、リクエストで推論オプションを設定してください。
+
+## チャットの途中でモデルを切り替える
+
+モデル メニューから別のモデルを選び、次のメッセージを送ります。チャットは履歴を保ったまま、新しいモデルがそこから答えます。[チャットの途中でモデルを切り替える仕組み](/ja/articles/switch-models-mid-chat)。
+
+**アカウント** → **設定** で **モデル自動切り替えを有効にする** をオンにすると、選んだモデルが混み合っているときに、Capriole AI が利用可能な別のモデルで答えることがあります。既定ではオフです。
+
+## API のモデル ID
+
+API のベース URL は `https://api.caprioletech.com` です。1 つのモデルに固定するには具体的なモデル ID を、各プロバイダーで当社が推奨する旗艦モデルに追従するには `*-latest` エイリアスを使います。
+
+| エイリアス | 使うモデル | エンドポイント |
+|---|---|---|
+| `openai-latest` | `openai/gpt-6-astra` | Chat Completions、Responses |
+| `claude-latest` | `anthropic/claude-fable-5-1`（Messages では `claude-fable-5-1`） | Chat Completions、Messages |
+| `google-latest` | `google/gemini-4-argon` | Chat Completions |
+
+旗艦モデルの ID は `openai/gpt-6-astra`、`anthropic/claude-fable-5-1`、`anthropic/claude-opus-5-5`、`google/gemini-4-argon` です。Anthropic Messages では、`claude-opus-5-5` のようにプレフィックスなしの Claude ID を使います。最新の一覧は `GET /v1/models` を呼び出すか、[モデル一覧](/ja/api-reference/endpoint/get)で確認してください。
+
+Capriole AI は、どのモデルでも課金トークンを同じ方法で数えます。キャッシュなし入力に、キャッシュ入力の 10% と出力を足したものです。例は[課金トークンの説明](/ja/articles/charged-tokens)をご覧ください。
+
+画像を作るには、モデル メニューで **画像** を選び、GPT Image 2.5 か Nano Banana 2.1 を選びます。画像モデルはウェブチャット専用です。[画像生成ガイドを見る](/ja/guides/files-web-search)。
+
+## よくある質問
+
+### Capriole AI の既定のモデルは何ですか？
+
+ウェブチャットは GPT-6 Astra Thinking で始まります。API では、`openai-latest` が GPT-6 Astra を使います。
+
+### Capriole AI では旗艦モデルのほうが高くなりますか？
+
+ウェブチャットではなりません。Premium と Team のチャットは、どの対応モデルでも無制限です。API ではどのモデルもトークンあたりの料金が同じ（500 万トークンあたり USD 8）なので、公式価格と比べた節約額は旗艦モデルで最も大きくなります。
+
+### OpenAI SDK で Claude や Gemini を使えますか？
+
+はい。OpenAI Chat Completions は、`anthropic/claude-fable-5-1` や `google/gemini-4-argon` を含むすべての公開モデル ID と、3 つのエイリアスを受け付けます。設定方法は [OpenAI と Anthropic の SDK ガイド](/ja/guides/openai-anthropic-sdks)で説明しています。
+
+### API で Thinking プリセットを使えますか？
+
+いいえ。ウェブチャット専用です。モデルの API ID を呼び出し、リクエストで推論オプションを設定してください。
+
+### どの Claude モデルから始めればよいですか？
+
+Anthropic は、ほとんどの作業を Claude Opus 5.5 から始め、高度な推論や長期にわたるエージェント作業には Claude Fable 5.1 に移ることを勧めています。
+
+## 公式情報
+
+- [OpenAI：GPT-6 Astra](https://developers.openai.com/api/docs/models/gpt-6-astra)、[GPT-6.1 Sol](https://developers.openai.com/api/docs/models/gpt-6.1-sol)、[GPT-6 Sol](https://developers.openai.com/api/docs/models/gpt-6-sol)、[GPT-6 Luna](https://developers.openai.com/api/docs/models/gpt-6-luna)
+- [Anthropic：Claude Fable 5.1](https://platform.claude.com/docs/en/models/fable-5-1/overview)、[Claude Opus 5.5](https://platform.claude.com/docs/en/models/opus-5-5/overview)
+- [Google：Gemini 4 Argon](https://ai.google.dev/gemini-api/docs/latest-model)、[Gemini API の料金](https://ai.google.dev/gemini-api/docs/pricing)
+- [xAI：Grok 4.7](https://docs.x.ai/developers/models/grok-4.7)
+- [Z.ai：GLM 5.3 Flash](https://docs.z.ai/guides/llm/glm-5.3-flash)、[Z.ai の料金](https://docs.z.ai/guides/overview/pricing)
+- [Moonshot AI：Kimi K3.1 Pro](https://platform.kimi.ai/docs/guide/kimi-k3-1-pro-quickstart)、[Kimi の料金](https://platform.kimi.ai/docs/pricing/chat)
+
+## Capriole AI を使い始める
+
+これらのモデルで[チャットを始める](https://www.capriole.ai/ja)か、[API キーを取得](https://www.capriole.ai/ja?view=api)してアプリやコーディング エージェントで使いましょう。

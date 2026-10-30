@@ -1,10 +1,10 @@
 ---
 title: "Uma API para Codex, Claude Code, Copilot CLI e mais"
 sidebarTitle: "Compatibilidade de agentes de programação"
-description: "Veja como uma conta Capriole AI conecta seis agentes de programação mantidos pelo protocolo que cada cliente espera."
+description: "Veja como uma conta Capriole AI conecta 10 agentes de programação documentados pelo protocolo que cada cliente espera."
 ---
 
-Uma conta Capriole AI pode conectar Codex, Claude Code, Kilo Code, GitHub Copilot CLI, OpenCode e OpenClaw. O Premium custa USD 8 por mês, inclui 5 milhões de tokens cobrados de API e também oferece Browser Chat ilimitado com o conjunto de modelos Premium suportado.
+Uma conta Capriole AI pode conectar Codex, Claude Code, Kilo Code, GitHub Copilot CLI, OpenCode, OpenClaw, Cline, Qwen Code, Crush e Pi. O Premium custa USD 8 por mês, inclui 5 milhões de tokens cobrados de API e também oferece Browser Chat ilimitado com o conjunto de modelos Premium suportado.
 
 Cada cliente mantém o formato de transmissão que espera. A Capriole mantém caminhos OpenAI Responses, Chat Completions compatível com OpenAI e Anthropic Messages para as integrações documentadas.
 
@@ -16,22 +16,26 @@ A Capriole remove a configuração repetida de provedor por trás desses cliente
 
 O resultado é um caminho documentado do espaço de trabalho no navegador ao trabalho no repositório. O chat permanece ilimitado no Premium, enquanto o tráfego de agentes de programação usa o saldo visível de 5 milhões de tokens cobrados por mês.
 
-## Seis agentes, vários protocolos
+## 10 agentes, vários protocolos
 
 Os agentes de programação podem parecer semelhantes no prompt, mas os clientes de modelo não são intercambiáveis.
 
 | Agente de programação | Caminho Capriole mantido | Ponto de partida recomendado |
 |---|---|---|
-| Codex | OpenAI Responses | [`openai-latest`](/pt-br/integrations/codex) |
-| Claude Code | Anthropic Messages | [`claude-latest`](/pt-br/integrations/claude-code) |
-| Kilo Code | Chat Completions compatível com OpenAI | [`openai-latest`](/pt-br/integrations/kilo-code) |
+| Codex | OpenAI Responses | [`gpt-6-astra`](/pt-br/integrations/codex) |
+| Claude Code | Anthropic Messages | [`claude-fable-5-1`](/pt-br/integrations/claude-code) |
+| Kilo Code | OpenAI Responses, Anthropic Messages ou Chat Completions, conforme a família de modelo | [`claude-latest`](/pt-br/integrations/kilo-code) |
 | GitHub Copilot CLI | Chat Completions, Responses ou Messages | [Escolha um caminho de protocolo documentado](/pt-br/integrations/github-copilot-cli) |
-| OpenCode | OpenAI Responses, Chat Completions ou Anthropic Messages | [Escolha um caminho de provedor documentado](/pt-br/integrations/opencode) |
+| OpenCode | OpenAI Responses, Anthropic Messages ou Chat Completions, conforme a família de modelo | [`claude-latest`](/pt-br/integrations/opencode) |
 | OpenClaw | OpenAI Responses, Anthropic Messages ou chat compatível | [Escolha um caminho de provedor documentado](/pt-br/integrations/openclaw) |
+| Cline | Chat Completions compatível com OpenAI | [`claude-latest`](/pt-br/integrations/cline) |
+| Qwen Code | OpenAI Responses, Anthropic Messages ou Chat Completions, conforme a família de modelo | [`openai-latest`](/pt-br/integrations/qwen-code) |
+| Crush | Chat Completions compatível com OpenAI | [`claude-latest`](/pt-br/integrations/crush) |
+| Pi | OpenAI Responses, Anthropic Messages ou Chat Completions, conforme a família de modelo | [`claude-latest`](/pt-br/integrations/pi) |
 
 A mesma conta e o mesmo saldo da API ficam atrás dessas integrações. A forma da solicitação ainda segue o cliente.
 
-O Codex envia solicitações Responses. O Claude Code envia solicitações Anthropic Messages e pode usar a pré-checagem de contagem de tokens quando o provedor selecionado oferece suporte. O Kilo Code usa Chat Completions. GitHub Copilot CLI, OpenCode e OpenClaw podem ser configurados com caminhos diferentes de protocolo ou provedor, então a configuração depende da família de modelo e do protocolo que você escolhe.
+O Codex envia solicitações Responses. O Claude Code envia solicitações Anthropic Messages e pode usar a pré-checagem de contagem de tokens quando o provedor selecionado oferece suporte. O Cline e o Crush usam Chat Completions para todos os modelos. Kilo Code, OpenCode, Qwen Code e Pi enviam cada família de modelo ao protocolo que a Capriole oferece para ela: Responses para GPT, Messages para Claude e Chat Completions para os demais modelos. GitHub Copilot CLI e OpenClaw usam um caminho de protocolo ou um provedor separado para cada família de modelo.
 
 A Capriole preserva essas distinções. A rota pública Responses não é convertida em silêncio em Chat Completions, e a rota Messages não é reescrita em uma resposta OpenAI.
 
@@ -67,9 +71,9 @@ IDs de modelo concretos continuam úteis quando uma versão exata importa para u
 
 A configuração mantida segue caminhos e testes reais de cliente.
 
-A validação local cobre os seis clientes pelas configurações documentadas. Os testes incluem prompts básicos e fluxos suportados de interação com ferramentas.
+A validação local cobre os 10 clientes pelas configurações documentadas. Os testes incluem prompts básicos e fluxos suportados de interação com ferramentas.
 
-Há limites específicos do cliente. O Codex permanece nos modelos OpenAI Responses mantidos; selecionar um modelo Claude na Capriole não o torna um modelo compatível com Codex. O Claude Code usa o caminho Claude Messages. O Kilo Code usa Chat Completions. GitHub Copilot CLI, OpenCode e OpenClaw oferecem escolhas mais amplas, mas a configuração ainda precisa corresponder ao protocolo selecionado.
+Há limites específicos do cliente. O Codex permanece nos modelos OpenAI Responses mantidos; selecionar um modelo Claude na Capriole não o torna um modelo compatível com Codex. O Claude Code usa o caminho Claude Messages. O Cline e o Crush usam Chat Completions. Kilo Code, GitHub Copilot CLI, OpenCode, OpenClaw, Qwen Code e Pi oferecem escolhas mais amplas, mas a configuração ainda precisa corresponder ao protocolo selecionado.
 
 Os guias de integração ligados na tabela são a fonte da verdade para os campos atuais e os seletores suportados.
 
@@ -85,8 +89,8 @@ O plano mantém as duas cargas de trabalho separadas. O Browser Chat do dia a di
 
 ## Escolha o agente primeiro e depois siga o protocolo
 
-Use o Codex quando o fluxo OpenAI baseado em Responses se encaixar no trabalho. Use o Claude Code quando quiser o cliente nativo da Anthropic. O Kilo Code oferece um fluxo de IDE ou terminal sobre Chat Completions. GitHub Copilot CLI, OpenCode e OpenClaw oferecem mais escolhas de protocolo.
+Use o Codex quando o fluxo OpenAI baseado em Responses se encaixar no trabalho. Use o Claude Code quando quiser o cliente nativo da Anthropic. O Kilo Code e o Cline oferecem fluxos de IDE ou terminal. GitHub Copilot CLI, OpenCode, OpenClaw, Qwen Code, Crush e Pi oferecem mais escolhas de cliente.
 
 Cada cliente documentado recebe uma rota mantida para os modelos suportados por esse protocolo.
 
-[Experimente GPT-6 Astra, Claude Fable 5.1 ou Gemini 4 Argon no Browser Chat gratuito limitado](https://capriole.ai) e faça upgrade quando estiver pronto para criar uma API key. Comece pelo [guia de uma key para agentes de programação](/pt-br/guides/one-api-key-coding-agents) para o fluxo compartilhado e depois abra a página de integração do agente que você usa.
+[Experimente GPT-6 Astra, Claude Fable 5.1 ou Gemini 4 Argon no Browser Chat gratuito limitado](https://www.capriole.ai/pt-br) e faça upgrade quando estiver pronto para criar uma API key. Comece pelo [guia de uma key para agentes de programação](/pt-br/guides/one-api-key-coding-agents) para o fluxo compartilhado e depois abra a página de integração do agente que você usa.

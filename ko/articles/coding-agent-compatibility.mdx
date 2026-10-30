@@ -1,10 +1,10 @@
 ---
 title: "Codex, Claude Code, Copilot CLI 등을 위한 하나의 API"
 sidebarTitle: "코딩 에이전트 호환성"
-description: "하나의 Capriole AI 계정이 각 클라이언트가 기대하는 프로토콜을 통해 유지 중인 코딩 에이전트 여섯 개를 연결하는 방식을 확인하세요."
+description: "하나의 Capriole AI 계정이 각 클라이언트가 기대하는 프로토콜을 통해 문서화된 코딩 에이전트 10개를 연결하는 방식을 확인하세요."
 ---
 
-하나의 Capriole AI 계정으로 Codex, Claude Code, Kilo Code, GitHub Copilot CLI, OpenCode, OpenClaw를 연결할 수 있습니다. Premium은 월 USD 8이며, 500만 과금 API 토큰을 포함하고, 지원되는 Premium 모델 세트로 무제한 Browser Chat도 제공합니다.
+하나의 Capriole AI 계정으로 Codex, Claude Code, Kilo Code, GitHub Copilot CLI, OpenCode, OpenClaw, Cline, Qwen Code, Crush, Pi를 연결할 수 있습니다. Premium은 월 USD 8이며, 500만 과금 API 토큰을 포함하고, 지원되는 Premium 모델 세트로 무제한 Browser Chat도 제공합니다.
 
 각 클라이언트는 기대하는 전송 형식을 유지합니다. Capriole은 문서화된 통합을 위해 OpenAI Responses, OpenAI 호환 Chat Completions, Anthropic Messages 경로를 유지합니다.
 
@@ -16,22 +16,26 @@ Capriole은 이 클라이언트 뒤의 반복되는 제공자 설정을 제거�
 
 결과는 브라우저 작업 공간에서 리포지토리 작업까지 문서화된 경로입니다. Premium에서 채팅은 무제한으로 남고, 코딩 에이전트 트래픽은 보이는 월 500만 과금 토큰 잔액을 사용합니다.
 
-## 에이전트 여섯 개, 프로토콜 여러 개
+## 에이전트 10개, 프로토콜 여러 개
 
 코딩 에이전트는 프롬프트에서는 비슷해 보여도 모델 클라이언트는 서로 바꿔 쓸 수 없습니다.
 
 | 코딩 에이전트 | 유지 중인 Capriole 경로 | 권장 시작점 |
 |---|---|---|
-| Codex | OpenAI Responses | [`openai-latest`](/ko/integrations/codex) |
-| Claude Code | Anthropic Messages | [`claude-latest`](/ko/integrations/claude-code) |
-| Kilo Code | OpenAI 호환 Chat Completions | [`openai-latest`](/ko/integrations/kilo-code) |
+| Codex | OpenAI Responses | [`gpt-6-astra`](/ko/integrations/codex) |
+| Claude Code | Anthropic Messages | [`claude-fable-5-1`](/ko/integrations/claude-code) |
+| Kilo Code | 모델 계열별 OpenAI Responses, Anthropic Messages 또는 Chat Completions | [`claude-latest`](/ko/integrations/kilo-code) |
 | GitHub Copilot CLI | Chat Completions, Responses 또는 Messages | [문서화된 프로토콜 경로 선택](/ko/integrations/github-copilot-cli) |
-| OpenCode | OpenAI Responses, Chat Completions 또는 Anthropic Messages | [문서화된 제공자 경로 선택](/ko/integrations/opencode) |
+| OpenCode | 모델 계열별 OpenAI Responses, Anthropic Messages 또는 Chat Completions | [`claude-latest`](/ko/integrations/opencode) |
 | OpenClaw | OpenAI Responses, Anthropic Messages 또는 호환 채팅 | [문서화된 제공자 경로 선택](/ko/integrations/openclaw) |
+| Cline | OpenAI 호환 Chat Completions | [`claude-latest`](/ko/integrations/cline) |
+| Qwen Code | 모델 계열별 OpenAI Responses, Anthropic Messages 또는 Chat Completions | [`openai-latest`](/ko/integrations/qwen-code) |
+| Crush | OpenAI 호환 Chat Completions | [`claude-latest`](/ko/integrations/crush) |
+| Pi | 모델 계열별 OpenAI Responses, Anthropic Messages 또는 Chat Completions | [`claude-latest`](/ko/integrations/pi) |
 
 같은 계정과 API 잔액이 이 통합 뒤에 있습니다. 요청 형태는 여전히 클라이언트를 따릅니다.
 
-Codex는 Responses 요청을 보냅니다. Claude Code는 Anthropic Messages 요청을 보내고, 선택한 제공자가 지원하면 토큰 계산 사전 검사를 사용할 수 있습니다. Kilo Code는 Chat Completions를 사용합니다. GitHub Copilot CLI, OpenCode, OpenClaw는 다른 프로토콜 또는 제공자 경로로 구성할 수 있으므로, 설정은 선택한 모델 계열과 프로토콜에 따라 달라집니다.
+Codex는 Responses 요청을 보냅니다. Claude Code는 Anthropic Messages 요청을 보내고, 선택한 제공자가 지원하면 토큰 계산 사전 검사를 사용할 수 있습니다. Cline과 Crush는 모든 모델에 Chat Completions를 사용합니다. Kilo Code, OpenCode, Qwen Code, Pi는 각 모델 계열을 Capriole이 해당 계열에 제공하는 프로토콜로 보냅니다. GPT는 Responses, Claude는 Messages, 나머지 모델은 Chat Completions입니다. GitHub Copilot CLI와 OpenClaw는 모델 계열마다 별도의 프로토콜 경로나 제공자를 사용합니다.
 
 Capriole은 그 구분을 유지합니다. 공개 Responses 경로는 비밀리에 Chat Completions로 변환되지 않고, Messages 경로는 OpenAI 응답으로 다시 쓰이지 않습니다.
 
@@ -67,9 +71,9 @@ Capriole은 지원되는 공개 경로에 유지 중인 별칭을 제공합니�
 
 유지 중인 설정은 실제 클라이언트 경로와 테스트를 따릅니다.
 
-로컬 검증은 문서화된 구성을 통해 클라이언트 여섯 개를 모두 커버합니다. 테스트에는 기본 프롬프트와 지원되는 도구 상호작용 흐름이 포함됩니다.
+로컬 검증은 문서화된 구성을 통해 클라이언트 10개를 모두 커버합니다. 테스트에는 기본 프롬프트와 지원되는 도구 상호작용 흐름이 포함됩니다.
 
-클라이언트별 제한이 있습니다. Codex는 유지 중인 OpenAI Responses 모델에 남습니다. Capriole에서 Claude 모델을 선택해도 Codex 호환 모델이 되지는 않습니다. Claude Code는 Claude Messages 경로를 사용합니다. Kilo Code는 Chat Completions를 사용합니다. GitHub Copilot CLI, OpenCode, OpenClaw는 더 넓은 선택이 있지만, 구성은 여전히 선택한 프로토콜과 일치해야 합니다.
+클라이언트별 제한이 있습니다. Codex는 유지 중인 OpenAI Responses 모델에 남습니다. Capriole에서 Claude 모델을 선택해도 Codex 호환 모델이 되지는 않습니다. Claude Code는 Claude Messages 경로를 사용합니다. Cline과 Crush는 Chat Completions를 사용합니다. Kilo Code, GitHub Copilot CLI, OpenCode, OpenClaw, Qwen Code, Pi는 더 넓은 선택이 있지만, 구성은 여전히 선택한 프로토콜과 일치해야 합니다.
 
 표에 연결된 통합 가이드가 현재 필드와 지원 선택자의 진실 원천입니다.
 
@@ -85,8 +89,8 @@ Capriole은 두 표면을 같은 계정에 연결합니다. Premium 멤버십은
 
 ## 에이전트를 먼저 선택한 다음 프로토콜을 따르세요
 
-Responses 기반 OpenAI 워크플로가 작업에 맞으면 Codex를 사용하세요. Anthropic 네이티브 클라이언트를 원하면 Claude Code를 사용하세요. Kilo Code는 Chat Completions 위의 IDE 또는 터미널 워크플로를 제공합니다. GitHub Copilot CLI, OpenCode, OpenClaw는 더 많은 프로토콜 선택을 제공합니다.
+Responses 기반 OpenAI 워크플로가 작업에 맞으면 Codex를 사용하세요. Anthropic 네이티브 클라이언트를 원하면 Claude Code를 사용하세요. Kilo Code와 Cline은 IDE 또는 터미널 워크플로를 제공합니다. GitHub Copilot CLI, OpenCode, OpenClaw, Qwen Code, Crush, Pi는 더 많은 클라이언트 선택을 제공합니다.
 
 문서화된 각 클라이언트는 해당 프로토콜이 지원하는 모델로 가는 유지 중인 경로를 받습니다.
 
-[제한된 무료 Browser Chat에서 GPT-6 Astra, Claude Fable 5.1 또는 Gemini 4 Argon을 써 보세요](https://capriole.ai). API key를 만들 준비가 되면 업그레이드하세요. 공유 워크플로는 [키 하나 코딩 에이전트 가이드](/ko/guides/one-api-key-coding-agents)부터 시작한 다음, 사용하는 에이전트의 통합 페이지를 여세요.
+[제한된 무료 Browser Chat에서 GPT-6 Astra, Claude Fable 5.1 또는 Gemini 4 Argon을 써 보세요](https://www.capriole.ai/ko). API key를 만들 준비가 되면 업그레이드하세요. 공유 워크플로는 [키 하나 코딩 에이전트 가이드](/ko/guides/one-api-key-coding-agents)부터 시작한 다음, 사용하는 에이전트의 통합 페이지를 여세요.

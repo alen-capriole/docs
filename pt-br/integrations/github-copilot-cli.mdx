@@ -1,7 +1,10 @@
 ---
-title: "GitHub Copilot CLI"
-description: "Configure o GitHub Copilot CLI para usar a Capriole AI."
+title: "GitHub Copilot CLI com modelos BYOK: configure a Capriole AI"
+sidebarTitle: "GitHub Copilot CLI"
+description: "Conecte o modo BYOK do GitHub Copilot CLI à Capriole AI. Use GPT-6 Astra, Claude Fable 5.1 e Opus 5.5 pagando até 92% menos que na API oficial."
 ---
+
+Com uma única API key da Capriole AI, você usa GPT-6 Astra, Claude Fable 5.1 e Opus 5.5 no GitHub Copilot CLI pagando até 92% menos que os preços oficiais da API.
 
 ## O que é GitHub Copilot CLI
 
@@ -11,8 +14,9 @@ O GitHub Copilot CLI é o agente de programação do GitHub para o terminal. O m
 
 Antes de começar, confira se você tem:
 
-- Uma conta Capriole AI ([Cadastre-se aqui](https://capriole.ai))
-- Uma API key da Capriole AI ([Obtenha sua key](https://capriole.ai?view=api))
+- Uma conta Capriole AI ([Cadastre-se aqui](https://www.capriole.ai/pt-br))
+- Um plano Premium (USD 8 por mês, também inclui chat na web ilimitado) ou um plano Team, necessário para a API key ([Assine](https://www.capriole.ai/pt-br?view=api))
+- Uma API key da Capriole AI ([Obtenha sua key](https://www.capriole.ai/pt-br?view=api))
 
 ## Instalação
 
@@ -126,7 +130,7 @@ copilot -p "Explain this repository." --allow-all-tools
 | Kimi K3.1 Pro | `moonshot/kimi-k3.1-pro` | `claude-opus-4.6` | Chat Completions |
 | Kimi K3 | `moonshot/kimi-k3` | `claude-sonnet-4` | Chat Completions |
 
-`openai-latest` e `claude-latest` sempre apontam para o nosso modelo principal mais recente de cada família.
+`openai-latest` e `claude-latest` sempre apontam para o nosso modelo principal mais recente de cada família, atualmente GPT-6 Astra e Claude Fable 5.1.
 
 ## Solução de problemas
 
@@ -150,4 +154,5 @@ Defina `COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"`, ou `"claude-opus-4.6"` par
 
 - O Copilot CLI executa ferramentas de programação no seu computador. A Capriole AI só trata as solicitações de modelo.
 - Execute `copilot help providers` para ver todas as variáveis de ambiente BYOK.
+- Para usar a mesma key nos seus outros agentes de programação, veja [Usar uma API key com agentes de programação](/pt-br/guides/one-api-key-coding-agents).
 - Referências oficiais: [Instalar o GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli) e [Usar modelos BYOK no Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/use-byok-models).

@@ -1,7 +1,10 @@
 ---
-title: "クイックスタート"
-description: "最初の Capriole AI API リクエストを送信します。"
+title: "Capriole AI API クイックスタート: 1 つのキーで OpenAI と Claude の形式に対応"
+sidebarTitle: "クイックスタート"
+description: "1 つのキーで OpenAI Chat Completions、Responses、Anthropic Messages を使い、最初の Capriole AI API リクエストを送信します。料金は公式価格より最大 92% 安くなります。"
 ---
+
+Capriole AI の API (`https://api.caprioletech.com`) は OpenAI Chat Completions、OpenAI Responses、Anthropic Messages と互換性があり、1 つのキーでアプリとコーディング エージェントを公式 API 価格より最大 92% 安く利用できます。
 
 ## Base URL
 
@@ -11,7 +14,7 @@ description: "最初の Capriole AI API リクエストを送信します。"
 
 ### 1. API キーを作成する
 
-サインイン後、[Capriole AI API ページ](https://capriole.ai?view=api) でキーを作成してください。
+API キーには Premium (月額 USD 8) または Team が必要です。サインイン後、[Capriole AI API ページ](https://www.capriole.ai/ja?view=api) でキーを作成してください。
 
 ### 2. `POST /v1/chat/completions` を呼び出す
 
@@ -73,7 +76,7 @@ latest エイリアスは入力のショートカットです。Capriole AI は�
 
 ### 各エンドポイントで使える latest エイリアスはどれですか？
 
-`POST /v1/chat/completions` は 3 つの latest エイリアスすべてに対応しています。`POST /v1/responses` は `openai-latest` に対応しています。`POST /v1/messages` は `claude-latest` に加え、`claude-fable-5`、`claude-opus-5-5`、`claude-opus-5`、`claude-opus-4-8`、`claude-opus-4-7`、`claude-opus-4-6`、`claude-sonnet-4-6` などの具体的な Claude Messages ID に対応しています。
+`POST /v1/chat/completions` は 3 つの latest エイリアスすべてに対応しています。`POST /v1/responses` は `openai-latest` に対応しています。`POST /v1/messages` は `claude-latest` に加え、`claude-fable-5-1`、`claude-fable-5`、`claude-opus-5-5`、`claude-opus-5`、`claude-opus-4-8`、`claude-opus-4-7`、`claude-opus-4-6`、`claude-sonnet-4-6` などの具体的な Claude Messages ID に対応しています。
 
 ### レスポンスのモデルが送信したエイリアスではないのはなぜですか？
 

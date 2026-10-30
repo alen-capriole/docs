@@ -14,7 +14,7 @@ openapi: "api-reference/openapi.json POST /v1/responses"
 
 このエンドポイントは Grok モデル `xai/grok-4.7`、`xai/grok-4.6`、`xai/grok-4.5` も受け付けます。Grok の ID は必ず `xai/` プレフィックス付きで送信してください。`grok-4.7` のようなプレフィックスのない ID はネイティブ OpenAI ID として扱われ、拒否されます。Grok のリクエストは形式を変換せずに xAI 自身の Responses API へ転送されます。
 
-このエンドポイントでは Claude と Google の latest エイリアスはサポートされません。GLM 5.2、Kimi K3.1 Pro、Kimi K3 は Chat Completions を使うため、ここでもサポートされません。公開モデルをすべて呼べる 1 つの OpenAI 互換エンドポイントが必要な場合は、`POST /v1/chat/completions` を使ってください。
+このエンドポイントでは、ほかのモデルはサポートされません。対象は `claude-latest`、`google-latest`、`anthropic/claude-fable-5-1` や `google/gemini-4-argon` などの Claude と Gemini のモデル ID、そして GLM と Kimi のモデル (`zai/glm-5.3-flash`、`zai/glm-5.2`、`moonshot/kimi-k3.1-pro`、`moonshot/kimi-k3`) です。公開モデルをすべて呼べる 1 つの OpenAI 互換エンドポイントが必要な場合は、`POST /v1/chat/completions` を使ってください。
 
 ## ウェブ検索
 

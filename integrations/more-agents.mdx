@@ -1,7 +1,10 @@
 ---
-title: "More agents"
-description: "Use Capriole AI with a coding agent that has no page here."
+title: "Connect any coding agent to a custom API: Capriole AI setup"
+sidebarTitle: "More agents"
+description: "Connect any coding agent with a custom endpoint to Capriole AI. Run GPT-6 Astra, Claude Fable 5.1, and Opus 5.5 at up to 92% less than official API prices."
 ---
+
+With one Capriole AI API key, any coding agent that accepts a custom endpoint can run GPT-6 Astra, Claude Fable 5.1, and Opus 5.5 at up to 92% less than official API prices.
 
 ## Other agents
 
@@ -15,9 +18,13 @@ Most coding agents can use Capriole AI if they let you set a custom endpoint. Us
 
 Chat Completions is the simplest choice, because it serves every model.
 
+To use the same key in the agents that have their own page, see [Use one API key with coding agents](/guides/one-api-key-coding-agents).
+
 ## Authentication
 
 Capriole AI accepts the key only as a Bearer token in the `Authorization` header. If an agent sends the key in an `x-api-key` header, which many Anthropic clients do, set a custom `Authorization: Bearer YOUR_CAPRIOLE_AI_API_KEY` header or use the agent's OpenAI-compatible option instead.
+
+An API key needs a Premium plan (USD 8 per month, also includes unlimited web chat) or a Team plan ([Subscribe](https://www.capriole.ai/?view=api)).
 
 ## Request an agent
 

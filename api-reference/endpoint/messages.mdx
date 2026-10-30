@@ -10,4 +10,4 @@ Send a standard Messages payload with `model`, `messages`, and `max_tokens`. Cap
 
 `POST /v1/messages` accepts `claude-latest`, `claude-fable-5-1`, `claude-fable-5`, `claude-opus-5-5`, `claude-opus-5`, `claude-opus-4-8`, `claude-opus-4-7`, `claude-opus-4-6`, and `claude-sonnet-4-6`. Use `claude-latest` to select Fable 5.1 without changing your configuration.
 
-`POST /v1/messages/count_tokens` accepts the same Claude model IDs for Anthropic-compatible token-count checks. It returns the selected upstream's token-count response or error.
+`POST /v1/messages/count_tokens` accepts the same Claude model IDs for Anthropic-compatible token-count checks. It returns the input token count for the selected Claude model, or an error.

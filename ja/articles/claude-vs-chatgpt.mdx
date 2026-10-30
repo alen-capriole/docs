@@ -1,0 +1,112 @@
+---
+title: "Claude と ChatGPT の違い：得意分野と料金を比較"
+sidebarTitle: "Claude と ChatGPT の比較"
+description: "Claude Fable 5.1・Opus 5.5 と GPT-6 Astra を比較。各社が示す得意分野、プランと API の料金、USD 8 で両方を 1 つのチャットで使う方法を解説します。"
+---
+
+Claude と ChatGPT は得意な作業が異なるため、実用的な答えは両方を使うことです。Anthropic は **Claude Fable 5.1** を高度な推論と長期的なエージェント作業向け、**Claude Opus 5.5** を長時間のエージェント型コーディングとナレッジ ワーク向けと位置づけています。OpenAI は **GPT-6 Astra** を、最も負荷の高い作業に向けた最も高性能なモデルとしています。Capriole AI なら、この 3 つに **Gemini 4 Argon** を加えた無制限のウェブチャットを **月額 USD 8** で使えます。
+
+同じアカウントには、公式 API 価格より最大 92% 安い API も含まれます。1 つのキーで、アプリとコーディング エージェントを動かせます。
+
+## Claude と ChatGPT をひと目で比較
+
+| | Claude（Anthropic） | ChatGPT（OpenAI） |
+|---|---|---|
+| 旗艦モデル | Claude Fable 5.1 と Claude Opus 5.5 | GPT-6 Astra |
+| 各社が示す用途 | Fable 5.1：高度な推論と長期的なエージェント作業。Opus 5.5：長時間のエージェント型コーディングとナレッジ ワーク | 複雑な推論、コーディング、コンピューター操作、リサーチ、ドキュメント作成 |
+| コンテキスト ウィンドウ（API） | どちらも 100 万トークン | 1,050,000 トークン |
+| 最大出力（API） | どちらも 128K トークン | 128,000 トークン |
+| API 料金（100 万トークンあたり、入力 / 出力） | Fable 5.1：USD 10 / USD 50。Opus 5.5：USD 4 / USD 20 | USD 10 / USD 50 |
+| エントリー プラン | Claude Pro：月額 USD 20、年払いなら月額 USD 17 | ChatGPT Plus：月額 USD 20 |
+| エントリー プランの旗艦モデル | Opus は含まれる。Fable 5.1 は Pro の使用制限の対象外で、API 料金の利用クレジットで動作 | GPT-6 Astra は ChatGPT Work と Codex のみ。Chat の GPT-6 Pro には Pro、Business、Enterprise が必要 |
+| 上位プラン | Max 5x：USD 100。Max 20x：月額 USD 200 | Pro：月額 USD 100、USD 200、または USD 500 |
+| 両方を 1 つのチャットで | Capriole AI Premium、月額 USD 8 | Capriole AI Premium、月額 USD 8 |
+
+## Anthropic による Claude Fable 5.1 と Opus 5.5 の説明
+
+Anthropic によると、Claude Fable 5.1 は長時間のエージェント型コーディング、複数ステップのリサーチ、ドキュメント・スプレッドシート・スライドの作業が強化されています。2 つのうち処理が遅いほうです。
+
+ほとんどのワークロードについて、Anthropic は Claude Opus 5.5 から始めることを勧めています。発表によると、Opus 5.5 はほとんどの作業で Fable 5.1 と同等の水準で動作し、Anthropic のベンチマークではエージェント型コーディング、コンピューター操作、ナレッジ ワークでトップです。Opus 5.5 のエフォートを上げても足りない場合に、Anthropic は Fable 5.1 を勧めています。
+
+どちらのモデルも思考は常にオンです。テキストと画像を読み取ってテキストを出力し、100 万トークンのコンテキスト ウィンドウを備えています。
+
+## OpenAI による GPT-6 Astra の説明
+
+OpenAI は GPT-6 Astra を、最も負荷の高い作業に向けた最も高性能なモデルとしています。主な用途として、複雑な推論、コーディング、コンピューター操作、リサーチ、ドキュメント作成を挙げています。推論の強度は `low` から `max` まで設定できます。
+
+GPT-6 Astra はテキストと画像を読み取り、テキストを出力します。API では、入力が 272K トークンを超えるプロンプトは料金が上がります。リクエスト全体に対して、入力料金が 2 倍、出力料金が 1.5 倍になります。
+
+## 各サブスクリプションで得られるもの
+
+**Claude：** すべての Claude プランに 5 時間のセッション制限があり、有料プランには週間制限も加わります。Claude Pro では、セッションあたり Free プランの 5 倍以上を使えます。Max 5x と Max 20x では、セッションあたり Pro の 5 倍または 20 倍です。Pro では、Fable 5.1 はプランの使用制限に含まれず、標準の API 料金で利用クレジットから請求されます。Max では、Fable モデルは週間制限の最大 50% まで使えます。詳しくは [Claude の使用制限の解説](/ja/articles/claude-usage-limits)をお読みください。
+
+**ChatGPT：** Plus では、Chat の GPT-6 は GPT-6 Sol で動作します。GPT-6 Astra は ChatGPT Work と Codex に含まれ、OpenAI は 5 時間あたり 5〜45 件のローカル メッセージと見積もり、週間制限がかかる場合もあるとしています。Astra を基盤とする Chat のオプション GPT-6 Pro には、Pro、Business、Enterprise が必要です。OpenAI によると、Pro でも GPT-6 Pro は無制限ではありません。Plus と Capriole AI の詳しい比較は、[ChatGPT Plus の代替](/ja/articles/chatgpt-plus-alternative)のページにあります。
+
+Claude Pro にも ChatGPT Plus にも API の利用は含まれません。これらのプランでは、両社とも API を別に請求します。
+
+## USD 8 で両方を 1 つのチャットで使う
+
+Capriole AI Premium は月額 USD 8 で、GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5、Gemini 4 Argon を含むすべての対応モデルでウェブチャットが無制限です。ログイン中のウェブチャットには、1 アカウントあたり 1 日 200 メッセージのフェアユース上限があります。スクリプトによる自動化された乱用を防ぐためのもので、通常の利用ではこの上限を大きく下回ります。
+
+チャットごとに 1 社を選ぶ必要はありません。[会話の途中でモデルを切り替え](/ja/articles/switch-models-mid-chat)ても、スレッド、そのファイル、コンテキストはまとまったままです。
+
+1. GPT-6 Astra で下書きします。
+2. Claude Fable 5.1 に切り替え、下書きに反論してもらいます。
+3. Claude Opus 5.5 または Gemini 4 Argon に切り替え、3 つ目の視点を得るか、作業を仕上げます。
+
+Premium には、GPT Image 2.5 と Nano Banana 2.1 による無料の画像生成、ファイルと Web 検索、プロジェクト、チャットのエクスポート、パーソナライズ、ストレージ制御も含まれます。
+
+## API 料金の比較
+
+アプリとコーディング エージェント向けに、Capriole AI はすべての対応モデルで同じ料金を請求します。
+
+| モデル | 公式 API 料金（100 万トークンあたり、入力 / 出力） | Capriole AI |
+|---|---|---|
+| GPT-6 Astra | USD 10 / USD 50 | 500 万トークンあたり USD 8 |
+| Claude Fable 5.1 | USD 10 / USD 50 | 500 万トークンあたり USD 8 |
+| Claude Opus 5.5 | USD 4 / USD 20 | 500 万トークンあたり USD 8 |
+
+500 万トークンあたり USD 8 は、入力・出力とも 100 万トークンあたり USD 1.60 です。Premium には毎月 500 万 API トークンが含まれ、トップアップは 500 万トークンあたり USD 8 です。[課金トークン](/ja/articles/charged-tokens)で説明しているとおり、キャッシュ入力は 10% で数えます。1 つのキーで OpenAI Chat Completions、OpenAI Responses、Anthropic Messages の各クライアントと、Codex や Claude Code を含む[ドキュメント化された 10 のコーディング エージェント](/ja/guides/one-api-key-coding-agents)に対応します。
+
+## どちらを使うべきか
+
+- **ほとんどのコーディングとナレッジ ワークは、Claude Opus 5.5 から始めます。** Anthropic 自身の推奨で、API 料金も 3 つの中で最も安いモデルです。
+- **最も難しい推論や長時間のエージェント タスクには、Claude Fable 5.1 に移ります。** Opus 5.5 では足りない場合です。
+- **GPT-6 Astra は、** 高度な推論、リサーチ、コーディング、ドキュメント作業や、別の会社のモデルによるセカンド オピニオンに使います。
+
+各社のベンチマークを見ても、あなたのタスクにどのモデルが最適かは分かりません。同じスレッドで 2 つのモデルに聞けば分かります。
+
+## よくある質問
+
+<AccordionGroup>
+  <Accordion title="Claude は ChatGPT より優れていますか？">
+    タスクによります。Anthropic は Claude Opus 5.5 と Fable 5.1 を、エージェント型コーディング、ナレッジ ワーク、長い推論向けと位置づけています。OpenAI は GPT-6 Astra を、最も負荷の高い作業向けとしています。1 つの Capriole AI チャットで、自分のタスクに両方を試してください。
+  </Accordion>
+  <Accordion title="Claude と ChatGPT はどちらが安いですか？">
+    エントリー プランは同額です。Claude Pro と ChatGPT Plus はどちらも月額 USD 20 です。API では、Claude Opus 5.5 は 100 万トークンあたり USD 4 / USD 20、GPT-6 Astra と Claude Fable 5.1 はどちらも USD 10 / USD 50 です。Capriole AI Premium なら、月額 USD 8 で 3 つすべてと無制限にウェブチャットできます。
+  </Accordion>
+  <Accordion title="Claude と ChatGPT のモデルを 1 つのアプリで使えますか？">
+    はい。Capriole AI では GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5、Gemini 4 Argon を 1 つのワークスペースで使え、同じ会話の中でモデルを切り替えられます。
+  </Accordion>
+  <Accordion title="Claude と ChatGPT の両方のサブスクリプションが必要ですか？">
+    両社の旗艦モデルとチャットするだけなら不要です。Capriole AI Premium の USD 8 のプラン 1 つでカバーできます。Claude のサインインで使う Claude Code や ChatGPT Work など、各社のアプリにしかない機能には、引き続き各社のアプリが必要です。
+  </Accordion>
+</AccordionGroup>
+
+## 今すぐ始める
+
+<CardGroup cols={2}>
+  <Card title="チャットを始める" icon="message" href="https://www.capriole.ai/ja">
+    1 つのチャットで Claude と GPT-6 Astra を切り替えられます。アカウントは不要です。
+  </Card>
+  <Card title="Premium にアップグレード" icon="crown" href="https://www.capriole.ai/ja?view=api">
+    無制限のウェブチャットと API キーが月額 USD 8。
+  </Card>
+</CardGroup>
+
+## 公式ソース
+
+- Anthropic：[Claude Fable 5.1](https://platform.claude.com/docs/en/models/fable-5-1/overview)、[Claude Opus 5.5](https://platform.claude.com/docs/en/models/opus-5-5/overview)、[Claude Opus 5.5 announcement](https://www.anthropic.com/claude-opus-5-5)、[Claude plans and pricing](https://claude.com/pricing)、[What is the Max plan?](https://support.claude.com/en/articles/11049741-what-is-the-max-plan)、[Claude Fable models on your plan](https://support.claude.com/en/articles/15424964-claude-fable-models-on-your-plan)
+- OpenAI：[GPT-6 Astra model](https://developers.openai.com/api/docs/models/gpt-6-astra)、[What is ChatGPT Plus?](https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus)、[GPT-6 and other models in ChatGPT](https://help.openai.com/en/articles/20001354-gpt-6-and-other-models-in-chatgpt)、[Managing usage with GPT-6 Astra in Work and Codex](https://help.openai.com/en/articles/20001516-managing-usage-with-gpt-6-astra-in-work-and-codex)、[About ChatGPT Pro tiers](https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers)
+
+このページの Capriole AI の事実は、第一当事者ドキュメントとして維持されています。

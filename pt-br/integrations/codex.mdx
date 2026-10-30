@@ -1,7 +1,10 @@
 ---
-title: "Codex"
-description: "Configure o Codex para usar a Capriole AI."
+title: "Codex com outro provedor de API: configure a Capriole AI"
+sidebarTitle: "Codex"
+description: "Adicione a Capriole AI ao Codex como provedor de modelos. Use GPT-6 Astra e GPT-6.1 Sol pagando até 92% menos que na API oficial."
 ---
+
+Com uma única API key da Capriole AI, você usa GPT-6 Astra e GPT-6.1 Sol no Codex pagando até 92% menos que os preços oficiais da API.
 
 ## O que é Codex
 
@@ -11,8 +14,9 @@ O Codex é o agente de programação da OpenAI para desenvolvimento de software.
 
 Antes de começar, confira se você tem:
 
-- Uma conta Capriole AI ([Cadastre-se aqui](https://capriole.ai))
-- Uma API key da Capriole AI ([Obtenha sua key](https://capriole.ai?view=api))
+- Uma conta Capriole AI ([Cadastre-se aqui](https://www.capriole.ai/pt-br))
+- Um plano Premium (USD 8 por mês, também inclui chat na web ilimitado) ou um plano Team, necessário para a API key ([Assine](https://www.capriole.ai/pt-br?view=api))
+- Uma API key da Capriole AI ([Obtenha sua key](https://www.capriole.ai/pt-br?view=api))
 
 ## Instalação
 
@@ -94,7 +98,6 @@ O Codex usa os modelos OpenAI da Capriole AI pela API Responses. Use os IDs de m
 - `gpt-6-luna`
 - `gpt-5.6-terra`
 - `gpt-5.6-luna`
-- `gpt-5.5`
 
 Use o Codex 0.159.2 ou posterior com `gpt-6.1-sol`. Versões anteriores não incluem os metadados desse modelo e usam configurações genéricas.
 
@@ -129,4 +132,5 @@ Confirme que `~/.codex/config.toml` é o arquivo de configuração ativo do usu�
 ## Observações
 
 - A configuração usa `env_key` para que sua API key fique no ambiente do shell, e não no arquivo de configuração.
+- Para usar a mesma key nos seus outros agentes de programação, veja [Usar uma API key com agentes de programação](/pt-br/guides/one-api-key-coding-agents).
 - Referências oficiais: [Codex CLI](https://developers.openai.com/codex/cli), [Fundamentos de configuração do Codex](https://developers.openai.com/codex/config-basic), [Referência de configuração do Codex](https://developers.openai.com/codex/config-reference) e [configuração de exemplo](https://developers.openai.com/codex/config-sample).

@@ -1,7 +1,10 @@
 ---
-title: "Qwen Code"
-description: "Configura Qwen Code para usar Capriole AI."
+title: "Proveedor de modelos en Qwen Code: configura Capriole AI"
+sidebarTitle: "Qwen Code"
+description: "Añade modelos de Capriole AI a modelProviders de Qwen Code. Usa GPT-6 Astra, Claude Fable 5.1 y Opus 5.5 pagando hasta un 92% menos que en la API oficial."
 ---
+
+Con una sola clave API de Capriole AI, usas GPT-6 Astra, Claude Fable 5.1 y Opus 5.5 en Qwen Code pagando hasta un 92% menos que los precios oficiales de la API.
 
 ## Qué es Qwen Code
 
@@ -11,8 +14,9 @@ Qwen Code es un agente de programación de código abierto para la terminal. Su 
 
 Antes de empezar, asegúrate de tener:
 
-- Una cuenta de Capriole AI ([Regístrate aquí](https://capriole.ai))
-- Una clave API de Capriole AI ([Obtén tu clave](https://capriole.ai?view=api))
+- Una cuenta de Capriole AI ([Regístrate aquí](https://www.capriole.ai/es))
+- Un plan Premium (USD 8 al mes, también incluye chat web ilimitado) o un plan Team, necesario para la clave API ([Suscríbete](https://www.capriole.ai/es?view=api))
+- Una clave API de Capriole AI ([Obtén tu clave](https://www.capriole.ai/es?view=api))
 
 ## Instalación
 
@@ -186,7 +190,7 @@ qwen "Explain this repository." -m claude-latest --auth-type anthropic
 | Kimi K3.1 Pro | `moonshot/kimi-k3.1-pro` | `openai` | Chat Completions |
 | Kimi K3 | `moonshot/kimi-k3` | `openai` | Chat Completions |
 
-`openai-latest` y `claude-latest` siempre apuntan a nuestro modelo insignia más reciente de cada familia.
+`openai-latest` y `claude-latest` siempre apuntan a nuestro modelo insignia más reciente de cada familia, actualmente GPT-6 Astra y Claude Fable 5.1.
 
 ## Solución de problemas
 
@@ -206,4 +210,5 @@ Los modelos Claude dentro de `anthropic` necesitan los IDs de Claude sin prefijo
 
 - Guarda tu clave en `~/.qwen/.env`, no en `settings.json`.
 - Para añadir otro modelo de Capriole AI, copia la entrada de un modelo de la misma familia y cambia el ID. `GET https://api.caprioletech.com/v1/models` devuelve la lista de todos los IDs de modelo.
+- Para usar la misma clave en tus otros agentes de programación, consulta [Usa una sola clave API con agentes de programación](/es/guides/one-api-key-coding-agents).
 - Referencias oficiales: [Qwen Code](https://github.com/QwenLM/qwen-code) y [proveedores de modelos de Qwen Code](https://qwenlm.github.io/qwen-code-docs/en/users/configuration/model-providers/).

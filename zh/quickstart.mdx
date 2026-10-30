@@ -1,7 +1,10 @@
 ---
-title: "快速开始"
-description: "发送你的第一个 Capriole AI API 请求。"
+title: "Capriole AI API 快速开始：一个 Key，兼容 OpenAI 和 Claude 格式"
+sidebarTitle: "快速开始"
+description: "用一个 Key 调用 OpenAI Chat Completions、Responses 和 Anthropic Messages 兼容接口，发送你的第一个 Capriole AI API 请求，价格最多比官方低 92%。"
 ---
+
+Capriole AI 的 API 地址是 `https://api.caprioletech.com`，兼容 OpenAI Chat Completions、OpenAI Responses 和 Anthropic Messages，一个 Key 即可用于你的应用和编程智能体，价格最多比官方 API 低 92%。
 
 ## Base URL
 
@@ -11,7 +14,7 @@ description: "发送你的第一个 Capriole AI API 请求。"
 
 ### 1. 创建 API Key
 
-登录后，在 [Capriole AI API 页面](https://capriole.ai?view=api)创建 API Key。
+API Key 需要 Premium（每月 8 美元）或 Team。登录后，在 [Capriole AI API 页面](https://www.capriole.ai/zh?view=api)创建 API Key。
 
 ### 2. 调用 `POST /v1/chat/completions`
 
@@ -69,11 +72,11 @@ Latest alias 只是请求输入的快捷方式。Capriole AI 按解析后的具�
 
 ### Base URL 是否应包含 `/v1`
 
-直接调用 API 时使用 `https://api.caprioletech.com`。部分编程代理会要求填写提供商 Base URL。请按照对应集成页面配置，因为 OpenAI 兼容客户端和 Anthropic 兼容客户端需要的 Base URL 不同。
+直接调用 API 时使用 `https://api.caprioletech.com`。部分编程智能体会要求填写提供商 Base URL。请按照对应集成页面配置，因为 OpenAI 兼容客户端和 Anthropic 兼容客户端需要的 Base URL 不同。
 
 ### 每个端点支持哪些 latest alias
 
-`POST /v1/chat/completions` 支持三个 latest alias。`POST /v1/responses` 支持 `openai-latest`。`POST /v1/messages` 支持 `claude-latest`，也支持 `claude-fable-5`、`claude-opus-5-5`、`claude-opus-5`、`claude-opus-4-8`、`claude-opus-4-7`、`claude-opus-4-6` 和 `claude-sonnet-4-6` 等具体的 Claude Messages 模型 ID。
+`POST /v1/chat/completions` 支持三个 latest alias。`POST /v1/responses` 支持 `openai-latest`。`POST /v1/messages` 支持 `claude-latest`，也支持 `claude-fable-5-1`、`claude-fable-5`、`claude-opus-5-5`、`claude-opus-5`、`claude-opus-4-8`、`claude-opus-4-7`、`claude-opus-4-6` 和 `claude-sonnet-4-6` 等具体的 Claude Messages 模型 ID。
 
 ### 为什么响应中的模型不是我发送的 alias
 

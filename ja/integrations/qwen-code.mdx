@@ -1,7 +1,10 @@
 ---
-title: "Qwen Code"
-description: "Qwen Code が Capriole AI を使うように設定します。"
+title: "Qwen Code にモデル プロバイダーを追加"
+sidebarTitle: "Qwen Code"
+description: "Capriole AI のモデルを Qwen Code の modelProviders に追加します。GPT-6 Astra、Claude Fable 5.1、Opus 5.5 を公式 API 価格より最大 92% 安く使えます。"
 ---
+
+Capriole AI の API キー 1 つで、Qwen Code から GPT-6 Astra、Claude Fable 5.1、Opus 5.5 を公式 API 価格より最大 92% 安く使えます。
 
 ## Qwen Code とは
 
@@ -11,8 +14,9 @@ Qwen Code は、ターミナル向けのオープンソースのコーディン�
 
 始める前に、次を用意してください。
 
-- Capriole AI アカウント（[こちらから登録](https://capriole.ai)）
-- Capriole AI API キー（[キーを取得](https://capriole.ai?view=api)）
+- Capriole AI アカウント（[こちらから登録](https://www.capriole.ai/ja)）
+- Premium プラン（月額 USD 8、無制限の Web チャットも含む）または Team プラン。API キーにはどちらかが必要です（[購読する](https://www.capriole.ai/ja?view=api)）
+- Capriole AI API キー（[キーを取得](https://www.capriole.ai/ja?view=api)）
 
 ## インストール
 
@@ -186,7 +190,7 @@ qwen "Explain this repository." -m claude-latest --auth-type anthropic
 | Kimi K3.1 Pro | `moonshot/kimi-k3.1-pro` | `openai` | Chat Completions |
 | Kimi K3 | `moonshot/kimi-k3` | `openai` | Chat Completions |
 
-`openai-latest` と `claude-latest` は、常に各ファミリーの最新の旗艦モデルを指します。
+`openai-latest` と `claude-latest` は、常に各ファミリーの最新の旗艦モデルを指します。現在は GPT-6 Astra と Claude Fable 5.1 です。
 
 ## トラブルシューティング
 
@@ -206,4 +210,5 @@ qwen "Explain this repository." -m claude-latest --auth-type anthropic
 
 - キーは `settings.json` ではなく `~/.qwen/.env` に置いてください。
 - Capriole AI の別のモデルを追加するには、同じファミリーのモデルのエントリーをコピーして ID を変更します。`GET https://api.caprioletech.com/v1/models` ですべてのモデル ID を一覧できます。
+- 同じキーを他のコーディング エージェントでも使うには、[1 つの API キーでコーディング エージェントを使う](/ja/guides/one-api-key-coding-agents)を参照してください。
 - 公式リファレンス: [Qwen Code](https://github.com/QwenLM/qwen-code)、[Qwen Code のモデル プロバイダー](https://qwenlm.github.io/qwen-code-docs/en/users/configuration/model-providers/)。

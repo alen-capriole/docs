@@ -1,7 +1,10 @@
 ---
-title: "Claude Code"
-description: "Configure o Claude Code para usar a Capriole AI."
+title: "Claude Code com uma API personalizada: configure a Capriole AI"
+sidebarTitle: "Claude Code"
+description: "Conecte o Claude Code à Capriole AI com um arquivo de configurações. Use Claude Fable 5.1 e Opus 5.5 pagando até 92% menos que na API oficial."
 ---
+
+Com uma única API key da Capriole AI, você usa Claude Fable 5.1 e Opus 5.5 no Claude Code pagando até 92% menos que os preços oficiais da API.
 
 ## O que é Claude Code
 
@@ -11,8 +14,9 @@ O Claude Code é a ferramenta de programação agentiva da Anthropic para ler ba
 
 Antes de começar, confira se você tem:
 
-- Uma conta Capriole AI ([Cadastre-se aqui](https://capriole.ai))
-- Uma API key da Capriole AI ([Obtenha sua key](https://capriole.ai?view=api))
+- Uma conta Capriole AI ([Cadastre-se aqui](https://www.capriole.ai/pt-br))
+- Um plano Premium (USD 8 por mês, também inclui chat na web ilimitado) ou um plano Team, necessário para a API key ([Assine](https://www.capriole.ai/pt-br?view=api))
+- Uma API key da Capriole AI ([Obtenha sua key](https://www.capriole.ai/pt-br?view=api))
 
 ## Instalação
 
@@ -136,4 +140,5 @@ A Capriole AI encaminha `/v1/messages/count_tokens` para o upstream selecionado.
 
 - `~/.claude/settings.json` se aplica à sua conta de usuário em todos os projetos. Substitua `YOUR_CAPRIOLE_AI_API_KEY` pela sua API key da Capriole AI.
 - Modelos Gemini, Grok, GLM e Kimi não rodam no Claude Code, porque ele só fala o protocolo Anthropic Messages. Use OpenCode, Kilo Code ou outro agente multiprotocolo para esses modelos.
+- Para usar a mesma key nos seus outros agentes de programação, veja [Usar uma API key com agentes de programação](/pt-br/guides/one-api-key-coding-agents).
 - Referências oficiais: [Configuração do Claude Code](https://code.claude.com/docs/en/setup), [configuração de modelo](https://code.claude.com/docs/en/model-config) e [configuração de gateway LLM](https://code.claude.com/docs/en/llm-gateway-connect).

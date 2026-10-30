@@ -35,6 +35,15 @@
                           "id": "openai/gpt-6-astra"
                         },
                         {
+                          "id": "openai/gpt-6.1-sol"
+                        },
+                        {
+                          "id": "openai/gpt-6-sol"
+                        },
+                        {
+                          "id": "openai/gpt-6-luna"
+                        },
+                        {
                           "id": "openai/gpt-5.6-terra"
                         },
                         {
@@ -48,6 +57,9 @@
                         },
                         {
                           "id": "anthropic/claude-fable-5-1"
+                        },
+                        {
+                          "id": "anthropic/claude-opus-5-5"
                         },
                         {
                           "id": "anthropic/claude-fable-5"
@@ -386,7 +398,7 @@
       "post": {
         "operationId": "countMessageTokens",
         "summary": "Count message tokens",
-        "description": "Counts Anthropic Messages-compatible input tokens for Claude models by proxying to the selected upstream. Token-count requests do not create usage rows. If the selected upstream does not support token counting, Capriole AI returns the upstream error instead.",
+        "description": "Counts Anthropic Messages-compatible input tokens for Claude models. Token-count requests do not create usage rows. If token counting is not available for the selected model, Capriole AI returns that error instead.",
         "security": [
           {
             "bearerAuth": []
@@ -417,7 +429,7 @@
         },
         "responses": {
           "200": {
-            "description": "Upstream Anthropic token count response.",
+            "description": "Anthropic-compatible token count response.",
             "content": {
               "application/json": {
                 "schema": {
@@ -521,7 +533,7 @@
             "examples": {
               "rateLimitExceeded": {
                 "value": {
-                  "detail": "Rate limit exceeded: 100 per 1 minute"
+                  "detail": "Rate limit exceeded: 300 per 1 minute"
                 }
               }
             }
@@ -951,7 +963,7 @@
         "properties": {
           "input_tokens": {
             "type": "integer",
-            "description": "Number of input tokens reported by the upstream token-count endpoint."
+            "description": "Number of input tokens counted for the request."
           }
         },
         "additionalProperties": true

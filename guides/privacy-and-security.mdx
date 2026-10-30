@@ -1,0 +1,115 @@
+---
+title: "Capriole AI Privacy: No Training, Storage Modes and Deletion"
+sidebarTitle: "Privacy and Data Controls"
+description: "Capriole AI does not train models on your chats, files or API content. Choose Server, Local or No Storage, export or delete chats, and see what the API keeps."
+---
+
+Capriole AI does not use your chats, files, or API content to train AI models. You choose where your chat history is kept: on your account, only in your browser, or nowhere. The API keeps no request or response content, only usage records such as token counts. You can export every chat, delete chats at any time, and ask us to delete your account.
+
+This guide summarizes how your data is handled. The [privacy policy](/legal/privacy) is the full text.
+
+## Your content is not used for training
+
+Capriole AI does not use your chats, files, or API content to train AI models.
+
+Each request still goes to the AI model provider that answers it: OpenAI, Anthropic, Google, xAI, Z.ai, or Moonshot AI, or a cloud platform that hosts their models. That provider handles the request under its own terms.
+
+## Choose where chat history is kept
+
+| Storage mode | Where chat history is kept | Syncs across devices | Uploads and image creation | How to choose it |
+|---|---|---|---|---|
+| **Server Storage** (default) | Your account, on Capriole AI's servers | Yes | Available | Leave both storage switches off |
+| **Local Storage** | Your browser, not our database | No | Off | Turn on **Enable local storage** |
+| **No Storage** | Not saved | No | Off | Turn on **Enable No Storage** |
+
+Both switches are in **Account** → **Settings**. In every mode, your messages pass through our servers to the model that answers them, and Capriole AI keeps a usage record. The [chat storage guide](/guides/chat-storage) walks through each mode.
+
+<Warning>
+Turning on **Enable No Storage** permanently deletes all chat history from the server and this browser once you confirm.
+</Warning>
+
+Guest chats are not saved on our servers. A copy stays in your browser tab so it can be saved to your account if you sign in.
+
+## What Capriole AI keeps
+
+| Data | What is kept |
+|---|---|
+| Account | Your email address, name, and profile picture from sign-in. The account is shared with Capriole Quant. |
+| Chats | Messages, attached files, created images, and chat titles, depending on your storage mode |
+| Personalization | The name, work, and instructions you add to your account |
+| Voice input | Nothing. Recordings are sent for transcription without storing the audio or the text. |
+| Usage records | For each chat and API request: time, model, token counts, status, latency, cost, and IP address, plus the key used for API requests. No message content. |
+| Payments | Your subscription status and billing identifiers. Stripe processes the payment; we do not receive your card number. |
+
+## What the API keeps
+
+The API does not keep request or response content, so there is no API conversation history. Capriole AI keeps your API keys and a usage record for each request for quota, billing, and support. Your account personalization does not apply to the API.
+
+## Security
+
+Capriole AI uses encrypted connections, private file storage, and limited staff access. No system is perfectly secure.
+
+Our main servers and database are in India. Our providers process data in other countries, including the United States.
+
+## Export your chats
+
+In **Account** → **Settings**, select **Export chat history**. You get a ZIP with every chat as a Markdown file, the files you attached, and the images you generated, plus `conversations.json`, which holds every chat in a format programs can read.
+
+A large history takes a few minutes. The download stays available for 24 hours, and you can export even after a paid plan ends.
+
+To export one chat, open its menu in the sidebar and choose **Export**. A project exports from the project's menu. Local Storage chats download at once, without being stored on our servers.
+
+## Delete chats or your account
+
+- **One chat**: open the chat's menu in the sidebar and choose **Delete**.
+- **All chats**: in **Account** → **Settings**, select **Delete all** next to **Delete all chat history**.
+- **Your account**: email [info@capriole.ai](mailto:info@capriole.ai). Because the account is shared with Capriole Quant, this also ends your Capriole Quant sign-in.
+
+Deleting a chat, or all chat history, permanently removes it from our servers. Deleted data can remain in database backups for up to 7 days. Local Storage chats stay in your browser until you clear them.
+
+## Who receives your data
+
+| Recipient | What they receive |
+|---|---|
+| AI model providers | What each request needs: your messages, files, voice recordings, and chat context, plus your time zone and an approximate location based on it |
+| Infrastructure providers | Requests on their way to the model providers |
+| Search providers, such as Tavily | The search queries a model makes |
+| Service providers | Amazon Web Services (servers, database, files), Vercel (website hosting and analytics), Clerk (sign-in), Stripe (payments), Resend (email), and error monitoring tools |
+| Google and LinkedIn | Website visits and ad results, through tags on our website |
+| Your Team's owners and admins | Your email, role, and Team API usage |
+
+Capriole AI does not sell your personal information.
+
+## Your rights
+
+Depending on where you live, you may have the right to access, correct, delete, or move your information, or to object to some uses. Email [info@capriole.ai](mailto:info@capriole.ai) to use them. You can also complain to the Office of the Australian Information Commissioner or your local data protection authority.
+
+## Who runs Capriole AI
+
+Capriole AI is made by Capriole Investments and operated by Capriole Australia PTY LTD. Its market-data platform, Capriole Quant, and its investment fund are separate from Capriole AI. Your sign-in account is shared with Capriole Quant.
+
+## Common questions
+
+### Does Capriole AI train AI models on my chats?
+
+No. Capriole AI does not use your chats, files, or API content to train AI models. Model providers receive each request and handle it under their own terms.
+
+### Does Capriole AI store my API requests?
+
+No. It keeps no API request or response content, only usage records such as the time, model, and token counts.
+
+### Can I use Capriole AI without saving my chats?
+
+Yes. Turn on **Enable No Storage** for chats that disappear when you leave or refresh the page, or **Enable local storage** to keep history only in your browser.
+
+### How do I delete my Capriole AI account?
+
+Email [info@capriole.ai](mailto:info@capriole.ai). Deleting it also ends your Capriole Quant sign-in, because the two products share one account.
+
+### Where is Capriole AI data stored?
+
+Our main servers and database are in India. Our providers process data in other countries, including the United States.
+
+## Start using Capriole AI
+
+[Start chatting](https://www.capriole.ai/) with unlimited web chat on Premium for USD 8 a month, or [get an API key](https://www.capriole.ai/?view=api) at up to 92% less than official API prices.

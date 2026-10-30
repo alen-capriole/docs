@@ -1,7 +1,10 @@
 ---
-title: "OpenClaw"
-description: "OpenClaw が Capriole AI を使うように設定します。"
+title: "OpenClaw にカスタム モデル プロバイダーを追加"
+sidebarTitle: "OpenClaw"
+description: "Capriole AI を OpenClaw のカスタム モデル プロバイダーとして追加します。GPT-6 Astra、Claude Fable 5.1、Opus 5.5 を公式 API 価格より最大 92% 安く使えます。"
 ---
+
+Capriole AI の API キー 1 つで、OpenClaw から GPT-6 Astra、Claude Fable 5.1、Opus 5.5 を公式 API 価格より最大 92% 安く使えます。
 
 ## OpenClaw とは
 
@@ -11,8 +14,9 @@ OpenClaw は、オープンソースでセルフホスト型の個人向け AI �
 
 始める前に、次を用意してください。
 
-- Capriole AI アカウント（[こちらから登録](https://capriole.ai)）
-- Capriole AI API キー（[キーを取得](https://capriole.ai?view=api)）
+- Capriole AI アカウント（[こちらから登録](https://www.capriole.ai/ja)）
+- Premium プラン（月額 USD 8、無制限の Web チャットも含む）または Team プラン。API キーにはどちらかが必要です（[購読する](https://www.capriole.ai/ja?view=api)）
+- Capriole AI API キー（[キーを取得](https://www.capriole.ai/ja?view=api)）
 
 ## インストール
 
@@ -228,7 +232,7 @@ openclaw agent --local --session-id capriole-test --message "Summarize the files
 | Kimi K3.1 Pro | `capriole-ai-compatible/moonshot/kimi-k3.1-pro` | Chat Completions |
 | Kimi K3 | `capriole-ai-compatible/moonshot/kimi-k3` | Chat Completions |
 
-`openai-latest` と `claude-latest` は、常に各ファミリーの最新の旗艦モデルを指します。
+`openai-latest` と `claude-latest` は、常に各ファミリーの最新の旗艦モデルを指します。現在は GPT-6 Astra と Claude Fable 5.1 です。
 
 ## トラブルシューティング
 
@@ -255,4 +259,5 @@ openclaw agent --local --session-id capriole-test --message "Summarize the files
 ## 注意事項
 
 - Capriole AI の別のモデルを追加するには、同じファミリーのモデルのエントリーをコピーして ID を変更し、その参照を `agents.defaults.models` に追加します。`GET https://api.caprioletech.com/v1/models` ですべてのモデル ID を一覧できます。
+- 同じキーを他のコーディング エージェントでも使うには、[1 つの API キーでコーディング エージェントを使う](/ja/guides/one-api-key-coding-agents)を参照してください。
 - 公式リファレンス: [OpenClaw のインストール](https://docs.openclaw.ai/install)、[OpenClaw のカスタム プロバイダー](https://docs.openclaw.ai/gateway/config-tools)、[OpenClaw のモデル プロバイダー](https://documentation.openclaw.ai/concepts/model-providers)、[OpenClaw のトラブルシューティング](https://docs.openclaw.ai/gateway/troubleshooting)。

@@ -1,12 +1,12 @@
 ---
 title: "Usar uma API key com agentes de programação"
 sidebarTitle: "Uma key para agentes de programação"
-description: "Configure seis agentes de programação mantidos com uma API key da Capriole AI, mantendo cada cliente no protocolo suportado."
+description: "Configure 10 agentes de programação documentados com uma API key da Capriole AI, mantendo cada cliente no protocolo suportado."
 ---
 
-Uma API key da Capriole AI pode autenticar Codex, Claude Code, Kilo Code, GitHub Copilot CLI, OpenCode e OpenClaw. A key permanece a mesma, enquanto a base URL, o protocolo e o seletor de modelo precisam corresponder ao cliente que você está configurando.
+Uma API key da Capriole AI pode autenticar Codex, Claude Code, Kilo Code, GitHub Copilot CLI, OpenCode, OpenClaw, Cline, Qwen Code, Crush e Pi. A key permanece a mesma, enquanto a base URL, o protocolo e o seletor de modelo precisam corresponder ao cliente que você está configurando.
 
-Use este guia para ir de uma conta Capriole a um agente funcionando. O Premium pessoal custa USD 8 por mês, inclui 5 milhões de tokens cobrados de API e também libera Browser Chat ilimitado no conjunto de modelos Premium suportado. Uma assinatura pode, portanto, cobrir o espaço de trabalho no navegador e os seis caminhos de agente mantidos.
+Use este guia para ir de uma conta Capriole a um agente funcionando. O Premium pessoal custa USD 8 por mês, inclui 5 milhões de tokens cobrados de API e também libera Browser Chat ilimitado no conjunto de modelos Premium suportado. Uma assinatura pode, portanto, cobrir o espaço de trabalho no navegador e os 10 caminhos de agente mantidos.
 
 As páginas individuais de integração continuam a fonte da verdade para a configuração completa do cliente.
 
@@ -15,7 +15,7 @@ As páginas individuais de integração continuam a fonte da verdade para a conf
 Você precisa de:
 
 - Premium da Capriole AI ativo ou acesso Team elegível;
-- uma API key da Capriole AI na [página da API](https://capriole.ai?view=api);
+- uma API key da Capriole AI na [página da API](https://www.capriole.ai/pt-br?view=api);
 - pelo menos um agente de programação instalado;
 - um terminal em que você possa definir uma variável de ambiente.
 
@@ -33,12 +33,16 @@ Cada cliente mantém o protocolo de transmissão para o qual foi feito, mesmo co
 
 | Agente | Protocolo Capriole | Base URL | Modelo inicial | Configuração completa |
 |---|---|---|---|---|
-| Codex | OpenAI Responses | `https://api.caprioletech.com/v1` | `openai-latest` | [Configurar Codex](/pt-br/integrations/codex) |
-| Claude Code | Anthropic Messages | `https://api.caprioletech.com` | `claude-latest` | [Configurar Claude Code](/pt-br/integrations/claude-code) |
-| Kilo Code | Chat Completions | `https://api.caprioletech.com/v1` | `openai-latest` | [Configurar Kilo Code](/pt-br/integrations/kilo-code) |
+| Codex | OpenAI Responses | `https://api.caprioletech.com/v1` | `gpt-6-astra` | [Configurar Codex](/pt-br/integrations/codex) |
+| Claude Code | Anthropic Messages | `https://api.caprioletech.com` | `claude-fable-5-1` | [Configurar Claude Code](/pt-br/integrations/claude-code) |
+| Kilo Code | Responses, Messages ou Chat Completions, conforme a família de modelo | `https://api.caprioletech.com/v1` | `openai-latest` ou `claude-latest` | [Configurar Kilo Code](/pt-br/integrations/kilo-code) |
 | GitHub Copilot CLI | Chat Completions, Responses ou Messages | Específico do protocolo | Específico do protocolo | [Configurar GitHub Copilot CLI](/pt-br/integrations/github-copilot-cli) |
-| OpenCode | Responses, Chat Completions ou Messages | Específico do provedor | `openai-latest` ou `claude-latest` | [Configurar OpenCode](/pt-br/integrations/opencode) |
+| OpenCode | Responses, Messages ou Chat Completions, conforme a família de modelo | `https://api.caprioletech.com/v1` | `openai-latest` ou `claude-latest` | [Configurar OpenCode](/pt-br/integrations/opencode) |
 | OpenClaw | Responses, Chat Completions ou Messages | Específico do provedor | `openai-latest` ou `claude-latest` | [Configurar OpenClaw](/pt-br/integrations/openclaw) |
+| Cline | Chat Completions | `https://api.caprioletech.com/v1` | `claude-latest` | [Configurar Cline](/pt-br/integrations/cline) |
+| Qwen Code | Responses, Messages ou Chat Completions, conforme a família de modelo | Específico do protocolo | `openai-latest` ou `claude-latest` | [Configurar Qwen Code](/pt-br/integrations/qwen-code) |
+| Crush | Chat Completions | `https://api.caprioletech.com/v1` | `claude-latest` | [Configurar Crush](/pt-br/integrations/crush) |
+| Pi | Responses, Messages ou Chat Completions, conforme a família de modelo | Específico do protocolo | `openai-latest` ou `claude-latest` | [Configurar Pi](/pt-br/integrations/pi) |
 
 Os caminhos Responses e Chat Completions incluem `/v1` na base URL. Os caminhos Anthropic Messages usam a raiz da API, exceto quando uma página de integração documenta um valor de adaptador específico do cliente. Copie o valor exato da página de integração correspondente.
 
@@ -69,21 +73,19 @@ Abra a página de integração da tabela e copie a configuração mantida. Use o
 
 - O Codex lê a key de `CAPRIOLE_AI_API_KEY` por `env_key`.
 - O Claude Code usa `ANTHROPIC_AUTH_TOKEN`. Defina a partir da variável compartilhada antes de iniciar.
-- O Kilo Code referencia `{env:CAPRIOLE_AI_API_KEY}` na configuração do provedor.
+- O Kilo Code referencia `{env:CAPRIOLE_AI_API_KEY}` em `apiKey` e em um cabeçalho `Authorization`. Seu único provedor Capriole envia cada família de modelo para Responses, Messages ou Chat Completions.
 - O GitHub Copilot CLI usa `COPILOT_PROVIDER_API_KEY` em caminhos compatíveis com OpenAI e `COPILOT_PROVIDER_BEARER_TOKEN` em Anthropic Messages.
-- As entradas de provedor do OpenCode usam a key da Capriole em `apiKey` ou `authToken`, conforme o adaptador do provedor.
-- As entradas de provedor do OpenClaw referenciam `CUSTOM_API_KEY`. Defina a partir da variável compartilhada antes de iniciar o gateway.
+- O OpenCode referencia `{env:CAPRIOLE_AI_API_KEY}` em `apiKey` e em um cabeçalho `Authorization`. Seu único provedor Capriole envia cada família de modelo para Responses, Messages ou Chat Completions.
+- As entradas de provedor do OpenClaw referenciam `${CAPRIOLE_AI_API_KEY}` diretamente. Exporte a variável compartilhada no terminal que inicia o gateway.
+- O Cline salva a key uma única vez com `cline auth -k "$CAPRIOLE_AI_API_KEY"`.
+- O Qwen Code indica a variável em `envKey` e pode lê-la de `~/.qwen/.env`.
+- O Crush lê `$CAPRIOLE_AI_API_KEY` na entrada de provedor do `crushrc`.
+- O Pi lê `$CAPRIOLE_AI_API_KEY` em `models.json`.
 
 Para o Claude Code:
 
 ```bash
 export ANTHROPIC_AUTH_TOKEN="$CAPRIOLE_AI_API_KEY"
-```
-
-Para o OpenClaw:
-
-```bash
-export CUSTOM_API_KEY="$CAPRIOLE_AI_API_KEY"
 ```
 
 </Step>
@@ -92,8 +94,8 @@ export CUSTOM_API_KEY="$CAPRIOLE_AI_API_KEY"
 
 Comece com um alias mantido, a menos que você precise de uma versão exata do modelo:
 
-- use `openai-latest` em caminhos OpenAI Responses;
-- use `claude-latest` em caminhos Anthropic Messages;
+- use `openai-latest` em caminhos OpenAI Responses, ou o nativo `gpt-6-astra` no Codex;
+- use `claude-latest` em caminhos Anthropic Messages, ou `claude-fable-5-1` no Claude Code;
 - use um modelo listado pela página de integração em caminhos compatíveis com Chat Completions.
 
 O [catálogo atual de modelos](/pt-br/api-reference/endpoint/get) lista os modelos da API pública. Um modelo do Browser Chat não é automaticamente válido em todo protocolo da API.
@@ -110,7 +112,7 @@ Reply with CAPRIOLE_OK and no other text.
 
 Procure uma resposta não vazia, de preferência o marcador `CAPRIOLE_OK` pedido. Os modelos nem sempre seguem prompts de saída exata, então o texto pode ser diferente.
 
-Depois, abra a [página da API](https://capriole.ai?view=api) e confirme que a solicitação aparece na visualização de uso sob a key e o modelo esperados. O registro de uso é a verificação decisiva de que o cliente usou a Capriole. Uma resposta sozinha não basta quando o cliente tem outro provedor ou fallback configurado. O [guia de API keys e uso](/pt-br/guides/api-keys-usage) mostra os filtros exatos e o ciclo de vida da key.
+Depois, abra a [página da API](https://www.capriole.ai/pt-br?view=api) e confirme que a solicitação aparece na visualização de uso sob a key e o modelo esperados. O registro de uso é a verificação decisiva de que o cliente usou a Capriole. Uma resposta sozinha não basta quando o cliente tem outro provedor ou fallback configurado. O [guia de API keys e uso](/pt-br/guides/api-keys-usage) mostra os filtros exatos e o ciclo de vida da key.
 
 Esta verificação não testa toda ferramenta ou recurso de modelo.
 
@@ -143,4 +145,4 @@ As solicitações de agente de programação usam o saldo de API pessoal ou Team
 
 Leia [o artigo de compatibilidade de agentes de programação](/pt-br/articles/coding-agent-compatibility) quando precisar do modelo por trás dessas rotas. Para código de aplicativo direto, continue com o [guia dos SDKs OpenAI e Anthropic](/pt-br/guides/openai-anthropic-sdks).
 
-[Experimente os modelos principais atuais no Browser Chat gratuito limitado](https://capriole.ai) e faça upgrade para Premium quando estiver pronto para criar a API key usada pelos seus agentes de programação.
+[Experimente os modelos principais atuais no Browser Chat gratuito limitado](https://www.capriole.ai/pt-br) e faça upgrade para Premium quando estiver pronto para criar a API key usada pelos seus agentes de programação.

@@ -1,12 +1,12 @@
 ---
 title: "1 つの API キーでコーディング エージェントを使う"
 sidebarTitle: "コーディング エージェント用の 1 つのキー"
-description: "1 つの Capriole AI API キーで、維持されている 6 つのコーディング エージェントを設定し、各クライアントを対応プロトコルに保ちます。"
+description: "1 つの Capriole AI API キーで、ドキュメント化された 10 のコーディング エージェントを設定し、各クライアントを対応プロトコルに保ちます。"
 ---
 
-1 つの Capriole AI API キーで、Codex、Claude Code、Kilo Code、GitHub Copilot CLI、OpenCode、OpenClaw を認証できます。キーは同じまま、Base URL、プロトコル、モデル セレクターは設定中のクライアントに合わせる必要があります。
+1 つの Capriole AI API キーで、Codex、Claude Code、Kilo Code、GitHub Copilot CLI、OpenCode、OpenClaw、Cline、Qwen Code、Crush、Pi を認証できます。キーは同じまま、Base URL、プロトコル、モデル セレクターは設定中のクライアントに合わせる必要があります。
 
-このガイドで、1 つの Capriole アカウントから動作するエージェントまで進めます。個人 Premium は月額 USD 8 で、500 万の課金 API トークンを含み、対応する Premium モデル群の無制限 Browser Chat も解除します。そのため、1 つのメンバーシップでブラウザ ワークスペースと、維持されている 6 つのエージェント経路をカバーできます。
+このガイドで、1 つの Capriole アカウントから動作するエージェントまで進めます。個人 Premium は月額 USD 8 で、500 万の課金 API トークンを含み、対応する Premium モデル群の無制限 Browser Chat も解除します。そのため、1 つのメンバーシップでブラウザ ワークスペースと、維持されている 10 のエージェント経路をすべてカバーできます。
 
 完全なクライアント設定の根拠は、引き続き各統合ページです。
 
@@ -15,7 +15,7 @@ description: "1 つの Capriole AI API キーで、維持されている 6 つ�
 次が必要です。
 
 - 有効な Capriole AI Premium、または対象となる Team アクセス
-- [API ページ](https://capriole.ai?view=api) の Capriole AI API キー
+- [API ページ](https://www.capriole.ai/ja?view=api) の Capriole AI API キー
 - インストール済みのコーディング エージェントが少なくとも 1 つ
 - 環境変数を設定できるターミナル
 
@@ -33,12 +33,16 @@ API キーをリポジトリやコミット済み設定ファイルに置かな�
 
 | エージェント | Capriole プロトコル | Base URL | 開始モデル | 完全な設定 |
 |---|---|---|---|---|
-| Codex | OpenAI Responses | `https://api.caprioletech.com/v1` | `openai-latest` | [Codex を設定する](/ja/integrations/codex) |
-| Claude Code | Anthropic Messages | `https://api.caprioletech.com` | `claude-latest` | [Claude Code を設定する](/ja/integrations/claude-code) |
-| Kilo Code | Chat Completions | `https://api.caprioletech.com/v1` | `openai-latest` | [Kilo Code を設定する](/ja/integrations/kilo-code) |
+| Codex | OpenAI Responses | `https://api.caprioletech.com/v1` | `gpt-6-astra` | [Codex を設定する](/ja/integrations/codex) |
+| Claude Code | Anthropic Messages | `https://api.caprioletech.com` | `claude-fable-5-1` | [Claude Code を設定する](/ja/integrations/claude-code) |
+| Kilo Code | モデル系統に応じて Responses、Messages、または Chat Completions | `https://api.caprioletech.com/v1` | `openai-latest` または `claude-latest` | [Kilo Code を設定する](/ja/integrations/kilo-code) |
 | GitHub Copilot CLI | Chat Completions、Responses、または Messages | プロトコルによる | プロトコルによる | [GitHub Copilot CLI を設定する](/ja/integrations/github-copilot-cli) |
-| OpenCode | Responses、Chat Completions、または Messages | プロバイダーによる | `openai-latest` または `claude-latest` | [OpenCode を設定する](/ja/integrations/opencode) |
+| OpenCode | モデル系統に応じて Responses、Messages、または Chat Completions | `https://api.caprioletech.com/v1` | `openai-latest` または `claude-latest` | [OpenCode を設定する](/ja/integrations/opencode) |
 | OpenClaw | Responses、Chat Completions、または Messages | プロバイダーによる | `openai-latest` または `claude-latest` | [OpenClaw を設定する](/ja/integrations/openclaw) |
+| Cline | Chat Completions | `https://api.caprioletech.com/v1` | `claude-latest` | [Cline を設定する](/ja/integrations/cline) |
+| Qwen Code | モデル系統に応じて Responses、Messages、または Chat Completions | プロトコルによる | `openai-latest` または `claude-latest` | [Qwen Code を設定する](/ja/integrations/qwen-code) |
+| Crush | Chat Completions | `https://api.caprioletech.com/v1` | `claude-latest` | [Crush を設定する](/ja/integrations/crush) |
+| Pi | モデル系統に応じて Responses、Messages、または Chat Completions | プロトコルによる | `openai-latest` または `claude-latest` | [Pi を設定する](/ja/integrations/pi) |
 
 Responses と Chat Completions の経路では、Base URL に `/v1` を含めます。Anthropic Messages の経路は API ルートを使います。統合ページがクライアント固有のアダプター値を記載している場合を除きます。一致する統合ページから正確な値をコピーしてください。
 
@@ -69,21 +73,19 @@ test -n "$CAPRIOLE_AI_API_KEY" && echo "Capriole API key is set"
 
 - Codex は `env_key` 経由で `CAPRIOLE_AI_API_KEY` からキーを読みます。
 - Claude Code は `ANTHROPIC_AUTH_TOKEN` を使います。起動前に共有変数から設定してください。
-- Kilo Code はプロバイダー設定で `{env:CAPRIOLE_AI_API_KEY}` を参照します。
+- Kilo Code は `apiKey` と `Authorization` ヘッダーで `{env:CAPRIOLE_AI_API_KEY}` を参照します。1 つの Capriole プロバイダーが、モデル系統ごとに Responses、Messages、または Chat Completions へ送信します。
 - GitHub Copilot CLI は OpenAI 互換経路で `COPILOT_PROVIDER_API_KEY`、Anthropic Messages で `COPILOT_PROVIDER_BEARER_TOKEN` を使います。
-- OpenCode のプロバイダー エントリは、プロバイダー アダプターに応じて `apiKey` または `authToken` に Capriole キーを使います。
-- OpenClaw のプロバイダー エントリは `CUSTOM_API_KEY` を参照します。ゲートウェイを起動する前に共有変数から設定してください。
+- OpenCode は `apiKey` と `Authorization` ヘッダーで `{env:CAPRIOLE_AI_API_KEY}` を参照します。1 つの Capriole プロバイダーが、モデル系統ごとに Responses、Messages、または Chat Completions へ送信します。
+- OpenClaw のプロバイダー エントリは `${CAPRIOLE_AI_API_KEY}` を直接参照します。ゲートウェイを起動するターミナルで共有変数をエクスポートしてください。
+- Cline は `cline auth -k "$CAPRIOLE_AI_API_KEY"` でキーを一度だけ保存します。
+- Qwen Code は `envKey` で変数名を指定し、`~/.qwen/.env` から読み込めます。
+- Crush は `crushrc` のプロバイダー エントリで `$CAPRIOLE_AI_API_KEY` を読み込みます。
+- Pi は `models.json` で `$CAPRIOLE_AI_API_KEY` を読み込みます。
 
 Claude Code の場合:
 
 ```bash
 export ANTHROPIC_AUTH_TOKEN="$CAPRIOLE_AI_API_KEY"
-```
-
-OpenClaw の場合:
-
-```bash
-export CUSTOM_API_KEY="$CAPRIOLE_AI_API_KEY"
 ```
 
 </Step>
@@ -92,8 +94,8 @@ export CUSTOM_API_KEY="$CAPRIOLE_AI_API_KEY"
 
 正確なモデル バージョンが必要な場合を除き、維持されているエイリアスから始めてください。
 
-- OpenAI Responses 経路では `openai-latest` を使う
-- Anthropic Messages 経路では `claude-latest` を使う
+- OpenAI Responses 経路では `openai-latest`、Codex ではネイティブの `gpt-6-astra` を使う
+- Anthropic Messages 経路では `claude-latest`、Claude Code では `claude-fable-5-1` を使う
 - Chat Completions 互換経路では、統合ページに載っているモデルを使う
 
 [現在のモデルカタログ](/ja/api-reference/endpoint/get) は公開 API モデルを一覧します。Browser Chat のモデルが、すべての API プロトコルで自動的に有効になるわけではありません。
@@ -110,7 +112,7 @@ Reply with CAPRIOLE_OK and no other text.
 
 空でない回答、できれば要求した `CAPRIOLE_OK` マーカーを探してください。モデルは正確な出力を求めるプロンプトに常に従うわけではないため、文言は異なる場合があります。
 
-次に [API ページ](https://capriole.ai?view=api) を開き、想定したキーとモデルの使用量ビューにリクエストが表示されることを確認してください。使用量記録は、クライアントが Capriole を使ったことの決定的な確認です。クライアントに別のプロバイダーまたはフォールバックがある場合、応答だけでは不十分です。正確なフィルタとキーのライフサイクルは、[API キーと使用量ガイド](/ja/guides/api-keys-usage) を参照してください。
+次に [API ページ](https://www.capriole.ai/ja?view=api) を開き、想定したキーとモデルの使用量ビューにリクエストが表示されることを確認してください。使用量記録は、クライアントが Capriole を使ったことの決定的な確認です。クライアントに別のプロバイダーまたはフォールバックがある場合、応答だけでは不十分です。正確なフィルタとキーのライフサイクルは、[API キーと使用量ガイド](/ja/guides/api-keys-usage) を参照してください。
 
 この確認は、すべてのツールまたはモデル機能をテストするものではありません。
 
@@ -143,4 +145,4 @@ Reply with CAPRIOLE_OK and no other text.
 
 これらのルートの背後にあるモデルが必要なときは、[コーディング エージェント互換性の記事](/ja/articles/coding-agent-compatibility) を読んでください。アプリケーション コードを直接書く場合は、[OpenAI と Anthropic の SDK ガイド](/ja/guides/openai-anthropic-sdks) に進んでください。
 
-[制限付きの無料 Browser Chat で現在の旗艦モデルを試す](https://capriole.ai)。コーディング エージェントが使う API キーを作成する準備ができたら Premium にアップグレードしてください。
+[制限付きの無料 Browser Chat で現在の旗艦モデルを試す](https://www.capriole.ai/ja)。コーディング エージェントが使う API キーを作成する準備ができたら Premium にアップグレードしてください。

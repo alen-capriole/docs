@@ -1,0 +1,115 @@
+---
+title: "Capriole AI Datenschutz: kein Training, Speichermodi, Löschen"
+sidebarTitle: "Datenschutz und Datenkontrolle"
+description: "Capriole AI trainiert keine Modelle mit Ihren Chats, Dateien oder API-Inhalten. Server, Local oder No Storage, Export, Löschen und was die API speichert."
+---
+
+Capriole AI verwendet Ihre Chats, Dateien und API-Inhalte nicht zum Training von KI-Modellen. Sie entscheiden, wo Ihr Chatverlauf liegt: in Ihrem Konto, nur in Ihrem Browser oder nirgends. Die API speichert keine Inhalte von Anfragen oder Antworten, nur Nutzungsdaten wie Token-Zahlen. Sie können jeden Chat exportieren, Chats jederzeit löschen und uns bitten, Ihr Konto zu löschen.
+
+Diese Anleitung fasst zusammen, wie wir mit Ihren Daten umgehen. Den vollständigen Text finden Sie in der [Datenschutzerklärung](/de/legal/privacy).
+
+## Ihre Inhalte werden nicht zum Training verwendet
+
+Capriole AI verwendet Ihre Chats, Dateien und API-Inhalte nicht zum Training von KI-Modellen.
+
+Jede Anfrage geht dennoch an den KI-Modellanbieter, der sie beantwortet: OpenAI, Anthropic, Google, xAI, Z.ai oder Moonshot AI, oder an eine Cloud-Plattform, die deren Modelle bereitstellt. Dieser Anbieter verarbeitet die Anfrage nach seinen eigenen Bedingungen.
+
+## Wählen, wo der Chatverlauf liegt
+
+| Speichermodus | Wo der Chatverlauf liegt | Synchronisierung über Geräte | Uploads und Bilderzeugung | So wählen Sie ihn |
+|---|---|---|---|---|
+| **Server Storage** (Standard) | Ihr Konto auf den Servern von Capriole AI | Ja | Verfügbar | Beide Speicherschalter ausgeschaltet lassen |
+| **Local Storage** | Ihr Browser, nicht unsere Datenbank | Nein | Aus | **Lokalen Speicher aktivieren** einschalten |
+| **No Storage** | Nicht gespeichert | Nein | Aus | **No Storage aktivieren** einschalten |
+
+Beide Schalter finden Sie unter **Konto** → **Einstellungen**. In jedem Modus laufen Ihre Nachrichten über unsere Server zu dem Modell, das sie beantwortet, und Capriole AI speichert einen Nutzungsdatensatz. Die [Anleitung zur Chat-Speicherung](/de/guides/chat-storage) erklärt jeden Modus im Detail.
+
+<Warning>
+Wenn Sie **No Storage aktivieren** einschalten und bestätigen, wird der gesamte Chatverlauf dauerhaft vom Server und aus diesem Browser gelöscht.
+</Warning>
+
+Gast-Chats werden nicht auf unseren Servern gespeichert. Eine Kopie bleibt in Ihrem Browser-Tab, damit sie in Ihrem Konto gespeichert werden kann, wenn Sie sich anmelden.
+
+## Was Capriole AI speichert
+
+| Daten | Was gespeichert wird |
+|---|---|
+| Konto | Ihre E-Mail-Adresse, Ihr Name und Ihr Profilbild aus der Anmeldung. Das Konto wird mit Capriole Quant geteilt. |
+| Chats | Nachrichten, angehängte Dateien, erstellte Bilder und Chattitel, je nach Speichermodus |
+| Personalisierung | Der Name, die Tätigkeit und die Anweisungen, die Sie in Ihrem Konto hinterlegen |
+| Spracheingabe | Nichts. Aufnahmen werden zur Transkription gesendet, ohne dass Audio oder Text gespeichert werden. |
+| Nutzungsdaten | Für jede Chat- und API-Anfrage: Zeitpunkt, Modell, Token-Zahlen, Status, Latenz, Kosten und IP-Adresse, bei API-Anfragen außerdem der verwendete Schlüssel. Keine Nachrichteninhalte. |
+| Zahlungen | Ihr Abo-Status und Abrechnungskennungen. Stripe wickelt die Zahlung ab; Ihre Kartennummer erhalten wir nicht. |
+
+## Was die API speichert
+
+Die API speichert keine Inhalte von Anfragen oder Antworten, daher gibt es keinen API-Gesprächsverlauf. Capriole AI speichert Ihre API-Schlüssel und für jede Anfrage einen Nutzungsdatensatz für Kontingent, Abrechnung und Support. Ihre Kontopersonalisierung gilt nicht für die API.
+
+## Sicherheit
+
+Capriole AI nutzt verschlüsselte Verbindungen, privaten Dateispeicher und eingeschränkten Zugriff für Mitarbeitende. Kein System ist vollkommen sicher.
+
+Unsere Hauptserver und unsere Datenbank stehen in Indien. Unsere Dienstleister verarbeiten Daten auch in anderen Ländern, darunter in den USA.
+
+## Ihre Chats exportieren
+
+Wählen Sie unter **Konto** → **Einstellungen** die Option **Chatverlauf exportieren**. Sie erhalten eine ZIP-Datei mit jedem Chat als Markdown-Datei, den angehängten Dateien und den erzeugten Bildern sowie `conversations.json`, die alle Chats in einem maschinenlesbaren Format enthält.
+
+Ein umfangreicher Verlauf dauert einige Minuten. Der Download bleibt 24 Stunden verfügbar, und Sie können auch nach dem Ende eines bezahlten Plans exportieren.
+
+Um einen einzelnen Chat zu exportieren, öffnen Sie sein Menü in der Seitenleiste und wählen **Exportieren**. Ein Projekt exportieren Sie über das Menü des Projekts. Local Storage-Chats werden sofort heruntergeladen, ohne auf unseren Servern gespeichert zu werden.
+
+## Chats oder Ihr Konto löschen
+
+- **Ein Chat**: Öffnen Sie das Menü des Chats in der Seitenleiste und wählen Sie **Löschen**.
+- **Alle Chats**: Wählen Sie unter **Konto** → **Einstellungen** neben **Gesamten Chatverlauf löschen** die Option **Alles löschen**.
+- **Ihr Konto**: Schreiben Sie an [info@capriole.ai](mailto:info@capriole.ai). Da das Konto mit Capriole Quant geteilt wird, endet damit auch Ihre Anmeldung bei Capriole Quant.
+
+Wenn Sie einen Chat oder den gesamten Chatverlauf löschen, wird er dauerhaft von unseren Servern entfernt. Gelöschte Daten können bis zu 7 Tage in Datenbank-Backups verbleiben. Local Storage-Chats bleiben in Ihrem Browser, bis Sie sie löschen.
+
+## Wer Ihre Daten erhält
+
+| Empfänger | Was sie erhalten |
+|---|---|
+| KI-Modellanbieter | Was jede Anfrage braucht: Ihre Nachrichten, Dateien, Sprachaufnahmen und den Chat-Kontext, dazu Ihre Zeitzone und einen daraus abgeleiteten ungefähren Standort |
+| Infrastrukturanbieter | Anfragen auf dem Weg zu den Modellanbietern |
+| Suchanbieter wie Tavily | Die Suchanfragen, die ein Modell stellt |
+| Dienstleister | Amazon Web Services (Server, Datenbank, Dateien), Vercel (Website-Hosting und Analyse), Clerk (Anmeldung), Stripe (Zahlungen), Resend (E-Mail) und Tools zur Fehlerüberwachung |
+| Google und LinkedIn | Website-Besuche und Werbeergebnisse über Tags auf unserer Website |
+| Inhaber und Administratoren Ihres Teams | Ihre E-Mail-Adresse, Ihre Rolle und Ihre Team-API-Nutzung |
+
+Capriole AI verkauft Ihre personenbezogenen Daten nicht.
+
+## Ihre Rechte
+
+Je nach Wohnort haben Sie möglicherweise das Recht, auf Ihre Daten zuzugreifen, sie zu berichtigen, zu löschen oder übertragen zu lassen oder bestimmten Verwendungen zu widersprechen. Schreiben Sie an [info@capriole.ai](mailto:info@capriole.ai), um diese Rechte auszuüben. Sie können sich auch beim Office of the Australian Information Commissioner oder bei Ihrer örtlichen Datenschutzbehörde beschweren.
+
+## Wer Capriole AI betreibt
+
+Capriole AI wird von Capriole Investments entwickelt und von der Capriole Australia PTY LTD betrieben. Die Marktdatenplattform des Unternehmens, Capriole Quant, und sein Investmentfonds sind von Capriole AI getrennt. Ihr Anmeldekonto wird mit Capriole Quant geteilt.
+
+## Häufige Fragen
+
+### Trainiert Capriole AI KI-Modelle mit meinen Chats?
+
+Nein. Capriole AI verwendet Ihre Chats, Dateien und API-Inhalte nicht zum Training von KI-Modellen. Modellanbieter erhalten jede Anfrage und verarbeiten sie nach ihren eigenen Bedingungen.
+
+### Speichert Capriole AI meine API-Anfragen?
+
+Nein. Es speichert keine Inhalte von API-Anfragen oder -Antworten, nur Nutzungsdaten wie Zeitpunkt, Modell und Token-Zahlen.
+
+### Kann ich Capriole AI nutzen, ohne meine Chats zu speichern?
+
+Ja. Schalten Sie **No Storage aktivieren** ein, wenn Chats verschwinden sollen, sobald Sie die Seite verlassen oder aktualisieren, oder **Lokalen Speicher aktivieren**, um den Verlauf nur in Ihrem Browser zu behalten.
+
+### Wie lösche ich mein Capriole AI-Konto?
+
+Schreiben Sie an [info@capriole.ai](mailto:info@capriole.ai). Das Löschen beendet auch Ihre Anmeldung bei Capriole Quant, weil beide Produkte ein Konto teilen.
+
+### Wo werden die Daten von Capriole AI gespeichert?
+
+Unsere Hauptserver und unsere Datenbank stehen in Indien. Unsere Dienstleister verarbeiten Daten auch in anderen Ländern, darunter in den USA.
+
+## Mit Capriole AI starten
+
+[Starten Sie den Chat](https://www.capriole.ai/de) mit unbegrenztem Web-Chat in Premium für USD 8 im Monat, oder [holen Sie sich einen API-Schlüssel](https://www.capriole.ai/de?view=api) bis zu 92% unter den offiziellen API-Preisen.

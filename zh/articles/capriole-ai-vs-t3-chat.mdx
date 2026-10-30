@@ -1,14 +1,10 @@
 ---
 title: "Capriole AI 与 T3 Chat 的聊天、BYOK 和 API 访问对比"
 sidebarTitle: "Capriole AI 与 T3 Chat"
-description: "了解 Capriole AI 如何用低价前沿模型、无限 Premium 浏览器聊天、API 访问、编程智能体和存储控制，把能力延伸到聊天之外。"
+description: "Capriole AI 对比 T3 Chat：每月 USD 8 无限畅聊 GPT-6 Astra、Claude 和 Gemini，API 价格最多比官方低 92%，可接入编程智能体。"
 ---
 
-对于希望通过一个账户同时使用前沿模型聊天、API 和编程智能体的用户，**Capriole AI 是更完整的选择**。未登录访客和 Free 用户可以试用 GPT-6 Astra、Claude Fable 5.1 和 Gemini 4 Argon。Premium 每月收费 USD 8，提供无限浏览器聊天、每月 500 万 API 计费 token 和六项持续维护的编程智能体集成。
-
-Capriole AI 还为已登录并使用 **Server Storage** 的 Free、Premium 和 Team 用户提供免费的 **GPT Image 2.5** 和 **Nano Banana 2.1** 网页生图。可以在 **Image** 模式中任选一个模型，也可以在聊天中让 **Text Agent** 生成图片（Text Agent 固定使用 GPT Image 2.5）。生图本身不消耗 API token 额度；Text Agent 的文字对话仍遵循普通聊天限制。这是网页功能，不是公开图片 API 或 Coding Agent 模型。
-
-[查看生图指南](/zh/guides/files-web-search).
+对于希望通过一个账户同时使用前沿模型聊天、API 和编程智能体的用户，**Capriole AI 是更完整的选择**。Premium 每月收费 USD 8，提供 GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5 和 Gemini 4 Argon 的无限浏览器聊天，API 访问价格最多比官方低 92%，还有 10 个编程智能体的设置指南。未登录访客和 Free 用户可以先试用这些旗舰模型。
 
 T3 Chat 通过 Base 和 Overage 两类余额计量浏览器用量。我们审阅的公开页面没有记载同类通用 API 与编程智能体工作流。
 
@@ -18,11 +14,11 @@ T3 Chat 通过 Base 和 Overage 两类余额计量浏览器用量。我们审阅
 
 | 范围 | Capriole AI | T3 Chat |
 |---|---|---|
-| 当前旗舰模型访问 | 一个工作区内提供 GPT-6 Astra、Claude Fable 5.1 和 Gemini 4 Argon | 以聊天为先，通过 Base 和 Overage 余额计量模型访问 |
+| 当前旗舰模型访问 | 一个工作区内提供 GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5 和 Gemini 4 Argon | 以聊天为先，通过 Base 和 Overage 余额计量模型访问 |
 | 付费浏览器用量 | 每月 USD 8，可无限使用受支持 Premium 模型 | 使用会消耗根据成本计算的 Base 和 Overage 余额 |
 | 内含 API 用量 | 每月 500 万计费 API token | 没有记载通用开发者 API 额度 |
 | 公共 API | OpenAI Chat Completions、OpenAI Responses 和 Anthropic Messages | 我们审阅的官方页面没有记载通用的公共开发者 API |
-| 编程智能体路径 | 六份持续维护的集成指南 | 我们审阅的官方文档没有为这六个指定客户端维护设置页面 |
+| 编程智能体路径 | 10 个编程智能体的设置指南 | 我们审阅的官方文档没有为这些客户端维护设置页面 |
 | 工作区与存储 | 模型切换、文件、网页搜索，以及 Synced、Local 或 No Storage 历史 | 以聊天为先的工作区，temporary-chat 行为另有文档说明 |
 
 更完整的 [OpenRouter 替代方案指南](/zh/articles/openrouter-alternatives)把两款产品与网关和可配置 BYOK 客户端放在一起比较。
@@ -32,6 +28,8 @@ T3 Chat 通过 Base 和 Overage 两类余额计量浏览器用量。我们审阅
 未登录访客和 Free 用户可以先在 Capriole 中有限试用受支持的旗舰模型。升级 Premium 后，受支持 Premium 模型范围内的浏览器聊天不再计量。
 
 文件、网页搜索、保存历史和[在对话中切换模型](/zh/articles/switch-models-mid-chat)都留在同一个工作区。同一个账户随后还可通过公共 API 端点和持续维护的编程智能体配置用于浏览器之外。
+
+已登录并使用 **Server Storage** 的账户还可免费使用 GPT Image 2.5 和 Nano Banana 2.1 生成图片，详见[生图指南](/zh/guides/files-web-search)。
 
 ## 内含访问免去了提供商密钥管理
 
@@ -51,9 +49,9 @@ Capriole Premium 把浏览器用量和程序化用量分开。受支持 Premium 
 
 ## Capriole 提供有文档说明的开发者路径
 
-我们审阅的 T3 官方页面没有记载通用公共 LLM API，也没有为 Capriole 所列的六种编程智能体维护设置指南。
+我们审阅的 T3 官方页面没有记载通用公共 LLM API，也没有为 Capriole 所列的 10 种编程智能体维护设置指南。
 
-Capriole 记载了多种公共协议路径。OpenAI Responses 支持 [Codex](/zh/integrations/codex) 等客户端，Anthropic Messages 支持 [Claude Code](/zh/integrations/claude-code)。[Kilo Code](/zh/integrations/kilo-code)、[GitHub Copilot CLI](/zh/integrations/github-copilot-cli)、OpenCode 和 OpenClaw 也有针对各自受支持路径持续维护的配置。
+Capriole 记载了多种公共协议路径。OpenAI Responses 支持 [Codex](/zh/integrations/codex) 等客户端，Anthropic Messages 支持 [Claude Code](/zh/integrations/claude-code)。[Kilo Code](/zh/integrations/kilo-code)、[GitHub Copilot CLI](/zh/integrations/github-copilot-cli)、[OpenCode](/zh/integrations/opencode)、[OpenClaw](/zh/integrations/openclaw)、[Cline](/zh/integrations/cline)、[Qwen Code](/zh/integrations/qwen-code)、[Crush](/zh/integrations/crush) 和 [Pi](/zh/integrations/pi) 也有针对各自受支持路径持续维护的配置。
 
 编程智能体在本地执行自己的工具和文件更改，Capriole 负责受支持的模型访问。智能体用量仍按 API 流量计量，所以无限浏览器聊天不会延伸到自动化编程工作负载。
 
@@ -67,13 +65,13 @@ Capriole 提供 Synced、Local 和 No Storage 三种聊天历史模式。Local �
 
 ## 只有聊天，开发者工作流仍未完成
 
-T3 强调以聊天为先的界面、对话分支和 BYOK。Capriole 无需额外提供商账户就能覆盖更完整的工作流。用户可以从浏览器聊天开始，继续使用公共 API 路径，并在同一份 USD 8 会员下连接六种持续维护的编程智能体。
+T3 强调以聊天为先的界面、对话分支和 BYOK。Capriole 无需额外提供商账户就能覆盖更完整的工作流。用户可以从浏览器聊天开始，继续使用公共 API 路径，并在同一份 USD 8 会员下连接 10 种有文档说明的编程智能体。
 
 ## 用 Capriole 走出聊天界面
 
-如果同一个账户需要以较低月费覆盖日常聊天、受支持的前沿模型、外部 API 客户端和编程智能体，可以选择 Capriole。
+如果同一个账户需要以每月 USD 8 覆盖日常聊天、受支持的前沿模型、外部 API 客户端和编程智能体，可以选择 Capriole。
 
-[试用有限的免费浏览器聊天](https://capriole.ai)，再升级到每月 USD 8 的 Premium，获得无限浏览器聊天和内含 API 余额。[API 快速入门](/zh/quickstart)介绍如何发出第一个应用请求。
+[试用有限的免费浏览器聊天](https://www.capriole.ai/zh)，或[升级到每月 USD 8 的 Premium，获得无限聊天和 API key](https://www.capriole.ai/zh?view=api)。[API 快速入门](/zh/quickstart)介绍如何发出第一个应用请求。
 
 ## 官方来源
 

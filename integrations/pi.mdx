@@ -1,7 +1,10 @@
 ---
-title: "Pi"
-description: "Configure Pi to use Capriole AI."
+title: "Pi coding agent custom provider: Capriole AI setup"
+sidebarTitle: "Pi"
+description: "Add Capriole AI to the Pi coding agent's models.json. Run GPT-6 Astra, Claude Fable 5.1, and Opus 5.5 at up to 92% less than official API prices."
 ---
+
+With one Capriole AI API key, you can run GPT-6 Astra, Claude Fable 5.1, and Opus 5.5 in Pi at up to 92% less than official API prices.
 
 ## What is Pi
 
@@ -11,8 +14,9 @@ Pi is an open-source, minimal coding agent for the terminal. It reads custom end
 
 Before you begin, make sure you have:
 
-- A Capriole AI account ([Sign up here](https://capriole.ai))
-- A Capriole AI API key ([Get your key](https://capriole.ai?view=api))
+- A Capriole AI account ([Sign up here](https://www.capriole.ai/))
+- A Premium plan (USD 8 per month, also includes unlimited web chat) or a Team plan, required for an API key ([Subscribe](https://www.capriole.ai/?view=api))
+- A Capriole AI API key ([Get your key](https://www.capriole.ai/?view=api))
 
 ## Installation
 
@@ -155,7 +159,7 @@ pi -p --model xai/grok-4.7 "Explain this repository."
 | Kimi K3.1 Pro | `moonshot/kimi-k3.1-pro` | Chat Completions |
 | Kimi K3 | `moonshot/kimi-k3` | Chat Completions |
 
-`openai-latest` and `claude-latest` always point to our latest flagship in each family.
+`openai-latest` and `claude-latest` always point to our latest flagship in each family, currently GPT-6 Astra and Claude Fable 5.1.
 
 ## Troubleshooting
 
@@ -178,4 +182,5 @@ Claude models on `anthropic-messages` need the bare Claude IDs, such as `claude-
 ## Notes
 
 - To add another Capriole AI model, copy the entry of a model from the same family and change the ID. `GET https://api.caprioletech.com/v1/models` lists every model ID.
+- To use the same key with your other coding agents, see [Use one API key with coding agents](/guides/one-api-key-coding-agents).
 - Official references: [Pi](https://pi.dev), [Pi docs](https://pi.dev/docs), [Choose a model](https://github.com/earendil-works/pi/blob/main/packages/coding-agent/docs/models.md), and [Pi configuration](https://github.com/earendil-works/pi/blob/main/packages/coding-agent/docs/configuration.md).

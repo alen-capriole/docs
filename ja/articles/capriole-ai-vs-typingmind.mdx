@@ -1,14 +1,10 @@
 ---
 title: "BYOK、プライバシー、API アクセスにおける Capriole AI と TypingMind"
 sidebarTitle: "Capriole AI と TypingMind"
-description: "Capriole AI が、含まれる旗艦モデル アクセス、無制限の Premium Browser Chat、API 使用量、コーディング エージェントにより、摩擦の少ない代替になる理由を見ます。"
+description: "Capriole AI と TypingMind の比較。モデル込みの月額 USD 8 で GPT-6 Astra、Claude、Gemini とチャットし放題。API は公式価格より最大 92% 安く使えます。"
 ---
 
-旗艦モデル アクセスを、プロバイダー キーを別々に購入して管理するのではなく含めたいユーザーにとって、**Capriole AI のほうがシンプルで低コストな実務セットアップです**。支払い前に、制限付きの無料チャットで GPT-6 Astra、Claude Fable 5.1、Gemini 4 Argon を試せます。Premium は月額 USD 8 で、無制限の Browser Chat、500 万の課金 API トークン、維持されている 6 つのコーディング エージェント統合を含み、別々のプロバイダー アカウントは不要です。
-
-Capriole AI では、ログインして **Server Storage** を使う Free・Premium・Team アカウントが、ブラウザチャットで **GPT Image 2.5** と **Nano Banana 2.1** を無料で利用できます。**Image** モードでどちらかのモデルを選んで作成するか、会話中に **Text Agent** に依頼してください。Text Agent は常に GPT Image 2.5 で生成します。画像生成自体は API トークン枠を消費しませんが、Text Agent のメッセージには通常のチャット制限が適用されます。これはブラウザ機能であり、公開画像 API やコーディングエージェント向けモデルではありません。
-
-[画像生成ガイドを見る](/ja/guides/files-web-search).
+旗艦モデル アクセスを、プロバイダー キーを別々に購入して管理するのではなく含めたいユーザーにとって、**Capriole AI のほうがシンプルで低コストな実務セットアップです**。Premium は月額 USD 8 で、GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5、Gemini 4 Argon との Browser Chat が無制限になり、公式 API 価格より最大 92% 安い API アクセスと、10 のコーディング エージェント向けセットアップ ガイドも利用できます。どれも別々のプロバイダー アカウントは不要です。支払い前に、制限付きの無料チャットで旗艦モデルを試せます。
 
 TypingMind の個人ライセンスが買うのはインターフェイスであり、モデル アクセスではありません。ユーザーは引き続きプロバイダー アカウント、キー、残高、継続的なモデル使用量を供給します。
 
@@ -18,11 +14,11 @@ TypingMind の個人ライセンスが買うのはインターフェイスであ
 
 | 領域 | Capriole AI | TypingMind |
 |---|---|---|
-| 含まれるモデル アクセス | GPT-6 Astra、Claude Fable 5.1、Gemini 4 Argon、および対応する Premium セット | 個人ユーザーがプロバイダー API キーを供給する。ライセンスにモデル クレジットは含まれない |
+| 含まれるモデル アクセス | GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5、Gemini 4 Argon、および対応する Premium セット | 個人ユーザーがプロバイダー API キーを供給する。ライセンスにモデル クレジットは含まれない |
 | 継続コストの合計 | 月額 USD 8 にワークスペースと対応モデル アクセスが含まれる | インターフェイス ライセンスに加え、継続的なプロバイダー API 課金 |
 | Browser Chat | 対応する Premium モデル群で無制限 | 各モデル リクエストは接続先プロバイダーが課金する |
 | 含まれる API 使用量 | 月 5M の課金 API トークン | 個人ユーザーは自身のプロバイダー アカウントで使用量を賄う |
-| コーディング エージェントのセットアップ | 維持されている 6 つの外部エージェント ガイド | 個人製品は TypingMind クライアント内のエージェントに焦点を当てる |
+| コーディング エージェントのセットアップ | 10 の外部コーディング エージェント向けセットアップ ガイド | 個人製品は TypingMind クライアント内のエージェントに焦点を当てる |
 | ストレージの選択 | 同期アカウント履歴、ブラウザ ローカル履歴、または No Storage | デフォルトはブラウザ ローカル ストレージ。任意でクラウド同期 |
 
 BYOK クライアントとバンドル済みモデル アクセスを比較する買い手向けに、TypingMind はより広い [OpenRouter 代替ガイド](/ja/articles/openrouter-alternatives) にも登場します。
@@ -43,9 +39,11 @@ Capriole は 3 つのチャット履歴の選択肢を提供します。Synced �
 
 [Capriole のチャット ストレージ ガイド](/ja/guides/chat-storage) は、各モードが何を残し、どのアップロードまたは連続性機能が使えないかを説明します。同じワークスペース内で、連続性、ブラウザのみの履歴、または一時セッションを選べます。
 
+Server Storage を使うログイン済みアカウントでは、GPT Image 2.5 と Nano Banana 2.1 による無料の画像生成も利用できます。詳しくは [画像生成ガイド](/ja/guides/files-web-search) をご覧ください。
+
 ## 1 つのワークスペースは外部ツールへ続けられる
 
-Capriole では、ワークスペース内の既存スレッド コンテキストを保ったまま、別の対応モデルでアクティブな会話を続けられます。同じアカウントはその後、OpenAI と Anthropic のプロトコル エンドポイント、および [維持されている 6 つのコーディング エージェント経路](/ja/articles/coding-agent-compatibility) へ広がります。
+Capriole では、ワークスペース内の既存スレッド コンテキストを保ったまま、別の対応モデルでアクティブな会話を続けられます。同じアカウントはその後、OpenAI と Anthropic のプロトコル エンドポイント、および [文書化された 10 のコーディング エージェント経路](/ja/articles/coding-agent-compatibility) へ広がります。
 
 これが、スタンドアロン BYOK インターフェイスに対する製品上の利点です。Capriole はワークスペース、対応モデル アクセス、公開 API 許容量、外部エージェント設定を一緒に提供します。
 
@@ -63,7 +61,7 @@ TypingMind は BYOK、セルフホスト、MCP、プラグイン、深いクラ�
 
 対応する最先端モデル、無制限の Premium Browser Chat、含まれる API 許容量、コーディング エージェント経路、ストレージ制御を、アクセス レイヤーを自分で組み立てずに欲しいときは、Capriole を選んでください。
 
-[制限付きの無料 Browser Chat を試す](https://capriole.ai) と、先にプロバイダー アカウントを作ったり、インターフェイス ライセンスを買ったり、別々の API キーを供給したりせずに、対応旗艦モデルを使えます。
+[制限付きの無料 Browser Chat を試す](https://www.capriole.ai/ja) と、先にプロバイダー アカウントを作ったり、インターフェイス ライセンスを買ったり、別々の API キーを供給したりせずに、対応旗艦モデルを使えます。さらに使いたい場合は、[USD 8 の Premium にアップグレードすると、無制限チャットと API キーを利用できます](https://www.capriole.ai/ja?view=api)。
 
 ## 公式ソース
 

@@ -2,7 +2,7 @@
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
   "name": "Capriole AI Docs",
-  "description": "Capriole AI docs, integrations, and articles: frontier-model chat, free GPT Image 2.5 and Nano Banana 2.1 image generation, API access, and coding agents.",
+  "description": "Capriole AI docs: USD 8 unlimited chat with GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5 and Gemini 4 Argon, plus an API up to 92% below official prices.",
   "colors": {
     "primary": "#2563EB",
     "light": "#60A5FA",
@@ -82,6 +82,10 @@
               {
                 "group": "How-to guides",
                 "pages": [
+                  "guides/plans-and-limits",
+                  "guides/choose-a-model",
+                  "guides/team-plan",
+                  "guides/privacy-and-security",
                   "guides/files-web-search",
                   "guides/api-keys-usage",
                   "guides/chat-storage",
@@ -98,6 +102,14 @@
               {
                 "group": "Articles",
                 "pages": [
+                  "articles/chatgpt-plus-alternative",
+                  "articles/claude-vs-chatgpt",
+                  "articles/claude-api-pricing",
+                  "articles/openai-api-pricing",
+                  "articles/claude-usage-limits",
+                  "articles/ai-chat-without-login",
+                  "articles/capriole-ai-vs-magai",
+                  "articles/capriole-ai-vs-venice",
                   "articles/charged-tokens",
                   "articles/unified-model-api",
                   "articles/coding-agent-compatibility",
@@ -160,7 +172,7 @@
                 ]
               },
               {
-                "group": "编程代理集成",
+                "group": "编程智能体集成",
                 "pages": [
                   "zh/integrations/codex",
                   "zh/integrations/claude-code",
@@ -183,6 +195,10 @@
               {
                 "group": "使用指南",
                 "pages": [
+                  "zh/guides/plans-and-limits",
+                  "zh/guides/choose-a-model",
+                  "zh/guides/team-plan",
+                  "zh/guides/privacy-and-security",
                   "zh/guides/files-web-search",
                   "zh/guides/api-keys-usage",
                   "zh/guides/chat-storage",
@@ -199,6 +215,14 @@
               {
                 "group": "文章",
                 "pages": [
+                  "zh/articles/chatgpt-plus-alternative",
+                  "zh/articles/claude-vs-chatgpt",
+                  "zh/articles/claude-api-pricing",
+                  "zh/articles/openai-api-pricing",
+                  "zh/articles/claude-usage-limits",
+                  "zh/articles/ai-chat-without-login",
+                  "zh/articles/capriole-ai-vs-magai",
+                  "zh/articles/capriole-ai-vs-venice",
                   "zh/articles/charged-tokens",
                   "zh/articles/unified-model-api",
                   "zh/articles/coding-agent-compatibility",
@@ -284,6 +308,10 @@
               {
                 "group": "Guías prácticas",
                 "pages": [
+                  "es/guides/plans-and-limits",
+                  "es/guides/choose-a-model",
+                  "es/guides/team-plan",
+                  "es/guides/privacy-and-security",
                   "es/guides/files-web-search",
                   "es/guides/api-keys-usage",
                   "es/guides/chat-storage",
@@ -300,6 +328,14 @@
               {
                 "group": "Artículos",
                 "pages": [
+                  "es/articles/chatgpt-plus-alternative",
+                  "es/articles/claude-vs-chatgpt",
+                  "es/articles/claude-api-pricing",
+                  "es/articles/openai-api-pricing",
+                  "es/articles/claude-usage-limits",
+                  "es/articles/ai-chat-without-login",
+                  "es/articles/capriole-ai-vs-magai",
+                  "es/articles/capriole-ai-vs-venice",
                   "es/articles/charged-tokens",
                   "es/articles/unified-model-api",
                   "es/articles/coding-agent-compatibility",
@@ -385,6 +421,10 @@
               {
                 "group": "Guias práticos",
                 "pages": [
+                  "pt-br/guides/plans-and-limits",
+                  "pt-br/guides/choose-a-model",
+                  "pt-br/guides/team-plan",
+                  "pt-br/guides/privacy-and-security",
                   "pt-br/guides/files-web-search",
                   "pt-br/guides/api-keys-usage",
                   "pt-br/guides/chat-storage",
@@ -401,6 +441,14 @@
               {
                 "group": "Artigos",
                 "pages": [
+                  "pt-br/articles/chatgpt-plus-alternative",
+                  "pt-br/articles/claude-vs-chatgpt",
+                  "pt-br/articles/claude-api-pricing",
+                  "pt-br/articles/openai-api-pricing",
+                  "pt-br/articles/claude-usage-limits",
+                  "pt-br/articles/ai-chat-without-login",
+                  "pt-br/articles/capriole-ai-vs-magai",
+                  "pt-br/articles/capriole-ai-vs-venice",
                   "pt-br/articles/charged-tokens",
                   "pt-br/articles/unified-model-api",
                   "pt-br/articles/coding-agent-compatibility",
@@ -486,6 +534,10 @@
               {
                 "group": "Praxisleitfäden",
                 "pages": [
+                  "de/guides/plans-and-limits",
+                  "de/guides/choose-a-model",
+                  "de/guides/team-plan",
+                  "de/guides/privacy-and-security",
                   "de/guides/files-web-search",
                   "de/guides/api-keys-usage",
                   "de/guides/chat-storage",
@@ -502,6 +554,14 @@
               {
                 "group": "Artikel",
                 "pages": [
+                  "de/articles/chatgpt-plus-alternative",
+                  "de/articles/claude-vs-chatgpt",
+                  "de/articles/claude-api-pricing",
+                  "de/articles/openai-api-pricing",
+                  "de/articles/claude-usage-limits",
+                  "de/articles/ai-chat-without-login",
+                  "de/articles/capriole-ai-vs-magai",
+                  "de/articles/capriole-ai-vs-venice",
                   "de/articles/charged-tokens",
                   "de/articles/unified-model-api",
                   "de/articles/coding-agent-compatibility",
@@ -587,6 +647,10 @@
               {
                 "group": "使い方ガイド",
                 "pages": [
+                  "ja/guides/plans-and-limits",
+                  "ja/guides/choose-a-model",
+                  "ja/guides/team-plan",
+                  "ja/guides/privacy-and-security",
                   "ja/guides/files-web-search",
                   "ja/guides/api-keys-usage",
                   "ja/guides/chat-storage",
@@ -603,6 +667,14 @@
               {
                 "group": "記事",
                 "pages": [
+                  "ja/articles/chatgpt-plus-alternative",
+                  "ja/articles/claude-vs-chatgpt",
+                  "ja/articles/claude-api-pricing",
+                  "ja/articles/openai-api-pricing",
+                  "ja/articles/claude-usage-limits",
+                  "ja/articles/ai-chat-without-login",
+                  "ja/articles/capriole-ai-vs-magai",
+                  "ja/articles/capriole-ai-vs-venice",
                   "ja/articles/charged-tokens",
                   "ja/articles/unified-model-api",
                   "ja/articles/coding-agent-compatibility",
@@ -688,6 +760,10 @@
               {
                 "group": "사용 가이드",
                 "pages": [
+                  "ko/guides/plans-and-limits",
+                  "ko/guides/choose-a-model",
+                  "ko/guides/team-plan",
+                  "ko/guides/privacy-and-security",
                   "ko/guides/files-web-search",
                   "ko/guides/api-keys-usage",
                   "ko/guides/chat-storage",
@@ -704,6 +780,14 @@
               {
                 "group": "아티클",
                 "pages": [
+                  "ko/articles/chatgpt-plus-alternative",
+                  "ko/articles/claude-vs-chatgpt",
+                  "ko/articles/claude-api-pricing",
+                  "ko/articles/openai-api-pricing",
+                  "ko/articles/claude-usage-limits",
+                  "ko/articles/ai-chat-without-login",
+                  "ko/articles/capriole-ai-vs-magai",
+                  "ko/articles/capriole-ai-vs-venice",
                   "ko/articles/charged-tokens",
                   "ko/articles/unified-model-api",
                   "ko/articles/coding-agent-compatibility",
@@ -773,6 +857,26 @@
     {
       "source": "/ko/api-reference/endpoint/create",
       "destination": "/ko/api-reference/endpoint/chat-completions"
+    },
+    {
+      "source": "/articles/chat-storage-modes",
+      "destination": "/guides/chat-storage"
+    },
+    {
+      "source": "/api-reference/introduction",
+      "destination": "/overview"
+    },
+    {
+      "source": "/api-reference/endpoint/delete",
+      "destination": "/api-reference/endpoint/get"
+    },
+    {
+      "source": "/api-reference/endpoint/webhook",
+      "destination": "/api-reference/endpoint/get"
+    },
+    {
+      "source": "/ai-tools/cursor",
+      "destination": "/integrations/more-agents"
     }
   ],
   "logo": {

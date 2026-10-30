@@ -1,7 +1,10 @@
 ---
-title: "Codex"
-description: "Codex が Capriole AI を使うように設定します。"
+title: "Codex で別の API プロバイダーを使う設定"
+sidebarTitle: "Codex"
+description: "Capriole AI を Codex のカスタム モデル プロバイダーとして追加します。GPT-6 Astra と GPT-6.1 Sol を公式 API 価格より最大 92% 安く使えます。"
 ---
+
+Capriole AI の API キー 1 つで、Codex から GPT-6 Astra と GPT-6.1 Sol を公式 API 価格より最大 92% 安く使えます。
 
 ## Codex とは
 
@@ -11,8 +14,9 @@ Codex は、ソフトウェア開発向けの OpenAI のコーディング エ�
 
 始める前に、次を用意してください。
 
-- Capriole AI アカウント（[こちらから登録](https://capriole.ai)）
-- Capriole AI API キー（[キーを取得](https://capriole.ai?view=api)）
+- Capriole AI アカウント（[こちらから登録](https://www.capriole.ai/ja)）
+- Premium プラン（月額 USD 8、無制限の Web チャットも含む）または Team プラン。API キーにはどちらかが必要です（[購読する](https://www.capriole.ai/ja?view=api)）
+- Capriole AI API キー（[キーを取得](https://www.capriole.ai/ja?view=api)）
 
 ## インストール
 
@@ -94,7 +98,6 @@ Codex は Responses API 経由で Capriole AI の OpenAI モデルを使えま�
 - `gpt-6-luna`
 - `gpt-5.6-terra`
 - `gpt-5.6-luna`
-- `gpt-5.5`
 
 `gpt-6.1-sol` には Codex 0.159.2 以降を使ってください。それより前のバージョンにはこのモデルのメタデータがなく、汎用設定にフォールバックします。
 
@@ -129,4 +132,5 @@ Codex に組み込まれているメタデータは、OpenAI のネイティブ 
 ## 注意事項
 
 - この設定は `env_key` を使うため、API キーは設定ファイルではなくシェル環境に残ります。
+- 同じキーを他のコーディング エージェントでも使うには、[1 つの API キーでコーディング エージェントを使う](/ja/guides/one-api-key-coding-agents)を参照してください。
 - 公式リファレンス: [Codex CLI](https://developers.openai.com/codex/cli)、[Codex 設定の基本](https://developers.openai.com/codex/config-basic)、[Codex 設定リファレンス](https://developers.openai.com/codex/config-reference)、[設定サンプル](https://developers.openai.com/codex/config-sample)。

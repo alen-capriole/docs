@@ -1,7 +1,10 @@
 ---
-title: "Crush"
-description: "Configure o Crush para usar a Capriole AI."
+title: "Provedor personalizado no Charm Crush: configure a Capriole AI"
+sidebarTitle: "Crush"
+description: "Adicione a Capriole AI ao Charm Crush como provedor. Use GPT-6 Astra, Claude Fable 5.1 e Opus 5.5 pagando até 92% menos que na API oficial."
 ---
+
+Com uma única API key da Capriole AI, você usa GPT-6 Astra, Claude Fable 5.1 e Opus 5.5 no Crush pagando até 92% menos que os preços oficiais da API.
 
 ## O que é Crush
 
@@ -11,8 +14,9 @@ O Crush é o agente de programação de código aberto da Charm para o terminal.
 
 Antes de começar, confira se você tem:
 
-- Uma conta Capriole AI ([Cadastre-se aqui](https://capriole.ai))
-- Uma API key da Capriole AI ([Obtenha sua key](https://capriole.ai?view=api))
+- Uma conta Capriole AI ([Cadastre-se aqui](https://www.capriole.ai/pt-br))
+- Um plano Premium (USD 8 por mês, também inclui chat na web ilimitado) ou um plano Team, necessário para a API key ([Assine](https://www.capriole.ai/pt-br?view=api))
+- Uma API key da Capriole AI ([Obtenha sua key](https://www.capriole.ai/pt-br?view=api))
 
 ## Instalação
 
@@ -100,7 +104,7 @@ As referências de modelo usam o formato `capriole/<model-id>`.
 | Kimi K3.1 Pro | `moonshot/kimi-k3.1-pro` |
 | Kimi K3 | `moonshot/kimi-k3` |
 
-`openai-latest` e `claude-latest` sempre apontam para o nosso modelo principal mais recente de cada família.
+`openai-latest` e `claude-latest` sempre apontam para o nosso modelo principal mais recente de cada família, atualmente GPT-6 Astra e Claude Fable 5.1.
 
 ## Solução de problemas
 
@@ -120,4 +124,5 @@ Um arquivo `.crushrc` ou `crushrc` no diretório do projeto tem prioridade sobre
 
 - `crushrc` é executado como um script de shell. Não cole sua key nele.
 - Para adicionar outro modelo da Capriole AI, adicione mais uma linha `model add`. `GET https://api.caprioletech.com/v1/models` lista todos os IDs de modelo.
+- Para usar a mesma key nos seus outros agentes de programação, veja [Usar uma API key com agentes de programação](/pt-br/guides/one-api-key-coding-agents).
 - Referências oficiais: [Crush](https://github.com/charmbracelet/crush) e [Configuração do Crush](https://github.com/charmbracelet/crush#configuration).

@@ -1,12 +1,12 @@
 ---
 title: "Capriole AI Charged Tokens Explained"
 sidebarTitle: "Charged Tokens"
-description: "Calculate Capriole AI charged tokens from uncached input, cached input, and output, with reproducible examples and personal and Team quota boundaries."
+description: "How Capriole AI counts charged tokens for an API up to 92% below official prices: uncached input, cached input at 10%, output, and worked examples."
 ---
 
 Charged tokens are the units deducted from a Capriole AI API balance. Personal Premium includes 5 million per month as part of the USD 8 workspace membership. Uncached input and output count at 100%. Cached input counts at 10%, rounded up to the next whole token.
 
-They apply to public API and coding-agent traffic. Unlimited Premium browser chat does not consume this API balance.
+They apply to public API and coding-agent traffic, which costs up to 92% less than official API prices. Unlimited Premium browser chat does not consume this API balance.
 
 ## The formula
 
@@ -98,11 +98,11 @@ Capriole keeps protocol-normalized usage and charged usage as separate fields. A
 - charged tokens deducted from quota;
 - the resolved model and request status.
 
-The Responses, Chat Completions, and Messages endpoints keep their upstream response shapes and do not return a `charged_tokens` field. Capriole records the matching charged-token value for account usage; you can see it in the **Charged tokens** column of the usage table on the [API page](https://capriole.ai?view=api).
+The Responses, Chat Completions, and Messages endpoints keep their upstream response shapes and do not return a `charged_tokens` field. Capriole records the matching charged-token value for account usage; you can see it in the **Charged tokens** column of the usage table on the [API page](https://www.capriole.ai/?view=api).
 
 ## Confirm whether cached input reduced a charge
 
-Open the Capriole AI [API page](https://capriole.ai?view=api), then use the **Key**, **Model**, and **Status** filters to isolate the request. Compare these columns in the usage table:
+Open the Capriole AI [API page](https://www.capriole.ai/?view=api), then use the **Key**, **Model**, and **Status** filters to isolate the request. Compare these columns in the usage table:
 
 | Column | What it confirms |
 |---|---|
@@ -131,6 +131,6 @@ No. Premium browser chat is unlimited across the supported Premium model set. AP
 
 ### Where should I start coding?
 
-Use the [API quickstart](/quickstart) for the smallest raw request or the [OpenAI and Anthropic SDK guide](/guides/openai-anthropic-sdks) for protocol-native Python and TypeScript clients. If you have not subscribed yet, [try the flagship models in limited free browser chat](https://capriole.ai) before upgrading.
+Use the [API quickstart](/quickstart) for the smallest raw request or the [OpenAI and Anthropic SDK guide](/guides/openai-anthropic-sdks) for protocol-native Python and TypeScript clients. If you have not subscribed yet, [try the flagship models in limited free browser chat](https://www.capriole.ai/) before upgrading.
 
 Capriole plan, quota, top-up, and charged-token facts on this page are maintained as first-party documentation.

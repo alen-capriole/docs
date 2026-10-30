@@ -1,0 +1,129 @@
+---
+title: "Limites de uso do Claude explicados: Pro, Max e uma alternativa"
+sidebarTitle: "Limites de uso do Claude"
+description: "Por que Claude Pro e Max batem nos limites de 5 horas e semanais, como o Fable 5.1 é cobrado e a alternativa: chat ilimitado com Fable 5.1 e Opus 5.5 por USD 8."
+---
+
+Usuários do Claude Pro e do Max batem nos limites de uso porque todo plano pago do Claude tem um limite de sessão de cinco horas e um limite semanal, e o claude.ai, o Claude Desktop e o Claude Code consomem os mesmos limites. Chats longos, ferramentas, esforço mais alto e modelos maiores gastam a franquia mais rápido. Se você mais conversa, o Premium da Capriole AI oferece chat web ilimitado com **Claude Fable 5.1** e **Claude Opus 5.5**, além de **GPT-6 Astra** e **Gemini 4 Argon**, por **USD 8 por mês**.
+
+Para uso intenso de agentes de programação, a mesma conta inclui uma API que custa até 92% menos que os preços oficiais das APIs.
+
+## Planos e limites do Claude comparados
+
+| Plano | Preço | Uso do chat | Claude Fable 5.1 |
+|---|---|---|---|
+| Claude Free | USD 0 | Franquia básica. Só Sonnet e Haiku | Não disponível |
+| Claude Pro | USD 20 por mês, ou USD 17 por mês com cobrança anual | Pelo menos 5× o Free por sessão de cinco horas, mais um limite semanal | Fora dos limites do plano; pago com créditos de uso a preços da API |
+| Claude Max 5x | USD 100 por mês | 5× o Pro por sessão de cinco horas, mais um limite semanal | Até 50% dos limites semanais |
+| Claude Max 20x | USD 200 por mês | 20× o Pro por sessão de cinco horas, mais um limite semanal | Até 50% dos limites semanais |
+| Capriole AI Premium | USD 8 por mês | Chat web ilimitado, com um limite de uso justo de 200 mensagens por dia | Incluído no chat web ilimitado |
+
+## Como funcionam os limites de uso do Claude
+
+A central de ajuda da Anthropic descreve dois limites nos planos pagos:
+
+- **Um limite de sessão**, renovado a cada cinco horas.
+- **Um limite semanal** para todos os modelos, renovado em um horário fixo definido para a sua conta.
+
+A Anthropic diz que também pode limitar o uso de outras formas, como tetos mensais ou limites em modelos e recursos específicos. Você acompanha seu consumo em **Settings** → **Usage** no claude.ai.
+
+Os limites são compartilhados. O uso no claude.ai, no Claude Desktop e no Claude Code conta para a mesma franquia, então uma sessão longa no Claude Code pode deixar pouco espaço para o chat. Trocar para outro modelo do Claude não zera a franquia, porque o limite semanal cobre todos os modelos.
+
+## Por que você bate no limite antes do esperado
+
+A Anthropic lista o que consome mais da sua franquia:
+
+- conversas longas e complexas
+- o modelo que você escolhe
+- níveis de esforço mais altos e raciocínio estendido
+- ferramentas e conectores, que usam muitos tokens
+- arquivos de projeto grandes, que ocupam contexto
+- chats longos que acionam o gerenciamento automático de contexto
+
+O Fable 5.1 tem uma regra própria. No Pro, o Fable 5 e o Fable 5.1 não fazem parte dos limites de uso do plano, então cada mensagem do Fable usa créditos de uso cobrados aos preços padrão da API. No Max, os modelos Fable podem usar até 50% dos seus limites semanais sem custo extra.
+
+## O que a Anthropic sugere quando você bate no limite
+
+1. **Espere a renovação.** O limite de sessão é renovado a cada cinco horas, e **Settings** → **Usage** mostra quando.
+2. **Faça upgrade.** A Anthropic descreve o Max 5x como ideal para quem usa o Claude com frequência, e o Max 20x como ideal para quem usa o Claude todos os dias na maioria das tarefas. Os limites do novo plano valem na hora.
+3. **Ative os créditos de uso.** Os créditos deixam você continuar trabalhando depois de um limite, cobrados aos preços padrão da API. Você pode definir um teto de gastos mensal.
+4. **Gaste menos por mensagem.** Comece uma conversa nova em vez de estender uma longa, reduza o nível de esforço, desative o raciocínio estendido e as ferramentas desnecessárias e encurte as instruções do projeto.
+
+Se você atingir o limite de cinco horas no meio de uma resposta do Claude Code, o Claude Code pode concluir a etapa atual antes de parar. No Pro, isso acontece no máximo uma vez por período semanal de uso.
+
+## Chat web ilimitado com o Claude por USD 8
+
+O Premium da Capriole AI custa USD 8 por mês para chat web ilimitado em todos os modelos suportados, incluindo Claude Fable 5.1, Claude Opus 5.5, GPT-6 Astra e Gemini 4 Argon.
+
+O chat web da Capriole AI não tem sessão de cinco horas nem limite semanal. O chat web com login tem um limite de uso justo de 200 mensagens por conta por dia. Ele impede abusos automatizados feitos por scripts; o uso normal fica bem abaixo disso.
+
+O Fable 5.1 não precisa de créditos de uso. Todos os modelos fazem parte do mesmo chat web ilimitado, e você pode [trocar de modelo no meio do chat](/pt-br/articles/switch-models-mid-chat), por exemplo do Claude Opus 5.5 para o Claude Fable 5.1 numa etapa mais difícil, sem começar do zero.
+
+O Premium também inclui geração gratuita de imagens com GPT Image 2.5 e Nano Banana 2.1, arquivos e pesquisa na web, projetos, exportação de chats, personalização e controles de armazenamento.
+
+## Uso intenso de agentes de programação: o caminho da API
+
+O chat web ilimitado não cobre agentes de programação. Para o Claude Code e outros agentes, use uma API key da Capriole AI. As solicitações dos agentes consomem um saldo medido de API que custa até 92% menos que os preços oficiais das APIs.
+
+| Modelo | Preço oficial da API por 1M de tokens (entrada / saída) | Capriole AI |
+|---|---|---|
+| Claude Fable 5.1 | USD 10 / USD 50 | USD 8 a cada 5M de tokens |
+| Claude Opus 5.5 | USD 4 / USD 20 | USD 8 a cada 5M de tokens |
+| GPT-6 Astra | USD 10 / USD 50 | USD 8 a cada 5M de tokens |
+
+USD 8 a cada 5M de tokens equivalem a USD 1.60 por milhão, tanto na entrada quanto na saída. O Premium inclui 5M de tokens de API por mês, e as recargas custam USD 8 a cada 5M de tokens de qualquer modelo suportado. A entrada em cache conta a 10%, como explica o artigo sobre [tokens cobrados](/pt-br/articles/charged-tokens).
+
+O Claude Code se conecta pelo endpoint Anthropic Messages da Capriole AI. A mesma key funciona com [10 agentes de programação documentados](/pt-br/guides/one-api-key-coding-agents), incluindo o Codex. Comece pela [configuração do Claude Code](/pt-br/integrations/claude-code).
+
+O Claude Max inclui créditos mensais de API, mas [a Anthropic diz](https://support.claude.com/en/articles/17154008-monthly-api-credits-for-max-and-team-plans) que eles não cobrem sessões interativas do Claude Code nem o uso extra depois que você atinge os limites do plano.
+
+## Do que você abre mão
+
+A Capriole AI é um espaço de trabalho independente, sem vínculo com a Anthropic. Ela não é o app do Claude. Recursos que existem só nos produtos da Anthropic, como Artifacts, conectores, memória, Claude in Chrome e os apps do Claude para desktop e celular, não fazem parte da Capriole AI. O Claude Code continua funcionando, pelo caminho da API descrito acima.
+
+## Perguntas frequentes
+
+<AccordionGroup>
+  <Accordion title="Por que bato no limite de uso do Claude tão rápido?">
+    Conversas longas, ferramentas e conectores, esforço mais alto e modelos maiores consomem mais da franquia. O Claude Code e o claude.ai também dividem os mesmos limites, então sessões de programação reduzem o que sobra para o chat.
+  </Accordion>
+  <Accordion title="Quando o limite de uso do Claude é renovado?">
+    O limite de sessão é renovado a cada cinco horas. O limite semanal é renovado em um horário fixo definido para a sua conta. Confira **Settings** → **Usage** no claude.ai para ver seus horários de renovação.
+  </Accordion>
+  <Accordion title="O Claude Fable 5.1 está incluído no Claude Pro?">
+    Não nos limites de uso do Pro. A Anthropic cobra o Fable 5.1 no Pro por créditos de uso aos preços padrão da API. No Max, os modelos Fable podem usar até 50% dos limites semanais. No Premium da Capriole AI, o Fable 5.1 faz parte do chat web ilimitado por USD 8 por mês.
+  </Accordion>
+  <Accordion title="200 mensagens por dia são suficientes?">
+    Para pessoas, sim. O limite existe para impedir abusos automatizados feitos por scripts. O usuário real mais ativo enviou 132 mensagens em um dia.
+  </Accordion>
+  <Accordion title="Posso usar o Claude Code com a Capriole AI?">
+    Sim, com uma API key da Capriole AI do Premium ou do Team. As solicitações do Claude Code usam o saldo medido da API, não o chat web ilimitado. Veja a [configuração do Claude Code](/pt-br/integrations/claude-code).
+  </Accordion>
+</AccordionGroup>
+
+## Comece agora
+
+<CardGroup cols={2}>
+  <Card title="Comece a conversar" icon="message" href="https://www.capriole.ai/pt-br">
+    Experimente o Claude Fable 5.1 e o Opus 5.5 sem conta.
+  </Card>
+  <Card title="Assine o Premium" icon="crown" href="https://www.capriole.ai/pt-br?view=api">
+    Chat web ilimitado e uma API key para o Claude Code, por USD 8 por mês.
+  </Card>
+</CardGroup>
+
+## Fontes oficiais
+
+- [Claude plans and pricing](https://claude.com/pricing)
+- [How do usage and length limits work?](https://support.claude.com/en/articles/11647753-how-do-usage-and-length-limits-work)
+- [What is the Pro plan?](https://support.claude.com/en/articles/8325606-what-is-the-pro-plan)
+- [What is the Max plan?](https://support.claude.com/en/articles/11049741-what-is-the-max-plan)
+- [Monthly API credits for Max and Team plans](https://support.claude.com/en/articles/17154008-monthly-api-credits-for-max-and-team-plans)
+- [Claude Fable models on your plan](https://support.claude.com/en/articles/15424964-claude-fable-models-on-your-plan)
+- [Use Claude Code with your Pro or Max plan](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)
+- [Manage usage credits for paid Claude plans](https://support.claude.com/en/articles/12429409-manage-usage-credits-for-paid-claude-plans)
+- [Usage limit best practices](https://support.claude.com/en/articles/9797557-usage-limit-best-practices)
+- Páginas dos modelos [Claude Fable 5.1](https://platform.claude.com/docs/en/models/fable-5-1/overview) e [Claude Opus 5.5](https://platform.claude.com/docs/en/models/opus-5-5/overview)
+- [GPT-6 Astra model](https://developers.openai.com/api/docs/models/gpt-6-astra)
+
+Os fatos da Capriole AI nesta página são mantidos como documentação de primeira parte.

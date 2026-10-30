@@ -1,7 +1,10 @@
 ---
-title: "Codex"
-description: "Configure Codex to use Capriole AI."
+title: "Use Codex with a custom API provider: Capriole AI setup"
+sidebarTitle: "Codex"
+description: "Add Capriole AI to Codex as a custom model provider. Run GPT-6 Astra and GPT-6.1 Sol at up to 92% less than official API prices."
 ---
+
+With one Capriole AI API key, you can run GPT-6 Astra and GPT-6.1 Sol in Codex at up to 92% less than official API prices.
 
 ## What is Codex
 
@@ -11,8 +14,9 @@ Codex is OpenAI's coding agent for software development. It can use Capriole AI 
 
 Before you begin, make sure you have:
 
-- A Capriole AI account ([Sign up here](https://capriole.ai))
-- A Capriole AI API key ([Get your key](https://capriole.ai?view=api))
+- A Capriole AI account ([Sign up here](https://www.capriole.ai/))
+- A Premium plan (USD 8 per month, also includes unlimited web chat) or a Team plan, required for an API key ([Subscribe](https://www.capriole.ai/?view=api))
+- A Capriole AI API key ([Get your key](https://www.capriole.ai/?view=api))
 
 ## Installation
 
@@ -94,7 +98,6 @@ Codex uses Capriole AI OpenAI models through the Responses API. Use the native m
 - `gpt-6-luna`
 - `gpt-5.6-terra`
 - `gpt-5.6-luna`
-- `gpt-5.5`
 
 Use Codex 0.159.2 or later for `gpt-6.1-sol`. Older versions do not include its model metadata and fall back to generic settings.
 
@@ -129,4 +132,5 @@ Confirm that `~/.codex/config.toml` is the active user config file, trust the pr
 ## Notes
 
 - The configuration uses `env_key` so your API key stays in your shell environment instead of the config file.
+- To use the same key with your other coding agents, see [Use one API key with coding agents](/guides/one-api-key-coding-agents).
 - Official references: [Codex CLI](https://developers.openai.com/codex/cli), [Codex config basics](https://developers.openai.com/codex/config-basic), [Codex config reference](https://developers.openai.com/codex/config-reference), and [sample configuration](https://developers.openai.com/codex/config-sample).

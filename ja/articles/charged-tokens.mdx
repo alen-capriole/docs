@@ -1,12 +1,12 @@
 ---
 title: "Capriole AI の課金トークンの説明"
 sidebarTitle: "課金トークン"
-description: "キャッシュなし入力、キャッシュ入力、出力から Capriole AI の課金トークンを計算します。再現可能な例と、個人および Team のクォータ境界を示します。"
+description: "公式価格より最大 92% 安い Capriole AI API の課金トークンの数え方。キャッシュなし入力、10% で数えるキャッシュ入力、出力を計算例で解説します。"
 ---
 
 課金トークンは、Capriole AI API 残高から差し引かれる単位です。個人 Premium は、USD 8 のワークスペース メンバーシップの一部として、毎月 500 万を含みます。キャッシュなし入力と出力は 100% で数えます。キャッシュ入力は 10% で数え、次の整数トークンへ切り上げます。
 
-公開 API とコーディング エージェントのトラフィックに適用されます。無制限の Premium Browser Chat はこの API 残高を消費しません。
+公開 API とコーディング エージェントのトラフィックに適用され、その料金は公式 API 価格より最大 92% 安くなります。無制限の Premium Browser Chat はこの API 残高を消費しません。
 
 ## 計算式
 
@@ -79,7 +79,7 @@ estimated_requests = floor(5,000,000 / average_charged_tokens_per_request)
 | アクセス | 含まれる API 残高 | トップアップの基本価格 | 現在の規則 |
 |---|---:|---:|---|
 | 個人 Premium | 有効な月次クォータ期間ごとに 500 万課金トークン | 500 万あたり USD 8 | 公開 API と個人トップアップには有効な Premium アクセスが必要です。複数パックの購入には、表示されるボリューム割引が最大 15% まで適用されます |
-| Team | 有効な月次クォータ期間ごとに共有 5,000 万課金トークン | 5,000 万あたり USD 80 | USD 70/月 に 5 席が含まれます。owner と admin は 1 から 5 パックまで購入でき、表示されるボリューム割引は最大 10% です |
+| Team | 有効な月次クォータ期間ごとに共有 5,000 万課金トークン | 5,000 万あたり USD 80 | USD 70/月 に 5 シートが含まれます。owner と admin は 1 から 5 パックまで購入でき、表示されるボリューム割引は最大 10% です |
 
 含まれるクォータは、対応する個人または Team のトップアップ ウォレットより先に消費されます。購入したトップアップ残高は、月次クォータ期間と有料アクセスの空白をまたいで残ります。消費するには、対象となる有効な有料アクセスが引き続き必要です。Browser Chat は API 会計とは別です。コーディング エージェントは API トラフィックとして数えられ、課金トークンを差し引きます。
 
@@ -98,11 +98,11 @@ Capriole は、プロトコル正規化済み使用量と課金使用量を別�
 - クォータから差し引かれた課金トークン
 - 解決後のモデルとリクエスト ステータス
 
-Responses、Chat Completions、Messages エンドポイントは上流のレスポンス形状を保持し、`charged_tokens` フィールドは返しません。Capriole はアカウント使用量向けに対応する課金トークン値を記録します。この値は [API ページ](https://capriole.ai?view=api) の使用量テーブルの **Charged tokens** 列で確認できます。
+Responses、Chat Completions、Messages エンドポイントは上流のレスポンス形状を保持し、`charged_tokens` フィールドは返しません。Capriole はアカウント使用量向けに対応する課金トークン値を記録します。この値は [API ページ](https://www.capriole.ai/ja?view=api) の使用量テーブルの **Charged tokens** 列で確認できます。
 
 ## キャッシュ入力が課金を減らしたかを確認する
 
-Capriole AI の [API ページ](https://capriole.ai?view=api) を開き、**Key**、**Model**、**Status** フィルタでリクエストを切り出します。使用量テーブルの次の列を比較してください。
+Capriole AI の [API ページ](https://www.capriole.ai/ja?view=api) を開き、**Key**、**Model**、**Status** フィルタでリクエストを切り出します。使用量テーブルの次の列を比較してください。
 
 | 列 | 確認できること |
 |---|---|
@@ -131,6 +131,6 @@ API レスポンスは上流スキーマを保持するため、ルートをま�
 
 ### コーディングはどこから始めるべきですか？
 
-最小の生リクエストには [API クイックスタート](/ja/quickstart)、プロトコルネイティブの Python と TypeScript クライアントには [OpenAI と Anthropic の SDK ガイド](/ja/guides/openai-anthropic-sdks) を使ってください。まだサブスクライブしていない場合は、アップグレード前に [制限付きの無料 Browser Chat で旗艦モデルを試す](https://capriole.ai) ことができます。
+最小の生リクエストには [API クイックスタート](/ja/quickstart)、プロトコルネイティブの Python と TypeScript クライアントには [OpenAI と Anthropic の SDK ガイド](/ja/guides/openai-anthropic-sdks) を使ってください。まだサブスクライブしていない場合は、アップグレード前に [制限付きの無料 Browser Chat で旗艦モデルを試す](https://www.capriole.ai/ja) ことができます。
 
 このページの Capriole プラン、クォータ、トップアップ、課金トークンの事実は、第一当事者ドキュメントとして維持されています。

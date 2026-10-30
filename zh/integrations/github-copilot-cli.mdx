@@ -1,18 +1,22 @@
 ---
-title: "GitHub Copilot CLI"
-description: "配置 GitHub Copilot CLI 使用 Capriole AI。"
+title: "GitHub Copilot CLI 使用 BYOK 模型：Capriole AI 配置"
+sidebarTitle: "GitHub Copilot CLI"
+description: "让 GitHub Copilot CLI 的 BYOK 模式接入 Capriole AI，使用 GPT-6 Astra、Claude Fable 5.1 和 Opus 5.5，价格比官方 API 最多低 92%。"
 ---
+
+只需一个 Capriole AI API Key，就能在 GitHub Copilot CLI 中使用 GPT-6 Astra、Claude Fable 5.1 和 Opus 5.5，价格比官方 API 最多低 92%。
 
 ## GitHub Copilot CLI 是什么
 
-GitHub Copilot CLI 是 GitHub 面向终端的编程代理。它的自带密钥（BYOK）模式会把模型请求发送到你通过环境变量设置的提供商。这套配置让它使用 Capriole AI。
+GitHub Copilot CLI 是 GitHub 面向终端的编程智能体。它的自带密钥（BYOK）模式会把模型请求发送到你通过环境变量设置的提供商。这套配置让它使用 Capriole AI。
 
 ## 前置条件
 
 开始前请确保你已经拥有以下内容。
 
-- Capriole AI 账户，可在[此处注册](https://capriole.ai)
-- Capriole AI API Key，可在[此处获取](https://capriole.ai?view=api)
+- Capriole AI 账户，可在[此处注册](https://www.capriole.ai/zh)
+- Premium 套餐（每月 USD 8，还包含无限网页聊天）或 Team 套餐，API Key 需要其中之一，可在[此处订阅](https://www.capriole.ai/zh?view=api)
+- Capriole AI API Key，可在[此处获取](https://www.capriole.ai/zh?view=api)
 
 ## 安装
 
@@ -126,7 +130,7 @@ copilot -p "Explain this repository." --allow-all-tools
 | Kimi K3.1 Pro | `moonshot/kimi-k3.1-pro` | `claude-opus-4.6` | Chat Completions |
 | Kimi K3 | `moonshot/kimi-k3` | `claude-sonnet-4` | Chat Completions |
 
-`openai-latest` 和 `claude-latest` 始终指向各自系列中我们最新的旗舰模型。
+`openai-latest` 和 `claude-latest` 始终指向各自系列中我们最新的旗舰模型，目前分别是 GPT-6 Astra 和 Claude Fable 5.1。
 
 ## 故障排除
 
@@ -150,4 +154,5 @@ copilot -p "Explain this repository." --allow-all-tools
 
 - Copilot CLI 在你的电脑上运行编程工具。Capriole AI 只处理模型请求。
 - 运行 `copilot help providers` 可以查看所有 BYOK 环境变量。
+- 想在其他编程智能体中使用同一个 API Key，请参阅[使用一个 API Key 配置编程智能体](/zh/guides/one-api-key-coding-agents)。
 - 官方参考资料包括[安装 GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli)和[在 Copilot CLI 中使用 BYOK 模型](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/use-byok-models)。

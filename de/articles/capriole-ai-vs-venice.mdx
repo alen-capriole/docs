@@ -1,0 +1,115 @@
+---
+title: "Capriole AI vs Venice: Preise, Modelle, API und Datenschutz"
+sidebarTitle: "Capriole AI vs Venice"
+description: "Capriole AI: unbegrenzter Chat mit GPT-6 Astra, Claude Fable 5.1, Opus 5.5 und Gemini 4 Argon für USD 8 im Monat, API bis zu 92% günstiger. Venice im Vergleich."
+---
+
+**Capriole AI kostet USD 8 pro Monat für unbegrenzten Web-Chat mit GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5 und Gemini 4 Argon**, und die API ist bis zu 92% günstiger als die offiziellen API-Preise. Venice Pro kostet USD 18 pro Monat für unbegrenzte Text-Prompts mit seinen Pro-Modellen, während die Preisseite Frontier-Textmodelle über Credits abrechnet. Die API von Venice berechnet Claude Fable 5.1 und GPT-6 Astra zu denselben Preisen pro Token wie Anthropic und OpenAI.
+
+Wählen Sie Capriole für Frontier-Modelle zu einem niedrigen Pauschalpreis. Wählen Sie Venice, wenn Sie unzensierte Open-Source-Modelle, Inferenz ohne Datenspeicherung oder mit Ende-zu-Ende-Verschlüsselung oder Video- und Musikgenerierung wollen.
+
+Für diesen Vergleich haben wir die Preisseite, die API-Preise und die Datenschutzdokumentation von Venice geprüft.
+
+## Kurzer Vergleich
+
+| Bereich | Capriole AI | Venice |
+|---|---|---|
+| Kostenloser Einstieg | Web-Chat ohne Konto, 5 Nachrichten pro Tag; ein kostenloses Konto erhält 500.000 Tokens Web-Chat im Monat | Kostenloser Plan: 10 Text-Prompts und 15 Bild-Prompts pro Tag mit Basismodellen |
+| Bezahlte Pläne | Premium USD 8 pro Monat; Team USD 70 pro Monat für 5 Plätze | Pro USD 18, Pro Plus USD 68, Max USD 200 pro Monat |
+| Chat mit Frontier-Modellen | Unbegrenzt mit GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5, Gemini 4 Argon und allen weiteren unterstützten Modellen | Unbegrenzte Text-Prompts mit Pro-Modellen; Frontier-Textmodelle verbrauchen Credits |
+| Monatliche Credits oder API-Tokens | Premium: 5M API-Tokens; Team: 50M | Pro: 100 Credits (USD 1); Pro Plus: 7.500 (USD 75); Max: 22.500 (USD 225) |
+| API-Preis für Claude Fable 5.1 | USD 8 pro 5M Tokens jedes unterstützten Modells | USD 10 Eingabe und USD 50 Ausgabe pro 1M Tokens |
+| API-Protokolle | OpenAI Chat Completions, OpenAI Responses und Anthropic Messages | OpenAI-kompatible API, Responses in der Beta |
+| Coding-Agents | 10 dokumentierte Einrichtungen; Claude Code verbindet sich direkt über Anthropic Messages | Anleitungen für Claude Code, Codex CLI, Cline, Kilo Code, OpenCode und weitere; Claude Code braucht das Add-on claude-code-router |
+| Datenschutzmodell | Synchronisierte, nur im Browser gespeicherte oder gar keine gespeicherte Chat-Historie; Inhalte werden nicht zum Training von KI-Modellen verwendet | Vier Datenschutzmodi; Claude-, GPT- und Gemini-Modelle laufen im Modus Anonymized, der Anbieter sieht den Prompt also weiterhin |
+| Medien | Kostenlose Bilderzeugung mit GPT Image 2.5 und Nano Banana 2.1 | Bilder in jedem Plan; Video und Musik über Credits |
+
+Für angemeldeten Chat bei Capriole gilt ein Fair-Use-Limit von 200 Nachrichten pro Konto und UTC-Tag, um skriptgesteuerten Missbrauch zu stoppen; normale Nutzung bleibt weit darunter.
+
+[Jetzt kostenlos chatten](https://www.capriole.ai/de) oder [API-Schlüssel holen](https://www.capriole.ai/de?view=api).
+
+## Preis für Chat mit Frontier-Modellen
+
+Venice Pro kostet USD 18 im Monat. Die Preisseite nennt unbegrenzte Text-Prompts mit Pro-Modellen und 1.000 Bilder pro Tag und sagt, dass Sie Frontier-Bild- und Textmodelle über Credits nutzen. Pro enthält 100 Credits im Monat, und Venice setzt 100 Credits mit USD 1 gleich. Pro Plus für USD 68 enthält 7.500 Credits, Max für USD 200 enthält 22.500. Bei jährlicher Abrechnung sparen Sie bis zu 16.7%.
+
+Die Preisseite nennt nicht, welche Chat-Modelle als Frontier-Modelle gelten.
+
+Capriole Premium kostet USD 8 im Monat, ohne Credit-Zähler im Web-Chat. GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5, Gemini 4 Argon und alle weiteren unterstützten Modelle sind unbegrenzt.
+
+## API-Preis für dieselbe Arbeitslast
+
+Die API von Venice wird nach Nutzung zu den veröffentlichten Modellpreisen abgerechnet. Laut Dokumentation gibt es keine ungemessene API-Stufe, und ein bezahltes Abo enthält keine kostenlose oder unbegrenzte API-Nutzung. Bezahlte Pläne enthalten ein monatliches API-Guthaben von USD 1 bei Pro, USD 75 bei Pro Plus und USD 225 bei Max.
+
+Die Tabelle berechnet 5M Tokens mit drei Eingabe-Tokens pro Ausgabe-Token und ohne Caching.
+
+| Modell | Venice API, Eingabe / Ausgabe pro 1M | Venice, 5M Tokens | Capriole AI, 5M Tokens |
+|---|---:|---:|---:|
+| Claude Fable 5.1 | USD 10 / USD 50 | USD 100 | **USD 8** |
+| GPT-6 Astra | USD 10 / USD 50 | USD 100 | **USD 8** |
+| Claude Opus 5.5 | USD 4 / USD 20 | USD 40 | **USD 8** |
+| Gemini 4 Argon | USD 2.50 / USD 12.50 | USD 25 | **USD 8** |
+
+Capriole Premium enthält 5M API-Tokens im Monat, weitere kosten USD 8 pro 5M Tokens. Die Seiten [Claude API Preise](/de/articles/claude-api-pricing) und [OpenAI API Preise](/de/articles/openai-api-pricing) vergleichen dieselben Preise mit Anthropic und OpenAI.
+
+Ein Capriole-Schlüssel funktioniert mit OpenAI Chat Completions, OpenAI Responses und Anthropic Messages und betreibt [10 dokumentierte Coding-Agents](/de/articles/coding-agent-compatibility). Venice dokumentiert eine OpenAI-kompatible API unter `https://api.venice.ai/api/v1`, mit einem Responses-Endpunkt in der Beta. Seine Claude Code-Anleitung ergänzt claude-code-router, ein lokales Open-Source-Tool, das Anthropic-Messages-Anfragen in das OpenAI-kompatible Format von Venice umwandelt.
+
+## Datenschutz
+
+Datenschutz ist der Schwerpunkt von Venice. Die Dokumentation beschreibt vier Modi, die pro Modell festgelegt sind:
+
+- **Anonymized**: Venice gibt Ihre Identität nicht an den Modellanbieter weiter, der Anbieter sieht den Prompt aber weiterhin. Die API-Preisliste von Venice führt die Claude-, GPT- und Gemini-Modelle in diesem Modus.
+- **Private**: Prompts und Antworten werden nur für die Inferenz verarbeitet und nicht aufbewahrt.
+- **TEE**: Unterstützte Modelle laufen in hardwareisolierten Enklaven.
+- **E2EE**: Ihr Client verschlüsselt den Prompt, und nur eine verifizierte Enklave entschlüsselt ihn.
+
+Laut Venice werden Inhalte von Prompts und Antworten bei normaler Inferenz weder gespeichert noch protokolliert. Die Preisseite nennt eine lokal gespeicherte Unterhaltungshistorie, mit verschlüsseltem Backup und Wiederherstellung bei Pro.
+
+Capriole verwendet Ihre Chats, Dateien und API-Inhalte nicht zum Training von KI-Modellen, wie die [Datenschutzerklärung](/de/legal/privacy) festhält. Sie wählen, wo Ihre Chat-Historie liegt: mit Ihrem Konto synchronisiert, in Ihrem Browser gespeichert oder gar nicht gespeichert. Die [Anleitung zur Chat-Speicherung](/de/guides/chat-storage) zeigt die Einstellungen. Anfragen laufen in jedem Modus weiterhin über Capriole und den gewählten Modellanbieter.
+
+Bei Frontier-Modellen von Anthropic, OpenAI und Google senden beide Produkte Ihren Prompt an den jeweiligen Anbieter. Die stärkeren Zusagen von Venice gelten für die Open-Source-Modelle, die Venice im Modus Private, TEE oder E2EE betreibt.
+
+## Welches Produkt Sie wählen sollten
+
+Wählen Sie Capriole AI, wenn Sie Folgendes wollen:
+
+- Unbegrenzten Chat mit GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5 und Gemini 4 Argon für USD 8 im Monat
+- Einen Schlüssel für API und Coding-Agents, bis zu 92% günstiger als die offiziellen API-Preise, einschließlich Anthropic Messages für Claude Code
+- Kostenlose Bilderzeugung mit GPT Image 2.5 und Nano Banana 2.1, dazu Dateien, Websuche, Projekte und Chat-Export
+
+Wählen Sie Venice, wenn Sie Folgendes wollen:
+
+- Unzensierte Open-Source-Modelle
+- Inferenz ohne Datenspeicherung, mit TEE oder mit Ende-zu-Ende-Verschlüsselung auf unterstützten Modellen
+- Video- und Musikgenerierung oder [Credits mit Krypto kaufen](https://docs.venice.ai/overview/pricing)
+
+## Häufige Fragen
+
+### Ist Capriole AI günstiger als Venice?
+
+Für Frontier-Modelle ja. Capriole Premium kostet USD 8 im Monat für unbegrenzten Chat mit allen vier aktuellen Flaggschiffen. Venice Pro kostet USD 18 und rechnet Frontier-Textmodelle über Credits ab, mit 100 Credits, also USD 1, im Monat.
+
+### Ist die API von Venice günstiger als die offiziellen Preise?
+
+Nicht für diese Flaggschiffe. Venice listet Claude Fable 5.1 und GPT-6 Astra mit USD 10 Eingabe und USD 50 Ausgabe pro 1M Tokens, genau wie Anthropic und OpenAI. Capriole berechnet USD 8 pro 5M Tokens jedes unterstützten Modells, bis zu 92% günstiger.
+
+### Was schützt die Privatsphäre besser?
+
+Venice, bei Open-Source-Modellen im Modus Private, TEE oder E2EE. Bei Claude, GPT und Gemini senden beide Ihren Prompt an den Modellanbieter. Bei Capriole können Sie auf gespeicherte Chat-Historie ganz verzichten, und Ihre Inhalte werden nicht zum Training verwendet.
+
+### Unterstützt Venice Claude Code?
+
+Ja, mit einem Add-on. Die Anleitung von Venice installiert claude-code-router, um die Anthropic-Messages-Anfragen von Claude Code in das OpenAI-kompatible Format von Venice umzuwandeln. Capriole unterstützt Anthropic Messages direkt, daher braucht Claude Code nur seine eigenen Einstellungen. Siehe die [Claude Code-Einrichtung](/de/integrations/claude-code).
+
+## Mit Capriole AI starten
+
+[Chatten Sie kostenlos](https://www.capriole.ai/de) ohne Konto, oder [holen Sie sich mit Premium einen API-Schlüssel](https://www.capriole.ai/de?view=api).
+
+## Offizielle Quellen
+
+- Venice: [Preise](https://venice.ai/pricing)
+- Venice: [API-Preise](https://docs.venice.ai/overview/pricing)
+- Venice: [Datenschutzarchitektur](https://docs.venice.ai/overview/privacy)
+- Venice: [Index der API-Dokumentation](https://docs.venice.ai/llms.txt)
+- Venice: [Claude Code-Anleitung](https://docs.venice.ai/guides/integrations/claude-code)
+
+Die Angaben zu Capriole AI auf dieser Seite werden als First-Party-Dokumentation gepflegt.

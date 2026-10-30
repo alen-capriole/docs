@@ -1,12 +1,12 @@
 ---
 title: "Capriole AI 计费 token 说明"
 sidebarTitle: "计费 token"
-description: "根据未缓存输入、缓存输入和输出计算 Capriole AI 计费 token，并通过可复现示例了解个人与 Team 配额边界。"
+description: "Capriole AI 的 API 价格最多比官方低 92%。了解计费 token 如何计算：未缓存输入、按 10% 计的缓存输入、输出，并附计算示例。"
 ---
 
 计费 token 是从 Capriole AI API 余额中扣除的单位。个人 Premium 每月包含 500 万，属于 USD 8 工作区会员的一部分。未缓存输入和输出按 100% 计算，缓存输入按 10% 计算，并向上取整到下一个整数 token。
 
-计费 token 适用于公共 API 和编程智能体流量。无限 Premium 浏览器聊天不会消耗这份 API 余额。
+计费 token 适用于公共 API 和编程智能体流量，这部分价格最多比官方 API 低 92%。无限 Premium 浏览器聊天不会消耗这份 API 余额。
 
 ## 计算公式
 
@@ -98,11 +98,11 @@ Capriole 会把经过协议统一的用量和计费用量记录为不同字段�
 - 从配额中扣除的计费 token
 - 解析后的模型和请求状态
 
-Responses、Chat Completions 和 Messages endpoint 保留各自的上游响应结构，不会返回 `charged_tokens` 字段。Capriole 会为账户用量记录相应的计费 token，你可以在 [API 页面](https://capriole.ai?view=api)用量表格的 **Charged tokens** 列中查看。
+Responses、Chat Completions 和 Messages endpoint 保留各自的上游响应结构，不会返回 `charged_tokens` 字段。Capriole 会为账户用量记录相应的计费 token，你可以在 [API 页面](https://www.capriole.ai/zh?view=api)用量表格的 **Charged tokens** 列中查看。
 
 ## 确认缓存输入是否减少了扣费
 
-打开 Capriole AI [API 页面](https://capriole.ai?view=api)，再使用 **Key**、**Model** 和 **Status** 筛选条件找出请求。比较用量表格中的这些列。
+打开 Capriole AI [API 页面](https://www.capriole.ai/zh?view=api)，再使用 **Key**、**Model** 和 **Status** 筛选条件找出请求。比较用量表格中的这些列。
 
 | 列 | 它确认的信息 |
 |---|---|
@@ -131,6 +131,6 @@ API 响应会保留上游 schema，因此账户用量表是跨路由比较请求
 
 ### 应该从哪里开始写代码
 
-最小的原始请求可以参阅 [API 快速入门](/zh/quickstart)，使用协议原生 Python 和 TypeScript 客户端则可参阅 [OpenAI 与 Anthropic SDK 指南](/zh/guides/openai-anthropic-sdks)。如果尚未订阅，可以先[在有限的免费浏览器聊天中试用旗舰模型](https://capriole.ai)，再决定是否升级。
+最小的原始请求可以参阅 [API 快速入门](/zh/quickstart)，使用协议原生 Python 和 TypeScript 客户端则可参阅 [OpenAI 与 Anthropic SDK 指南](/zh/guides/openai-anthropic-sdks)。如果尚未订阅，可以先[在有限的免费浏览器聊天中试用旗舰模型](https://www.capriole.ai/zh)，再决定是否升级。
 
 本页中的 Capriole 方案、配额、top-up 和计费 token 事实作为第一方文档持续维护。

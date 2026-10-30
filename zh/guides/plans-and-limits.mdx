@@ -1,0 +1,127 @@
+---
+title: "Capriole AI 价格与方案：Premium 每月 USD 8"
+sidebarTitle: "方案与限额"
+description: "Premium 每月 USD 8，无限畅聊 GPT-6 Astra、Claude Fable 5.1、Opus 5.5 和 Gemini 4 Argon，另含价格最多比官方低 92% 的 API。"
+---
+
+Capriole AI Premium 每月 USD 8，可在网页聊天中无限使用 GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5、Gemini 4 Argon 以及其他所有受支持的模型。它还包含 API，价格最多比官方 API 低 92%，可用于你的应用和编程智能体。你也可以先免费试用网页聊天：不注册账户每天可发 5 条消息，免费账户每月有 50 万 token。Team 每月 USD 70，包含 5 个席位和一个共享的 API token 池。
+
+## 比较方案
+
+| | 访客 | Free | Premium | Team |
+|---|---|---|---|---|
+| 价格 | USD 0 | USD 0 | 每月 USD 8 | 每月 USD 70，含 5 个席位 |
+| 账户 | 不需要 | 需要 | 需要 | 每位成员各一个 |
+| 网页聊天 | 每天 5 条消息 | 每月 50 万 token | 无限 | 每位成员都无限 |
+| 网页聊天模型 | 所有受支持的模型 | 所有受支持的模型 | 所有受支持的模型 | 所有受支持的模型 |
+| 生图 | 不可用 | 免费 | 免费 | 免费 |
+| API 与编程智能体 | 不可用 | 不可用 | 每月 500 万 token | 每月 5,000 万 token，团队共享 |
+| API 充值 | 不可用 | 不可用 | 每 500 万 token USD 8 | 每 5,000 万 token USD 80 |
+| 聊天历史 | 仅保留在当前浏览器标签页 | 可自选存储方式 | 可自选存储方式 | 可自选存储方式 |
+
+使用 GPT Image 2.5 和 Nano Banana 2.1 生图，需要登录账户并使用 **Server Storage**。[查看生图指南](/zh/guides/files-web-search)。三种存储方式的区别见[聊天存储指南](/zh/guides/chat-storage)。
+
+## “无限”是什么意思
+
+Premium 和 Team 的网页聊天在所有受支持的模型上都不计 token，包括 **Thinking** 预设。登录后的网页聊天设有合理使用上限：每个账户每个 UTC 日 200 条消息。它用于阻止脚本驱动的自动化滥用，正常使用远低于这个上限。
+
+达到上限时，Capriole AI 会显示提示，聊天在 UTC 时间 00:00 恢复。这个上限不适用于 API Key。
+
+## 哪些操作消耗 API token
+
+网页聊天和 API 分开计算。
+
+| 操作 | 消耗什么 |
+|---|---|
+| Premium 或 Team 的网页聊天 | 不消耗，无限使用。 |
+| Free 的网页聊天 | 每月 50 万 token 的聊天额度 |
+| 在网页聊天中生图 | 不消耗，免费。 |
+| API 请求，包括 API 页面上的 **API 调试台** | API token |
+| Codex、Claude Code 等编程智能体 | API token |
+
+API token 按计费 token 计算：未缓存输入，加上缓存输入的 10%，再加上输出。所有模型的计算方式都相同。Thinking 模型会消耗更多 token。[计费 token 说明](/zh/articles/charged-tokens)提供了计算示例。
+
+每月包含的 token 会先被使用，之后才使用充值的 token。API Key 需要 Premium 或 Team；Free 账户的 API 页面会显示 **订阅后即可访问 API。**
+
+## 购买更多 API token
+
+需要更多 token 时，在 API 页面选择 **充值**。一次购买多个包可以降低价格。
+
+| | Premium 充值 | Team 充值 |
+|---|---|---|
+| 价格 | 每 500 万 token USD 8 | 每 5,000 万 token USD 80 |
+| 每次可购买的包数 | 1 至 11 个（500 万至 5,500 万 token） | 1 至 5 个（5,000 万至 2.5 亿 token） |
+| 多包折扣 | 每多买 1 个包优惠 1.5%，最多优惠 15% | 每多买 1 个包优惠 2.5%，最多优惠 10% |
+| 谁可以购买 | Premium 会员 | Team 所有者和管理员 |
+
+## 其他限制
+
+| 限制 | 数值 |
+|---|---|
+| API 速率限制 | 每个 API Key 每分钟 300 个请求 |
+| 聊天附件 | 每个文件 10 MB。可分析最大 10 MB 的 PDF 和最大 4 MB 的其他文档。 |
+| 生成中的图片 | 最多同时 4 张 |
+
+## Capriole Quant 订阅用户
+
+Capriole AI 由 Capriole Investments 打造。该公司的市场数据平台 [Capriole Quant](https://quant.capriole.com/)（原 Capriole Charts）是另一款独立产品。
+
+所有付费 Capriole Quant 方案都免费包含 Capriole AI 访问权限，无需另外订阅。只要 Quant 方案有效，访问权限就一直有效。Capriole Quant 的 3 天免费试用只包含网页聊天，不包含 API 访问。
+
+## 购买方案
+
+在侧栏底部选择你的名字，选择 **定价**，然后在 Premium 上选择 **订阅**。在 **账户** 页面上，**升级** 会打开同样的方案。
+
+付款由 Stripe 处理。支持主要的信用卡和借记卡，Stripe 会显示你结账时可用的付款方式。Premium 和 Team 结账时可以使用优惠码。
+
+## 取消 Premium
+
+<Steps>
+<Step title="打开账户">
+
+在侧栏底部选择你的名字，再选择 **账户**。
+
+</Step>
+
+<Step title="打开你的订阅">
+
+选择 **管理订阅**，Stripe 的账单页面会打开。
+
+</Step>
+
+<Step title="取消">
+
+在该页面上取消订阅。
+
+</Step>
+</Steps>
+
+你可以随时取消，没有长期合约，也没有取消费用。Premium 会保持有效到当前账单周期结束，之后账户回到 Free。已保存的对话会保留，你仍然可以导出。
+
+通过促销活动或兑换码获得的 Premium 无需取消：它在 **账户** 中显示的日期结束，不会续订。Team 所有者和管理员用同一个 **管理订阅** 按钮管理 Team 订阅。席位、邀请和共享 token 见 [Team 方案指南](/zh/guides/team-plan)。
+
+## 常见问题
+
+### Capriole AI 真的无限吗？
+
+是的，Premium 和 Team 的网页聊天在所有受支持的模型上都不计 token。每个账户每个 UTC 日 200 条消息的合理使用上限用于阻止脚本滥用，正常使用远低于这个上限。API 按 token 计算。
+
+### 可以免费使用 Capriole AI 吗？
+
+可以。访客无需账户，每天可发 5 条消息。免费账户每月包含 50 万 token 的网页聊天和免费生图，但不包含 API 访问。
+
+### Premium 包含 API 吗？
+
+包含。Premium 每月包含 500 万 API token，可用于应用和编程智能体，价格最多比官方 API 低 92%。更多 token 为每 500 万 USD 8。
+
+### 怎样取消 Premium？
+
+打开 **账户**，选择 **管理订阅**，然后在 Stripe 的账单页面上取消。Premium 会保持有效到账单周期结束。
+
+### 我有 Capriole Quant，还需要 Premium 吗？
+
+不需要。所有付费 Capriole Quant 方案都免费包含 Capriole AI 访问权限。
+
+## 开始使用 Capriole AI
+
+无需账户即可[开始聊天](https://www.capriole.ai/zh)，或订阅每月 USD 8 的 Premium [获取 API Key](https://www.capriole.ai/zh?view=api)。

@@ -1,0 +1,127 @@
+---
+title: "OpenAI API Pricing: GPT-6 Astra, Sol and Luna per 1M Tokens"
+sidebarTitle: "OpenAI API Pricing"
+description: "GPT-6 Astra costs USD 10 input and USD 50 output per 1M tokens on OpenAI's API. Compare GPT-6 Sol and Luna, see worked examples, and pay up to 92% less."
+---
+
+OpenAI's API charges **USD 10 per 1M input tokens and USD 50 per 1M output tokens for GPT-6 Astra**, with cached input at USD 1. GPT-6.1 Sol and GPT-6 Sol cost USD 2 and USD 10, and GPT-6 Luna costs USD 0.10 and USD 0.50. With three input tokens for every output token, 5M tokens on GPT-6 Astra cost USD 100 at OpenAI's standard rates.
+
+Capriole AI Premium costs USD 8 per month for unlimited web chat with GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5, and Gemini 4 Argon. Its API serves GPT-6 Astra through OpenAI Responses and Chat Completions at USD 8 per 5M tokens of any supported model, up to 92% less than official API prices. One API key works in your own apps and in coding agents such as Codex.
+
+## OpenAI API prices per 1M tokens
+
+OpenAI publishes these standard rates on its [API pricing page](https://developers.openai.com/api/docs/pricing). All prices are in USD per 1M tokens, for prompts up to 272K input tokens.
+
+| Model | API model ID | Input | Cached input | 30-min cache write | 12-hour cache write | Output |
+|---|---|---:|---:|---:|---:|---:|
+| GPT-6 Astra | `gpt-6-astra` | USD 10 | USD 1 | USD 12.50 | USD 25 | USD 50 |
+| GPT-6.1 Sol | `gpt-6.1-sol` | USD 2 | USD 0.10 | USD 2.50 | USD 5 | USD 10 |
+| GPT-6 Sol | `gpt-6-sol` | USD 2 | USD 0.20 | USD 2.50 | USD 5 | USD 10 |
+| GPT-6 Luna | `gpt-6-luna` | USD 0.10 | USD 0.01 | USD 0.125 | USD 0.25 | USD 0.50 |
+
+OpenAI's pricing and model pages list the rules that change these rates:
+
+- **Batch and Flex**: Both cost 50% of standard rates. GPT-6 Astra costs USD 5 input and USD 25 output.
+- **Long prompts**: A request with more than 272K input tokens pays 2 times the input and cache rates and 1.5 times the output rate for the full request.
+- **Fast mode**: Costs 2 times standard rates. GPT-6 Astra in fast mode costs USD 20 input and USD 100 output.
+- **Regional processing**: Adds 10% where it is available.
+
+## What 1M and 5M tokens cost
+
+These examples use standard rates, no caching, prompts under 272K tokens, and three input tokens for every output token.
+
+```text
+official_cost = input_millions × input_price + output_millions × output_price
+```
+
+| Tokens | Input / output | GPT-6 Astra | GPT-6.1 Sol or GPT-6 Sol | GPT-6 Luna | Capriole AI, any model |
+|---|---|---:|---:|---:|---:|
+| 1M | 750K / 250K | USD 20 | USD 4 | USD 0.20 | USD 1.60 |
+| 5M | 3.75M / 1.25M | USD 100 | USD 20 | USD 1 | **USD 8** |
+
+On GPT-6 Astra, 5M tokens cost 3.75 × USD 10 + 1.25 × USD 50 = USD 100, so Capriole's USD 8 is 92% less. On GPT-6.1 Sol and GPT-6 Sol, USD 8 is 60% less. GPT-6 Luna is cheaper on OpenAI directly, at USD 1 for the same workload, so Capriole pays off when your work runs on Astra or Sol. Capriole sells API tokens in 5M packs; the 1M figure is one fifth of a pack, shown for comparison.
+
+Capriole's charged-token formula has no long-prompt tier, so a 300K-token prompt counts at the same rate per token as a short one.
+
+[Start chatting free](https://www.capriole.ai/) or [get an API key](https://www.capriole.ai/?view=api).
+
+## How caching and batch change the comparison
+
+- **Cached input**: OpenAI charges 10% of the input rate, USD 1 per 1M cached tokens on GPT-6 Astra. Capriole also counts cached input at 10%, which works out to USD 0.16 per 1M cached tokens. [Charged tokens explained](/articles/charged-tokens) shows the formula.
+- **Cache writes**: OpenAI charges 1.25 times input for a 30-minute cache write and 2.5 times input for a 12-hour cache write. Capriole counts every uncached input token, including cache writes, at the normal rate.
+- **Batch and Flex**: At half price, the 5M-token GPT-6 Astra example costs USD 50. Capriole has no batch endpoint, and its USD 8 is still 84% less for that workload.
+
+For a 5M-token test that also includes OpenRouter's credit fee, see the [AI API cost comparison](/articles/ai-api-cost-comparison).
+
+## Call GPT-6 Astra through Capriole's API
+
+Capriole's API is compatible with OpenAI Responses at `POST /v1/responses` and OpenAI Chat Completions at `POST /v1/chat/completions`. Set the OpenAI SDK base URL to `https://api.caprioletech.com/v1`.
+
+- `openai-latest` selects GPT-6 Astra, so your configuration follows the current recommended OpenAI model.
+- On Responses, native IDs such as `gpt-6-astra` and prefixed IDs such as `openai/gpt-6-astra` select the same model.
+- Chat Completions accepts `openai-latest` and the model IDs that `GET /v1/models` returns.
+
+```python
+import os
+
+from openai import OpenAI
+
+client = OpenAI(
+    api_key=os.environ["CAPRIOLE_AI_API_KEY"],
+    base_url="https://api.caprioletech.com/v1",
+)
+
+response = client.responses.create(
+    model="openai-latest",
+    input="Write a release note for this change.",
+)
+print(response.output_text)
+```
+
+Each key allows 300 requests per minute. See the [Responses reference](/api-reference/endpoint/responses) and the [Chat Completions reference](/api-reference/endpoint/chat-completions) for every accepted model ID, and the [Codex setup](/integrations/codex) to run Codex on your Capriole key.
+
+## What USD 8 a month includes
+
+- Unlimited web chat with GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5, Gemini 4 Argon, and every other supported model. Signed-in chat has a fair-use limit of 200 messages per account per UTC day to stop scripted abuse; normal use stays well below it.
+- 5M API tokens a month for your apps and coding agents.
+- More API tokens at USD 8 per 5M, 1 to 11 packs per purchase, with multi-pack discounts up to 15%.
+- Free image generation with GPT Image 2.5 and Nano Banana 2.1, files and web search, projects, chat export, and [10 documented coding agents](/articles/coding-agent-compatibility).
+
+An API key needs Premium or Team. Team costs USD 70 per month for 5 seats and 50M API tokens. You can try web chat without an account, 5 messages a day, and a free account gets 500,000 tokens of web chat a month without API access.
+
+## When the official API fits better
+
+Go to OpenAI directly when your workload runs only on GPT-6 Luna, or when you need the Batch API, regional processing, or a contract with OpenAI itself.
+
+## Frequently asked questions
+
+### How much does GPT-6 Astra cost?
+
+GPT-6 Astra costs USD 10 per 1M input tokens, USD 1 per 1M cached input tokens, and USD 50 per 1M output tokens. Batch and Flex requests cost half.
+
+### Which GPT-6 model is the cheapest?
+
+GPT-6 Luna, at USD 0.10 per 1M input tokens and USD 0.50 per 1M output tokens.
+
+### Does OpenAI charge more for long prompts?
+
+Yes. A request with more than 272K input tokens pays 2 times the input and cache rates and 1.5 times the output rate for the whole request.
+
+### What does `openai-latest` mean on Capriole AI?
+
+`openai-latest` points to GPT-6 Astra. It works on `/v1/responses` and `/v1/chat/completions`.
+
+### Can I use Codex with a Capriole AI key?
+
+Yes. Codex connects through the Responses API with a custom model provider. The [Codex setup](/integrations/codex) has the full configuration.
+
+## Start with Capriole AI
+
+[Start chatting free](https://www.capriole.ai/) with no account, or [get an API key](https://www.capriole.ai/?view=api) with Premium. The [API quickstart](/quickstart) covers your first request.
+
+## Official sources
+
+- OpenAI: [API pricing](https://developers.openai.com/api/docs/pricing)
+- OpenAI: [GPT-6 Astra](https://developers.openai.com/api/docs/models/gpt-6-astra), [GPT-6.1 Sol](https://developers.openai.com/api/docs/models/gpt-6.1-sol), [GPT-6 Sol](https://developers.openai.com/api/docs/models/gpt-6-sol), and [GPT-6 Luna](https://developers.openai.com/api/docs/models/gpt-6-luna) model pages
+
+Capriole AI plan, top-up, and charged-token facts on this page are maintained as first-party documentation.

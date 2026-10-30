@@ -1,7 +1,10 @@
 ---
-title: "GitHub Copilot CLI"
-description: "GitHub Copilot CLI が Capriole AI を使うように設定します。"
+title: "GitHub Copilot CLI の BYOK モデル設定"
+sidebarTitle: "GitHub Copilot CLI"
+description: "GitHub Copilot CLI の BYOK モードの接続先を Capriole AI にします。GPT-6 Astra、Claude Fable 5.1、Opus 5.5 を公式 API 価格より最大 92% 安く使えます。"
 ---
+
+Capriole AI の API キー 1 つで、GitHub Copilot CLI から GPT-6 Astra、Claude Fable 5.1、Opus 5.5 を公式 API 価格より最大 92% 安く使えます。
 
 ## GitHub Copilot CLI とは
 
@@ -11,8 +14,9 @@ GitHub Copilot CLI は、ターミナル向けの GitHub のコーディング �
 
 始める前に、次を用意してください。
 
-- Capriole AI アカウント（[こちらから登録](https://capriole.ai)）
-- Capriole AI API キー（[キーを取得](https://capriole.ai?view=api)）
+- Capriole AI アカウント（[こちらから登録](https://www.capriole.ai/ja)）
+- Premium プラン（月額 USD 8、無制限の Web チャットも含む）または Team プラン。API キーにはどちらかが必要です（[購読する](https://www.capriole.ai/ja?view=api)）
+- Capriole AI API キー（[キーを取得](https://www.capriole.ai/ja?view=api)）
 
 ## インストール
 
@@ -126,7 +130,7 @@ copilot -p "Explain this repository." --allow-all-tools
 | Kimi K3.1 Pro | `moonshot/kimi-k3.1-pro` | `claude-opus-4.6` | Chat Completions |
 | Kimi K3 | `moonshot/kimi-k3` | `claude-sonnet-4` | Chat Completions |
 
-`openai-latest` と `claude-latest` は、常に各ファミリーの最新の旗艦モデルを指します。
+`openai-latest` と `claude-latest` は、常に各ファミリーの最新の旗艦モデルを指します。現在は GPT-6 Astra と Claude Fable 5.1 です。
 
 ## トラブルシューティング
 
@@ -150,4 +154,5 @@ GPT、Gemini、Grok、GLM、Kimi のモデルでは、`COPILOT_PROVIDER_BASE_URL
 
 - Copilot CLI はコーディング ツールをお使いのコンピューター上で実行します。Capriole AI が処理するのはモデル リクエストだけです。
 - `copilot help providers` を実行すると、すべての BYOK 環境変数を確認できます。
+- 同じキーを他のコーディング エージェントでも使うには、[1 つの API キーでコーディング エージェントを使う](/ja/guides/one-api-key-coding-agents)を参照してください。
 - 公式リファレンス: [GitHub Copilot CLI のインストール](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli)、[Copilot CLI で BYOK モデルを使う](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/use-byok-models)。

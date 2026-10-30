@@ -10,4 +10,4 @@ openapi: "api-reference/openapi.json POST /v1/messages"
 
 `POST /v1/messages` は `claude-latest`、`claude-fable-5-1`、`claude-fable-5`、`claude-opus-5-5`、`claude-opus-5`、`claude-opus-4-8`、`claude-opus-4-7`、`claude-opus-4-6`、`claude-sonnet-4-6` を受け付けます。設定を変えずに Fable 5.1 を選ぶには、`claude-latest` を使ってください。
 
-`POST /v1/messages/count_tokens` は、Anthropic 互換のトークンカウント確認のために同じ Claude モデル ID を受け付けます。選択した上流のトークンカウント応答またはエラーを返します。
+`POST /v1/messages/count_tokens` は、Anthropic 互換のトークンカウント確認のために同じ Claude モデル ID を受け付けます。選択した Claude モデルの入力トークン数、またはエラーを返します。

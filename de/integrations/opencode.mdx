@@ -1,7 +1,10 @@
 ---
-title: "OpenCode"
-description: "Konfigurieren Sie OpenCode für die Nutzung von Capriole AI."
+title: "Eigener Anbieter in OpenCode: Capriole AI einrichten"
+sidebarTitle: "OpenCode"
+description: "Capriole AI als eigenen Anbieter in OpenCode einrichten. Nutzen Sie GPT-6 Astra, Claude Fable 5.1 und Opus 5.5 bis zu 92 % unter den offiziellen API-Preisen."
 ---
+
+Mit einem einzigen Capriole AI API-Schlüssel nutzen Sie GPT-6 Astra, Claude Fable 5.1 und Opus 5.5 in OpenCode, bis zu 92 % unter den offiziellen API-Preisen.
 
 ## Was ist OpenCode
 
@@ -11,8 +14,9 @@ OpenCode ist ein Open-Source-KI-Coding-Agent als Terminaloberfläche, Desktop-Ap
 
 Bevor Sie beginnen, stellen Sie sicher, dass Sie Folgendes haben:
 
-- Ein Capriole AI-Konto ([Hier registrieren](https://capriole.ai))
-- Einen Capriole AI API-Schlüssel ([Schlüssel abrufen](https://capriole.ai?view=api))
+- Ein Capriole AI-Konto ([Hier registrieren](https://www.capriole.ai/de))
+- Premium (USD 8 pro Monat, inklusive unbegrenztem Web-Chat) oder Team, denn API-Schlüssel gibt es nur mit einem dieser Pläne ([Abonnieren](https://www.capriole.ai/de?view=api))
+- Einen Capriole AI API-Schlüssel ([Schlüssel abrufen](https://www.capriole.ai/de?view=api))
 
 ## Installation
 
@@ -186,7 +190,7 @@ Modellreferenzen haben die Form `capriole-ai/<model-id>`.
 | Kimi K3.1 Pro | `moonshot/kimi-k3.1-pro` | Chat Completions |
 | Kimi K3 | `moonshot/kimi-k3` | Chat Completions |
 
-`openai-latest` und `claude-latest` zeigen immer auf unser neuestes Flaggschiff-Modell der jeweiligen Familie.
+`openai-latest` und `claude-latest` zeigen immer auf unser neuestes Flaggschiff-Modell der jeweiligen Familie, derzeit GPT-6 Astra und Claude Fable 5.1.
 
 ## Fehlerbehebung
 
@@ -218,4 +222,5 @@ Leeren Sie `~/.cache/opencode` und starten Sie OpenCode neu, damit es die Anbiet
 
 - Bewahren Sie Ihren Schlüssel in der Umgebung auf. Fügen Sie ihn nicht in `opencode.json` ein.
 - Um ein weiteres Capriole AI-Modell hinzuzufügen, kopieren Sie den Eintrag eines Modells derselben Familie und ändern Sie die ID. `GET https://api.caprioletech.com/v1/models` listet alle Modell-IDs auf.
+- Wie Sie denselben Schlüssel mit Ihren anderen Coding-Agents nutzen, zeigt [Einen API-Schlüssel mit Coding-Agents nutzen](/de/guides/one-api-key-coding-agents).
 - Offizielle Referenzen: [OpenCode-Installation](https://opencode.ai/docs), [OpenCode-Konfiguration](https://opencode.ai/docs/config), [OpenCode-Anbieter](https://opencode.ai/docs/providers), [OpenCode-Modelle](https://opencode.ai/docs/models) und [OpenCode-Fehlerbehebung](https://opencode.ai/docs/troubleshooting).

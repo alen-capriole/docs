@@ -1,7 +1,10 @@
 ---
-title: "OpenCode"
-description: "Configure OpenCode to use Capriole AI."
+title: "Add a custom provider to OpenCode: Capriole AI setup"
+sidebarTitle: "OpenCode"
+description: "Add Capriole AI to OpenCode as one custom provider. Run GPT-6 Astra, Claude Fable 5.1, and Opus 5.5 at up to 92% less than official API prices."
 ---
+
+With one Capriole AI API key, you can run GPT-6 Astra, Claude Fable 5.1, and Opus 5.5 in OpenCode at up to 92% less than official API prices.
 
 ## What is OpenCode
 
@@ -11,8 +14,9 @@ OpenCode is an open-source AI coding agent available as a terminal interface, de
 
 Before you begin, make sure you have:
 
-- A Capriole AI account ([Sign up here](https://capriole.ai))
-- A Capriole AI API key ([Get your key](https://capriole.ai?view=api))
+- A Capriole AI account ([Sign up here](https://www.capriole.ai/))
+- A Premium plan (USD 8 per month, also includes unlimited web chat) or a Team plan, required for an API key ([Subscribe](https://www.capriole.ai/?view=api))
+- A Capriole AI API key ([Get your key](https://www.capriole.ai/?view=api))
 
 ## Installation
 
@@ -186,7 +190,7 @@ Model references use the form `capriole-ai/<model-id>`.
 | Kimi K3.1 Pro | `moonshot/kimi-k3.1-pro` | Chat Completions |
 | Kimi K3 | `moonshot/kimi-k3` | Chat Completions |
 
-`openai-latest` and `claude-latest` always point to our latest flagship in each family.
+`openai-latest` and `claude-latest` always point to our latest flagship in each family, currently GPT-6 Astra and Claude Fable 5.1.
 
 ## Troubleshooting
 
@@ -218,4 +222,5 @@ Clear `~/.cache/opencode` and restart OpenCode so it reinstalls the provider pac
 
 - Keep your key in the environment. Do not paste it into `opencode.json`.
 - To add another Capriole AI model, copy the entry of a model from the same family and change the ID. `GET https://api.caprioletech.com/v1/models` lists every model ID.
+- To use the same key with your other coding agents, see [Use one API key with coding agents](/guides/one-api-key-coding-agents).
 - Official references: [OpenCode install](https://opencode.ai/docs), [OpenCode config](https://opencode.ai/docs/config), [OpenCode providers](https://opencode.ai/docs/providers), [OpenCode models](https://opencode.ai/docs/models), and [OpenCode troubleshooting](https://opencode.ai/docs/troubleshooting).

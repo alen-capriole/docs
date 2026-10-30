@@ -1,0 +1,127 @@
+---
+title: "OpenAI API 价格：GPT-6 Astra、Sol 和 Luna 每百万 token 费用"
+sidebarTitle: "OpenAI API 价格"
+description: "在 OpenAI API 上，GPT-6 Astra 每 100 万 token 输入 USD 10、输出 USD 50。对比 GPT-6 Sol 和 Luna，查看计算示例，并以最多比官方 API 价格低 92% 的价格调用。"
+---
+
+OpenAI 的 API 收费如下：**GPT-6 Astra 每 100 万输入 token USD 10、每 100 万输出 token USD 50**，缓存输入为 USD 1。GPT-6.1 Sol 和 GPT-6 Sol 为 USD 2 和 USD 10，GPT-6 Luna 为 USD 0.10 和 USD 0.50。按输入与输出 token 3:1 的比例、以 OpenAI 标准费率计算，500 万 token 在 GPT-6 Astra 上要 USD 100。
+
+Capriole AI Premium 每月 USD 8，可无限使用 GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5 和 Gemini 4 Argon 的网页聊天。它的 API 通过 OpenAI Responses 和 Chat Completions 提供 GPT-6 Astra，任意受支持模型均为每 500 万 token USD 8，最多比官方 API 价格低 92%。一个 API key 既能用于你自己的应用，也能用于 Codex 等编程智能体。
+
+## OpenAI API 每 100 万 token 价格
+
+OpenAI 在其 [API 定价页面](https://developers.openai.com/api/docs/pricing)公布了以下标准费率。所有价格均以 USD 计，单位为每 100 万 token，适用于输入不超过 272K token 的提示词。
+
+| 模型 | API 模型 ID | 输入 | 缓存输入 | 缓存写入（30 分钟） | 缓存写入（12 小时） | 输出 |
+|---|---|---:|---:|---:|---:|---:|
+| GPT-6 Astra | `gpt-6-astra` | USD 10 | USD 1 | USD 12.50 | USD 25 | USD 50 |
+| GPT-6.1 Sol | `gpt-6.1-sol` | USD 2 | USD 0.10 | USD 2.50 | USD 5 | USD 10 |
+| GPT-6 Sol | `gpt-6-sol` | USD 2 | USD 0.20 | USD 2.50 | USD 5 | USD 10 |
+| GPT-6 Luna | `gpt-6-luna` | USD 0.10 | USD 0.01 | USD 0.125 | USD 0.25 | USD 0.50 |
+
+OpenAI 的定价页和模型页列出了会改变这些费率的规则：
+
+- **Batch 和 Flex**：两者都是标准费率的 50%。GPT-6 Astra 输入 USD 5、输出 USD 25。
+- **长提示词**：输入超过 272K token 的请求，整个请求的输入和缓存费率按 2 倍、输出费率按 1.5 倍计算。
+- **快速模式**：价格为标准费率的 2 倍。GPT-6 Astra 在快速模式下输入 USD 20、输出 USD 100。
+- **区域处理**：在可用的地区加收 10%。
+
+## 100 万和 500 万 token 的费用
+
+这些示例采用标准费率，不使用缓存，提示词低于 272K token，输入与输出 token 比例为 3:1。
+
+```text
+official_cost = input_millions × input_price + output_millions × output_price
+```
+
+| Token 数 | 输入 / 输出 | GPT-6 Astra | GPT-6.1 Sol 或 GPT-6 Sol | GPT-6 Luna | Capriole AI，任意模型 |
+|---|---|---:|---:|---:|---:|
+| 100 万 | 75 万 / 25 万 | USD 20 | USD 4 | USD 0.20 | USD 1.60 |
+| 500 万 | 375 万 / 125 万 | USD 100 | USD 20 | USD 1 | **USD 8** |
+
+在 GPT-6 Astra 上，500 万 token 的费用为 3.75 × USD 10 + 1.25 × USD 50 = USD 100，因此 Capriole 的 USD 8 低 92%。在 GPT-6.1 Sol 和 GPT-6 Sol 上，USD 8 低 60%。GPT-6 Luna 直接用 OpenAI 更便宜，同样的工作负载只要 USD 1，所以当你的工作跑在 Astra 或 Sol 上时，Capriole 才更划算。Capriole 以每包 500 万 token 出售 API token，100 万这一行是一包的五分之一，仅供对比。
+
+Capriole 的计费 token 公式没有长提示词档位，因此一条 300K token 的提示词与短提示词按相同的每 token 费率计算。
+
+[免费开始聊天](https://www.capriole.ai/zh)，或[获取 API key](https://www.capriole.ai/zh?view=api)。
+
+## 缓存和批处理如何影响对比
+
+- **缓存输入**：OpenAI 按输入费率的 10% 收费，GPT-6 Astra 为每 100 万缓存 token USD 1。Capriole 同样按 10% 计算缓存输入，折合每 100 万缓存 token USD 0.16。[计费 token 说明](/zh/articles/charged-tokens)给出了计算公式。
+- **缓存写入**：OpenAI 对 30 分钟缓存写入收取输入价格的 1.25 倍，对 12 小时缓存写入收取 2.5 倍。Capriole 对所有未缓存的输入 token（包括缓存写入）都按正常费率计算。
+- **Batch 和 Flex**：按半价计算，GPT-6 Astra 的 500 万 token 示例要 USD 50。Capriole 没有批处理端点，但对这项工作负载，它的 USD 8 仍低 84%。
+
+如需查看同时计入 OpenRouter credits 手续费的 500 万 token 测试，请参阅 [AI API 成本对比](/zh/articles/ai-api-cost-comparison)。
+
+## 通过 Capriole 的 API 调用 GPT-6 Astra
+
+Capriole 的 API 兼容 `POST /v1/responses` 上的 OpenAI Responses 和 `POST /v1/chat/completions` 上的 OpenAI Chat Completions。把 OpenAI SDK 的 base URL 设为 `https://api.caprioletech.com/v1`。
+
+- `openai-latest` 选择 GPT-6 Astra，你的配置会始终跟随当前推荐的 OpenAI 模型。
+- 在 Responses 上，`gpt-6-astra` 这样的原生 ID 和 `openai/gpt-6-astra` 这样带前缀的 ID 选择的是同一个模型。
+- Chat Completions 接受 `openai-latest`，以及 `GET /v1/models` 返回的模型 ID。
+
+```python
+import os
+
+from openai import OpenAI
+
+client = OpenAI(
+    api_key=os.environ["CAPRIOLE_AI_API_KEY"],
+    base_url="https://api.caprioletech.com/v1",
+)
+
+response = client.responses.create(
+    model="openai-latest",
+    input="Write a release note for this change.",
+)
+print(response.output_text)
+```
+
+每个 key 每分钟最多 300 个请求。所有可用的模型 ID 见 [Responses 参考](/zh/api-reference/endpoint/responses)和 [Chat Completions 参考](/zh/api-reference/endpoint/chat-completions)；如需用 Capriole key 运行 Codex，请参阅 [Codex 配置](/zh/integrations/codex)。
+
+## 每月 USD 8 包含什么
+
+- 无限使用 GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5、Gemini 4 Argon 及其他所有受支持模型的网页聊天。已登录聊天设有每个账户每个 UTC 日 200 条消息的合理使用上限，用于阻止脚本化滥用，正常使用远低于这一上限。
+- 每月 500 万 API token，用于你的应用和编程智能体。
+- 额外 API token 为每 500 万 USD 8，每次可购买 1 至 11 包，多包购买最高享 15% 折扣。
+- 使用 GPT Image 2.5 和 Nano Banana 2.1 免费生图，还有文件与网页搜索、项目、聊天导出，以及 [10 个有文档说明的编程智能体](/zh/articles/coding-agent-compatibility)。
+
+API key 需要 Premium 或 Team。Team 每月 USD 70，包含 5 个席位和 5000 万 API token。无需账户即可试用网页聊天，每天 5 条消息；免费账户每月有 50 万 token 的网页聊天额度，不含 API 访问。
+
+## 何时更适合直接用官方 API
+
+如果你的工作负载只用 GPT-6 Luna，或者你需要 Batch API、区域处理，或要与 OpenAI 本身签订合同，请直接使用 OpenAI。
+
+## 常见问题
+
+### GPT-6 Astra 多少钱
+
+GPT-6 Astra 每 100 万输入 token USD 10，每 100 万缓存输入 token USD 1，每 100 万输出 token USD 50。Batch 和 Flex 请求价格减半。
+
+### 哪款 GPT-6 模型最便宜
+
+GPT-6 Luna，每 100 万输入 token USD 0.10，每 100 万输出 token USD 0.50。
+
+### OpenAI 对长提示词收费更高吗
+
+是的。输入超过 272K token 的请求，整个请求的输入和缓存费率按 2 倍、输出费率按 1.5 倍计算。
+
+### `openai-latest` 在 Capriole AI 上指什么
+
+`openai-latest` 指向 GPT-6 Astra，可用于 `/v1/responses` 和 `/v1/chat/completions`。
+
+### 可以用 Capriole AI key 运行 Codex 吗
+
+可以。Codex 通过自定义模型提供商，经由 Responses API 连接。完整配置见 [Codex 配置](/zh/integrations/codex)。
+
+## 开始使用 Capriole AI
+
+无需账户即可[免费开始聊天](https://www.capriole.ai/zh)，或订阅 Premium [获取 API key](https://www.capriole.ai/zh?view=api)。[API 快速入门](/zh/quickstart)介绍如何发出第一个请求。
+
+## 官方来源
+
+- OpenAI：[API 定价](https://developers.openai.com/api/docs/pricing)
+- OpenAI：[GPT-6 Astra](https://developers.openai.com/api/docs/models/gpt-6-astra)、[GPT-6.1 Sol](https://developers.openai.com/api/docs/models/gpt-6.1-sol)、[GPT-6 Sol](https://developers.openai.com/api/docs/models/gpt-6-sol) 和 [GPT-6 Luna](https://developers.openai.com/api/docs/models/gpt-6-luna) 模型页面
+
+本页中的 Capriole AI 方案、top-up 和计费 token 事实作为第一方文档持续维护。

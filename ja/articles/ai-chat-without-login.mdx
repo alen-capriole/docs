@@ -1,0 +1,102 @@
+---
+title: "ログイン不要の AI チャット：GPT-6 Astra を試す"
+sidebarTitle: "ログイン不要の AI チャット"
+description: "アカウントなしで GPT-6 Astra、Claude Fable 5.1、Opus 5.5、Gemini 4 Argon とチャット。1 日 5 メッセージまで無料、月額 USD 8 でウェブチャットが無制限に。"
+---
+
+はい、アカウントを作らなくても **GPT-6 Astra**、**Claude Fable 5.1**、**Claude Opus 5.5**、**Gemini 4 Argon** とチャットできます。[Capriole AI](https://www.capriole.ai/ja) を開いてモデルを選べば、ゲストとして 1 日 5 メッセージまで送れます。無料アカウントでは毎月 50 万トークン分のウェブチャットが加わり、Premium は **月額 USD 8** でウェブチャットが無制限です。
+
+Premium には公式 API 価格より最大 92% 安い API も含まれるため、同じアカウントでアプリやコーディング エージェントも動かせます。
+
+## ゲスト、無料アカウント、Premium の比較
+
+| | ゲスト（アカウントなし） | 無料アカウント | Premium |
+|---|---|---|---|
+| 料金 | 無料 | 無料 | 月額 USD 8 |
+| ウェブチャット | 1 日 5 メッセージ | 毎月 50 万トークン | 無制限。1 日 200 メッセージのフェアユース上限あり |
+| モデル | すべての対応ウェブチャットモデル | すべての対応ウェブチャットモデル | すべての対応ウェブチャットモデル |
+| チャットの保存 | 同じタブでログインするとチャットを残せる | はい | はい |
+| ファイルのアップロード | いいえ | はい（**Server Storage** 使用時） | はい（**Server Storage** 使用時） |
+| 画像生成 | いいえ | **Server Storage** 使用時に GPT Image 2.5 と Nano Banana 2.1 で無料 | 無料アカウントと同じ |
+| プロジェクト | いいえ | はい（**Server Storage** 使用時） | はい（**Server Storage** 使用時） |
+| API アクセス | いいえ | いいえ | 毎月 500 万 API トークンを含む。トップアップは 500 万トークンあたり USD 8 |
+
+「すべての対応ウェブチャットモデル」とは、お試し用のモデルではなく、モデル メニュー全体のことです。GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5、Gemini 4 Argon に加え、xAI、Z.ai、Moonshot AI のモデルも含みます。
+
+## アカウントなしでチャットを始める
+
+1. [www.capriole.ai](https://www.capriole.ai/ja) を開きます。
+2. モデル メニューを開いてモデルを選びます。ほかのモデルは **その他のモデル** にあります。
+3. **何でも聞いてください** に入力して送信します。
+4. チャットを残すには、**ログイン** を選び、同じタブでログインまたは新規登録します。
+
+するとチャットは、すべてのメッセージがそのまま残った状態で、アカウントの保存済みチャットとして開きます。保存しても使用量にはカウントされません。
+
+## 無料アカウントで加わるもの
+
+無料アカウントでは、1 日のゲスト上限の代わりに、すべての対応モデルで毎月 50 万トークン分のウェブチャットを使えます。トークンの使用量はモデルと会話によって変わり、思考モデルや長いチャットほど多く使います。
+
+ログインすると、ファイルのアップロード、GPT Image 2.5 と Nano Banana 2.1 による無料の画像生成、[プロジェクト](/ja/guides/projects)も使えるようになります。3 つとも、デフォルトの **Server Storage** が必要です。ほかのストレージ モードは[チャット ストレージ ガイド](/ja/guides/chat-storage)で説明しています。
+
+無料アカウントには API アクセスは含まれません。
+
+## Premium で加わるもの
+
+Premium は月額 USD 8 です。
+
+- **すべての対応モデルでウェブチャットが無制限。** GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5、Gemini 4 Argon も含みます。ログイン中のウェブチャットには、1 アカウントあたり 1 日 200 メッセージのフェアユース上限があります。スクリプトによる自動化された乱用を防ぐためのもので、通常の利用ではこの上限を大きく下回ります。
+- **公式価格より最大 92% 安い API。** Premium には毎月 500 万 API トークンが含まれ、トップアップはどの対応モデルでも 500 万トークンあたり USD 8 です。1 つのキーで、Codex や Claude Code を含む[ドキュメント化された 10 のコーディング エージェント](/ja/guides/one-api-key-coding-agents)を使えます。
+
+## 知っておきたい制限
+
+- **ゲストの上限は IP アドレスごとに数えます。** 同じネットワークの人は、1 日 5 メッセージを共有します。
+- **ゲストはファイルのアップロード、画像の作成、プロジェクトを使えません。** 使うにはログインしてください。
+- **ゲストのチャットは、同じタブでログインするまでアカウントに保存されません。**
+- **アカウントの有無にかかわらず、リクエストは Capriole AI と選択したモデルのプロバイダーを経由します。** 機密情報を共有する前に、[チャット ストレージ ガイド](/ja/guides/chat-storage)をお読みください。
+
+## ほかの AI チャット アプリのログアウト時の扱い
+
+- **ChatGPT：** OpenAI によると、対応国ではアカウントなしで ChatGPT を使えます。ログアウト中は同時に 1 つの会話しか持てず、チャットは保存されません。OpenAI のモデル ガイドによると、ログアウト中のユーザーは GPT-5.6 Sol を使えず、GPT-6 Astra を基盤とする Chat のオプション GPT-6 Pro には Pro、Business、Enterprise プランが必要です。
+- **Gemini：** Google によると、Gemini ウェブアプリの一部の機能はログインなしで使えます。その他の機能やアクティビティの保存には、Google アカウントが必要です。
+- **Claude：** Anthropic のヘルプセンターによると、新しい Claude アカウントは対応地域の電話番号で認証する必要があり、この手順は省略できません。
+
+Capriole AI なら、アカウントなしでも 1 つのブラウザ タブで GPT、Claude、Gemini のモデルを使えます。
+
+## よくある質問
+
+<AccordionGroup>
+  <Accordion title="アカウントなしで GPT-6 Astra を使えますか？">
+    はい。Capriole AI では、ゲストも GPT-6 Astra を選んで 1 日 5 メッセージまで送れます。無料アカウントでは毎月 50 万トークン分のウェブチャットが加わり、Premium なら月額 USD 8 でウェブチャットが無制限になります。
+  </Accordion>
+  <Accordion title="登録せずに Claude とチャットできますか？">
+    はい、Capriole AI ならできます。ゲストも Claude Fable 5.1 または Claude Opus 5.5 を選べます。Anthropic 自身の Claude アプリには、電話番号を認証したアカウントが必要です。
+  </Accordion>
+  <Accordion title="ゲストの 5 メッセージを使い切ったらどうなりますか？">
+    無料アカウントに登録すると、毎月 50 万トークン分のウェブチャットを使えます。無制限のウェブチャットが必要なら Premium を選んでください。ゲストの利用枠は UTC の午前 0 時にリセットされます。
+  </Accordion>
+  <Accordion title="ゲストのチャットは保存されますか？">
+    アカウントには保存されません。同じタブでログインまたは新規登録すると、すべてのメッセージがそのまま残った保存済みチャットとして開きます。
+  </Accordion>
+  <Accordion title="無料の API はありますか？">
+    いいえ。API キーには Premium または Team が必要です。Premium には毎月 500 万 API トークンが含まれます。
+  </Accordion>
+</AccordionGroup>
+
+## 今すぐ始める
+
+<CardGroup cols={2}>
+  <Card title="チャットを始める" icon="message" href="https://www.capriole.ai/ja">
+    アカウントは不要です。モデルを選んで、最初のメッセージを送りましょう。
+  </Card>
+  <Card title="Premium にアップグレード" icon="crown" href="https://www.capriole.ai/ja?view=api">
+    無制限のウェブチャットと API キーが月額 USD 8。
+  </Card>
+</CardGroup>
+
+## 公式ソース
+
+- OpenAI：[The ChatGPT home page](https://help.openai.com/en/articles/9125172-the-chatgpt-home-page)、[GPT-6 and other models in ChatGPT](https://help.openai.com/en/articles/20001354-gpt-6-and-other-models-in-chatgpt)
+- Google：[What you need to sign in to Gemini Apps](https://support.google.com/gemini/answer/13278668?hl=en)
+- Anthropic：[Verify your phone number](https://support.claude.com/en/articles/8287232-verify-your-phone-number)
+
+このページの Capriole AI の事実は、第一当事者ドキュメントとして維持されています。

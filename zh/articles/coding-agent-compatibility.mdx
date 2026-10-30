@@ -1,10 +1,10 @@
 ---
 title: "一个 API 连接 Codex、Claude Code、Copilot CLI 等工具"
 sidebarTitle: "编程智能体兼容性"
-description: "了解一个 Capriole AI 账户如何通过各客户端要求的协议，连接六种持续维护的编程智能体。"
+description: "了解一个 Capriole AI 账户如何通过各客户端要求的协议，连接 10 种有配置文档的编程智能体。"
 ---
 
-一个 Capriole AI 账户可以连接 Codex、Claude Code、Kilo Code、GitHub Copilot CLI、OpenCode 和 OpenClaw。Premium 每月收费 USD 8，包含 500 万 API 计费 token，也提供受支持 Premium 模型范围内的无限浏览器聊天。
+一个 Capriole AI 账户可以连接 Codex、Claude Code、Kilo Code、GitHub Copilot CLI、OpenCode、OpenClaw、Cline、Qwen Code、Crush 和 Pi。Premium 每月收费 USD 8，包含 500 万 API 计费 token，也提供受支持 Premium 模型范围内的无限浏览器聊天。
 
 每个客户端继续使用自己要求的 wire format。Capriole 为文档列出的集成维护 OpenAI Responses、OpenAI-compatible Chat Completions 和 Anthropic Messages 路径。
 
@@ -16,22 +16,26 @@ Capriole 免去了这些客户端背后反复进行的提供商配置。一份�
 
 用户因此拥有一条从浏览器工作区进入代码仓库工作的文档路径。Premium 下的聊天始终无限，编程智能体流量则使用可见的每月 500 万计费 token 余额。
 
-## 六种智能体，多种协议
+## 10 种智能体，多种协议
 
 编程智能体的提示词界面可能相似，但它们的模型客户端无法互换。
 
 | 编程智能体 | Capriole 持续维护的路径 | 推荐起点 |
 |---|---|---|
-| Codex | OpenAI Responses | [`openai-latest`](/zh/integrations/codex) |
-| Claude Code | Anthropic Messages | [`claude-latest`](/zh/integrations/claude-code) |
-| Kilo Code | OpenAI-compatible Chat Completions | [`openai-latest`](/zh/integrations/kilo-code) |
+| Codex | OpenAI Responses | [`gpt-6-astra`](/zh/integrations/codex) |
+| Claude Code | Anthropic Messages | [`claude-fable-5-1`](/zh/integrations/claude-code) |
+| Kilo Code | OpenAI Responses、Anthropic Messages 或 Chat Completions（按模型家族） | [`claude-latest`](/zh/integrations/kilo-code) |
 | GitHub Copilot CLI | Chat Completions、Responses 或 Messages | [选择文档列出的协议路径](/zh/integrations/github-copilot-cli) |
-| OpenCode | OpenAI Responses、Chat Completions 或 Anthropic Messages | [选择文档列出的提供商路径](/zh/integrations/opencode) |
+| OpenCode | OpenAI Responses、Anthropic Messages 或 Chat Completions（按模型家族） | [`claude-latest`](/zh/integrations/opencode) |
 | OpenClaw | OpenAI Responses、Anthropic Messages 或 compatible chat | [选择文档列出的提供商路径](/zh/integrations/openclaw) |
+| Cline | OpenAI-compatible Chat Completions | [`claude-latest`](/zh/integrations/cline) |
+| Qwen Code | OpenAI Responses、Anthropic Messages 或 Chat Completions（按模型家族） | [`openai-latest`](/zh/integrations/qwen-code) |
+| Crush | OpenAI-compatible Chat Completions | [`claude-latest`](/zh/integrations/crush) |
+| Pi | OpenAI Responses、Anthropic Messages 或 Chat Completions（按模型家族） | [`claude-latest`](/zh/integrations/pi) |
 
 这些集成共用同一个账户和 API 余额，请求结构仍然跟随客户端。
 
-Codex 发送 Responses 请求。Claude Code 发送 Anthropic Messages 请求，在所选提供商支持时还可以进行 token-counting preflight。Kilo Code 使用 Chat Completions。GitHub Copilot CLI、OpenCode 和 OpenClaw 可以配置不同的协议或提供商路径，因此设置方式取决于你选择的模型家族和协议。
+Codex 发送 Responses 请求。Claude Code 发送 Anthropic Messages 请求，在所选提供商支持时还可以进行 token-counting preflight。Cline 和 Crush 对所有模型都使用 Chat Completions。Kilo Code、OpenCode、Qwen Code 和 Pi 会把每个模型家族发送到 Capriole 为其提供的协议：GPT 使用 Responses，Claude 使用 Messages，其他模型使用 Chat Completions。GitHub Copilot CLI 和 OpenClaw 为每个模型家族使用单独的协议路径或提供商。
 
 Capriole 保留这些差异。公共 Responses 路由不会在内部悄悄转换成 Chat Completions，Messages 路由也不会被改写成 OpenAI response。
 
@@ -67,9 +71,9 @@ Capriole 为受支持的公共路径提供持续维护的别名。
 
 持续维护的设置遵循真实客户端路径和测试。
 
-本地验证通过文档所列配置覆盖全部六种客户端。测试包含基本提示词和受支持的工具交互流程。
+本地验证通过文档所列配置覆盖全部 10 种客户端。测试包含基本提示词和受支持的工具交互流程。
 
-每个客户端都有自己的限制。Codex 继续使用持续维护的 OpenAI Responses 模型，在 Capriole 中选择 Claude 模型并不会让它成为 Codex-compatible model。Claude Code 使用 Claude Messages 路径，Kilo Code 使用 Chat Completions。GitHub Copilot CLI、OpenCode 和 OpenClaw 提供更多选择，但配置仍须匹配所选协议。
+每个客户端都有自己的限制。Codex 继续使用持续维护的 OpenAI Responses 模型，在 Capriole 中选择 Claude 模型并不会让它成为 Codex-compatible model。Claude Code 使用 Claude Messages 路径，Cline 和 Crush 使用 Chat Completions。Kilo Code、GitHub Copilot CLI、OpenCode、OpenClaw、Qwen Code 和 Pi 提供更多选择，但配置仍须匹配所选协议。
 
 表格所链接的集成指南，是当前字段和受支持选择器的事实来源。
 
@@ -85,8 +89,8 @@ Capriole 把两个使用界面连接到同一个账户。Premium 当前每月收
 
 ## 先选择智能体，再遵循对应协议
 
-需要基于 Responses 的 OpenAI 工作流时，可以使用 Codex。需要 Anthropic-native client 时，可以使用 Claude Code。Kilo Code 通过 Chat Completions 提供 IDE 或终端工作流。GitHub Copilot CLI、OpenCode 和 OpenClaw 则提供更多协议选择。
+需要基于 Responses 的 OpenAI 工作流时，可以使用 Codex。需要 Anthropic-native client 时，可以使用 Claude Code。Kilo Code 和 Cline 提供 IDE 或终端工作流。GitHub Copilot CLI、OpenCode、OpenClaw、Qwen Code、Crush 和 Pi 则提供更多客户端选择。
 
 每个文档所列客户端都有一条持续维护的路径，可以连接该协议支持的模型。
 
-[在有限的免费浏览器聊天中试用 GPT-6 Astra、Claude Fable 5.1 或 Gemini 4 Argon](https://capriole.ai)，准备创建 API key 时再升级。先阅读[一个密钥连接编程智能体指南](/zh/guides/one-api-key-coding-agents)，了解共用工作流，再打开你所用智能体的集成页面。
+[在有限的免费浏览器聊天中试用 GPT-6 Astra、Claude Fable 5.1 或 Gemini 4 Argon](https://www.capriole.ai/zh)，准备创建 API key 时再升级。先阅读[一个密钥连接编程智能体指南](/zh/guides/one-api-key-coding-agents)，了解共用工作流，再打开你所用智能体的集成页面。

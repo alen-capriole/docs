@@ -1,7 +1,10 @@
 ---
-title: "추가 에이전트"
-description: "이 문서에 전용 페이지가 없는 코딩 에이전트에서 Capriole AI를 사용합니다."
+title: "모든 코딩 에이전트를 Capriole AI에 연결"
+sidebarTitle: "추가 에이전트"
+description: "사용자 지정 엔드포인트를 지원하는 코딩 에이전트를 Capriole AI에 연결합니다. GPT-6 Astra, Claude Fable 5.1, Opus 5.5 모델을 공식 API 가격보다 최대 92% 저렴하게 사용하세요."
 ---
+
+Capriole AI API key 하나로 사용자 지정 엔드포인트를 지원하는 모든 코딩 에이전트에서 GPT-6 Astra, Claude Fable 5.1, Opus 5.5 모델을 공식 API 가격보다 최대 92% 저렴하게 사용할 수 있습니다.
 
 ## 다른 에이전트
 
@@ -15,9 +18,13 @@ description: "이 문서에 전용 페이지가 없는 코딩 에이전트에서
 
 Chat Completions는 모든 모델을 제공하므로 가장 간단한 선택입니다.
 
+전용 페이지가 있는 에이전트에서 같은 key를 쓰는 방법은 [코딩 에이전트에 API key 하나 사용하기](/ko/guides/one-api-key-coding-agents) 가이드를 참고하세요.
+
 ## 인증
 
 Capriole AI는 `Authorization` 헤더의 Bearer 토큰으로만 키를 받습니다. 많은 Anthropic 클라이언트처럼 에이전트가 키를 `x-api-key` 헤더로 보낸다면, 사용자 지정 `Authorization: Bearer YOUR_CAPRIOLE_AI_API_KEY` 헤더를 설정하거나 에이전트의 OpenAI 호환 옵션을 대신 사용하세요.
+
+API key를 만들려면 Premium 플랜(월 USD 8, 무제한 웹 채팅 포함) 또는 Team 플랜이 필요합니다([구독하기](https://www.capriole.ai/ko?view=api)).
 
 ## 에이전트 요청하기
 

@@ -1,18 +1,22 @@
 ---
-title: "Claude Code"
-description: "配置 Claude Code 使用 Capriole AI。"
+title: "Claude Code 使用自定义 API：Capriole AI 配置"
+sidebarTitle: "Claude Code"
+description: "用一个设置文件让 Claude Code 接入 Capriole AI，使用 Claude Fable 5.1 和 Opus 5.5，价格比官方 API 最多低 92%。"
 ---
+
+只需一个 Capriole AI API Key，就能在 Claude Code 中使用 Claude Fable 5.1 和 Opus 5.5，价格比官方 API 最多低 92%。
 
 ## Claude Code 是什么
 
-Claude Code 是 Anthropic 推出的代理式编程工具，可以读取代码库、编辑文件、运行命令并与开发工具集成。这套配置通过 Claude Code 的网关设置让它使用 Capriole AI，包括 API 端点、身份验证 Token 和每个别名对应的模型。
+Claude Code 是 Anthropic 推出的智能体编程工具，可以读取代码库、编辑文件、运行命令并与开发工具集成。这套配置通过 Claude Code 的网关设置让它使用 Capriole AI，包括 API 端点、身份验证 Token 和每个别名对应的模型。
 
 ## 前置条件
 
 开始前请确保你已经拥有以下内容。
 
-- Capriole AI 账户，可在[此处注册](https://capriole.ai)
-- Capriole AI API Key，可在[此处获取](https://capriole.ai?view=api)
+- Capriole AI 账户，可在[此处注册](https://www.capriole.ai/zh)
+- Premium 套餐（每月 USD 8，还包含无限网页聊天）或 Team 套餐，API Key 需要其中之一，可在[此处订阅](https://www.capriole.ai/zh?view=api)
+- Capriole AI API Key，可在[此处获取](https://www.capriole.ai/zh?view=api)
 
 ## 安装
 
@@ -135,5 +139,6 @@ Capriole AI 会把 `/v1/messages/count_tokens` 转发到所选上游。如果该
 ## 说明
 
 - `~/.claude/settings.json` 会在所有项目中应用于你的用户账户。请将 `YOUR_CAPRIOLE_AI_API_KEY` 替换为你的 Capriole AI API Key。
-- Gemini、Grok、GLM 和 Kimi 模型无法在 Claude Code 中运行，因为它只支持 Anthropic Messages 协议。如需使用这些模型，请使用 OpenCode、Kilo Code 或其他支持多种协议的代理。
+- Gemini、Grok、GLM 和 Kimi 模型无法在 Claude Code 中运行，因为它只支持 Anthropic Messages 协议。如需使用这些模型，请使用 OpenCode、Kilo Code 或其他支持多种协议的智能体。
+- 想在其他编程智能体中使用同一个 API Key，请参阅[使用一个 API Key 配置编程智能体](/zh/guides/one-api-key-coding-agents)。
 - 官方参考资料包括 [Claude Code 设置](https://code.claude.com/docs/en/setup)、[模型配置](https://code.claude.com/docs/en/model-config)和 [LLM 网关配置](https://code.claude.com/docs/en/llm-gateway-connect)。

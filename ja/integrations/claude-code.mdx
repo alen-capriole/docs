@@ -1,7 +1,10 @@
 ---
-title: "Claude Code"
-description: "Claude Code が Capriole AI を使うように設定します。"
+title: "Claude Code をカスタム API で使う設定"
+sidebarTitle: "Claude Code"
+description: "設定ファイル 1 つで Claude Code の接続先を Capriole AI にします。Claude Fable 5.1 と Opus 5.5 を公式 API 価格より最大 92% 安く使えます。"
 ---
+
+Capriole AI の API キー 1 つで、Claude Code から Claude Fable 5.1 と Opus 5.5 を公式 API 価格より最大 92% 安く使えます。
 
 ## Claude Code とは
 
@@ -11,8 +14,9 @@ Claude Code は、コードベースの読み取り、ファイル編集、コ�
 
 始める前に、次を用意してください。
 
-- Capriole AI アカウント（[こちらから登録](https://capriole.ai)）
-- Capriole AI API キー（[キーを取得](https://capriole.ai?view=api)）
+- Capriole AI アカウント（[こちらから登録](https://www.capriole.ai/ja)）
+- Premium プラン（月額 USD 8、無制限の Web チャットも含む）または Team プラン。API キーにはどちらかが必要です（[購読する](https://www.capriole.ai/ja?view=api)）
+- Capriole AI API キー（[キーを取得](https://www.capriole.ai/ja?view=api)）
 
 ## インストール
 
@@ -136,4 +140,5 @@ Capriole AI は `/v1/messages/count_tokens` を選択した上流に転送しま
 
 - `~/.claude/settings.json` は、すべてのプロジェクトでユーザー アカウントに適用されます。`YOUR_CAPRIOLE_AI_API_KEY` は Capriole AI API キーに置き換えてください。
 - Claude Code は Anthropic Messages プロトコルしか扱わないため、Gemini、Grok、GLM、Kimi のモデルは Claude Code では動作しません。これらのモデルには OpenCode、Kilo Code、または他のマルチプロトコル対応エージェントを使ってください。
+- 同じキーを他のコーディング エージェントでも使うには、[1 つの API キーでコーディング エージェントを使う](/ja/guides/one-api-key-coding-agents)を参照してください。
 - 公式リファレンス: [Claude Code セットアップ](https://code.claude.com/docs/en/setup)、[モデル設定](https://code.claude.com/docs/en/model-config)、[LLM ゲートウェイ設定](https://code.claude.com/docs/en/llm-gateway-connect)。

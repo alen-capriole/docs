@@ -1,16 +1,12 @@
 ---
 title: "用一个工作区替代多个 AI 订阅"
 sidebarTitle: "一个 AI 订阅"
-description: "了解一个 AI 订阅如何涵盖 Premium 无限聊天、GPT Image 2.5 和 Nano Banana 2.1 免费生图、API 用量、Coding Agent 和存储选择。"
+description: "一份 USD 8 订阅即可无限畅聊 GPT-6 Astra、Claude Fable 5.1、Opus 5.5 和 Gemini 4 Argon，API 价格最多比官方低 92%。"
 ---
 
-Capriole AI 用一个低价工作区，解决日常管理多个 AI 订阅的麻烦。未登录访客和 Free 用户可以在付费前，通过有限的浏览器聊天试用 **GPT-6 Astra、Claude Fable 5.1 和 Gemini 4 Argon**。
+Capriole AI 用一份 USD 8 会员取代多个独立的 AI 订阅：在浏览器中无限使用 **GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5 和 Gemini 4 Argon** 聊天，API 访问价格最多比官方低 92%。未登录访客和 Free 用户可以在付费前，通过有限的浏览器聊天试用这些旗舰模型。
 
-Capriole AI 还为已登录并使用 **Server Storage** 的 Free、Premium 和 Team 用户提供免费的 **GPT Image 2.5** 和 **Nano Banana 2.1** 网页生图。可以在 **Image** 模式中任选一个模型，也可以在聊天中让 **Text Agent** 生成图片（Text Agent 固定使用 GPT Image 2.5）。生图本身不消耗 API token 额度；Text Agent 的文字对话仍遵循普通聊天限制。这是网页功能，不是公开图片 API 或 Coding Agent 模型。
-
-[查看生图指南](/zh/guides/files-web-search).
-
-Premium 每月收费 **USD 8**，包含受支持 Premium 模型范围内的无限浏览器聊天。此外还有每月 **500 万计费 API token**、六项持续维护的编程智能体集成、模型切换、文件、网页搜索，以及明确的聊天存储控制。
+Premium 每月收费 **USD 8**，包含受支持 Premium 模型范围内的无限浏览器聊天。此外还有每月 **500 万计费 API token**、10 个编程智能体的设置指南、模型切换、文件、网页搜索，以及明确的聊天存储控制。
 
 用户只需一个账户就能使用受支持的前沿模型，不必分别管理多个订阅、界面、历史记录、提供商密钥和余额。
 
@@ -34,7 +30,7 @@ Capriole AI 把常用部分放进同一个工作区。你可以和受支持的�
 
 Capriole 在同一个工作区中维护 OpenAI、Anthropic、Google、xAI、Z.AI 和 Moonshot AI 当前受支持的模型，其中包括上面列出的旗舰组合。
 
-浏览器和 API 采用不同的用量模式。Premium 浏览器聊天没有需要用户逐条管理的消息 token 余额。API 请求需要计量，因为程序化工作负载可能远高于普通聊天。
+浏览器和 API 采用不同的用量模式。Premium 浏览器聊天没有需要用户逐条管理的消息 token 余额。已登录聊天设有每个账户每个 UTC 日 200 条消息的合理使用上限，用于阻止脚本化滥用，正常使用远低于这一上限。API 请求需要计量，因为程序化工作负载可能远高于普通聊天。
 
 这项方案适合每天聊天，同时偶尔或适度使用 API 与编程智能体的人。两类额度各自清楚。Premium 下的浏览器聊天无限，自动化工作则使用可见的计费 token 余额。
 
@@ -50,7 +46,7 @@ Capriole 还为受支持的 API 和智能体工作流提供最新模型别名。
 
 ## 同一个账户也能用于浏览器之外
 
-符合条件的付费访问会同时解锁 Capriole 公共 API 和浏览器聊天。[API 快速入门](/zh/quickstart)介绍如何发出第一个请求，持续维护的指南则支持六种编程智能体，包括 [Codex](/zh/integrations/codex)、[Claude Code](/zh/integrations/claude-code)、[Kilo Code](/zh/integrations/kilo-code)、[GitHub Copilot CLI](/zh/integrations/github-copilot-cli)、[OpenCode](/zh/integrations/opencode) 和 [OpenClaw](/zh/integrations/openclaw)。
+符合条件的付费访问会同时解锁 Capriole 公共 API 和浏览器聊天。[API 快速入门](/zh/quickstart)介绍如何发出第一个请求，持续维护的指南则涵盖 10 种编程智能体，包括 [Codex](/zh/integrations/codex)、[Claude Code](/zh/integrations/claude-code)、[GitHub Copilot CLI](/zh/integrations/github-copilot-cli)、[OpenCode](/zh/integrations/opencode)、[OpenClaw](/zh/integrations/openclaw)、[Kilo Code](/zh/integrations/kilo-code)、[Cline](/zh/integrations/cline)、[Qwen Code](/zh/integrations/qwen-code)、[Crush](/zh/integrations/crush) 和 [Pi](/zh/integrations/pi)。
 
 这并不会让所有编程智能体变得相同。每个客户端仍有自己的能力和要求。它带来的好处很直接。受支持的客户端可以使用同一个 Capriole 账户和兼容的 API 路径，无需为每个模型家族分别配置提供商。
 
@@ -68,8 +64,10 @@ Local 历史在页面刷新后仍然存在，直至该浏览器的网站数据�
 
 三种模式都会把每个请求发送给 Capriole 和所选模型服务。它们控制聊天历史的持久化方式，不代表完全没有运行记录，也不能取代所选提供商的数据政策。处理敏感或受监管数据前，请阅读[聊天存储指南](/zh/guides/chat-storage)。
 
+已登录并使用 **Server Storage** 的账户还可免费使用 GPT Image 2.5 和 Nano Banana 2.1 生成图片，详见[生图指南](/zh/guides/files-web-search)。
+
 ## 告别反复配置
 
-[在有限的免费浏览器聊天中试用 GPT-6 Astra、Claude Fable 5.1 或 Gemini 4 Argon](https://capriole.ai)。当你需要无限浏览器聊天、内含 API 余额、六项持续维护的编程智能体路径和一个连续工作区时，可升级到每月 USD 8 的 Premium。
+[在有限的免费浏览器聊天中试用 GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5 或 Gemini 4 Argon](https://www.capriole.ai/zh)。当你需要无限浏览器聊天、内含 API 余额、10 种有文档说明的编程智能体配置和一个连续工作区时，可升级到每月 USD 8 的 Premium。
 
-如需程序化访问，升级后可以继续阅读 [API 快速入门](/zh/quickstart)。
+如需程序化访问，可以[通过 Premium 创建 API key](https://www.capriole.ai/zh?view=api)，再继续阅读 [API 快速入门](/zh/quickstart)。

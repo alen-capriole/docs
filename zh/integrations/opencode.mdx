@@ -1,18 +1,22 @@
 ---
-title: "OpenCode"
-description: "配置 OpenCode 使用 Capriole AI。"
+title: "OpenCode 添加自定义提供商：Capriole AI 配置"
+sidebarTitle: "OpenCode"
+description: "将 Capriole AI 添加为 OpenCode 的自定义提供商，使用 GPT-6 Astra、Claude Fable 5.1 和 Opus 5.5，价格比官方 API 最多低 92%。"
 ---
+
+只需一个 Capriole AI API Key，就能在 OpenCode 中使用 GPT-6 Astra、Claude Fable 5.1 和 Opus 5.5，价格比官方 API 最多低 92%。
 
 ## OpenCode 是什么
 
-OpenCode 是开源 AI 编程代理，提供终端界面、桌面应用和 IDE 扩展。这套配置把 Capriole AI 添加为一个自定义提供商，其中每个模型都使用 Capriole AI 为该模型系列提供的 API 协议。
+OpenCode 是开源 AI 编程智能体，提供终端界面、桌面应用和 IDE 扩展。这套配置把 Capriole AI 添加为一个自定义提供商，其中每个模型都使用 Capriole AI 为该模型系列提供的 API 协议。
 
 ## 前置条件
 
 开始前请确保你已经拥有以下内容。
 
-- Capriole AI 账户，可在[此处注册](https://capriole.ai)
-- Capriole AI API Key，可在[此处获取](https://capriole.ai?view=api)
+- Capriole AI 账户，可在[此处注册](https://www.capriole.ai/zh)
+- Premium 套餐（每月 USD 8，还包含无限网页聊天）或 Team 套餐，API Key 需要其中之一，可在[此处订阅](https://www.capriole.ai/zh?view=api)
+- Capriole AI API Key，可在[此处获取](https://www.capriole.ai/zh?view=api)
 
 ## 安装
 
@@ -186,7 +190,7 @@ opencode run -m capriole-ai/claude-latest "Explain this repository."
 | Kimi K3.1 Pro | `moonshot/kimi-k3.1-pro` | Chat Completions |
 | Kimi K3 | `moonshot/kimi-k3` | Chat Completions |
 
-`openai-latest` 和 `claude-latest` 始终指向各自系列中我们最新的旗舰模型。
+`openai-latest` 和 `claude-latest` 始终指向各自系列中我们最新的旗舰模型，目前分别是 GPT-6 Astra 和 Claude Fable 5.1。
 
 ## 故障排除
 
@@ -218,4 +222,5 @@ opencode run -m capriole-ai/claude-latest "Explain this repository."
 
 - 把 API Key 保存在环境变量中，不要粘贴到 `opencode.json`。
 - 如需添加其他 Capriole AI 模型，请复制同一系列中某个模型的条目并修改 ID。`GET https://api.caprioletech.com/v1/models` 会列出所有模型 ID。
+- 想在其他编程智能体中使用同一个 API Key，请参阅[使用一个 API Key 配置编程智能体](/zh/guides/one-api-key-coding-agents)。
 - 官方参考资料包括 [OpenCode 安装](https://opencode.ai/docs)、[OpenCode 配置](https://opencode.ai/docs/config)、[OpenCode 提供商](https://opencode.ai/docs/providers)、[OpenCode 模型](https://opencode.ai/docs/models)和 [OpenCode 故障排除](https://opencode.ai/docs/troubleshooting)。

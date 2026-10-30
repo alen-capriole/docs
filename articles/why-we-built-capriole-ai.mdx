@@ -1,16 +1,12 @@
 ---
 title: "Why We Built Capriole AI: One Workspace for Frontier Models"
 sidebarTitle: "Why We Built Capriole AI"
-description: "Why we turned our own AI infrastructure into Capriole AI, an affordable workspace for frontier-model chat, API access, and supported coding agents."
+description: "Why we built Capriole AI: USD 8 a month for unlimited chat with GPT-6 Astra, Claude, and Gemini, plus an API up to 92% below official prices."
 ---
 
-Capriole AI is a unified workspace for frontier-model chat, a public API allowance, and supported coding agents. Signed-out visitors and Free users can try GPT-6 Astra, Claude Fable 5.1, and Gemini 4 Argon before subscribing; USD 8 Premium adds unlimited browser chat, 5 million charged API tokens, and six maintained agent integrations.
+Capriole AI is a unified workspace for frontier-model chat, a public API, and supported coding agents. Signed-out visitors and Free users can try GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5, and Gemini 4 Argon before subscribing; USD 8 Premium adds unlimited browser chat, API access at up to 92% less than official API prices, and 10 documented coding-agent integrations.
 
-Capriole AI also offers free **GPT Image 2.5** and **Nano Banana 2.1** generation in Browser Chat for signed-in Free, Premium, and Team accounts using **Server Storage**. Choose either model in **Image** mode, or ask the **Text Agent** while you chat; the Text Agent always creates with GPT Image 2.5. The image generation itself does not consume your API token allowance; Text Agent messages still follow normal chat limits. This is a browser feature, not a public image API or coding-agent model.
-
-[See the image generation guide](/guides/files-web-search).
-
-It began while we were adding AI capabilities to Capriole Charts.
+It began while we were adding AI capabilities to Capriole Quant, then called Capriole Charts.
 
 We needed dependable access to frontier models and spent a long time making the setup stable enough for our own work. Once it held up, we could see that the same access layer would be useful outside Charts.
 
@@ -28,6 +24,8 @@ A question might begin in one chat and reach the point where another model would
 
 Capriole AI puts the supported frontier models in one web chat. You can start a conversation with one model and change to another without opening a new product or rebuilding the thread. Files, web search, chat history, and model selection stay in the same workspace.
 
+Free image generation with GPT Image 2.5 and Nano Banana 2.1 is also included for signed-in accounts that use Server Storage; see the [image generation guide](/guides/files-web-search).
+
 ## Making different models feel like one product
 
 Every model provider has its own assumptions. Message formats differ. Context limits and reasoning controls differ. Files, tools, streaming events, token accounting, and error responses all need their own handling.
@@ -40,7 +38,7 @@ The differences show up in real requests. One model family may use OpenAI Respon
 
 Most of that work stays behind the interface. A user can switch from a ChatGPT model to Claude or Gemini halfway through a conversation and continue in the same thread.
 
-The same Capriole AI account spans browser chat, the public API, and six maintained coding-agent integrations: [Codex](/integrations/codex), [Claude Code](/integrations/claude-code), [Kilo Code](/integrations/kilo-code), [GitHub Copilot CLI](/integrations/github-copilot-cli), [OpenCode](/integrations/opencode), and [OpenClaw](/integrations/openclaw). Latest-model aliases simplify supported API and agent configuration without making you track provider-specific model names. We handle the compatible protocol paths so connecting an agent doesn't become another provider-integration project.
+The same Capriole AI account spans browser chat, the public API, and 10 documented coding agents: [Codex](/integrations/codex), [Claude Code](/integrations/claude-code), [GitHub Copilot CLI](/integrations/github-copilot-cli), [OpenCode](/integrations/opencode), [OpenClaw](/integrations/openclaw), [Kilo Code](/integrations/kilo-code), [Cline](/integrations/cline), [Qwen Code](/integrations/qwen-code), [Crush](/integrations/crush), and [Pi](/integrations/pi). Latest-model aliases simplify supported API and agent configuration without making you track provider-specific model names. We handle the compatible protocol paths so connecting an agent doesn't become another provider-integration project.
 
 ## A membership priced for everyday use
 
@@ -78,4 +76,4 @@ We wanted one workspace that saves money, reduces setup, and leaves the model ch
 
 If you are deciding between a workspace like this and a broader model gateway, our [Capriole AI and OpenRouter comparison](/articles/capriole-ai-vs-openrouter) explains where each product fits.
 
-You can [open Capriole AI](https://capriole.ai) and try the current flagship set in limited free chat. Upgrade to USD 8 Premium when you want unlimited browser chat, the included API balance, and maintained coding-agent paths under the same account. Developers can continue with the [API quickstart](/quickstart).
+You can [open Capriole AI](https://www.capriole.ai/) and try the current flagship set in limited free chat. Upgrade to USD 8 Premium when you want unlimited browser chat, the included API balance, and maintained coding-agent paths under the same account. Developers can continue with the [API quickstart](/quickstart).

@@ -1,14 +1,10 @@
 ---
 title: "チャット、BYOK、API アクセスにおける Capriole AI と T3 Chat"
 sidebarTitle: "Capriole AI と T3 Chat"
-description: "Capriole AI が低コストの最先端モデル、無制限の Premium Browser Chat、API アクセス、コーディング エージェント、ストレージ制御で、チャットを超える理由を見ます。"
+description: "Capriole AI と T3 Chat の比較。月額 USD 8 で GPT-6 Astra、Claude、Gemini とチャットし放題。コーディング エージェント用の API は公式価格より最大 92% 安価。"
 ---
 
-1 つのアカウントで最先端モデル チャット、API アクセス、コーディング エージェントをカバーしたいユーザーにとって、**Capriole AI のほうがより完全な選択です**。サインアウト中の訪問者と Free ユーザーは GPT-6 Astra、Claude Fable 5.1、Gemini 4 Argon を試せます。Premium は月額 USD 8 で、無制限の Browser Chat、毎月 500 万の課金 API トークン、維持されている 6 つのコーディング エージェント統合を提供します。
-
-Capriole AI では、ログインして **Server Storage** を使う Free・Premium・Team アカウントが、ブラウザチャットで **GPT Image 2.5** と **Nano Banana 2.1** を無料で利用できます。**Image** モードでどちらかのモデルを選んで作成するか、会話中に **Text Agent** に依頼してください。Text Agent は常に GPT Image 2.5 で生成します。画像生成自体は API トークン枠を消費しませんが、Text Agent のメッセージには通常のチャット制限が適用されます。これはブラウザ機能であり、公開画像 API やコーディングエージェント向けモデルではありません。
-
-[画像生成ガイドを見る](/ja/guides/files-web-search).
+1 つのアカウントで最先端モデル チャット、API アクセス、コーディング エージェントをカバーしたいユーザーにとって、**Capriole AI のほうがより完全な選択です**。Premium は月額 USD 8 で、GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5、Gemini 4 Argon との Browser Chat が無制限になり、公式 API 価格より最大 92% 安い API アクセスと、10 のコーディング エージェント向けセットアップ ガイドも利用できます。サインアウト中の訪問者と Free ユーザーは、まず旗艦モデルを試せます。
 
 T3 Chat は Base と Overage バケットでブラウザ使用量を計量します。確認した公開ページは、同じ汎用 API とコーディング エージェント ワークフローを文書化していません。
 
@@ -18,11 +14,11 @@ T3 Chat は Base と Overage バケットでブラウザ使用量を計量しま
 
 | 領域 | Capriole AI | T3 Chat |
 |---|---|---|
-| 現在の旗艦アクセス | 1 つのワークスペースで GPT-6 Astra、Claude Fable 5.1、Gemini 4 Argon | Base と Overage バケットで計量される、チャット優先のモデル アクセス |
+| 現在の旗艦アクセス | 1 つのワークスペースで GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5、Gemini 4 Argon | Base と Overage バケットで計量される、チャット優先のモデル アクセス |
 | 有料ブラウザ使用量 | 月額 USD 8 で、対応する Premium モデル群が無制限 | 使用量はコストを意識した Base と Overage バケットから引く |
 | 含まれる API 使用量 | 月 5M の課金 API トークン | 汎用デベロッパー API 許容量は文書化されていない |
 | 公開 API | OpenAI Chat Completions、OpenAI Responses、Anthropic Messages | 確認した公式ページは、公開の汎用デベロッパー API を文書化していない |
-| コーディング エージェント経路 | 維持されている 6 つの統合ガイド | 確認した公式ドキュメントは、名前付き 6 クライアント向けのセットアップ ページを維持していない |
+| コーディング エージェント経路 | 10 のコーディング エージェント向けセットアップ ガイド | 確認した公式ドキュメントは、それらのクライアント向けのセットアップ ページを維持していない |
 | ワークスペースとストレージ | モデル切り替え、ファイル、ウェブ検索、Synced、Local、または No Storage 履歴 | チャット優先ワークスペース。一時チャット動作は別に文書化 |
 
 より広い [OpenRouter 代替ガイド](/ja/articles/openrouter-alternatives) は、両製品をゲートウェイと設定可能な BYOK クライアントの横に置きます。
@@ -32,6 +28,8 @@ T3 Chat は Base と Overage バケットでブラウザ使用量を計量しま
 サインアウト中の訪問者と Free ユーザーは、対応旗艦モデルの制限付きチャットで Capriole を始められます。Premium はその後、対応する Premium セット全体で Browser Chat のメーターを外します。
 
 ファイル、ウェブ検索、保存履歴、[会話中のモデル切り替え](/ja/articles/switch-models-mid-chat) は同じワークスペースに残ります。同じアカウントは、公開 API エンドポイントと維持されているコーディング エージェント設定を通じて、その後ブラウザを離れられます。
+
+Server Storage を使うログイン済みアカウントでは、GPT Image 2.5 と Nano Banana 2.1 による無料の画像生成も利用できます。詳しくは [画像生成ガイド](/ja/guides/files-web-search) をご覧ください。
 
 ## 含まれるアクセスはプロバイダー キー管理を取り除く
 
@@ -51,9 +49,9 @@ Capriole Premium はブラウザ利用とプログラム利用を分けます。
 
 ## Capriole は文書化されたデベロッパー経路を提供する
 
-この記事で確認した T3 の公式ページは、公開の汎用 LLM API や、Capriole が文書化する 6 つのコーディング エージェント向けの維持セットアップ ガイドを文書化していませんでした。
+この記事で確認した T3 の公式ページは、公開の汎用 LLM API や、Capriole が文書化する 10 のコーディング エージェント向けの維持セットアップ ガイドを文書化していませんでした。
 
-Capriole は複数の公開プロトコル経路を文書化します。OpenAI Responses は [Codex](/ja/integrations/codex) などのクライアントをサポートし、Anthropic Messages は [Claude Code](/ja/integrations/claude-code) をサポートします。[Kilo Code](/ja/integrations/kilo-code)、[GitHub Copilot CLI](/ja/integrations/github-copilot-cli)、OpenCode、OpenClaw には、対応経路向けの維持設定があります。
+Capriole は複数の公開プロトコル経路を文書化します。OpenAI Responses は [Codex](/ja/integrations/codex) などのクライアントをサポートし、Anthropic Messages は [Claude Code](/ja/integrations/claude-code) をサポートします。[Kilo Code](/ja/integrations/kilo-code)、[GitHub Copilot CLI](/ja/integrations/github-copilot-cli)、[OpenCode](/ja/integrations/opencode)、[OpenClaw](/ja/integrations/openclaw)、[Cline](/ja/integrations/cline)、[Qwen Code](/ja/integrations/qwen-code)、[Crush](/ja/integrations/crush)、[Pi](/ja/integrations/pi) には、対応経路向けの維持設定があります。
 
 コーディング エージェントはローカル ツールとファイル変更を実行します。Capriole は対応モデル アクセスを扱います。エージェント使用量は計量 API トラフィックのままなので、無制限の Browser Chat は自動コーディング ワークロードへは延びません。
 
@@ -67,13 +65,13 @@ Capriole は Synced、Local、No Storage のチャット履歴モードを提供
 
 ## チャットだけではデベロッパー ワークフローは未完成
 
-T3 はチャット優先インターフェイス、会話ブランチ、BYOK を強調します。Capriole は別々のプロバイダー アカウントなしで、より大きなワークフローをカバーします。Browser Chat から始め、公開 API 経路を続け、同じ USD 8 メンバーシップの下で維持されている 6 つのコーディング エージェントを接続します。
+T3 はチャット優先インターフェイス、会話ブランチ、BYOK を強調します。Capriole は別々のプロバイダー アカウントなしで、より大きなワークフローをカバーします。Browser Chat から始め、公開 API 経路を続け、同じ USD 8 メンバーシップの下で文書化された 10 のコーディング エージェントを接続します。
 
 ## Capriole でチャットを超える
 
-同じアカウントが日常チャット、対応する最先端モデル、外部 API クライアント、コーディング エージェントを低い月額でカバーする必要があるときは、Capriole を選んでください。
+同じアカウントが日常チャット、対応する最先端モデル、外部 API クライアント、コーディング エージェントを月額 USD 8 でカバーする必要があるときは、Capriole を選んでください。
 
-[制限付きの無料 Browser Chat を試す](https://capriole.ai)。無制限の Browser Chat と含まれる API 残高には、USD 8 の Premium にアップグレードしてください。最初のアプリケーション リクエストは [API クイックスタート](/ja/quickstart) が扱います。
+[制限付きの無料 Browser Chat を試す](https://www.capriole.ai/ja) ことも、[USD 8 の Premium にアップグレードして無制限チャットと API キーを入手する](https://www.capriole.ai/ja?view=api) こともできます。最初のアプリケーション リクエストは [API クイックスタート](/ja/quickstart) が扱います。
 
 ## 公式ソース
 

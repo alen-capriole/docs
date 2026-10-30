@@ -1,18 +1,22 @@
 ---
-title: "Codex"
-description: "配置 Codex 使用 Capriole AI。"
+title: "Codex 接入自定义 API 提供商：Capriole AI 配置"
+sidebarTitle: "Codex"
+description: "将 Capriole AI 添加为 Codex 的自定义模型提供商，使用 GPT-6 Astra 和 GPT-6.1 Sol，价格比官方 API 最多低 92%。"
 ---
+
+只需一个 Capriole AI API Key，就能在 Codex 中使用 GPT-6 Astra 和 GPT-6.1 Sol，价格比官方 API 最多低 92%。
 
 ## Codex 是什么
 
-Codex 是 OpenAI 面向软件开发的编程代理。你可以配置自定义模型提供商，让 Codex 把请求发送到 Capriole AI 的 Responses 兼容 API。
+Codex 是 OpenAI 面向软件开发的编程智能体。你可以配置自定义模型提供商，让 Codex 把请求发送到 Capriole AI 的 Responses 兼容 API。
 
 ## 前置条件
 
 开始前请确保你已经拥有以下内容。
 
-- Capriole AI 账户，可在[此处注册](https://capriole.ai)
-- Capriole AI API Key，可在[此处获取](https://capriole.ai?view=api)
+- Capriole AI 账户，可在[此处注册](https://www.capriole.ai/zh)
+- Premium 套餐（每月 USD 8，还包含无限网页聊天）或 Team 套餐，API Key 需要其中之一，可在[此处订阅](https://www.capriole.ai/zh?view=api)
+- Capriole AI API Key，可在[此处获取](https://www.capriole.ai/zh?view=api)
 
 ## 安装
 
@@ -94,7 +98,6 @@ Codex 通过 Responses API 使用 Capriole AI 提供的 OpenAI 模型。使用�
 - `gpt-6-luna`
 - `gpt-5.6-terra`
 - `gpt-5.6-luna`
-- `gpt-5.5`
 
 使用 `gpt-6.1-sol` 需要 Codex 0.159.2 或更高版本。更早的版本没有该模型的元数据，会退回通用设置。
 
@@ -129,4 +132,5 @@ Codex 只内置了 OpenAI 原生模型 ID 的元数据。对于 `openai-latest` 
 ## 说明
 
 - 此配置使用 `env_key`，API Key 会保留在 Shell 环境中，不会写入配置文件。
+- 想在其他编程智能体中使用同一个 API Key，请参阅[使用一个 API Key 配置编程智能体](/zh/guides/one-api-key-coding-agents)。
 - 官方参考资料包括 [Codex CLI](https://developers.openai.com/codex/cli)、[Codex 配置基础](https://developers.openai.com/codex/config-basic)、[Codex 配置参考](https://developers.openai.com/codex/config-reference)和[配置示例](https://developers.openai.com/codex/config-sample)。

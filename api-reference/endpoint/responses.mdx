@@ -14,7 +14,7 @@ You can also send native OpenAI IDs without the `openai/` prefix, such as `gpt-6
 
 This endpoint also accepts the Grok models `xai/grok-4.7`, `xai/grok-4.6`, and `xai/grok-4.5`. Always send Grok IDs with the `xai/` prefix; a bare ID such as `grok-4.7` is treated as a native OpenAI ID and is rejected. Grok requests are forwarded to xAI's own Responses API without format conversion.
 
-Claude and Google latest aliases are not supported on this endpoint. GLM 5.2, Kimi K3.1 Pro, and Kimi K3 use Chat Completions and are also not supported here. Use `POST /v1/chat/completions` when you want one OpenAI-compatible endpoint that can call every public model.
+Other models are not supported on this endpoint: `claude-latest`, `google-latest`, Claude and Gemini model IDs such as `anthropic/claude-fable-5-1` and `google/gemini-4-argon`, and the GLM and Kimi models (`zai/glm-5.3-flash`, `zai/glm-5.2`, `moonshot/kimi-k3.1-pro`, and `moonshot/kimi-k3`). Use `POST /v1/chat/completions` when you want one OpenAI-compatible endpoint that can call every public model.
 
 ## Web search
 

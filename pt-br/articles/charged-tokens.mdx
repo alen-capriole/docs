@@ -1,12 +1,12 @@
 ---
 title: "Tokens cobrados da Capriole AI explicados"
 sidebarTitle: "Tokens cobrados"
-description: "Calcule os tokens cobrados da Capriole AI a partir da entrada sem cache, da entrada em cache e da saída, com exemplos reproduzíveis e os limites de cota pessoal e Team."
+description: "Como a Capriole AI conta os tokens cobrados em uma API até 92% abaixo dos preços oficiais: entrada sem cache, entrada em cache a 10%, saída e exemplos."
 ---
 
 Tokens cobrados são as unidades deduzidas de um saldo de API da Capriole AI. O Premium pessoal inclui 5 milhões por mês como parte da assinatura de espaço de trabalho de USD 8. Entrada sem cache e saída contam 100%. Entrada em cache conta 10%, arredondada para cima até o próximo token inteiro.
 
-Eles se aplicam ao tráfego da API pública e de agentes de programação. O Browser Chat ilimitado do Premium não consome este saldo de API.
+Eles se aplicam ao tráfego da API pública e de agentes de programação, que custa até 92% menos que os preços oficiais das APIs. O Browser Chat ilimitado do Premium não consome este saldo de API.
 
 ## A fórmula
 
@@ -98,11 +98,11 @@ A Capriole guarda o uso normalizado pelo protocolo e o uso cobrado como campos s
 - tokens cobrados deduzidos da cota;
 - o modelo resolvido e o status da solicitação.
 
-Os endpoints de Responses, Chat Completions e Messages preservam as formas de resposta do upstream e não devolvem um campo `charged_tokens`. A Capriole registra o valor correspondente de tokens cobrados para o uso da conta; você pode vê-lo na coluna **Charged tokens** da tabela de uso da [página da API](https://capriole.ai?view=api).
+Os endpoints de Responses, Chat Completions e Messages preservam as formas de resposta do upstream e não devolvem um campo `charged_tokens`. A Capriole registra o valor correspondente de tokens cobrados para o uso da conta; você pode vê-lo na coluna **Charged tokens** da tabela de uso da [página da API](https://www.capriole.ai/pt-br?view=api).
 
 ## Confirme se a entrada em cache reduziu uma cobrança
 
-Abra a [página da API](https://capriole.ai?view=api) da Capriole AI e use os filtros **Key**, **Model** e **Status** para isolar a solicitação. Compare estas colunas na tabela de uso:
+Abra a [página da API](https://www.capriole.ai/pt-br?view=api) da Capriole AI e use os filtros **Key**, **Model** e **Status** para isolar a solicitação. Compare estas colunas na tabela de uso:
 
 | Coluna | O que confirma |
 |---|---|
@@ -131,6 +131,6 @@ Não. O Browser Chat do Premium é ilimitado no conjunto de modelos Premium supo
 
 ### Por onde devo começar a programar?
 
-Use o [início rápido da API](/pt-br/quickstart) para a menor solicitação bruta ou o [guia dos SDKs OpenAI e Anthropic](/pt-br/guides/openai-anthropic-sdks) para clientes nativos de protocolo em Python e TypeScript. Se você ainda não assinou, [experimente os modelos principais no Browser Chat gratuito limitado](https://capriole.ai) antes de fazer upgrade.
+Use o [início rápido da API](/pt-br/quickstart) para a menor solicitação bruta ou o [guia dos SDKs OpenAI e Anthropic](/pt-br/guides/openai-anthropic-sdks) para clientes nativos de protocolo em Python e TypeScript. Se você ainda não assinou, [experimente os modelos principais no Browser Chat gratuito limitado](https://www.capriole.ai/pt-br) antes de fazer upgrade.
 
 Os fatos de plano, cota, recarga e tokens cobrados da Capriole nesta página são mantidos como documentação de primeira parte.

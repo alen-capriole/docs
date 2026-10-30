@@ -1,12 +1,12 @@
 ---
 title: "Capriole AI abgerechnete Tokens erklärt"
 sidebarTitle: "Abgerechnete Tokens"
-description: "Berechnen Sie Capriole AI abgerechnete Tokens aus ungecachter Eingabe, gecachter Eingabe und Ausgabe mit reproduzierbaren Beispielen sowie den Kontingentgrenzen für Personal und Team."
+description: "So zählt Capriole AI abgerechnete Tokens für eine API bis zu 92% unter offiziellen Preisen: ungecachte Eingabe, gecachte Eingabe zu 10%, Ausgabe und Rechenbeispiele."
 ---
 
 Abgerechnete Tokens sind die Einheiten, die von einem Capriole AI API-Guthaben abgezogen werden. Persönliches Premium umfasst 5 Millionen pro Monat als Teil der USD 8 Arbeitsbereich-Mitgliedschaft. Ungecachte Eingabe und Ausgabe zählen zu 100%. Gecachte Eingabe zählt zu 10%, aufgerundet auf das nächste ganze Token.
 
-Sie gelten für öffentlichen API- und Coding-Agent-Traffic. Unbegrenzter Premium Browser Chat verbraucht dieses API-Guthaben nicht.
+Sie gelten für öffentlichen API- und Coding-Agent-Traffic, der bis zu 92% weniger kostet als die offiziellen API-Preise. Unbegrenzter Premium Browser Chat verbraucht dieses API-Guthaben nicht.
 
 ## Die Formel
 
@@ -79,7 +79,7 @@ Der [datierte API-Kostenvergleich](/de/articles/ai-api-cost-comparison) wendet d
 | Zugang | Enthaltenes API-Guthaben | Basispreis der Aufstockung | Aktuelle Regel |
 |---|---:|---:|---|
 | Personal Premium | 5 Millionen abgerechnete Tokens pro aktivem monatlichem Kontingentzeitraum | USD 8 pro 5 Millionen | Öffentliche API und persönliche Aufstockungen erfordern aktiven Premium-Zugang; Käufe mehrerer Pakete erhalten den angezeigten Mengenrabatt, bis zu 15% |
-| Team | 50 Millionen geteilte abgerechnete Tokens pro aktivem monatlichem Kontingentzeitraum | USD 80 pro 50 Millionen | USD 70/Monat umfasst fünf Sitze; Owners und Admins können ein bis fünf Pakete kaufen, mit dem angezeigten Mengenrabatt bis zu 10% |
+| Team | 50 Millionen geteilte abgerechnete Tokens pro aktivem monatlichem Kontingentzeitraum | USD 80 pro 50 Millionen | USD 70/Monat umfasst fünf Plätze; Owners und Admins können ein bis fünf Pakete kaufen, mit dem angezeigten Mengenrabatt bis zu 10% |
 
 Das enthaltene Kontingent wird vor der passenden persönlichen oder Team-Aufstockungsbörse verbraucht. Gekaufte Aufstockungsguthaben bleiben über monatliche Kontingentzeiträume und Lücken im bezahlten Zugang bestehen; ihr Verbrauch erfordert weiterhin berechtigten aktiven bezahlten Zugang. Browser Chat ist von der API-Abrechnung getrennt; Coding-Agents zählen als API-Traffic und ziehen abgerechnete Tokens ab.
 
@@ -98,11 +98,11 @@ Capriole hält protokolnormalisierte Nutzung und berechnete Nutzung als getrennt
 - vom Kontingent abgezogene abgerechnete Tokens;
 - das aufgelöste Modell und den Anfragestatus.
 
-Die Responses-, Chat Completions- und Messages-Endpunkte bewahren ihre Upstream-Antwortformen und geben kein Feld `charged_tokens` zurück. Capriole erfasst den passenden Wert der abgerechneten Tokens für die Kontonutzung; Sie sehen ihn in der Spalte **Charged tokens** der Nutzungstabelle auf der [API-Seite](https://capriole.ai?view=api).
+Die Responses-, Chat Completions- und Messages-Endpunkte bewahren ihre Upstream-Antwortformen und geben kein Feld `charged_tokens` zurück. Capriole erfasst den passenden Wert der abgerechneten Tokens für die Kontonutzung; Sie sehen ihn in der Spalte **Charged tokens** der Nutzungstabelle auf der [API-Seite](https://www.capriole.ai/de?view=api).
 
 ## Bestätigen, ob gecachte Eingabe eine Belastung reduziert hat
 
-Öffnen Sie die Capriole AI [API-Seite](https://capriole.ai?view=api) und nutzen Sie die Filter **Key**, **Model** und **Status**, um die Anfrage zu isolieren. Vergleichen Sie diese Spalten in der Nutzungstabelle:
+Öffnen Sie die Capriole AI [API-Seite](https://www.capriole.ai/de?view=api) und nutzen Sie die Filter **Key**, **Model** und **Status**, um die Anfrage zu isolieren. Vergleichen Sie diese Spalten in der Nutzungstabelle:
 
 | Spalte | Was sie bestätigt |
 |---|---|
@@ -131,6 +131,6 @@ Nein. Premium Browser Chat ist über die unterstützte Premium-Modellgruppe unbe
 
 ### Wo sollte ich mit dem Programmieren beginnen?
 
-Nutzen Sie den [API-Schnellstart](/de/quickstart) für die kleinste Rohanfrage oder die [OpenAI- und Anthropic-SDK-Anleitung](/de/guides/openai-anthropic-sdks) für protokollnative Python- und TypeScript-Clients. Wenn Sie noch nicht abonniert haben, [probieren Sie die Flaggschiff-Modelle im begrenzten kostenlosen Browser Chat](https://capriole.ai), bevor Sie upgraden.
+Nutzen Sie den [API-Schnellstart](/de/quickstart) für die kleinste Rohanfrage oder die [OpenAI- und Anthropic-SDK-Anleitung](/de/guides/openai-anthropic-sdks) für protokollnative Python- und TypeScript-Clients. Wenn Sie noch nicht abonniert haben, [probieren Sie die Flaggschiff-Modelle im begrenzten kostenlosen Browser Chat](https://www.capriole.ai/de), bevor Sie upgraden.
 
 Capriole-Plan-, Kontingent-, Aufstockungs- und berechnete-Token-Fakten auf dieser Seite werden als First-Party-Dokumentation gepflegt.

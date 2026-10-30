@@ -1,7 +1,10 @@
 ---
-title: "Pi"
-description: "Configure o Pi para usar a Capriole AI."
+title: "Provedor personalizado no agente Pi: configure a Capriole AI"
+sidebarTitle: "Pi"
+description: "Adicione a Capriole AI ao models.json do agente Pi. Use GPT-6 Astra, Claude Fable 5.1 e Opus 5.5 pagando até 92% menos que na API oficial."
 ---
+
+Com uma única API key da Capriole AI, você usa GPT-6 Astra, Claude Fable 5.1 e Opus 5.5 no Pi pagando até 92% menos que os preços oficiais da API.
 
 ## O que é Pi
 
@@ -11,8 +14,9 @@ O Pi é um agente de programação minimalista e de código aberto para o termin
 
 Antes de começar, confira se você tem:
 
-- Uma conta Capriole AI ([Cadastre-se aqui](https://capriole.ai))
-- Uma API key da Capriole AI ([Obtenha sua key](https://capriole.ai?view=api))
+- Uma conta Capriole AI ([Cadastre-se aqui](https://www.capriole.ai/pt-br))
+- Um plano Premium (USD 8 por mês, também inclui chat na web ilimitado) ou um plano Team, necessário para a API key ([Assine](https://www.capriole.ai/pt-br?view=api))
+- Uma API key da Capriole AI ([Obtenha sua key](https://www.capriole.ai/pt-br?view=api))
 
 ## Instalação
 
@@ -155,7 +159,7 @@ pi -p --model xai/grok-4.7 "Explain this repository."
 | Kimi K3.1 Pro | `moonshot/kimi-k3.1-pro` | Chat Completions |
 | Kimi K3 | `moonshot/kimi-k3` | Chat Completions |
 
-`openai-latest` e `claude-latest` sempre apontam para o nosso modelo principal mais recente de cada família.
+`openai-latest` e `claude-latest` sempre apontam para o nosso modelo principal mais recente de cada família, atualmente GPT-6 Astra e Claude Fable 5.1.
 
 ## Solução de problemas
 
@@ -178,4 +182,5 @@ Os modelos Claude em `anthropic-messages` precisam dos IDs Claude sem prefixo, c
 ## Observações
 
 - Para adicionar outro modelo da Capriole AI, copie a entrada de um modelo da mesma família e altere o ID. `GET https://api.caprioletech.com/v1/models` lista todos os IDs de modelo.
+- Para usar a mesma key nos seus outros agentes de programação, veja [Usar uma API key com agentes de programação](/pt-br/guides/one-api-key-coding-agents).
 - Referências oficiais: [Pi](https://pi.dev), [Documentação do Pi](https://pi.dev/docs), [Escolher um modelo](https://github.com/earendil-works/pi/blob/main/packages/coding-agent/docs/models.md) e [Configuração do Pi](https://github.com/earendil-works/pi/blob/main/packages/coding-agent/docs/configuration.md).

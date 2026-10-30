@@ -1,7 +1,10 @@
 ---
-title: "Crush"
-description: "Crush가 Capriole AI를 사용하도록 구성합니다."
+title: "Charm Crush 사용자 지정 제공자 추가"
+sidebarTitle: "Crush"
+description: "Capriole AI를 Charm Crush의 제공자로 추가합니다. GPT-6 Astra, Claude Fable 5.1, Opus 5.5 모델을 공식 API 가격보다 최대 92% 저렴하게 사용하세요."
 ---
+
+Capriole AI API key 하나로 Crush에서 GPT-6 Astra, Claude Fable 5.1, Opus 5.5 모델을 공식 API 가격보다 최대 92% 저렴하게 사용할 수 있습니다.
 
 ## Crush란
 
@@ -11,8 +14,9 @@ Crush는 Charm의 터미널용 오픈 소스 코딩 에이전트입니다. Crush
 
 시작하기 전에 다음이 있는지 확인하세요.
 
-- Capriole AI 계정([여기에서 가입](https://capriole.ai))
-- Capriole AI API key([키 받기](https://capriole.ai?view=api))
+- Capriole AI 계정([여기에서 가입](https://www.capriole.ai/ko))
+- Premium 플랜(월 USD 8, 무제한 웹 채팅 포함) 또는 Team 플랜. API key를 만들려면 둘 중 하나가 필요합니다([구독하기](https://www.capriole.ai/ko?view=api))
+- Capriole AI API key([키 받기](https://www.capriole.ai/ko?view=api))
 
 ## 설치
 
@@ -100,7 +104,7 @@ crush run -m capriole/xai/grok-4.7 "Explain this repository."
 | Kimi K3.1 Pro | `moonshot/kimi-k3.1-pro` |
 | Kimi K3 | `moonshot/kimi-k3` |
 
-`openai-latest`와 `claude-latest`는 항상 각 계열의 최신 플래그십 모델을 가리킵니다.
+`openai-latest`와 `claude-latest`는 항상 각 계열의 최신 플래그십 모델을 가리킵니다. 현재는 GPT-6 Astra와 Claude Fable 5.1입니다.
 
 ## 문제 해결
 
@@ -120,4 +124,5 @@ Chat Completions에서는 `anthropic/claude-opus-5-5`처럼 `anthropic/` 접두�
 
 - `crushrc`는 셸 스크립트로 실행됩니다. 키를 이 파일에 붙여 넣지 마세요.
 - 다른 Capriole AI 모델을 추가하려면 `model add` 줄을 하나 더 추가하세요. `GET https://api.caprioletech.com/v1/models`는 모든 모델 ID를 나열합니다.
+- 같은 key를 다른 코딩 에이전트에서도 쓰려면 [코딩 에이전트에 API key 하나 사용하기](/ko/guides/one-api-key-coding-agents) 가이드를 참고하세요.
 - 공식 참고: [Crush](https://github.com/charmbracelet/crush), [Crush configuration](https://github.com/charmbracelet/crush#configuration).

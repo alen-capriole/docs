@@ -386,6 +386,160 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/articles/ai-api-cost-comparison" />
   </url>
   <url>
+    <loc>https://docs.capriole.ai/articles/ai-chat-without-login</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/articles/ai-chat-without-login" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/articles/ai-chat-without-login" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/articles/ai-chat-without-login" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/articles/ai-chat-without-login" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/articles/ai-chat-without-login" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/articles/ai-chat-without-login" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/articles/ai-chat-without-login" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/articles/ai-chat-without-login" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/zh/articles/ai-chat-without-login</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/articles/ai-chat-without-login" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/articles/ai-chat-without-login" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/articles/ai-chat-without-login" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/articles/ai-chat-without-login" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/articles/ai-chat-without-login" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/articles/ai-chat-without-login" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/articles/ai-chat-without-login" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/articles/ai-chat-without-login" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/es/articles/ai-chat-without-login</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/articles/ai-chat-without-login" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/articles/ai-chat-without-login" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/articles/ai-chat-without-login" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/articles/ai-chat-without-login" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/articles/ai-chat-without-login" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/articles/ai-chat-without-login" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/articles/ai-chat-without-login" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/articles/ai-chat-without-login" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/pt-br/articles/ai-chat-without-login</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/articles/ai-chat-without-login" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/articles/ai-chat-without-login" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/articles/ai-chat-without-login" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/articles/ai-chat-without-login" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/articles/ai-chat-without-login" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/articles/ai-chat-without-login" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/articles/ai-chat-without-login" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/articles/ai-chat-without-login" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/de/articles/ai-chat-without-login</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/articles/ai-chat-without-login" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/articles/ai-chat-without-login" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/articles/ai-chat-without-login" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/articles/ai-chat-without-login" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/articles/ai-chat-without-login" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/articles/ai-chat-without-login" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/articles/ai-chat-without-login" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/articles/ai-chat-without-login" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/ja/articles/ai-chat-without-login</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/articles/ai-chat-without-login" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/articles/ai-chat-without-login" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/articles/ai-chat-without-login" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/articles/ai-chat-without-login" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/articles/ai-chat-without-login" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/articles/ai-chat-without-login" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/articles/ai-chat-without-login" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/articles/ai-chat-without-login" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/ko/articles/ai-chat-without-login</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/articles/ai-chat-without-login" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/articles/ai-chat-without-login" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/articles/ai-chat-without-login" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/articles/ai-chat-without-login" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/articles/ai-chat-without-login" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/articles/ai-chat-without-login" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/articles/ai-chat-without-login" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/articles/ai-chat-without-login" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/articles/capriole-ai-vs-magai</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/articles/capriole-ai-vs-magai" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/articles/capriole-ai-vs-magai" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/articles/capriole-ai-vs-magai" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/articles/capriole-ai-vs-magai" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/articles/capriole-ai-vs-magai" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/articles/capriole-ai-vs-magai" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/articles/capriole-ai-vs-magai" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/articles/capriole-ai-vs-magai" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/zh/articles/capriole-ai-vs-magai</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/articles/capriole-ai-vs-magai" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/articles/capriole-ai-vs-magai" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/articles/capriole-ai-vs-magai" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/articles/capriole-ai-vs-magai" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/articles/capriole-ai-vs-magai" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/articles/capriole-ai-vs-magai" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/articles/capriole-ai-vs-magai" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/articles/capriole-ai-vs-magai" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/es/articles/capriole-ai-vs-magai</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/articles/capriole-ai-vs-magai" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/articles/capriole-ai-vs-magai" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/articles/capriole-ai-vs-magai" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/articles/capriole-ai-vs-magai" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/articles/capriole-ai-vs-magai" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/articles/capriole-ai-vs-magai" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/articles/capriole-ai-vs-magai" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/articles/capriole-ai-vs-magai" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/pt-br/articles/capriole-ai-vs-magai</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/articles/capriole-ai-vs-magai" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/articles/capriole-ai-vs-magai" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/articles/capriole-ai-vs-magai" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/articles/capriole-ai-vs-magai" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/articles/capriole-ai-vs-magai" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/articles/capriole-ai-vs-magai" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/articles/capriole-ai-vs-magai" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/articles/capriole-ai-vs-magai" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/de/articles/capriole-ai-vs-magai</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/articles/capriole-ai-vs-magai" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/articles/capriole-ai-vs-magai" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/articles/capriole-ai-vs-magai" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/articles/capriole-ai-vs-magai" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/articles/capriole-ai-vs-magai" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/articles/capriole-ai-vs-magai" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/articles/capriole-ai-vs-magai" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/articles/capriole-ai-vs-magai" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/ja/articles/capriole-ai-vs-magai</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/articles/capriole-ai-vs-magai" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/articles/capriole-ai-vs-magai" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/articles/capriole-ai-vs-magai" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/articles/capriole-ai-vs-magai" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/articles/capriole-ai-vs-magai" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/articles/capriole-ai-vs-magai" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/articles/capriole-ai-vs-magai" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/articles/capriole-ai-vs-magai" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/ko/articles/capriole-ai-vs-magai</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/articles/capriole-ai-vs-magai" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/articles/capriole-ai-vs-magai" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/articles/capriole-ai-vs-magai" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/articles/capriole-ai-vs-magai" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/articles/capriole-ai-vs-magai" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/articles/capriole-ai-vs-magai" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/articles/capriole-ai-vs-magai" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/articles/capriole-ai-vs-magai" />
+  </url>
+  <url>
     <loc>https://docs.capriole.ai/articles/capriole-ai-vs-openrouter</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/articles/capriole-ai-vs-openrouter" />
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/articles/capriole-ai-vs-openrouter" />
@@ -694,6 +848,83 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/articles/capriole-ai-vs-typingmind" />
   </url>
   <url>
+    <loc>https://docs.capriole.ai/articles/capriole-ai-vs-venice</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/articles/capriole-ai-vs-venice" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/articles/capriole-ai-vs-venice" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/articles/capriole-ai-vs-venice" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/articles/capriole-ai-vs-venice" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/articles/capriole-ai-vs-venice" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/articles/capriole-ai-vs-venice" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/articles/capriole-ai-vs-venice" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/articles/capriole-ai-vs-venice" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/zh/articles/capriole-ai-vs-venice</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/articles/capriole-ai-vs-venice" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/articles/capriole-ai-vs-venice" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/articles/capriole-ai-vs-venice" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/articles/capriole-ai-vs-venice" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/articles/capriole-ai-vs-venice" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/articles/capriole-ai-vs-venice" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/articles/capriole-ai-vs-venice" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/articles/capriole-ai-vs-venice" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/es/articles/capriole-ai-vs-venice</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/articles/capriole-ai-vs-venice" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/articles/capriole-ai-vs-venice" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/articles/capriole-ai-vs-venice" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/articles/capriole-ai-vs-venice" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/articles/capriole-ai-vs-venice" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/articles/capriole-ai-vs-venice" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/articles/capriole-ai-vs-venice" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/articles/capriole-ai-vs-venice" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/pt-br/articles/capriole-ai-vs-venice</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/articles/capriole-ai-vs-venice" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/articles/capriole-ai-vs-venice" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/articles/capriole-ai-vs-venice" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/articles/capriole-ai-vs-venice" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/articles/capriole-ai-vs-venice" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/articles/capriole-ai-vs-venice" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/articles/capriole-ai-vs-venice" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/articles/capriole-ai-vs-venice" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/de/articles/capriole-ai-vs-venice</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/articles/capriole-ai-vs-venice" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/articles/capriole-ai-vs-venice" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/articles/capriole-ai-vs-venice" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/articles/capriole-ai-vs-venice" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/articles/capriole-ai-vs-venice" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/articles/capriole-ai-vs-venice" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/articles/capriole-ai-vs-venice" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/articles/capriole-ai-vs-venice" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/ja/articles/capriole-ai-vs-venice</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/articles/capriole-ai-vs-venice" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/articles/capriole-ai-vs-venice" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/articles/capriole-ai-vs-venice" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/articles/capriole-ai-vs-venice" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/articles/capriole-ai-vs-venice" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/articles/capriole-ai-vs-venice" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/articles/capriole-ai-vs-venice" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/articles/capriole-ai-vs-venice" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/ko/articles/capriole-ai-vs-venice</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/articles/capriole-ai-vs-venice" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/articles/capriole-ai-vs-venice" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/articles/capriole-ai-vs-venice" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/articles/capriole-ai-vs-venice" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/articles/capriole-ai-vs-venice" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/articles/capriole-ai-vs-venice" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/articles/capriole-ai-vs-venice" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/articles/capriole-ai-vs-venice" />
+  </url>
+  <url>
     <loc>https://docs.capriole.ai/articles/charged-tokens</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/articles/charged-tokens" />
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/articles/charged-tokens" />
@@ -769,6 +1000,314 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/articles/charged-tokens" />
     <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/articles/charged-tokens" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/articles/charged-tokens" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/articles/chatgpt-plus-alternative</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/articles/chatgpt-plus-alternative" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/articles/chatgpt-plus-alternative" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/articles/chatgpt-plus-alternative" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/articles/chatgpt-plus-alternative" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/articles/chatgpt-plus-alternative" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/articles/chatgpt-plus-alternative" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/articles/chatgpt-plus-alternative" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/articles/chatgpt-plus-alternative" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/zh/articles/chatgpt-plus-alternative</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/articles/chatgpt-plus-alternative" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/articles/chatgpt-plus-alternative" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/articles/chatgpt-plus-alternative" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/articles/chatgpt-plus-alternative" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/articles/chatgpt-plus-alternative" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/articles/chatgpt-plus-alternative" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/articles/chatgpt-plus-alternative" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/articles/chatgpt-plus-alternative" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/es/articles/chatgpt-plus-alternative</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/articles/chatgpt-plus-alternative" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/articles/chatgpt-plus-alternative" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/articles/chatgpt-plus-alternative" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/articles/chatgpt-plus-alternative" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/articles/chatgpt-plus-alternative" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/articles/chatgpt-plus-alternative" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/articles/chatgpt-plus-alternative" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/articles/chatgpt-plus-alternative" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/pt-br/articles/chatgpt-plus-alternative</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/articles/chatgpt-plus-alternative" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/articles/chatgpt-plus-alternative" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/articles/chatgpt-plus-alternative" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/articles/chatgpt-plus-alternative" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/articles/chatgpt-plus-alternative" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/articles/chatgpt-plus-alternative" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/articles/chatgpt-plus-alternative" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/articles/chatgpt-plus-alternative" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/de/articles/chatgpt-plus-alternative</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/articles/chatgpt-plus-alternative" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/articles/chatgpt-plus-alternative" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/articles/chatgpt-plus-alternative" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/articles/chatgpt-plus-alternative" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/articles/chatgpt-plus-alternative" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/articles/chatgpt-plus-alternative" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/articles/chatgpt-plus-alternative" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/articles/chatgpt-plus-alternative" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/ja/articles/chatgpt-plus-alternative</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/articles/chatgpt-plus-alternative" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/articles/chatgpt-plus-alternative" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/articles/chatgpt-plus-alternative" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/articles/chatgpt-plus-alternative" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/articles/chatgpt-plus-alternative" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/articles/chatgpt-plus-alternative" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/articles/chatgpt-plus-alternative" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/articles/chatgpt-plus-alternative" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/ko/articles/chatgpt-plus-alternative</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/articles/chatgpt-plus-alternative" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/articles/chatgpt-plus-alternative" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/articles/chatgpt-plus-alternative" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/articles/chatgpt-plus-alternative" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/articles/chatgpt-plus-alternative" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/articles/chatgpt-plus-alternative" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/articles/chatgpt-plus-alternative" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/articles/chatgpt-plus-alternative" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/articles/claude-api-pricing</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/articles/claude-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/articles/claude-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/articles/claude-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/articles/claude-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/articles/claude-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/articles/claude-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/articles/claude-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/articles/claude-api-pricing" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/zh/articles/claude-api-pricing</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/articles/claude-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/articles/claude-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/articles/claude-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/articles/claude-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/articles/claude-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/articles/claude-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/articles/claude-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/articles/claude-api-pricing" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/es/articles/claude-api-pricing</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/articles/claude-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/articles/claude-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/articles/claude-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/articles/claude-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/articles/claude-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/articles/claude-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/articles/claude-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/articles/claude-api-pricing" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/pt-br/articles/claude-api-pricing</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/articles/claude-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/articles/claude-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/articles/claude-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/articles/claude-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/articles/claude-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/articles/claude-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/articles/claude-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/articles/claude-api-pricing" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/de/articles/claude-api-pricing</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/articles/claude-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/articles/claude-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/articles/claude-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/articles/claude-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/articles/claude-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/articles/claude-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/articles/claude-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/articles/claude-api-pricing" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/ja/articles/claude-api-pricing</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/articles/claude-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/articles/claude-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/articles/claude-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/articles/claude-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/articles/claude-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/articles/claude-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/articles/claude-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/articles/claude-api-pricing" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/ko/articles/claude-api-pricing</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/articles/claude-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/articles/claude-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/articles/claude-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/articles/claude-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/articles/claude-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/articles/claude-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/articles/claude-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/articles/claude-api-pricing" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/articles/claude-usage-limits</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/articles/claude-usage-limits" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/articles/claude-usage-limits" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/articles/claude-usage-limits" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/articles/claude-usage-limits" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/articles/claude-usage-limits" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/articles/claude-usage-limits" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/articles/claude-usage-limits" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/articles/claude-usage-limits" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/zh/articles/claude-usage-limits</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/articles/claude-usage-limits" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/articles/claude-usage-limits" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/articles/claude-usage-limits" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/articles/claude-usage-limits" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/articles/claude-usage-limits" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/articles/claude-usage-limits" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/articles/claude-usage-limits" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/articles/claude-usage-limits" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/es/articles/claude-usage-limits</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/articles/claude-usage-limits" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/articles/claude-usage-limits" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/articles/claude-usage-limits" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/articles/claude-usage-limits" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/articles/claude-usage-limits" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/articles/claude-usage-limits" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/articles/claude-usage-limits" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/articles/claude-usage-limits" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/pt-br/articles/claude-usage-limits</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/articles/claude-usage-limits" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/articles/claude-usage-limits" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/articles/claude-usage-limits" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/articles/claude-usage-limits" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/articles/claude-usage-limits" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/articles/claude-usage-limits" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/articles/claude-usage-limits" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/articles/claude-usage-limits" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/de/articles/claude-usage-limits</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/articles/claude-usage-limits" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/articles/claude-usage-limits" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/articles/claude-usage-limits" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/articles/claude-usage-limits" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/articles/claude-usage-limits" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/articles/claude-usage-limits" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/articles/claude-usage-limits" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/articles/claude-usage-limits" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/ja/articles/claude-usage-limits</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/articles/claude-usage-limits" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/articles/claude-usage-limits" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/articles/claude-usage-limits" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/articles/claude-usage-limits" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/articles/claude-usage-limits" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/articles/claude-usage-limits" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/articles/claude-usage-limits" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/articles/claude-usage-limits" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/ko/articles/claude-usage-limits</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/articles/claude-usage-limits" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/articles/claude-usage-limits" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/articles/claude-usage-limits" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/articles/claude-usage-limits" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/articles/claude-usage-limits" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/articles/claude-usage-limits" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/articles/claude-usage-limits" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/articles/claude-usage-limits" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/articles/claude-vs-chatgpt</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/articles/claude-vs-chatgpt" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/articles/claude-vs-chatgpt" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/articles/claude-vs-chatgpt" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/articles/claude-vs-chatgpt" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/articles/claude-vs-chatgpt" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/articles/claude-vs-chatgpt" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/articles/claude-vs-chatgpt" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/articles/claude-vs-chatgpt" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/zh/articles/claude-vs-chatgpt</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/articles/claude-vs-chatgpt" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/articles/claude-vs-chatgpt" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/articles/claude-vs-chatgpt" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/articles/claude-vs-chatgpt" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/articles/claude-vs-chatgpt" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/articles/claude-vs-chatgpt" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/articles/claude-vs-chatgpt" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/articles/claude-vs-chatgpt" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/es/articles/claude-vs-chatgpt</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/articles/claude-vs-chatgpt" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/articles/claude-vs-chatgpt" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/articles/claude-vs-chatgpt" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/articles/claude-vs-chatgpt" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/articles/claude-vs-chatgpt" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/articles/claude-vs-chatgpt" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/articles/claude-vs-chatgpt" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/articles/claude-vs-chatgpt" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/pt-br/articles/claude-vs-chatgpt</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/articles/claude-vs-chatgpt" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/articles/claude-vs-chatgpt" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/articles/claude-vs-chatgpt" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/articles/claude-vs-chatgpt" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/articles/claude-vs-chatgpt" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/articles/claude-vs-chatgpt" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/articles/claude-vs-chatgpt" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/articles/claude-vs-chatgpt" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/de/articles/claude-vs-chatgpt</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/articles/claude-vs-chatgpt" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/articles/claude-vs-chatgpt" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/articles/claude-vs-chatgpt" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/articles/claude-vs-chatgpt" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/articles/claude-vs-chatgpt" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/articles/claude-vs-chatgpt" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/articles/claude-vs-chatgpt" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/articles/claude-vs-chatgpt" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/ja/articles/claude-vs-chatgpt</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/articles/claude-vs-chatgpt" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/articles/claude-vs-chatgpt" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/articles/claude-vs-chatgpt" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/articles/claude-vs-chatgpt" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/articles/claude-vs-chatgpt" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/articles/claude-vs-chatgpt" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/articles/claude-vs-chatgpt" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/articles/claude-vs-chatgpt" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/ko/articles/claude-vs-chatgpt</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/articles/claude-vs-chatgpt" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/articles/claude-vs-chatgpt" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/articles/claude-vs-chatgpt" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/articles/claude-vs-chatgpt" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/articles/claude-vs-chatgpt" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/articles/claude-vs-chatgpt" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/articles/claude-vs-chatgpt" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/articles/claude-vs-chatgpt" />
   </url>
   <url>
     <loc>https://docs.capriole.ai/articles/coding-agent-compatibility</loc>
@@ -923,6 +1462,83 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/articles/one-ai-subscription" />
     <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/articles/one-ai-subscription" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/articles/one-ai-subscription" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/articles/openai-api-pricing</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/articles/openai-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/articles/openai-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/articles/openai-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/articles/openai-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/articles/openai-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/articles/openai-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/articles/openai-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/articles/openai-api-pricing" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/zh/articles/openai-api-pricing</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/articles/openai-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/articles/openai-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/articles/openai-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/articles/openai-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/articles/openai-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/articles/openai-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/articles/openai-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/articles/openai-api-pricing" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/es/articles/openai-api-pricing</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/articles/openai-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/articles/openai-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/articles/openai-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/articles/openai-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/articles/openai-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/articles/openai-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/articles/openai-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/articles/openai-api-pricing" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/pt-br/articles/openai-api-pricing</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/articles/openai-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/articles/openai-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/articles/openai-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/articles/openai-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/articles/openai-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/articles/openai-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/articles/openai-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/articles/openai-api-pricing" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/de/articles/openai-api-pricing</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/articles/openai-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/articles/openai-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/articles/openai-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/articles/openai-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/articles/openai-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/articles/openai-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/articles/openai-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/articles/openai-api-pricing" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/ja/articles/openai-api-pricing</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/articles/openai-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/articles/openai-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/articles/openai-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/articles/openai-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/articles/openai-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/articles/openai-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/articles/openai-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/articles/openai-api-pricing" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/ko/articles/openai-api-pricing</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/articles/openai-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/articles/openai-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/articles/openai-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/articles/openai-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/articles/openai-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/articles/openai-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/articles/openai-api-pricing" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/articles/openai-api-pricing" />
   </url>
   <url>
     <loc>https://docs.capriole.ai/articles/openrouter-alternatives</loc>
@@ -1541,6 +2157,83 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/guides/chat-storage" />
   </url>
   <url>
+    <loc>https://docs.capriole.ai/guides/choose-a-model</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/guides/choose-a-model" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/guides/choose-a-model" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/guides/choose-a-model" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/guides/choose-a-model" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/guides/choose-a-model" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/guides/choose-a-model" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/guides/choose-a-model" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/guides/choose-a-model" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/zh/guides/choose-a-model</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/guides/choose-a-model" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/guides/choose-a-model" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/guides/choose-a-model" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/guides/choose-a-model" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/guides/choose-a-model" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/guides/choose-a-model" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/guides/choose-a-model" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/guides/choose-a-model" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/es/guides/choose-a-model</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/guides/choose-a-model" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/guides/choose-a-model" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/guides/choose-a-model" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/guides/choose-a-model" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/guides/choose-a-model" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/guides/choose-a-model" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/guides/choose-a-model" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/guides/choose-a-model" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/pt-br/guides/choose-a-model</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/guides/choose-a-model" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/guides/choose-a-model" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/guides/choose-a-model" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/guides/choose-a-model" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/guides/choose-a-model" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/guides/choose-a-model" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/guides/choose-a-model" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/guides/choose-a-model" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/de/guides/choose-a-model</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/guides/choose-a-model" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/guides/choose-a-model" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/guides/choose-a-model" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/guides/choose-a-model" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/guides/choose-a-model" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/guides/choose-a-model" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/guides/choose-a-model" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/guides/choose-a-model" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/ja/guides/choose-a-model</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/guides/choose-a-model" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/guides/choose-a-model" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/guides/choose-a-model" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/guides/choose-a-model" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/guides/choose-a-model" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/guides/choose-a-model" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/guides/choose-a-model" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/guides/choose-a-model" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/ko/guides/choose-a-model</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/guides/choose-a-model" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/guides/choose-a-model" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/guides/choose-a-model" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/guides/choose-a-model" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/guides/choose-a-model" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/guides/choose-a-model" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/guides/choose-a-model" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/guides/choose-a-model" />
+  </url>
+  <url>
     <loc>https://docs.capriole.ai/guides/files-web-search</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/guides/files-web-search" />
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/guides/files-web-search" />
@@ -1772,6 +2465,160 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/guides/openai-anthropic-sdks" />
   </url>
   <url>
+    <loc>https://docs.capriole.ai/guides/plans-and-limits</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/guides/plans-and-limits" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/guides/plans-and-limits" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/guides/plans-and-limits" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/guides/plans-and-limits" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/guides/plans-and-limits" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/guides/plans-and-limits" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/guides/plans-and-limits" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/guides/plans-and-limits" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/zh/guides/plans-and-limits</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/guides/plans-and-limits" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/guides/plans-and-limits" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/guides/plans-and-limits" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/guides/plans-and-limits" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/guides/plans-and-limits" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/guides/plans-and-limits" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/guides/plans-and-limits" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/guides/plans-and-limits" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/es/guides/plans-and-limits</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/guides/plans-and-limits" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/guides/plans-and-limits" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/guides/plans-and-limits" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/guides/plans-and-limits" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/guides/plans-and-limits" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/guides/plans-and-limits" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/guides/plans-and-limits" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/guides/plans-and-limits" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/pt-br/guides/plans-and-limits</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/guides/plans-and-limits" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/guides/plans-and-limits" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/guides/plans-and-limits" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/guides/plans-and-limits" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/guides/plans-and-limits" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/guides/plans-and-limits" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/guides/plans-and-limits" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/guides/plans-and-limits" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/de/guides/plans-and-limits</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/guides/plans-and-limits" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/guides/plans-and-limits" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/guides/plans-and-limits" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/guides/plans-and-limits" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/guides/plans-and-limits" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/guides/plans-and-limits" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/guides/plans-and-limits" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/guides/plans-and-limits" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/ja/guides/plans-and-limits</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/guides/plans-and-limits" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/guides/plans-and-limits" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/guides/plans-and-limits" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/guides/plans-and-limits" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/guides/plans-and-limits" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/guides/plans-and-limits" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/guides/plans-and-limits" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/guides/plans-and-limits" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/ko/guides/plans-and-limits</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/guides/plans-and-limits" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/guides/plans-and-limits" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/guides/plans-and-limits" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/guides/plans-and-limits" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/guides/plans-and-limits" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/guides/plans-and-limits" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/guides/plans-and-limits" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/guides/plans-and-limits" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/guides/privacy-and-security</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/guides/privacy-and-security" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/guides/privacy-and-security" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/guides/privacy-and-security" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/guides/privacy-and-security" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/guides/privacy-and-security" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/guides/privacy-and-security" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/guides/privacy-and-security" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/guides/privacy-and-security" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/zh/guides/privacy-and-security</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/guides/privacy-and-security" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/guides/privacy-and-security" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/guides/privacy-and-security" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/guides/privacy-and-security" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/guides/privacy-and-security" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/guides/privacy-and-security" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/guides/privacy-and-security" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/guides/privacy-and-security" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/es/guides/privacy-and-security</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/guides/privacy-and-security" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/guides/privacy-and-security" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/guides/privacy-and-security" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/guides/privacy-and-security" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/guides/privacy-and-security" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/guides/privacy-and-security" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/guides/privacy-and-security" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/guides/privacy-and-security" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/pt-br/guides/privacy-and-security</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/guides/privacy-and-security" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/guides/privacy-and-security" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/guides/privacy-and-security" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/guides/privacy-and-security" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/guides/privacy-and-security" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/guides/privacy-and-security" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/guides/privacy-and-security" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/guides/privacy-and-security" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/de/guides/privacy-and-security</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/guides/privacy-and-security" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/guides/privacy-and-security" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/guides/privacy-and-security" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/guides/privacy-and-security" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/guides/privacy-and-security" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/guides/privacy-and-security" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/guides/privacy-and-security" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/guides/privacy-and-security" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/ja/guides/privacy-and-security</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/guides/privacy-and-security" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/guides/privacy-and-security" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/guides/privacy-and-security" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/guides/privacy-and-security" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/guides/privacy-and-security" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/guides/privacy-and-security" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/guides/privacy-and-security" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/guides/privacy-and-security" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/ko/guides/privacy-and-security</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/guides/privacy-and-security" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/guides/privacy-and-security" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/guides/privacy-and-security" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/guides/privacy-and-security" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/guides/privacy-and-security" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/guides/privacy-and-security" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/guides/privacy-and-security" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/guides/privacy-and-security" />
+  </url>
+  <url>
     <loc>https://docs.capriole.ai/guides/projects</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/guides/projects" />
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/guides/projects" />
@@ -1847,6 +2694,83 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/guides/projects" />
     <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/guides/projects" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/guides/projects" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/guides/team-plan</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/guides/team-plan" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/guides/team-plan" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/guides/team-plan" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/guides/team-plan" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/guides/team-plan" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/guides/team-plan" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/guides/team-plan" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/guides/team-plan" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/zh/guides/team-plan</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/guides/team-plan" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/guides/team-plan" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/guides/team-plan" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/guides/team-plan" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/guides/team-plan" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/guides/team-plan" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/guides/team-plan" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/guides/team-plan" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/es/guides/team-plan</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/guides/team-plan" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/guides/team-plan" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/guides/team-plan" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/guides/team-plan" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/guides/team-plan" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/guides/team-plan" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/guides/team-plan" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/guides/team-plan" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/pt-br/guides/team-plan</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/guides/team-plan" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/guides/team-plan" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/guides/team-plan" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/guides/team-plan" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/guides/team-plan" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/guides/team-plan" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/guides/team-plan" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/guides/team-plan" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/de/guides/team-plan</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/guides/team-plan" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/guides/team-plan" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/guides/team-plan" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/guides/team-plan" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/guides/team-plan" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/guides/team-plan" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/guides/team-plan" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/guides/team-plan" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/ja/guides/team-plan</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/guides/team-plan" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/guides/team-plan" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/guides/team-plan" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/guides/team-plan" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/guides/team-plan" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/guides/team-plan" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/guides/team-plan" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/guides/team-plan" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/ko/guides/team-plan</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/guides/team-plan" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/guides/team-plan" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/guides/team-plan" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/guides/team-plan" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/guides/team-plan" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/guides/team-plan" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/guides/team-plan" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/guides/team-plan" />
   </url>
   <url>
     <loc>https://docs.capriole.ai/integrations/claude-code</loc>

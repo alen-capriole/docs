@@ -1,7 +1,10 @@
 ---
-title: "Kilo Code"
-description: "Configura Kilo Code para usar Capriole AI."
+title: "Proveedor personalizado en Kilo Code: configura Capriole AI"
+sidebarTitle: "Kilo Code"
+description: "Añade Capriole AI a Kilo Code como proveedor personalizado. Usa GPT-6 Astra, Claude Fable 5.1 y Opus 5.5 pagando hasta un 92% menos que en la API oficial."
 ---
+
+Con una sola clave API de Capriole AI, usas GPT-6 Astra, Claude Fable 5.1 y Opus 5.5 en Kilo Code pagando hasta un 92% menos que los precios oficiales de la API.
 
 ## Qué es Kilo Code
 
@@ -11,8 +14,9 @@ Kilo Code es un agente de programación de IA para VS Code y la terminal. Esta c
 
 Antes de empezar, asegúrate de tener:
 
-- Una cuenta de Capriole AI ([Regístrate aquí](https://capriole.ai))
-- Una clave API de Capriole AI ([Obtén tu clave](https://capriole.ai?view=api))
+- Una cuenta de Capriole AI ([Regístrate aquí](https://www.capriole.ai/es))
+- Un plan Premium (USD 8 al mes, también incluye chat web ilimitado) o un plan Team, necesario para la clave API ([Suscríbete](https://www.capriole.ai/es?view=api))
+- Una clave API de Capriole AI ([Obtén tu clave](https://www.capriole.ai/es?view=api))
 
 ## Instalación
 
@@ -202,7 +206,7 @@ Las referencias de modelo usan el formato `capriole-ai/<model-id>`.
 | Kimi K3.1 Pro | `moonshot/kimi-k3.1-pro` | Chat Completions |
 | Kimi K3 | `moonshot/kimi-k3` | Chat Completions |
 
-`openai-latest` y `claude-latest` siempre apuntan a nuestro modelo insignia más reciente de cada familia.
+`openai-latest` y `claude-latest` siempre apuntan a nuestro modelo insignia más reciente de cada familia, actualmente GPT-6 Astra y Claude Fable 5.1.
 
 ## Solución de problemas
 
@@ -226,4 +230,5 @@ Confirma que la entrada del modelo incluye `"tool_call": true`.
 
 - Kilo Code ejecuta las herramientas de programación en tu equipo. Capriole AI solo gestiona las solicitudes de modelo.
 - Para añadir otro modelo de Capriole AI, copia la entrada de un modelo de la misma familia y cambia el ID. `GET https://api.caprioletech.com/v1/models` devuelve la lista de todos los IDs de modelo.
+- Para usar la misma clave en tus otros agentes de programación, consulta [Usa una sola clave API con agentes de programación](/es/guides/one-api-key-coding-agents).
 - Referencias oficiales: [Kilo CLI](https://kilo.ai/docs/cli), [modelos personalizados de Kilo](https://kilo.ai/docs/code-with-ai/agents/custom-models), [ajustes de Kilo](https://kilo.ai/docs/getting-started/settings) y [proveedores de OpenCode](https://opencode.ai/docs/providers).

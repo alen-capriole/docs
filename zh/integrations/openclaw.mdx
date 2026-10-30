@@ -1,18 +1,22 @@
 ---
-title: "OpenClaw"
-description: "配置 OpenClaw 使用 Capriole AI。"
+title: "OpenClaw 添加自定义模型提供商：Capriole AI 配置"
+sidebarTitle: "OpenClaw"
+description: "将 Capriole AI 添加为 OpenClaw 的自定义模型提供商，使用 GPT-6 Astra、Claude Fable 5.1 和 Opus 5.5，价格比官方 API 最多低 92%。"
 ---
+
+只需一个 Capriole AI API Key，就能在 OpenClaw 中使用 GPT-6 Astra、Claude Fable 5.1 和 Opus 5.5，价格比官方 API 最多低 92%。
 
 ## OpenClaw 是什么
 
-OpenClaw 是开源、自托管的个人 AI 助手和 Gateway，可以把 WhatsApp、Slack、Discord、Telegram、iMessage 和 WebChat 等聊天渠道连接到 AI 代理。这套配置把 Capriole AI 添加为三个自定义模型提供商，分别对应 Capriole AI 提供的每种 API 协议。
+OpenClaw 是开源、自托管的个人 AI 助手和 Gateway，可以把 WhatsApp、Slack、Discord、Telegram、iMessage 和 WebChat 等聊天渠道连接到 AI 智能体。这套配置把 Capriole AI 添加为三个自定义模型提供商，分别对应 Capriole AI 提供的每种 API 协议。
 
 ## 前置条件
 
 开始前请确保你已经拥有以下内容。
 
-- Capriole AI 账户，可在[此处注册](https://capriole.ai)
-- Capriole AI API Key，可在[此处获取](https://capriole.ai?view=api)
+- Capriole AI 账户，可在[此处注册](https://www.capriole.ai/zh)
+- Premium 套餐（每月 USD 8，还包含无限网页聊天）或 Team 套餐，API Key 需要其中之一，可在[此处订阅](https://www.capriole.ai/zh?view=api)
+- Capriole AI API Key，可在[此处获取](https://www.capriole.ai/zh?view=api)
 
 ## 安装
 
@@ -184,7 +188,7 @@ openclaw onboard
 - Anthropic 的 `baseUrl` 不含 `/v1`，因为 OpenClaw 会自行添加 `/v1/messages`。
 - Opus 5.5 的 `reasoning` 为 `false`。设为 `true` 时，OpenClaw 会发送思考预算，Opus 5.5 会以 `requires adaptive thinking` 拒绝请求。
 - `contextWindow` 和 `maxTokens` 告诉 OpenClaw 每个模型的限制。
-- `agents.defaults.models` 是代理可以使用的模型列表。`agents.defaults.model.primary` 是默认模型。
+- `agents.defaults.models` 是智能体可以使用的模型列表。`agents.defaults.model.primary` 是默认模型。
 
 ## 运行 OpenClaw
 
@@ -228,7 +232,7 @@ openclaw agent --local --session-id capriole-test --message "Summarize the files
 | Kimi K3.1 Pro | `capriole-ai-compatible/moonshot/kimi-k3.1-pro` | Chat Completions |
 | Kimi K3 | `capriole-ai-compatible/moonshot/kimi-k3` | Chat Completions |
 
-`openai-latest` 和 `claude-latest` 始终指向各自系列中我们最新的旗舰模型。
+`openai-latest` 和 `claude-latest` 始终指向各自系列中我们最新的旗舰模型，目前分别是 GPT-6 Astra 和 Claude Fable 5.1。
 
 ## 故障排除
 
@@ -255,4 +259,5 @@ openclaw agent --local --session-id capriole-test --message "Summarize the files
 ## 说明
 
 - 如需添加其他 Capriole AI 模型，请复制同一系列中某个模型的条目，修改 ID，并把它的模型引用添加到 `agents.defaults.models`。`GET https://api.caprioletech.com/v1/models` 会列出所有模型 ID。
+- 想在其他编程智能体中使用同一个 API Key，请参阅[使用一个 API Key 配置编程智能体](/zh/guides/one-api-key-coding-agents)。
 - 官方参考资料包括 [OpenClaw 安装](https://docs.openclaw.ai/install)、[OpenClaw 自定义提供商](https://docs.openclaw.ai/gateway/config-tools)、[OpenClaw 模型提供商](https://documentation.openclaw.ai/concepts/model-providers)和 [OpenClaw 故障排除](https://docs.openclaw.ai/gateway/troubleshooting)。

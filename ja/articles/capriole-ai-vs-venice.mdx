@@ -1,0 +1,115 @@
+---
+title: "Capriole AI と Venice の比較：料金・API"
+sidebarTitle: "Capriole AI と Venice"
+description: "Capriole AI は月額 USD 8 で GPT-6 Astra、Claude Fable 5.1、Opus 5.5、Gemini 4 Argon が無制限、API は公式価格の最大 92% オフ。Venice と比較。"
+---
+
+**Capriole AI は月額 USD 8 で、GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5、Gemini 4 Argon とのウェブチャットが無制限です**。API は公式 API 価格より最大 92% 安くなります。Venice Pro は月額 USD 18 で Pro モデルのテキスト プロンプトが無制限ですが、料金ページでは最先端のテキスト モデルはクレジット制です。Venice の API は、Claude Fable 5.1 と GPT-6 Astra に Anthropic や OpenAI と同じトークン単価を設定しています。
+
+最先端モデルを低い定額で使いたいなら、Capriole を選んでください。検閲のないオープンソース モデル、ゼロデータ保持やエンドツーエンド暗号化の推論、動画や音楽の生成が必要なら、Venice を選んでください。
+
+この比較では、Venice の料金ページ、API 料金、プライバシーのドキュメントを確認しました。
+
+## 簡易比較
+
+| 項目 | Capriole AI | Venice |
+|---|---|---|
+| 無料で始める | アカウントなしでウェブチャットを 1 日 5 メッセージ。無料アカウントでは毎月 50 万トークン分のウェブチャット | 無料プラン: ベース モデルで 1 日あたりテキスト プロンプト 10 回と画像プロンプト 15 回 |
+| 有料プラン | Premium 月額 USD 8、Team 月額 USD 70（5 シート） | Pro USD 18、Pro Plus USD 68、Max USD 200（いずれも月額） |
+| 最先端モデルとのチャット | GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5、Gemini 4 Argon をはじめ、すべての対応モデルで無制限 | Pro モデルのテキスト プロンプトは無制限。最先端のテキスト モデルはクレジットを使用 |
+| 毎月のクレジットまたは API トークン | Premium: 500 万 API トークン、Team: 5,000 万 | Pro: 100 クレジット（USD 1）、Pro Plus: 7,500（USD 75）、Max: 22,500（USD 225） |
+| Claude Fable 5.1 の API 料金 | どの対応モデルでも 500 万トークンあたり USD 8 | 100 万トークンあたり入力 USD 10、出力 USD 50 |
+| API プロトコル | OpenAI Chat Completions、OpenAI Responses、Anthropic Messages | OpenAI 互換 API（Responses はベータ版） |
+| コーディング エージェント | 10 種類のセットアップをドキュメント化。Claude Code は Anthropic Messages で直接接続 | Claude Code、Codex CLI、Cline、Kilo Code、OpenCode などのガイドあり。Claude Code には claude-code-router アドオンが必要 |
+| プライバシー モデル | チャット履歴は同期、ブラウザのみ、保存なしから選択。コンテンツは AI モデルの学習に使われない | 4 つのプライバシー モード。Claude、GPT、Gemini のモデルは Anonymized のため、プロバイダーにはプロンプトが見える |
+| メディア | GPT Image 2.5 と Nano Banana 2.1 による無料の画像生成 | 画像はすべてのプランで利用可能。動画と音楽はクレジットで利用 |
+
+ログイン中の Capriole のチャットには、スクリプトによる乱用を防ぐため、1 アカウントあたり UTC 基準で 1 日 200 メッセージのフェアユース上限があります。通常の利用ではこの上限を大きく下回ります。
+
+[無料でチャットを始める](https://www.capriole.ai/ja)ことも、[API キーを取得する](https://www.capriole.ai/ja?view=api)こともできます。
+
+## 最先端モデルとのチャットの料金
+
+Venice Pro は月額 USD 18 です。料金ページには Pro モデルでのテキスト プロンプト無制限と 1 日 1,000 枚の画像が記載されており、最先端の画像モデルとテキスト モデルはクレジットで使うとされています。Pro には毎月 100 クレジットが含まれ、Venice は 100 クレジットを USD 1 としています。USD 68 の Pro Plus には 7,500 クレジット、USD 200 の Max には 22,500 クレジットが含まれます。年払いでは最大 16.7% 節約できます。
+
+料金ページには、どのチャット モデルが最先端モデルに該当するかは明記されていません。
+
+Capriole Premium は月額 USD 8 で、ウェブチャットにクレジットのメーターはありません。GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5、Gemini 4 Argon をはじめ、すべての対応モデルが無制限です。
+
+## 同じワークロードでの API 料金
+
+Venice の API は、公開されているモデル料金での従量課金です。ドキュメントによると、計量されない API ティアはなく、有料サブスクリプションにも無料または無制限の API 利用は含まれません。有料プランには毎月の API 利用枠があり、Pro は USD 1、Pro Plus は USD 75、Max は USD 225 です。
+
+次の表は、出力 1 トークンにつき入力 3 トークン、キャッシュなしの条件で 500 万トークンの料金を計算しています。
+
+| モデル | Venice API（100 万トークンあたり入力 / 出力） | Venice（500 万トークン） | Capriole AI（500 万トークン） |
+|---|---:|---:|---:|
+| Claude Fable 5.1 | USD 10 / USD 50 | USD 100 | **USD 8** |
+| GPT-6 Astra | USD 10 / USD 50 | USD 100 | **USD 8** |
+| Claude Opus 5.5 | USD 4 / USD 20 | USD 40 | **USD 8** |
+| Gemini 4 Argon | USD 2.50 / USD 12.50 | USD 25 | **USD 8** |
+
+Capriole Premium には毎月 500 万 API トークンが含まれ、追加分は 500 万トークンあたり USD 8 です。[Claude API の料金](/ja/articles/claude-api-pricing)と [OpenAI API の料金](/ja/articles/openai-api-pricing)のページでは、Anthropic と OpenAI の同じ料金で同様の比較をしています。
+
+Capriole のキー 1 つで OpenAI Chat Completions、OpenAI Responses、Anthropic Messages を使え、[ドキュメントのある 10 種類のコーディング エージェント](/ja/articles/coding-agent-compatibility)も動かせます。Venice は `https://api.venice.ai/api/v1` の OpenAI 互換 API をドキュメント化しており、Responses エンドポイントはベータ版です。Venice の Claude Code ガイドでは、Anthropic Messages のリクエストを Venice の OpenAI 互換形式に変換するオープンソースのローカル ツール、claude-code-router を追加します。
+
+## プライバシー
+
+Venice が最も重視しているのはプライバシーです。ドキュメントでは、モデルごとに設定される 4 つのモードが説明されています。
+
+- **Anonymized**: Venice はあなたの身元をモデル プロバイダーに送りませんが、プロバイダーにはプロンプトが見えます。Venice の API 料金では、Claude、GPT、Gemini のモデルがこのモードに分類されています。
+- **Private**: プロンプトとレスポンスは推論のためだけに処理され、保持されません。
+- **TEE**: 対応モデルは、ハードウェアで分離されたエンクレーブ内で実行されます。
+- **E2EE**: クライアントがプロンプトを暗号化し、検証済みのエンクレーブだけがそれを復号します。
+
+Venice によると、通常の推論ではプロンプトとレスポンスの内容を保存もログ記録もしません。料金ページには、会話履歴はローカルに保存され、Pro では暗号化されたバックアップと復元を使えると記載されています。
+
+[プライバシーポリシー](/ja/legal/privacy)に記載のとおり、Capriole はチャット、ファイル、API のコンテンツを AI モデルの学習に使いません。チャット履歴の保存先は、アカウントへの同期、ブラウザ内への保存、まったく保存しない、から選べます。設定方法は[チャット ストレージ ガイド](/ja/guides/chat-storage)で確認できます。どのモードでも、リクエストは引き続き Capriole と選択したモデル プロバイダーを通ります。
+
+Anthropic、OpenAI、Google の最先端モデルでは、どちらの製品もプロンプトをそのプロバイダーに送ります。Venice のより強い保証が適用されるのは、Private、TEE、E2EE モードで実行するオープンソース モデルです。
+
+## どちらを選ぶべきか
+
+次のような場合は Capriole AI を選んでください。
+
+- 月額 USD 8 で GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5、Gemini 4 Argon と無制限にチャットしたい
+- Claude Code 向けの Anthropic Messages を含め、公式 API 価格より最大 92% 安い API とコーディング エージェント用のキーが欲しい
+- GPT Image 2.5 と Nano Banana 2.1 による無料の画像生成に加え、ファイル、ウェブ検索、プロジェクト、チャットのエクスポートを使いたい
+
+次のような場合は Venice を選んでください。
+
+- 検閲のないオープンソース モデルを使いたい
+- 対応モデルで、ゼロデータ保持、TEE、またはエンドツーエンド暗号化の推論を使いたい
+- 動画や音楽を生成したい、または[暗号資産でクレジットを購入したい](https://docs.venice.ai/overview/pricing)
+
+## よくある質問
+
+### Capriole AI は Venice より安いですか？
+
+最先端モデルについては、はい。Capriole Premium は月額 USD 8 で、現在の旗艦モデル 4 つすべてと無制限にチャットできます。Venice Pro は USD 18 で、最先端のテキスト モデルはクレジット制です。毎月のクレジットは 100（USD 1）です。
+
+### Venice の API は公式価格より安いですか？
+
+これらの旗艦モデルでは安くありません。Venice は Claude Fable 5.1 と GPT-6 Astra を 100 万トークンあたり入力 USD 10、出力 USD 50 としており、Anthropic や OpenAI と同じです。Capriole はどの対応モデルでも 500 万トークンあたり USD 8 で、最大 92% 安くなります。
+
+### プライバシーを重視するならどちらですか？
+
+Private、TEE、E2EE モードのオープンソース モデルなら Venice です。Claude、GPT、Gemini では、どちらもプロンプトをモデル プロバイダーに送ります。Capriole ではチャット履歴をまったく保存しない設定にでき、あなたのコンテンツを学習に使うこともありません。
+
+### Venice は Claude Code に対応していますか？
+
+はい、アドオンを使えば対応しています。Venice のガイドでは claude-code-router をインストールし、Claude Code の Anthropic Messages リクエストを Venice の OpenAI 互換形式に変換します。Capriole は Anthropic Messages に直接対応しているため、Claude Code は自身の設定だけで使えます。[Claude Code のセットアップ](/ja/integrations/claude-code)をご覧ください。
+
+## Capriole AI を始める
+
+アカウントなしで[無料でチャットを始める](https://www.capriole.ai/ja)ことも、Premium で [API キーを取得する](https://www.capriole.ai/ja?view=api)こともできます。
+
+## 公式ソース
+
+- Venice: [pricing](https://venice.ai/pricing)
+- Venice: [API pricing](https://docs.venice.ai/overview/pricing)
+- Venice: [privacy architecture](https://docs.venice.ai/overview/privacy)
+- Venice: [API documentation index](https://docs.venice.ai/llms.txt)
+- Venice: [Claude Code guide](https://docs.venice.ai/guides/integrations/claude-code)
+
+このページの Capriole AI の事実は、第一当事者ドキュメントとして維持されています。

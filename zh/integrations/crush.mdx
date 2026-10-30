@@ -1,18 +1,22 @@
 ---
-title: "Crush"
-description: "配置 Crush 使用 Capriole AI。"
+title: "Charm Crush 添加自定义提供商：Capriole AI 配置"
+sidebarTitle: "Crush"
+description: "将 Capriole AI 添加为 Charm Crush 的提供商，使用 GPT-6 Astra、Claude Fable 5.1 和 Opus 5.5，价格比官方 API 最多低 92%。"
 ---
+
+只需一个 Capriole AI API Key，就能在 Crush 中使用 GPT-6 Astra、Claude Fable 5.1 和 Opus 5.5，价格比官方 API 最多低 92%。
 
 ## Crush 是什么
 
-Crush 是 Charm 推出的开源终端编程代理。它从 `crushrc` 文件读取配置，该文件是带有 Crush 专用命令的 Bash 脚本。这套配置把 Capriole AI 添加为一个 OpenAI 兼容提供商。
+Crush 是 Charm 推出的开源终端编程智能体。它从 `crushrc` 文件读取配置，该文件是带有 Crush 专用命令的 Bash 脚本。这套配置把 Capriole AI 添加为一个 OpenAI 兼容提供商。
 
 ## 前置条件
 
 开始前请确保你已经拥有以下内容。
 
-- Capriole AI 账户，可在[此处注册](https://capriole.ai)
-- Capriole AI API Key，可在[此处获取](https://capriole.ai?view=api)
+- Capriole AI 账户，可在[此处注册](https://www.capriole.ai/zh)
+- Premium 套餐（每月 USD 8，还包含无限网页聊天）或 Team 套餐，API Key 需要其中之一，可在[此处订阅](https://www.capriole.ai/zh?view=api)
+- Capriole AI API Key，可在[此处获取](https://www.capriole.ai/zh?view=api)
 
 ## 安装
 
@@ -100,7 +104,7 @@ crush run -m capriole/xai/grok-4.7 "Explain this repository."
 | Kimi K3.1 Pro | `moonshot/kimi-k3.1-pro` |
 | Kimi K3 | `moonshot/kimi-k3` |
 
-`openai-latest` 和 `claude-latest` 始终指向各自系列中我们最新的旗舰模型。
+`openai-latest` 和 `claude-latest` 始终指向各自系列中我们最新的旗舰模型，目前分别是 GPT-6 Astra 和 Claude Fable 5.1。
 
 ## 故障排除
 
@@ -120,4 +124,5 @@ crush run -m capriole/xai/grok-4.7 "Explain this repository."
 
 - `crushrc` 会作为 Shell 脚本运行。不要把 API Key 粘贴到其中。
 - 如需添加其他 Capriole AI 模型，请再添加一行 `model add`。`GET https://api.caprioletech.com/v1/models` 会列出所有模型 ID。
+- 想在其他编程智能体中使用同一个 API Key，请参阅[使用一个 API Key 配置编程智能体](/zh/guides/one-api-key-coding-agents)。
 - 官方参考资料包括 [Crush](https://github.com/charmbracelet/crush)和 [Crush 配置](https://github.com/charmbracelet/crush#configuration)。

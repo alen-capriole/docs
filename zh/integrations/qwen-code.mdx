@@ -1,18 +1,22 @@
 ---
-title: "Qwen Code"
-description: "配置 Qwen Code 使用 Capriole AI。"
+title: "Qwen Code 添加自定义模型提供商：Capriole AI 配置"
+sidebarTitle: "Qwen Code"
+description: "将 Capriole AI 模型添加到 Qwen Code 的 modelProviders，使用 GPT-6 Astra、Claude Fable 5.1 和 Opus 5.5，价格比官方 API 最多低 92%。"
 ---
+
+只需一个 Capriole AI API Key，就能在 Qwen Code 中使用 GPT-6 Astra、Claude Fable 5.1 和 Opus 5.5，价格比官方 API 最多低 92%。
 
 ## Qwen Code 是什么
 
-Qwen Code 是面向终端的开源编程代理。它的 `modelProviders` 设置会列出你可以使用的模型以及每个模型的 API 协议。这套配置把 Capriole AI 模型添加到该列表中。
+Qwen Code 是面向终端的开源编程智能体。它的 `modelProviders` 设置会列出你可以使用的模型以及每个模型的 API 协议。这套配置把 Capriole AI 模型添加到该列表中。
 
 ## 前置条件
 
 开始前请确保你已经拥有以下内容。
 
-- Capriole AI 账户，可在[此处注册](https://capriole.ai)
-- Capriole AI API Key，可在[此处获取](https://capriole.ai?view=api)
+- Capriole AI 账户，可在[此处注册](https://www.capriole.ai/zh)
+- Premium 套餐（每月 USD 8，还包含无限网页聊天）或 Team 套餐，API Key 需要其中之一，可在[此处订阅](https://www.capriole.ai/zh?view=api)
+- Capriole AI API Key，可在[此处获取](https://www.capriole.ai/zh?view=api)
 
 ## 安装
 
@@ -186,7 +190,7 @@ qwen "Explain this repository." -m claude-latest --auth-type anthropic
 | Kimi K3.1 Pro | `moonshot/kimi-k3.1-pro` | `openai` | Chat Completions |
 | Kimi K3 | `moonshot/kimi-k3` | `openai` | Chat Completions |
 
-`openai-latest` 和 `claude-latest` 始终指向各自系列中我们最新的旗舰模型。
+`openai-latest` 和 `claude-latest` 始终指向各自系列中我们最新的旗舰模型，目前分别是 GPT-6 Astra 和 Claude Fable 5.1。
 
 ## 故障排除
 
@@ -206,4 +210,5 @@ qwen "Explain this repository." -m claude-latest --auth-type anthropic
 
 - 把 API Key 保存在 `~/.qwen/.env` 中，不要写入 `settings.json`。
 - 如需添加其他 Capriole AI 模型，请复制同一系列中某个模型的条目并修改 ID。`GET https://api.caprioletech.com/v1/models` 会列出所有模型 ID。
+- 想在其他编程智能体中使用同一个 API Key，请参阅[使用一个 API Key 配置编程智能体](/zh/guides/one-api-key-coding-agents)。
 - 官方参考资料包括 [Qwen Code](https://github.com/QwenLM/qwen-code)和 [Qwen Code 模型提供商](https://qwenlm.github.io/qwen-code-docs/en/users/configuration/model-providers/)。

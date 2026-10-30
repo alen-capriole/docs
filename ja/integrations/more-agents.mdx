@@ -1,7 +1,10 @@
 ---
-title: "その他のエージェント"
-description: "専用ページのないコーディング エージェントで Capriole AI を使います。"
+title: "任意のコーディング エージェントを Capriole AI に接続"
+sidebarTitle: "その他のエージェント"
+description: "カスタム エンドポイントを設定できるコーディング エージェントを Capriole AI に接続します。GPT-6 Astra、Claude Fable 5.1、Opus 5.5 を公式 API 価格より最大 92% 安く使えます。"
 ---
+
+Capriole AI の API キー 1 つで、カスタム エンドポイントを設定できるコーディング エージェントから GPT-6 Astra、Claude Fable 5.1、Opus 5.5 を公式 API 価格より最大 92% 安く使えます。
 
 ## 他のエージェント
 
@@ -15,9 +18,13 @@ description: "専用ページのないコーディング エージェントで C
 
 Chat Completions はすべてのモデルを提供しているため、最もシンプルな選択肢です。
 
+専用ページのあるエージェントで同じキーを使う方法は、[1 つの API キーでコーディング エージェントを使う](/ja/guides/one-api-key-coding-agents)を参照してください。
+
 ## 認証
 
 Capriole AI は、`Authorization` ヘッダーの Bearer トークンとしてのみキーを受け付けます。多くの Anthropic クライアントのように、エージェントがキーを `x-api-key` ヘッダーで送る場合は、カスタムの `Authorization: Bearer YOUR_CAPRIOLE_AI_API_KEY` ヘッダーを設定するか、代わりにエージェントの OpenAI 互換オプションを使ってください。
+
+API キーには Premium プラン（月額 USD 8、無制限の Web チャットも含む）または Team プランが必要です（[購読する](https://www.capriole.ai/ja?view=api)）。
 
 ## エージェントをリクエストする
 

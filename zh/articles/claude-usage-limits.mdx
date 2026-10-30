@@ -1,0 +1,129 @@
+---
+title: "Claude 用量限制详解：Pro、Max 与替代方案"
+sidebarTitle: "Claude 用量限制"
+description: "Claude Pro 和 Max 为何会触发五小时和每周限制、Fable 5.1 如何计费，以及每月 USD 8 无限畅聊 Claude Fable 5.1 和 Opus 5.5 的对比。"
+---
+
+Claude Pro 和 Max 用户会触发用量限制，是因为每个付费 Claude 方案都有五小时会话限制和每周限制，而 claude.ai、Claude Desktop 和 Claude Code 都从中消耗额度。长对话、工具、更高的推理强度和更大的模型都会更快用完额度。如果你主要用来聊天，Capriole AI Premium **每月 USD 8**，可在网页聊天中无限使用 **Claude Fable 5.1** 和 **Claude Opus 5.5**，外加 **GPT-6 Astra** 和 **Gemini 4 Argon**。
+
+如果你大量使用编程智能体，同一账户还包含 API，价格最多比官方 API 低 92%。
+
+## Claude 各方案与限制对比
+
+| 方案 | 价格 | 聊天用量 | Claude Fable 5.1 |
+|---|---|---|---|
+| Claude Free | USD 0 | 基础额度，仅限 Sonnet 和 Haiku | 不可用 |
+| Claude Pro | 每月 USD 20，按年付费则每月 USD 17 | 每个五小时会话至少为 Free 的 5 倍，另有每周限制 | 不在方案限制内；按 API 价格用用量积分支付 |
+| Claude Max 5x | 每月 USD 100 | 每个五小时会话为 Pro 的 5 倍，另有每周限制 | 最多占每周限制的 50% |
+| Claude Max 20x | 每月 USD 200 | 每个五小时会话为 Pro 的 20 倍，另有每周限制 | 最多占每周限制的 50% |
+| Capriole AI Premium | 每月 USD 8 | 无限网页聊天，设有每天 200 条消息的合理使用上限 | 包含在无限网页聊天中 |
+
+## Claude 的用量限制如何运作
+
+Anthropic 帮助中心介绍了付费方案的两种限制：
+
+- **会话限制**，每五小时重置一次。
+- **每周限制**，覆盖所有模型，在为你的账户分配的固定时间重置。
+
+Anthropic 称，它还可能以其他方式限制用量，例如每月上限，或针对特定模型和功能的限制。你可以在 claude.ai 的 **Settings** → **Usage** 中查看用量进度。
+
+这些限制是共享的。claude.ai、Claude Desktop 和 Claude Code 中的用量计入同一份额度，所以一次很长的 Claude Code 会话可能让聊天所剩无几。切换到其他 Claude 模型也不会重置额度，因为每周限制覆盖所有模型。
+
+## 为什么比预期更快触发限制
+
+Anthropic 列出了会消耗更多额度的因素：
+
+- 冗长复杂的对话
+- 你选择的模型
+- 更高的推理强度和扩展思考
+- 工具和连接器，它们会消耗大量 token
+- 大型项目文件，它们会占用上下文
+- 触发自动上下文管理的长对话
+
+Fable 5.1 还有自己的规则。在 Pro 上，Fable 5 和 Fable 5.1 不计入方案的用量限制，所以每条 Fable 消息都消耗用量积分（usage credits），按标准 API 价格计费。在 Max 上，Fable 模型最多可使用每周限制的 50%，不额外收费。
+
+## 触发限制时 Anthropic 的建议
+
+1. **等待重置。** 会话限制每五小时重置一次，**Settings** → **Usage** 会显示重置时间。
+2. **升级方案。** Anthropic 称 Max 5x 适合经常使用 Claude 的用户，Max 20x 适合每天使用 Claude 处理大多数任务的用户。新方案的限制立即生效。
+3. **开启用量积分。** 用量积分让你在触发限制后继续工作，按标准 API 价格计费。你可以设置每月消费上限。
+4. **减少每条消息的消耗。** 开始新对话，而不是继续拉长旧对话；降低推理强度；关闭扩展思考和不需要的工具；缩短项目指令。
+
+如果你在 Claude Code 回复过程中触发五小时限制，Claude Code 可能会先完成当前步骤再停止。在 Pro 上，这种情况每个每周用量周期最多发生一次。
+
+## 每月 USD 8 无限使用 Claude 网页聊天
+
+Capriole AI Premium 每月 USD 8，可在网页聊天中无限使用所有受支持的模型，包括 Claude Fable 5.1、Claude Opus 5.5、GPT-6 Astra 和 Gemini 4 Argon。
+
+Capriole AI 的网页聊天没有五小时会话限制，也没有每周限制。登录后的网页聊天设有合理使用上限：每个账户每天 200 条消息。它用于阻止脚本驱动的自动化滥用，正常使用远低于这个上限。
+
+Fable 5.1 不需要用量积分。所有模型都属于同一份无限网页聊天，你还可以[在对话中切换模型](/zh/articles/switch-models-mid-chat)，例如在遇到更难的步骤时从 Claude Opus 5.5 换到 Claude Fable 5.1，无需从头开始。
+
+Premium 还包括用 GPT Image 2.5 和 Nano Banana 2.1 免费生图、文件和网页搜索、项目、聊天导出、个性化以及存储控制。
+
+## 大量使用编程智能体：走 API 路线
+
+无限网页聊天不涵盖编程智能体。Claude Code 和其他智能体请使用 Capriole AI API key。智能体请求消耗按量计费的 API 余额，价格最多比官方 API 低 92%。
+
+| 模型 | 官方 API 价格，每 100 万 token（输入 / 输出） | Capriole AI |
+|---|---|---|
+| Claude Fable 5.1 | USD 10 / USD 50 | 每 500 万 token USD 8 |
+| Claude Opus 5.5 | USD 4 / USD 20 | 每 500 万 token USD 8 |
+| GPT-6 Astra | USD 10 / USD 50 | 每 500 万 token USD 8 |
+
+每 500 万 token USD 8，相当于每 100 万 token USD 1.60，输入和输出同价。Premium 每月含 500 万 API token，充值价格为每 500 万 token USD 8，可用于任意受支持的模型。缓存输入按 10% 计算，详见[计费 token](/zh/articles/charged-tokens)。
+
+Claude Code 通过 Capriole AI 的 Anthropic Messages 端点连接。同一个 key 可用于 [10 个有文档说明的编程智能体](/zh/guides/one-api-key-coding-agents)，包括 Codex。从 [Claude Code 配置](/zh/integrations/claude-code)开始。
+
+Claude Max 包含每月 API 额度，但 [Anthropic 称](https://support.claude.com/en/articles/17154008-monthly-api-credits-for-max-and-team-plans)这些额度不覆盖交互式 Claude Code 会话，也不覆盖达到方案限制后的额外用量。
+
+## 你会失去什么
+
+Capriole AI 是独立的工作区，与 Anthropic 没有关联，也不是 Claude 应用。只在 Anthropic 产品中提供的功能，例如 Artifacts、连接器、记忆、Claude in Chrome，以及 Claude 桌面端和移动端应用，都不属于 Capriole AI。Claude Code 仍然可用，走上面的 API 路线即可。
+
+## 常见问题
+
+<AccordionGroup>
+  <Accordion title="为什么我这么快就触发 Claude 的用量限制？">
+    长对话、工具和连接器、更高的推理强度和更大的模型都会消耗更多额度。Claude Code 和 claude.ai 也共用同一套限制，所以编程会话会减少聊天可用的额度。
+  </Accordion>
+  <Accordion title="Claude 的用量限制什么时候重置？">
+    会话限制每五小时重置一次。每周限制在为你的账户分配的固定时间重置。在 claude.ai 的 **Settings** → **Usage** 中查看你的重置时间。
+  </Accordion>
+  <Accordion title="Claude Pro 包含 Claude Fable 5.1 吗？">
+    不在 Pro 的用量限制内。在 Pro 上，Anthropic 通过用量积分按标准 API 价格对 Fable 5.1 计费。在 Max 上，Fable 模型最多可使用每周限制的 50%。在 Capriole AI Premium 上，Fable 5.1 属于每月 USD 8 的无限网页聊天。
+  </Accordion>
+  <Accordion title="每天 200 条消息够用吗？">
+    对真人用户来说，够用。这个上限用于阻止脚本驱动的自动化滥用。最活跃的真实用户一天发送过 132 条消息。
+  </Accordion>
+  <Accordion title="Capriole AI 能用 Claude Code 吗？">
+    可以，需要 Premium 或 Team 的 Capriole AI API key。Claude Code 请求消耗按量计费的 API 余额，而不是无限网页聊天。参见 [Claude Code 配置](/zh/integrations/claude-code)。
+  </Accordion>
+</AccordionGroup>
+
+## 开始使用
+
+<CardGroup cols={2}>
+  <Card title="开始聊天" icon="message" href="https://www.capriole.ai/zh">
+    无需账户即可试用 Claude Fable 5.1 和 Opus 5.5。
+  </Card>
+  <Card title="获取 Premium" icon="crown" href="https://www.capriole.ai/zh?view=api">
+    每月 USD 8，享受无限网页聊天和可用于 Claude Code 的 API key。
+  </Card>
+</CardGroup>
+
+## 官方来源
+
+- [Claude plans and pricing](https://claude.com/pricing)
+- [How do usage and length limits work?](https://support.claude.com/en/articles/11647753-how-do-usage-and-length-limits-work)
+- [What is the Pro plan?](https://support.claude.com/en/articles/8325606-what-is-the-pro-plan)
+- [What is the Max plan?](https://support.claude.com/en/articles/11049741-what-is-the-max-plan)
+- [Monthly API credits for Max and Team plans](https://support.claude.com/en/articles/17154008-monthly-api-credits-for-max-and-team-plans)
+- [Claude Fable models on your plan](https://support.claude.com/en/articles/15424964-claude-fable-models-on-your-plan)
+- [Use Claude Code with your Pro or Max plan](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)
+- [Manage usage credits for paid Claude plans](https://support.claude.com/en/articles/12429409-manage-usage-credits-for-paid-claude-plans)
+- [Usage limit best practices](https://support.claude.com/en/articles/9797557-usage-limit-best-practices)
+- [Claude Fable 5.1](https://platform.claude.com/docs/en/models/fable-5-1/overview) 和 [Claude Opus 5.5](https://platform.claude.com/docs/en/models/opus-5-5/overview) 模型页面
+- [GPT-6 Astra model](https://developers.openai.com/api/docs/models/gpt-6-astra)
+
+本页中的 Capriole AI 事实作为第一方文档持续维护。

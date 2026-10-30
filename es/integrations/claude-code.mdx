@@ -1,7 +1,10 @@
 ---
-title: "Claude Code"
-description: "Configura Claude Code para usar Capriole AI."
+title: "Claude Code con una API personalizada: configura Capriole AI"
+sidebarTitle: "Claude Code"
+description: "Conecta Claude Code a Capriole AI con un archivo de ajustes. Usa Claude Fable 5.1 y Opus 5.5 pagando hasta un 92% menos que en la API oficial."
 ---
+
+Con una sola clave API de Capriole AI, usas Claude Fable 5.1 y Opus 5.5 en Claude Code pagando hasta un 92% menos que los precios oficiales de la API.
 
 ## Qué es Claude Code
 
@@ -11,8 +14,9 @@ Claude Code es la herramienta de programación agéntica de Anthropic para leer 
 
 Antes de empezar, asegúrate de tener:
 
-- Una cuenta de Capriole AI ([Regístrate aquí](https://capriole.ai))
-- Una clave API de Capriole AI ([Obtén tu clave](https://capriole.ai?view=api))
+- Una cuenta de Capriole AI ([Regístrate aquí](https://www.capriole.ai/es))
+- Un plan Premium (USD 8 al mes, también incluye chat web ilimitado) o un plan Team, necesario para la clave API ([Suscríbete](https://www.capriole.ai/es?view=api))
+- Una clave API de Capriole AI ([Obtén tu clave](https://www.capriole.ai/es?view=api))
 
 ## Instalación
 
@@ -136,4 +140,5 @@ Capriole AI reenvía `/v1/messages/count_tokens` al upstream seleccionado. Si es
 
 - `~/.claude/settings.json` se aplica a tu cuenta de usuario en todos los proyectos. Sustituye `YOUR_CAPRIOLE_AI_API_KEY` por tu clave API de Capriole AI.
 - Los modelos Gemini, Grok, GLM y Kimi no funcionan en Claude Code, porque solo habla el protocolo Anthropic Messages. Para esos modelos, usa OpenCode, Kilo Code u otro agente multiprotocolo.
+- Para usar la misma clave en tus otros agentes de programación, consulta [Usa una sola clave API con agentes de programación](/es/guides/one-api-key-coding-agents).
 - Referencias oficiales: [instalación de Claude Code](https://code.claude.com/docs/en/setup), [configuración de modelos](https://code.claude.com/docs/en/model-config) y [configuración de un gateway LLM](https://code.claude.com/docs/en/llm-gateway-connect).

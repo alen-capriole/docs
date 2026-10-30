@@ -1,10 +1,10 @@
 ---
 title: "Codex、Claude Code、Copilot CLI など向けの 1 つの API"
 sidebarTitle: "コーディング エージェント互換性"
-description: "1 つの Capriole AI アカウントが、各クライアントが期待するプロトコル経由で、維持されている 6 つのコーディング エージェントにどうつながるかを見ます。"
+description: "1 つの Capriole AI アカウントが、各クライアントが期待するプロトコル経由で、ドキュメント化された 10 のコーディング エージェントにどうつながるかを見ます。"
 ---
 
-1 つの Capriole AI アカウントで、Codex、Claude Code、Kilo Code、GitHub Copilot CLI、OpenCode、OpenClaw を接続できます。Premium は月額 USD 8 で、500 万の課金 API トークンを含み、対応する Premium モデル群の無制限 Browser Chat も提供します。
+1 つの Capriole AI アカウントで、Codex、Claude Code、Kilo Code、GitHub Copilot CLI、OpenCode、OpenClaw、Cline、Qwen Code、Crush、Pi を接続できます。Premium は月額 USD 8 で、500 万の課金 API トークンを含み、対応する Premium モデル群の無制限 Browser Chat も提供します。
 
 各クライアントは期待するワイヤ形式を維持します。Capriole は、文書化された統合向けに OpenAI Responses、OpenAI 互換 Chat Completions、Anthropic Messages の経路を維持します。
 
@@ -16,22 +16,26 @@ Capriole は、これらのクライアント背後の繰り返しのプロバ�
 
 結果は、ブラウザ ワークスペースからリポジトリ作業への文書化された経路です。Premium ではチャットは無制限のままで、コーディング エージェント トラフィックは見える毎月 500 万の課金トークン残高を使います。
 
-## 6 つのエージェント、複数のプロトコル
+## 10 のエージェント、複数のプロトコル
 
 コーディング エージェントはプロンプトでは似て見えても、モデル クライアントは相互に置き換えられません。
 
 | コーディング エージェント | 維持されている Capriole 経路 | 推奨する開始点 |
 |---|---|---|
-| Codex | OpenAI Responses | [`openai-latest`](/ja/integrations/codex) |
-| Claude Code | Anthropic Messages | [`claude-latest`](/ja/integrations/claude-code) |
-| Kilo Code | OpenAI 互換 Chat Completions | [`openai-latest`](/ja/integrations/kilo-code) |
+| Codex | OpenAI Responses | [`gpt-6-astra`](/ja/integrations/codex) |
+| Claude Code | Anthropic Messages | [`claude-fable-5-1`](/ja/integrations/claude-code) |
+| Kilo Code | モデル系統に応じて OpenAI Responses、Anthropic Messages、または Chat Completions | [`claude-latest`](/ja/integrations/kilo-code) |
 | GitHub Copilot CLI | Chat Completions、Responses、または Messages | [文書化されたプロトコル経路を選ぶ](/ja/integrations/github-copilot-cli) |
-| OpenCode | OpenAI Responses、Chat Completions、または Anthropic Messages | [文書化されたプロバイダー経路を選ぶ](/ja/integrations/opencode) |
+| OpenCode | モデル系統に応じて OpenAI Responses、Anthropic Messages、または Chat Completions | [`claude-latest`](/ja/integrations/opencode) |
 | OpenClaw | OpenAI Responses、Anthropic Messages、または互換チャット | [文書化されたプロバイダー経路を選ぶ](/ja/integrations/openclaw) |
+| Cline | OpenAI 互換 Chat Completions | [`claude-latest`](/ja/integrations/cline) |
+| Qwen Code | モデル系統に応じて OpenAI Responses、Anthropic Messages、または Chat Completions | [`openai-latest`](/ja/integrations/qwen-code) |
+| Crush | OpenAI 互換 Chat Completions | [`claude-latest`](/ja/integrations/crush) |
+| Pi | モデル系統に応じて OpenAI Responses、Anthropic Messages、または Chat Completions | [`claude-latest`](/ja/integrations/pi) |
 
 これらの統合の背後には、同じアカウントと API 残高があります。リクエスト形状は引き続きクライアントに従います。
 
-Codex は Responses リクエストを送ります。Claude Code は Anthropic Messages リクエストを送り、選択したプロバイダーが対応する場合はトークンカウントの事前確認を使えます。Kilo Code は Chat Completions を使います。GitHub Copilot CLI、OpenCode、OpenClaw は異なるプロトコルまたはプロバイダー経路で設定できるため、セットアップは選ぶモデル系統とプロトコルに依存します。
+Codex は Responses リクエストを送ります。Claude Code は Anthropic Messages リクエストを送り、選択したプロバイダーが対応する場合はトークンカウントの事前確認を使えます。Cline と Crush はすべてのモデルで Chat Completions を使います。Kilo Code、OpenCode、Qwen Code、Pi は、各モデル系統を Capriole がその系統に提供するプロトコルへ送ります。GPT は Responses、Claude は Messages、その他のモデルは Chat Completions です。GitHub Copilot CLI と OpenClaw は、モデル系統ごとに別のプロトコル経路またはプロバイダーを使います。
 
 Capriole はこれらの区別を保持します。公開 Responses ルートは密かに Chat Completions へ変換されず、Messages ルートも OpenAI レスポンスへ書き換えられません。
 
@@ -67,9 +71,9 @@ Capriole は、対応する公開経路向けに維持エイリアスを提供�
 
 維持セットアップは、実際のクライアント経路とテストに従います。
 
-ローカル検証は、文書化された設定を通じて 6 クライアントすべてをカバーします。テストには基本プロンプトと、対応するツール対話フローが含まれます。
+ローカル検証は、文書化された設定を通じて 10 クライアントすべてをカバーします。テストには基本プロンプトと、対応するツール対話フローが含まれます。
 
-クライアント固有の制限があります。Codex は維持されている OpenAI Responses モデルのままです。Capriole で Claude モデルを選んでも、Codex 互換モデルにはなりません。Claude Code は Claude Messages 経路を使います。Kilo Code は Chat Completions を使います。GitHub Copilot CLI、OpenCode、OpenClaw はより広い選択肢を提供しますが、設定はそれでも選択したプロトコルに一致する必要があります。
+クライアント固有の制限があります。Codex は維持されている OpenAI Responses モデルのままです。Capriole で Claude モデルを選んでも、Codex 互換モデルにはなりません。Claude Code は Claude Messages 経路を使います。Cline と Crush は Chat Completions を使います。Kilo Code、GitHub Copilot CLI、OpenCode、OpenClaw、Qwen Code、Pi はより広い選択肢を提供しますが、設定はそれでも選択したプロトコルに一致する必要があります。
 
 表にリンクした統合ガイドが、現在のフィールドと対応セレクターの根拠です。
 
@@ -85,8 +89,8 @@ Capriole は両方のサーフェスを同じアカウントにつなぎます�
 
 ## まずエージェントを選び、そのプロトコルに従う
 
-Responses ベースの OpenAI ワークフローが仕事に合うときは Codex を使ってください。Anthropic ネイティブ クライアントが欲しいときは Claude Code を使ってください。Kilo Code は Chat Completions 上の IDE またはターミナル ワークフローを提供します。GitHub Copilot CLI、OpenCode、OpenClaw はより多くのプロトコル選択肢を提供します。
+Responses ベースの OpenAI ワークフローが仕事に合うときは Codex を使ってください。Anthropic ネイティブ クライアントが欲しいときは Claude Code を使ってください。Kilo Code と Cline は IDE またはターミナル ワークフローを提供します。GitHub Copilot CLI、OpenCode、OpenClaw、Qwen Code、Crush、Pi はより多くのクライアント選択肢を提供します。
 
 文書化された各クライアントは、そのプロトコルがサポートするモデルへの維持ルートを持ちます。
 
-[制限付きの無料 Browser Chat で GPT-6 Astra、Claude Fable 5.1、または Gemini 4 Argon を試す](https://capriole.ai)。API キーを作成する準備ができたらアップグレードしてください。共有ワークフローは [1 つのキーのコーディング エージェント ガイド](/ja/guides/one-api-key-coding-agents) から始め、使うエージェントの統合ページを開いてください。
+[制限付きの無料 Browser Chat で GPT-6 Astra、Claude Fable 5.1、または Gemini 4 Argon を試す](https://www.capriole.ai/ja)。API キーを作成する準備ができたらアップグレードしてください。共有ワークフローは [1 つのキーのコーディング エージェント ガイド](/ja/guides/one-api-key-coding-agents) から始め、使うエージェントの統合ページを開いてください。

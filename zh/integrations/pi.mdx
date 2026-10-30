@@ -1,18 +1,22 @@
 ---
-title: "Pi"
-description: "配置 Pi 使用 Capriole AI。"
+title: "Pi 编程智能体添加自定义提供商：Capriole AI 配置"
+sidebarTitle: "Pi"
+description: "将 Capriole AI 添加到 Pi 编程智能体的 models.json，使用 GPT-6 Astra、Claude Fable 5.1 和 Opus 5.5，价格比官方 API 最多低 92%。"
 ---
+
+只需一个 Capriole AI API Key，就能在 Pi 中使用 GPT-6 Astra、Claude Fable 5.1 和 Opus 5.5，价格比官方 API 最多低 92%。
 
 ## Pi 是什么
 
-Pi 是面向终端的开源极简编程代理。它从 `models.json` 读取自定义端点，每个模型都可以使用不同的 API 协议。这套配置把 Capriole AI 作为一个提供商添加到该文件中。
+Pi 是面向终端的开源极简编程智能体。它从 `models.json` 读取自定义端点，每个模型都可以使用不同的 API 协议。这套配置把 Capriole AI 作为一个提供商添加到该文件中。
 
 ## 前置条件
 
 开始前请确保你已经拥有以下内容。
 
-- Capriole AI 账户，可在[此处注册](https://capriole.ai)
-- Capriole AI API Key，可在[此处获取](https://capriole.ai?view=api)
+- Capriole AI 账户，可在[此处注册](https://www.capriole.ai/zh)
+- Premium 套餐（每月 USD 8，还包含无限网页聊天）或 Team 套餐，API Key 需要其中之一，可在[此处订阅](https://www.capriole.ai/zh?view=api)
+- Capriole AI API Key，可在[此处获取](https://www.capriole.ai/zh?view=api)
 
 ## 安装
 
@@ -155,7 +159,7 @@ pi -p --model xai/grok-4.7 "Explain this repository."
 | Kimi K3.1 Pro | `moonshot/kimi-k3.1-pro` | Chat Completions |
 | Kimi K3 | `moonshot/kimi-k3` | Chat Completions |
 
-`openai-latest` 和 `claude-latest` 始终指向各自系列中我们最新的旗舰模型。
+`openai-latest` 和 `claude-latest` 始终指向各自系列中我们最新的旗舰模型，目前分别是 GPT-6 Astra 和 Claude Fable 5.1。
 
 ## 故障排除
 
@@ -178,4 +182,5 @@ Pi 在能解析自定义模型的 API Key 之前会隐藏该模型。启动 Pi �
 ## 说明
 
 - 如需添加其他 Capriole AI 模型，请复制同一系列中某个模型的条目并修改 ID。`GET https://api.caprioletech.com/v1/models` 会列出所有模型 ID。
+- 想在其他编程智能体中使用同一个 API Key，请参阅[使用一个 API Key 配置编程智能体](/zh/guides/one-api-key-coding-agents)。
 - 官方参考资料包括 [Pi](https://pi.dev)、[Pi 文档](https://pi.dev/docs)、[选择模型](https://github.com/earendil-works/pi/blob/main/packages/coding-agent/docs/models.md)和 [Pi 配置](https://github.com/earendil-works/pi/blob/main/packages/coding-agent/docs/configuration.md)。

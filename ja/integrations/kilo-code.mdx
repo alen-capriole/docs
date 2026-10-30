@@ -1,7 +1,10 @@
 ---
-title: "Kilo Code"
-description: "Kilo Code が Capriole AI を使うように設定します。"
+title: "Kilo Code にカスタム プロバイダーを追加"
+sidebarTitle: "Kilo Code"
+description: "Capriole AI を Kilo Code のカスタム プロバイダーとして追加します。GPT-6 Astra、Claude Fable 5.1、Opus 5.5 を公式 API 価格より最大 92% 安く使えます。"
 ---
+
+Capriole AI の API キー 1 つで、Kilo Code から GPT-6 Astra、Claude Fable 5.1、Opus 5.5 を公式 API 価格より最大 92% 安く使えます。
 
 ## Kilo Code とは
 
@@ -11,8 +14,9 @@ Kilo Code は、VS Code とターミナル向けの AI コーディング エー
 
 始める前に、次を用意してください。
 
-- Capriole AI アカウント（[こちらから登録](https://capriole.ai)）
-- Capriole AI API キー（[キーを取得](https://capriole.ai?view=api)）
+- Capriole AI アカウント（[こちらから登録](https://www.capriole.ai/ja)）
+- Premium プラン（月額 USD 8、無制限の Web チャットも含む）または Team プラン。API キーにはどちらかが必要です（[購読する](https://www.capriole.ai/ja?view=api)）
+- Capriole AI API キー（[キーを取得](https://www.capriole.ai/ja?view=api)）
 
 ## インストール
 
@@ -202,7 +206,7 @@ kilo run -m capriole-ai/claude-latest "Explain this repository."
 | Kimi K3.1 Pro | `moonshot/kimi-k3.1-pro` | Chat Completions |
 | Kimi K3 | `moonshot/kimi-k3` | Chat Completions |
 
-`openai-latest` と `claude-latest` は、常に各ファミリーの最新の旗艦モデルを指します。
+`openai-latest` と `claude-latest` は、常に各ファミリーの最新の旗艦モデルを指します。現在は GPT-6 Astra と Claude Fable 5.1 です。
 
 ## トラブルシューティング
 
@@ -226,4 +230,5 @@ kilo run -m capriole-ai/claude-latest "Explain this repository."
 
 - Kilo Code はコーディング ツールをお使いのコンピューター上で実行します。Capriole AI が処理するのはモデル リクエストだけです。
 - Capriole AI の別のモデルを追加するには、同じファミリーのモデルのエントリーをコピーして ID を変更します。`GET https://api.caprioletech.com/v1/models` ですべてのモデル ID を一覧できます。
+- 同じキーを他のコーディング エージェントでも使うには、[1 つの API キーでコーディング エージェントを使う](/ja/guides/one-api-key-coding-agents)を参照してください。
 - 公式リファレンス: [Kilo CLI](https://kilo.ai/docs/cli)、[Kilo のカスタム モデル](https://kilo.ai/docs/code-with-ai/agents/custom-models)、[Kilo の設定](https://kilo.ai/docs/getting-started/settings)、[OpenCode のプロバイダー](https://opencode.ai/docs/providers)。

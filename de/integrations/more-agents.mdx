@@ -1,7 +1,10 @@
 ---
-title: "Weitere Agents"
-description: "Nutzen Sie Capriole AI mit einem Coding-Agent, für den es hier keine eigene Seite gibt."
+title: "Beliebige Coding-Agents mit Capriole AI verbinden"
+sidebarTitle: "Weitere Agents"
+description: "Coding-Agents mit eigenem Endpunkt an Capriole AI anbinden. Nutzen Sie GPT-6 Astra, Claude Fable 5.1 und Opus 5.5 bis zu 92 % unter den offiziellen API-Preisen."
 ---
+
+Mit einem einzigen Capriole AI API-Schlüssel nutzen Sie GPT-6 Astra, Claude Fable 5.1 und Opus 5.5 in jedem Coding-Agent mit benutzerdefiniertem Endpunkt, bis zu 92 % unter den offiziellen API-Preisen.
 
 ## Andere Agents
 
@@ -15,9 +18,13 @@ Die meisten Coding-Agents können Capriole AI nutzen, wenn sie einen benutzerdef
 
 Chat Completions ist die einfachste Wahl, da darüber jedes Modell bereitgestellt wird.
 
+Wie Sie denselben Schlüssel in Agents mit eigener Seite nutzen, zeigt [Einen API-Schlüssel mit Coding-Agents nutzen](/de/guides/one-api-key-coding-agents).
+
 ## Authentifizierung
 
 Capriole AI akzeptiert den Schlüssel nur als Bearer-Token im `Authorization`-Header. Wenn ein Agent den Schlüssel in einem `x-api-key`-Header sendet, wie es viele Anthropic-Clients tun, setzen Sie einen benutzerdefinierten Header `Authorization: Bearer YOUR_CAPRIOLE_AI_API_KEY` oder verwenden Sie stattdessen die OpenAI-kompatible Option des Agents.
+
+Ein API-Schlüssel setzt Premium (USD 8 pro Monat, inklusive unbegrenztem Web-Chat) oder Team voraus ([Abonnieren](https://www.capriole.ai/de?view=api)).
 
 ## Einen Agent anfragen
 

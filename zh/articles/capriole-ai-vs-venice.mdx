@@ -1,0 +1,115 @@
+---
+title: "Capriole AI 与 Venice 对比：价格、模型、API 和隐私"
+sidebarTitle: "Capriole AI 与 Venice"
+description: "Capriole AI 每月 USD 8 无限畅聊 GPT-6 Astra、Claude Fable 5.1、Opus 5.5 和 Gemini 4 Argon，API 价格最多比官方低 92%。看看 Venice 与它相比如何。"
+---
+
+**Capriole AI 每月 USD 8，可无限使用 GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5 和 Gemini 4 Argon 的网页聊天**，其 API 最多比官方 API 价格低 92%。Venice Pro 每月 USD 18，可在其 Pro 模型上无限发送文本提示词，但其定价页把前沿文本模型归入 credits 计费。Venice 的 API 对 Claude Fable 5.1 和 GPT-6 Astra 收取与 Anthropic 和 OpenAI 相同的每 token 费率。
+
+想以较低的固定价格使用前沿模型，选 Capriole。如果你想要无审查的开源模型、零数据保留或端到端加密推理，或者视频和音乐生成，选 Venice。
+
+本次对比核对了 Venice 的定价页、API 定价和隐私文档。
+
+## 快速对比
+
+| 范围 | Capriole AI | Venice |
+|---|---|---|
+| 免费入口 | 无需账户即可使用网页聊天，每天 5 条消息；免费账户每月有 50 万 token 的网页聊天额度 | 免费方案：基础模型上每天 10 条文本提示词和 15 条图片提示词 |
+| 付费方案 | Premium 每月 USD 8；Team 每月 USD 70，含 5 个席位 | 每月 Pro USD 18、Pro Plus USD 68、Max USD 200 |
+| 前沿模型聊天 | GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5、Gemini 4 Argon 及其他所有受支持模型均无限 | Pro 模型上文本提示词无限；前沿文本模型消耗 credits |
+| 每月 credits 或 API token | Premium：500 万 API token；Team：5000 万 | Pro：100 credits（USD 1）；Pro Plus：7,500（USD 75）；Max：22,500（USD 225） |
+| Claude Fable 5.1 API 价格 | 任意受支持模型每 500 万 token USD 8 | 每 100 万 token 输入 USD 10、输出 USD 50 |
+| API 协议 | OpenAI Chat Completions、OpenAI Responses 和 Anthropic Messages | 兼容 OpenAI 的 API，Responses 处于 beta 阶段 |
+| 编程智能体 | 10 个有文档说明的配置；Claude Code 通过 Anthropic Messages 直接连接 | 提供 Claude Code、Codex CLI、Cline、Kilo Code、OpenCode 等指南；Claude Code 需要额外安装 claude-code-router |
+| 隐私机制 | 聊天历史可同步、仅存于浏览器或不存储；内容不用于训练 AI 模型 | 四种隐私模式；Claude、GPT 和 Gemini 模型属于 Anonymized 模式，提供商仍能看到提示词 |
+| 媒体 | 使用 GPT Image 2.5 和 Nano Banana 2.1 免费生图 | 所有方案都可生成图片；视频和音乐消耗 credits |
+
+Capriole 的已登录聊天设有每个账户每个 UTC 日 200 条消息的合理使用上限，用于阻止脚本化滥用，正常使用远低于这一上限。
+
+[免费开始聊天](https://www.capriole.ai/zh)，或[获取 API key](https://www.capriole.ai/zh?view=api)。
+
+## 前沿模型聊天的价格
+
+Venice Pro 每月 USD 18。其定价页列出 Pro 模型上无限文本提示词和每天 1,000 张图片，并说明前沿图片和文本模型需使用 credits。Pro 每月包含 100 credits，Venice 规定 100 credits 等于 USD 1。USD 68 的 Pro Plus 包含 7,500 credits，USD 200 的 Max 包含 22,500。按年付费最多可省 16.7%。
+
+定价页没有说明哪些聊天模型属于前沿模型。
+
+Capriole Premium 每月 USD 8，网页聊天不按 credits 计量。GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5、Gemini 4 Argon 及其他所有受支持模型都可无限使用。
+
+## 相同工作负载的 API 价格
+
+Venice 的 API 按其公布的模型费率按量付费。其文档称，没有不计量的 API 档位，付费订阅也不包含免费或无限的 API 用量。付费方案每月包含一定 API 额度：Pro 为 USD 1，Pro Plus 为 USD 75，Max 为 USD 225。
+
+下表按输入与输出 token 3:1 的比例、不使用缓存，计算 500 万 token 的价格。
+
+| 模型 | Venice API，每 100 万 token 输入 / 输出 | Venice，500 万 token | Capriole AI，500 万 token |
+|---|---:|---:|---:|
+| Claude Fable 5.1 | USD 10 / USD 50 | USD 100 | **USD 8** |
+| GPT-6 Astra | USD 10 / USD 50 | USD 100 | **USD 8** |
+| Claude Opus 5.5 | USD 4 / USD 20 | USD 40 | **USD 8** |
+| Gemini 4 Argon | USD 2.50 / USD 12.50 | USD 25 | **USD 8** |
+
+Capriole Premium 每月包含 500 万 API token，额外用量为每 500 万 token USD 8。[Claude API 价格](/zh/articles/claude-api-pricing)和 [OpenAI API 价格](/zh/articles/openai-api-pricing)页面把同样的费率与 Anthropic 和 OpenAI 做了对比。
+
+一个 Capriole key 可用于 OpenAI Chat Completions、OpenAI Responses 和 Anthropic Messages，还能驱动 [10 个有文档说明的编程智能体](/zh/articles/coding-agent-compatibility)。Venice 的文档记载了位于 `https://api.venice.ai/api/v1` 的兼容 OpenAI 的 API，其 Responses 端点处于 beta 阶段。它的 Claude Code 指南额外加入了 claude-code-router，这是一个开源本地工具，会把 Anthropic Messages 请求转换成 Venice 兼容 OpenAI 的格式。
+
+## 隐私
+
+隐私是 Venice 的核心重点。其文档介绍了四种模式，按模型设定：
+
+- **Anonymized**：匿名化模式。Venice 不会把你的身份发送给模型提供商，但提供商仍能看到提示词。Venice 的 API 定价把它的 Claude、GPT 和 Gemini 模型列在这一模式下。
+- **Private**：私密模式。提示词和响应只用于推理处理，不会保留。
+- **TEE**：可信执行环境。受支持的模型在硬件隔离的安全飞地中运行。
+- **E2EE**：端到端加密。你的客户端加密提示词，只有经过验证的安全飞地才能解密。
+
+Venice 表示，常规推理时不会存储或记录提示词和响应内容。其定价页列出对话历史存储在本地，Pro 提供加密备份和恢复。
+
+正如其[隐私政策](/zh/legal/privacy)所述，Capriole 不会用你的聊天、文件或 API 内容训练 AI 模型。聊天历史存放在哪里由你决定：同步到账户、保留在浏览器中，或完全不存储。[聊天存储指南](/zh/guides/chat-storage)介绍了相关设置。无论使用哪种模式，请求仍会经过 Capriole 和所选模型提供商。
+
+对于 Anthropic、OpenAI 和 Google 的前沿模型，两款产品都会把你的提示词发送给相应提供商。Venice 更强的保障适用于它以 Private、TEE 或 E2EE 模式运行的开源模型。
+
+## 如何选择
+
+如果你想要以下内容，选择 Capriole AI：
+
+- 每月 USD 8 无限畅聊 GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5 和 Gemini 4 Argon
+- 一个同时用于 API 和编程智能体的 key，最多比官方 API 价格低 92%，并支持供 Claude Code 使用的 Anthropic Messages
+- 使用 GPT Image 2.5 和 Nano Banana 2.1 免费生图，还有文件、网页搜索、项目和聊天导出
+
+如果你想要以下内容，选择 Venice：
+
+- 无审查的开源模型
+- 在受支持模型上进行零数据保留、TEE 或端到端加密推理
+- 视频和音乐生成，或[用加密货币购买 credits](https://docs.venice.ai/overview/pricing)
+
+## 常见问题
+
+### Capriole AI 比 Venice 便宜吗
+
+就前沿模型而言，是的。Capriole Premium 每月 USD 8，可无限畅聊全部四款当前旗舰模型。Venice Pro 为 USD 18，前沿文本模型按 credits 计费，每月包含 100 credits，即 USD 1。
+
+### Venice 的 API 比官方价格便宜吗
+
+对这些旗舰模型来说并不便宜。Venice 给 Claude Fable 5.1 和 GPT-6 Astra 标的价格是每 100 万 token 输入 USD 10、输出 USD 50，与 Anthropic 和 OpenAI 相同。Capriole 对任意受支持模型收取每 500 万 token USD 8，最多比官方 API 价格低 92%。
+
+### 哪个更注重隐私
+
+在 Private、TEE 或 E2EE 模式下使用开源模型时，Venice 更注重隐私。对于 Claude、GPT 和 Gemini，两者都会把你的提示词发送给模型提供商。Capriole 允许你完全不保存聊天历史，也不会用你的内容训练模型。
+
+### Venice 支持 Claude Code 吗
+
+支持，但需要额外工具。Venice 的指南会安装 claude-code-router，把 Claude Code 的 Anthropic Messages 请求转换成它兼容 OpenAI 的格式。Capriole 直接支持 Anthropic Messages，因此 Claude Code 只需配置自身设置。请参阅 [Claude Code 配置](/zh/integrations/claude-code)。
+
+## 开始使用 Capriole AI
+
+无需账户即可[免费开始聊天](https://www.capriole.ai/zh)，或订阅 Premium [获取 API key](https://www.capriole.ai/zh?view=api)。
+
+## 官方来源
+
+- Venice：[定价](https://venice.ai/pricing)
+- Venice：[API 定价](https://docs.venice.ai/overview/pricing)
+- Venice：[隐私架构](https://docs.venice.ai/overview/privacy)
+- Venice：[API 文档索引](https://docs.venice.ai/llms.txt)
+- Venice：[Claude Code 指南](https://docs.venice.ai/guides/integrations/claude-code)
+
+本页中的 Capriole AI 事实作为第一方文档持续维护。

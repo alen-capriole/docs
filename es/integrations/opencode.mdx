@@ -1,7 +1,10 @@
 ---
-title: "OpenCode"
-description: "Configura OpenCode para usar Capriole AI."
+title: "Proveedor personalizado en OpenCode: configura Capriole AI"
+sidebarTitle: "OpenCode"
+description: "Añade Capriole AI a OpenCode como proveedor personalizado. Usa GPT-6 Astra, Claude Fable 5.1 y Opus 5.5 pagando hasta un 92% menos que en la API oficial."
 ---
+
+Con una sola clave API de Capriole AI, usas GPT-6 Astra, Claude Fable 5.1 y Opus 5.5 en OpenCode pagando hasta un 92% menos que los precios oficiales de la API.
 
 ## Qué es OpenCode
 
@@ -11,8 +14,9 @@ OpenCode es un agente de programación de IA de código abierto disponible como 
 
 Antes de empezar, asegúrate de tener:
 
-- Una cuenta de Capriole AI ([Regístrate aquí](https://capriole.ai))
-- Una clave API de Capriole AI ([Obtén tu clave](https://capriole.ai?view=api))
+- Una cuenta de Capriole AI ([Regístrate aquí](https://www.capriole.ai/es))
+- Un plan Premium (USD 8 al mes, también incluye chat web ilimitado) o un plan Team, necesario para la clave API ([Suscríbete](https://www.capriole.ai/es?view=api))
+- Una clave API de Capriole AI ([Obtén tu clave](https://www.capriole.ai/es?view=api))
 
 ## Instalación
 
@@ -186,7 +190,7 @@ Las referencias de modelo usan el formato `capriole-ai/<model-id>`.
 | Kimi K3.1 Pro | `moonshot/kimi-k3.1-pro` | Chat Completions |
 | Kimi K3 | `moonshot/kimi-k3` | Chat Completions |
 
-`openai-latest` y `claude-latest` siempre apuntan a nuestro modelo insignia más reciente de cada familia.
+`openai-latest` y `claude-latest` siempre apuntan a nuestro modelo insignia más reciente de cada familia, actualmente GPT-6 Astra y Claude Fable 5.1.
 
 ## Solución de problemas
 
@@ -218,4 +222,5 @@ Borra `~/.cache/opencode` y reinicia OpenCode para que reinstale los paquetes de
 
 - Mantén tu clave en el entorno. No la pegues en `opencode.json`.
 - Para añadir otro modelo de Capriole AI, copia la entrada de un modelo de la misma familia y cambia el ID. `GET https://api.caprioletech.com/v1/models` devuelve la lista de todos los IDs de modelo.
+- Para usar la misma clave en tus otros agentes de programación, consulta [Usa una sola clave API con agentes de programación](/es/guides/one-api-key-coding-agents).
 - Referencias oficiales: [instalación de OpenCode](https://opencode.ai/docs), [configuración de OpenCode](https://opencode.ai/docs/config), [proveedores de OpenCode](https://opencode.ai/docs/providers), [modelos de OpenCode](https://opencode.ai/docs/models) y [solución de problemas de OpenCode](https://opencode.ai/docs/troubleshooting).

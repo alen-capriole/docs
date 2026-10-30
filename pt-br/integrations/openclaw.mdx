@@ -1,7 +1,10 @@
 ---
-title: "OpenClaw"
-description: "Configure o OpenClaw para usar a Capriole AI."
+title: "Provedores de modelos no OpenClaw: configure a Capriole AI"
+sidebarTitle: "OpenClaw"
+description: "Adicione a Capriole AI ao OpenClaw como provedores personalizados. Use GPT-6 Astra, Claude Fable 5.1 e Opus 5.5 pagando até 92% menos que na API oficial."
 ---
+
+Com uma única API key da Capriole AI, você usa GPT-6 Astra, Claude Fable 5.1 e Opus 5.5 no OpenClaw pagando até 92% menos que os preços oficiais da API.
 
 ## O que é OpenClaw
 
@@ -11,8 +14,9 @@ O OpenClaw é um assistente pessoal de IA e gateway de código aberto e auto-hos
 
 Antes de começar, confira se você tem:
 
-- Uma conta Capriole AI ([Cadastre-se aqui](https://capriole.ai))
-- Uma API key da Capriole AI ([Obtenha sua key](https://capriole.ai?view=api))
+- Uma conta Capriole AI ([Cadastre-se aqui](https://www.capriole.ai/pt-br))
+- Um plano Premium (USD 8 por mês, também inclui chat na web ilimitado) ou um plano Team, necessário para a API key ([Assine](https://www.capriole.ai/pt-br?view=api))
+- Uma API key da Capriole AI ([Obtenha sua key](https://www.capriole.ai/pt-br?view=api))
 
 ## Instalação
 
@@ -228,7 +232,7 @@ As referências de modelo usam o formato `<provider-id>/<model-id>`.
 | Kimi K3.1 Pro | `capriole-ai-compatible/moonshot/kimi-k3.1-pro` | Chat Completions |
 | Kimi K3 | `capriole-ai-compatible/moonshot/kimi-k3` | Chat Completions |
 
-`openai-latest` e `claude-latest` sempre apontam para o nosso modelo principal mais recente de cada família.
+`openai-latest` e `claude-latest` sempre apontam para o nosso modelo principal mais recente de cada família, atualmente GPT-6 Astra e Claude Fable 5.1.
 
 ## Solução de problemas
 
@@ -255,4 +259,5 @@ Execute `openclaw status`, `openclaw gateway status`, `openclaw logs --follow` e
 ## Observações
 
 - Para adicionar outro modelo da Capriole AI, copie a entrada de um modelo da mesma família, altere o ID e adicione a referência dele a `agents.defaults.models`. `GET https://api.caprioletech.com/v1/models` lista todos os IDs de modelo.
+- Para usar a mesma key nos seus outros agentes de programação, veja [Usar uma API key com agentes de programação](/pt-br/guides/one-api-key-coding-agents).
 - Referências oficiais: [Instalação do OpenClaw](https://docs.openclaw.ai/install), [Provedores personalizados do OpenClaw](https://docs.openclaw.ai/gateway/config-tools), [Provedores de modelo do OpenClaw](https://documentation.openclaw.ai/concepts/model-providers) e [Solução de problemas do OpenClaw](https://docs.openclaw.ai/gateway/troubleshooting).

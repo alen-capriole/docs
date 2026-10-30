@@ -1,7 +1,10 @@
 ---
-title: "Mais agentes"
-description: "Use a Capriole AI com um agente de programação que não tem uma página aqui."
+title: "Conecte qualquer agente de programação à Capriole AI"
+sidebarTitle: "Mais agentes"
+description: "Conecte à Capriole AI qualquer agente com endpoint próprio. Use GPT-6 Astra, Claude Fable 5.1 e Opus 5.5 pagando até 92% menos que na API oficial."
 ---
+
+Com uma única API key da Capriole AI, qualquer agente de programação que aceite um endpoint personalizado pode usar GPT-6 Astra, Claude Fable 5.1 e Opus 5.5 pagando até 92% menos que os preços oficiais da API.
 
 ## Outros agentes
 
@@ -15,9 +18,13 @@ A maioria dos agentes de programação pode usar a Capriole AI se permitir defin
 
 Chat Completions é a opção mais simples, porque oferece todos os modelos.
 
+Para usar a mesma key nos agentes que têm página própria, veja [Usar uma API key com agentes de programação](/pt-br/guides/one-api-key-coding-agents).
+
 ## Autenticação
 
 A Capriole AI só aceita a key como Bearer token no cabeçalho `Authorization`. Se um agente envia a key em um cabeçalho `x-api-key`, como muitos clientes Anthropic fazem, defina um cabeçalho personalizado `Authorization: Bearer YOUR_CAPRIOLE_AI_API_KEY` ou use a opção compatível com OpenAI do agente.
+
+A API key exige um plano Premium (USD 8 por mês, também inclui chat na web ilimitado) ou um plano Team ([Assine](https://www.capriole.ai/pt-br?view=api)).
 
 ## Solicitar um agente
 

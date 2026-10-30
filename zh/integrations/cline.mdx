@@ -1,18 +1,22 @@
 ---
-title: "Cline"
-description: "配置 Cline 使用 Capriole AI。"
+title: "Cline 使用 OpenAI 兼容 API：Capriole AI 配置"
+sidebarTitle: "Cline"
+description: "将 Cline 的 OpenAI Compatible 提供商连接到 Capriole AI，使用 GPT-6 Astra、Claude Fable 5.1 和 Opus 5.5，价格比官方 API 最多低 92%。"
 ---
+
+只需一个 Capriole AI API Key，就能在 Cline 中使用 GPT-6 Astra、Claude Fable 5.1 和 Opus 5.5，价格比官方 API 最多低 92%。
 
 ## Cline 是什么
 
-Cline 是适用于终端和 VS Code 的开源编程代理。它的 OpenAI Compatible 提供商通过 Chat Completions 把模型请求发送到 Capriole AI。
+Cline 是适用于终端和 VS Code 的开源编程智能体。它的 OpenAI Compatible 提供商通过 Chat Completions 把模型请求发送到 Capriole AI。
 
 ## 前置条件
 
 开始前请确保你已经拥有以下内容。
 
-- Capriole AI 账户，可在[此处注册](https://capriole.ai)
-- Capriole AI API Key，可在[此处获取](https://capriole.ai?view=api)
+- Capriole AI 账户，可在[此处注册](https://www.capriole.ai/zh)
+- Premium 套餐（每月 USD 8，还包含无限网页聊天）或 Team 套餐，API Key 需要其中之一，可在[此处订阅](https://www.capriole.ai/zh?view=api)
+- Capriole AI API Key，可在[此处获取](https://www.capriole.ai/zh?view=api)
 
 ## 安装
 
@@ -84,7 +88,7 @@ cline -m moonshot/kimi-k3 "Explain this repository."
 | Kimi K3.1 Pro | `moonshot/kimi-k3.1-pro` |
 | Kimi K3 | `moonshot/kimi-k3` |
 
-`openai-latest` 和 `claude-latest` 始终指向各自系列中我们最新的旗舰模型。`GET https://api.caprioletech.com/v1/models` 会列出所有模型 ID。
+`openai-latest` 和 `claude-latest` 始终指向各自系列中我们最新的旗舰模型，目前分别是 GPT-6 Astra 和 Claude Fable 5.1。`GET https://api.caprioletech.com/v1/models` 会列出所有模型 ID。
 
 ## 故障排除
 
@@ -103,4 +107,5 @@ cline -m moonshot/kimi-k3 "Explain this repository."
 ## 说明
 
 - Cline 在你的电脑上运行编程工具。Capriole AI 只处理模型请求。
+- 想在其他编程智能体中使用同一个 API Key，请参阅[使用一个 API Key 配置编程智能体](/zh/guides/one-api-key-coding-agents)。
 - 官方参考资料包括 [Cline CLI](https://docs.cline.bot/cline-cli/overview)和 [Cline OpenAI Compatible 提供商](https://docs.cline.bot/provider-config/openai-compatible)。
