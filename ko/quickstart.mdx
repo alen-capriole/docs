@@ -64,7 +64,7 @@ print(response.json())
 
 OpenAI Responses 클라이언트는 `POST /v1/responses`, OpenAI Chat Completions 클라이언트는 `POST /v1/chat/completions`, Anthropic Messages 클라이언트는 `POST /v1/messages`를 사용하세요.
 
-해당 제공자의 권장 플래그십 모델을 Capriole AI가 선택하게 하려면 `openai-latest`, `claude-latest` 또는 `google-latest`를 사용하세요. 정확한 모델 버전이 필요하면 구체적인 모델 ID를 사용하세요.
+해당 제공자의 권장 플래그십 모델을 Capriole AI가 선택하게 하려면 `openai-latest`, `claude-latest` 또는 `google-latest`를 사용하세요. 정확한 모델 버전이 필요하면 구체적인 모델 ID를 사용하세요. 모델 ID와 각 공급사가 정한 모델 용도는 [모델 선택](/ko/guides/choose-a-model)에 정리되어 있습니다.
 
 Latest 별칭은 입력 단축키입니다. Capriole AI는 해석된 모델에 대해 사용량을 기록하고, 프로토콜 호환 응답 본문의 모델 필드는 업스트림 호환 엔드포인트가 반환한 값을 유지합니다.
 

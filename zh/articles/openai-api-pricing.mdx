@@ -51,7 +51,7 @@ Capriole 的计费 token 公式没有长提示词档位，因此一条 300K toke
 - **缓存写入**：OpenAI 对 30 分钟缓存写入收取输入价格的 1.25 倍，对 12 小时缓存写入收取 2.5 倍。Capriole 对所有未缓存的输入 token（包括缓存写入）都按正常费率计算。
 - **Batch 和 Flex**：按半价计算，GPT-6 Astra 的 500 万 token 示例要 USD 50。Capriole 没有批处理端点，但对这项工作负载，它的 USD 8 仍低 84%。
 
-如需查看同时计入 OpenRouter credits 手续费的 500 万 token 测试，请参阅 [AI API 成本对比](/zh/articles/ai-api-cost-comparison)。
+如需查看同时计入 OpenRouter credits 手续费的 500 万 token 测试，请参阅 [AI API 成本对比](/zh/articles/ai-api-cost-comparison)。Claude Fable 5.1 和 Opus 5.5 的价格见 [Claude API 价格](/zh/articles/claude-api-pricing)，Gemini 4 Argon 的价格见 [Gemini API 价格](/zh/articles/gemini-api-pricing)。
 
 ## 通过 Capriole 的 API 调用 GPT-6 Astra
 
@@ -82,12 +82,7 @@ print(response.output_text)
 
 ## 每月 USD 8 包含什么
 
-- 无限使用 GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5、Gemini 4 Argon 及其他所有受支持模型的网页聊天。已登录聊天设有每个账户每个 UTC 日 200 条消息的合理使用上限，用于阻止脚本化滥用，正常使用远低于这一上限。
-- 每月 500 万 API token，用于你的应用和编程智能体。
-- 额外 API token 为每 500 万 USD 8，每次可购买 1 至 11 包，多包购买最高享 15% 折扣。
-- 使用 GPT Image 2.5 和 Nano Banana 2.1 免费生图，还有文件与网页搜索、项目、聊天导出，以及 [10 个有文档说明的编程智能体](/zh/articles/coding-agent-compatibility)。
-
-API key 需要 Premium 或 Team。Team 每月 USD 70，包含 5 个席位和 5000 万 API token。无需账户即可试用网页聊天，每天 5 条消息；免费账户每月有 50 万 token 的网页聊天额度，不含 API 访问。
+除了在所有受支持的模型上无限使用网页聊天，Premium 每月还包含 500 万 API token，供应用和编程智能体使用；充值、Team 和免费网页聊天详见[方案与限额](/zh/guides/plans-and-limits)。
 
 ## 何时更适合直接用官方 API
 

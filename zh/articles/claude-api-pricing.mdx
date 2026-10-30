@@ -49,7 +49,7 @@ Anthropic 的输出价格是输入的五倍。Capriole 对输入和输出按同�
 - **缓存写入**：Anthropic 对 5 分钟缓存写入收取输入价格的 1.25 倍，对 1 小时缓存写入收取 2 倍。Capriole 把缓存写入按普通输入计算。
 - **批处理**：按 Anthropic 的批处理费率，500 万 token 示例在 Fable 5.1 上要 USD 50，在 Opus 5.5 上要 USD 20。Capriole 没有批处理端点，但对这项工作负载，它的 USD 8 仍分别低 84% 和 60%。
 
-如需查看同时计入 OpenRouter credits 手续费的 500 万 token 测试，请参阅 [AI API 成本对比](/zh/articles/ai-api-cost-comparison)。
+如需查看同时计入 OpenRouter credits 手续费的 500 万 token 测试，请参阅 [AI API 成本对比](/zh/articles/ai-api-cost-comparison)。GPT-6 Astra、Sol 和 Luna 的价格见 [OpenAI API 价格](/zh/articles/openai-api-pricing)，Gemini 4 Argon 的价格见 [Gemini API 价格](/zh/articles/gemini-api-pricing)。
 
 ## 通过 Capriole 的 Messages API 调用 Claude
 
@@ -81,7 +81,7 @@ print(message.content[0].text)
 
 ## 每月 USD 8 包含什么
 
-- 无限使用 GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5、Gemini 4 Argon 及其他所有受支持模型的网页聊天。已登录聊天设有每个账户每个 UTC 日 200 条消息的合理使用上限，用于阻止脚本化滥用，正常使用远低于这一上限。
+- 无限使用 GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5、Gemini 4 Argon 及其他所有受支持模型的网页聊天，设有每天 200 条消息的[合理使用上限](/zh/guides/plans-and-limits#“无限”是什么意思)，用于阻止脚本化滥用。
 - 每月 500 万 API token，用于你的应用和编程智能体。
 - 额外 API token 为每 500 万 USD 8，每次可购买 1 至 11 包，多包购买最高享 15% 折扣。
 - 使用 GPT Image 2.5 和 Nano Banana 2.1 免费生图，还有文件与网页搜索、项目、聊天导出，以及 [10 个有文档说明的编程智能体](/zh/articles/coding-agent-compatibility)。

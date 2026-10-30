@@ -49,7 +49,7 @@ Anthropic は出力を入力の 5 倍の価格に設定しています。Capriol
 - **キャッシュ書き込み**: Anthropic は、5 分の書き込みに入力の 1.25 倍、1 時間の書き込みに入力の 2 倍を請求します。Capriole はキャッシュ書き込みを通常の入力として数えます。
 - **バッチ**: Anthropic のバッチ料金では、500 万トークンの例は Fable 5.1 で USD 50、Opus 5.5 で USD 20 です。Capriole にバッチ エンドポイントはありませんが、このワークロードでも USD 8 はそれぞれ 84% と 60% 安くなります。
 
-OpenRouter のクレジット手数料も含めた 500 万トークンのテストは、[AI API コスト比較](/ja/articles/ai-api-cost-comparison)をご覧ください。
+OpenRouter のクレジット手数料も含めた 500 万トークンのテストは、[AI API コスト比較](/ja/articles/ai-api-cost-comparison)をご覧ください。GPT-6 Astra、Sol、Luna は [OpenAI API の料金](/ja/articles/openai-api-pricing)、Gemini 4 Argon は [Gemini API の料金](/ja/articles/gemini-api-pricing)で確認できます。
 
 ## Capriole の Messages API で Claude を呼び出す
 
@@ -81,7 +81,7 @@ print(message.content[0].text)
 
 ## 月額 USD 8 に含まれるもの
 
-- GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5、Gemini 4 Argon をはじめ、すべての対応モデルでウェブチャットが無制限です。ログイン中のチャットには、スクリプトによる乱用を防ぐため、1 アカウントあたり UTC 基準で 1 日 200 メッセージのフェアユース上限があります。通常の利用ではこの上限を大きく下回ります。
+- GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5、Gemini 4 Argon をはじめ、すべての対応モデルでウェブチャットが無制限です。スクリプトによる乱用を防ぐため、1 日 200 メッセージの[フェアユース上限](/ja/guides/plans-and-limits#「無制限」の意味)があります。
 - アプリとコーディング エージェント向けに、毎月 500 万 API トークンが含まれます。
 - 追加の API トークンは 500 万あたり USD 8 で、1 回の購入で 1 から 11 パックまで購入でき、複数パックの割引は最大 15% です。
 - GPT Image 2.5 と Nano Banana 2.1 による無料の画像生成、ファイルとウェブ検索、プロジェクト、チャットのエクスポート、[ドキュメントのある 10 種類のコーディング エージェント](/ja/articles/coding-agent-compatibility)も利用できます。
@@ -122,4 +122,4 @@ Claude Fable 5.1 は入力 100 万トークンあたり USD 10、出力 100 万�
 
 - Anthropic: [Claude API pricing](https://platform.claude.com/docs/en/about-claude/pricing)
 
-このページの Capriole AI のプラン、トップアップ、課金トークンに関する事実は、第一当事者ドキュメントとして維持されています。
+このページの Capriole AI のプラン、チャージ、課金トークンに関する事実は、第一当事者ドキュメントとして維持されています。

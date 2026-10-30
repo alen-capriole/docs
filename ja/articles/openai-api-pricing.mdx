@@ -51,7 +51,7 @@ Capriole の課金トークンの計算式には長いプロンプト向けの�
 - **キャッシュ書き込み**: OpenAI は、30 分のキャッシュ書き込みに入力の 1.25 倍、12 時間のキャッシュ書き込みに 2.5 倍を請求します。Capriole は、キャッシュ書き込みを含むすべてのキャッシュなし入力トークンを通常のレートで数えます。
 - **Batch と Flex**: 半額の場合、GPT-6 Astra の 500 万トークンの例は USD 50 です。Capriole にバッチ エンドポイントはありませんが、このワークロードでも USD 8 は 84% 安くなります。
 
-OpenRouter のクレジット手数料も含めた 500 万トークンのテストは、[AI API コスト比較](/ja/articles/ai-api-cost-comparison)をご覧ください。
+OpenRouter のクレジット手数料も含めた 500 万トークンのテストは、[AI API コスト比較](/ja/articles/ai-api-cost-comparison)をご覧ください。Claude Fable 5.1 と Opus 5.5 は [Claude API の料金](/ja/articles/claude-api-pricing)、Gemini 4 Argon は [Gemini API の料金](/ja/articles/gemini-api-pricing)で確認できます。
 
 ## Capriole の API で GPT-6 Astra を呼び出す
 
@@ -82,12 +82,7 @@ print(response.output_text)
 
 ## 月額 USD 8 に含まれるもの
 
-- GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5、Gemini 4 Argon をはじめ、すべての対応モデルでウェブチャットが無制限です。ログイン中のチャットには、スクリプトによる乱用を防ぐため、1 アカウントあたり UTC 基準で 1 日 200 メッセージのフェアユース上限があります。通常の利用ではこの上限を大きく下回ります。
-- アプリとコーディング エージェント向けに、毎月 500 万 API トークンが含まれます。
-- 追加の API トークンは 500 万あたり USD 8 で、1 回の購入で 1 から 11 パックまで購入でき、複数パックの割引は最大 15% です。
-- GPT Image 2.5 と Nano Banana 2.1 による無料の画像生成、ファイルとウェブ検索、プロジェクト、チャットのエクスポート、[ドキュメントのある 10 種類のコーディング エージェント](/ja/articles/coding-agent-compatibility)も利用できます。
-
-API キーには Premium または Team が必要です。Team は月額 USD 70 で、5 シートと 5,000 万 API トークンが含まれます。ウェブチャットはアカウントなしで 1 日 5 メッセージまで試せます。無料アカウントでは毎月 50 万トークン分のウェブチャットを使えますが、API は利用できません。
+Premium には、すべての対応モデルでの無制限のウェブチャットに加えて、アプリとコーディング エージェント向けの API トークンが毎月 500 万含まれます。チャージ、Team、無料のウェブチャットについては[プランと制限](/ja/guides/plans-and-limits)をご覧ください。
 
 ## 公式 API のほうが合う場合
 
@@ -124,4 +119,4 @@ GPT-6 Luna です。入力 100 万トークンあたり USD 0.10、出力 100 �
 - OpenAI: [API pricing](https://developers.openai.com/api/docs/pricing)
 - OpenAI: [GPT-6 Astra](https://developers.openai.com/api/docs/models/gpt-6-astra)、[GPT-6.1 Sol](https://developers.openai.com/api/docs/models/gpt-6.1-sol)、[GPT-6 Sol](https://developers.openai.com/api/docs/models/gpt-6-sol)、[GPT-6 Luna](https://developers.openai.com/api/docs/models/gpt-6-luna) のモデル ページ
 
-このページの Capriole AI のプラン、トップアップ、課金トークンに関する事実は、第一当事者ドキュメントとして維持されています。
+このページの Capriole AI のプラン、チャージ、課金トークンに関する事実は、第一当事者ドキュメントとして維持されています。

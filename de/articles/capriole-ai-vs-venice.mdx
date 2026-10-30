@@ -24,13 +24,13 @@ Für diesen Vergleich haben wir die Preisseite, die API-Preise und die Datenschu
 | Datenschutzmodell | Synchronisierte, nur im Browser gespeicherte oder gar keine gespeicherte Chat-Historie; Inhalte werden nicht zum Training von KI-Modellen verwendet | Vier Datenschutzmodi; Claude-, GPT- und Gemini-Modelle laufen im Modus Anonymized, der Anbieter sieht den Prompt also weiterhin |
 | Medien | Kostenlose Bilderzeugung mit GPT Image 2.5 und Nano Banana 2.1 | Bilder in jedem Plan; Video und Musik über Credits |
 
-Für angemeldeten Chat bei Capriole gilt ein Fair-Use-Limit von 200 Nachrichten pro Konto und UTC-Tag, um skriptgesteuerten Missbrauch zu stoppen; normale Nutzung bleibt weit darunter.
+Der unbegrenzte Chat von Capriole hat für jedes angemeldete Konto ein [Fair-Use-Limit](/de/guides/plans-and-limits#was-unbegrenzt-bedeutet) von 200 Nachrichten pro Tag, gedacht gegen skriptgesteuerten Missbrauch.
 
 [Jetzt kostenlos chatten](https://www.capriole.ai/de) oder [API-Schlüssel holen](https://www.capriole.ai/de?view=api).
 
 ## Preis für Chat mit Frontier-Modellen
 
-Venice Pro kostet USD 18 im Monat. Die Preisseite nennt unbegrenzte Text-Prompts mit Pro-Modellen und 1.000 Bilder pro Tag und sagt, dass Sie Frontier-Bild- und Textmodelle über Credits nutzen. Pro enthält 100 Credits im Monat, und Venice setzt 100 Credits mit USD 1 gleich. Pro Plus für USD 68 enthält 7.500 Credits, Max für USD 200 enthält 22.500. Bei jährlicher Abrechnung sparen Sie bis zu 16.7%.
+Venice Pro kostet USD 18 im Monat. Die Preisseite nennt unbegrenzte Text-Prompts mit Pro-Modellen und 1.000 Bilder pro Tag und sagt, dass Sie Frontier-Bild- und Textmodelle über Credits nutzen. Pro enthält 100 Credits im Monat, und Venice setzt 100 Credits mit USD 1 gleich. Pro Plus für USD 68 enthält 7.500 Credits, Max für USD 200 enthält 22.500. Bei jährlicher Abrechnung sparen Sie bis zu 16,7%.
 
 Die Preisseite nennt nicht, welche Chat-Modelle als Frontier-Modelle gelten.
 
@@ -49,9 +49,9 @@ Die Tabelle berechnet 5M Tokens mit drei Eingabe-Tokens pro Ausgabe-Token und oh
 | Claude Opus 5.5 | USD 4 / USD 20 | USD 40 | **USD 8** |
 | Gemini 4 Argon | USD 2.50 / USD 12.50 | USD 25 | **USD 8** |
 
-Capriole Premium enthält 5M API-Tokens im Monat, weitere kosten USD 8 pro 5M Tokens. Die Seiten [Claude API Preise](/de/articles/claude-api-pricing) und [OpenAI API Preise](/de/articles/openai-api-pricing) vergleichen dieselben Preise mit Anthropic und OpenAI.
+Capriole Premium enthält 5M API-Tokens im Monat, weitere kosten USD 8 pro 5M Tokens. Die Seiten [Claude-API-Preise](/de/articles/claude-api-pricing) und [OpenAI-API-Preise](/de/articles/openai-api-pricing) vergleichen dieselben Preise mit Anthropic und OpenAI.
 
-Ein Capriole-Schlüssel funktioniert mit OpenAI Chat Completions, OpenAI Responses und Anthropic Messages und betreibt [10 dokumentierte Coding-Agents](/de/articles/coding-agent-compatibility). Venice dokumentiert eine OpenAI-kompatible API unter `https://api.venice.ai/api/v1`, mit einem Responses-Endpunkt in der Beta. Seine Claude Code-Anleitung ergänzt claude-code-router, ein lokales Open-Source-Tool, das Anthropic-Messages-Anfragen in das OpenAI-kompatible Format von Venice umwandelt.
+Ein Capriole-Schlüssel funktioniert mit OpenAI Chat Completions, OpenAI Responses und Anthropic Messages und betreibt [10 dokumentierte Coding-Agents](/de/articles/coding-agent-compatibility). Venice dokumentiert eine OpenAI-kompatible API unter `https://api.venice.ai/api/v1`, mit einem Responses-Endpunkt in der Beta. Seine Claude-Code-Anleitung ergänzt claude-code-router, ein lokales Open-Source-Tool, das Anthropic-Messages-Anfragen in das OpenAI-kompatible Format von Venice umwandelt.
 
 ## Datenschutz
 
@@ -64,7 +64,7 @@ Datenschutz ist der Schwerpunkt von Venice. Die Dokumentation beschreibt vier Mo
 
 Laut Venice werden Inhalte von Prompts und Antworten bei normaler Inferenz weder gespeichert noch protokolliert. Die Preisseite nennt eine lokal gespeicherte Unterhaltungshistorie, mit verschlüsseltem Backup und Wiederherstellung bei Pro.
 
-Capriole verwendet Ihre Chats, Dateien und API-Inhalte nicht zum Training von KI-Modellen, wie die [Datenschutzerklärung](/de/legal/privacy) festhält. Sie wählen, wo Ihre Chat-Historie liegt: mit Ihrem Konto synchronisiert, in Ihrem Browser gespeichert oder gar nicht gespeichert. Die [Anleitung zur Chat-Speicherung](/de/guides/chat-storage) zeigt die Einstellungen. Anfragen laufen in jedem Modus weiterhin über Capriole und den gewählten Modellanbieter.
+Capriole nutzt Ihre Chats, Dateien und API-Inhalte nicht zum Training, und Sie können die Chat-Historie in Ihrem Konto, nur im Browser oder gar nicht speichern; [Datenschutz und Datenkontrolle](/de/guides/privacy-and-security) nennt die Details.
 
 Bei Frontier-Modellen von Anthropic, OpenAI und Google senden beide Produkte Ihren Prompt an den jeweiligen Anbieter. Die stärkeren Zusagen von Venice gelten für die Open-Source-Modelle, die Venice im Modus Private, TEE oder E2EE betreibt.
 
@@ -98,7 +98,7 @@ Venice, bei Open-Source-Modellen im Modus Private, TEE oder E2EE. Bei Claude, GP
 
 ### Unterstützt Venice Claude Code?
 
-Ja, mit einem Add-on. Die Anleitung von Venice installiert claude-code-router, um die Anthropic-Messages-Anfragen von Claude Code in das OpenAI-kompatible Format von Venice umzuwandeln. Capriole unterstützt Anthropic Messages direkt, daher braucht Claude Code nur seine eigenen Einstellungen. Siehe die [Claude Code-Einrichtung](/de/integrations/claude-code).
+Ja, mit einem Add-on. Die Anleitung von Venice installiert claude-code-router, um die Anthropic-Messages-Anfragen von Claude Code in das OpenAI-kompatible Format von Venice umzuwandeln. Capriole unterstützt Anthropic Messages direkt, daher braucht Claude Code nur seine eigenen Einstellungen. Siehe die [Claude-Code-Einrichtung](/de/integrations/claude-code).
 
 ## Mit Capriole AI starten
 
@@ -110,6 +110,6 @@ Ja, mit einem Add-on. Die Anleitung von Venice installiert claude-code-router, u
 - Venice: [API-Preise](https://docs.venice.ai/overview/pricing)
 - Venice: [Datenschutzarchitektur](https://docs.venice.ai/overview/privacy)
 - Venice: [Index der API-Dokumentation](https://docs.venice.ai/llms.txt)
-- Venice: [Claude Code-Anleitung](https://docs.venice.ai/guides/integrations/claude-code)
+- Venice: [Claude-Code-Anleitung](https://docs.venice.ai/guides/integrations/claude-code)
 
 Die Angaben zu Capriole AI auf dieser Seite werden als First-Party-Dokumentation gepflegt.

@@ -1,0 +1,122 @@
+---
+title: "Gemini API 价格：Gemini 4 Argon 每百万 token 费用"
+sidebarTitle: "Gemini API 价格"
+description: "Gemini 4 Argon 每 100 万 token 输入 USD 2、输出 USD 10，11 月 30 日后为 USD 4 和 USD 20。查看计算示例，了解比官方价格低 60% 至 80% 的 API。"
+---
+
+Google 的 Gemini API 收费如下：**Gemini 4 Argon 的推广价为每 100 万输入 token USD 2、每 100 万输出 token USD 10**，有效期至 2026 年 11 月 30 日。从 2026 年 12 月 1 日起，Argon 的价格为 **USD 4 和 USD 20**。按输入与输出 token 3:1 的比例、以 Google 标准费率计算，500 万 token 在推广价下要 USD 20，12 月 1 日起要 USD 40。
+
+Capriole AI Premium 每月 USD 8，可无限使用 GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5 和 Gemini 4 Argon 的网页聊天。它的 API 通过 OpenAI Chat Completions 提供 Gemini 4 Argon，任意受支持模型均为每 500 万 token USD 8，最多比官方 API 价格低 92%。Google 给 Argon 的定价低于 GPT-6 Astra 和 Claude Fable 5.1，所以在 Argon 上省得少一些：推广价期间低 60%，12 月 1 日起低 80%。一个 API key 既能用于你自己的应用，也能用于编程智能体。
+
+## Gemini API 每 100 万 token 价格
+
+Google 在其 [Gemini Developer API 定价页面](https://ai.google.dev/gemini-api/docs/pricing)公布了以下付费层级费率。所有价格均以 USD 计，单位为每 100 万 token，输出价格包含思考 token。
+
+| 模型 | API 模型 ID | 期间 | 输入 | 缓存输入 | 输出 |
+|---|---|---|---:|---:|---:|
+| Gemini 4 Argon | `gemini-4-argon` | 至 2026 年 11 月 30 日 | USD 2 | USD 0.10 | USD 10 |
+| Gemini 4 Argon | `gemini-4-argon` | 2026 年 12 月 1 日起 | USD 4 | USD 0.20 | USD 20 |
+| Gemini 3.8 Flash | `gemini-3.8-flash` | 至 2026 年 12 月 31 日 | USD 0.75 | USD 0.075 | USD 3.75 |
+| Gemini 3.8 Flash | `gemini-3.8-flash` | 2027 年 1 月 1 日起 | USD 1.50 | USD 0.15 | USD 7.50 |
+
+同一页面还列出了会改变这些费率的规则：
+
+- **Batch 和 Flex**：两者都是标准费率的一半。Gemini 4 Argon 在 11 月 30 日前输入 USD 1、输出 USD 5，之后为 USD 2 和 USD 10。
+- **Priority**：Gemini 4 Argon 在 11 月 30 日前输入 USD 3.60、输出 USD 18，之后为 USD 7.20 和 USD 36。
+- **缓存**：Gemini 4 Argon 只支持隐式缓存，对至少 4,096 个 token 的提示默认开启，不支持显式缓存。
+- **免费层级**：Gemini 3.8 Flash 有免费层级，Gemini 4 Argon 没有。
+- **Google 搜索接地**：每月 5,000 次搜索请求免费，由 Gemini 3 及更新的模型共享，超出后每 1,000 次请求 USD 14。
+
+Google 没有为这两款模型列出单独的长提示费率。
+
+## 100 万和 500 万 token 的费用
+
+这些示例采用标准费率，不使用缓存，输入与输出 token 比例为 3:1。
+
+```text
+official_cost = input_millions × input_price + output_millions × output_price
+```
+
+| Token 数 | 输入 / 输出 | Gemini 4 Argon，11 月 30 日前 | Gemini 4 Argon，12 月 1 日起 | Capriole AI，任一模型 |
+|---|---|---:|---:|---:|
+| 100 万 | 75 万 / 25 万 | USD 4 | USD 8 | USD 1.60 |
+| 500 万 | 375 万 / 125 万 | USD 20 | USD 40 | **USD 8** |
+
+按推广价，500 万 token 在 Gemini 4 Argon 上的费用为 3.75 × USD 2 + 1.25 × USD 10 = USD 20，因此 Capriole 的 USD 8 低 60%。从 12 月 1 日起，同样的工作负载要 USD 40，USD 8 低 80%。92% 这个数字适用于定价为 USD 10 和 USD 50 的模型，例如 [GPT-6 Astra](/zh/articles/openai-api-pricing) 和 [Claude Fable 5.1](/zh/articles/claude-api-pricing)。Capriole 以每包 500 万 token 出售 API token，100 万这一行是一包的五分之一，仅供对比。
+
+Gemini 3.8 Flash 在 2026 年 12 月 31 日前处理同样的 500 万 token 要 USD 7.50，略低于 Capriole 的 USD 8。从 2027 年 1 月 1 日起，它要 USD 15，USD 8 低 47%。
+
+Google 的输出价格（包括思考 token）是输入的五倍。Capriole 对输入和输出按同一费率计算，所以能省多少取决于你自己的输入输出比例。例如，仅 500 万输入 token 在 Argon 上按推广价就要 USD 10，12 月 1 日起要 USD 20。
+
+[免费开始聊天](https://www.capriole.ai/zh)，或[获取 API key](https://www.capriole.ai/zh?view=api)。
+
+## 缓存和批处理如何影响对比
+
+- **缓存输入**：Google 对 Argon 的缓存 token 在 11 月 30 日前收取每 100 万 USD 0.10，12 月 1 日起收取 USD 0.20。Capriole 对响应中报告的缓存输入按 10% 计算，折合每 100 万缓存 token USD 0.16。11 月 30 日前 Google 的缓存费率更低，12 月 1 日起 Capriole 更低。[计费 token 说明](/zh/articles/charged-tokens)给出了计算公式。
+- **Batch 和 Flex**：按半价计算，500 万 token 的 Argon 示例在 11 月 30 日前要 USD 10，12 月 1 日起要 USD 20。Capriole 没有批处理端点，但对这项工作负载，它的 USD 8 仍分别低 20% 和 60%。
+
+如需查看同时计入 OpenRouter credits 手续费的 500 万 token 测试，请参阅 [AI API 成本对比](/zh/articles/ai-api-cost-comparison)。
+
+## 通过 Capriole 的 API 调用 Gemini 4 Argon
+
+Capriole 通过 `POST /v1/chat/completions` 上的 OpenAI Chat Completions 提供 Gemini 模型。把 OpenAI SDK 的 base URL 设为 `https://api.caprioletech.com/v1`。
+
+- `google-latest` 选择 Gemini 4 Argon，你的配置会始终跟随当前推荐的 Google 模型。
+- `google/gemini-4-argon` 和 `google/gemini-3.8-flash` 用于明确指定模型。
+- Responses 和 Messages 端点不接受 Gemini 模型。
+
+```python
+import os
+
+from openai import OpenAI
+
+client = OpenAI(
+    api_key=os.environ["CAPRIOLE_AI_API_KEY"],
+    base_url="https://api.caprioletech.com/v1",
+)
+
+completion = client.chat.completions.create(
+    model="google-latest",
+    messages=[{"role": "user", "content": "Explain this stack trace."}],
+)
+print(completion.choices[0].message.content)
+```
+
+长时间推理时，请用 `stream=True` 流式返回响应；不使用流式时，请求可能在约 2 分钟后超时。每个 key 每分钟最多 300 个请求。所有可用的模型 ID 见 [Chat Completions 参考](/zh/api-reference/endpoint/chat-completions)；如需对比 Gemini 4 Argon 与 GPT-6 Astra 和 Claude，请参阅[该用哪个 AI 模型](/zh/guides/choose-a-model)。
+
+## 每月 USD 8 包含什么
+
+除了 Gemini 4 Argon 及其他所有受支持模型的无限网页聊天，Premium 还包含每月 500 万 API token，可用于应用和编程智能体；[方案与限额](/zh/guides/plans-and-limits)介绍了充值、Team 和免费网页聊天。
+
+## 何时更适合直接用官方 API
+
+如果你的工作负载在 2027 年前只用 Gemini 3.8 Flash，或者你需要免费层级、Batch、Flex、Priority、Google 搜索接地，或要与 Google 本身签订合同，请直接使用 Google。
+
+## 常见问题
+
+### Gemini API 多少钱
+
+Gemini 4 Argon 在 2026 年 11 月 30 日前每 100 万输入 token USD 2、每 100 万输出 token USD 10，之后为 USD 4 和 USD 20。Gemini 3.8 Flash 在 2026 年 12 月 31 日前为 USD 0.75 和 USD 3.75，之后为 USD 1.50 和 USD 7.50。批处理请求价格减半。
+
+### 可以免费使用 Gemini 4 Argon 吗
+
+Google 的免费层级不包含 Gemini 4 Argon。在 Capriole AI 上，无需账户即可在网页聊天中试用，每天 5 条消息；Premium 让网页聊天不限量。
+
+### `google-latest` 在 Capriole AI 上指什么
+
+`google-latest` 指向 Gemini 4 Argon，可用于 `/v1/chat/completions`，也就是提供 Gemini 模型的端点。
+
+### 无限聊天包含 API 用量吗
+
+不包含。无限只适用于网页聊天。API 和编程智能体请求会消耗你的 API token 余额。
+
+## 开始使用 Capriole AI
+
+无需账户即可[免费开始聊天](https://www.capriole.ai/zh)，或订阅 Premium [获取 API key](https://www.capriole.ai/zh?view=api)。[API 快速入门](/zh/quickstart)介绍如何发出第一个请求。
+
+## 官方来源
+
+- Google：[Gemini Developer API 定价](https://ai.google.dev/gemini-api/docs/pricing)
+- Google：[Gemini 4 Argon](https://ai.google.dev/gemini-api/docs/latest-model)
+
+本页中的 Capriole AI 方案、充值和计费 token 事实作为第一方文档持续维护。

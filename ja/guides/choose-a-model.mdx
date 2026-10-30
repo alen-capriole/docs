@@ -23,11 +23,11 @@ OpenAI は GPT-6 Astra を、最も要求の高い作業向けの最も高性能
 
 ### Claude Fable 5.1
 
-Anthropic は Claude Fable 5.1 を、高度な推論と長期にわたるエージェント作業向けに位置づけています。Anthropic によると、長時間のエージェント型コーディング、多段階のリサーチ、ドキュメント・スプレッドシート・スライドの作業で Claude Fable 5 より向上しています。Anthropic の評価では、速度は Claude Opus 5.5 より遅くなります。`claude-latest` は Claude Fable 5.1 を使います。
+Anthropic は Claude Fable 5.1 を、高度な推論と長期にわたるエージェント作業向けに位置づけています。Anthropic によると、長時間のエージェント型コーディング、多段階のリサーチ、ドキュメント・スプレッドシート・スライドの作業で Claude Fable 5 より向上しています。Anthropic の評価では、速度は Claude Opus 5.5 より遅くなります。`claude-latest` は Claude Fable 5.1 を使います。Anthropic 自身の Pro プランでは、Fable 5.1 は使用制限の対象外で、利用クレジットで支払います。詳しくは [Claude の使用制限の解説](/ja/articles/claude-usage-limits)をご覧ください。
 
 ### Claude Opus 5.5
 
-Anthropic は Claude Opus 5.5 を、長時間のエージェント型コーディングとナレッジワーク向けに、Fable 5.1 の公式価格の半分未満で提供しています。Anthropic は、ほとんどの作業を Opus 5.5 から始め、推論レベルを上げても Opus 5.5 で足りない場合に Fable 5.1 へ移ることを勧めています。思考は常にオンのため、Capriole AI の **Fast** は思考をオフにせず、推論レベルを下げます。
+Anthropic は Claude Opus 5.5 を、長時間のエージェント型コーディングとナレッジワーク向けに、Fable 5.1 の公式価格の半分未満で提供しています。Anthropic は、ほとんどの作業を Opus 5.5 から始め、推論レベルを上げても Opus 5.5 で足りない場合に Fable 5.1 へ移ることを勧めています。Fable 5.1 と同じく思考は常にオンのため、Capriole AI の **Fast** は思考をオフにせず、推論レベルを下げます。
 
 ### Gemini 4 Argon
 
@@ -60,8 +60,8 @@ Thinking はより多くのトークンを使います。Premium と Team では
 
 | モデル | ウェブチャットのプリセット |
 |---|---|
-| GPT-6 Astra、GPT-6.1 Sol、GPT-6 Sol、GPT-6 Luna、Claude Fable 5.1 | **Thinking**（推論レベル中）と **Fast**（推論レベル低） |
-| Claude Opus 5.5 | 思考は常にオン。**Fast** は推論レベルを下げます。 |
+| GPT-6 Astra、GPT-6.1 Sol、GPT-6 Sol、GPT-6 Luna | **Thinking**（推論レベル中）と **Fast**（推論レベル低） |
+| Claude Fable 5.1、Claude Opus 5.5 | 思考は常にオン。**Thinking** は推論レベル中、**Fast** は推論レベル低です。 |
 | Gemini 4 Argon | ウェブチャットで使えるのは **Thinking** プリセットのみです。**Fast** を選ぶと、チャットは Gemini 3.8 Flash に切り替わります。 |
 | Kimi K3.1 Pro | 常に思考するモデルです。**Thinking** は推論レベル高、**Fast** は推論レベル低を使います。 |
 | GLM | **Fast** は GLM 5.3 Flash です。**Thinking** は以前の GLM 5.2（API では `zai/glm-5.2`）を使います。 |
@@ -99,7 +99,7 @@ Capriole AI は、どのモデルでも課金トークンを同じ方法で数�
 
 ### Capriole AI では旗艦モデルのほうが高くなりますか？
 
-ウェブチャットではなりません。Premium と Team のチャットは、どの対応モデルでも無制限です。API ではどのモデルもトークンあたりの料金が同じ（500 万トークンあたり USD 8）なので、公式価格と比べた節約額は旗艦モデルで最も大きくなります。
+ウェブチャットではなりません。Premium と Team のチャットは、どの対応モデルでも無制限です。API ではどのモデルもトークンあたりの料金が同じ（500 万トークンあたり USD 8）なので、公式価格と比べた節約額は旗艦モデルで最も大きくなります。具体的な計算は [Claude API の料金](/ja/articles/claude-api-pricing)、[OpenAI API の料金](/ja/articles/openai-api-pricing)、[Gemini API の料金](/ja/articles/gemini-api-pricing)をご覧ください。
 
 ### OpenAI SDK で Claude や Gemini を使えますか？
 
@@ -111,7 +111,7 @@ Capriole AI は、どのモデルでも課金トークンを同じ方法で数�
 
 ### どの Claude モデルから始めればよいですか？
 
-Anthropic は、ほとんどの作業を Claude Opus 5.5 から始め、高度な推論や長期にわたるエージェント作業には Claude Fable 5.1 に移ることを勧めています。
+Anthropic は、ほとんどの作業を Claude Opus 5.5 から始め、高度な推論や長期にわたるエージェント作業には Claude Fable 5.1 に移ることを勧めています。[Claude と ChatGPT の比較](/ja/articles/claude-vs-chatgpt)では、両モデルを GPT-6 Astra と比べています。
 
 ## 公式情報
 

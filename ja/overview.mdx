@@ -4,42 +4,49 @@ sidebarTitle: "概要"
 description: "月額 USD 8 で GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5、Gemini 4 Argon と無制限にチャット。API は公式価格より最大 92% 安く使えます。"
 ---
 
-Capriole AI なら、月額 USD 8 で GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5、Gemini 4 Argon などの主要モデルとウェブチャットで無制限に会話できます。同じアカウントには公式 API 価格より最大 92% 安い API も含まれ、アプリもコーディング エージェントも 1 つのキーで動かせます。
+Capriole AI は、GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5、Gemini 4 Argon を複数のサブスクリプションなしで使いたい人と、それらすべてを 1 つの API キーで使いたい開発者やコーディング エージェントのユーザーのためのサービスです。月額 USD 8 の Premium メンバーシップ 1 つで両方をカバーします。ウェブチャットは無制限で、API は公式 API 価格より最大 92% 安く使えます。チャットと API は同じアカウントで使えますが、カウントは別々なので、チャットがアプリやコーディング エージェント用のトークンを消費することはありません。
 
 <CardGroup cols={2}>
   <Card title="チャットを始める" icon="message" href="https://www.capriole.ai/ja">
-    アカウントなしで試し、Premium にすれば月額 USD 8 でチャットが無制限になります。
+    アカウントなしで試せます。カード登録も不要です。
   </Card>
   <Card title="API キーを取得" icon="key" href="https://www.capriole.ai/ja?view=api">
-    OpenAI・Anthropic 互換クライアントで使える 1 つのキー。公式価格より最大 92% 安く使えます。
+    アプリとコーディング エージェントで使える 1 つのキー。
   </Card>
 </CardGroup>
 
 Capriole AI は Capriole Investments が開発しており、同社の市場データプラットフォーム [Capriole Quant](https://quant.capriole.com/)（旧 Capriole Charts）や投資ファンドとは別の製品です。有効な Capriole Quant サブスクライバーは、Capriole AI を無償で利用できます。
 
+## ひと目でわかる要点
+
+| | Capriole AI |
+|---|---|
+| Premium | 月額 USD 8 で、すべての対応モデルとのウェブチャットが無制限。さらに毎月 500 万 API トークン付き |
+| フェアユース | ログイン中のウェブチャットは 1 アカウントあたり 1 UTC 日 200 メッセージまで。スクリプトによる乱用を防ぐための上限で、通常の利用ではこれを大きく下回ります。[「無制限」の意味](/ja/guides/plans-and-limits#「無制限」の意味) |
+| 無料とゲスト | ゲストは[アカウントなしで](/ja/articles/ai-chat-without-login) 1 日 5 メッセージまでウェブチャットを試せます。無料アカウントでは毎月 50 万トークン分のウェブチャットを使えますが、API は使えません |
+| Team | 5 シートで月額 USD 70。メンバー全員のウェブチャットが無制限で、毎月 5,000 万 API トークンをチームで共有します。[Team プラン](/ja/guides/team-plan) |
+| 旗艦モデル | GPT-6 Astra（OpenAI）、Claude Fable 5.1 と Claude Opus 5.5（Anthropic）、Gemini 4 Argon（Google） |
+| API | Base URL は `https://api.caprioletech.com`。OpenAI Chat Completions、OpenAI Responses、Anthropic Messages と互換性があります |
+| モデル エイリアス | `openai-latest` → GPT-6 Astra、`claude-latest` → Claude Fable 5.1、`google-latest` → Gemini 4 Argon |
+| レート制限 | API キーごとに 1 分あたり 300 リクエスト |
+| 92% の計算方法 | 出力 1 トークンにつき入力 3 トークンの比率では、500 万トークンのコストは GPT-6 Astra または Claude Fable 5.1 の公式価格で USD 100、Capriole AI では USD 8 です。[Claude API の料金](/ja/articles/claude-api-pricing)と [OpenAI API の料金](/ja/articles/openai-api-pricing)を参照してください |
+
 ## USD 8 で無制限チャット
 
-- Premium は月額 USD 8 で、GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5、Gemini 4 Argon を含むすべての対応モデルでウェブチャットを無制限に使えます。
-- 次の質問に別のモデルが向いているときは、同じチャットのままモデルを切り替えられます。
-- ログイン中のウェブチャットには、1 アカウントあたり 1 日 200 メッセージのフェアユース上限があります。スクリプトによる自動化された乱用を防ぐためのもので、通常の利用ではこの上限を大きく下回ります。
-- ゲストはアカウントなしで 1 日 5 メッセージまで試せます。無料アカウントでは、さらに毎月 50 万トークン分のウェブチャットを使えます。
-
-[プランと制限を比較する](/ja/guides/plans-and-limits)か、[モデルを選ぶ](/ja/guides/choose-a-model)。
+**Thinking** プリセットも無制限です。次の質問に別のモデルが向いているときは、同じチャットのままモデルを切り替えられます。[プランと制限を比較する](/ja/guides/plans-and-limits)か、[モデルを選ぶ](/ja/guides/choose-a-model)。
 
 ## 公式価格より最大 92% 安い API
 
-- 1 つの API キーで、OpenAI Chat Completions、OpenAI Responses、Anthropic Messages の各クライアントに対応できます。
-- Premium には毎月の API 枠が含まれ、トップアップはどの対応モデルでも 500 万トークンあたり USD 8 です。92% が公式価格からどう計算されるかは、[Claude API の料金](/ja/articles/claude-api-pricing)と [OpenAI API の料金](/ja/articles/openai-api-pricing)で確認できます。
+- チャージはどの対応モデルでも 500 万トークンあたり USD 8 で、複数パックをまとめて購入すると最大 15% 割引になります。
 - 同じキーで、Codex、Claude Code、GitHub Copilot CLI、OpenCode など、ドキュメントのある 10 種類のコーディング エージェントを動かせます。[1 つの API キーでコーディング エージェントを使う](/ja/guides/one-api-key-coding-agents)を参照してください。
+- 推奨の旗艦モデルが変わっても自動で追従させたいときはエイリアスを、テスト、監査、再現可能な実行で特定のバージョンが必要なときは具体的なモデル ID を使ってください。
 
 まずは [API クイックスタート](/ja/quickstart)から始めましょう。
 
-## 一度設定すれば継続して使えます
+## Capriole AI を比較する
 
-API またはコーディング エージェントを、各プロバイダーで推奨する旗艦モデルに Capriole AI が合わせ続けるようにしたい場合は、`openai-latest`、`claude-latest`、または `google-latest` を使ってください。
-
-テスト、監査、または再現可能な実行で特定のモデル バージョンに固定する必要がある場合は、具体的なモデル ID を使ってください。
+[OpenRouter](/ja/articles/capriole-ai-vs-openrouter)、[T3 Chat](/ja/articles/capriole-ai-vs-t3-chat)、[Magai](/ja/articles/capriole-ai-vs-magai)、[Venice](/ja/articles/capriole-ai-vs-venice) との比較をご覧ください。いま ChatGPT Plus や Claude のプランを契約しているなら、まず [ChatGPT Plus の代替](/ja/articles/chatgpt-plus-alternative)と [Claude と ChatGPT の比較](/ja/articles/claude-vs-chatgpt)をお読みください。Claude のプランの上限によく達するなら、[Claude の使用制限の解説](/ja/articles/claude-usage-limits)も参考になります。
 
 ## そのほかの機能
 
-ログインして **Server Storage** を使う Free・Premium・Team アカウントは、ウェブチャットで **GPT Image 2.5** と **Nano Banana 2.1** を使い、無料で画像を作成できます。ファイル、ウェブ検索、プロジェクト、チャットのエクスポート、ストレージ制御はワークスペースに組み込まれています。[画像生成ガイドを見る](/ja/guides/files-web-search)。
+ログインして **Server Storage** を使う Free・Premium・Team アカウントは、ウェブチャットで **GPT Image 2.5** と **Nano Banana 2.1** を使い、無料で画像を作成できます。ファイル、ウェブ検索、プロジェクト、チャットのエクスポート、[プライバシーとストレージの管理](/ja/guides/privacy-and-security)はワークスペースに組み込まれています。[画像生成ガイドを見る](/ja/guides/files-web-search)。

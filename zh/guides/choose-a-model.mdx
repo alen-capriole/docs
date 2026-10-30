@@ -23,11 +23,11 @@ OpenAI 称 GPT-6 Astra 是其能力最强的模型，面向要求最高的工作
 
 ### Claude Fable 5.1
 
-Anthropic 将 Claude Fable 5.1 定位于高要求推理和长周期智能体任务。Anthropic 表示，它在长时间运行的智能体编程、多步骤研究，以及文档、表格和幻灯片工作上都比 Claude Fable 5 有所提升。按 Anthropic 的评级，它比 Claude Opus 5.5 慢。`claude-latest` 使用 Claude Fable 5.1。
+Anthropic 将 Claude Fable 5.1 定位于高要求推理和长周期智能体任务。Anthropic 表示，它在长时间运行的智能体编程、多步骤研究，以及文档、表格和幻灯片工作上都比 Claude Fable 5 有所提升。按 Anthropic 的评级，它比 Claude Opus 5.5 慢。`claude-latest` 使用 Claude Fable 5.1。在 Anthropic 自己的 Pro 方案中，Fable 5.1 不计入用量限制，而是消耗用量积分（usage credits）计费，详见 [Claude 用量限制详解](/zh/articles/claude-usage-limits)。
 
 ### Claude Opus 5.5
 
-Anthropic 为长时间运行的智能体编程和知识工作打造了 Claude Opus 5.5，官方价格不到 Fable 5.1 的一半。Anthropic 建议大多数工作先从 Opus 5.5 开始，如果把 Opus 5.5 调到更高推理强度仍然不够，再换用 Fable 5.1。它始终开启思考，因此在 Capriole AI 中，**Fast** 会降低它的推理强度，而不是关闭思考。
+Anthropic 为长时间运行的智能体编程和知识工作打造了 Claude Opus 5.5，官方价格不到 Fable 5.1 的一半。Anthropic 建议大多数工作先从 Opus 5.5 开始，如果把 Opus 5.5 调到更高推理强度仍然不够，再换用 Fable 5.1。和 Fable 5.1 一样，它始终开启思考，因此在 Capriole AI 中，**Fast** 会降低它的推理强度，而不是关闭思考。
 
 ### Gemini 4 Argon
 
@@ -60,8 +60,8 @@ Thinking 会消耗更多 token。在 Premium 和 Team 中，无论选哪个，�
 
 | 模型 | 网页聊天中的预设 |
 |---|---|
-| GPT-6 Astra、GPT-6.1 Sol、GPT-6 Sol、GPT-6 Luna、Claude Fable 5.1 | **Thinking**（中等推理强度）和 **Fast**（低推理强度） |
-| Claude Opus 5.5 | 始终开启思考。**Fast** 会降低推理强度。 |
+| GPT-6 Astra、GPT-6.1 Sol、GPT-6 Sol、GPT-6 Luna | **Thinking**（中等推理强度）和 **Fast**（低推理强度） |
+| Claude Fable 5.1、Claude Opus 5.5 | 始终开启思考。**Thinking** 使用中等推理强度，**Fast** 使用低推理强度。 |
 | Gemini 4 Argon | 网页聊天只提供 **Thinking** 预设。选择 **Fast** 会把对话切换到 Gemini 3.8 Flash。 |
 | Kimi K3.1 Pro | 模型始终会思考。**Thinking** 使用高推理强度，**Fast** 使用低推理强度。 |
 | GLM | **Fast** 是 GLM 5.3 Flash。**Thinking** 使用较早的 GLM 5.2（API 上为 `zai/glm-5.2`）。 |
@@ -99,7 +99,7 @@ Capriole AI 在所有模型上都用同一种方式计算计费 token：未缓�
 
 ### 在 Capriole AI 中，旗舰模型更贵吗？
 
-网页聊天不会：Premium 和 Team 的聊天在所有受支持的模型上都无限。在 API 上，所有模型的 token 单价相同，每 500 万 token USD 8，所以旗舰模型相对官方价格节省得最多。
+网页聊天不会：Premium 和 Team 的聊天在所有受支持的模型上都无限。在 API 上，所有模型的 token 单价相同，每 500 万 token USD 8，所以旗舰模型相对官方价格节省得最多。[Claude API 价格](/zh/articles/claude-api-pricing)、[OpenAI API 价格](/zh/articles/openai-api-pricing)和 [Gemini API 价格](/zh/articles/gemini-api-pricing)给出了具体计算。
 
 ### 可以用 OpenAI SDK 调用 Claude 或 Gemini 吗？
 
@@ -111,7 +111,7 @@ Capriole AI 在所有模型上都用同一种方式计算计费 token：未缓�
 
 ### 应该先用哪个 Claude 模型？
 
-Anthropic 建议大多数工作先从 Claude Opus 5.5 开始，遇到高要求推理和长周期智能体任务时再换用 Claude Fable 5.1。
+Anthropic 建议大多数工作先从 Claude Opus 5.5 开始，遇到高要求推理和长周期智能体任务时再换用 Claude Fable 5.1。[Claude vs ChatGPT](/zh/articles/claude-vs-chatgpt) 将这两个 Claude 模型与 GPT-6 Astra 做了对比。
 
 ## 官方来源
 

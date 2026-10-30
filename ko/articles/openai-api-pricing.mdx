@@ -51,7 +51,7 @@ Capriole의 과금 토큰 공식에는 긴 프롬프트 구간이 없으므로, 
 - **캐시 쓰기**: OpenAI는 30분 캐시 쓰기에 입력의 1.25배, 12시간 캐시 쓰기에 2.5배를 청구합니다. Capriole은 캐시 쓰기를 포함해 캐시되지 않은 모든 입력 토큰을 일반 요율로 계산합니다.
 - **Batch와 Flex**: 절반 가격이면 500만 토큰 GPT-6 Astra 예시는 USD 50입니다. Capriole에는 배치 엔드포인트가 없지만, 이 워크로드에서도 USD 8은 84% 저렴합니다.
 
-OpenRouter의 credit 수수료까지 포함한 500만 토큰 테스트는 [AI API 비용 비교](/ko/articles/ai-api-cost-comparison)를 참고하세요.
+OpenRouter의 크레딧 수수료까지 포함한 500만 토큰 테스트는 [AI API 비용 비교](/ko/articles/ai-api-cost-comparison)를 참고하세요. Claude Fable 5.1과 Opus 5.5는 [Claude API 가격](/ko/articles/claude-api-pricing), Gemini 4 Argon은 [Gemini API 가격](/ko/articles/gemini-api-pricing)에서 확인할 수 있습니다.
 
 ## Capriole API로 GPT-6 Astra 호출하기
 
@@ -82,12 +82,7 @@ print(response.output_text)
 
 ## 월 USD 8에 포함되는 것
 
-- GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5, Gemini 4 Argon을 비롯한 모든 지원 모델과의 무제한 웹 채팅. 로그인한 채팅에는 스크립트를 이용한 남용을 막기 위해 계정당 UTC 기준 하루 200개 메시지의 공정 사용 한도가 있으며, 일반적인 사용은 이 한도에 훨씬 못 미칩니다.
-- 앱과 코딩 에이전트에 쓰는 월 500만 API 토큰.
-- 추가 API 토큰은 500만당 USD 8이며, 한 번에 1~11개 팩을 구매할 수 있고 여러 팩을 사면 최대 15% 할인됩니다.
-- GPT Image 2.5와 Nano Banana 2.1 무료 이미지 생성, 파일과 웹 검색, 프로젝트, 채팅 내보내기, [문서화된 코딩 에이전트 10개](/ko/articles/coding-agent-compatibility).
-
-API key를 만들려면 Premium 또는 Team이 필요합니다. Team은 월 USD 70이며 좌석 5개와 API 토큰 5,000만이 포함됩니다. 계정 없이도 하루 5개 메시지까지 웹 채팅을 써 볼 수 있고, 무료 계정은 API 접근 없이 매월 50만 토큰의 웹 채팅을 받습니다.
+Premium에는 모든 지원 모델의 무제한 웹 채팅과 함께 앱과 코딩 에이전트에 쓰는 월 500만 API 토큰이 포함되며, 충전, Team, 무료 웹 채팅은 [플랜과 한도](/ko/guides/plans-and-limits)에서 확인할 수 있습니다.
 
 ## 공식 API가 더 적합한 경우
 

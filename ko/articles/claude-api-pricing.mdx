@@ -49,7 +49,7 @@ Anthropic은 출력 가격을 입력의 5배로 책정합니다. Capriole은 입
 - **캐시 쓰기**: Anthropic은 5분 쓰기에 입력의 1.25배, 1시간 쓰기에 입력의 2배를 청구합니다. Capriole은 캐시 쓰기를 일반 입력으로 계산합니다.
 - **배치**: Anthropic 배치 요율에서 500만 토큰 예시는 Fable 5.1이 USD 50, Opus 5.5가 USD 20입니다. Capriole에는 배치 엔드포인트가 없지만, 이 워크로드에서도 USD 8은 각각 84%, 60% 저렴합니다.
 
-OpenRouter의 credit 수수료까지 포함한 500만 토큰 테스트는 [AI API 비용 비교](/ko/articles/ai-api-cost-comparison)를 참고하세요.
+OpenRouter의 크레딧 수수료까지 포함한 500만 토큰 테스트는 [AI API 비용 비교](/ko/articles/ai-api-cost-comparison)를 참고하세요. GPT-6 Astra, Sol, Luna는 [OpenAI API 가격](/ko/articles/openai-api-pricing), Gemini 4 Argon은 [Gemini API 가격](/ko/articles/gemini-api-pricing)에서 확인할 수 있습니다.
 
 ## Capriole의 Messages API로 Claude 호출하기
 
@@ -81,7 +81,7 @@ print(message.content[0].text)
 
 ## 월 USD 8에 포함되는 것
 
-- GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5, Gemini 4 Argon을 비롯한 모든 지원 모델과의 무제한 웹 채팅. 로그인한 채팅에는 스크립트를 이용한 남용을 막기 위해 계정당 UTC 기준 하루 200개 메시지의 공정 사용 한도가 있으며, 일반적인 사용은 이 한도에 훨씬 못 미칩니다.
+- GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5, Gemini 4 Argon을 비롯한 모든 지원 모델과의 무제한 웹 채팅. 스크립트 남용을 막는 하루 200개 메시지의 [공정 사용 한도](/ko/guides/plans-and-limits#무제한의-의미)가 있습니다.
 - 앱과 코딩 에이전트에 쓰는 월 500만 API 토큰.
 - 추가 API 토큰은 500만당 USD 8이며, 한 번에 1~11개 팩을 구매할 수 있고 여러 팩을 사면 최대 15% 할인됩니다.
 - GPT Image 2.5와 Nano Banana 2.1 무료 이미지 생성, 파일과 웹 검색, 프로젝트, 채팅 내보내기, [문서화된 코딩 에이전트 10개](/ko/articles/coding-agent-compatibility).

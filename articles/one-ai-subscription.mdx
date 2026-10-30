@@ -12,7 +12,7 @@ The result is one account for supported frontier models instead of several subsc
 
 ## The problem is larger than the monthly bill
 
-Using several AI products usually means several browser tabs, billing pages, histories, interfaces, and sets of controls. A task that begins in one product may need a different model later. Moving it then becomes a small migration: copy the useful context, reattach files, explain the task again, and learn which controls the next interface exposes.
+Using several AI products usually means several browser tabs, billing pages, histories, interfaces, and sets of controls. Each one also meters use in its own way: Claude's paid plans, for example, share [five-hour and weekly limits](/articles/claude-usage-limits) across chat and Claude Code. A task that begins in one product may need a different model later. Moving it then becomes a small migration: copy the useful context, reattach files, explain the task again, and learn which controls the next interface exposes.
 
 API work adds provider accounts, keys, balances, model names, and incompatible request formats. Coding agents add another configuration layer. None of these steps is individually difficult, but together they turn model choice into account administration.
 
@@ -26,13 +26,15 @@ Capriole AI brings the common parts into one workspace. You can chat with a supp
 | Monthly API allowance | 5 million charged API tokens | API usage consumes the allowance; it is not unlimited |
 | API top-ups | Additional token packs can be purchased | Top-ups are separate from the monthly subscription |
 | Coding agents | A Capriole API key can be used with documented integrations | Support is limited to the maintained protocol and model paths |
-| Free access | Limited browser chat before upgrading | Free access does not include the public API |
+| Free access | [Limited browser chat](/articles/ai-chat-without-login) before upgrading | Free access does not include the public API |
 
 Capriole maintains current supported models from OpenAI, Anthropic, Google, xAI, Z.AI, and Moonshot AI inside the same workspace, including the flagship set named above.
 
 The browser and API have different usage models. Premium browser chat has no per-message token balance for the user to manage. Signed-in chat has a fair-use limit of 200 messages per account per UTC day to stop scripted abuse; normal use stays well below it. API requests are metered because programmatic workloads can grow far beyond normal chat use.
 
 The plan suits someone who chats every day and also needs occasional or moderate API or coding-agent access. The two allowances stay clear: browser chat is unlimited under Premium, while automated work uses the visible charged-token balance.
+
+If you are replacing a specific plan, compare Premium with [ChatGPT Plus](/articles/chatgpt-plus-alternative), [Claude and ChatGPT](/articles/claude-vs-chatgpt), [Magai](/articles/capriole-ai-vs-magai), or [Venice](/articles/capriole-ai-vs-venice).
 
 ## One conversation, different model strengths
 

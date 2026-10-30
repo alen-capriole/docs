@@ -16,16 +16,18 @@ Capriole AI Premium は月額 USD 8 で、GPT-6 Astra、Claude Fable 5.1、Claud
 | ウェブチャットのモデル | すべての対応モデル | すべての対応モデル | すべての対応モデル | すべての対応モデル |
 | 画像生成 | 利用不可 | 無料 | 無料 | 無料 |
 | API とコーディング エージェント | 利用不可 | 利用不可 | 毎月 500 万トークン | 毎月 5,000 万トークンをチームで共有 |
-| API のトップアップ | 利用不可 | 利用不可 | 500 万トークンあたり USD 8 | 5,000 万トークンあたり USD 80 |
+| API のチャージ | 利用不可 | 利用不可 | 500 万トークンあたり USD 8 | 5,000 万トークンあたり USD 80 |
 | チャット履歴 | ブラウザのタブ内にのみ保持 | 保存方法を選択可能 | 保存方法を選択可能 | 保存方法を選択可能 |
 
 GPT Image 2.5 と Nano Banana 2.1 で画像を生成するには、**Server Storage** を使うログイン済みアカウントが必要です。[画像生成ガイドを見る](/ja/guides/files-web-search)。3 つのストレージ モードの違いは[チャット ストレージ ガイド](/ja/guides/chat-storage)で説明しています。
 
 ## 「無制限」の意味
 
-Premium と Team のウェブチャットには、**Thinking** プリセットを含め、どの対応モデルにもトークンのメーターがありません。ログイン中のウェブチャットには、1 アカウントあたり 1 UTC 日 200 メッセージのフェアユース上限があります。スクリプトによる自動化された乱用を防ぐためのもので、通常の利用ではこの上限を大きく下回ります。
+Premium と Team のウェブチャットには、**Thinking** プリセットを含め、どの[対応モデル](/ja/guides/choose-a-model)にもトークンのメーターがありません。ログイン中のウェブチャットには、1 アカウントあたり 1 UTC 日 200 メッセージのフェアユース上限があります。スクリプトによる自動化された乱用を防ぐためのもので、通常の利用ではこの上限を大きく下回ります。
 
 上限に達すると Capriole AI に通知が表示され、00:00 UTC にチャットを再開できます。この上限は API キーには適用されません。
+
+Claude 自体の Pro と Max プランは仕組みが異なり、5 時間のセッション上限と週の上限があります。[Claude の使用制限の解説](/ja/articles/claude-usage-limits)で Capriole AI と比べています。
 
 ## API トークンを消費するもの
 
@@ -41,13 +43,13 @@ Premium と Team のウェブチャットには、**Thinking** プリセット�
 
 API トークンは課金トークンで数えます。キャッシュなし入力に、キャッシュ入力の 10% と出力を足したものです。数え方はどのモデルでも同じです。Thinking モデルはより多くのトークンを使います。計算例は[課金トークンの説明](/ja/articles/charged-tokens)をご覧ください。
 
-毎月含まれるトークンが先に使われ、そのあとにトップアップのトークンが使われます。API キーには Premium か Team が必要です。Free では API ページに **サブスクライブすると API にアクセスできます。** と表示されます。
+毎月含まれるトークンが先に使われ、そのあとにチャージしたトークンが使われます。API キーには Premium か Team が必要です。Free では API ページに **サブスクライブすると API にアクセスできます。** と表示されます。
 
 ## API トークンを追加購入する
 
 トークンが足りなくなったら、API ページで **チャージ** を選びます。複数のパックをまとめて買うと割安になります。
 
-| | Premium のトップアップ | Team のトップアップ |
+| | Premium のチャージ | Team のチャージ |
 |---|---|---|
 | 料金 | 500 万トークンあたり USD 8 | 5,000 万トークンあたり USD 80 |
 | 1 回に買えるパック数 | 1〜11（500 万〜5,500 万トークン） | 1〜5（5,000 万〜2.5 億トークン） |
@@ -66,7 +68,7 @@ API トークンは課金トークンで数えます。キャッシュなし入�
 
 Capriole AI は Capriole Investments が開発しています。同社の市場データプラットフォーム [Capriole Quant](https://quant.capriole.com/)（旧 Capriole Charts）は別の製品です。
 
-Capriole Quant のすべての有料プランには、追加料金なしで Capriole AI へのアクセスが含まれるため、別途サブスクリプションは必要ありません。アクセスは Quant プランが有効なあいだ続きます。Capriole Quant の 3 日間の無料トライアルに含まれるのはウェブチャットだけで、API アクセスは含まれません。
+対象となる Capriole Quant の有料プランには、追加料金なしで Capriole AI へのアクセスが含まれるため、別途サブスクリプションは必要ありません。アクセスは Quant プランが有効なあいだ続きます。Capriole Quant の 3 日間の無料トライアルに含まれるのはウェブチャットだけで、API アクセスは含まれません。
 
 ## プランの支払い
 
@@ -100,15 +102,19 @@ Capriole Quant のすべての有料プランには、追加料金なしで Capr
 
 プロモーションや引き換えコードで得た Premium は、解約の必要がありません。**アカウント** に表示される日付で終了し、更新されません。Team の所有者と管理者は、同じ **サブスクリプションを管理** ボタンで Team のサブスクリプションを管理します。シート、招待、共有トークンについては [Team プラン ガイド](/ja/guides/team-plan)で説明しています。
 
+## Capriole AI を比較する
+
+Premium を [ChatGPT Plus](/ja/articles/chatgpt-plus-alternative)、[Claude と ChatGPT](/ja/articles/claude-vs-chatgpt)、[Magai](/ja/articles/capriole-ai-vs-magai)、[Venice](/ja/articles/capriole-ai-vs-venice)、[OpenRouter](/ja/articles/capriole-ai-vs-openrouter)、[T3 Chat](/ja/articles/capriole-ai-vs-t3-chat)、[Poe](/ja/articles/capriole-ai-vs-poe)、[TypingMind](/ja/articles/capriole-ai-vs-typingmind) と比べてみてください。
+
 ## よくある質問
 
 ### Capriole AI は本当に無制限ですか？
 
-はい。Premium と Team のウェブチャットには、どの対応モデルにもトークンのメーターがありません。1 アカウントあたり 1 UTC 日 200 メッセージのフェアユース上限はスクリプトによる乱用を防ぐためのもので、通常の利用ではこの上限を大きく下回ります。API はトークンで数えます。
+はい。Premium と Team のウェブチャットには、どの対応モデルにもトークンのメーターがなく、あるのはスクリプトによる乱用を防ぐ[フェアユース上限](#「無制限」の意味)だけです。API はトークンで数えます。
 
 ### Capriole AI は無料で使えますか？
 
-はい。ゲストはアカウントなしで 1 日 5 メッセージまで送れます。無料アカウントには毎月 50 万トークンのウェブチャットと無料の画像生成が含まれますが、API アクセスは含まれません。
+はい。ゲストは[アカウントなしで](/ja/articles/ai-chat-without-login) 1 日 5 メッセージまで送れます。無料アカウントには毎月 50 万トークンのウェブチャットと無料の画像生成が含まれますが、API アクセスは含まれません。
 
 ### Premium には API が含まれますか？
 
@@ -120,7 +126,7 @@ Capriole Quant のすべての有料プランには、追加料金なしで Capr
 
 ### Capriole Quant を使っています。Premium は必要ですか？
 
-いいえ。Capriole Quant のすべての有料プランには、追加料金なしで Capriole AI へのアクセスが含まれます。
+いいえ。対象となる Capriole Quant の有料プランには、追加料金なしで Capriole AI へのアクセスが含まれます。
 
 ## Capriole AI を使い始める
 

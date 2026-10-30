@@ -64,7 +64,7 @@ For long tasks such as web search or long reasoning, set `"stream": true`. Witho
 
 Use `POST /v1/responses` for OpenAI Responses clients, `POST /v1/chat/completions` for OpenAI Chat Completions clients, and `POST /v1/messages` for Anthropic Messages clients.
 
-Use `openai-latest`, `claude-latest`, or `google-latest` when you want Capriole AI to choose our recommended flagship model for that provider. Use a concrete model ID when you need one exact model version.
+Use `openai-latest`, `claude-latest`, or `google-latest` when you want Capriole AI to choose our recommended flagship model for that provider. Use a concrete model ID when you need one exact model version. [Choose a model](/guides/choose-a-model) lists the IDs and what each vendor builds its models for.
 
 Latest aliases are input shortcuts. Capriole AI records usage against the resolved model, while protocol-compatible response bodies keep the model fields returned by the upstream-compatible endpoint.
 

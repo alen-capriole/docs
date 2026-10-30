@@ -49,7 +49,7 @@ Anthropic prices output at five times input. Capriole counts input and output at
 - **Cache writes**: Anthropic charges 1.25 times input for 5-minute writes and 2 times input for 1-hour writes. Capriole counts cache writes as normal input.
 - **Batch**: At Anthropic's batch rates, the 5M-token example costs USD 50 on Fable 5.1 and USD 20 on Opus 5.5. Capriole has no batch endpoint, and its USD 8 is still 84% and 60% less for that workload.
 
-For a 5M-token test that also includes OpenRouter's credit fee, see the [AI API cost comparison](/articles/ai-api-cost-comparison).
+For a 5M-token test that also includes OpenRouter's credit fee, see the [AI API cost comparison](/articles/ai-api-cost-comparison). For GPT-6 Astra, Sol, and Luna, see [OpenAI API pricing](/articles/openai-api-pricing); for Gemini 4 Argon, see [Gemini API pricing](/articles/gemini-api-pricing).
 
 ## Call Claude through Capriole's Messages API
 
@@ -81,7 +81,7 @@ The same key works with OpenAI Chat Completions at `/v1/chat/completions`, which
 
 ## What USD 8 a month includes
 
-- Unlimited web chat with GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5, Gemini 4 Argon, and every other supported model. Signed-in chat has a fair-use limit of 200 messages per account per UTC day to stop scripted abuse; normal use stays well below it.
+- Unlimited web chat with GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5, Gemini 4 Argon, and every other supported model, with a [fair-use limit](/guides/plans-and-limits#what-unlimited-means) of 200 messages a day against scripted abuse.
 - 5M API tokens a month for your apps and coding agents.
 - More API tokens at USD 8 per 5M, 1 to 11 packs per purchase, with multi-pack discounts up to 15%.
 - Free image generation with GPT Image 2.5 and Nano Banana 2.1, files and web search, projects, chat export, and [10 documented coding agents](/articles/coding-agent-compatibility).

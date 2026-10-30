@@ -64,7 +64,7 @@ print(response.json())
 
 OpenAI Responses クライアントでは `POST /v1/responses`、OpenAI Chat Completions クライアントでは `POST /v1/chat/completions`、Anthropic Messages クライアントでは `POST /v1/messages` を使ってください。
 
-対応プロバイダーの推奨旗艦モデルを Capriole AI に選ばせたい場合は、`openai-latest`、`claude-latest`、または `google-latest` を使ってください。特定のモデル バージョンに固定する必要がある場合は、具体的なモデル ID を使ってください。
+対応プロバイダーの推奨旗艦モデルを Capriole AI に選ばせたい場合は、`openai-latest`、`claude-latest`、または `google-latest` を使ってください。特定のモデル バージョンに固定する必要がある場合は、具体的なモデル ID を使ってください。モデル ID と各ベンダーが想定する用途は [モデルを選ぶ](/ja/guides/choose-a-model)にまとめています。
 
 latest エイリアスは入力のショートカットです。Capriole AI は解決後のモデルに対して使用量を記録し、プロトコル互換レスポンス本文のモデル フィールドは、上流互換エンドポイントが返す値を保持します。
 

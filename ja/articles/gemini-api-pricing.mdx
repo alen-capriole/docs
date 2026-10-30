@@ -1,0 +1,122 @@
+---
+title: "Gemini API 料金：Gemini 4 Argon"
+sidebarTitle: "Gemini API の料金"
+description: "Gemini 4 Argon は 11 月 30 日まで 100 万トークンあたり入力 USD 2・出力 USD 10、以降は USD 4・USD 20。計算例と、60〜80% 安くなる API を紹介します。"
+---
+
+Google の Gemini API の料金は、**Gemini 4 Argon が入力 100 万トークンあたり USD 2、出力 100 万トークンあたり USD 10** です。これは 2026 年 11 月 30 日までの導入価格で、2026 年 12 月 1 日からは **USD 4 と USD 20** になります。出力 1 トークンにつき入力 3 トークンの比率では、Google の標準料金で 500 万トークンのコストは導入価格で USD 20、12 月 1 日以降は USD 40 です。
+
+Capriole AI Premium は月額 USD 8 で、GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5、Gemini 4 Argon とのウェブチャットが無制限です。API は OpenAI Chat Completions で Gemini 4 Argon を提供し、料金はどの対応モデルでも 500 万トークンあたり USD 8 と、公式 API 価格より最大 92% 安くなります。ただし Google は Argon を GPT-6 Astra や Claude Fable 5.1 より安く設定しているため、Argon での差は小さく、導入価格では 60%、12 月 1 日以降は 80% 安くなります。1 つの API キーで、自分のアプリでもコーディング エージェントでも使えます。
+
+## 100 万トークンあたりの Gemini API 料金
+
+Google は次の有料枠の料金を [Gemini Developer API の料金ページ](https://ai.google.dev/gemini-api/docs/pricing)で公開しています。価格はすべて 100 万トークンあたりの USD で、出力価格には思考トークンが含まれます。
+
+| モデル | API モデル ID | 期間 | 入力 | キャッシュ入力 | 出力 |
+|---|---|---|---:|---:|---:|
+| Gemini 4 Argon | `gemini-4-argon` | 2026 年 11 月 30 日まで | USD 2 | USD 0.10 | USD 10 |
+| Gemini 4 Argon | `gemini-4-argon` | 2026 年 12 月 1 日から | USD 4 | USD 0.20 | USD 20 |
+| Gemini 3.8 Flash | `gemini-3.8-flash` | 2026 年 12 月 31 日まで | USD 0.75 | USD 0.075 | USD 3.75 |
+| Gemini 3.8 Flash | `gemini-3.8-flash` | 2027 年 1 月 1 日から | USD 1.50 | USD 0.15 | USD 7.50 |
+
+同じページには、これらの料金が変わる条件も記載されています。
+
+- **Batch と Flex**: どちらも標準料金の半額です。Gemini 4 Argon は 11 月 30 日まで入力 USD 1・出力 USD 5、以降は USD 2・USD 10 です。
+- **Priority**: Gemini 4 Argon は 11 月 30 日まで入力 USD 3.60・出力 USD 18、以降は USD 7.20・USD 36 です。
+- **キャッシュ**: Gemini 4 Argon は暗黙的キャッシュのみに対応し、4,096 トークン以上のプロンプトでは既定で有効です。明示的キャッシュには対応していません。
+- **無料枠**: Gemini 3.8 Flash には無料枠がありますが、Gemini 4 Argon にはありません。
+- **Google 検索によるグラウンディング**: 月 5,000 件の検索リクエストまで無料で、Gemini 3 以降のモデルで共有されます。それを超えると 1,000 件あたり USD 14 です。
+
+どちらのモデルにも、長いプロンプト向けの別料金は記載されていません。
+
+## 100 万トークンと 500 万トークンのコスト
+
+以下の例は、標準料金、キャッシュなし、出力 1 トークンにつき入力 3 トークンの条件で計算しています。
+
+```text
+official_cost = input_millions × input_price + output_millions × output_price
+```
+
+| トークン数 | 入力 / 出力 | Gemini 4 Argon（11 月 30 日まで） | Gemini 4 Argon（12 月 1 日から） | Capriole AI（どのモデルも） |
+|---|---|---:|---:|---:|
+| 100 万 | 75 万 / 25 万 | USD 4 | USD 8 | USD 1.60 |
+| 500 万 | 375 万 / 125 万 | USD 20 | USD 40 | **USD 8** |
+
+導入価格では、Gemini 4 Argon で 500 万トークンのコストが 3.75 × USD 2 + 1.25 × USD 10 = USD 20 なので、Capriole の USD 8 は 60% 安くなります。12 月 1 日からは同じワークロードが USD 40 になり、USD 8 は 80% 安くなります。92% という数字は、[GPT-6 Astra](/ja/articles/openai-api-pricing) や [Claude Fable 5.1](/ja/articles/claude-api-pricing) のように USD 10 と USD 50 の価格のモデルに当てはまります。Capriole は API トークンを 500 万単位のパックで販売しています。100 万の行はパックの 5 分の 1 にあたり、比較のために示しています。
+
+Gemini 3.8 Flash では、同じ 500 万トークンが 2026 年 12 月 31 日まで USD 7.50 で、Capriole の USD 8 よりわずかに安くなります。2027 年 1 月 1 日からは USD 15 になり、USD 8 は 47% 安くなります。
+
+Google は、思考トークンを含む出力を入力の 5 倍の価格に設定しています。Capriole は入力と出力を同じレートで数えるため、どれだけ安くなるかは実際の入出力の比率で決まります。たとえば、入力だけの 500 万トークンは、Argon の導入価格で USD 10、12 月 1 日以降は USD 20 です。
+
+[無料でチャットを始める](https://www.capriole.ai/ja)ことも、[API キーを取得する](https://www.capriole.ai/ja?view=api)こともできます。
+
+## キャッシュとバッチで比較はどう変わるか
+
+- **キャッシュ入力**: Google は、Argon のキャッシュされた 100 万トークンあたり、11 月 30 日まで USD 0.10、12 月 1 日から USD 0.20 を請求します。Capriole はレスポンスで報告されたキャッシュ入力を 10% で数えるため、キャッシュされた 100 万トークンあたり USD 0.16 に相当します。11 月 30 日までは Google のキャッシュ料金のほうが安く、12 月 1 日からは Capriole のほうが安くなります。計算式は [Capriole AI の課金トークンの説明](/ja/articles/charged-tokens)で確認できます。
+- **Batch と Flex**: 半額の場合、Argon の 500 万トークンの例は 11 月 30 日まで USD 10、12 月 1 日から USD 20 です。Capriole にバッチ エンドポイントはありませんが、このワークロードでも USD 8 はそれぞれ 20% と 60% 安くなります。
+
+OpenRouter のクレジット手数料も含めた 500 万トークンのテストは、[AI API コスト比較](/ja/articles/ai-api-cost-comparison)をご覧ください。
+
+## Capriole の API で Gemini 4 Argon を呼び出す
+
+Capriole は Gemini モデルを `POST /v1/chat/completions` の OpenAI Chat Completions で提供しています。OpenAI SDK の base URL を `https://api.caprioletech.com/v1` に設定してください。
+
+- `google-latest` は Gemini 4 Argon を選択します。そのため、設定が現在推奨される Google モデルに追従します。
+- `google/gemini-4-argon` と `google/gemini-3.8-flash` は、モデルを明示的に選択します。
+- Responses と Messages のエンドポイントは Gemini モデルを受け付けません。
+
+```python
+import os
+
+from openai import OpenAI
+
+client = OpenAI(
+    api_key=os.environ["CAPRIOLE_AI_API_KEY"],
+    base_url="https://api.caprioletech.com/v1",
+)
+
+completion = client.chat.completions.create(
+    model="google-latest",
+    messages=[{"role": "user", "content": "Explain this stack trace."}],
+)
+print(completion.choices[0].message.content)
+```
+
+長い推論では `stream=True` でレスポンスをストリーミングしてください。ストリーミングしない場合、リクエストは約 2 分でタイムアウトすることがあります。各キーは 1 分あたり 300 リクエストまで送信できます。使用できるモデル ID の一覧は [Chat Completions リファレンス](/ja/api-reference/endpoint/chat-completions)、Gemini 4 Argon と GPT-6 Astra や Claude との比較は [GPT-6 Astra・Claude・Gemini の選び方](/ja/guides/choose-a-model)をご覧ください。
+
+## 月額 USD 8 に含まれるもの
+
+Premium には、Gemini 4 Argon をはじめすべての対応モデルでの無制限のウェブチャットに加えて、アプリとコーディング エージェント向けに毎月 500 万 API トークンが含まれます。チャージ、Team、無料のウェブチャットについては[プランと制限](/ja/guides/plans-and-limits)をご覧ください。
+
+## 公式 API のほうが合う場合
+
+2027 年より前に Gemini 3.8 Flash だけを使うワークロードや、無料枠、Batch、Flex、Priority、Google 検索によるグラウンディング、または Google 自体との契約が必要な場合は、Google を直接利用してください。
+
+## よくある質問
+
+### Gemini API の料金はいくらですか？
+
+Gemini 4 Argon は 2026 年 11 月 30 日まで入力 100 万トークンあたり USD 2、出力 100 万トークンあたり USD 10 で、以降は USD 4 と USD 20 です。Gemini 3.8 Flash は 2026 年 12 月 31 日まで USD 0.75 と USD 3.75 で、以降は USD 1.50 と USD 7.50 です。バッチ リクエストは半額です。
+
+### Gemini 4 Argon は無料で使えますか？
+
+Google の無料枠に Gemini 4 Argon は含まれていません。Capriole AI では、アカウントなしでウェブチャットから 1 日 5 メッセージまで試せます。Premium にするとウェブチャットが無制限になります。
+
+### Capriole AI の `google-latest` とは何ですか？
+
+`google-latest` は Gemini 4 Argon を指します。Gemini モデルを提供するエンドポイントである `/v1/chat/completions` で使えます。
+
+### 無制限チャットに API の使用量は含まれますか？
+
+いいえ。無制限の対象はウェブチャットです。API とコーディング エージェントのリクエストは、API トークン残高を使います。
+
+## Capriole AI を始める
+
+アカウントなしで[無料でチャットを始める](https://www.capriole.ai/ja)ことも、Premium で [API キーを取得する](https://www.capriole.ai/ja?view=api)こともできます。最初のリクエストは [API クイックスタート](/ja/quickstart)で説明しています。
+
+## 公式ソース
+
+- Google: [Gemini Developer API pricing](https://ai.google.dev/gemini-api/docs/pricing)
+- Google: [Gemini 4 Argon](https://ai.google.dev/gemini-api/docs/latest-model)
+
+このページの Capriole AI のプラン、チャージ、課金トークンに関する事実は、第一当事者ドキュメントとして維持されています。

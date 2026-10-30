@@ -23,11 +23,11 @@ OpenAI는 GPT-6 Astra를 가장 까다로운 작업을 위한 가장 뛰어난 �
 
 ### Claude Fable 5.1
 
-Anthropic은 Claude Fable 5.1을 까다로운 추론과 장기 에이전트 작업용으로 내세웁니다. Anthropic에 따르면 Claude Fable 5보다 오래 실행되는 에이전트 코딩, 여러 단계의 리서치, 문서·스프레드시트·슬라이드 작업이 나아졌습니다. Anthropic은 이 모델을 Claude Opus 5.5보다 느리다고 평가합니다. `claude-latest`는 Claude Fable 5.1을 사용합니다.
+Anthropic은 Claude Fable 5.1을 까다로운 추론과 장기 에이전트 작업용으로 내세웁니다. Anthropic에 따르면 Claude Fable 5보다 오래 실행되는 에이전트 코딩, 여러 단계의 리서치, 문서·스프레드시트·슬라이드 작업이 나아졌습니다. Anthropic은 이 모델을 Claude Opus 5.5보다 느리다고 평가합니다. `claude-latest`는 Claude Fable 5.1을 사용합니다. Anthropic 자체의 Pro 플랜에서 Fable 5.1은 사용량 한도에 포함되지 않고 사용량 크레딧으로 결제됩니다. 자세한 내용은 [Claude 사용량 한도 정리](/ko/articles/claude-usage-limits)를 참고하세요.
 
 ### Claude Opus 5.5
 
-Anthropic은 Claude Opus 5.5를 오래 실행되는 에이전트 코딩과 지식 작업용으로 만들었고, 공식 가격은 Fable 5.1의 절반도 되지 않습니다. Anthropic은 대부분의 작업을 Opus 5.5로 시작하고, 추론 강도를 높인 Opus 5.5로도 부족할 때 Fable 5.1로 옮기라고 권장합니다. 이 모델은 추론이 항상 켜져 있으므로, Capriole AI에서 **Fast**는 추론을 끄는 대신 추론 강도를 낮춥니다.
+Anthropic은 Claude Opus 5.5를 오래 실행되는 에이전트 코딩과 지식 작업용으로 만들었고, 공식 가격은 Fable 5.1의 절반도 되지 않습니다. Anthropic은 대부분의 작업을 Opus 5.5로 시작하고, 추론 강도를 높인 Opus 5.5로도 부족할 때 Fable 5.1로 옮기라고 권장합니다. Fable 5.1처럼 이 모델도 추론이 항상 켜져 있으므로, Capriole AI에서 **Fast**는 추론을 끄는 대신 추론 강도를 낮춥니다.
 
 ### Gemini 4 Argon
 
@@ -60,8 +60,8 @@ Thinking은 토큰을 더 많이 씁니다. Premium과 Team에서는 어느 쪽�
 
 | 모델 | 웹 채팅 프리셋 |
 |---|---|
-| GPT-6 Astra, GPT-6.1 Sol, GPT-6 Sol, GPT-6 Luna, Claude Fable 5.1 | **Thinking**(추론 강도 중간)과 **Fast**(추론 강도 낮음) |
-| Claude Opus 5.5 | 추론이 항상 켜져 있습니다. **Fast**는 추론 강도를 낮춥니다. |
+| GPT-6 Astra, GPT-6.1 Sol, GPT-6 Sol, GPT-6 Luna | **Thinking**(추론 강도 중간)과 **Fast**(추론 강도 낮음) |
+| Claude Fable 5.1, Claude Opus 5.5 | 추론이 항상 켜져 있습니다. **Thinking**은 추론 강도 중간, **Fast**는 낮음입니다. |
 | Gemini 4 Argon | 웹 채팅에는 **Thinking** 프리셋만 있습니다. **Fast**를 선택하면 채팅이 Gemini 3.8 Flash로 전환됩니다. |
 | Kimi K3.1 Pro | 항상 추론합니다. **Thinking**은 높은 추론 강도, **Fast**는 낮은 추론 강도를 씁니다. |
 | GLM | **Fast**는 GLM 5.3 Flash입니다. **Thinking**은 이전 모델인 GLM 5.2(API에서는 `zai/glm-5.2`)를 사용합니다. |
@@ -99,7 +99,7 @@ Capriole AI는 모든 모델에서 과금 토큰을 같은 방식으로 계산�
 
 ### Capriole AI에서 플래그십 모델은 더 비싼가요?
 
-웹 채팅에서는 아닙니다. Premium과 Team 채팅은 모든 지원 모델에서 무제한입니다. API에서는 모든 모델의 토큰 가격이 500만 토큰당 USD 8로 같으므로, 공식 가격 대비 절감 폭은 플래그십에서 가장 큽니다.
+웹 채팅에서는 아닙니다. Premium과 Team 채팅은 모든 지원 모델에서 무제한입니다. API에서는 모든 모델의 토큰 가격이 500만 토큰당 USD 8로 같으므로, 공식 가격 대비 절감 폭은 플래그십에서 가장 큽니다. 자세한 계산은 [Claude API 가격](/ko/articles/claude-api-pricing), [OpenAI API 가격](/ko/articles/openai-api-pricing), [Gemini API 가격](/ko/articles/gemini-api-pricing)에서 볼 수 있습니다.
 
 ### OpenAI SDK로 Claude나 Gemini를 쓸 수 있나요?
 
@@ -111,7 +111,7 @@ Capriole AI는 모든 모델에서 과금 토큰을 같은 방식으로 계산�
 
 ### 어떤 Claude 모델로 시작해야 하나요?
 
-Anthropic은 대부분의 작업을 Claude Opus 5.5로 시작하고, 까다로운 추론과 장기 에이전트 작업에는 Claude Fable 5.1로 옮기라고 권장합니다.
+Anthropic은 대부분의 작업을 Claude Opus 5.5로 시작하고, 까다로운 추론과 장기 에이전트 작업에는 Claude Fable 5.1로 옮기라고 권장합니다. [Claude vs ChatGPT](/ko/articles/claude-vs-chatgpt)에서 두 모델을 GPT-6 Astra와 비교합니다.
 
 ## 공식 자료
 

@@ -16,7 +16,7 @@ Für intensive Arbeit mit Coding-Agents enthält dasselbe Konto eine API, die bi
 | Claude Pro | USD 20 pro Monat oder USD 17 pro Monat bei jährlicher Abrechnung | Mindestens 5× Free pro Fünf-Stunden-Sitzung, dazu ein Wochenlimit | Außerhalb der Limits des Plans; bezahlt mit Nutzungsguthaben zu API-Preisen |
 | Claude Max 5x | USD 100 pro Monat | 5× Pro pro Fünf-Stunden-Sitzung, dazu ein Wochenlimit | Bis zu 50% der Wochenlimits |
 | Claude Max 20x | USD 200 pro Monat | 20× Pro pro Fünf-Stunden-Sitzung, dazu ein Wochenlimit | Bis zu 50% der Wochenlimits |
-| Capriole AI Premium | USD 8 pro Monat | Unbegrenzter Web-Chat, mit einem Fair-Use-Limit von 200 Nachrichten pro Tag | Im unbegrenzten Web-Chat enthalten |
+| Capriole AI Premium | USD 8 pro Monat | Unbegrenzter Web-Chat mit einem [Fair-Use-Limit](/de/guides/plans-and-limits#was-unbegrenzt-bedeutet) | Im unbegrenzten Web-Chat enthalten |
 
 ## Wie die Nutzungslimits von Claude funktionieren
 
@@ -27,7 +27,7 @@ Das Hilfecenter von Anthropic beschreibt zwei Limits für bezahlte Pläne:
 
 Laut Anthropic kann die Nutzung auch auf andere Weise begrenzt werden, etwa durch monatliche Obergrenzen oder Limits für bestimmte Modelle und Funktionen. Ihren Stand sehen Sie auf claude.ai unter **Settings** → **Usage**.
 
-Die Limits werden geteilt. Nutzung in claude.ai, Claude Desktop und Claude Code zählt zum selben Kontingent, sodass eine lange Claude Code-Sitzung wenig Raum für den Chat lassen kann. Der Wechsel zu einem anderen Claude-Modell setzt es nicht zurück, weil das Wochenlimit alle Modelle umfasst.
+Die Limits werden geteilt. Nutzung in claude.ai, Claude Desktop und Claude Code zählt zum selben Kontingent, sodass eine lange Claude-Code-Sitzung wenig Raum für den Chat lassen kann. Der Wechsel zu einem anderen Claude-Modell setzt es nicht zurück, weil das Wochenlimit alle Modelle umfasst.
 
 ## Warum Sie das Limit schneller erreichen als erwartet
 
@@ -55,7 +55,7 @@ Wenn Sie das Fünf-Stunden-Limit mitten in einer Antwort von Claude Code erreich
 
 Capriole AI Premium kostet USD 8 pro Monat für unbegrenzten Web-Chat mit jedem unterstützten Modell, darunter Claude Fable 5.1, Claude Opus 5.5, GPT-6 Astra und Gemini 4 Argon.
 
-Der Web-Chat von Capriole AI hat kein Fünf-Stunden-Sitzungslimit und kein Wochenlimit. Für angemeldeten Web-Chat gilt ein Fair-Use-Limit von 200 Nachrichten pro Konto und Tag. Es stoppt skriptgesteuerten, automatisierten Missbrauch; normale Nutzung bleibt weit darunter.
+Der Web-Chat von Capriole AI hat kein Fünf-Stunden-Sitzungslimit und kein Wochenlimit, nur ein Fair-Use-Limit von 200 Nachrichten pro Konto und Tag.
 
 Fable 5.1 braucht kein Nutzungsguthaben. Jedes Modell gehört zum selben unbegrenzten Web-Chat, und Sie können [mitten im Chat das Modell wechseln](/de/articles/switch-models-mid-chat), etwa von Claude Opus 5.5 zu Claude Fable 5.1 für einen schwierigeren Schritt, ohne neu anzufangen.
 
@@ -63,7 +63,7 @@ Premium enthält außerdem kostenlose Bilderzeugung mit GPT Image 2.5 und Nano B
 
 ## Intensive Nutzung von Coding-Agents: der Weg über die API
 
-Unbegrenzter Web-Chat deckt keine Coding-Agents ab. Für Claude Code und andere Agents nutzen Sie einen Capriole AI API-Schlüssel. Agent-Anfragen greifen auf ein gemessenes API-Guthaben zu, das bis zu 92% weniger kostet als die offiziellen API-Preise.
+Unbegrenzter Web-Chat deckt keine Coding-Agents ab. Für Claude Code und andere Agents nutzen Sie einen Capriole-AI-API-Schlüssel. Agent-Anfragen greifen auf ein gemessenes API-Guthaben zu, das bis zu 92% weniger kostet als die offiziellen API-Preise.
 
 | Modell | Offizieller API-Preis pro 1M Tokens (Eingabe / Ausgabe) | Capriole AI |
 |---|---|---|
@@ -73,7 +73,7 @@ Unbegrenzter Web-Chat deckt keine Coding-Agents ab. Für Claude Code und andere 
 
 USD 8 pro 5M Tokens entsprechen USD 1.60 pro Million, für Eingabe und Ausgabe gleichermaßen. Premium enthält 5M API-Tokens pro Monat, und Aufstockungen kosten USD 8 pro 5M Tokens für jedes unterstützte Modell. Gecachte Eingabe zählt zu 10%, wie [Abgerechnete Tokens](/de/articles/charged-tokens) erklärt.
 
-Claude Code verbindet sich über den Anthropic Messages-Endpunkt von Capriole AI. Derselbe Schlüssel funktioniert mit [10 dokumentierten Coding-Agents](/de/guides/one-api-key-coding-agents), darunter Codex. Beginnen Sie mit der [Einrichtung von Claude Code](/de/integrations/claude-code).
+Claude Code verbindet sich über den Anthropic-Messages-Endpunkt von Capriole AI. Derselbe Schlüssel funktioniert mit [10 dokumentierten Coding-Agents](/de/guides/one-api-key-coding-agents), darunter Codex. Beginnen Sie mit der [Einrichtung von Claude Code](/de/integrations/claude-code).
 
 Claude Max enthält monatliches API-Guthaben, aber [laut Anthropic](https://support.claude.com/en/articles/17154008-monthly-api-credits-for-max-and-team-plans) deckt es weder interaktive Claude-Code-Sitzungen noch zusätzliche Nutzung nach Erreichen der Plan-Limits ab.
 
@@ -97,7 +97,7 @@ Capriole AI ist ein unabhängiger Arbeitsbereich und steht in keiner Verbindung 
     Für Menschen ja. Das Limit soll skriptgesteuerten, automatisierten Missbrauch stoppen. Der aktivste echte Nutzer hat an einem Tag 132 Nachrichten gesendet.
   </Accordion>
   <Accordion title="Kann ich Claude Code mit Capriole AI nutzen?">
-    Ja, mit einem Capriole AI API-Schlüssel aus Premium oder Team. Anfragen von Claude Code nutzen das gemessene API-Guthaben, nicht den unbegrenzten Web-Chat. Siehe die [Einrichtung von Claude Code](/de/integrations/claude-code).
+    Ja, mit einem Capriole-AI-API-Schlüssel aus Premium oder Team. Anfragen von Claude Code nutzen das gemessene API-Guthaben, nicht den unbegrenzten Web-Chat. Siehe die [Einrichtung von Claude Code](/de/integrations/claude-code).
   </Accordion>
 </AccordionGroup>
 
@@ -126,4 +126,4 @@ Capriole AI ist ein unabhängiger Arbeitsbereich und steht in keiner Verbindung 
 - Modellseiten zu [Claude Fable 5.1](https://platform.claude.com/docs/en/models/fable-5-1/overview) und [Claude Opus 5.5](https://platform.claude.com/docs/en/models/opus-5-5/overview)
 - [GPT-6 Astra model](https://developers.openai.com/api/docs/models/gpt-6-astra)
 
-Capriole AI-Fakten auf dieser Seite werden als First-Party-Dokumentation gepflegt.
+Capriole-AI-Fakten auf dieser Seite werden als First-Party-Dokumentation gepflegt.

@@ -12,7 +12,7 @@ Premium 每月收费 **USD 8**，包含受支持 Premium 模型范围内的无�
 
 ## 麻烦不只来自每月账单
 
-使用多个 AI 产品，往往意味着多个浏览器标签页、账单页面、历史记录、界面和控制方式。一项任务可能从某个产品开始，后来需要另一个模型。此时的迁移就像一次小型搬家，需要复制有用的上下文、重新附加文件、再解释一遍任务，还要熟悉下一个界面提供了哪些控制项。
+使用多个 AI 产品，往往意味着多个浏览器标签页、账单页面、历史记录、界面和控制方式。每个产品还各有一套用量规则，例如 Claude 的付费方案让聊天和 Claude Code 共用[五小时和每周上限](/zh/articles/claude-usage-limits)。一项任务可能从某个产品开始，后来需要另一个模型。此时的迁移就像一次小型搬家，需要复制有用的上下文、重新附加文件、再解释一遍任务，还要熟悉下一个界面提供了哪些控制项。
 
 API 工作会增加提供商账户、密钥、余额、模型名称和不兼容的请求格式。编程智能体又带来一层配置。单独看，每一步都不难，叠在一起却会把模型选择变成账户管理工作。
 
@@ -26,13 +26,15 @@ Capriole AI 把常用部分放进同一个工作区。你可以和受支持的�
 | 每月 API 额度 | 500 万计费 API token | API 使用会消耗额度，并非无限 |
 | API top-up | 可以购买额外 token 包 | top-up 与每月订阅分开计费 |
 | 编程智能体 | Capriole API key 可用于文档列出的集成 | 支持范围限于持续维护的协议和模型路径 |
-| 免费访问 | 升级前可使用有限的浏览器聊天 | 免费访问不含公共 API |
+| 免费访问 | 升级前可使用[有限的浏览器聊天](/zh/articles/ai-chat-without-login) | 免费访问不含公共 API |
 
 Capriole 在同一个工作区中维护 OpenAI、Anthropic、Google、xAI、Z.AI 和 Moonshot AI 当前受支持的模型，其中包括上面列出的旗舰组合。
 
 浏览器和 API 采用不同的用量模式。Premium 浏览器聊天没有需要用户逐条管理的消息 token 余额。已登录聊天设有每个账户每个 UTC 日 200 条消息的合理使用上限，用于阻止脚本化滥用，正常使用远低于这一上限。API 请求需要计量，因为程序化工作负载可能远高于普通聊天。
 
 这项方案适合每天聊天，同时偶尔或适度使用 API 与编程智能体的人。两类额度各自清楚。Premium 下的浏览器聊天无限，自动化工作则使用可见的计费 token 余额。
+
+如果你要替换某个具体方案，可以看看 Premium 与 [ChatGPT Plus](/zh/articles/chatgpt-plus-alternative)、[Claude 和 ChatGPT](/zh/articles/claude-vs-chatgpt)、[Magai](/zh/articles/capriole-ai-vs-magai) 或 [Venice](/zh/articles/capriole-ai-vs-venice) 相比如何。
 
 ## 同一段对话使用不同模型的长处
 

@@ -51,7 +51,7 @@ Capriole's charged-token formula has no long-prompt tier, so a 300K-token prompt
 - **Cache writes**: OpenAI charges 1.25 times input for a 30-minute cache write and 2.5 times input for a 12-hour cache write. Capriole counts every uncached input token, including cache writes, at the normal rate.
 - **Batch and Flex**: At half price, the 5M-token GPT-6 Astra example costs USD 50. Capriole has no batch endpoint, and its USD 8 is still 84% less for that workload.
 
-For a 5M-token test that also includes OpenRouter's credit fee, see the [AI API cost comparison](/articles/ai-api-cost-comparison).
+For a 5M-token test that also includes OpenRouter's credit fee, see the [AI API cost comparison](/articles/ai-api-cost-comparison). For Claude Fable 5.1 and Opus 5.5, see [Claude API pricing](/articles/claude-api-pricing); for Gemini 4 Argon, see [Gemini API pricing](/articles/gemini-api-pricing).
 
 ## Call GPT-6 Astra through Capriole's API
 
@@ -82,12 +82,7 @@ Each key allows 300 requests per minute. See the [Responses reference](/api-refe
 
 ## What USD 8 a month includes
 
-- Unlimited web chat with GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5, Gemini 4 Argon, and every other supported model. Signed-in chat has a fair-use limit of 200 messages per account per UTC day to stop scripted abuse; normal use stays well below it.
-- 5M API tokens a month for your apps and coding agents.
-- More API tokens at USD 8 per 5M, 1 to 11 packs per purchase, with multi-pack discounts up to 15%.
-- Free image generation with GPT Image 2.5 and Nano Banana 2.1, files and web search, projects, chat export, and [10 documented coding agents](/articles/coding-agent-compatibility).
-
-An API key needs Premium or Team. Team costs USD 70 per month for 5 seats and 50M API tokens. You can try web chat without an account, 5 messages a day, and a free account gets 500,000 tokens of web chat a month without API access.
+Besides unlimited web chat on every supported model, Premium includes 5M API tokens a month for apps and coding agents; [plans and limits](/guides/plans-and-limits) covers top-ups, Team, and free web chat.
 
 ## When the official API fits better
 

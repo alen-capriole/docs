@@ -72,14 +72,14 @@ estimated_requests = floor(5,000,000 / average_charged_tokens_per_request)
 
 不要用计费 token 乘以提供商公布的输入或输出费率。它们描述不同的计费系统。
 
-[带日期的 API 成本对比](/zh/articles/ai-api-cost-comparison)把这套公式应用到一种固定的 500 万 token 工作负载，再比较各服务的现金成本。
+[带日期的 API 成本对比](/zh/articles/ai-api-cost-comparison)把这套公式应用到一种固定的 500 万 token 工作负载，再比较各服务的现金成本。[Claude API 价格](/zh/articles/claude-api-pricing)、[OpenAI API 价格](/zh/articles/openai-api-pricing)和 [Gemini API 价格](/zh/articles/gemini-api-pricing)把当前每 100 万 token 的官方价格与 Capriole 每 500 万 token USD 8 的价格放在一起比较。
 
 ## 个人与 Team 余额边界
 
 | 访问类型 | 内含 API 余额 | Top-up 基础价格 | 当前规则 |
 |---|---:|---:|---|
 | Personal Premium | 每个有效月度配额周期 500 万计费 token | 每 500 万 USD 8 | 公共 API 和个人 top-up 要求用户拥有有效 Premium 访问权限。一次购买多个包可获得页面显示的批量折扣，最高 15% |
-| Team | 每个有效月度配额周期共享 5000 万计费 token | 每 5000 万 USD 80 | 每月 USD 70 包含五个席位。owners 和 admins 可以购买一至五个包，并获得页面显示的批量折扣，最高 10% |
+| Team | 每个有效月度配额周期共享 5000 万计费 token | 每 5000 万 USD 80 | 每月 USD 70 包含[五个席位](/zh/guides/team-plan)。owners 和 admins 可以购买一至五个包，并获得页面显示的批量折扣，最高 10% |
 
 系统会先消耗内含配额，再消耗相应的个人或 Team top-up wallet。购买的 top-up 余额可以跨月度配额周期和付费访问中断继续保留，实际使用时仍要求符合条件的有效付费访问。浏览器聊天与 API 计量分开，编程智能体属于 API 流量，会扣除计费 token。
 

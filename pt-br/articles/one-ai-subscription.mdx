@@ -12,7 +12,7 @@ O resultado é uma conta para os modelos de fronteira suportados, em vez de vár
 
 ## O problema é maior do que a conta mensal
 
-Usar vários produtos de IA costuma significar várias abas do navegador, páginas de cobrança, históricos, interfaces e conjuntos de controles. Uma tarefa que começa em um produto pode precisar de outro modelo depois. Movê-la então vira uma pequena migração: copiar o contexto útil, reanexar arquivos, explicar a tarefa de novo e aprender quais controles a próxima interface expõe.
+Usar vários produtos de IA costuma significar várias abas do navegador, páginas de cobrança, históricos, interfaces e conjuntos de controles. Cada um também mede o uso do seu jeito: os planos pagos do Claude, por exemplo, compartilham [limites de cinco horas e semanais](/pt-br/articles/claude-usage-limits) entre o chat e o Claude Code. Uma tarefa que começa em um produto pode precisar de outro modelo depois. Movê-la então vira uma pequena migração: copiar o contexto útil, reanexar arquivos, explicar a tarefa de novo e aprender quais controles a próxima interface expõe.
 
 O trabalho de API adiciona contas de provedor, keys, saldos, nomes de modelo e formatos de solicitação incompatíveis. Agentes de programação adicionam outra camada de configuração. Nenhum desses passos é difícil sozinho, mas juntos eles transformam a escolha de modelo em administração de conta.
 
@@ -26,13 +26,15 @@ A Capriole AI traz as partes comuns para um espaço de trabalho. Você pode conv
 | Cota mensal da API | 5 milhões de tokens cobrados de API | O uso da API consome a cota; não é ilimitado |
 | Recargas da API | Pacotes adicionais de tokens podem ser comprados | As recargas são separadas da assinatura mensal |
 | Agentes de programação | Uma API key da Capriole pode ser usada com integrações documentadas | O suporte se limita aos caminhos mantidos de protocolo e modelo |
-| Acesso Free | Browser Chat limitado antes do upgrade | O acesso Free não inclui a API pública |
+| Acesso Free | [Browser Chat limitado](/pt-br/articles/ai-chat-without-login) antes do upgrade | O acesso Free não inclui a API pública |
 
 A Capriole mantém modelos suportados atuais da OpenAI, Anthropic, Google, xAI, Z.AI e Moonshot AI no mesmo espaço de trabalho, incluindo o conjunto principal nomeado acima.
 
 O navegador e a API têm modelos de uso diferentes. O Browser Chat do Premium não tem um saldo de tokens por mensagem para o usuário gerenciar. O chat com login tem um limite de uso justo de 200 mensagens por conta por dia UTC para impedir abusos automatizados feitos por scripts; o uso normal fica bem abaixo disso. As solicitações da API são medidas porque cargas de trabalho programáticas podem crescer muito além do uso normal de chat.
 
 O plano serve a quem conversa todos os dias e também precisa de acesso ocasional ou moderado à API ou a agentes de programação. As duas cotas permanecem claras: o Browser Chat é ilimitado no Premium, enquanto o trabalho automatizado usa o saldo visível de tokens cobrados.
+
+Se você vai substituir um plano específico, compare o Premium com [ChatGPT Plus](/pt-br/articles/chatgpt-plus-alternative), [Claude e ChatGPT](/pt-br/articles/claude-vs-chatgpt), [Magai](/pt-br/articles/capriole-ai-vs-magai) ou [Venice](/pt-br/articles/capriole-ai-vs-venice).
 
 ## Uma conversa, forças diferentes de modelo
 

@@ -16,7 +16,7 @@ Claude Pro と Max のユーザーが使用制限に達するのは、すべて�
 | Claude Pro | 月額 USD 20、年払いなら月額 USD 17 | 5 時間のセッションごとに Free の 5 倍以上、加えて週間制限 | プランの制限の対象外。API 料金の利用クレジットで支払い |
 | Claude Max 5x | 月額 USD 100 | 5 時間のセッションごとに Pro の 5 倍、加えて週間制限 | 週間制限の最大 50% |
 | Claude Max 20x | 月額 USD 200 | 5 時間のセッションごとに Pro の 20 倍、加えて週間制限 | 週間制限の最大 50% |
-| Capriole AI Premium | 月額 USD 8 | 無制限のウェブチャット。1 日 200 メッセージのフェアユース上限あり | 無制限のウェブチャットに含まれる |
+| Capriole AI Premium | 月額 USD 8 | 無制限のウェブチャット。[フェアユース上限](/ja/guides/plans-and-limits#「無制限」の意味)あり | 無制限のウェブチャットに含まれる |
 
 ## Claude の使用制限の仕組み
 
@@ -55,7 +55,7 @@ Claude Code の応答の途中で 5 時間の制限に達した場合、Claude C
 
 Capriole AI Premium は月額 USD 8 で、Claude Fable 5.1、Claude Opus 5.5、GPT-6 Astra、Gemini 4 Argon を含むすべての対応モデルでウェブチャットが無制限です。
 
-Capriole AI のウェブチャットには、5 時間のセッション制限も週間制限もありません。ログイン中のウェブチャットには、1 アカウントあたり 1 日 200 メッセージのフェアユース上限があります。スクリプトによる自動化された乱用を防ぐためのもので、通常の利用ではこの上限を大きく下回ります。
+Capriole AI のウェブチャットには、5 時間のセッション制限も週間制限もなく、あるのは 1 アカウントあたり 1 日 200 メッセージのフェアユース上限だけです。
 
 Fable 5.1 に利用クレジットは不要です。すべてのモデルが同じ無制限のウェブチャットに含まれ、[会話の途中でモデルを切り替え](/ja/articles/switch-models-mid-chat)られます。たとえば、難しいステップだけ Claude Opus 5.5 から Claude Fable 5.1 に切り替えても、最初からやり直す必要はありません。
 
@@ -71,7 +71,7 @@ Premium には、GPT Image 2.5 と Nano Banana 2.1 による無料の画像生�
 | Claude Opus 5.5 | USD 4 / USD 20 | 500 万トークンあたり USD 8 |
 | GPT-6 Astra | USD 10 / USD 50 | 500 万トークンあたり USD 8 |
 
-500 万トークンあたり USD 8 は、入力・出力とも 100 万トークンあたり USD 1.60 です。Premium には毎月 500 万 API トークンが含まれ、トップアップはどの対応モデルでも 500 万トークンあたり USD 8 です。[課金トークン](/ja/articles/charged-tokens)で説明しているとおり、キャッシュ入力は 10% で数えます。
+500 万トークンあたり USD 8 は、入力・出力とも 100 万トークンあたり USD 1.60 です。Premium には毎月 500 万 API トークンが含まれ、チャージはどの対応モデルでも 500 万トークンあたり USD 8 です。[課金トークン](/ja/articles/charged-tokens)で説明しているとおり、キャッシュ入力は 10% で数えます。
 
 Claude Code は、Capriole AI の Anthropic Messages エンドポイントで接続します。同じキーで、Codex を含む[ドキュメント化された 10 のコーディング エージェント](/ja/guides/one-api-key-coding-agents)を使えます。まずは [Claude Code のセットアップ](/ja/integrations/claude-code)から始めてください。
 

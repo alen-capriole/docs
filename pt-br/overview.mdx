@@ -4,42 +4,49 @@ sidebarTitle: "Visão geral"
 description: "Chat ilimitado com GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5 e Gemini 4 Argon por USD 8 por mês, além de uma API até 92% abaixo dos preços oficiais."
 ---
 
-A Capriole AI oferece chat web ilimitado com GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5, Gemini 4 Argon e outros modelos líderes por USD 8 por mês. A mesma conta inclui uma API que custa até 92% menos que os preços oficiais das APIs, e seus apps e agentes de programação funcionam com uma única API key.
+A Capriole AI é para quem quer GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5 e Gemini 4 Argon sem pagar várias assinaturas, e para desenvolvedores e usuários de agentes de programação que querem uma única API key para todos eles. A assinatura Premium de USD 8 atende os dois casos: chat web ilimitado e uma API até 92% abaixo dos preços oficiais das APIs. O chat e a API compartilham a mesma conta, mas são contados separadamente, então conversar nunca consome os tokens que seus apps e agentes de programação usam.
 
 <CardGroup cols={2}>
   <Card title="Comece a conversar" icon="message" href="https://www.capriole.ai/pt-br">
-    Experimente sem conta e depois tenha chat ilimitado com o Premium por USD 8 por mês.
+    Experimente sem conta. Não precisa de cartão.
   </Card>
   <Card title="Obtenha uma API key" icon="key" href="https://www.capriole.ai/pt-br?view=api">
-    Uma key para clientes compatíveis com OpenAI e Anthropic, até 92% abaixo dos preços oficiais.
+    Uma key para seus apps e agentes de programação.
   </Card>
 </CardGroup>
 
 A Capriole AI é desenvolvida pela Capriole Investments; a plataforma de dados de mercado [Capriole Quant](https://quant.capriole.com/) (antigo Capriole Charts) e o fundo de investimento da empresa são produtos separados da Capriole AI. Assinantes ativos do Capriole Quant recebem acesso gratuito à Capriole AI.
 
+## Em resumo
+
+| | Capriole AI |
+|---|---|
+| Premium | USD 8 por mês por chat web ilimitado em todos os modelos suportados, mais 5M de tokens de API por mês |
+| Uso justo | 200 mensagens de chat web com login por conta por dia UTC. O limite impede abusos feitos por scripts, e o uso normal fica bem abaixo disso. [O que significa ilimitado](/pt-br/guides/plans-and-limits#o-que-significa-ilimitado) |
+| Grátis e visitantes | Visitantes [testam o chat web sem conta](/pt-br/articles/ai-chat-without-login), com 5 mensagens por dia. Uma conta gratuita tem 500.000 tokens de chat web por mês, sem acesso à API |
+| Team | USD 70 por mês por 5 assentos, chat web ilimitado para cada membro e 50M de tokens de API compartilhados por mês. [Plano Team](/pt-br/guides/team-plan) |
+| Modelos principais | GPT-6 Astra (OpenAI), Claude Fable 5.1 e Claude Opus 5.5 (Anthropic), Gemini 4 Argon (Google) |
+| API | Base URL `https://api.caprioletech.com`, compatível com OpenAI Chat Completions, OpenAI Responses e Anthropic Messages |
+| Aliases de modelo | `openai-latest` → GPT-6 Astra, `claude-latest` → Claude Fable 5.1, `google-latest` → Gemini 4 Argon |
+| Limite de taxa | 300 solicitações por minuto por API key |
+| Como os 92% são calculados | Com três tokens de entrada para cada token de saída, 5M de tokens custam USD 100 pelos preços oficiais do GPT-6 Astra ou do Claude Fable 5.1, e USD 8 na Capriole AI. Veja [Preços da API do Claude](/pt-br/articles/claude-api-pricing) e [Preços da API da OpenAI](/pt-br/articles/openai-api-pricing) |
+
 ## Chat ilimitado por USD 8
 
-- O Premium custa USD 8 por mês e inclui chat web ilimitado em todos os modelos suportados, incluindo GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5 e Gemini 4 Argon.
-- Troque de modelo no mesmo chat quando outro modelo combinar melhor com a próxima pergunta.
-- O chat web com login tem um limite de uso justo de 200 mensagens por conta por dia. Ele impede abusos automatizados feitos por scripts; o uso normal fica bem abaixo disso.
-- Visitantes podem testar 5 mensagens por dia sem conta. Uma conta gratuita acrescenta 500.000 tokens de chat web por mês.
-
-[Compare planos e limites](/pt-br/guides/plans-and-limits) ou [escolha um modelo](/pt-br/guides/choose-a-model).
+O chat ilimitado também inclui os modos **Thinking**, e você pode trocar de modelo no mesmo chat quando outro combinar melhor com a próxima pergunta. [Compare planos e limites](/pt-br/guides/plans-and-limits) ou [escolha um modelo](/pt-br/guides/choose-a-model).
 
 ## API até 92% abaixo dos preços oficiais
 
-- Uma API key funciona com clientes OpenAI Chat Completions, OpenAI Responses e Anthropic Messages.
-- O Premium inclui uma franquia mensal de API, e as recargas custam USD 8 a cada 5M de tokens de qualquer modelo suportado. [Preços da API do Claude](/pt-br/articles/claude-api-pricing) e [Preços da API da OpenAI](/pt-br/articles/openai-api-pricing) mostram como os 92% são calculados a partir dos preços oficiais.
+- As recargas custam USD 8 a cada 5M de tokens de qualquer modelo suportado, com até 15% de desconto quando você compra vários pacotes de uma vez.
 - A mesma key roda 10 agentes de programação documentados, incluindo Codex, Claude Code, GitHub Copilot CLI e OpenCode. Veja [uma API key para agentes de programação](/pt-br/guides/one-api-key-coding-agents).
+- Use um alias para continuar no modelo principal recomendado quando ele mudar, ou um ID de modelo concreto quando testes, auditorias ou execuções reproduzíveis precisarem de uma versão exata.
 
 Comece pelo [início rápido da API](/pt-br/quickstart).
 
-## Configure uma vez
+## Compare a Capriole AI
 
-Use `openai-latest`, `claude-latest` ou `google-latest` quando quiser que a Capriole AI mantenha sua API ou agente de programação no modelo principal que recomendamos para aquele provedor.
-
-Use um ID de modelo concreto quando precisar de uma versão exata para testes, auditorias ou execuções reproduzíveis.
+Veja como ela se compara com [OpenRouter](/pt-br/articles/capriole-ai-vs-openrouter), [T3 Chat](/pt-br/articles/capriole-ai-vs-t3-chat), [Magai](/pt-br/articles/capriole-ai-vs-magai) e [Venice](/pt-br/articles/capriole-ai-vs-venice). Se hoje você paga o ChatGPT Plus ou um plano do Claude, comece por [Alternativa ao ChatGPT Plus](/pt-br/articles/chatgpt-plus-alternative) e [Claude vs ChatGPT](/pt-br/articles/claude-vs-chatgpt). Se você vive esbarrando nos limites do seu plano do Claude, leia [Limites de uso do Claude](/pt-br/articles/claude-usage-limits).
 
 ## Também incluído
 
-Contas Free, Premium e Team conectadas e usando **Server Storage** podem criar imagens de graça com **GPT Image 2.5** e **Nano Banana 2.1** no chat web. Arquivos, pesquisa na web, projetos, exportação de chats e controles de armazenamento já vêm integrados ao espaço de trabalho. [Veja o guia de geração de imagens](/pt-br/guides/files-web-search).
+Contas Free, Premium e Team conectadas e usando **Server Storage** podem criar imagens de graça com **GPT Image 2.5** e **Nano Banana 2.1** no chat web. Arquivos, pesquisa na web, projetos, exportação de chats e [controles de privacidade e armazenamento](/pt-br/guides/privacy-and-security) já vêm integrados ao espaço de trabalho. [Veja o guia de geração de imagens](/pt-br/guides/files-web-search).

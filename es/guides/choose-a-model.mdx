@@ -23,11 +23,11 @@ OpenAI presenta GPT-6 Astra como su modelo más capaz para el trabajo más exige
 
 ### Claude Fable 5.1
 
-Anthropic posiciona Claude Fable 5.1 para el razonamiento exigente y el trabajo agéntico de largo horizonte. Según Anthropic, mejora a Claude Fable 5 en programación agéntica de larga duración, investigación de varios pasos y trabajo con documentos, hojas de cálculo y presentaciones. Anthropic lo califica como más lento que Claude Opus 5.5. `claude-latest` usa Claude Fable 5.1.
+Anthropic posiciona Claude Fable 5.1 para el razonamiento exigente y el trabajo agéntico de largo horizonte. Según Anthropic, mejora a Claude Fable 5 en programación agéntica de larga duración, investigación de varios pasos y trabajo con documentos, hojas de cálculo y presentaciones. Anthropic lo califica como más lento que Claude Opus 5.5. `claude-latest` usa Claude Fable 5.1. En el plan Pro de la propia Anthropic, Fable 5.1 queda fuera de los límites de uso y se paga con créditos de uso; consulta [Límites de uso de Claude](/es/articles/claude-usage-limits).
 
 ### Claude Opus 5.5
 
-Anthropic creó Claude Opus 5.5 para la programación agéntica de larga duración y el trabajo del conocimiento, a menos de la mitad del precio oficial de Fable 5.1. Anthropic recomienda empezar la mayoría de las cargas de trabajo con Opus 5.5 y pasar a Fable 5.1 cuando Opus 5.5 con más esfuerzo siga quedándose corto. Su razonamiento está siempre activado, así que en Capriole AI **Fast** reduce su esfuerzo en lugar de desactivar el razonamiento.
+Anthropic creó Claude Opus 5.5 para la programación agéntica de larga duración y el trabajo del conocimiento, a menos de la mitad del precio oficial de Fable 5.1. Anthropic recomienda empezar la mayoría de las cargas de trabajo con Opus 5.5 y pasar a Fable 5.1 cuando Opus 5.5 con más esfuerzo siga quedándose corto. Como en Fable 5.1, su razonamiento está siempre activado, así que en Capriole AI **Fast** reduce su esfuerzo en lugar de desactivar el razonamiento.
 
 ### Gemini 4 Argon
 
@@ -60,8 +60,8 @@ Thinking consume más tokens. En Premium y Team, el chat web sigue siendo ilimit
 
 | Modelo | Modos en el chat web |
 |---|---|
-| GPT-6 Astra, GPT-6.1 Sol, GPT-6 Sol, GPT-6 Luna, Claude Fable 5.1 | **Thinking** (esfuerzo medio) y **Fast** (esfuerzo bajo) |
-| Claude Opus 5.5 | El razonamiento está siempre activado. **Fast** reduce el esfuerzo. |
+| GPT-6 Astra, GPT-6.1 Sol, GPT-6 Sol, GPT-6 Luna | **Thinking** (esfuerzo medio) y **Fast** (esfuerzo bajo) |
+| Claude Fable 5.1, Claude Opus 5.5 | El razonamiento está siempre activado. **Thinking** usa esfuerzo medio y **Fast**, esfuerzo bajo. |
 | Gemini 4 Argon | El chat web solo ofrece el modo **Thinking**. Si seleccionas **Fast**, el chat cambia a Gemini 3.8 Flash. |
 | Kimi K3.1 Pro | El modelo siempre razona. **Thinking** usa esfuerzo alto y **Fast**, esfuerzo bajo. |
 | GLM | **Fast** es GLM 5.3 Flash. **Thinking** usa el anterior GLM 5.2 (`zai/glm-5.2` en la API). |
@@ -99,7 +99,7 @@ El chat web empieza en GPT-6 Astra Thinking. En la API, `openai-latest` usa GPT-
 
 ### ¿Los modelos insignia cuestan más en Capriole AI?
 
-No en el chat web: el chat de Premium y Team es ilimitado en todos los modelos compatibles. En la API, todos los modelos cuestan lo mismo por token, USD 8 por 5M de tokens, así que el ahorro frente a los precios oficiales es mayor en los modelos insignia.
+No en el chat web: el chat de Premium y Team es ilimitado en todos los modelos compatibles. En la API, todos los modelos cuestan lo mismo por token, USD 8 por 5M de tokens, así que el ahorro frente a los precios oficiales es mayor en los modelos insignia. [Precios de la API de Claude](/es/articles/claude-api-pricing), [Precios de la API de OpenAI](/es/articles/openai-api-pricing) y [Precios de la API de Gemini](/es/articles/gemini-api-pricing) hacen las cuentas.
 
 ### ¿Puedo usar Claude o Gemini con el SDK de OpenAI?
 
@@ -111,7 +111,7 @@ No. Solo existen en el chat web. Llama al ID de API del modelo y define la opci�
 
 ### ¿Con qué modelo Claude debería empezar?
 
-Anthropic recomienda empezar la mayor parte del trabajo con Claude Opus 5.5 y pasar a Claude Fable 5.1 para el razonamiento exigente y el trabajo agéntico de largo horizonte.
+Anthropic recomienda empezar la mayor parte del trabajo con Claude Opus 5.5 y pasar a Claude Fable 5.1 para el razonamiento exigente y el trabajo agéntico de largo horizonte. [Claude vs ChatGPT](/es/articles/claude-vs-chatgpt) compara ambos con GPT-6 Astra.
 
 ## Fuentes oficiales
 

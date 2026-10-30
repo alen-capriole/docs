@@ -23,11 +23,11 @@ OpenAI calls GPT-6 Astra its most capable model for the most demanding work. Ope
 
 ### Claude Fable 5.1
 
-Anthropic positions Claude Fable 5.1 for demanding reasoning and long-horizon agentic work. Anthropic says it improves on Claude Fable 5 in long-running agentic coding, multistep research, and work on documents, spreadsheets, and slides. Anthropic rates it slower than Claude Opus 5.5. `claude-latest` uses Claude Fable 5.1.
+Anthropic positions Claude Fable 5.1 for demanding reasoning and long-horizon agentic work. Anthropic says it improves on Claude Fable 5 in long-running agentic coding, multistep research, and work on documents, spreadsheets, and slides. Anthropic rates it slower than Claude Opus 5.5. `claude-latest` uses Claude Fable 5.1. On Anthropic's own Pro plan, Fable 5.1 sits outside the usage limits and is billed through usage credits; see [Claude usage limits explained](/articles/claude-usage-limits).
 
 ### Claude Opus 5.5
 
-Anthropic built Claude Opus 5.5 for long-running agentic coding and knowledge work, at less than half of Fable 5.1's official price. Anthropic suggests starting most workloads on Opus 5.5 and moving to Fable 5.1 when Opus 5.5 at higher effort still falls short. Its thinking is always on, so in Capriole AI **Fast** lowers its effort instead of turning thinking off.
+Anthropic built Claude Opus 5.5 for long-running agentic coding and knowledge work, at less than half of Fable 5.1's official price. Anthropic suggests starting most workloads on Opus 5.5 and moving to Fable 5.1 when Opus 5.5 at higher effort still falls short. Like Fable 5.1, it always thinks, so in Capriole AI **Fast** lowers its effort instead of turning thinking off.
 
 ### Gemini 4 Argon
 
@@ -60,8 +60,8 @@ Thinking uses more tokens. On Premium and Team, web chat stays unlimited either 
 
 | Model | Presets in web chat |
 |---|---|
-| GPT-6 Astra, GPT-6.1 Sol, GPT-6 Sol, GPT-6 Luna, Claude Fable 5.1 | **Thinking** (medium effort) and **Fast** (low effort) |
-| Claude Opus 5.5 | Thinking is always on. **Fast** lowers the effort. |
+| GPT-6 Astra, GPT-6.1 Sol, GPT-6 Sol, GPT-6 Luna | **Thinking** (medium effort) and **Fast** (low effort) |
+| Claude Fable 5.1, Claude Opus 5.5 | Thinking is always on. **Thinking** uses medium effort and **Fast** low effort. |
 | Gemini 4 Argon | Web chat offers the **Thinking** preset only. Selecting **Fast** switches the chat to Gemini 3.8 Flash. |
 | Kimi K3.1 Pro | The model always thinks. **Thinking** uses high effort and **Fast** low effort. |
 | GLM | **Fast** is GLM 5.3 Flash. **Thinking** uses the earlier GLM 5.2 (`zai/glm-5.2` on the API). |
@@ -99,7 +99,7 @@ Web chat starts on GPT-6 Astra Thinking. On the API, `openai-latest` uses GPT-6 
 
 ### Do flagship models cost more in Capriole AI?
 
-Not in web chat: Premium and Team chat is unlimited on every supported model. On the API, every model costs the same per token, USD 8 per 5M tokens, so the saving against official prices is largest on the flagships.
+Not in web chat: Premium and Team chat is unlimited on every supported model. On the API, every model costs the same per token, USD 8 per 5M tokens, so the saving against official prices is largest on the flagships. [Claude API pricing](/articles/claude-api-pricing), [OpenAI API pricing](/articles/openai-api-pricing), and [Gemini API pricing](/articles/gemini-api-pricing) work through the numbers.
 
 ### Can I use Claude or Gemini with the OpenAI SDK?
 
@@ -111,7 +111,7 @@ No. They are web chat only. Call the model's API ID and set the reasoning option
 
 ### Which Claude model should I start with?
 
-Anthropic suggests starting most work on Claude Opus 5.5 and moving to Claude Fable 5.1 for demanding reasoning and long-horizon agentic work.
+Anthropic suggests starting most work on Claude Opus 5.5 and moving to Claude Fable 5.1 for demanding reasoning and long-horizon agentic work. [Claude vs ChatGPT](/articles/claude-vs-chatgpt) compares both with GPT-6 Astra.
 
 ## Official sources
 

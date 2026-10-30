@@ -4,7 +4,7 @@ sidebarTitle: "Escolha um modelo"
 description: "Compare GPT-6 Astra, Claude Fable 5.1, Opus 5.5 e Gemini 4 Argon por pontos fortes segundo o fabricante, contexto e preço oficial, e escolha Thinking ou Fast."
 ---
 
-A Capriole AI inclui quatro modelos principais: GPT-6 Astra, da OpenAI; Claude Fable 5.1 e Claude Opus 5.5, da Anthropic; e Gemini 4 Argon, do Google. O Premium dá chat web ilimitado com os quatro por USD 8 por mês, e a API custa até 92% menos que os preços oficiais das APIs. O chat web começa no GPT-6 Astra Thinking. Troque de modelo quando o fabricante de outro o descrever como feito para a sua tarefa, conforme o resumo abaixo.
+A Capriole AI inclui quatro modelos principais: GPT-6 Astra, da OpenAI; Claude Fable 5.1 e Claude Opus 5.5, da Anthropic; e Gemini 4 Argon, do Google. O Premium dá chat web ilimitado com os quatro por USD 8 por mês, e a API custa até 92% menos que os preços oficiais das APIs. O chat web começa no GPT-6 Astra Thinking. Troque de modelo quando o fabricante de outro modelo disser que ele foi feito para a sua tarefa, conforme o resumo abaixo.
 
 ## Os quatro modelos principais
 
@@ -23,11 +23,11 @@ A OpenAI apresenta o GPT-6 Astra como seu modelo mais capaz para o trabalho mais
 
 ### Claude Fable 5.1
 
-A Anthropic posiciona o Claude Fable 5.1 para raciocínio exigente e trabalho agêntico de longo horizonte. Segundo a Anthropic, ele melhora em relação ao Claude Fable 5 em programação agêntica de longa duração, pesquisa em várias etapas e trabalho com documentos, planilhas e apresentações. A Anthropic o classifica como mais lento que o Claude Opus 5.5. `claude-latest` usa o Claude Fable 5.1.
+A Anthropic posiciona o Claude Fable 5.1 para raciocínio exigente e trabalho agêntico de longo horizonte. Segundo a Anthropic, ele melhora em relação ao Claude Fable 5 em programação agêntica de longa duração, pesquisa em várias etapas e trabalho com documentos, planilhas e apresentações. A Anthropic o classifica como mais lento que o Claude Opus 5.5. `claude-latest` usa o Claude Fable 5.1. No plano Pro da própria Anthropic, o Fable 5.1 fica fora dos limites de uso e é cobrado com créditos de uso; veja [Limites de uso do Claude](/pt-br/articles/claude-usage-limits).
 
 ### Claude Opus 5.5
 
-A Anthropic criou o Claude Opus 5.5 para programação agêntica de longa duração e trabalho do conhecimento, por menos da metade do preço oficial do Fable 5.1. A Anthropic recomenda começar a maioria das cargas de trabalho no Opus 5.5 e passar para o Fable 5.1 quando o Opus 5.5 com mais esforço ainda não der conta. O raciocínio dele fica sempre ligado, então na Capriole AI o **Fast** reduz o esforço em vez de desligar o raciocínio.
+A Anthropic criou o Claude Opus 5.5 para programação agêntica de longa duração e trabalho do conhecimento, por menos da metade do preço oficial do Fable 5.1. A Anthropic recomenda começar a maioria das cargas de trabalho no Opus 5.5 e passar para o Fable 5.1 quando o Opus 5.5 com mais esforço ainda não der conta. Como no Fable 5.1, o raciocínio dele fica sempre ligado, então na Capriole AI o **Fast** reduz o esforço em vez de desligar o raciocínio.
 
 ### Gemini 4 Argon
 
@@ -60,8 +60,8 @@ O Thinking usa mais tokens. No Premium e no Team, o chat web continua ilimitado 
 
 | Modelo | Modos no chat web |
 |---|---|
-| GPT-6 Astra, GPT-6.1 Sol, GPT-6 Sol, GPT-6 Luna, Claude Fable 5.1 | **Thinking** (esforço médio) e **Fast** (esforço baixo) |
-| Claude Opus 5.5 | O raciocínio fica sempre ligado. **Fast** reduz o esforço. |
+| GPT-6 Astra, GPT-6.1 Sol, GPT-6 Sol, GPT-6 Luna | **Thinking** (esforço médio) e **Fast** (esforço baixo) |
+| Claude Fable 5.1, Claude Opus 5.5 | O raciocínio fica sempre ligado. **Thinking** usa esforço médio e **Fast**, esforço baixo. |
 | Gemini 4 Argon | O chat web oferece só o modo **Thinking**. Ao selecionar **Fast**, o chat troca para o Gemini 3.8 Flash. |
 | Kimi K3.1 Pro | O modelo sempre raciocina. **Thinking** usa esforço alto e **Fast**, esforço baixo. |
 | GLM | **Fast** é o GLM 5.3 Flash. **Thinking** usa o GLM 5.2, a versão anterior (`zai/glm-5.2` na API). |
@@ -99,7 +99,7 @@ O chat web começa no GPT-6 Astra Thinking. Na API, `openai-latest` usa o GPT-6 
 
 ### Os modelos principais custam mais na Capriole AI?
 
-Não no chat web: o chat do Premium e do Team é ilimitado em todos os modelos suportados. Na API, todos os modelos custam o mesmo por token, USD 8 a cada 5M de tokens, então a economia em relação aos preços oficiais é maior nos modelos principais.
+Não no chat web: o chat do Premium e do Team é ilimitado em todos os modelos suportados. Na API, todos os modelos custam o mesmo por token, USD 8 a cada 5M de tokens, então a economia em relação aos preços oficiais é maior nos modelos principais. [Preços da API do Claude](/pt-br/articles/claude-api-pricing), [Preços da API da OpenAI](/pt-br/articles/openai-api-pricing) e [Preços da API do Gemini](/pt-br/articles/gemini-api-pricing) fazem as contas.
 
 ### Posso usar Claude ou Gemini com o SDK da OpenAI?
 
@@ -111,7 +111,7 @@ Não. Eles existem só no chat web. Chame o ID de API do modelo e defina a opç�
 
 ### Com qual modelo Claude devo começar?
 
-A Anthropic recomenda começar a maior parte do trabalho no Claude Opus 5.5 e passar para o Claude Fable 5.1 em raciocínio exigente e trabalho agêntico de longo horizonte.
+A Anthropic recomenda começar a maior parte do trabalho no Claude Opus 5.5 e passar para o Claude Fable 5.1 em raciocínio exigente e trabalho agêntico de longo horizonte. [Claude vs ChatGPT](/pt-br/articles/claude-vs-chatgpt) compara os dois com o GPT-6 Astra.
 
 ## Fontes oficiais
 

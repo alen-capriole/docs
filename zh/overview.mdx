@@ -4,42 +4,49 @@ sidebarTitle: "概览"
 description: "每月 USD 8 无限畅聊 GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5 和 Gemini 4 Argon，另有价格最多比官方低 92% 的 API。"
 ---
 
-Capriole AI 让你每月只需 USD 8，就能在网页聊天中无限使用 GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5、Gemini 4 Argon 等领先模型。同一账户还包含 API，价格最多比官方 API 低 92%，你的应用和编程智能体用一个 Key 就能运行。
+Capriole AI 面向两类用户：想用 GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5 和 Gemini 4 Argon、又不想同时付好几份订阅的人，以及想用一个 API Key 调用所有这些模型的开发者和编程智能体用户。一份每月 USD 8 的 Premium 会员同时满足两者：网页聊天无限使用，API 价格最多比官方 API 低 92%。聊天和 API 共用一个账户，但分开计量，所以聊天从不占用你的应用和编程智能体要用的 token。
 
 <CardGroup cols={2}>
   <Card title="开始聊天" icon="message" href="https://www.capriole.ai/zh">
-    无需账户即可试用，订阅 Premium 后每月 USD 8 无限聊天。
+    无需账户即可试用，不用绑卡。
   </Card>
   <Card title="获取 API Key" icon="key" href="https://www.capriole.ai/zh?view=api">
-    一个 Key 适用于兼容 OpenAI 和 Anthropic 的客户端，价格最多比官方低 92%。
+    一个 Key 用于你的应用和编程智能体。
   </Card>
 </CardGroup>
 
 Capriole AI 由 Capriole Investments 打造，与该公司的市场数据平台 [Capriole Quant](https://quant.capriole.com/)（原 Capriole Charts）和投资基金是不同的产品。有效的 Capriole Quant 订阅用户可以免费使用 Capriole AI。
 
+## 速览
+
+| | Capriole AI |
+|---|---|
+| Premium | 每月 USD 8，所有受支持的模型都能无限网页聊天，另含每月 500 万 API token |
+| 合理使用 | 登录后的网页聊天每个账户每个 UTC 日 200 条消息。这个上限用于阻止脚本化滥用，正常使用远低于它。[“无限”是什么意思](/zh/guides/plans-and-limits#“无限”是什么意思) |
+| 免费与访客 | 访客[无需账户即可试用网页聊天](/zh/articles/ai-chat-without-login)，每天 5 条消息。免费账户每月有 50 万 token 的网页聊天额度，不含 API |
+| Team | 每月 USD 70，含 5 个席位，每位成员都能无限网页聊天，另有每月 5,000 万团队共享 API token。[Team 方案](/zh/guides/team-plan) |
+| 旗舰模型 | GPT-6 Astra（OpenAI）、Claude Fable 5.1 和 Claude Opus 5.5（Anthropic）、Gemini 4 Argon（Google） |
+| API | Base URL 为 `https://api.caprioletech.com`，兼容 OpenAI Chat Completions、OpenAI Responses 和 Anthropic Messages |
+| 模型别名 | `openai-latest` → GPT-6 Astra，`claude-latest` → Claude Fable 5.1，`google-latest` → Gemini 4 Argon |
+| 速率限制 | 每个 API Key 每分钟 300 个请求 |
+| 92% 如何计算 | 按输入与输出 3:1 的比例，500 万 token 以 GPT-6 Astra 或 Claude Fable 5.1 的官方价格计算要 USD 100，在 Capriole AI 上是 USD 8。见 [Claude API 价格](/zh/articles/claude-api-pricing)和 [OpenAI API 价格](/zh/articles/openai-api-pricing) |
+
 ## USD 8 无限聊天
 
-- Premium 每月 USD 8，可在网页聊天中无限使用所有受支持的模型，包括 GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5 和 Gemini 4 Argon。
-- 如果下一个问题更适合另一个模型，可以在同一个对话中直接切换。
-- 登录后的网页聊天设有合理使用上限：每个账户每天 200 条消息。它用于阻止脚本驱动的自动化滥用，正常使用远低于这个上限。
-- 访客无需账户，每天可试用 5 条消息。免费账户每月另有 50 万 token 的网页聊天额度。
-
-[比较方案与限额](/zh/guides/plans-and-limits)，或[选择模型](/zh/guides/choose-a-model)。
+**Thinking** 预设同样不限量；如果下一个问题更适合另一个模型，可以在同一个对话中直接切换。[比较方案与限额](/zh/guides/plans-and-limits)，或[选择模型](/zh/guides/choose-a-model)。
 
 ## API 价格最多比官方低 92%
 
-- 一个 API Key 即可用于 OpenAI Chat Completions、OpenAI Responses 和 Anthropic Messages 客户端。
-- Premium 包含每月 API 额度，充值价格为每 500 万 token USD 8，可用于任意受支持的模型。[Claude API 价格](/zh/articles/claude-api-pricing)和 [OpenAI API 价格](/zh/articles/openai-api-pricing)列出了 92% 是如何按官方价格计算的。
+- 充值价格为每 500 万 token USD 8，可用于任意受支持的模型，一次购买多包最多优惠 15%。
 - 同一个 Key 可运行 10 个有配置文档的编程智能体，包括 Codex、Claude Code、GitHub Copilot CLI 和 OpenCode。参见[使用一个 API Key 配置编程智能体](/zh/guides/one-api-key-coding-agents)。
+- 想让配置自动跟随推荐的旗舰模型，就用别名；测试、审计或可重复运行需要固定到某个版本时，使用具体的模型 ID。
 
 先从 [API 快速开始](/zh/quickstart)入手。
 
-## 配置一次即可持续使用
+## 比较 Capriole AI
 
-如果希望 Capriole AI 自动让 API 或编程智能体使用对应提供商当前推荐的旗舰模型，可选择 `openai-latest`、`claude-latest` 或 `google-latest`。
-
-如果测试、审计或可重复运行需要固定到特定模型版本，请使用具体的模型 ID。
+看看它与 [OpenRouter](/zh/articles/capriole-ai-vs-openrouter)、[T3 Chat](/zh/articles/capriole-ai-vs-t3-chat)、[Magai](/zh/articles/capriole-ai-vs-magai) 和 [Venice](/zh/articles/capriole-ai-vs-venice) 有何不同。如果你现在订阅的是 ChatGPT Plus 或 Claude 的方案，可以先读 [ChatGPT Plus 替代方案](/zh/articles/chatgpt-plus-alternative)和 [Claude vs ChatGPT](/zh/articles/claude-vs-chatgpt)。如果你经常碰到 Claude 方案的用量上限，请读 [Claude 用量限制详解](/zh/articles/claude-usage-limits)。
 
 ## 还包括
 
-已登录并使用 **Server Storage** 的 Free、Premium 和 Team 账户，可以在网页聊天中用 **GPT Image 2.5** 和 **Nano Banana 2.1** 免费生图。文件、网页搜索、项目、聊天导出和存储控制都内置在工作区中。[查看生图指南](/zh/guides/files-web-search)。
+已登录并使用 **Server Storage** 的 Free、Premium 和 Team 账户，可以在网页聊天中用 **GPT Image 2.5** 和 **Nano Banana 2.1** 免费生图。文件、网页搜索、项目、聊天导出以及[隐私与存储控制](/zh/guides/privacy-and-security)都内置在工作区中。[查看生图指南](/zh/guides/files-web-search)。
