@@ -1,7 +1,7 @@
 ---
 title: "Proveedor personalizado en OpenCode: configura Capriole AI"
 sidebarTitle: "OpenCode"
-description: "Añade Capriole AI a OpenCode como proveedor personalizado. Usa GPT-6 Astra, Claude Fable 5.1 y Opus 5.5 pagando hasta un 92% menos que en la API oficial."
+description: "Añade Capriole AI a OpenCode 2 u OpenCode 1 como proveedor personalizado. Usa GPT-6 Astra, Claude Fable 5.1 y Opus 5.5 pagando hasta un 92% menos que en la API oficial."
 ---
 
 Con una sola clave API de Capriole AI, usas GPT-6 Astra, Claude Fable 5.1 y Opus 5.5 en OpenCode pagando hasta un 92% menos que los precios oficiales de la API.
@@ -20,17 +20,19 @@ Antes de empezar, asegúrate de tener:
 
 ## Instalación
 
-Instala OpenCode con el script de instalación oficial:
+OpenCode 2 y OpenCode 1 usan el mismo comando `opencode`, así que solo puedes tener uno instalado a la vez. Instala OpenCode 2 con el script de instalación oficial:
 
 ```bash
-curl -fsSL https://opencode.ai/install | bash
+curl -fsSL https://opencode.ai/v2/install | bash
 ```
 
 O instálalo con npm:
 
 ```bash
-npm install -g opencode-ai
+npm install -g @opencode/cli
 ```
+
+Para pasar de OpenCode 1, ejecuta `opencode upgrade --major`. El script `https://opencode.ai/install` y el paquete npm `opencode-ai` siguen instalando OpenCode 1.
 
 Verifica la instalación:
 
@@ -42,9 +44,124 @@ opencode --version
 
 ### Validación de modelos
 
-OpenCode 1.19.3 supera una prueba de lectura de archivos, escritura de archivos y respuesta final a través de Capriole AI con todos los modelos de la sección Modelos compatibles, usando la configuración siguiente.
+OpenCode 2.2.5 supera una prueba de lectura de archivos y respuesta final a través de Capriole AI con todos los modelos de la sección Modelos compatibles, usando la configuración de OpenCode 2. OpenCode 1.19.3 supera una prueba de lectura de archivos, escritura de archivos y respuesta final con la configuración de OpenCode 1.
+
+### OpenCode 2
 
 Crea o actualiza `~/.config/opencode/opencode.json`:
+
+```json
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "capriole-ai/claude-latest",
+  "agents": {
+    "title": {
+      "model": "capriole-ai/zai/glm-5.3-flash"
+    }
+  },
+  "providers": {
+    "capriole-ai": {
+      "name": "Capriole AI",
+      "env": ["CAPRIOLE_AI_API_KEY"],
+      "package": "@opencode/ai/providers/openai-compatible",
+      "settings": {
+        "baseURL": "https://api.caprioletech.com/v1"
+      },
+      "headers": {
+        "Authorization": "Bearer {env:CAPRIOLE_AI_API_KEY}"
+      },
+      "models": {
+        "openai-latest": {
+          "name": "OpenAI latest",
+          "package": "@opencode/ai/providers/openai-compatible/responses",
+          "limit": {
+            "context": 1050000,
+            "output": 128000
+          },
+          "settings": {
+            "reasoningEffort": "medium"
+          }
+        },
+        "openai/gpt-6.1-sol": {
+          "name": "GPT-6.1 Sol",
+          "package": "@opencode/ai/providers/openai-compatible/responses",
+          "limit": {
+            "context": 1050000,
+            "output": 128000
+          },
+          "settings": {
+            "reasoningEffort": "medium"
+          }
+        },
+        "claude-latest": {
+          "name": "Claude latest",
+          "package": "@opencode/ai/providers/anthropic-compatible",
+          "limit": {
+            "context": 1000000,
+            "output": 128000
+          }
+        },
+        "claude-opus-5-5": {
+          "name": "Opus 5.5",
+          "package": "@opencode/ai/providers/anthropic-compatible",
+          "limit": {
+            "context": 1000000,
+            "output": 128000
+          }
+        },
+        "google/gemini-3.8-flash": {
+          "name": "Gemini 3.8 Flash",
+          "limit": {
+            "context": 1048576,
+            "output": 65536
+          }
+        },
+        "xai/grok-4.7": {
+          "name": "Grok 4.7",
+          "limit": {
+            "context": 500000,
+            "output": 128000
+          }
+        },
+        "zai/glm-5.3-flash": {
+          "name": "GLM 5.3 Flash",
+          "limit": {
+            "context": 1000000,
+            "output": 128000
+          }
+        },
+        "moonshot/kimi-k3.1-pro": {
+          "name": "Kimi K3.1 Pro",
+          "limit": {
+            "context": 1048576,
+            "output": 131072
+          }
+        },
+        "moonshot/kimi-k3": {
+          "name": "Kimi K3",
+          "limit": {
+            "context": 1048576,
+            "output": 131072
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+Qué hace cada ajuste:
+
+- `package: "@opencode/ai/providers/openai-compatible"` es el paquete por defecto del proveedor, así que Gemini, Grok, GLM y Kimi usan Chat Completions.
+- Cada modelo GPT sustituye `package` por `@opencode/ai/providers/openai-compatible/responses`, que usa la API Responses. Cada modelo Claude lo sustituye por `@opencode/ai/providers/anthropic-compatible`, que usa Anthropic Messages.
+- `env` indica la variable que guarda tu clave. La cabecera `Authorization` envía la clave como token Bearer con todos los paquetes. Sin ella, el paquete de Anthropic envía la clave en una cabecera `x-api-key`, que Capriole AI no acepta.
+- `reasoningEffort` da a cada modelo GPT un nivel de razonamiento por defecto. Sin él, los modelos GPT responden sin razonar.
+- `baseURL` incluye `/v1` para todos los paquetes. `limit` indica a OpenCode la ventana de contexto y el límite de salida de cada modelo.
+- `agents.title` define el modelo que OpenCode usa para los títulos de sesión.
+
+### OpenCode 1
+
+OpenCode 1 no lee el formato de OpenCode 2, pero OpenCode 2 sí lee este, así que una configuración de OpenCode 1 sigue funcionando después de actualizar. Crea o actualiza `~/.config/opencode/opencode.json`:
 
 ```json
 {
@@ -165,8 +282,11 @@ Define tu clave API y luego inicia OpenCode desde el directorio de tu proyecto:
 
 ```bash
 export CAPRIOLE_AI_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
+opencode service restart
 opencode
 ```
+
+OpenCode 2 envía las solicitudes a los modelos desde un servicio en segundo plano que lee la clave al iniciarse, así que `opencode service restart` hace que tome la clave que acabas de definir. En OpenCode 1, omite este paso.
 
 Usa `/models` para cambiar de modelo. Para una ejecución no interactiva, usa `opencode run`:
 
@@ -196,19 +316,19 @@ Las referencias de modelo usan el formato `capriole-ai/<model-id>`.
 
 ### ¿Por qué OpenCode devuelve un error de autenticación?
 
-Confirma que `CAPRIOLE_AI_API_KEY` está exportada en el mismo shell antes de iniciar OpenCode y que la cabecera `Authorization` está presente en `options.headers`.
+Confirma que `CAPRIOLE_AI_API_KEY` está exportada en el mismo shell antes de iniciar OpenCode y que la cabecera `Authorization` está presente en `headers` (OpenCode 2) u `options.headers` (OpenCode 1). Si OpenCode 2 devuelve `Missing Bearer token`, su servicio en segundo plano se inició sin la clave: ejecuta `opencode service restart` en ese shell.
 
 ### ¿Por qué las solicitudes de Claude fallan con `Unsupported Claude Messages model`?
 
-Los modelos Claude que usan `@ai-sdk/anthropic` necesitan los IDs de Claude sin prefijo, como `claude-opus-5-5`. Los IDs con el prefijo `anthropic/` son para Chat Completions.
+Los modelos Claude que usan el paquete de Anthropic necesitan los IDs de Claude sin prefijo, como `claude-opus-5-5`. Los IDs con el prefijo `anthropic/` son para Chat Completions.
 
 ### ¿Por qué fallan las solicitudes de GPT?
 
-Confirma que cada modelo GPT tiene `"provider": { "npm": "@ai-sdk/openai" }`, para que sus solicitudes usen la API Responses.
+Confirma que cada modelo GPT tiene `"package": "@opencode/ai/providers/openai-compatible/responses"` (OpenCode 2) o `"provider": { "npm": "@ai-sdk/openai" }` (OpenCode 1), para que sus solicitudes usen la API Responses.
 
 ### ¿Por qué no aparecen los modelos de Capriole AI?
 
-Confirma que la referencia de modelo usa `capriole-ai/<model-id>`, como `capriole-ai/moonshot/kimi-k3`, y que `disabled_providers` no bloquea `capriole-ai`.
+Confirma que la referencia de modelo usa `capriole-ai/<model-id>`, como `capriole-ai/moonshot/kimi-k3`, y que `disabled_providers` no bloquea `capriole-ai`. OpenCode 1 ignora el formato `providers` de OpenCode 2.
 
 ### ¿Por qué no se aplican los cambios de configuración?
 
@@ -223,4 +343,5 @@ Borra `~/.cache/opencode` y reinicia OpenCode para que reinstale los paquetes de
 - Mantén tu clave en el entorno. No la pegues en `opencode.json`.
 - Para añadir otro modelo de Capriole AI, copia la entrada de un modelo de la misma familia y cambia el ID. `GET https://api.caprioletech.com/v1/models` devuelve la lista de todos los IDs de modelo.
 - Para usar la misma clave en tus otros agentes de programación, consulta [Usa una sola clave API con agentes de programación](/es/guides/one-api-key-coding-agents).
-- Referencias oficiales: [instalación de OpenCode](https://opencode.ai/docs), [configuración de OpenCode](https://opencode.ai/docs/config), [proveedores de OpenCode](https://opencode.ai/docs/providers), [modelos de OpenCode](https://opencode.ai/docs/models) y [solución de problemas de OpenCode](https://opencode.ai/docs/troubleshooting).
+- Referencias de OpenCode 2: [instalación](https://opencode.ai/v2/docs/), [migración desde OpenCode 1](https://opencode.ai/v2/docs/migrate-v1/), [proveedores](https://opencode.ai/v2/docs/providers/), [modelos](https://opencode.ai/v2/docs/models/), [servicio en segundo plano](https://opencode.ai/v2/docs/cli/) y [versiones](https://github.com/anomalyco/opencode/releases).
+- Referencias de OpenCode 1: [instalación](https://opencode.ai/docs), [configuración](https://opencode.ai/docs/config), [proveedores](https://opencode.ai/docs/providers), [modelos](https://opencode.ai/docs/models) y [solución de problemas](https://opencode.ai/docs/troubleshooting).

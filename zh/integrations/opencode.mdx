@@ -1,7 +1,7 @@
 ---
 title: "OpenCode 添加自定义提供商：Capriole AI 配置"
 sidebarTitle: "OpenCode"
-description: "将 Capriole AI 添加为 OpenCode 的自定义提供商，使用 GPT-6 Astra、Claude Fable 5.1 和 Opus 5.5，价格比官方 API 最多低 92%。"
+description: "将 Capriole AI 添加为 OpenCode 2 或 OpenCode 1 的自定义提供商，使用 GPT-6 Astra、Claude Fable 5.1 和 Opus 5.5，价格比官方 API 最多低 92%。"
 ---
 
 只需一个 Capriole AI API Key，就能在 OpenCode 中使用 GPT-6 Astra、Claude Fable 5.1 和 Opus 5.5，价格比官方 API 最多低 92%。
@@ -20,17 +20,19 @@ OpenCode 是开源 AI 编程智能体，提供终端界面、桌面应用和 IDE
 
 ## 安装
 
-使用官方安装脚本安装 OpenCode。
+OpenCode 2 和 OpenCode 1 都使用 `opencode` 命令，因此同一时间只能安装其中一个。使用官方安装脚本安装 OpenCode 2。
 
 ```bash
-curl -fsSL https://opencode.ai/install | bash
+curl -fsSL https://opencode.ai/v2/install | bash
 ```
 
 也可以使用 npm 安装。
 
 ```bash
-npm install -g opencode-ai
+npm install -g @opencode/cli
 ```
+
+如需从 OpenCode 1 升级，请运行 `opencode upgrade --major`。`https://opencode.ai/install` 脚本和 `opencode-ai` npm 包仍然安装 OpenCode 1。
 
 验证安装。
 
@@ -42,9 +44,124 @@ opencode --version
 
 ### 模型验证
 
-使用下方配置，OpenCode 1.19.3 经 Capriole AI 调用“支持的模型”一节中的每个模型，都通过了文件读取、文件写入和最终答案检查。
+使用 OpenCode 2 配置，OpenCode 2.2.5 经 Capriole AI 调用“支持的模型”一节中的每个模型，都通过了文件读取和最终答案检查。使用 OpenCode 1 配置，OpenCode 1.19.3 通过了文件读取、文件写入和最终答案检查。
+
+### OpenCode 2
 
 创建或更新 `~/.config/opencode/opencode.json`。
+
+```json
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "capriole-ai/claude-latest",
+  "agents": {
+    "title": {
+      "model": "capriole-ai/zai/glm-5.3-flash"
+    }
+  },
+  "providers": {
+    "capriole-ai": {
+      "name": "Capriole AI",
+      "env": ["CAPRIOLE_AI_API_KEY"],
+      "package": "@opencode/ai/providers/openai-compatible",
+      "settings": {
+        "baseURL": "https://api.caprioletech.com/v1"
+      },
+      "headers": {
+        "Authorization": "Bearer {env:CAPRIOLE_AI_API_KEY}"
+      },
+      "models": {
+        "openai-latest": {
+          "name": "OpenAI latest",
+          "package": "@opencode/ai/providers/openai-compatible/responses",
+          "limit": {
+            "context": 1050000,
+            "output": 128000
+          },
+          "settings": {
+            "reasoningEffort": "medium"
+          }
+        },
+        "openai/gpt-6.1-sol": {
+          "name": "GPT-6.1 Sol",
+          "package": "@opencode/ai/providers/openai-compatible/responses",
+          "limit": {
+            "context": 1050000,
+            "output": 128000
+          },
+          "settings": {
+            "reasoningEffort": "medium"
+          }
+        },
+        "claude-latest": {
+          "name": "Claude latest",
+          "package": "@opencode/ai/providers/anthropic-compatible",
+          "limit": {
+            "context": 1000000,
+            "output": 128000
+          }
+        },
+        "claude-opus-5-5": {
+          "name": "Opus 5.5",
+          "package": "@opencode/ai/providers/anthropic-compatible",
+          "limit": {
+            "context": 1000000,
+            "output": 128000
+          }
+        },
+        "google/gemini-3.8-flash": {
+          "name": "Gemini 3.8 Flash",
+          "limit": {
+            "context": 1048576,
+            "output": 65536
+          }
+        },
+        "xai/grok-4.7": {
+          "name": "Grok 4.7",
+          "limit": {
+            "context": 500000,
+            "output": 128000
+          }
+        },
+        "zai/glm-5.3-flash": {
+          "name": "GLM 5.3 Flash",
+          "limit": {
+            "context": 1000000,
+            "output": 128000
+          }
+        },
+        "moonshot/kimi-k3.1-pro": {
+          "name": "Kimi K3.1 Pro",
+          "limit": {
+            "context": 1048576,
+            "output": 131072
+          }
+        },
+        "moonshot/kimi-k3": {
+          "name": "Kimi K3",
+          "limit": {
+            "context": 1048576,
+            "output": 131072
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+各项设置的作用如下。
+
+- `package: "@opencode/ai/providers/openai-compatible"` 是该提供商的默认包，因此 Gemini、Grok、GLM 和 Kimi 使用 Chat Completions。
+- 每个 GPT 模型都用 `@opencode/ai/providers/openai-compatible/responses` 覆盖 `package`，从而使用 Responses API。每个 Claude 模型都用 `@opencode/ai/providers/anthropic-compatible` 覆盖它，从而使用 Anthropic Messages。
+- `env` 指定存放 API Key 的环境变量。`Authorization` 请求头让每个包都以 Bearer Token 形式发送 Key。没有它时，Anthropic 包会在 `x-api-key` 请求头中发送 Key，而 Capriole AI 不接受这种方式。
+- `reasoningEffort` 为每个 GPT 模型设定默认推理强度。没有它时，GPT 模型回答时不进行推理。
+- 每个包的 `baseURL` 都包含 `/v1`。`limit` 告诉 OpenCode 每个模型的上下文窗口和输出上限。
+- `agents.title` 设置 OpenCode 生成会话标题时使用的模型。
+
+### OpenCode 1
+
+OpenCode 1 不读取 OpenCode 2 的写法，但 OpenCode 2 能读取下面的写法，因此升级后原有的 OpenCode 1 配置仍可使用。创建或更新 `~/.config/opencode/opencode.json`。
 
 ```json
 {
@@ -165,8 +282,11 @@ opencode --version
 
 ```bash
 export CAPRIOLE_AI_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
+opencode service restart
 opencode
 ```
+
+OpenCode 2 通过后台服务发送模型请求，该服务在启动时读取 API Key，因此 `opencode service restart` 会让它读到你刚设置的 Key。使用 OpenCode 1 时跳过这一步。
 
 使用 `/models` 切换模型。如需非交互式运行，请使用 `opencode run`。
 
@@ -196,19 +316,19 @@ opencode run -m capriole-ai/claude-latest "Explain this repository."
 
 ### 为什么 OpenCode 返回身份验证错误
 
-启动 OpenCode 前，确认已在同一个 Shell 中导出 `CAPRIOLE_AI_API_KEY`，并确认 `options.headers` 下有 `Authorization` 请求头。
+启动 OpenCode 前，确认已在同一个 Shell 中导出 `CAPRIOLE_AI_API_KEY`，并确认 `headers`（OpenCode 2）或 `options.headers`（OpenCode 1）下有 `Authorization` 请求头。如果 OpenCode 2 报 `Missing Bearer token`，说明它的后台服务启动时没有拿到 Key，请在该 Shell 中运行 `opencode service restart`。
 
 ### 为什么 Claude 请求因 `Unsupported Claude Messages model` 失败
 
-使用 `@ai-sdk/anthropic` 的 Claude 模型需要不带前缀的 Claude ID，例如 `claude-opus-5-5`。带 `anthropic/` 前缀的 ID 用于 Chat Completions。
+使用 Anthropic 包的 Claude 模型需要不带前缀的 Claude ID，例如 `claude-opus-5-5`。带 `anthropic/` 前缀的 ID 用于 Chat Completions。
 
 ### 为什么 GPT 请求失败
 
-确认每个 GPT 模型都有 `"provider": { "npm": "@ai-sdk/openai" }`，让它的请求使用 Responses API。
+确认每个 GPT 模型都有 `"package": "@opencode/ai/providers/openai-compatible/responses"`（OpenCode 2）或 `"provider": { "npm": "@ai-sdk/openai" }`（OpenCode 1），让它的请求使用 Responses API。
 
 ### 为什么 Capriole AI 模型没有出现
 
-确认模型引用使用 `capriole-ai/<model-id>` 格式，例如 `capriole-ai/moonshot/kimi-k3`，并确认 `disabled_providers` 没有屏蔽 `capriole-ai`。
+确认模型引用使用 `capriole-ai/<model-id>` 格式，例如 `capriole-ai/moonshot/kimi-k3`，并确认 `disabled_providers` 没有屏蔽 `capriole-ai`。OpenCode 1 会忽略 OpenCode 2 的 `providers` 写法。
 
 ### 为什么配置修改没有生效
 
@@ -223,4 +343,5 @@ opencode run -m capriole-ai/claude-latest "Explain this repository."
 - 把 API Key 保存在环境变量中，不要粘贴到 `opencode.json`。
 - 如需添加其他 Capriole AI 模型，请复制同一系列中某个模型的条目并修改 ID。`GET https://api.caprioletech.com/v1/models` 会列出所有模型 ID。
 - 想在其他编程智能体中使用同一个 API Key，请参阅[使用一个 API Key 配置编程智能体](/zh/guides/one-api-key-coding-agents)。
-- 官方参考资料包括 [OpenCode 安装](https://opencode.ai/docs)、[OpenCode 配置](https://opencode.ai/docs/config)、[OpenCode 提供商](https://opencode.ai/docs/providers)、[OpenCode 模型](https://opencode.ai/docs/models)和 [OpenCode 故障排除](https://opencode.ai/docs/troubleshooting)。
+- OpenCode 2 参考资料包括[安装](https://opencode.ai/v2/docs/)、[从 OpenCode 1 迁移](https://opencode.ai/v2/docs/migrate-v1/)、[提供商](https://opencode.ai/v2/docs/providers/)、[模型](https://opencode.ai/v2/docs/models/)、[后台服务](https://opencode.ai/v2/docs/cli/)和[版本发布](https://github.com/anomalyco/opencode/releases)。
+- OpenCode 1 参考资料包括[安装](https://opencode.ai/docs)、[配置](https://opencode.ai/docs/config)、[提供商](https://opencode.ai/docs/providers)、[模型](https://opencode.ai/docs/models)和[故障排除](https://opencode.ai/docs/troubleshooting)。

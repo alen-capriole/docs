@@ -1,7 +1,7 @@
 ---
 title: "OpenCode 사용자 지정 제공자 추가"
 sidebarTitle: "OpenCode"
-description: "Capriole AI를 OpenCode의 사용자 지정 제공자로 추가합니다. GPT-6 Astra, Claude Fable 5.1, Opus 5.5 모델을 공식 API 가격보다 최대 92% 저렴하게 사용하세요."
+description: "Capriole AI를 OpenCode 2 또는 OpenCode 1의 사용자 지정 제공자로 추가합니다. GPT-6 Astra, Claude Fable 5.1, Opus 5.5 모델을 공식 API 가격보다 최대 92% 저렴하게 사용하세요."
 ---
 
 Capriole AI API key 하나로 OpenCode에서 GPT-6 Astra, Claude Fable 5.1, Opus 5.5 모델을 공식 API 가격보다 최대 92% 저렴하게 사용할 수 있습니다.
@@ -20,17 +20,19 @@ OpenCode는 터미널 인터페이스, 데스크톱 앱, IDE 확장으로 제공
 
 ## 설치
 
-공식 설치 스크립트로 OpenCode를 설치하세요.
+OpenCode 2와 OpenCode 1은 모두 `opencode` 명령을 사용하므로 한 번에 하나만 설치할 수 있습니다. 공식 설치 스크립트로 OpenCode 2를 설치하세요.
 
 ```bash
-curl -fsSL https://opencode.ai/install | bash
+curl -fsSL https://opencode.ai/v2/install | bash
 ```
 
 또는 npm으로 설치하세요.
 
 ```bash
-npm install -g opencode-ai
+npm install -g @opencode/cli
 ```
+
+OpenCode 1에서 옮기려면 `opencode upgrade --major`를 실행하세요. `https://opencode.ai/install` 스크립트와 `opencode-ai` npm 패키지는 여전히 OpenCode 1을 설치합니다.
 
 설치를 확인하세요.
 
@@ -42,9 +44,124 @@ opencode --version
 
 ### 모델 검증
 
-OpenCode 1.19.3 버전은 아래 구성으로 지원 모델 섹션의 모든 모델에서 Capriole AI를 통한 파일 읽기, 파일 쓰기, 최종 답변 검사를 통과합니다.
+OpenCode 2.2.5 버전은 OpenCode 2 구성으로 지원 모델 섹션의 모든 모델에서 Capriole AI를 통한 파일 읽기와 최종 답변 검사를 통과합니다. OpenCode 1.19.3 버전은 OpenCode 1 구성으로 파일 읽기, 파일 쓰기, 최종 답변 검사를 통과합니다.
+
+### OpenCode 2
 
 `~/.config/opencode/opencode.json`을 만들거나 업데이트하세요.
+
+```json
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "capriole-ai/claude-latest",
+  "agents": {
+    "title": {
+      "model": "capriole-ai/zai/glm-5.3-flash"
+    }
+  },
+  "providers": {
+    "capriole-ai": {
+      "name": "Capriole AI",
+      "env": ["CAPRIOLE_AI_API_KEY"],
+      "package": "@opencode/ai/providers/openai-compatible",
+      "settings": {
+        "baseURL": "https://api.caprioletech.com/v1"
+      },
+      "headers": {
+        "Authorization": "Bearer {env:CAPRIOLE_AI_API_KEY}"
+      },
+      "models": {
+        "openai-latest": {
+          "name": "OpenAI latest",
+          "package": "@opencode/ai/providers/openai-compatible/responses",
+          "limit": {
+            "context": 1050000,
+            "output": 128000
+          },
+          "settings": {
+            "reasoningEffort": "medium"
+          }
+        },
+        "openai/gpt-6.1-sol": {
+          "name": "GPT-6.1 Sol",
+          "package": "@opencode/ai/providers/openai-compatible/responses",
+          "limit": {
+            "context": 1050000,
+            "output": 128000
+          },
+          "settings": {
+            "reasoningEffort": "medium"
+          }
+        },
+        "claude-latest": {
+          "name": "Claude latest",
+          "package": "@opencode/ai/providers/anthropic-compatible",
+          "limit": {
+            "context": 1000000,
+            "output": 128000
+          }
+        },
+        "claude-opus-5-5": {
+          "name": "Opus 5.5",
+          "package": "@opencode/ai/providers/anthropic-compatible",
+          "limit": {
+            "context": 1000000,
+            "output": 128000
+          }
+        },
+        "google/gemini-3.8-flash": {
+          "name": "Gemini 3.8 Flash",
+          "limit": {
+            "context": 1048576,
+            "output": 65536
+          }
+        },
+        "xai/grok-4.7": {
+          "name": "Grok 4.7",
+          "limit": {
+            "context": 500000,
+            "output": 128000
+          }
+        },
+        "zai/glm-5.3-flash": {
+          "name": "GLM 5.3 Flash",
+          "limit": {
+            "context": 1000000,
+            "output": 128000
+          }
+        },
+        "moonshot/kimi-k3.1-pro": {
+          "name": "Kimi K3.1 Pro",
+          "limit": {
+            "context": 1048576,
+            "output": 131072
+          }
+        },
+        "moonshot/kimi-k3": {
+          "name": "Kimi K3",
+          "limit": {
+            "context": 1048576,
+            "output": 131072
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+각 설정의 역할은 다음과 같습니다.
+
+- `package: "@opencode/ai/providers/openai-compatible"`은 제공자의 기본 패키지이므로 Gemini, Grok, GLM, Kimi는 Chat Completions를 사용합니다.
+- 각 GPT 모델은 `package`를 Responses API를 사용하는 `@opencode/ai/providers/openai-compatible/responses`로 재정의합니다. 각 Claude 모델은 Anthropic Messages를 사용하는 `@opencode/ai/providers/anthropic-compatible`로 재정의합니다.
+- `env`는 키를 담은 환경 변수를 지정합니다. `Authorization` 헤더는 모든 패키지에서 키를 Bearer 토큰으로 보냅니다. 이 헤더가 없으면 Anthropic 패키지가 키를 `x-api-key` 헤더로 보내는데, Capriole AI는 이를 받지 않습니다.
+- `reasoningEffort`는 각 GPT 모델의 기본 추론 강도를 정합니다. 이 설정이 없으면 GPT 모델은 추론 없이 답합니다.
+- `baseURL`에는 모든 패키지에서 `/v1`이 포함됩니다. `limit`은 OpenCode에 각 모델의 컨텍스트 창과 출력 한도를 알려 줍니다.
+- `agents.title`은 OpenCode가 세션 제목에 사용하는 모델을 정합니다.
+
+### OpenCode 1
+
+OpenCode 1은 OpenCode 2 형식을 읽지 않지만, OpenCode 2는 이 형식도 읽으므로 업그레이드한 뒤에도 OpenCode 1 설정을 그대로 쓸 수 있습니다. `~/.config/opencode/opencode.json`을 만들거나 업데이트하세요.
 
 ```json
 {
@@ -165,8 +282,11 @@ API key를 설정한 다음 프로젝트 디렉터리에서 OpenCode를 시작�
 
 ```bash
 export CAPRIOLE_AI_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
+opencode service restart
 opencode
 ```
+
+OpenCode 2는 백그라운드 서비스에서 모델 요청을 보내고, 이 서비스는 시작할 때 키를 읽습니다. 그래서 `opencode service restart`로 방금 설정한 키를 읽게 합니다. OpenCode 1에서는 이 단계를 건너뛰세요.
 
 `/models`로 모델을 전환하세요. 비대화형으로 실행하려면 `opencode run`을 사용하세요.
 
@@ -196,19 +316,19 @@ opencode run -m capriole-ai/claude-latest "Explain this repository."
 
 ### OpenCode가 인증 오류를 반환하는 이유는 무엇인가요?
 
-OpenCode를 시작하기 전에 같은 셸에서 `CAPRIOLE_AI_API_KEY`를 내보냈는지, `options.headers` 아래에 `Authorization` 헤더가 있는지 확인하세요.
+OpenCode를 시작하기 전에 같은 셸에서 `CAPRIOLE_AI_API_KEY`를 내보냈는지, `headers`(OpenCode 2) 또는 `options.headers`(OpenCode 1) 아래에 `Authorization` 헤더가 있는지 확인하세요. OpenCode 2가 `Missing Bearer token`을 반환하면 백그라운드 서비스가 키 없이 시작된 것입니다. 그 셸에서 `opencode service restart`를 실행하세요.
 
 ### Claude 요청이 `Unsupported Claude Messages model`로 실패하는 이유는 무엇인가요?
 
-`@ai-sdk/anthropic`을 사용하는 Claude 모델에는 `claude-opus-5-5` 같은 접두사 없는 Claude ID가 필요합니다. `anthropic/` 접두사가 붙은 ID는 Chat Completions용입니다.
+Anthropic 패키지를 사용하는 Claude 모델에는 `claude-opus-5-5` 같은 접두사 없는 Claude ID가 필요합니다. `anthropic/` 접두사가 붙은 ID는 Chat Completions용입니다.
 
 ### GPT 요청이 실패하는 이유는 무엇인가요?
 
-각 GPT 모델에 `"provider": { "npm": "@ai-sdk/openai" }`가 있어 요청이 Responses API를 사용하는지 확인하세요.
+각 GPT 모델에 `"package": "@opencode/ai/providers/openai-compatible/responses"`(OpenCode 2) 또는 `"provider": { "npm": "@ai-sdk/openai" }`(OpenCode 1)가 있어 요청이 Responses API를 사용하는지 확인하세요.
 
 ### Capriole AI 모델이 나타나지 않는 이유는 무엇인가요?
 
-모델 참조가 `capriole-ai/moonshot/kimi-k3`처럼 `capriole-ai/<model-id>` 형식인지, `disabled_providers`가 `capriole-ai`를 차단하지 않는지 확인하세요.
+모델 참조가 `capriole-ai/moonshot/kimi-k3`처럼 `capriole-ai/<model-id>` 형식인지, `disabled_providers`가 `capriole-ai`를 차단하지 않는지 확인하세요. OpenCode 1은 OpenCode 2의 `providers` 형식을 무시합니다.
 
 ### 구성 변경이 적용되지 않는 이유는 무엇인가요?
 
@@ -223,4 +343,5 @@ OpenCode를 시작하기 전에 같은 셸에서 `CAPRIOLE_AI_API_KEY`를 내보
 - 키는 환경 변수에 두세요. `opencode.json`에 붙여 넣지 마세요.
 - 다른 Capriole AI 모델을 추가하려면 같은 계열 모델의 항목을 복사하고 ID를 바꾸세요. `GET https://api.caprioletech.com/v1/models`는 모든 모델 ID를 나열합니다.
 - 같은 key를 다른 코딩 에이전트에서도 쓰려면 [코딩 에이전트에 API key 하나 사용하기](/ko/guides/one-api-key-coding-agents) 가이드를 참고하세요.
-- 공식 참고: [OpenCode install](https://opencode.ai/docs), [OpenCode config](https://opencode.ai/docs/config), [OpenCode providers](https://opencode.ai/docs/providers), [OpenCode models](https://opencode.ai/docs/models), [OpenCode troubleshooting](https://opencode.ai/docs/troubleshooting).
+- OpenCode 2 참고: [설치](https://opencode.ai/v2/docs/), [OpenCode 1에서 마이그레이션](https://opencode.ai/v2/docs/migrate-v1/), [제공자](https://opencode.ai/v2/docs/providers/), [모델](https://opencode.ai/v2/docs/models/), [백그라운드 서비스](https://opencode.ai/v2/docs/cli/), [릴리스](https://github.com/anomalyco/opencode/releases).
+- OpenCode 1 참고: [설치](https://opencode.ai/docs), [구성](https://opencode.ai/docs/config), [제공자](https://opencode.ai/docs/providers), [모델](https://opencode.ai/docs/models), [문제 해결](https://opencode.ai/docs/troubleshooting).
