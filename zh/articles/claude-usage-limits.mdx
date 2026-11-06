@@ -4,7 +4,7 @@ sidebarTitle: "Claude 用量限制"
 description: "Claude Pro 和 Max 为何会触发五小时和每周限制、Fable 5.1 如何计费，以及每月 USD 8 无限畅聊 Claude Fable 5.1 和 Opus 5.5 的对比。"
 ---
 
-Claude Pro 和 Max 用户会触发用量限制，是因为每个付费 Claude 方案都有五小时会话限制和每周限制，而 claude.ai、Claude Desktop 和 Claude Code 都从中消耗额度。长对话、工具、更高的推理强度和更大的模型都会更快用完额度。如果你主要用来聊天，Capriole AI Premium **每月 USD 8**，可在网页聊天中无限使用 **Claude Fable 5.1** 和 **Claude Opus 5.5**，外加 **GPT-6 Astra** 和 **Gemini 4 Argon**。
+Claude Pro 和 Max 用户会触发用量限制，是因为这两个方案都有五小时会话限制和每周限制，而 claude.ai、Claude Desktop 和 Claude Code 都从中消耗额度。长对话、工具、更高的推理强度和更大的模型都会更快用完额度。如果你主要用来聊天，Capriole AI Premium **每月 USD 8**，可在网页聊天中无限使用 **Claude Fable 5.1** 和 **Claude Opus 5.5**，外加 **GPT-6 Astra** 和 **Gemini 4 Argon**。
 
 如果你大量使用编程智能体，同一账户还包含 API，价格最多比官方 API 低 92%。
 
@@ -14,13 +14,13 @@ Claude Pro 和 Max 用户会触发用量限制，是因为每个付费 Claude �
 |---|---|---|---|
 | Claude Free | USD 0 | 基础额度，仅限 Sonnet 和 Haiku | 不可用 |
 | Claude Pro | 每月 USD 20，按年付费则每月 USD 17 | 每个五小时会话至少为 Free 的 5 倍，另有每周限制 | 不在方案限制内；按 API 价格用用量积分支付 |
-| Claude Max 5x | 每月 USD 100 | 每个五小时会话为 Pro 的 5 倍，另有每周限制 | 最多占每周限制的 50% |
-| Claude Max 20x | 每月 USD 200 | 每个五小时会话为 Pro 的 20 倍，另有每周限制 | 最多占每周限制的 50% |
+| Claude Max | 每月 USD 100 | 每个五小时会话为 Pro 的 5 倍，另有每周限制 | 最多占每周限制的 50% |
+| Claude Ultra | 每月 USD 200 | 每周为 Pro 的 10 倍；已验证账户没有五小时限制 | 最多占每周限制的 50% |
 | Capriole AI Premium | 每月 USD 8 | 无限网页聊天，受[合理使用上限](/zh/guides/plans-and-limits#“无限”是什么意思)约束 | 包含在无限网页聊天中 |
 
 ## Claude 的用量限制如何运作
 
-Anthropic 帮助中心介绍了付费方案的两种限制：
+Anthropic 帮助中心介绍了 Pro 和 Max 的两种限制：
 
 - **会话限制**，每五小时重置一次。
 - **每周限制**，覆盖所有模型，在为你的账户分配的固定时间重置。
@@ -40,12 +40,12 @@ Anthropic 列出了会消耗更多额度的因素：
 - 大型项目文件，它们会占用上下文
 - 触发自动上下文管理的长对话
 
-Fable 5.1 还有自己的规则。在 Pro 上，Fable 5 和 Fable 5.1 不计入方案的用量限制，所以每条 Fable 消息都消耗用量积分（usage credits），按标准 API 价格计费。在 Max 上，Fable 模型最多可使用每周限制的 50%，不额外收费。
+Fable 5.1 还有自己的规则。在 Pro 上，Fable 5 和 Fable 5.1 不计入方案的用量限制，所以每条 Fable 消息都消耗用量积分（usage credits），按标准 API 价格计费。在 Max 和 Ultra 上，Fable 模型最多可使用每周限制的 50%，不额外收费。
 
 ## 触发限制时 Anthropic 的建议
 
 1. **等待重置。** 会话限制每五小时重置一次，**Settings** → **Usage** 会显示重置时间。
-2. **升级方案。** Anthropic 称 Max 5x 适合经常使用 Claude 的用户，Max 20x 适合每天使用 Claude 处理大多数任务的用户。新方案的限制立即生效。
+2. **升级方案。** Anthropic 称 Max 适合经常使用 Claude 的用户，Ultra 适合最长的任务。新方案的限制立即生效。
 3. **开启用量积分。** 用量积分让你在触发限制后继续工作，按标准 API 价格计费。你可以设置每月消费上限。
 4. **减少每条消息的消耗。** 开始新对话，而不是继续拉长旧对话；降低推理强度；关闭扩展思考和不需要的工具；缩短项目指令。
 
@@ -75,7 +75,7 @@ Premium 还包括用 GPT Image 2.5 和 Nano Banana 2.1 免费生图、文件和�
 
 Claude Code 通过 Capriole AI 的 Anthropic Messages 端点连接。同一个 key 可用于 [10 个有文档说明的编程智能体](/zh/guides/one-api-key-coding-agents)，包括 Codex。从 [Claude Code 配置](/zh/integrations/claude-code)开始。
 
-Claude Max 包含每月 API 额度，但 [Anthropic 称](https://support.claude.com/en/articles/17154008-monthly-api-credits-for-max-and-team-plans)这些额度不覆盖交互式 Claude Code 会话，也不覆盖达到方案限制后的额外用量。
+Claude Max 和 Ultra 包含每月 API 额度，但 [Anthropic 称](https://support.claude.com/en/articles/17154008-monthly-api-credits-for-max-and-team-plans)这些额度不覆盖交互式 Claude Code 会话，也不覆盖达到方案限制后的额外用量。
 
 ## 你会失去什么
 
@@ -91,7 +91,7 @@ Capriole AI 是独立的工作区，与 Anthropic 没有关联，也不是 Claud
     会话限制每五小时重置一次。每周限制在为你的账户分配的固定时间重置。在 claude.ai 的 **Settings** → **Usage** 中查看你的重置时间。
   </Accordion>
   <Accordion title="Claude Pro 包含 Claude Fable 5.1 吗？">
-    不在 Pro 的用量限制内。在 Pro 上，Anthropic 通过用量积分按标准 API 价格对 Fable 5.1 计费。在 Max 上，Fable 模型最多可使用每周限制的 50%。在 Capriole AI Premium 上，Fable 5.1 属于每月 USD 8 的无限网页聊天。
+    不在 Pro 的用量限制内。在 Pro 上，Anthropic 通过用量积分按标准 API 价格对 Fable 5.1 计费。在 Max 和 Ultra 上，Fable 模型最多可使用每周限制的 50%。在 Capriole AI Premium 上，Fable 5.1 属于每月 USD 8 的无限网页聊天。
   </Accordion>
   <Accordion title="每天 200 条消息够用吗？">
     对真人用户来说，够用。这个上限用于阻止脚本驱动的自动化滥用。最活跃的真实用户一天发送过 132 条消息。

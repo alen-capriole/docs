@@ -4,7 +4,7 @@ sidebarTitle: "Claude Usage Limits"
 description: "Why Claude Pro and Max hit five-hour and weekly limits, how Fable 5.1 is billed, and how USD 8 unlimited web chat with Claude Fable 5.1 and Opus 5.5 compares."
 ---
 
-Claude Pro and Max users hit usage limits because every paid Claude plan has a five-hour session limit and a weekly limit, and claude.ai, Claude Desktop, and Claude Code all draw on them. Long chats, tools, higher effort, and larger models use the allowance faster. If you mainly chat, Capriole AI Premium gives you unlimited web chat with **Claude Fable 5.1** and **Claude Opus 5.5**, plus **GPT-6 Astra** and **Gemini 4 Argon**, for **USD 8 a month**.
+Claude Pro and Max users hit usage limits because these plans have a five-hour session limit and a weekly limit, and claude.ai, Claude Desktop, and Claude Code all draw on them. Long chats, tools, higher effort, and larger models use the allowance faster. If you mainly chat, Capriole AI Premium gives you unlimited web chat with **Claude Fable 5.1** and **Claude Opus 5.5**, plus **GPT-6 Astra** and **Gemini 4 Argon**, for **USD 8 a month**.
 
 For heavy coding-agent work, the same account includes an API that costs up to 92% less than official API prices.
 
@@ -14,13 +14,13 @@ For heavy coding-agent work, the same account includes an API that costs up to 9
 |---|---|---|---|
 | Claude Free | USD 0 | Base allowance. Sonnet and Haiku only | Not available |
 | Claude Pro | USD 20 a month, or USD 17 a month billed yearly | At least 5× Free per five-hour session, plus a weekly limit | Outside the plan's limits; paid with usage credits at API rates |
-| Claude Max 5x | USD 100 a month | 5× Pro per five-hour session, plus a weekly limit | Up to 50% of the weekly limits |
-| Claude Max 20x | USD 200 a month | 20× Pro per five-hour session, plus a weekly limit | Up to 50% of the weekly limits |
+| Claude Max | USD 100 a month | 5× Pro per five-hour session, plus a weekly limit | Up to 50% of the weekly limits |
+| Claude Ultra | USD 200 a month | 10× Pro per week; no five-hour limit for verified accounts | Up to 50% of the weekly limits |
 | Capriole AI Premium | USD 8 a month | Unlimited web chat, subject to a [fair-use limit](/guides/plans-and-limits#what-unlimited-means) | Included in unlimited web chat |
 
 ## How Claude's usage limits work
 
-Anthropic's help center describes two limits on paid plans:
+Anthropic's help center describes two limits on Pro and Max:
 
 - **A session limit** that resets every five hours.
 - **A weekly limit** across all models, which resets at a fixed time assigned to your account.
@@ -40,12 +40,12 @@ Anthropic lists what uses more of your allowance:
 - large project files, which take up context
 - long chats that trigger automatic context management
 
-Fable 5.1 adds its own rule. On Pro, Fable 5 and Fable 5.1 are not part of the plan's usage limits, so every Fable message runs on usage credits billed at standard API rates. On Max, Fable models can use up to 50% of your weekly limits at no extra cost.
+Fable 5.1 adds its own rule. On Pro, Fable 5 and Fable 5.1 are not part of the plan's usage limits, so every Fable message runs on usage credits billed at standard API rates. On Max and Ultra, Fable models can use up to 50% of your weekly limits at no extra cost.
 
 ## What Anthropic suggests when you hit a limit
 
 1. **Wait for the reset.** The session limit resets every five hours, and **Settings** → **Usage** shows when.
-2. **Upgrade.** Anthropic describes Max 5x as ideal for frequent users and Max 20x as ideal for daily users who work with Claude on most tasks. A new plan's limits apply right away.
+2. **Upgrade.** Anthropic describes Max as designed for users who work with Claude frequently and Ultra as the plan for your longest tasks. A new plan's limits apply right away.
 3. **Turn on usage credits.** Credits keep you working after a limit, billed at standard API rates. You can set a monthly spending cap.
 4. **Use less per message.** Start a new conversation instead of extending a long one, lower the effort level, turn off extended thinking and unneeded tools, and shorten project instructions.
 
@@ -75,7 +75,7 @@ USD 8 per 5M tokens is USD 1.60 per million, for input and output alike. Premium
 
 Claude Code connects through Capriole AI's Anthropic Messages endpoint. The same key works with [10 documented coding agents](/guides/one-api-key-coding-agents), including Codex. Start with the [Claude Code setup](/integrations/claude-code).
 
-Claude Max includes monthly API credits, but [Anthropic says](https://support.claude.com/en/articles/17154008-monthly-api-credits-for-max-and-team-plans) they don't cover interactive Claude Code sessions or extra usage after you hit your plan's limits.
+Claude Max and Ultra include monthly API credits, but [Anthropic says](https://support.claude.com/en/articles/17154008-monthly-api-credits-for-max-and-team-plans) they don't cover interactive Claude Code sessions or extra usage after you hit your plan's limits.
 
 ## What you give up
 
@@ -91,7 +91,7 @@ Capriole AI is an independent workspace, not affiliated with Anthropic. It is no
     The session limit resets every five hours. The weekly limit resets at a fixed time assigned to your account. Check **Settings** → **Usage** on claude.ai for your reset times.
   </Accordion>
   <Accordion title="Is Claude Fable 5.1 included in Claude Pro?">
-    Not in Pro's usage limits. Anthropic bills Fable 5.1 on Pro through usage credits at standard API rates. On Max, Fable models can use up to 50% of the weekly limits. On Capriole AI Premium, Fable 5.1 is part of unlimited web chat for USD 8 a month.
+    Not in Pro's usage limits. Anthropic bills Fable 5.1 on Pro through usage credits at standard API rates. On Max and Ultra, Fable models can use up to 50% of the weekly limits. On Capriole AI Premium, Fable 5.1 is part of unlimited web chat for USD 8 a month.
   </Accordion>
   <Accordion title="Is 200 messages a day enough?">
     For people, yes. The limit exists to stop scripted, automated abuse. The busiest real user has sent 132 messages in a day.

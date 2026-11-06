@@ -4,7 +4,7 @@ sidebarTitle: "Limites de uso do Claude"
 description: "Por que Claude Pro e Max batem nos limites de 5 horas e semanais, como o Fable 5.1 é cobrado e a alternativa: chat ilimitado com Fable 5.1 e Opus 5.5 por USD 8."
 ---
 
-Usuários do Claude Pro e do Max batem nos limites de uso porque todo plano pago do Claude tem um limite de sessão de cinco horas e um limite semanal, e o claude.ai, o Claude Desktop e o Claude Code consomem os mesmos limites. Chats longos, ferramentas, esforço mais alto e modelos maiores gastam a franquia mais rápido. Se você mais conversa, o Premium da Capriole AI oferece chat web ilimitado com **Claude Fable 5.1** e **Claude Opus 5.5**, além de **GPT-6 Astra** e **Gemini 4 Argon**, por **USD 8 por mês**.
+Usuários do Claude Pro e do Max batem nos limites de uso porque esses planos têm um limite de sessão de cinco horas e um limite semanal, e o claude.ai, o Claude Desktop e o Claude Code consomem os mesmos limites. Chats longos, ferramentas, esforço mais alto e modelos maiores gastam a franquia mais rápido. Se você mais conversa, o Premium da Capriole AI oferece chat web ilimitado com **Claude Fable 5.1** e **Claude Opus 5.5**, além de **GPT-6 Astra** e **Gemini 4 Argon**, por **USD 8 por mês**.
 
 Para uso intenso de agentes de programação, a mesma conta inclui uma API que custa até 92% menos que os preços oficiais das APIs.
 
@@ -14,13 +14,13 @@ Para uso intenso de agentes de programação, a mesma conta inclui uma API que c
 |---|---|---|---|
 | Claude Free | USD 0 | Franquia básica. Só Sonnet e Haiku | Não disponível |
 | Claude Pro | USD 20 por mês, ou USD 17 por mês com cobrança anual | Pelo menos 5× o Free por sessão de cinco horas, mais um limite semanal | Fora dos limites do plano; pago com créditos de uso a preços da API |
-| Claude Max 5x | USD 100 por mês | 5× o Pro por sessão de cinco horas, mais um limite semanal | Até 50% dos limites semanais |
-| Claude Max 20x | USD 200 por mês | 20× o Pro por sessão de cinco horas, mais um limite semanal | Até 50% dos limites semanais |
+| Claude Max | USD 100 por mês | 5× o Pro por sessão de cinco horas, mais um limite semanal | Até 50% dos limites semanais |
+| Claude Ultra | USD 200 por mês | 10× o Pro por semana; sem limite de cinco horas em contas verificadas | Até 50% dos limites semanais |
 | Capriole AI Premium | USD 8 por mês | Chat web ilimitado, sujeito a um [limite de uso justo](/pt-br/guides/plans-and-limits#o-que-significa-ilimitado) | Incluído no chat web ilimitado |
 
 ## Como funcionam os limites de uso do Claude
 
-A central de ajuda da Anthropic descreve dois limites nos planos pagos:
+A central de ajuda da Anthropic descreve dois limites no Pro e no Max:
 
 - **Um limite de sessão**, renovado a cada cinco horas.
 - **Um limite semanal** para todos os modelos, renovado em um horário fixo definido para a sua conta.
@@ -40,12 +40,12 @@ A Anthropic lista o que consome mais da sua franquia:
 - arquivos de projeto grandes, que ocupam contexto
 - chats longos que acionam o gerenciamento automático de contexto
 
-O Fable 5.1 tem uma regra própria. No Pro, o Fable 5 e o Fable 5.1 não fazem parte dos limites de uso do plano, então cada mensagem do Fable usa créditos de uso cobrados aos preços padrão da API. No Max, os modelos Fable podem usar até 50% dos seus limites semanais sem custo extra.
+O Fable 5.1 tem uma regra própria. No Pro, o Fable 5 e o Fable 5.1 não fazem parte dos limites de uso do plano, então cada mensagem do Fable usa créditos de uso cobrados aos preços padrão da API. No Max e no Ultra, os modelos Fable podem usar até 50% dos seus limites semanais sem custo extra.
 
 ## O que a Anthropic sugere quando você bate no limite
 
 1. **Espere a renovação.** O limite de sessão é renovado a cada cinco horas, e **Settings** → **Usage** mostra quando.
-2. **Faça upgrade.** A Anthropic descreve o Max 5x como ideal para quem usa o Claude com frequência, e o Max 20x como ideal para quem usa o Claude todos os dias na maioria das tarefas. Os limites do novo plano valem na hora.
+2. **Faça upgrade.** A Anthropic descreve o Max como pensado para quem usa o Claude com frequência, e o Ultra para as tarefas mais longas. Os limites do novo plano valem na hora.
 3. **Ative os créditos de uso.** Os créditos deixam você continuar trabalhando depois de um limite, cobrados aos preços padrão da API. Você pode definir um teto de gastos mensal.
 4. **Gaste menos por mensagem.** Comece uma conversa nova em vez de estender uma longa, reduza o nível de esforço, desative o raciocínio estendido e as ferramentas desnecessárias e encurte as instruções do projeto.
 
@@ -75,7 +75,7 @@ USD 8 a cada 5M de tokens equivalem a USD 1.60 por milhão, tanto na entrada qua
 
 O Claude Code se conecta pelo endpoint Anthropic Messages da Capriole AI. A mesma key funciona com [10 agentes de programação documentados](/pt-br/guides/one-api-key-coding-agents), incluindo o Codex. Comece pela [configuração do Claude Code](/pt-br/integrations/claude-code).
 
-O Claude Max inclui créditos mensais de API, mas [a Anthropic diz](https://support.claude.com/en/articles/17154008-monthly-api-credits-for-max-and-team-plans) que eles não cobrem sessões interativas do Claude Code nem o uso extra depois que você atinge os limites do plano.
+O Claude Max e o Ultra incluem créditos mensais de API, mas [a Anthropic diz](https://support.claude.com/en/articles/17154008-monthly-api-credits-for-max-and-team-plans) que eles não cobrem sessões interativas do Claude Code nem o uso extra depois que você atinge os limites do plano.
 
 ## Do que você abre mão
 
@@ -91,7 +91,7 @@ A Capriole AI é um espaço de trabalho independente, sem vínculo com a Anthrop
     O limite de sessão é renovado a cada cinco horas. O limite semanal é renovado em um horário fixo definido para a sua conta. Confira **Settings** → **Usage** no claude.ai para ver seus horários de renovação.
   </Accordion>
   <Accordion title="O Claude Fable 5.1 está incluído no Claude Pro?">
-    Não nos limites de uso do Pro. A Anthropic cobra o Fable 5.1 no Pro por créditos de uso aos preços padrão da API. No Max, os modelos Fable podem usar até 50% dos limites semanais. No Premium da Capriole AI, o Fable 5.1 faz parte do chat web ilimitado por USD 8 por mês.
+    Não nos limites de uso do Pro. A Anthropic cobra o Fable 5.1 no Pro por créditos de uso aos preços padrão da API. No Max e no Ultra, os modelos Fable podem usar até 50% dos limites semanais. No Premium da Capriole AI, o Fable 5.1 faz parte do chat web ilimitado por USD 8 por mês.
   </Accordion>
   <Accordion title="200 mensagens por dia são suficientes?">
     Para pessoas, sim. O limite existe para impedir abusos automatizados feitos por scripts. O usuário real mais ativo enviou 132 mensagens em um dia.
