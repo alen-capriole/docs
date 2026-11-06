@@ -1,0 +1,62 @@
+---
+title: "Gateway de LLM é seguro? O que checar antes de enviar código"
+sidebarTitle: "Segurança de gateways de LLM"
+description: "Logs, retenção, treinamento, keys e local dos dados: o que checar antes de enviar código-fonte por um gateway de LLM e como a Capriole AI responde a cada ponto."
+---
+
+Um gateway de LLM de terceiros acrescenta mais uma empresa que vê seus prompts e seu código, pode guardá-los em logs, mantém as API keys que suas ferramentas usam e repassa cada solicitação a provedores de modelos que talvez você não tenha escolhido. Antes de enviar código-fonte por um deles, pergunte o que ele armazena e por quanto tempo, se ele treina com o seu conteúdo, quais empresas e países recebem a solicitação, como as keys são revogadas e o que acontece quando um provedor falha.
+
+A Capriole AI é um desses gateways. Ela custa USD 8 por mês para chat web ilimitado com GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5 e Gemini 4 Argon, e a API dela custa até 92% menos que os preços oficiais das APIs para seus apps e agentes de programação. Abaixo, cada pergunta vem com a resposta da Capriole AI tirada da própria documentação, incluindo o que ela não oferece.
+
+## Os riscos, o que perguntar e as respostas da Capriole AI
+
+| Risco | O que perguntar | Resposta da Capriole AI |
+|---|---|---|
+| Registro de conteúdo | O conteúdo das solicitações e das respostas é armazenado? Por quanto tempo, e quem pode lê-lo? | A API não guarda o conteúdo das solicitações nem das respostas, apenas um registro de uso de cada solicitação, como horário, modelo e contagem de tokens. [O que a API guarda](/pt-br/guides/privacy-and-security#o-que-a-api-guarda) |
+| Treinamento | O gateway treina com o seu conteúdo? E os provedores para os quais ele encaminha as solicitações? | A Capriole AI não usa seus chats, arquivos ou conteúdo da API para treinar modelos de IA. Cada provedor trata as solicitações de acordo com os próprios termos. [Treinamento](/pt-br/guides/privacy-and-security#seu-conteúdo-não-é-usado-para-treinamento) |
+| Exposição upstream | Quais empresas recebem cada solicitação, e sob os termos de quem? | O provedor do modelo que a responde, ou uma plataforma de nuvem que hospeda os modelos dele. Provedores de infraestrutura transportam as solicitações pelo caminho. [Quem recebe seus dados](/pt-br/guides/privacy-and-security#quem-recebe-seus-dados) |
+| Localização dos dados | Onde ficam os servidores e o banco de dados? Onde os provedores processam os dados? | Os servidores principais e o banco de dados ficam na Índia; os provedores processam dados em outros países, incluindo os Estados Unidos. As conexões são criptografadas. [Segurança](/pt-br/guides/privacy-and-security#segurança) |
+| Uso indevido de keys | Dá para desativar e excluir keys e ver o uso por key? | Sim. Você pode dar um nome a cada key, o segredo completo aparece só uma vez, e você pode desativar ou excluir uma key e filtrar o uso por key. [Gerenciar keys](/pt-br/guides/api-keys-usage#desativar-reativar-ou-excluir-uma-key) |
+| Gastos fora de controle | Os gastos têm teto? | O uso da API sai de um saldo pré-pago de tokens, e os agentes param quando ele acaba. No Team, proprietários e administradores podem definir um limite para cada membro. [Tokens de alerta e de limite](/pt-br/guides/team-plan#defina-tokens-de-alerta-e-de-limite) |
+| Acesso da equipe | Quem na equipe pode ver o uso de quem? | Proprietários e administradores do Team veem o e-mail, a função e o uso da API no Team de cada membro. [Quem recebe seus dados](/pt-br/guides/privacy-and-security#quem-recebe-seus-dados) |
+| Fallback silencioso | Quando o gateway faz fallback, e ele mantém o modelo que você escolheu? | Só antes de uma resposta começar, e o modelo que você pediu é mantido. [Fallback](/pt-br/articles/unified-model-api#o-fallback-acontece-antes-da-resposta-começar) |
+
+Um gateway não protege você contra injeção de prompt nem contra o que um agente de programação faz na sua máquina. O agente continua lendo seus arquivos e executando comandos localmente, então as configurações de permissão dele importam tanto quanto as do gateway.
+
+O histórico do chat web é separado da API: você escolhe se ele fica na sua conta, só no seu navegador ou em lugar nenhum. O [guia de privacidade e controle de dados](/pt-br/guides/privacy-and-security) e a [política de privacidade](/pt-br/legal/privacy) trazem o texto completo.
+
+## O que a Capriole AI não oferece
+
+A Capriole AI foi feita para pessoas e pequenas equipes. Ela não tem single sign-on via SAML, não publica certificações de conformidade como SOC 2 ou ISO 27001 e não oferece SLA de suporte dedicado. Se a sua empresa exige qualquer um desses itens antes de o código sair da sua rede, a Capriole AI não atende a esse requisito.
+
+## Antes de enviar código-fonte por qualquer gateway
+
+1. **Remova os segredos primeiro.** Deixe arquivos `.env`, credenciais e chaves privadas fora dos arquivos e do contexto que você envia.
+2. **Dê a cada ferramenta a própria key e teste-a.** Envie a primeira solicitação de um projeto sem nada sensível, confira se a linha de uso mostra a key e o modelo que você esperava e desative as keys que você não usa mais. O [guia de API keys e uso](/pt-br/guides/api-keys-usage) mostra cada passo.
+3. **Confira também os termos do provedor.** A política do gateway cobre o gateway. O provedor do modelo que responde trata a solicitação de acordo com os próprios termos.
+
+O guia [uma API key para agentes de programação](/pt-br/guides/one-api-key-coding-agents) configura 10 agentes, e as páginas do [Claude Code](/pt-br/integrations/claude-code) e do [Codex](/pt-br/integrations/codex) cobrem a configuração de cada cliente.
+
+## Perguntas frequentes
+
+<AccordionGroup>
+  <Accordion title="É seguro enviar código-fonte por um gateway de LLM?">
+    Depende das respostas do gateway às perguntas acima: o que ele armazena, se treina com o seu conteúdo, quem recebe cada solicitação e como as keys são controladas. A Capriole AI não guarda o conteúdo das solicitações nem das respostas da API e não treina com ele, mas toda solicitação ainda chega ao provedor do modelo que a responde.
+  </Accordion>
+  <Accordion title="O que fazer se uma API key vazar?">
+    Exclua a key na página da API e crie outra no lugar. Se quiser investigar antes, desativar a key bloqueia novas solicitações na hora. Veja [desativar, reativar ou excluir uma key](/pt-br/guides/api-keys-usage#desativar-reativar-ou-excluir-uma-key).
+  </Accordion>
+</AccordionGroup>
+
+## Comece agora
+
+<CardGroup cols={2}>
+  <Card title="Leia o guia de privacidade" icon="shield" href="/pt-br/guides/privacy-and-security">
+    O que a Capriole AI guarda, onde e por quanto tempo.
+  </Card>
+  <Card title="Obtenha uma API key" icon="key" href="https://www.capriole.ai/pt-br?view=api">
+    Premium: chat web ilimitado e uma API key por USD 8 por mês.
+  </Card>
+</CardGroup>
+
+Os fatos da Capriole AI nesta página são mantidos como documentação de primeira parte.

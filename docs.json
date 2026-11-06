@@ -97,6 +97,9 @@
               {
                 "group": "Articles",
                 "pages": [
+                  "articles/multi-model-ai-chat-platforms",
+                  "articles/ai-subscriptions-under-20",
+                  "articles/llm-gateway-security",
                   "articles/chatgpt-plus-alternative",
                   "articles/claude-vs-chatgpt",
                   "articles/claude-api-pricing",
@@ -211,6 +214,9 @@
               {
                 "group": "文章",
                 "pages": [
+                  "zh/articles/multi-model-ai-chat-platforms",
+                  "zh/articles/ai-subscriptions-under-20",
+                  "zh/articles/llm-gateway-security",
                   "zh/articles/chatgpt-plus-alternative",
                   "zh/articles/claude-vs-chatgpt",
                   "zh/articles/claude-api-pricing",
@@ -325,6 +331,9 @@
               {
                 "group": "Artículos",
                 "pages": [
+                  "es/articles/multi-model-ai-chat-platforms",
+                  "es/articles/ai-subscriptions-under-20",
+                  "es/articles/llm-gateway-security",
                   "es/articles/chatgpt-plus-alternative",
                   "es/articles/claude-vs-chatgpt",
                   "es/articles/claude-api-pricing",
@@ -439,6 +448,9 @@
               {
                 "group": "Artigos",
                 "pages": [
+                  "pt-br/articles/multi-model-ai-chat-platforms",
+                  "pt-br/articles/ai-subscriptions-under-20",
+                  "pt-br/articles/llm-gateway-security",
                   "pt-br/articles/chatgpt-plus-alternative",
                   "pt-br/articles/claude-vs-chatgpt",
                   "pt-br/articles/claude-api-pricing",
@@ -553,6 +565,9 @@
               {
                 "group": "Artikel",
                 "pages": [
+                  "de/articles/multi-model-ai-chat-platforms",
+                  "de/articles/ai-subscriptions-under-20",
+                  "de/articles/llm-gateway-security",
                   "de/articles/chatgpt-plus-alternative",
                   "de/articles/claude-vs-chatgpt",
                   "de/articles/claude-api-pricing",
@@ -667,6 +682,9 @@
               {
                 "group": "記事",
                 "pages": [
+                  "ja/articles/multi-model-ai-chat-platforms",
+                  "ja/articles/ai-subscriptions-under-20",
+                  "ja/articles/llm-gateway-security",
                   "ja/articles/chatgpt-plus-alternative",
                   "ja/articles/claude-vs-chatgpt",
                   "ja/articles/claude-api-pricing",
@@ -781,6 +799,9 @@
               {
                 "group": "아티클",
                 "pages": [
+                  "ko/articles/multi-model-ai-chat-platforms",
+                  "ko/articles/ai-subscriptions-under-20",
+                  "ko/articles/llm-gateway-security",
                   "ko/articles/chatgpt-plus-alternative",
                   "ko/articles/claude-vs-chatgpt",
                   "ko/articles/claude-api-pricing",

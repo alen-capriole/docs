@@ -1,0 +1,92 @@
+---
+title: "生成 AI 比較 2026：おすすめのマルチモデル AI チャット"
+sidebarTitle: "マルチモデル AI チャット"
+description: "Capriole AI は月額 USD 8 で GPT-6 Astra、Claude、Gemini が無制限、API は公式価格より最大 92% 安い。Magai など 4 社と比較。"
+---
+
+マルチモデル AI チャットは、GPT、Claude、Gemini を 1 つのチャットで使えるサービスです。各サービスの違いが最も大きいのは、旗艦モデルの課金方法です。Capriole AI は**月額 USD 8** で、**GPT-6 Astra**、**Claude Fable 5.1**、**Claude Opus 5.5**、**Gemini 4 Argon** とのウェブチャットが無制限です。Magai、T3 Chat、Venice、OpenRouter は、旗艦モデルを使用量の予算、補充されるバケット、クレジット、従量課金で計量します。
+
+Capriole AI には、公式 API 価格より最大 92% 安い API も含まれるため、同じアカウントでアプリもコーディング エージェントも動かせます。この比較は公開されているプランと機能を扱うもので、回答品質のテストではありません。
+
+## 比較したプラットフォーム
+
+| | Capriole AI | [Magai](/ja/articles/capriole-ai-vs-magai) | [T3 Chat](/ja/articles/capriole-ai-vs-t3-chat) | [Venice](/ja/articles/capriole-ai-vs-venice) | [OpenRouter](/ja/articles/capriole-ai-vs-openrouter) |
+|---|---|---|---|---|---|
+| GPT と Claude の最上位モデルの価格 | 月額 USD 8（Premium） | 月額 USD 20（Standard）。プラン表では、GPT と Claude の最上位モデルなどのプレミアム モデルは USD 40 の Pro から | 未確認。確認時に料金ページを読み込めなかった | Pro は月額 USD 18。最先端のテキスト モデルはクレジットを使用 | プロバイダーの定価で従量課金。クレジット購入時に 5.5% の手数料（Business では 8%） |
+| 旗艦モデルとのチャットの計量方法 | 無制限。スクリプトによる自動化された乱用を防ぐ、1 日 200 メッセージの[フェアユース上限](/ja/guides/plans-and-limits#「無制限」の意味)あり | 毎月プラン料金と同額分の使用量。チャージあり | 4 時間ごとに補充される Base バケットと、毎月の更新日に補充される超過分のバケット | Pro は毎月 100 クレジット（USD 1 相当） | リクエストごとにクレジットから差し引き |
+| 掲載されている現在の旗艦モデル | GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5、Gemini 4 Argon | GPT-6 Astra、Claude Opus 5.5、Gemini 4 Argon。Claude Fable 5.1 はモデル ページに掲載なし | 未確認 | Venice のプロキシ経由の GPT、Claude、Gemini | カタログ内のプロバイダーによる |
+| 無料で始める | アカウントなしで 1 日 5 メッセージ。無料アカウントでは毎月 50 万トークン | 無料プランなし。30 日間の返金保証 | FAQ に記載なし | ベース モデルと 1 日 10 回のテキスト プロンプトを使える無料プラン | レート制限付きの無料モデル |
+| デベロッパー API | OpenAI Chat Completions、OpenAI Responses、Anthropic Messages。毎月 500 万トークンを含む | 記載なし | 記載なし | 公開されたモデル料金での従量課金 | 従量課金、OpenAI 互換 |
+| コーディング エージェント | Claude Code や Codex を含む 10 種類のセットアップ ガイド | 記載なし | 記載なし | Codex CLI、Cline、Kilo Code、OpenCode、Claude Code（アドオンのルーターが必要）などのガイド | カスタム プロバイダーを設定できるクライアントで動作 |
+
+[OpenAI](/ja/articles/openai-api-pricing) と [Claude](/ja/articles/claude-api-pricing) の API 料金ページが示すとおり、旗艦モデルは各社の公式 API で最もコストが高く、そのためほかの 4 社は旗艦モデルを計量しています。[USD 20 以下の生成 AI 有料プラン比較](/ja/articles/ai-subscriptions-under-20)では、この料金比較に各社自身のプランである ChatGPT Plus、Claude Pro、Google AI Pro を加えています。
+
+## 1 つの会話でモデルを切り替える
+
+作業の途中でモデルを変えられることは、複数のアプリではなく 1 つのプラットフォームを使う一番の理由です。Capriole AI では、メニューから別のモデルを選ぶと、同じスレッドのまま次の回答がそのモデルから返ってきます。保存済みのファイルは、新しいモデルとストレージ モードが対応していれば引き継がれます。引き継がれるものと、Capriole AI が各社の形式の違いをどう調整するかは、[会話の途中でモデルを切り替える](/ja/articles/switch-models-mid-chat)で説明しています。
+
+Magai の料金ページにも、スレッドを失わずにチャットの途中でモデルを切り替えられることが記載されています。T3 Chat の公式フィードバック ボードでは、会話の分岐とキーボードによるモデル切り替えが完了済みになっています。そのほかのワークスペース機能は [Capriole AI との比較](/ja/articles/capriole-ai-vs-t3-chat)で取り上げています。
+
+## プライバシーとチャットの保存場所
+
+ここで取り上げるどのプラットフォームも、最先端モデルへのリクエストは、OpenAI、Anthropic、Google などそのモデルを開発する企業か、そのモデルをホストするクラウド プラットフォームに送ります。違うのは、学習利用、ログ記録、そして履歴の保存場所です。
+
+| | コンテンツの学習利用 | チャット履歴の保存場所 | そのほかに保持されるもの |
+|---|---|---|---|
+| Capriole AI | AI モデルの学習には使われない | 選択可能：アカウント（既定）、ブラウザのみ、保存しない | API はリクエストやレスポンスの内容を保持せず、トークン数などの使用量記録だけを残す |
+| Magai | 作業内容がモデルの学習に使われることはないとしている | アカウントが有効な間は Magai のサーバー上 | サーバーとサービス プロバイダーは米国にある |
+| T3 Chat | 自社モデルの学習はしない。可能な範囲でプロバイダーの学習もオプトアウト | FAQ に記載なし | 自分のプロバイダー キーを使う場合は、そのプロバイダーの設定が適用される |
+| Venice | 確認したページには記載なし | 自分のデバイス | リクエストは保存されずに中継される。最先端モデルについては、プロバイダーがコンテンツを保存するものと考えるよう Venice は説明している |
+| OpenRouter | データを学習に使わないとしている | Chatroom の会話はデバイスに残り、同期されない | モデルやトークン数などのリクエスト メタデータ。オプトインしない限りプロンプトはログに記録されないが、Safety Retention エンドポイントでは、乱用防止のために OpenRouter またはプロバイダーが保持する場合がある |
+
+Capriole AI の **Local Storage** と **No Storage** モードでは履歴が当社のデータベースに保存されませんが、アップロードと画像作成には **Server Storage** が必要です。各モードで保持される内容は[プライバシーとデータ管理ガイド](/ja/guides/privacy-and-security)に、切り替え方は[チャット ストレージ ガイド](/ja/guides/chat-storage)にまとめています。
+
+## ファイル、Web 検索、そのほかのワークスペース機能
+
+Capriole AI のウェブチャットには、ファイルと Web 検索、独自の指示とファイルを持てる[プロジェクト](/ja/guides/projects)、チャットのエクスポート、パーソナライズが含まれます。GPT Image 2.5 と Nano Banana 2.1 による無料の画像生成も含まれます。必要なサインインとストレージの条件は[ファイル・画像生成・Web 検索のガイド](/ja/guides/files-web-search)で説明しています。
+
+## 手放すもの
+
+Capriole AI は個人と小規模チーム向けに作られています。Magai には組み込みエージェント、スケジュール タスクの実行、ほかのアプリとの連携があり、Magai と Venice は動画を生成できます。Capriole AI には、スケジュール タスク、アプリ連携、動画生成はありません。SAML シングル サインオンなどのエンタープライズ向け管理機能も提供していません。Capriole AI が提供するものとしないものは [LLM ゲートウェイのセキュリティ リスク](/ja/articles/llm-gateway-security)にまとめています。ウェブチャットは無制限ですが、API リクエストとコーディング エージェントは従量制の残高を使います。Premium では毎月 500 万トークンで、それを超えると 500 万トークンあたり USD 8 です。
+
+## よくある質問
+
+<AccordionGroup>
+  <Accordion title="いちばんおすすめのマルチモデル AI チャットはどれですか？">
+    GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5、Gemini 4 Argon と定額で無制限にチャットしたいなら、Capriole AI が月額 USD 8 で、API も含まれます。Magai、T3 Chat、Venice、OpenRouter は、旗艦モデルを使用量の予算、バケット、クレジット、リクエストごとの料金で計量します。
+  </Accordion>
+  <Accordion title="ChatGPT、Claude、Gemini のモデルを 1 つのチャットで使えますか？">
+    はい。Capriole AI では GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5、Gemini 4 Argon を同じ会話で使え、やり直さずにメッセージごとにモデルを切り替えられます。
+  </Accordion>
+  <Accordion title="チャットのプライバシーを守れるマルチモデル AI チャットはどれですか？">
+    Capriole AI はあなたのコンテンツを学習に使わず、履歴をアカウントに残すか、ブラウザだけに残すか、どこにも残さないかを選べます。Venice と OpenRouter の Chatroom は、履歴をデバイスに保存します。どの製品でも、最先端モデルへのリクエストはそのモデルの提供企業に届きます。
+  </Accordion>
+  <Accordion title="API 付きのマルチモデル AI チャットはありますか？">
+    はい。Capriole AI Premium には、OpenAI と Anthropic の API クライアントと、ドキュメント化された 10 のコーディング エージェントで使える API トークンが毎月 500 万含まれます。Venice と OpenRouter は API を従量課金で提供しています。
+  </Accordion>
+  <Accordion title="Capriole AI は無料で試せますか？">
+    はい。ゲストはアカウントなしで 1 日 5 メッセージまで送れます。無料アカウントでは、さらに毎月 50 万トークン分のウェブチャットを使えます。[ログイン不要の AI チャット](/ja/articles/ai-chat-without-login)をご覧ください。
+  </Accordion>
+</AccordionGroup>
+
+## 今すぐ始める
+
+<CardGroup cols={2}>
+  <Card title="チャットを始める" icon="message" href="https://www.capriole.ai/ja">
+    GPT-6 Astra、Claude、Gemini をアカウントなしで試せます。
+  </Card>
+  <Card title="Premium にアップグレード" icon="crown" href="https://www.capriole.ai/ja?view=api">
+    無制限のウェブチャットと API キーが月額 USD 8。
+  </Card>
+</CardGroup>
+
+## 公式ソース
+
+これらのページは 2026 年 11 月 6 日に確認しました。
+
+- Magai: [pricing](https://magai.co/pricing/)、[models](https://magai.co/models/)、[privacy policy](https://magai.co/privacy-policy/)
+- T3 Chat: [FAQ](https://t3.chat/faq)、[branching](https://feedback.t3.chat/p/branching-chats)、[model switcher](https://feedback.t3.chat/p/model-switcher-with-keyboard)
+- Venice: [pricing](https://venice.ai/pricing)、[privacy](https://venice.ai/privacy)、[Claude Code guide](https://docs.venice.ai/guides/integrations/claude-code)、[Codex CLI guide](https://docs.venice.ai/guides/integrations/codex-cli)
+- OpenRouter: [pricing](https://openrouter.ai/pricing)、[FAQ](https://openrouter.ai/docs/faq)
+
+このページの Capriole AI の事実は、第一当事者ドキュメントとして維持されています。

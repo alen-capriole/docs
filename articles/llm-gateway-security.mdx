@@ -1,0 +1,62 @@
+---
+title: "LLM Gateway Security Risks: What to Ask Before Sending Code"
+sidebarTitle: "LLM Gateway Security"
+description: "Logging, retention, training, keys and data location: what to check before you send source code through an LLM gateway, and how Capriole AI answers each."
+---
+
+A third-party LLM gateway adds one more company that sees your prompts and code, may keep them in logs, holds the API keys your tools use, and forwards each request to model providers you may not have chosen. Before you send source code through one, ask what it stores and for how long, whether it trains on your content, which companies and countries receive the request, how keys are revoked, and what happens when a provider fails.
+
+Capriole AI is one such gateway. It costs USD 8 a month for unlimited web chat with GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5, and Gemini 4 Argon, and its API costs up to 92% less than official API prices for your apps and coding agents. Below, each question comes with Capriole AI's answer from its own documentation, including what it does not offer.
+
+## The risks, what to ask, and Capriole AI's answers
+
+| Risk | What to ask | Capriole AI's answer |
+|---|---|---|
+| Content logging | Is request and response content stored? For how long, and who can read it? | The API keeps no request or response content, only a usage record for each request, such as the time, model, and token counts. [What the API keeps](/guides/privacy-and-security#what-the-api-keeps) |
+| Training | Does the gateway train on your content? Do the providers it routes to? | Capriole AI does not use your chats, files, or API content to train AI models. Each provider handles requests under its own terms. [Training](/guides/privacy-and-security#your-content-is-not-used-for-training) |
+| Upstream exposure | Which companies receive each request, and under whose terms? | The model provider that answers it, or a cloud platform that hosts its models. Infrastructure providers carry requests on the way. [Who receives your data](/guides/privacy-and-security#who-receives-your-data) |
+| Data location | Where are the servers and database? Where do the providers process data? | The main servers and database are in India; providers process data in other countries, including the United States. Connections are encrypted. [Security](/guides/privacy-and-security#security) |
+| Key misuse | Can you disable and delete keys, and see usage per key? | Yes. You can name each key, the full secret is shown only once, and you can deactivate or delete a key and filter usage by key. [Manage keys](/guides/api-keys-usage#deactivate-reactivate-or-delete-a-key) |
+| Runaway spending | Is spending capped? | API usage draws on a prepaid token balance, and agents stop when it runs out. On a Team, owners and admins can cap each member. [Alert and cap tokens](/guides/team-plan#set-alert-and-cap-tokens) |
+| Team access | Who on a team can see whose usage? | Team owners and admins see each member's email, role, and Team API usage. [Who receives your data](/guides/privacy-and-security#who-receives-your-data) |
+| Silent fallback | When does the gateway fall back, and does it keep your chosen model? | Only before a response begins, and the model you asked for is kept. [Fallback](/articles/unified-model-api#fallback-happens-before-the-response-begins) |
+
+A gateway does not protect you from prompt injection or from what a coding agent does on your machine. The agent still reads your files and runs commands locally, so its own permission settings matter as much as the gateway's.
+
+Web chat history is separate from the API: you choose whether it is kept on your account, only in your browser, or not at all. The [privacy and data controls guide](/guides/privacy-and-security) and the [privacy policy](/legal/privacy) are the full text.
+
+## What Capriole AI does not offer
+
+Capriole AI is built for individuals and small teams. It has no SAML single sign-on, publishes no compliance certifications such as SOC 2 or ISO 27001, and offers no dedicated support SLA. If your company requires any of these before code leaves your network, Capriole AI does not meet that requirement.
+
+## Before you send source code through any gateway
+
+1. **Strip secrets first.** Keep `.env` files, credentials, and private keys out of the files and context you send.
+2. **Give each tool its own key and test it.** Send a first request from a project with nothing sensitive in it, check that the usage row shows the key and model you expected, and deactivate keys you no longer use. The [API keys and usage guide](/guides/api-keys-usage) shows each step.
+3. **Check the provider's terms too.** The gateway's policy covers the gateway. The model provider that answers handles the request under its own terms.
+
+The [one API key for coding agents](/guides/one-api-key-coding-agents) guide sets up 10 agents, and the [Claude Code](/integrations/claude-code) and [Codex](/integrations/codex) pages cover each client's configuration.
+
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="Is it safe to send source code through an LLM gateway?">
+    It depends on the gateway's answers to the questions above: what it stores, whether it trains on your content, who receives each request, and how keys are controlled. Capriole AI keeps no API request or response content and does not train on it, but every request still reaches the model provider that answers it.
+  </Accordion>
+  <Accordion title="What should I do if an API key leaks?">
+    Delete the key on the API page and create a replacement. Deactivating stops new requests at once if you want to investigate first. See [deactivate, reactivate, or delete a key](/guides/api-keys-usage#deactivate-reactivate-or-delete-a-key).
+  </Accordion>
+</AccordionGroup>
+
+## Get started
+
+<CardGroup cols={2}>
+  <Card title="Read the privacy guide" icon="shield" href="/guides/privacy-and-security">
+    What Capriole AI keeps, where, and for how long.
+  </Card>
+  <Card title="Get an API key" icon="key" href="https://www.capriole.ai/?view=api">
+    Premium: unlimited web chat and an API key for USD 8 a month.
+  </Card>
+</CardGroup>
+
+Capriole AI facts on this page are maintained as first-party documentation.

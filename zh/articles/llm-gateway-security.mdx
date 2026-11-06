@@ -1,0 +1,62 @@
+---
+title: "LLM 网关安全风险：发送代码前先问清这些"
+sidebarTitle: "LLM 网关安全"
+description: "日志、保留期限、训练、密钥和数据位置：通过 LLM 网关发送源代码前要检查什么，以及 Capriole AI 的逐项回答。"
+---
+
+第三方 LLM 网关意味着又多了一家公司能看到你的提示词和代码：它可能把这些内容留在日志里，掌握着你的工具所用的 API Key，还会把每个请求转发给你未必选过的模型提供商。通过网关发送源代码之前，先问清楚：它存储什么、存多久，是否用你的内容训练模型，哪些公司和国家会收到请求，Key 如何撤销，以及提供商出故障时会发生什么。
+
+Capriole AI 就是这样一个网关。它每月 USD 8，可在网页聊天中无限使用 GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5 和 Gemini 4 Argon；其 API 最多比官方 API 价格低 92%，可用于你的应用和编程智能体。下面每个问题都附有 Capriole AI 依据自身文档给出的回答，也包括它不提供的内容。
+
+## 风险、应该问什么，以及 Capriole AI 的回答
+
+| 风险 | 应该问什么 | Capriole AI 的回答 |
+|---|---|---|
+| 内容日志 | 是否存储请求和响应内容？存多久，谁能查看？ | API 不保留请求或响应内容，只为每个请求保留一条用量记录，例如时间、模型和 token 数量。[API 保留哪些数据](/zh/guides/privacy-and-security#api-保留哪些数据) |
+| 训练 | 网关会用你的内容训练吗？它路由到的提供商呢？ | Capriole AI 不会使用你的对话、文件或 API 内容训练 AI 模型。各提供商按其自身条款处理请求。[你的内容不会用于训练](/zh/guides/privacy-and-security#你的内容不会用于训练) |
+| 上游暴露 | 每个请求由哪些公司接收，适用谁的条款？ | 回答该请求的模型提供商，或托管其模型的云平台。基础设施提供商负责在途中传输请求。[谁会收到你的数据](/zh/guides/privacy-and-security#谁会收到你的数据) |
+| 数据位置 | 服务器和数据库在哪里？提供商在哪里处理数据？ | 主要服务器和数据库位于印度；提供商会在其他国家处理数据，包括美国。连接经过加密。[安全](/zh/guides/privacy-and-security#安全) |
+| Key 滥用 | 能否停用和删除 Key，并按 Key 查看用量？ | 可以。你可以为每个 Key 命名，完整密钥只显示一次；你可以停用或删除 Key，并按 Key 筛选用量。[管理 API Key](/zh/guides/api-keys-usage#停用、重新启用或删除-api-key) |
+| 支出失控 | 支出有上限吗？ | API 用量从预付的 token 余额中扣除，余额用完后智能体就会停止。在 Team 中，所有者和管理员可以为每位成员设置上限。[设置提醒和上限 token](/zh/guides/team-plan#设置提醒和上限-token) |
+| 团队访问 | 团队中谁能看到谁的用量？ | Team 所有者和管理员可以看到每位成员的邮箱、角色和 Team API 用量。[谁会收到你的数据](/zh/guides/privacy-and-security#谁会收到你的数据) |
+| 静默 fallback | 网关何时 fallback，是否保留你选择的模型？ | 只在响应开始之前，并且保留你请求的模型。[Fallback 规则](/zh/articles/unified-model-api#fallback-只在响应开始前发生) |
+
+网关无法防范提示词注入，也管不了编程智能体在你电脑上做什么。智能体仍会在本地读取你的文件、运行命令，所以它自身的权限设置和网关一样重要。
+
+网页聊天历史与 API 分开：你可以选择把它保存在账户中、只留在浏览器里，或完全不保存。完整说明见[隐私与数据控制指南](/zh/guides/privacy-and-security)和[隐私政策](/zh/legal/privacy)。
+
+## Capriole AI 不提供什么
+
+Capriole AI 面向个人和小团队。它不支持 SAML 单点登录，没有公布 SOC 2 或 ISO 27001 等合规认证，也不提供专属支持 SLA。如果你的公司要求代码离开公司网络之前必须满足其中任何一项，Capriole AI 无法满足这一要求。
+
+## 通过任何网关发送源代码之前
+
+1. **先清除机密信息。** 不要把 `.env` 文件、凭据和私钥放进你发送的文件和上下文。
+2. **为每个工具单独设置 Key 并先测试。** 先从不含任何敏感内容的项目发送第一个请求，确认用量记录中显示的是你预期的 Key 和模型，并停用不再使用的 Key。[API Key 与用量指南](/zh/guides/api-keys-usage)介绍了每一步。
+3. **也要查看提供商的条款。** 网关的政策只覆盖网关本身。回答请求的模型提供商按其自身条款处理请求。
+
+[使用一个 API Key 配置编程智能体](/zh/guides/one-api-key-coding-agents)指南介绍了 10 个智能体的配置，[Claude Code](/zh/integrations/claude-code) 和 [Codex](/zh/integrations/codex) 页面分别介绍了各客户端的配置。
+
+## 常见问题
+
+<AccordionGroup>
+  <Accordion title="通过 LLM 网关发送源代码安全吗？">
+    取决于网关对上面这些问题的回答：它存储什么、是否用你的内容训练、谁会收到每个请求，以及 Key 如何管控。Capriole AI 不保留 API 请求或响应内容，也不会用它们训练模型，但每个请求仍会到达回答它的模型提供商。
+  </Accordion>
+  <Accordion title="API Key 泄露了怎么办？">
+    在 API 页面删除该 Key，再创建一个新的。如果你想先调查，停用 Key 会立即阻止新的请求。参见[停用、重新启用或删除 API Key](/zh/guides/api-keys-usage#停用、重新启用或删除-api-key)。
+  </Accordion>
+</AccordionGroup>
+
+## 开始使用
+
+<CardGroup cols={2}>
+  <Card title="阅读隐私指南" icon="shield" href="/zh/guides/privacy-and-security">
+    Capriole AI 保留哪些数据、保存在哪里、保留多久。
+  </Card>
+  <Card title="获取 API Key" icon="key" href="https://www.capriole.ai/zh?view=api">
+    Premium：每月 USD 8，享受无限网页聊天和 API Key。
+  </Card>
+</CardGroup>
+
+本页中的 Capriole AI 事实作为第一方文档持续维护。
