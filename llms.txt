@@ -8,7 +8,7 @@
 - [List models](https://docs.capriole.ai/api-reference/endpoint/get.md): Returns the current public model catalog.
 - [Messages](https://docs.capriole.ai/api-reference/endpoint/messages.md): Create Anthropic Messages-compatible output with Capriole AI Claude models.
 - [Responses](https://docs.capriole.ai/api-reference/endpoint/responses.md): Create OpenAI Responses-compatible output with Capriole AI Responses models.
-- [OpenRouter Pricing vs Direct APIs: 5M-Token Cost Test](https://docs.capriole.ai/articles/ai-api-cost-comparison.md): OpenRouter charges provider list prices plus a 5.5% fee (8% on Business) when you buy credits. Compare 5M-token totals for direct APIs, OpenRouter, and Capriole AI's USD 9 plan.
+- [OpenRouter Pricing vs Direct APIs: 5M-Token Cost Test](https://docs.capriole.ai/articles/ai-api-cost-comparison.md): OpenRouter charges provider list prices plus a 5.5% fee when you buy Standard credits by card. Compare 5M-token totals for direct APIs, OpenRouter, and Capriole AI's USD 9 plan.
 - [AI Chat Without Login: Try GPT-6 Astra, Claude and Gemini](https://docs.capriole.ai/articles/ai-chat-without-login.md): Chat with GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5, and Gemini 4 Argon without an account: 5 free messages a day, then USD 9 unlimited web chat.
 - [Best AI Subscriptions for USD 20 or Less in 2026, Compared](https://docs.capriole.ai/articles/ai-subscriptions-under-20.md): USD 9 unlimited chat with GPT-6 Astra, Claude and Gemini plus an API up to 92% less on Capriole AI, vs ChatGPT Plus, Claude Pro and other plans up to USD 20.
 - [Capriole AI vs Magai: Pricing, Models, API and Privacy](https://docs.capriole.ai/articles/capriole-ai-vs-magai.md): Capriole AI: unlimited chat with GPT-6 Astra, Claude Fable 5.1, Opus 5.5 and Gemini 4 Argon for USD 9 a month, API up to 92% less. Magai starts at USD 20.
@@ -40,7 +40,7 @@
 - [Use Files, Image Generation and Web Search in Capriole AI](https://docs.capriole.ai/guides/files-web-search.md): Create free images with GPT Image 2.5 and Nano Banana 2.1, upload files, and use web search in Browser Chat. Learn the sign-in and Server Storage requirements.
 - [Use One API Key with Coding Agents](https://docs.capriole.ai/guides/one-api-key-coding-agents.md): Set up 10 documented coding agents with one Capriole AI API key while keeping each client on its supported protocol.
 - [Use OpenAI and Anthropic SDKs with Capriole AI](https://docs.capriole.ai/guides/openai-anthropic-sdks.md): Call Capriole AI from Python or TypeScript with the official OpenAI and Anthropic SDKs, supported protocols, latest aliases, and correct base URLs.
-- [Capriole AI Pricing: Free, Premium (USD 9) and Team Plans](https://docs.capriole.ai/guides/plans-and-limits.md): Premium is USD 9 a month for unlimited chat with GPT-6 Astra, Claude Fable 5.1, Opus 5.5 and Gemini 4 Argon, plus an API up to 92% below official prices.
+- [Capriole AI Pricing: Free, Premium (USD 9) and Team Plans](https://docs.capriole.ai/guides/plans-and-limits.md): Premium is USD 9 a month for unlimited chat with GPT-6 Astra, Claude Fable 5.1, Opus 5.5 and Gemini 4 Argon, plus 5M monthly API tokens.
 - [Capriole AI Privacy: No Training, Storage Modes and Deletion](https://docs.capriole.ai/guides/privacy-and-security.md): Capriole AI does not train models on your chats, files or API content. Choose Server, Local or No Storage, export or delete chats, and see what the API keeps.
 - [Organize Chats into Projects in Capriole AI](https://docs.capriole.ai/guides/projects.md): Group related chats into projects in Capriole AI, give each project its own instructions and files, and move chats in and out from the sidebar.
 - [Capriole AI Team Plan: 5 Seats and Shared API Tokens, USD 70](https://docs.capriole.ai/guides/team-plan.md): Capriole AI Team is USD 70 a month for 5 seats, each with unlimited chat on GPT-6 Astra, Claude and Gemini, plus shared API tokens. Set up and invite members.
@@ -57,7 +57,7 @@
 - [Add a custom model provider to Qwen Code: Capriole AI setup](https://docs.capriole.ai/integrations/qwen-code.md): Add Capriole AI models to Qwen Code's modelProviders. Run GPT-6 Astra, Claude Fable 5.1, and Opus 5.5 at up to 92% less than official API prices.
 - [Privacy Policy](https://docs.capriole.ai/legal/privacy.md): How Capriole AI collects, uses and shares personal information.
 - [Terms of Service](https://docs.capriole.ai/legal/terms.md): The terms for using Capriole AI.
-- [Capriole AI: USD 9 unlimited AI chat and low-cost API](https://docs.capriole.ai/overview.md): Unlimited chat with GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5, and Gemini 4 Argon for USD 9 a month, plus an API up to 92% below official prices.
+- [Capriole AI: USD 9 unlimited AI chat and low-cost API](https://docs.capriole.ai/overview.md): Unlimited chat with GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5, and Gemini 4 Argon for USD 9 a month, plus 5M monthly API tokens.
 - [Capriole AI API quickstart: one key, OpenAI and Claude formats](https://docs.capriole.ai/quickstart.md): Make your first Capriole AI API request with one key for OpenAI Chat Completions, Responses, and Anthropic Messages, at up to 92% less than official prices.
 
 ## zh-Hans
@@ -66,7 +66,7 @@
 - [列出模型](https://docs.capriole.ai/zh/api-reference/endpoint/get.md): 返回当前公开模型目录。
 - [Messages](https://docs.capriole.ai/zh/api-reference/endpoint/messages.md): 通过 Capriole AI Claude 模型创建 Anthropic Messages 兼容输出。
 - [Responses](https://docs.capriole.ai/zh/api-reference/endpoint/responses.md): 通过 Capriole AI Responses 模型创建 OpenAI Responses 兼容输出。
-- [OpenRouter 价格与官方直连对比：500 万 token 成本测试](https://docs.capriole.ai/zh/articles/ai-api-cost-comparison.md): OpenRouter 按各提供商的公开价格计费，充值时另收 5.5% 手续费（Business 方案为 8%）。对比 500 万 token 下官方直连 API、OpenRouter 与 Capriole AI USD 9 方案的总成本。
+- [OpenRouter 价格与官方直连对比：500 万 token 成本测试](https://docs.capriole.ai/zh/articles/ai-api-cost-comparison.md): OpenRouter 按各提供商的公开价格计费，Standard 用户用银行卡充值时另收 5.5% 手续费。对比 500 万 token 下官方直连 API、OpenRouter 与 Capriole AI USD 9 方案的总成本。
 - [免登录 AI 聊天：免费试用 GPT、Claude、Gemini](https://docs.capriole.ai/zh/articles/ai-chat-without-login.md): 无需账户即可与 GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5 和 Gemini 4 Argon 聊天：每天 5 条免费消息，之后 USD 9 无限网页聊天。
 - [AI 订阅推荐：2026 年 USD 20 以内方案对比](https://docs.capriole.ai/zh/articles/ai-subscriptions-under-20.md): Capriole AI 每月 USD 9 无限畅聊 GPT-6 Astra、Claude、Gemini，API 价格最多比官方低 92%，对比 ChatGPT Plus、Claude Pro 等 USD 20 以内方案。
 - [Capriole AI 与 Magai 对比：价格、模型、API 和隐私](https://docs.capriole.ai/zh/articles/capriole-ai-vs-magai.md): Capriole AI 每月 USD 9 无限畅聊 GPT-6 Astra、Claude Fable 5.1、Opus 5.5 和 Gemini 4 Argon，API 价格最多比官方低 92%。Magai 每月 USD 20 起。
@@ -98,7 +98,7 @@
 - [在 Capriole AI 中使用文件、生图和网页搜索](https://docs.capriole.ai/zh/guides/files-web-search.md): 在网页聊天中用 GPT Image 2.5 和 Nano Banana 2.1 免费生图、上传文件和搜索网页，了解登录及 Server Storage 要求。
 - [使用一个 API Key 配置编程智能体](https://docs.capriole.ai/zh/guides/one-api-key-coding-agents.md): 使用一个 Capriole AI API Key 配置 10 个有配置文档的编程智能体，同时让每个客户端使用其支持的协议。
 - [通过 OpenAI 和 Anthropic SDK 使用 Capriole AI](https://docs.capriole.ai/zh/guides/openai-anthropic-sdks.md): 使用官方 OpenAI 和 Anthropic SDK，通过 Python 或 TypeScript 调用 Capriole AI，并正确配置受支持的协议、latest 别名和 Base URL。
-- [Capriole AI 价格与方案：Premium 每月 USD 9](https://docs.capriole.ai/zh/guides/plans-and-limits.md): Premium 每月 USD 9，无限畅聊 GPT-6 Astra、Claude Fable 5.1、Opus 5.5 和 Gemini 4 Argon，另含价格最多比官方低 92% 的 API。
+- [Capriole AI 价格与方案：Premium 每月 USD 9](https://docs.capriole.ai/zh/guides/plans-and-limits.md): Premium 每月 USD 9，无限畅聊 GPT-6 Astra、Claude Fable 5.1、Opus 5.5 和 Gemini 4 Argon，另含每月 500 万 API token。
 - [Capriole AI 隐私：不用于训练、存储方式与删除](https://docs.capriole.ai/zh/guides/privacy-and-security.md): Capriole AI 不会用你的对话、文件或 API 内容训练模型。可选择 Server、Local 或 No Storage，导出或删除对话，并了解 API 保留哪些数据。
 - [在 Capriole AI 中用项目整理对话](https://docs.capriole.ai/zh/guides/projects.md): 在 Capriole AI 中把相关对话归入项目，为每个项目设置专属指令和文件，并在侧栏中把对话移入或移出项目。
 - [Capriole AI Team：5 个席位，每月 USD 70](https://docs.capriole.ai/zh/guides/team-plan.md): Capriole AI Team 每月 USD 70，含 5 个席位，每位成员都可无限畅聊 GPT-6 Astra、Claude 和 Gemini，并共享 API token。了解如何创建团队、邀请成员。
@@ -115,7 +115,7 @@
 - [Qwen Code 添加自定义模型提供商：Capriole AI 配置](https://docs.capriole.ai/zh/integrations/qwen-code.md): 将 Capriole AI 模型添加到 Qwen Code 的 modelProviders，使用 GPT-6 Astra、Claude Fable 5.1 和 Opus 5.5，价格比官方 API 最多低 92%。
 - [隐私政策](https://docs.capriole.ai/zh/legal/privacy.md): Capriole AI 如何收集、使用和分享个人信息。
 - [服务条款](https://docs.capriole.ai/zh/legal/terms.md): 使用 Capriole AI 的条款。
-- [Capriole AI：USD 9 无限 AI 聊天与低成本 API](https://docs.capriole.ai/zh/overview.md): 每月 USD 9 无限畅聊 GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5 和 Gemini 4 Argon，另有价格最多比官方低 92% 的 API。
+- [Capriole AI：USD 9 无限 AI 聊天与低成本 API](https://docs.capriole.ai/zh/overview.md): 每月 USD 9 无限畅聊 GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5 和 Gemini 4 Argon，另含每月 500 万 API token。
 - [Capriole AI API 快速开始：一个 Key，兼容 OpenAI 和 Claude 格式](https://docs.capriole.ai/zh/quickstart.md): 用一个 Key 调用 OpenAI Chat Completions、Responses 和 Anthropic Messages 兼容接口，发送你的第一个 Capriole AI API 请求，价格最多比官方低 92%。
 
 ## es
@@ -124,7 +124,7 @@
 - [Listar modelos](https://docs.capriole.ai/es/api-reference/endpoint/get.md): Devuelve el catálogo público de modelos actual.
 - [Messages](https://docs.capriole.ai/es/api-reference/endpoint/messages.md): Crea salida compatible con Anthropic Messages con los modelos Claude de Capriole AI.
 - [Responses](https://docs.capriole.ai/es/api-reference/endpoint/responses.md): Crea salida compatible con OpenAI Responses con los modelos Responses de Capriole AI.
-- [Precios de OpenRouter vs APIs directas: prueba de costo de 5M tokens](https://docs.capriole.ai/es/articles/ai-api-cost-comparison.md): OpenRouter cobra el precio de lista de cada proveedor más una tarifa del 5.5% (8% en el plan Business) al comprar créditos. Compara el total de 5M tokens en APIs directas, OpenRouter y el plan de USD 9 de Capriole AI.
+- [Precios de OpenRouter vs APIs directas: prueba de costo de 5M tokens](https://docs.capriole.ai/es/articles/ai-api-cost-comparison.md): OpenRouter cobra el precio de lista de cada proveedor más una tarifa del 5.5% al comprar créditos Standard con tarjeta. Compara el total de 5M tokens en APIs directas, OpenRouter y el plan de USD 9 de Capriole AI.
 - [Chat de IA sin registro: prueba GPT-6 Astra, Claude y Gemini](https://docs.capriole.ai/es/articles/ai-chat-without-login.md): Chatea con GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5 y Gemini 4 Argon sin cuenta: 5 mensajes gratis al día y luego chat web ilimitado por USD 9.
 - [Mejores suscripciones de IA por USD 20 o menos en 2026](https://docs.capriole.ai/es/articles/ai-subscriptions-under-20.md): Capriole AI: chat ilimitado con GPT-6 Astra, Claude y Gemini por USD 9 y API hasta un 92% por debajo del precio oficial, vs ChatGPT Plus, Claude Pro y más.
 - [Capriole AI vs Magai: precios, modelos, API y privacidad](https://docs.capriole.ai/es/articles/capriole-ai-vs-magai.md): Capriole AI: chat ilimitado con GPT-6 Astra, Claude Fable 5.1, Opus 5.5 y Gemini 4 Argon por USD 9/mes y API que cuesta hasta un 92% menos. Magai, desde USD 20.
@@ -156,7 +156,7 @@
 - [Usa archivos, generación de imágenes y búsqueda web en Capriole AI](https://docs.capriole.ai/es/guides/files-web-search.md): Genera imágenes gratis con GPT Image 2.5 y Nano Banana 2.1, sube archivos y busca en la web. Conoce los requisitos de inicio de sesión y Server Storage.
 - [Usa una sola clave API con agentes de programación](https://docs.capriole.ai/es/guides/one-api-key-coding-agents.md): Configura 10 agentes de programación documentados con una sola clave API de Capriole AI, manteniendo cada cliente en su protocolo compatible.
 - [Usa los SDK de OpenAI y Anthropic con Capriole AI](https://docs.capriole.ai/es/guides/openai-anthropic-sdks.md): Llama a Capriole AI desde Python o TypeScript con los SDK oficiales de OpenAI y Anthropic, los protocolos compatibles, los alias latest y las Base URL correctas.
-- [Precios de Capriole AI: planes Free, Premium (USD 9) y Team](https://docs.capriole.ai/es/guides/plans-and-limits.md): Premium cuesta USD 9 al mes: chat ilimitado con GPT-6 Astra, Claude Fable 5.1, Opus 5.5 y Gemini 4 Argon, y una API hasta un 92% por debajo del precio oficial.
+- [Precios de Capriole AI: planes Free, Premium (USD 9) y Team](https://docs.capriole.ai/es/guides/plans-and-limits.md): Premium cuesta USD 9 al mes: chat ilimitado con GPT-6 Astra, Claude Fable 5.1, Opus 5.5 y Gemini 4 Argon y 5M de tokens de API al mes.
 - [Privacidad en Capriole AI: no entrena modelos con tus chats](https://docs.capriole.ai/es/guides/privacy-and-security.md): Capriole AI no entrena modelos con tus chats, archivos ni contenido de la API. Elige Server, Local o No Storage, exporta o borra chats y ve qué guarda la API.
 - [Organiza tus chats en proyectos en Capriole AI](https://docs.capriole.ai/es/guides/projects.md): Agrupa chats relacionados en proyectos en Capriole AI, dale a cada proyecto sus propias instrucciones y archivos, y mueve chats dentro y fuera desde la barra lateral.
 - [Capriole AI Team: 5 plazas y tokens de API compartidos, USD 70](https://docs.capriole.ai/es/guides/team-plan.md): Capriole AI Team: USD 70 al mes por 5 plazas con chat ilimitado en GPT-6 Astra, Claude y Gemini, más tokens de API compartidos. Créalo e invita a miembros.
@@ -173,7 +173,7 @@
 - [Proveedor de modelos en Qwen Code: configura Capriole AI](https://docs.capriole.ai/es/integrations/qwen-code.md): Añade modelos de Capriole AI a modelProviders de Qwen Code. Usa GPT-6 Astra, Claude Fable 5.1 y Opus 5.5 pagando hasta un 92% menos que en la API oficial.
 - [Política de privacidad](https://docs.capriole.ai/es/legal/privacy.md): Cómo Capriole AI recopila, usa y comparte información personal.
 - [Términos del servicio](https://docs.capriole.ai/es/legal/terms.md): Las condiciones de uso de Capriole AI.
-- [Capriole AI: chat de IA ilimitado por USD 9 y API de bajo costo](https://docs.capriole.ai/es/overview.md): Chat ilimitado con GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5 y Gemini 4 Argon por USD 9 al mes, más una API hasta un 92% por debajo de los precios oficiales.
+- [Capriole AI: chat de IA ilimitado por USD 9 y API de bajo costo](https://docs.capriole.ai/es/overview.md): Chat ilimitado con GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5 y Gemini 4 Argon por USD 9 al mes, más 5M de tokens de API al mes.
 - [Inicio rápido de la API de Capriole AI: una clave, formatos OpenAI y Claude](https://docs.capriole.ai/es/quickstart.md): Haz tu primera solicitud a la API de Capriole AI con una clave para OpenAI Chat Completions, Responses y Anthropic Messages, hasta un 92% por debajo de los precios oficiales.
 
 ## pt-BR
@@ -182,7 +182,7 @@
 - [Listar modelos](https://docs.capriole.ai/pt-br/api-reference/endpoint/get.md): Retorna o catálogo público atual de modelos.
 - [Messages](https://docs.capriole.ai/pt-br/api-reference/endpoint/messages.md): Crie saída compatível com Anthropic Messages com os modelos Claude da Capriole AI.
 - [Responses](https://docs.capriole.ai/pt-br/api-reference/endpoint/responses.md): Crie saída compatível com OpenAI Responses com os modelos Responses da Capriole AI.
-- [Preços do OpenRouter vs APIs diretas: teste de custo com 5M tokens](https://docs.capriole.ai/pt-br/articles/ai-api-cost-comparison.md): O OpenRouter cobra o preço de lista de cada provedor mais uma taxa de 5.5% (8% no plano Business) na compra de créditos. Compare o total de 5M tokens nas APIs diretas, no OpenRouter e no plano de USD 9 da Capriole AI.
+- [Preços do OpenRouter vs APIs diretas: teste de custo com 5M tokens](https://docs.capriole.ai/pt-br/articles/ai-api-cost-comparison.md): O OpenRouter cobra o preço de lista de cada provedor mais uma taxa de 5.5% na compra de créditos Standard com cartão. Compare o total de 5M tokens nas APIs diretas, no OpenRouter e no plano de USD 9 da Capriole AI.
 - [Chat de IA sem login: experimente GPT-6 Astra, Claude e Gemini](https://docs.capriole.ai/pt-br/articles/ai-chat-without-login.md): Converse com GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5 e Gemini 4 Argon sem conta: 5 mensagens grátis por dia e depois chat web ilimitado por USD 9.
 - [Melhores assinaturas de IA até USD 20 em 2026, comparadas](https://docs.capriole.ai/pt-br/articles/ai-subscriptions-under-20.md): Capriole AI: chat ilimitado com GPT-6 Astra, Claude e Gemini a USD 9 e API até 92% abaixo dos preços oficiais, vs. ChatGPT Plus, Claude Pro e planos até USD 20.
 - [Capriole AI vs Magai: preços, modelos, API e privacidade](https://docs.capriole.ai/pt-br/articles/capriole-ai-vs-magai.md): Capriole AI: chat ilimitado com GPT-6 Astra, Claude Fable 5.1, Opus 5.5 e Gemini 4 Argon por USD 9/mês e API que custa até 92% menos. Magai começa em USD 20.
@@ -214,7 +214,7 @@
 - [Use arquivos, geração de imagens e pesquisa na web no Capriole AI](https://docs.capriole.ai/pt-br/guides/files-web-search.md): Gere imagens grátis com GPT Image 2.5 e Nano Banana 2.1, envie arquivos e pesquise na web. Veja os requisitos de login e Server Storage.
 - [Usar uma API key com agentes de programação](https://docs.capriole.ai/pt-br/guides/one-api-key-coding-agents.md): Configure 10 agentes de programação documentados com uma API key da Capriole AI, mantendo cada cliente no protocolo suportado.
 - [Usar os SDKs OpenAI e Anthropic com a Capriole AI](https://docs.capriole.ai/pt-br/guides/openai-anthropic-sdks.md): Chame a Capriole AI em Python ou TypeScript com os SDKs oficiais OpenAI e Anthropic, protocolos suportados, aliases latest e as base URLs corretas.
-- [Preços da Capriole AI: planos Free, Premium (USD 9) e Team](https://docs.capriole.ai/pt-br/guides/plans-and-limits.md): O Premium custa USD 9 por mês: chat ilimitado com GPT-6 Astra, Claude Fable 5.1, Opus 5.5 e Gemini 4 Argon, e uma API até 92% abaixo dos preços oficiais.
+- [Preços da Capriole AI: planos Free, Premium (USD 9) e Team](https://docs.capriole.ai/pt-br/guides/plans-and-limits.md): O Premium custa USD 9 por mês: chat ilimitado com GPT-6 Astra, Claude Fable 5.1, Opus 5.5 e Gemini 4 Argon e 5M de tokens de API por mês.
 - [Privacidade na Capriole AI: seus chats não treinam modelos](https://docs.capriole.ai/pt-br/guides/privacy-and-security.md): A Capriole AI não treina modelos com seus chats, arquivos ou conteúdo da API. Use Server, Local ou No Storage, exporte ou exclua chats e veja o que a API retém.
 - [Organize seus chats em projetos no Capriole AI](https://docs.capriole.ai/pt-br/guides/projects.md): Agrupe chats relacionados em projetos no Capriole AI, dê a cada projeto as próprias instruções e arquivos e mova chats para dentro e para fora pela barra lateral.
 - [Capriole AI Team: 5 assentos e API compartilhada por USD 70](https://docs.capriole.ai/pt-br/guides/team-plan.md): Capriole AI Team: USD 70 por mês por 5 assentos com chat ilimitado no GPT-6 Astra, Claude e Gemini, e tokens de API compartilhados. Crie e convide membros.
@@ -231,7 +231,7 @@
 - [Provedor de modelos no Qwen Code: configure a Capriole AI](https://docs.capriole.ai/pt-br/integrations/qwen-code.md): Adicione modelos da Capriole AI ao modelProviders do Qwen Code. Use GPT-6 Astra, Claude Fable 5.1 e Opus 5.5 pagando até 92% menos que na API oficial.
 - [Política de privacidade](https://docs.capriole.ai/pt-br/legal/privacy.md): Como o Capriole AI coleta, usa e compartilha informações pessoais.
 - [Termos de serviço](https://docs.capriole.ai/pt-br/legal/terms.md): Os termos de uso do Capriole AI.
-- [Capriole AI: chat de IA ilimitado por USD 9 e API de baixo custo](https://docs.capriole.ai/pt-br/overview.md): Chat ilimitado com GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5 e Gemini 4 Argon por USD 9 por mês, além de uma API até 92% abaixo dos preços oficiais.
+- [Capriole AI: chat de IA ilimitado por USD 9 e API de baixo custo](https://docs.capriole.ai/pt-br/overview.md): Chat ilimitado com GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5 e Gemini 4 Argon por USD 9 por mês, além de 5M de tokens de API por mês.
 - [Início rápido da API da Capriole AI: uma key, formatos OpenAI e Claude](https://docs.capriole.ai/pt-br/quickstart.md): Envie sua primeira solicitação à API da Capriole AI com uma key para OpenAI Chat Completions, Responses e Anthropic Messages, até 92% abaixo dos preços oficiais.
 
 ## de
@@ -240,7 +240,7 @@
 - [Modelle auflisten](https://docs.capriole.ai/de/api-reference/endpoint/get.md): Gibt den aktuellen öffentlichen Modellkatalog zurück.
 - [Messages](https://docs.capriole.ai/de/api-reference/endpoint/messages.md): Erstellen Sie Anthropic Messages-kompatible Ausgabe mit Capriole AI Claude-Modellen.
 - [Responses](https://docs.capriole.ai/de/api-reference/endpoint/responses.md): Erstellen Sie OpenAI Responses-kompatible Ausgabe mit Capriole AI Responses-Modellen.
-- [OpenRouter-Preise vs direkte APIs: 5M-Token-Kostentest](https://docs.capriole.ai/de/articles/ai-api-cost-comparison.md): OpenRouter berechnet den Listenpreis des jeweiligen Anbieters plus 5.5% Gebühr (8% im Business-Plan) beim Kauf von Credits. Vergleichen Sie die 5M-Token-Summen für direkte APIs, OpenRouter und den USD 9-Plan von Capriole AI.
+- [OpenRouter-Preise vs direkte APIs: 5M-Token-Kostentest](https://docs.capriole.ai/de/articles/ai-api-cost-comparison.md): OpenRouter berechnet den Listenpreis des jeweiligen Anbieters plus 5.5% Gebühr beim Kauf von Standard-Credits per Karte. Vergleichen Sie die 5M-Token-Summen für direkte APIs, OpenRouter und den USD 9-Plan von Capriole AI.
 - [KI-Chat ohne Anmeldung: GPT-6 Astra, Claude und Gemini testen](https://docs.capriole.ai/de/articles/ai-chat-without-login.md): Chatten Sie ohne Konto mit GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5 und Gemini 4 Argon: 5 Gratisnachrichten am Tag, dann unbegrenzter Web-Chat für USD 9.
 - [KI-Abos bis USD 20 im Vergleich: die besten Pläne 2026](https://docs.capriole.ai/de/articles/ai-subscriptions-under-20.md): USD 9 für unbegrenzten Chat mit GPT-6 Astra, Claude und Gemini, API bis zu 92% unter offiziellen Preisen: Capriole AI vs ChatGPT Plus, Claude Pro bis USD 20.
 - [Capriole AI vs Magai: Preise, Modelle, API und Datenschutz](https://docs.capriole.ai/de/articles/capriole-ai-vs-magai.md): Capriole AI: unbegrenzter Chat mit GPT-6 Astra, Claude Fable 5.1, Opus 5.5 und Gemini 4 Argon für USD 9 im Monat, API bis zu 92% günstiger. Magai ab USD 20.
@@ -272,7 +272,7 @@
 - [Dateien, Bilderzeugung und Websuche in Capriole AI nutzen](https://docs.capriole.ai/de/guides/files-web-search.md): Erstelle kostenlos Bilder mit GPT Image 2.5 und Nano Banana 2.1, lade Dateien hoch und nutze die Websuche. Erfahre, wann Anmeldung und Server Storage nötig sind.
 - [Einen API-Schlüssel mit Coding-Agents nutzen](https://docs.capriole.ai/de/guides/one-api-key-coding-agents.md): Richten Sie 10 dokumentierte Coding-Agents mit einem Capriole AI API-Schlüssel ein und halten Sie jeden Client auf seinem unterstützten Protokoll.
 - [OpenAI- und Anthropic-SDKs mit Capriole AI nutzen](https://docs.capriole.ai/de/guides/openai-anthropic-sdks.md): Rufen Sie Capriole AI aus Python oder TypeScript mit den offiziellen OpenAI- und Anthropic-SDKs, unterstützten Protokollen, Latest-Aliasen und korrekten Base URLs auf.
-- [Capriole-AI-Preise: Free, Premium (USD 9) und Team](https://docs.capriole.ai/de/guides/plans-and-limits.md): Premium für USD 9 im Monat: unbegrenzter Chat mit GPT-6 Astra, Claude Fable 5.1, Opus 5.5 und Gemini 4 Argon plus API bis zu 92% unter offiziellen Preisen.
+- [Capriole-AI-Preise: Free, Premium (USD 9) und Team](https://docs.capriole.ai/de/guides/plans-and-limits.md): Premium für USD 9 im Monat: unbegrenzter Chat mit GPT-6 Astra, Claude Fable 5.1, Opus 5.5 und Gemini 4 Argon plus monatlich 5M API-Tokens.
 - [Capriole AI Datenschutz: kein Training, Speichermodi, Löschen](https://docs.capriole.ai/de/guides/privacy-and-security.md): Capriole AI trainiert keine Modelle mit Ihren Chats, Dateien oder API-Inhalten. Server, Local oder No Storage, Export, Löschen und was die API speichert.
 - [Chats in Capriole AI in Projekten ordnen](https://docs.capriole.ai/de/guides/projects.md): Fassen Sie zusammengehörige Chats in Capriole AI zu Projekten zusammen, geben Sie jedem Projekt eigene Anweisungen und Dateien und verschieben Sie Chats über die Seitenleiste hinein und heraus.
 - [Capriole AI Team-Plan: 5 Plätze, geteilte API-Tokens, USD 70](https://docs.capriole.ai/de/guides/team-plan.md): Capriole AI Team: USD 70 im Monat für 5 Plätze, jeder mit unbegrenztem Chat mit GPT-6 Astra, Claude und Gemini, plus geteilte API-Tokens. So richten Sie es ein.
@@ -289,7 +289,7 @@
 - [Eigener Modellanbieter in Qwen Code: Capriole AI einrichten](https://docs.capriole.ai/de/integrations/qwen-code.md): Capriole AI-Modelle in modelProviders von Qwen Code eintragen. Nutzen Sie GPT-6 Astra, Claude Fable 5.1 und Opus 5.5 bis zu 92 % unter den offiziellen API-Preisen.
 - [Datenschutzerklärung](https://docs.capriole.ai/de/legal/privacy.md): Wie Capriole AI personenbezogene Daten erhebt, nutzt und weitergibt.
 - [Nutzungsbedingungen](https://docs.capriole.ai/de/legal/terms.md): Die Bedingungen für die Nutzung von Capriole AI.
-- [Capriole AI: unbegrenzter KI-Chat für USD 9 und günstige API](https://docs.capriole.ai/de/overview.md): Unbegrenzter Chat mit GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5 und Gemini 4 Argon für USD 9 im Monat, dazu eine API bis zu 92% unter den offiziellen Preisen.
+- [Capriole AI: unbegrenzter KI-Chat für USD 9 und günstige API](https://docs.capriole.ai/de/overview.md): Unbegrenzter Chat mit GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5 und Gemini 4 Argon für USD 9 im Monat, dazu monatlich 5M API-Tokens.
 - [Capriole AI API-Schnellstart: ein Schlüssel, OpenAI- und Claude-Formate](https://docs.capriole.ai/de/quickstart.md): Senden Sie Ihre erste Capriole AI API-Anfrage mit einem Schlüssel für OpenAI Chat Completions, Responses und Anthropic Messages, bis zu 92 % unter den offiziellen Preisen.
 
 ## ja
@@ -298,7 +298,7 @@
 - [モデル一覧](https://docs.capriole.ai/ja/api-reference/endpoint/get.md): 現在の公開モデルカタログを返します。
 - [Messages](https://docs.capriole.ai/ja/api-reference/endpoint/messages.md): Capriole AI の Claude モデルで Anthropic Messages 互換の出力を作成します。
 - [Responses](https://docs.capriole.ai/ja/api-reference/endpoint/responses.md): Capriole AI の Responses モデルで OpenAI Responses 互換の出力を作成します。
-- [OpenRouter の料金と直接 API の比較: 500 万トークン コスト テスト](https://docs.capriole.ai/ja/articles/ai-api-cost-comparison.md): OpenRouter は各プロバイダーの公開価格で課金し、クレジット購入時に 5.5% の手数料（Business プランは 8%）がかかります。直接 API、OpenRouter、Capriole AI の USD 9 プランで 500 万トークンの合計を比較します。
+- [OpenRouter の料金と直接 API の比較: 500 万トークン コスト テスト](https://docs.capriole.ai/ja/articles/ai-api-cost-comparison.md): OpenRouter は各プロバイダーの公開価格で課金し、Standard のクレジットをカードで購入すると 5.5% の手数料がかかります。直接 API、OpenRouter、Capriole AI の USD 9 プランで 500 万トークンの合計を比較します。
 - [ログイン不要の AI チャット：GPT-6 Astra を試す](https://docs.capriole.ai/ja/articles/ai-chat-without-login.md): アカウントなしで GPT-6 Astra、Claude Fable 5.1、Opus 5.5、Gemini 4 Argon とチャット。1 日 5 メッセージまで無料、月額 USD 9 でウェブチャットが無制限に。
 - [生成 AI 有料プランのおすすめ比較 2026：USD 20 以下](https://docs.capriole.ai/ja/articles/ai-subscriptions-under-20.md): Capriole AI は月額 USD 9 で GPT-6 Astra、Claude、Gemini が無制限、API は公式価格より最大 92% 安い。ChatGPT Plus、Claude Pro などと比較。
 - [Capriole AI と Magai の比較：料金・API](https://docs.capriole.ai/ja/articles/capriole-ai-vs-magai.md): Capriole AI は月額 USD 9 で GPT-6 Astra、Claude Fable 5.1、Opus 5.5、Gemini 4 Argon が無制限、API は公式価格の最大 92% オフ。Magai は USD 20 から。
@@ -330,7 +330,7 @@
 - [Capriole AI でファイル・画像生成・Web 検索を使う](https://docs.capriole.ai/ja/guides/files-web-search.md): GPT Image 2.5 と Nano Banana 2.1 の無料画像生成、ファイルアップロード、Web 検索の使い方と、ログイン・Server Storage の条件を説明します。
 - [1 つの API キーでコーディング エージェントを使う](https://docs.capriole.ai/ja/guides/one-api-key-coding-agents.md): 1 つの Capriole AI API キーで、ドキュメント化された 10 のコーディング エージェントを設定し、各クライアントを対応プロトコルに保ちます。
 - [OpenAI と Anthropic の SDK で Capriole AI を使う](https://docs.capriole.ai/ja/guides/openai-anthropic-sdks.md): 公式の OpenAI と Anthropic SDK を使い、Python または TypeScript から Capriole AI を呼び出します。対応プロトコル、latest エイリアス、正しい Base URL を設定します。
-- [Capriole AI の料金：Premium は月額 USD 9](https://docs.capriole.ai/ja/guides/plans-and-limits.md): Premium は月額 USD 9 で GPT-6 Astra、Claude Fable 5.1、Opus 5.5、Gemini 4 Argon と無制限にチャット。公式価格より最大 92% 安い API 付き。
+- [Capriole AI の料金：Premium は月額 USD 9](https://docs.capriole.ai/ja/guides/plans-and-limits.md): Premium は月額 USD 9 で GPT-6 Astra、Claude Fable 5.1、Opus 5.5、Gemini 4 Argon と無制限にチャット。毎月 500 万 API トークン付き。
 - [Capriole AI のプライバシー：学習なし・保存方法・削除](https://docs.capriole.ai/ja/guides/privacy-and-security.md): Capriole AI はチャット、ファイル、API の内容をモデルの学習に使いません。Server・Local・No Storage の選び方、エクスポートと削除、API が保持するデータを説明します。
 - [Capriole AI でチャットをプロジェクトに整理する](https://docs.capriole.ai/ja/guides/projects.md): Capriole AI で関連するチャットをプロジェクトにまとめ、プロジェクトごとの指示とファイルを設定し、サイドバーからチャットを出し入れします。
 - [Capriole AI Team：5 シートで USD 70](https://docs.capriole.ai/ja/guides/team-plan.md): Capriole AI Team は 5 シートで月額 USD 70。全員が GPT-6 Astra、Claude、Gemini と無制限にチャットでき、API トークンはチームで共有。作成と招待の手順も解説。
@@ -347,7 +347,7 @@
 - [Qwen Code にモデル プロバイダーを追加](https://docs.capriole.ai/ja/integrations/qwen-code.md): Capriole AI のモデルを Qwen Code の modelProviders に追加します。GPT-6 Astra、Claude Fable 5.1、Opus 5.5 を公式 API 価格より最大 92% 安く使えます。
 - [プライバシーポリシー](https://docs.capriole.ai/ja/legal/privacy.md): Capriole AI が個人情報をどのように収集、利用、共有するかを説明します。
 - [利用規約](https://docs.capriole.ai/ja/legal/terms.md): Capriole AI の利用条件です。
-- [Capriole AI：USD 9 の無制限チャットと格安 API](https://docs.capriole.ai/ja/overview.md): 月額 USD 9 で GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5、Gemini 4 Argon と無制限にチャット。API は公式価格より最大 92% 安く使えます。
+- [Capriole AI：USD 9 の無制限チャットと格安 API](https://docs.capriole.ai/ja/overview.md): 月額 USD 9 で GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5、Gemini 4 Argon と無制限にチャット。毎月 500 万 API トークンも含まれます。
 - [Capriole AI API クイックスタート: 1 つのキーで OpenAI と Claude の形式に対応](https://docs.capriole.ai/ja/quickstart.md): 1 つのキーで OpenAI Chat Completions、Responses、Anthropic Messages を使い、最初の Capriole AI API リクエストを送信します。料金は公式価格より最大 92% 安くなります。
 
 ## ko
@@ -356,7 +356,7 @@
 - [모델 목록](https://docs.capriole.ai/ko/api-reference/endpoint/get.md): 현재 공개 모델 카탈로그를 반환합니다.
 - [Messages](https://docs.capriole.ai/ko/api-reference/endpoint/messages.md): Capriole AI Claude 모델로 Anthropic Messages 호환 출력을 만듭니다.
 - [Responses](https://docs.capriole.ai/ko/api-reference/endpoint/responses.md): Capriole AI Responses 모델로 OpenAI Responses 호환 출력을 만듭니다.
-- [OpenRouter 요금 vs 직접 API: 500만 토큰 비용 테스트](https://docs.capriole.ai/ko/articles/ai-api-cost-comparison.md): OpenRouter는 각 제공자의 정가로 과금하고 credit 구매 시 5.5% 수수료(Business 플랜은 8%)를 더합니다. 직접 API, OpenRouter, Capriole AI USD 9 플랜의 500만 토큰 합계를 비교합니다.
+- [OpenRouter 요금 vs 직접 API: 500만 토큰 비용 테스트](https://docs.capriole.ai/ko/articles/ai-api-cost-comparison.md): OpenRouter는 각 제공자의 정가로 과금하고 카드로 Standard 크레딧을 구매할 때 5.5% 수수료를 더합니다. 직접 API, OpenRouter, Capriole AI USD 9 플랜의 500만 토큰 합계를 비교합니다.
 - [로그인 없이 AI 채팅: GPT-6 Astra·Claude](https://docs.capriole.ai/ko/articles/ai-chat-without-login.md): 계정 없이 GPT-6 Astra, Claude Fable 5.1, Opus 5.5, Gemini 4 Argon과 채팅하세요. 하루 5개 메시지 무료, 이후 월 USD 9에 웹 채팅 무제한.
 - [AI 유료 구독 추천 2026: USD 20 이하 플랜 비교](https://docs.capriole.ai/ko/articles/ai-subscriptions-under-20.md): Capriole AI 월 USD 9 GPT-6 Astra·Claude·Gemini 무제한 채팅·공식 가격보다 최대 92% 저렴한 API vs ChatGPT Plus 등 USD 20 이하 플랜
 - [Capriole AI vs Magai: 가격·모델·API](https://docs.capriole.ai/ko/articles/capriole-ai-vs-magai.md): 월 USD 9에 GPT-6 Astra·Claude Fable 5.1·Opus 5.5·Gemini 4 Argon 무제한 채팅, 공식 가격보다 최대 92% 저렴한 API. Magai는 USD 20부터.
@@ -388,7 +388,7 @@
 - [Capriole AI에서 파일, 이미지 생성, 웹 검색 사용하기](https://docs.capriole.ai/ko/guides/files-web-search.md): GPT Image 2.5 및 Nano Banana 2.1 무료 이미지 생성, 파일 업로드, 웹 검색을 사용하고 로그인 및 Server Storage 요구 사항을 확인하세요.
 - [코딩 에이전트에 API key 하나 사용하기](https://docs.capriole.ai/ko/guides/one-api-key-coding-agents.md): 각 클라이언트를 지원 프로토콜에 둔 채로, 하나의 Capriole AI API key로 문서화된 코딩 에이전트 10개를 설정하세요.
 - [OpenAI 및 Anthropic SDK로 Capriole AI 사용하기](https://docs.capriole.ai/ko/guides/openai-anthropic-sdks.md): 공식 OpenAI 및 Anthropic SDK로 Python 또는 TypeScript에서 Capriole AI를 호출하고, 지원 프로토콜, latest 별칭, 올바른 Base URL을 사용하세요.
-- [Capriole AI 요금제: Premium 월 USD 9](https://docs.capriole.ai/ko/guides/plans-and-limits.md): 월 USD 9에 GPT-6 Astra, Claude Fable 5.1, Opus 5.5, Gemini 4 Argon과 무제한 채팅하고, 공식 가격보다 최대 92% 저렴한 API도 쓰세요.
+- [Capriole AI 요금제: Premium 월 USD 9](https://docs.capriole.ai/ko/guides/plans-and-limits.md): 월 USD 9에 GPT-6 Astra, Claude Fable 5.1, Opus 5.5, Gemini 4 Argon과 무제한 채팅하고, 매월 API 토큰 500만 개도 받으세요.
 - [Capriole AI 개인정보: 학습 미사용, 저장, 삭제](https://docs.capriole.ai/ko/guides/privacy-and-security.md): Capriole AI는 채팅, 파일, API 콘텐츠로 모델을 학습하지 않습니다. 저장 방식 선택, 채팅 내보내기와 삭제, API 보관 정보를 확인하세요.
 - [Capriole AI에서 프로젝트로 채팅 정리하기](https://docs.capriole.ai/ko/guides/projects.md): Capriole AI에서 관련 채팅을 프로젝트로 묶고, 프로젝트마다 지침과 파일을 두고, 사이드바에서 채팅을 넣고 빼세요.
 - [Capriole AI Team 플랜: 5인 월 USD 70](https://docs.capriole.ai/ko/guides/team-plan.md): Capriole AI Team은 5인에 월 USD 70입니다. 멤버마다 GPT-6 Astra, Claude, Gemini와 무제한 채팅하고 API 토큰을 공유합니다. 팀 설정과 초대도 안내합니다.
@@ -405,7 +405,7 @@
 - [Qwen Code 사용자 지정 모델 제공자 추가](https://docs.capriole.ai/ko/integrations/qwen-code.md): Capriole AI 모델을 Qwen Code의 modelProviders에 추가합니다. GPT-6 Astra, Claude Fable 5.1, Opus 5.5 모델을 공식 API 가격보다 최대 92% 저렴하게 사용하세요.
 - [개인정보 처리방침](https://docs.capriole.ai/ko/legal/privacy.md): Capriole AI가 개인정보를 수집, 이용, 공유하는 방법입니다.
 - [이용약관](https://docs.capriole.ai/ko/legal/terms.md): Capriole AI 이용 조건입니다.
-- [Capriole AI: USD 9 무제한 채팅·저가 API](https://docs.capriole.ai/ko/overview.md): 월 USD 9로 GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5, Gemini 4 Argon과 무제한 채팅하고, 공식 가격보다 최대 92% 저렴한 API도 사용하세요.
+- [Capriole AI: USD 9 무제한 채팅·저가 API](https://docs.capriole.ai/ko/overview.md): 월 USD 9로 GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5, Gemini 4 Argon과 무제한 채팅하고, 매월 API 토큰 500만 개도 받으세요.
 - [Capriole AI API 빠른 시작: 키 하나로 OpenAI·Claude 형식 사용](https://docs.capriole.ai/ko/quickstart.md): 키 하나로 OpenAI Chat Completions, Responses, Anthropic Messages를 사용해 첫 Capriole AI API 요청을 보내세요. 공식 가격보다 최대 92% 저렴합니다.
 
 ## OpenAPI Specs
