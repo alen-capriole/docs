@@ -1,12 +1,12 @@
 ---
 title: "OpenRouter 价格与官方直连对比：500 万 token 成本测试"
 sidebarTitle: "AI API 成本对比"
-description: "OpenRouter 按各提供商的公开价格计费，充值时另收 5.5% 手续费（Business 方案为 8%）。对比 500 万 token 下官方直连 API、OpenRouter 与 Capriole AI USD 8 方案的总成本。"
+description: "OpenRouter 按各提供商的公开价格计费，充值时另收 5.5% 手续费（Business 方案为 8%）。对比 500 万 token 下官方直连 API、OpenRouter 与 Capriole AI USD 9 方案的总成本。"
 ---
 
-OpenRouter 按各提供商的公开价格计费，充值时另收 5.5% 手续费（Business 方案为 8%）。对于下文固定的 500 万 token 工作负载，Claude Fable 5、Gemini 3.1 Pro Preview 或 Gemini 3.5 Flash 在 **Capriole 的成本均为 USD 8**。按照付费 Standard 公开价格，使用相同模型需要 **USD 15 至 USD 90**。计入 OpenRouter 公开的充值手续费后，计算所得现金总额为 **USD 15.83 至 USD 94.95**。
+OpenRouter 按各提供商的公开价格计费，充值时另收 5.5% 手续费（Business 方案为 8%）。对于下文固定的 500 万 token 工作负载，Claude Fable 5、Gemini 3.1 Pro Preview 或 Gemini 3.5 Flash 在 **Capriole 的成本均为 USD 9**。按照付费 Standard 公开价格，使用相同模型需要 **USD 15 至 USD 90**。计入 OpenRouter 公开的充值手续费后，计算所得现金总额为 **USD 15.83 至 USD 94.95**。
 
-在三项经过核验的对比中，Capriole 的成本都低得多。这笔 USD 8 还会购买一份完整的 Premium 会员，其中包括受支持 Premium 模型范围内的无限浏览器聊天，以及每月首批 500 万 API 计费 token。
+在三项经过核验的对比中，Capriole 的成本都低得多。这笔 USD 9 还会购买一份完整的 Premium 会员，其中包括受支持 Premium 模型范围内的无限浏览器聊天，以及每月首批 500 万 API 计费 token。
 
 这是一项可复现的对比，不代表所有情况下的价格承诺。测试固定了 token 构成，并采用文中引用的公开价格。
 
@@ -16,11 +16,11 @@ OpenRouter 按各提供商的公开价格计费，充值时另收 5.5% 手续费
 
 | 精确模型 | 新个人用户购买 Capriole Premium | 官方直连付费 Standard | OpenRouter 使用相同展示推理价格 | OpenRouter credits 与充值手续费 | 公开的 Standard 输入 / 输出价格，每 100 万 token |
 |---|---:|---:|---:|---:|---:|
-| `claude-fable-5` | **USD 8.00*** | USD 90.00 | USD 90.00 | USD 94.95 | USD 10 / USD 50 |
-| `gemini-3.1-pro-preview` | **USD 8.00*** | USD 20.00 | USD 20.00 | USD 21.10 | USD 2 / USD 12 |
-| `gemini-3.5-flash` | **USD 8.00*** | USD 15.00 | USD 15.00 | USD 15.83 | USD 1.50 / USD 9 |
+| `claude-fable-5` | **USD 9.00*** | USD 90.00 | USD 90.00 | USD 94.95 | USD 10 / USD 50 |
+| `gemini-3.1-pro-preview` | **USD 9.00*** | USD 20.00 | USD 20.00 | USD 21.10 | USD 2 / USD 12 |
+| `gemini-3.5-flash` | **USD 9.00*** | USD 15.00 | USD 15.00 | USD 15.83 | USD 1.50 / USD 9 |
 
-\* Premium 每月收费 USD 8，包含受支持 Premium 模型范围内的无限浏览器聊天，以及每月首批 500 万计费 token。这里的 USD 8 是新客户购买完整工作区组合的公开价格，并非某个模型的 token 单价或边际推理成本。已经订阅 Premium 且内含余额充足的会员，无需为这部分用量支付额外现金。用完内含额度后，一份额外的 500 万计费 token 包基础价格为 USD 8。个人 top-up 要求用户拥有有效的个人 Premium 访问权限。
+\* Premium 每月收费 USD 9，包含受支持 Premium 模型范围内的无限浏览器聊天，以及每月首批 500 万计费 token。这里的 USD 9 是新客户购买完整工作区组合的公开价格，并非某个模型的 token 单价或边际推理成本。已经订阅 Premium 且内含余额充足的会员，无需为这部分用量支付额外现金。用完内含额度后，一份额外的 500 万计费 token 包基础价格为 USD 8。个人 top-up 要求用户拥有有效的个人 Premium 访问权限。
 
 可以先[在有限的免费浏览器聊天中试用 Capriole AI](https://www.capriole.ai/zh)，再[订阅 Premium，使用完整工作区和 API 访问](https://www.capriole.ai/zh?view=api)。
 
@@ -61,11 +61,11 @@ charged_tokens = uncached_input + ceil(cached_input × 0.1) + output
 
 计费 token 是账户余额单位，与提供商的输入 token 或输出 token 价格并非同一概念。表格比较固定工作负载在不同计费系统下的成本，并未声称这些定价单位可以互换。[Capriole AI 计费 token 说明](/zh/articles/charged-tokens)还提供了三个示例、取整方式和 Premium 配额边界。
 
-## USD 8 在 API 余额之外还包含什么
+## USD 9 在 API 余额之外还包含什么
 
 官方直连 API 和 OpenRouter 允许用户只购买推理服务，无需订阅 Capriole。此表比较的是一名新个人用户购买 Premium 的情况。其他 Capriole API 访问要求用户拥有符合条件且有效的个人或 Team 权益，Team 定价不在本次对比范围内。
 
-USD 8 的 Premium 方案包含以下内容。
+USD 9 的 Premium 方案包含以下内容。
 
 - 受支持 Premium 模型范围内的无限浏览器聊天
 - 每月首批 500 万 API 计费 token
@@ -76,7 +76,7 @@ USD 8 的 Premium 方案包含以下内容。
 
 对于希望同时使用前沿模型聊天和程序化访问的目标用户，它的实际优势很清楚。一项较低的月费同时覆盖日常浏览器工作区和一笔实用的 API 额度。同一个账户还可用于 [10 项有文档说明的编程智能体集成](/zh/articles/coding-agent-compatibility)。
 
-这 500 万 token 不应被描述成独立的 USD 8 API 产品。用户支付的是完整 Premium 组合。有效的个人 Premium 会员如需额外 500 万计费 token，可以购买一份 USD 8 top-up 包。
+这 500 万 token 不应被描述成独立的 API 产品。用户支付的是完整 Premium 组合。有效的个人 Premium 会员如需额外 500 万计费 token，可以购买一份 USD 8 top-up 包。
 
 ## 哪些情况下表格无法预测你的账单
 
@@ -96,9 +96,9 @@ USD 8 的 Premium 方案包含以下内容。
 
 如果受支持的模型范围可以覆盖你的工作，同时你希望获得本次对比中经过核验的最低现金总额、无限 Premium 浏览器聊天、内含 API 用量和持续维护的编程智能体路径，可以选择 Capriole。
 
-所有测试项目中，Capriole 都给出了较低的核验总额，购买内容也不限于推理调用。同一笔 USD 8 还包含浏览器工作区、先免费后付费的入口、无限 Premium 聊天和持续维护的编程智能体集成。对于固定工作负载，官方直连 API 和 OpenRouter 的收费更高，也不包含 Capriole 的工作区组合。
+所有测试项目中，Capriole 都给出了较低的核验总额，购买内容也不限于推理调用。同一笔 USD 9 还包含浏览器工作区、先免费后付费的入口、无限 Premium 聊天和持续维护的编程智能体集成。对于固定工作负载，官方直连 API 和 OpenRouter 的收费更高，也不包含 Capriole 的工作区组合。
 
-你可以[在有限的免费浏览器聊天中试用 Capriole AI](https://www.capriole.ai/zh)，或[升级到每月 USD 8 的 Premium，获得无限聊天和 API key](https://www.capriole.ai/zh?view=api)。如需更完整的产品比较，请阅读 [Capriole AI 与 OpenRouter 对比](/zh/articles/capriole-ai-vs-openrouter)。当前旗舰模型的官方 token 价格见 [Claude API 价格](/zh/articles/claude-api-pricing)、[OpenAI API 价格](/zh/articles/openai-api-pricing)和 [Gemini API 价格](/zh/articles/gemini-api-pricing)。开发者可以继续阅读 [API 快速入门](/zh/quickstart)。
+你可以[在有限的免费浏览器聊天中试用 Capriole AI](https://www.capriole.ai/zh)，或[升级到每月 USD 9 的 Premium，获得无限聊天和 API key](https://www.capriole.ai/zh?view=api)。如需更完整的产品比较，请阅读 [Capriole AI 与 OpenRouter 对比](/zh/articles/capriole-ai-vs-openrouter)。当前旗舰模型的官方 token 价格见 [Claude API 价格](/zh/articles/claude-api-pricing)、[OpenAI API 价格](/zh/articles/openai-api-pricing)和 [Gemini API 价格](/zh/articles/gemini-api-pricing)。开发者可以继续阅读 [API 快速入门](/zh/quickstart)。
 
 ## 官方来源
 

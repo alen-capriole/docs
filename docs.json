@@ -2,7 +2,7 @@
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
   "name": "Capriole AI Docs",
-  "description": "Capriole AI docs: USD 8 unlimited chat with GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5 and Gemini 4 Argon, plus an API up to 92% below official prices.",
+  "description": "Capriole AI docs: USD 9 unlimited chat with GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5 and Gemini 4 Argon, plus an API up to 92% below official prices.",
   "colors": {
     "primary": "#2563EB",
     "light": "#60A5FA",

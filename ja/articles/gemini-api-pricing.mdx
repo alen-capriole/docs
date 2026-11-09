@@ -6,7 +6,7 @@ description: "Gemini 4 Argon は 11 月 30 日まで 100 万トークンあた�
 
 Google の Gemini API の料金は、**Gemini 4 Argon が入力 100 万トークンあたり USD 2、出力 100 万トークンあたり USD 10** です。これは 2026 年 11 月 30 日までの導入価格で、2026 年 12 月 1 日からは **USD 4 と USD 20** になります。出力 1 トークンにつき入力 3 トークンの比率では、Google の標準料金で 500 万トークンのコストは導入価格で USD 20、12 月 1 日以降は USD 40 です。
 
-Capriole AI Premium は月額 USD 8 で、GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5、Gemini 4 Argon とのウェブチャットが無制限です。API は OpenAI Chat Completions で Gemini 4 Argon を提供し、料金はどの対応モデルでも 500 万トークンあたり USD 8 と、公式 API 価格より最大 92% 安くなります。ただし Google は Argon を GPT-6 Astra や Claude Fable 5.1 より安く設定しているため、Argon での差は小さく、導入価格では 60%、12 月 1 日以降は 80% 安くなります。1 つの API キーで、自分のアプリでもコーディング エージェントでも使えます。
+Capriole AI Premium は月額 USD 9 で、GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5、Gemini 4 Argon とのウェブチャットが無制限です。API は OpenAI Chat Completions で Gemini 4 Argon を提供し、料金はどの対応モデルでも 500 万トークンあたり USD 8 と、公式 API 価格より最大 92% 安くなります。ただし Google は Argon を GPT-6 Astra や Claude Fable 5.1 より安く設定しているため、Argon での差は小さく、導入価格では 60%、12 月 1 日以降は 80% 安くなります。1 つの API キーで、自分のアプリでもコーディング エージェントでも使えます。
 
 ## 100 万トークンあたりの Gemini API 料金
 
@@ -84,7 +84,7 @@ print(completion.choices[0].message.content)
 
 長い推論では `stream=True` でレスポンスをストリーミングしてください。ストリーミングしない場合、リクエストは約 2 分でタイムアウトすることがあります。各キーは 1 分あたり 300 リクエストまで送信できます。使用できるモデル ID の一覧は [Chat Completions リファレンス](/ja/api-reference/endpoint/chat-completions)、Gemini 4 Argon と GPT-6 Astra や Claude との比較は [GPT-6 Astra・Claude・Gemini の選び方](/ja/guides/choose-a-model)をご覧ください。
 
-## 月額 USD 8 に含まれるもの
+## 月額 USD 9 に含まれるもの
 
 Premium には、Gemini 4 Argon をはじめすべての対応モデルでの無制限のウェブチャットに加えて、アプリとコーディング エージェント向けに毎月 500 万 API トークンが含まれます。チャージ、Team、無料のウェブチャットについては[プランと制限](/ja/guides/plans-and-limits)をご覧ください。
 
