@@ -5,6 +5,19 @@ rss: true
 ---
 
 <Update label="2026 年 11 月 10 日">
+## 编辑图片
+
+现在可以在 Capriole AI 里编辑图片了。在 **Image** 模式下，通过回形针按钮、粘贴或拖入，最多可以附上 10 张 PNG 或 JPEG 图片，然后描述要怎么改。输入 **@** 可以指定某张图片，例如 `@image1`。在生成的图片上选择 **Edit**，图片会回到输入框，可以接着改。
+
+GPT Image 2.6、GPT Image 2.5 和 Nano Banana 2.1 都能编辑图片，Capriole AI 使用你选中的模型。在 **Text** 模式下，也可以让聊天模型修改图片；它判断不出该用哪个图像模型时，会先问你。[查看生图指南](/zh/guides/files-web-search)。
+
+比例菜单新增两项。**Auto** 是新的默认选项：编辑时保持原图的形状，生成新图时由模型决定形状。**21:9** 适合宽幅图片。每张编辑出的图片都计入每日图片上限。
+
+<Frame>
+  <img className="block dark:hidden" src="/images/changelog/2026-11-10-edit-images-light.png" alt="Image 模式下的输入框，附有两张标为 @image1 和 @image2 的图片，以及一条引用它们的提示词" />
+  <img className="hidden dark:block" src="/images/changelog/2026-11-10-edit-images-dark.png" alt="Image 模式下的输入框，附有两张标为 @image1 和 @image2 的图片，以及一条引用它们的提示词" />
+</Frame>
+
 ## GPT Image 2.6
 
 OpenAI 的 GPT Image 2.6 现已上线。它是 OpenAI 最新的图像模型，也是 **Image** 模式的默认模型，Text Agent 生图也改用它。GPT Image 2.5 和 Nano Banana 2.1 仍可在 **Image** 标签页里选用。[查看生图指南](/zh/guides/files-web-search)。

@@ -5,6 +5,19 @@ rss: true
 ---
 
 <Update label="10 de noviembre de 2026">
+## Edita imágenes
+
+Ya puedes editar imágenes en Capriole AI. En el modo **Image**, adjunta hasta 10 imágenes PNG o JPEG con el clip, pegándolas o arrastrándolas, y describe el cambio. Escribe **@** para referirte a una imagen, por ejemplo `@image1`. Selecciona **Edit** en una imagen generada para devolverla al cuadro de mensaje y seguir trabajando en ella.
+
+Tanto GPT Image 2.6 como GPT Image 2.5 y Nano Banana 2.1 editan imágenes, y Capriole AI usa el modelo que hayas seleccionado. En el modo **Text**, también puedes pedirle al modelo de chat que cambie una imagen; cuando no puede saber qué modelo de imagen usar, te lo pregunta. [Consulta la guía de generación de imágenes](/es/guides/files-web-search).
+
+El menú de relación de aspecto tiene dos novedades. **Auto**, la nueva opción predeterminada, mantiene la forma de la imagen que editas y deja que el modelo elija la forma de una imagen nueva. **21:9** está pensada para imágenes anchas. Cada imagen editada cuenta para tu límite diario de imágenes.
+
+<Frame>
+  <img className="block dark:hidden" src="/images/changelog/2026-11-10-edit-images-light.png" alt="El cuadro de mensaje en el modo Image con dos imágenes adjuntas etiquetadas como @image1 y @image2, y un prompt que hace referencia a ellas" />
+  <img className="hidden dark:block" src="/images/changelog/2026-11-10-edit-images-dark.png" alt="El cuadro de mensaje en el modo Image con dos imágenes adjuntas etiquetadas como @image1 y @image2, y un prompt que hace referencia a ellas" />
+</Frame>
+
 ## GPT Image 2.6
 
 GPT Image 2.6 de OpenAI ya está disponible. Es el modelo de imagen más reciente de OpenAI y el predeterminado en el modo **Image**, y el Text Agent ahora crea imágenes con él. GPT Image 2.5 y Nano Banana 2.1 siguen disponibles en la pestaña **Image**. [Consulta la guía de generación de imágenes](/es/guides/files-web-search).

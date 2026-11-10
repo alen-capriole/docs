@@ -5,6 +5,19 @@ rss: true
 ---
 
 <Update label="2026년 11월 10일">
+## 이미지 편집
+
+이제 Capriole AI에서 이미지를 편집할 수 있습니다. **Image** 모드에서 클립 아이콘, 붙여넣기 또는 끌어다 놓기로 PNG 또는 JPEG 이미지를 10장까지 첨부한 다음 바꿀 내용을 설명하세요. **@** 기호를 입력하면 `@image1`처럼 이미지를 지정할 수 있습니다. 생성된 이미지에서 **Edit**를 선택하면 그 이미지가 메시지 입력창에 다시 들어가 이어서 작업할 수 있습니다.
+
+GPT Image 2.6, GPT Image 2.5, Nano Banana 2.1 모두 이미지를 편집할 수 있으며, Capriole AI는 선택한 모델을 사용합니다. **Text** 모드에서는 채팅 모델에게 이미지를 바꿔 달라고 요청할 수도 있습니다. 어떤 이미지 모델을 써야 할지 알 수 없으면 채팅 모델이 물어봅니다. [이미지 생성 가이드 보기](/ko/guides/files-web-search).
+
+화면 비율 메뉴에 두 가지가 추가되었습니다. 새 기본값인 **Auto**는 편집하는 이미지의 형태를 유지하고, 새 이미지에서는 모델이 형태를 고릅니다. **21:9**는 가로로 넓은 이미지에 맞는 비율입니다. 편집한 이미지도 한 장마다 일일 이미지 한도에 포함됩니다.
+
+<Frame>
+  <img className="block dark:hidden" src="/images/changelog/2026-11-10-edit-images-light.png" alt="Image 모드의 메시지 입력창. @image1과 @image2로 표시된 첨부 이미지 두 장과 이를 가리키는 프롬프트가 입력되어 있음" />
+  <img className="hidden dark:block" src="/images/changelog/2026-11-10-edit-images-dark.png" alt="Image 모드의 메시지 입력창. @image1과 @image2로 표시된 첨부 이미지 두 장과 이를 가리키는 프롬프트가 입력되어 있음" />
+</Frame>
+
 ## GPT Image 2.6
 
 OpenAI의 GPT Image 2.6을 이제 사용할 수 있습니다. OpenAI의 최신 이미지 모델이자 **Image** 모드의 기본 모델이며, Text Agent도 이제 이 모델로 이미지를 만듭니다. GPT Image 2.5와 Nano Banana 2.1은 **Image** 탭에서 계속 사용할 수 있습니다. [이미지 생성 가이드 보기](/ko/guides/files-web-search).

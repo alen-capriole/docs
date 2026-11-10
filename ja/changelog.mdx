@@ -5,6 +5,19 @@ rss: true
 ---
 
 <Update label="2026年11月10日">
+## 画像の編集
+
+Capriole AI で画像を編集できるようになりました。**Image** モードで、クリップ アイコン、貼り付け、ドラッグのいずれかで PNG または JPEG の画像を 10 枚まで添付し、変更したい内容を説明します。**@** を入力すると、`@image1` のように画像を指定できます。生成した画像の **Edit** を選ぶと、その画像がメッセージ ボックスに戻り、続けて作業できます。
+
+GPT Image 2.6、GPT Image 2.5、Nano Banana 2.1 はいずれも画像を編集でき、Capriole AI は選択したモデルを使います。**Text** モードでは、チャットモデルに画像の変更を依頼することもできます。どの画像モデルを使うか判断できない場合は、チャットモデルが確認します。[画像生成ガイドを見る](/ja/guides/files-web-search)。
+
+アスペクト比のメニューに 2 つの選択肢が加わりました。新しい既定の **Auto** は、編集する画像の形を保ち、新しい画像ではモデルが形を選びます。**21:9** は横長の画像向けです。編集した画像も、1 枚ごとに 1 日の画像生成の上限に数えられます。
+
+<Frame>
+  <img className="block dark:hidden" src="/images/changelog/2026-11-10-edit-images-light.png" alt="Image モードのメッセージ ボックス。@image1 と @image2 のラベルが付いた 2 枚の添付画像と、それらを参照するプロンプトが入っている" />
+  <img className="hidden dark:block" src="/images/changelog/2026-11-10-edit-images-dark.png" alt="Image モードのメッセージ ボックス。@image1 と @image2 のラベルが付いた 2 枚の添付画像と、それらを参照するプロンプトが入っている" />
+</Frame>
+
 ## GPT Image 2.6
 
 OpenAI の GPT Image 2.6 を利用できるようになりました。OpenAI の最新画像モデルで、**Image** モードの既定モデルになり、Text Agent もこのモデルで画像を生成します。GPT Image 2.5 と Nano Banana 2.1 は引き続き **Image** タブで選べます。[画像生成ガイドを見る](/ja/guides/files-web-search)。

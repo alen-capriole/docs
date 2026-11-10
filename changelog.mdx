@@ -5,6 +5,19 @@ rss: true
 ---
 
 <Update label="November 10, 2026">
+## Edit images
+
+You can now edit images in Capriole AI. In **Image** mode, attach up to 10 PNG or JPEG images with the paperclip, by pasting, or by dragging them in, then describe the change. Type **@** to refer to an image, such as `@image1`. Select **Edit** on a generated image to put it back in the message box and keep working on it.
+
+GPT Image 2.6, GPT Image 2.5, and Nano Banana 2.1 all edit images, and Capriole AI uses the model you selected. In **Text** mode, you can also ask the chat model to change an image; it asks which image model to use when it cannot tell. [See the image generation guide](/guides/files-web-search).
+
+The aspect ratio menu has two additions. **Auto**, the new default, keeps the shape of the image you edit and lets the model choose the shape of a new image. **21:9** is there for wide images. Each edited image counts toward your daily image limit.
+
+<Frame>
+  <img className="block dark:hidden" src="/images/changelog/2026-11-10-edit-images-light.png" alt="The message box in Image mode with two attached images labelled @image1 and @image2, and a prompt that refers to them" />
+  <img className="hidden dark:block" src="/images/changelog/2026-11-10-edit-images-dark.png" alt="The message box in Image mode with two attached images labelled @image1 and @image2, and a prompt that refers to them" />
+</Frame>
+
 ## GPT Image 2.6
 
 OpenAI's GPT Image 2.6 is now available. It is OpenAI's latest image model and the default in **Image** mode, and the Text Agent now creates images with it. GPT Image 2.5 and Nano Banana 2.1 stay available in the **Image** tab. [See the image generation guide](/guides/files-web-search).
