@@ -5,6 +5,17 @@ rss: true
 ---
 
 <Update label="11. November 2026">
+## Mit einem anderen Modell neu antworten lassen
+
+Wähle unter der neuesten Antwort **Erneut versuchen**, um eine neue Antwort zu bekommen. Ganz oben im Menü nutzt **Erneut versuchen** dasselbe Modell; darunter kannst du jedes Modell aus dem Nachrichtenfeld wählen, nach Anbieter gruppiert. Die neue Antwort ersetzt die alte an derselben Stelle, und mit den Pfeilen neben **2/2** wechselst du zwischen den Antworten. Die Info-Schaltfläche zeigt, welches Modell die angezeigte Antwort geschrieben hat, und das Nachrichtenfeld wechselt zu dem Modell, das du gewählt hast.
+
+Nur deine neueste Nachricht behält mehrere Antworten: Wenn du eine neue Nachricht sendest oder deine Nachricht bearbeitest, fallen die Antworten weg, die gerade nicht angezeigt werden. Das funktioniert mit Server Storage, Local Storage und No Storage. Jede neue Antwort zählt wie eine gesendete Nachricht; das Wechseln zwischen den Antworten ist kostenlos.
+
+<Frame>
+  <img className="block dark:hidden" src="/images/changelog/2026-11-11-answer-again-light.png" alt="Das Menü Erneut versuchen über einer Antwort mit 2/2, mit Opus 5.5 neben Erneut versuchen und weiteren Modellen nach Anbieter gruppiert" />
+  <img className="hidden dark:block" src="/images/changelog/2026-11-11-answer-again-dark.png" alt="Das Menü Erneut versuchen über einer Antwort mit 2/2, mit Opus 5.5 neben Erneut versuchen und weiteren Modellen nach Anbieter gruppiert" />
+</Frame>
+
 ## In langen Chats zurückspringen
 
 Lange Chats haben jetzt für jede deiner Nachrichten einen Strich, in einer Spalte links vom Chat. Zeige auf einen Strich, um die Nachricht und den Anfang der Antwort zu sehen, und wähle ihn aus, um direkt dorthin zu springen, egal wie weit zurück sie liegt. Mit der Tastatur erreichst du die Striche mit **Tab**, bewegst dich mit den Pfeiltasten und springst mit **Enter**. Die Striche erscheinen im Web, wenn das Fenster neben dem Chat Platz für sie hat.
@@ -13,6 +24,14 @@ Lange Chats haben jetzt für jede deiner Nachrichten einen Strich, in einer Spal
   <img className="block dark:hidden" src="/images/changelog/2026-11-11-jump-back-light.png" alt="Striche links von einem langen Chat, mit einer Karte, die eine frühere Nachricht und den Anfang ihrer Antwort zeigt" />
   <img className="hidden dark:block" src="/images/changelog/2026-11-11-jump-back-dark.png" alt="Striche links von einem langen Chat, mit einer Karte, die eine frühere Nachricht und den Anfang ihrer Antwort zeigt" />
 </Frame>
+
+## Verbesserungen
+
+- **Bilderzeugung**: Generierte Bilder behalten beim Laden ihre Größe, sodass ein Chat mit Bildern nicht mehr springt, wenn du ihn öffnest, nach jeder Antwort oder wenn du zwischen Antworten wechselst.
+
+## Fehlerbehebungen
+
+- **Nachrichten bearbeiten**: Wenn du nach dem Bearbeiten einer Nachricht die Antwort stoppst oder die Antwort fehlschlägt, kommen deine ursprüngliche Nachricht und ihre Antwort zurück.
 </Update>
 
 <Update label="10. November 2026">

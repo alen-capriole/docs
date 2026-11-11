@@ -5,6 +5,17 @@ rss: true
 ---
 
 <Update label="2026 年 11 月 11 日">
+## 换个模型重新回答
+
+在最新回答下方点 **重试**，就能得到一个新回答。菜单顶部的 **重试** 沿用同一个模型，下面可以从输入框的模型列表里另选一个，按提供商分组。新回答会在原处替换旧回答，**2/2** 两侧的箭头可以在几个回答之间切换。信息按钮会显示当前回答由哪个模型生成，输入框也会切换到你选的模型。
+
+只有最新一条消息会保留多个回答：发送新消息或编辑这条消息后，未显示的回答会被丢弃。Server Storage、Local Storage 和 No Storage 都支持。每个新回答按发送一条消息计算，在回答之间切换不计数。
+
+<Frame>
+  <img className="block dark:hidden" src="/images/changelog/2026-11-11-answer-again-light.png" alt="回答上方打开的重试菜单，回答下方显示 2/2；重试旁边是 Opus 5.5，下面是按提供商分组的其他模型" />
+  <img className="hidden dark:block" src="/images/changelog/2026-11-11-answer-again-dark.png" alt="回答上方打开的重试菜单，回答下方显示 2/2；重试旁边是 Opus 5.5，下面是按提供商分组的其他模型" />
+</Frame>
+
 ## 长对话里直接跳回之前的消息
 
 长对话的左侧现在有一列刻度，你发的每条消息对应一条。把鼠标移到刻度上，可以预览那条消息和回答的开头；点一下就直接跳过去，再早的消息也一样。用键盘时，按 **Tab** 移到刻度上，用方向键选择，再按 **Enter**。网页版在对话旁边有足够空间时显示刻度。
@@ -13,6 +24,14 @@ rss: true
   <img className="block dark:hidden" src="/images/changelog/2026-11-11-jump-back-light.png" alt="长对话左侧的一列刻度，以及显示之前一条消息和回答开头的卡片" />
   <img className="hidden dark:block" src="/images/changelog/2026-11-11-jump-back-dark.png" alt="长对话左侧的一列刻度，以及显示之前一条消息和回答开头的卡片" />
 </Frame>
+
+## 改进
+
+- **生图**：生成的图片在加载时就保持原有尺寸，打开带图片的对话、每次回复之后或在回答之间切换时，页面不再跳动。
+
+## 修复
+
+- **编辑消息**：编辑消息后停止回复，或者回复失败时，原来的消息和它的回答会恢复。
 </Update>
 
 <Update label="2026 年 11 月 10 日">

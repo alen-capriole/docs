@@ -5,6 +5,17 @@ rss: true
 ---
 
 <Update label="11 de noviembre de 2026">
+## Pide otra respuesta a otro modelo
+
+Selecciona **Reintentar** debajo de la última respuesta para obtener una nueva. En el menú, **Reintentar**, arriba del todo, usa el mismo modelo, y debajo puedes elegir cualquier modelo del cuadro de mensaje, agrupado por proveedor. La nueva respuesta sustituye a la anterior en el mismo lugar, y las flechas junto a **2/2** te llevan de una respuesta a otra. El botón de información muestra qué modelo escribió la respuesta en pantalla, y el cuadro de mensaje cambia al modelo que elegiste.
+
+Solo tu último mensaje conserva más de una respuesta: al enviar un mensaje nuevo o editar tu mensaje, se descartan las respuestas que no están en pantalla. Funciona con Server Storage, Local Storage y No Storage. Cada respuesta nueva cuenta como un mensaje enviado, y pasar de una respuesta a otra es gratis.
+
+<Frame>
+  <img className="block dark:hidden" src="/images/changelog/2026-11-11-answer-again-light.png" alt="El menú Reintentar abierto sobre una respuesta marcada 2/2, con Opus 5.5 junto a Reintentar y otros modelos agrupados por proveedor" />
+  <img className="hidden dark:block" src="/images/changelog/2026-11-11-answer-again-dark.png" alt="El menú Reintentar abierto sobre una respuesta marcada 2/2, con Opus 5.5 junto a Reintentar y otros modelos agrupados por proveedor" />
+</Frame>
+
 ## Vuelve atrás en chats largos
 
 Los chats largos ahora tienen una marca por cada mensaje que enviaste, en una columna a la izquierda del chat. Pasa el puntero por una marca para ver el mensaje y el comienzo de su respuesta, y selecciónala para ir directo a él, por muy atrás que esté. Con el teclado, pulsa **Tab** para llegar a las marcas, muévete con las flechas y pulsa **Intro**. Las marcas aparecen en la web cuando la ventana tiene espacio para ellas junto al chat.
@@ -13,6 +24,14 @@ Los chats largos ahora tienen una marca por cada mensaje que enviaste, en una co
   <img className="block dark:hidden" src="/images/changelog/2026-11-11-jump-back-light.png" alt="Marcas a la izquierda de un chat largo, con una tarjeta que muestra un mensaje anterior y el comienzo de su respuesta" />
   <img className="hidden dark:block" src="/images/changelog/2026-11-11-jump-back-dark.png" alt="Marcas a la izquierda de un chat largo, con una tarjeta que muestra un mensaje anterior y el comienzo de su respuesta" />
 </Frame>
+
+## Mejoras
+
+- **Generación de imágenes**: Las imágenes generadas mantienen su tamaño mientras cargan, así que un chat con imágenes ya no salta al abrirlo, después de cada respuesta ni al pasar de una respuesta a otra.
+
+## Correcciones
+
+- **Edición de mensajes**: Si detienes la respuesta después de editar un mensaje, o si la respuesta falla, vuelven tu mensaje original y su respuesta.
 </Update>
 
 <Update label="10 de noviembre de 2026">

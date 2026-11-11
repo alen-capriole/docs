@@ -5,6 +5,17 @@ rss: true
 ---
 
 <Update label="11 de novembro de 2026">
+## Peça nova resposta a outro modelo
+
+Selecione **Tentar novamente** abaixo da última resposta para receber uma nova. No menu, **Tentar novamente**, no topo, usa o mesmo modelo, e logo abaixo você pode escolher qualquer modelo da caixa de mensagem, agrupado por provedor. A nova resposta substitui a anterior no mesmo lugar, e as setas ao lado de **2/2** alternam entre as respostas. O botão de informações mostra qual modelo escreveu a resposta na tela, e a caixa de mensagem passa para o modelo que você escolheu.
+
+Só a sua última mensagem guarda mais de uma resposta: ao enviar uma nova mensagem ou editar a sua mensagem, as respostas que não estão na tela são descartadas. Funciona com Server Storage, Local Storage e No Storage. Cada nova resposta conta como uma mensagem enviada, e alternar entre as respostas é grátis.
+
+<Frame>
+  <img className="block dark:hidden" src="/images/changelog/2026-11-11-answer-again-light.png" alt="O menu Tentar novamente aberto sobre uma resposta marcada 2/2, com Opus 5.5 ao lado de Tentar novamente e outros modelos agrupados por provedor" />
+  <img className="hidden dark:block" src="/images/changelog/2026-11-11-answer-again-dark.png" alt="O menu Tentar novamente aberto sobre uma resposta marcada 2/2, com Opus 5.5 ao lado de Tentar novamente e outros modelos agrupados por provedor" />
+</Frame>
+
 ## Volte atrás em conversas longas
 
 Conversas longas agora têm uma marca para cada mensagem que você enviou, em uma coluna à esquerda do chat. Passe o ponteiro por uma marca para ver a mensagem e o início da resposta, e selecione-a para ir direto até ela, por mais atrás que esteja. Com o teclado, pressione **Tab** para chegar às marcas, use as setas e pressione **Enter**. As marcas aparecem na web quando a janela tem espaço para elas ao lado do chat.
@@ -13,6 +24,14 @@ Conversas longas agora têm uma marca para cada mensagem que você enviou, em um
   <img className="block dark:hidden" src="/images/changelog/2026-11-11-jump-back-light.png" alt="Marcas à esquerda de uma conversa longa, com um cartão que mostra uma mensagem anterior e o início da resposta" />
   <img className="hidden dark:block" src="/images/changelog/2026-11-11-jump-back-dark.png" alt="Marcas à esquerda de uma conversa longa, com um cartão que mostra uma mensagem anterior e o início da resposta" />
 </Frame>
+
+## Melhorias
+
+- **Geração de imagens**: As imagens geradas mantêm o tamanho enquanto carregam, então um chat com imagens não pula mais quando você o abre, depois de cada resposta ou quando você alterna entre respostas.
+
+## Correções
+
+- **Edição de mensagens**: Se você parar a resposta depois de editar uma mensagem, ou se a resposta falhar, sua mensagem original e a resposta dela voltam.
 </Update>
 
 <Update label="10 de novembro de 2026">

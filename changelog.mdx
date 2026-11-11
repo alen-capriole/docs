@@ -5,6 +5,17 @@ rss: true
 ---
 
 <Update label="November 11, 2026">
+## Answer again with another model
+
+Select **Try again** under the latest answer to get a new one. In the menu, **Try again** at the top uses the same model, and below it you can pick any model from the message box, grouped by provider. The new answer replaces the old one in place, and the arrows next to **2/2** flip between the answers. The info button shows which model wrote the answer on screen, and the message box switches to the model you chose.
+
+Only your latest message keeps more than one answer: sending a new message or editing your message drops the answers that are not on screen. This works with Server Storage, Local Storage, and No Storage. Each new answer counts as a message you send, and flipping between answers is free.
+
+<Frame>
+  <img className="block dark:hidden" src="/images/changelog/2026-11-11-answer-again-light.png" alt="The Try again menu open above an answer marked 2/2, with Opus 5.5 next to Try again and other models grouped by provider" />
+  <img className="hidden dark:block" src="/images/changelog/2026-11-11-answer-again-dark.png" alt="The Try again menu open above an answer marked 2/2, with Opus 5.5 next to Try again and other models grouped by provider" />
+</Frame>
+
 ## Jump back in long chats
 
 Long chats now have a mark for each message you sent, in a column to the left of the chat. Point at a mark to preview the message and the start of its answer, then select it to jump straight there, however far back it is. With the keyboard, press **Tab** to reach the marks, use the arrow keys, and press **Enter**. The marks appear on the web when the window has room for them beside the chat.
@@ -13,6 +24,14 @@ Long chats now have a mark for each message you sent, in a column to the left of
   <img className="block dark:hidden" src="/images/changelog/2026-11-11-jump-back-light.png" alt="Marks to the left of a long chat, with a card previewing an earlier message and the start of its answer" />
   <img className="hidden dark:block" src="/images/changelog/2026-11-11-jump-back-dark.png" alt="Marks to the left of a long chat, with a card previewing an earlier message and the start of its answer" />
 </Frame>
+
+## Improvements
+
+- **Image generation**: Generated images keep their size while they load, so a chat with images no longer jumps when you open it, after each reply, or when you flip between answers.
+
+## Fixes
+
+- **Message editing**: If you stop the reply after editing a message, or the reply fails, your original message and its answer come back.
 </Update>
 
 <Update label="November 10, 2026">
