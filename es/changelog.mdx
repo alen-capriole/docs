@@ -11,17 +11,25 @@ Un pequeño anillo en el cuadro de mensaje muestra cuánto contexto le queda a e
 
 El chat web con sesión iniciada tiene límites de uso justo de 200 mensajes y 30 imágenes por cuenta al día (UTC), muy por encima del uso normal, para frenar el abuso automatizado. [Consulta los planes y límites](/es/guides/plans-and-limits#qué-significa-ilimitado).
 
-En tu página **Cuenta**, dentro de **Ajustes**, desactiva **Mostrar uso** para ocultar el anillo, y con **Las barras de uso muestran** eliges si las barras indican **Restante** o **Usado**. En el móvil, el anillo está en la barra superior.
+En tu página **Cuenta**, dentro de **Ajustes**, desactiva **Mostrar uso** para ocultar el anillo, y con **Las barras de uso muestran** eliges si las barras indican **Restante** o **Usado**.
 
 <Frame>
-  <img className="block dark:hidden" src="/images/changelog/2026-11-12-usage-light.png" alt="El panel de uso sobre el cuadro de mensaje: en Este chat queda el 99% del contexto, y en Hoy quedan 198 de 200 mensajes y 30 de 30 imágenes" />
-  <img className="hidden dark:block" src="/images/changelog/2026-11-12-usage-dark.png" alt="El panel de uso sobre el cuadro de mensaje: en Este chat queda el 99% del contexto, y en Hoy quedan 198 de 200 mensajes y 30 de 30 imágenes" />
+  <img className="block dark:hidden" src="/images/changelog/2026-11-12-usage-light.png" alt="El panel de uso sobre el cuadro de mensaje: en Este chat queda el 68% del contexto, y en Hoy quedan 163 de 200 mensajes y 26 de 30 imágenes" />
+  <img className="hidden dark:block" src="/images/changelog/2026-11-12-usage-dark.png" alt="El panel de uso sobre el cuadro de mensaje: en Este chat queda el 68% del contexto, y en Hoy quedan 163 de 200 mensajes y 26 de 30 imágenes" />
 </Frame>
 
 ## Mejoras
 
 - **Otra respuesta**: Pasar de una respuesta a otra ahora es instantáneo.
 - **Generación de imágenes**: Cuando no se puede crear una imagen, el modelo de chat ahora te explica por qué en su siguiente respuesta, y las imágenes que rechaza el modelo de imagen ya no cuentan para tus 30 diarias.
+- **Chats nuevos**: Un chat nuevo ahora empieza con el último modelo que elegiste, en lugar de GPT-6 Astra Thinking o el modelo del último chat que abriste.
+- **Cuadro de mensaje**: En el móvil, el botón del modelo ahora muestra el nombre del modelo en lugar de cortarlo y el cuadro de mensaje es más ancho; los botones de micrófono y Enviar son más pequeños.
+
+## Correcciones
+
+- **Entrada de voz**: La transcripción es más rápida y falla menos. Si una grabación no tiene voz, ahora te pide que vuelvas a grabar en lugar de mostrar un error.
+- **Archivos adjuntos**: Un PDF cuyo texto no se puede extraer ahora indica que no se puede leer el archivo, en lugar de decir que la conversación es demasiado larga.
+- **Chats largos**: Los chats largos ahora se resumen en el momento adecuado para la ventana de contexto de cada modelo, así que los modelos con ventanas más pequeñas y los chats largos en chino, japonés o coreano ya no se detienen con el error «conversación demasiado larga».
 </Update>
 
 <Update label="11 de noviembre de 2026">

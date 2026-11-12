@@ -11,17 +11,25 @@ Um pequeno anel na caixa de mensagem mostra quanto do contexto deste chat ainda 
 
 O chat web com login tem limites de uso justo de 200 mensagens e 30 imagens por conta por dia (UTC), bem acima do uso normal, para impedir abusos automatizados. [Confira os planos e limites](/pt-br/guides/plans-and-limits#o-que-significa-ilimitado).
 
-Na página **Conta**, em **Configurações**, desative **Mostrar uso** para esconder o anel, e em **As barras de uso mostram** escolha se as barras indicam **Restante** ou **Usado**. No celular, o anel fica na barra superior.
+Na página **Conta**, em **Configurações**, desative **Mostrar uso** para esconder o anel, e em **As barras de uso mostram** escolha se as barras indicam **Restante** ou **Usado**.
 
 <Frame>
-  <img className="block dark:hidden" src="/images/changelog/2026-11-12-usage-light.png" alt="O painel de uso acima da caixa de mensagem: em Este chat restam 99% do contexto, e em Hoje restam 198 de 200 mensagens e 30 de 30 imagens" />
-  <img className="hidden dark:block" src="/images/changelog/2026-11-12-usage-dark.png" alt="O painel de uso acima da caixa de mensagem: em Este chat restam 99% do contexto, e em Hoje restam 198 de 200 mensagens e 30 de 30 imagens" />
+  <img className="block dark:hidden" src="/images/changelog/2026-11-12-usage-light.png" alt="O painel de uso acima da caixa de mensagem: em Este chat restam 68% do contexto, e em Hoje restam 163 de 200 mensagens e 26 de 30 imagens" />
+  <img className="hidden dark:block" src="/images/changelog/2026-11-12-usage-dark.png" alt="O painel de uso acima da caixa de mensagem: em Este chat restam 68% do contexto, e em Hoje restam 163 de 200 mensagens e 26 de 30 imagens" />
 </Frame>
 
 ## Melhorias
 
 - **Nova resposta**: Alternar entre as respostas agora é instantâneo.
 - **Geração de imagens**: Quando não é possível criar uma imagem, o modelo de chat agora explica o motivo na próxima resposta, e as imagens que o modelo de imagem recusa não contam mais para as suas 30 por dia.
+- **Novos chats**: Um novo chat agora começa com o último modelo que você escolheu, em vez do GPT-6 Astra Thinking ou do modelo do último chat que você abriu.
+- **Caixa de mensagem**: No celular, o botão do modelo agora mostra o nome do modelo em vez de cortá-lo e a caixa de mensagem ficou mais larga; os botões de microfone e Enviar ficaram menores.
+
+## Correções
+
+- **Entrada de voz**: A transcrição está mais rápida e falha menos. Se uma gravação não tiver fala, agora ela pede que você grave novamente em vez de mostrar um erro.
+- **Anexos**: Um PDF cujo texto não pode ser extraído agora informa que o arquivo não pode ser lido, em vez de dizer que a conversa está longa demais.
+- **Chats longos**: Os chats longos agora são resumidos no ponto certo para a janela de contexto de cada modelo, então modelos com janelas menores e chats longos em chinês, japonês ou coreano não param mais com o erro “conversa longa demais”.
 </Update>
 
 <Update label="11 de novembro de 2026">

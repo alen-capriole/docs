@@ -11,17 +11,25 @@ A small ring in the message box shows how much of this chat's context is left. S
 
 Signed-in web chat has fair-use limits of 200 messages and 30 images per account per day (UTC), set well above normal use to stop automated abuse. [See plans and limits](/guides/plans-and-limits#what-unlimited-means).
 
-On your **Account** page, under **Settings**, turn off **Show usage** to hide the ring, and use **Usage bars show** to switch the bars between **Remaining** and **Used**. On phones, the ring sits in the top bar.
+On your **Account** page, under **Settings**, turn off **Show usage** to hide the ring, and use **Usage bars show** to switch the bars between **Remaining** and **Used**.
 
 <Frame>
-  <img className="block dark:hidden" src="/images/changelog/2026-11-12-usage-light.png" alt="The Usage panel above the message box, with 99% of the context left under This chat, and 198 of 200 messages and 30 of 30 images left under Today" />
-  <img className="hidden dark:block" src="/images/changelog/2026-11-12-usage-dark.png" alt="The Usage panel above the message box, with 99% of the context left under This chat, and 198 of 200 messages and 30 of 30 images left under Today" />
+  <img className="block dark:hidden" src="/images/changelog/2026-11-12-usage-light.png" alt="The Usage panel above the message box, with 68% of the context left under This chat, and 163 of 200 messages and 26 of 30 images left under Today" />
+  <img className="hidden dark:block" src="/images/changelog/2026-11-12-usage-dark.png" alt="The Usage panel above the message box, with 68% of the context left under This chat, and 163 of 200 messages and 26 of 30 images left under Today" />
 </Frame>
 
 ## Improvements
 
 - **Answer again**: Flipping between answers is now instant.
 - **Image generation**: When an image cannot be created, the chat model now tells you why in its next reply, and images the image model refuses no longer count toward your 30 a day.
+- **New chats**: A new chat now starts with the model you last picked, instead of GPT-6 Astra Thinking or the model of the chat you opened last.
+- **Message box**: On phones, the model button now shows the model's name instead of cutting it off and the message box is wider; the microphone and Send buttons are smaller.
+
+## Fixes
+
+- **Voice input**: Transcription is faster and fails less often, and a recording with no speech now asks you to record again instead of showing an error.
+- **Attachments**: A PDF whose text can't be extracted now says the file can't be read, instead of saying the conversation is too long.
+- **Long chats**: Long chats are now summarized at the right point for each model's context window, so models with smaller windows and long Chinese, Japanese or Korean chats no longer stop with a "conversation too long" error.
 </Update>
 
 <Update label="November 11, 2026">

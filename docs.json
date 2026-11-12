@@ -73,56 +73,46 @@
           },
           {
             "tab": "Guides",
-            "groups": [
-              {
-                "group": "How-to guides",
-                "pages": [
-                  "guides/plans-and-limits",
-                  "guides/choose-a-model",
-                  "guides/team-plan",
-                  "guides/privacy-and-security",
-                  "guides/files-web-search",
-                  "guides/api-keys-usage",
-                  "guides/chat-storage",
-                  "guides/projects",
-                  "guides/openai-anthropic-sdks",
-                  "guides/one-api-key-coding-agents"
-                ]
-              }
+            "pages": [
+              "guides/plans-and-limits",
+              "guides/choose-a-model",
+              "guides/team-plan",
+              "guides/privacy-and-security",
+              "guides/files-web-search",
+              "guides/api-keys-usage",
+              "guides/chat-storage",
+              "guides/projects",
+              "guides/openai-anthropic-sdks",
+              "guides/one-api-key-coding-agents"
             ]
           },
           {
             "tab": "Articles",
-            "groups": [
-              {
-                "group": "Articles",
-                "pages": [
-                  "articles/multi-model-ai-chat-platforms",
-                  "articles/ai-subscriptions-under-20",
-                  "articles/llm-gateway-security",
-                  "articles/chatgpt-plus-alternative",
-                  "articles/claude-vs-chatgpt",
-                  "articles/claude-api-pricing",
-                  "articles/openai-api-pricing",
-                  "articles/gemini-api-pricing",
-                  "articles/claude-usage-limits",
-                  "articles/ai-chat-without-login",
-                  "articles/capriole-ai-vs-magai",
-                  "articles/capriole-ai-vs-venice",
-                  "articles/charged-tokens",
-                  "articles/unified-model-api",
-                  "articles/coding-agent-compatibility",
-                  "articles/switch-models-mid-chat",
-                  "articles/capriole-ai-vs-typingmind",
-                  "articles/capriole-ai-vs-t3-chat",
-                  "articles/capriole-ai-vs-poe",
-                  "articles/capriole-ai-vs-openrouter",
-                  "articles/ai-api-cost-comparison",
-                  "articles/openrouter-alternatives",
-                  "articles/one-ai-subscription",
-                  "articles/why-we-built-capriole-ai"
-                ]
-              }
+            "pages": [
+              "articles/multi-model-ai-chat-platforms",
+              "articles/ai-subscriptions-under-20",
+              "articles/llm-gateway-security",
+              "articles/chatgpt-plus-alternative",
+              "articles/claude-vs-chatgpt",
+              "articles/claude-api-pricing",
+              "articles/openai-api-pricing",
+              "articles/gemini-api-pricing",
+              "articles/claude-usage-limits",
+              "articles/ai-chat-without-login",
+              "articles/capriole-ai-vs-magai",
+              "articles/capriole-ai-vs-venice",
+              "articles/charged-tokens",
+              "articles/unified-model-api",
+              "articles/coding-agent-compatibility",
+              "articles/switch-models-mid-chat",
+              "articles/capriole-ai-vs-typingmind",
+              "articles/capriole-ai-vs-t3-chat",
+              "articles/capriole-ai-vs-poe",
+              "articles/capriole-ai-vs-openrouter",
+              "articles/ai-api-cost-comparison",
+              "articles/openrouter-alternatives",
+              "articles/one-ai-subscription",
+              "articles/why-we-built-capriole-ai"
             ]
           },
           {
@@ -190,56 +180,46 @@
           },
           {
             "tab": "指南",
-            "groups": [
-              {
-                "group": "使用指南",
-                "pages": [
-                  "zh/guides/plans-and-limits",
-                  "zh/guides/choose-a-model",
-                  "zh/guides/team-plan",
-                  "zh/guides/privacy-and-security",
-                  "zh/guides/files-web-search",
-                  "zh/guides/api-keys-usage",
-                  "zh/guides/chat-storage",
-                  "zh/guides/projects",
-                  "zh/guides/openai-anthropic-sdks",
-                  "zh/guides/one-api-key-coding-agents"
-                ]
-              }
+            "pages": [
+              "zh/guides/plans-and-limits",
+              "zh/guides/choose-a-model",
+              "zh/guides/team-plan",
+              "zh/guides/privacy-and-security",
+              "zh/guides/files-web-search",
+              "zh/guides/api-keys-usage",
+              "zh/guides/chat-storage",
+              "zh/guides/projects",
+              "zh/guides/openai-anthropic-sdks",
+              "zh/guides/one-api-key-coding-agents"
             ]
           },
           {
             "tab": "文章",
-            "groups": [
-              {
-                "group": "文章",
-                "pages": [
-                  "zh/articles/multi-model-ai-chat-platforms",
-                  "zh/articles/ai-subscriptions-under-20",
-                  "zh/articles/llm-gateway-security",
-                  "zh/articles/chatgpt-plus-alternative",
-                  "zh/articles/claude-vs-chatgpt",
-                  "zh/articles/claude-api-pricing",
-                  "zh/articles/openai-api-pricing",
-                  "zh/articles/gemini-api-pricing",
-                  "zh/articles/claude-usage-limits",
-                  "zh/articles/ai-chat-without-login",
-                  "zh/articles/capriole-ai-vs-magai",
-                  "zh/articles/capriole-ai-vs-venice",
-                  "zh/articles/charged-tokens",
-                  "zh/articles/unified-model-api",
-                  "zh/articles/coding-agent-compatibility",
-                  "zh/articles/switch-models-mid-chat",
-                  "zh/articles/capriole-ai-vs-typingmind",
-                  "zh/articles/capriole-ai-vs-t3-chat",
-                  "zh/articles/capriole-ai-vs-poe",
-                  "zh/articles/capriole-ai-vs-openrouter",
-                  "zh/articles/ai-api-cost-comparison",
-                  "zh/articles/openrouter-alternatives",
-                  "zh/articles/one-ai-subscription",
-                  "zh/articles/why-we-built-capriole-ai"
-                ]
-              }
+            "pages": [
+              "zh/articles/multi-model-ai-chat-platforms",
+              "zh/articles/ai-subscriptions-under-20",
+              "zh/articles/llm-gateway-security",
+              "zh/articles/chatgpt-plus-alternative",
+              "zh/articles/claude-vs-chatgpt",
+              "zh/articles/claude-api-pricing",
+              "zh/articles/openai-api-pricing",
+              "zh/articles/gemini-api-pricing",
+              "zh/articles/claude-usage-limits",
+              "zh/articles/ai-chat-without-login",
+              "zh/articles/capriole-ai-vs-magai",
+              "zh/articles/capriole-ai-vs-venice",
+              "zh/articles/charged-tokens",
+              "zh/articles/unified-model-api",
+              "zh/articles/coding-agent-compatibility",
+              "zh/articles/switch-models-mid-chat",
+              "zh/articles/capriole-ai-vs-typingmind",
+              "zh/articles/capriole-ai-vs-t3-chat",
+              "zh/articles/capriole-ai-vs-poe",
+              "zh/articles/capriole-ai-vs-openrouter",
+              "zh/articles/ai-api-cost-comparison",
+              "zh/articles/openrouter-alternatives",
+              "zh/articles/one-ai-subscription",
+              "zh/articles/why-we-built-capriole-ai"
             ]
           },
           {
@@ -307,56 +287,46 @@
           },
           {
             "tab": "Guías",
-            "groups": [
-              {
-                "group": "Guías prácticas",
-                "pages": [
-                  "es/guides/plans-and-limits",
-                  "es/guides/choose-a-model",
-                  "es/guides/team-plan",
-                  "es/guides/privacy-and-security",
-                  "es/guides/files-web-search",
-                  "es/guides/api-keys-usage",
-                  "es/guides/chat-storage",
-                  "es/guides/projects",
-                  "es/guides/openai-anthropic-sdks",
-                  "es/guides/one-api-key-coding-agents"
-                ]
-              }
+            "pages": [
+              "es/guides/plans-and-limits",
+              "es/guides/choose-a-model",
+              "es/guides/team-plan",
+              "es/guides/privacy-and-security",
+              "es/guides/files-web-search",
+              "es/guides/api-keys-usage",
+              "es/guides/chat-storage",
+              "es/guides/projects",
+              "es/guides/openai-anthropic-sdks",
+              "es/guides/one-api-key-coding-agents"
             ]
           },
           {
             "tab": "Artículos",
-            "groups": [
-              {
-                "group": "Artículos",
-                "pages": [
-                  "es/articles/multi-model-ai-chat-platforms",
-                  "es/articles/ai-subscriptions-under-20",
-                  "es/articles/llm-gateway-security",
-                  "es/articles/chatgpt-plus-alternative",
-                  "es/articles/claude-vs-chatgpt",
-                  "es/articles/claude-api-pricing",
-                  "es/articles/openai-api-pricing",
-                  "es/articles/gemini-api-pricing",
-                  "es/articles/claude-usage-limits",
-                  "es/articles/ai-chat-without-login",
-                  "es/articles/capriole-ai-vs-magai",
-                  "es/articles/capriole-ai-vs-venice",
-                  "es/articles/charged-tokens",
-                  "es/articles/unified-model-api",
-                  "es/articles/coding-agent-compatibility",
-                  "es/articles/switch-models-mid-chat",
-                  "es/articles/capriole-ai-vs-typingmind",
-                  "es/articles/capriole-ai-vs-t3-chat",
-                  "es/articles/capriole-ai-vs-poe",
-                  "es/articles/capriole-ai-vs-openrouter",
-                  "es/articles/ai-api-cost-comparison",
-                  "es/articles/openrouter-alternatives",
-                  "es/articles/one-ai-subscription",
-                  "es/articles/why-we-built-capriole-ai"
-                ]
-              }
+            "pages": [
+              "es/articles/multi-model-ai-chat-platforms",
+              "es/articles/ai-subscriptions-under-20",
+              "es/articles/llm-gateway-security",
+              "es/articles/chatgpt-plus-alternative",
+              "es/articles/claude-vs-chatgpt",
+              "es/articles/claude-api-pricing",
+              "es/articles/openai-api-pricing",
+              "es/articles/gemini-api-pricing",
+              "es/articles/claude-usage-limits",
+              "es/articles/ai-chat-without-login",
+              "es/articles/capriole-ai-vs-magai",
+              "es/articles/capriole-ai-vs-venice",
+              "es/articles/charged-tokens",
+              "es/articles/unified-model-api",
+              "es/articles/coding-agent-compatibility",
+              "es/articles/switch-models-mid-chat",
+              "es/articles/capriole-ai-vs-typingmind",
+              "es/articles/capriole-ai-vs-t3-chat",
+              "es/articles/capriole-ai-vs-poe",
+              "es/articles/capriole-ai-vs-openrouter",
+              "es/articles/ai-api-cost-comparison",
+              "es/articles/openrouter-alternatives",
+              "es/articles/one-ai-subscription",
+              "es/articles/why-we-built-capriole-ai"
             ]
           },
           {
@@ -424,56 +394,46 @@
           },
           {
             "tab": "Guias",
-            "groups": [
-              {
-                "group": "Guias práticos",
-                "pages": [
-                  "pt-br/guides/plans-and-limits",
-                  "pt-br/guides/choose-a-model",
-                  "pt-br/guides/team-plan",
-                  "pt-br/guides/privacy-and-security",
-                  "pt-br/guides/files-web-search",
-                  "pt-br/guides/api-keys-usage",
-                  "pt-br/guides/chat-storage",
-                  "pt-br/guides/projects",
-                  "pt-br/guides/openai-anthropic-sdks",
-                  "pt-br/guides/one-api-key-coding-agents"
-                ]
-              }
+            "pages": [
+              "pt-br/guides/plans-and-limits",
+              "pt-br/guides/choose-a-model",
+              "pt-br/guides/team-plan",
+              "pt-br/guides/privacy-and-security",
+              "pt-br/guides/files-web-search",
+              "pt-br/guides/api-keys-usage",
+              "pt-br/guides/chat-storage",
+              "pt-br/guides/projects",
+              "pt-br/guides/openai-anthropic-sdks",
+              "pt-br/guides/one-api-key-coding-agents"
             ]
           },
           {
             "tab": "Artigos",
-            "groups": [
-              {
-                "group": "Artigos",
-                "pages": [
-                  "pt-br/articles/multi-model-ai-chat-platforms",
-                  "pt-br/articles/ai-subscriptions-under-20",
-                  "pt-br/articles/llm-gateway-security",
-                  "pt-br/articles/chatgpt-plus-alternative",
-                  "pt-br/articles/claude-vs-chatgpt",
-                  "pt-br/articles/claude-api-pricing",
-                  "pt-br/articles/openai-api-pricing",
-                  "pt-br/articles/gemini-api-pricing",
-                  "pt-br/articles/claude-usage-limits",
-                  "pt-br/articles/ai-chat-without-login",
-                  "pt-br/articles/capriole-ai-vs-magai",
-                  "pt-br/articles/capriole-ai-vs-venice",
-                  "pt-br/articles/charged-tokens",
-                  "pt-br/articles/unified-model-api",
-                  "pt-br/articles/coding-agent-compatibility",
-                  "pt-br/articles/switch-models-mid-chat",
-                  "pt-br/articles/capriole-ai-vs-typingmind",
-                  "pt-br/articles/capriole-ai-vs-t3-chat",
-                  "pt-br/articles/capriole-ai-vs-poe",
-                  "pt-br/articles/capriole-ai-vs-openrouter",
-                  "pt-br/articles/ai-api-cost-comparison",
-                  "pt-br/articles/openrouter-alternatives",
-                  "pt-br/articles/one-ai-subscription",
-                  "pt-br/articles/why-we-built-capriole-ai"
-                ]
-              }
+            "pages": [
+              "pt-br/articles/multi-model-ai-chat-platforms",
+              "pt-br/articles/ai-subscriptions-under-20",
+              "pt-br/articles/llm-gateway-security",
+              "pt-br/articles/chatgpt-plus-alternative",
+              "pt-br/articles/claude-vs-chatgpt",
+              "pt-br/articles/claude-api-pricing",
+              "pt-br/articles/openai-api-pricing",
+              "pt-br/articles/gemini-api-pricing",
+              "pt-br/articles/claude-usage-limits",
+              "pt-br/articles/ai-chat-without-login",
+              "pt-br/articles/capriole-ai-vs-magai",
+              "pt-br/articles/capriole-ai-vs-venice",
+              "pt-br/articles/charged-tokens",
+              "pt-br/articles/unified-model-api",
+              "pt-br/articles/coding-agent-compatibility",
+              "pt-br/articles/switch-models-mid-chat",
+              "pt-br/articles/capriole-ai-vs-typingmind",
+              "pt-br/articles/capriole-ai-vs-t3-chat",
+              "pt-br/articles/capriole-ai-vs-poe",
+              "pt-br/articles/capriole-ai-vs-openrouter",
+              "pt-br/articles/ai-api-cost-comparison",
+              "pt-br/articles/openrouter-alternatives",
+              "pt-br/articles/one-ai-subscription",
+              "pt-br/articles/why-we-built-capriole-ai"
             ]
           },
           {
@@ -541,56 +501,46 @@
           },
           {
             "tab": "Anleitungen",
-            "groups": [
-              {
-                "group": "Praxisleitfäden",
-                "pages": [
-                  "de/guides/plans-and-limits",
-                  "de/guides/choose-a-model",
-                  "de/guides/team-plan",
-                  "de/guides/privacy-and-security",
-                  "de/guides/files-web-search",
-                  "de/guides/api-keys-usage",
-                  "de/guides/chat-storage",
-                  "de/guides/projects",
-                  "de/guides/openai-anthropic-sdks",
-                  "de/guides/one-api-key-coding-agents"
-                ]
-              }
+            "pages": [
+              "de/guides/plans-and-limits",
+              "de/guides/choose-a-model",
+              "de/guides/team-plan",
+              "de/guides/privacy-and-security",
+              "de/guides/files-web-search",
+              "de/guides/api-keys-usage",
+              "de/guides/chat-storage",
+              "de/guides/projects",
+              "de/guides/openai-anthropic-sdks",
+              "de/guides/one-api-key-coding-agents"
             ]
           },
           {
             "tab": "Artikel",
-            "groups": [
-              {
-                "group": "Artikel",
-                "pages": [
-                  "de/articles/multi-model-ai-chat-platforms",
-                  "de/articles/ai-subscriptions-under-20",
-                  "de/articles/llm-gateway-security",
-                  "de/articles/chatgpt-plus-alternative",
-                  "de/articles/claude-vs-chatgpt",
-                  "de/articles/claude-api-pricing",
-                  "de/articles/openai-api-pricing",
-                  "de/articles/gemini-api-pricing",
-                  "de/articles/claude-usage-limits",
-                  "de/articles/ai-chat-without-login",
-                  "de/articles/capriole-ai-vs-magai",
-                  "de/articles/capriole-ai-vs-venice",
-                  "de/articles/charged-tokens",
-                  "de/articles/unified-model-api",
-                  "de/articles/coding-agent-compatibility",
-                  "de/articles/switch-models-mid-chat",
-                  "de/articles/capriole-ai-vs-typingmind",
-                  "de/articles/capriole-ai-vs-t3-chat",
-                  "de/articles/capriole-ai-vs-poe",
-                  "de/articles/capriole-ai-vs-openrouter",
-                  "de/articles/ai-api-cost-comparison",
-                  "de/articles/openrouter-alternatives",
-                  "de/articles/one-ai-subscription",
-                  "de/articles/why-we-built-capriole-ai"
-                ]
-              }
+            "pages": [
+              "de/articles/multi-model-ai-chat-platforms",
+              "de/articles/ai-subscriptions-under-20",
+              "de/articles/llm-gateway-security",
+              "de/articles/chatgpt-plus-alternative",
+              "de/articles/claude-vs-chatgpt",
+              "de/articles/claude-api-pricing",
+              "de/articles/openai-api-pricing",
+              "de/articles/gemini-api-pricing",
+              "de/articles/claude-usage-limits",
+              "de/articles/ai-chat-without-login",
+              "de/articles/capriole-ai-vs-magai",
+              "de/articles/capriole-ai-vs-venice",
+              "de/articles/charged-tokens",
+              "de/articles/unified-model-api",
+              "de/articles/coding-agent-compatibility",
+              "de/articles/switch-models-mid-chat",
+              "de/articles/capriole-ai-vs-typingmind",
+              "de/articles/capriole-ai-vs-t3-chat",
+              "de/articles/capriole-ai-vs-poe",
+              "de/articles/capriole-ai-vs-openrouter",
+              "de/articles/ai-api-cost-comparison",
+              "de/articles/openrouter-alternatives",
+              "de/articles/one-ai-subscription",
+              "de/articles/why-we-built-capriole-ai"
             ]
           },
           {
@@ -658,56 +608,46 @@
           },
           {
             "tab": "ガイド",
-            "groups": [
-              {
-                "group": "使い方ガイド",
-                "pages": [
-                  "ja/guides/plans-and-limits",
-                  "ja/guides/choose-a-model",
-                  "ja/guides/team-plan",
-                  "ja/guides/privacy-and-security",
-                  "ja/guides/files-web-search",
-                  "ja/guides/api-keys-usage",
-                  "ja/guides/chat-storage",
-                  "ja/guides/projects",
-                  "ja/guides/openai-anthropic-sdks",
-                  "ja/guides/one-api-key-coding-agents"
-                ]
-              }
+            "pages": [
+              "ja/guides/plans-and-limits",
+              "ja/guides/choose-a-model",
+              "ja/guides/team-plan",
+              "ja/guides/privacy-and-security",
+              "ja/guides/files-web-search",
+              "ja/guides/api-keys-usage",
+              "ja/guides/chat-storage",
+              "ja/guides/projects",
+              "ja/guides/openai-anthropic-sdks",
+              "ja/guides/one-api-key-coding-agents"
             ]
           },
           {
             "tab": "記事",
-            "groups": [
-              {
-                "group": "記事",
-                "pages": [
-                  "ja/articles/multi-model-ai-chat-platforms",
-                  "ja/articles/ai-subscriptions-under-20",
-                  "ja/articles/llm-gateway-security",
-                  "ja/articles/chatgpt-plus-alternative",
-                  "ja/articles/claude-vs-chatgpt",
-                  "ja/articles/claude-api-pricing",
-                  "ja/articles/openai-api-pricing",
-                  "ja/articles/gemini-api-pricing",
-                  "ja/articles/claude-usage-limits",
-                  "ja/articles/ai-chat-without-login",
-                  "ja/articles/capriole-ai-vs-magai",
-                  "ja/articles/capriole-ai-vs-venice",
-                  "ja/articles/charged-tokens",
-                  "ja/articles/unified-model-api",
-                  "ja/articles/coding-agent-compatibility",
-                  "ja/articles/switch-models-mid-chat",
-                  "ja/articles/capriole-ai-vs-typingmind",
-                  "ja/articles/capriole-ai-vs-t3-chat",
-                  "ja/articles/capriole-ai-vs-poe",
-                  "ja/articles/capriole-ai-vs-openrouter",
-                  "ja/articles/ai-api-cost-comparison",
-                  "ja/articles/openrouter-alternatives",
-                  "ja/articles/one-ai-subscription",
-                  "ja/articles/why-we-built-capriole-ai"
-                ]
-              }
+            "pages": [
+              "ja/articles/multi-model-ai-chat-platforms",
+              "ja/articles/ai-subscriptions-under-20",
+              "ja/articles/llm-gateway-security",
+              "ja/articles/chatgpt-plus-alternative",
+              "ja/articles/claude-vs-chatgpt",
+              "ja/articles/claude-api-pricing",
+              "ja/articles/openai-api-pricing",
+              "ja/articles/gemini-api-pricing",
+              "ja/articles/claude-usage-limits",
+              "ja/articles/ai-chat-without-login",
+              "ja/articles/capriole-ai-vs-magai",
+              "ja/articles/capriole-ai-vs-venice",
+              "ja/articles/charged-tokens",
+              "ja/articles/unified-model-api",
+              "ja/articles/coding-agent-compatibility",
+              "ja/articles/switch-models-mid-chat",
+              "ja/articles/capriole-ai-vs-typingmind",
+              "ja/articles/capriole-ai-vs-t3-chat",
+              "ja/articles/capriole-ai-vs-poe",
+              "ja/articles/capriole-ai-vs-openrouter",
+              "ja/articles/ai-api-cost-comparison",
+              "ja/articles/openrouter-alternatives",
+              "ja/articles/one-ai-subscription",
+              "ja/articles/why-we-built-capriole-ai"
             ]
           },
           {
@@ -775,56 +715,46 @@
           },
           {
             "tab": "가이드",
-            "groups": [
-              {
-                "group": "사용 가이드",
-                "pages": [
-                  "ko/guides/plans-and-limits",
-                  "ko/guides/choose-a-model",
-                  "ko/guides/team-plan",
-                  "ko/guides/privacy-and-security",
-                  "ko/guides/files-web-search",
-                  "ko/guides/api-keys-usage",
-                  "ko/guides/chat-storage",
-                  "ko/guides/projects",
-                  "ko/guides/openai-anthropic-sdks",
-                  "ko/guides/one-api-key-coding-agents"
-                ]
-              }
+            "pages": [
+              "ko/guides/plans-and-limits",
+              "ko/guides/choose-a-model",
+              "ko/guides/team-plan",
+              "ko/guides/privacy-and-security",
+              "ko/guides/files-web-search",
+              "ko/guides/api-keys-usage",
+              "ko/guides/chat-storage",
+              "ko/guides/projects",
+              "ko/guides/openai-anthropic-sdks",
+              "ko/guides/one-api-key-coding-agents"
             ]
           },
           {
             "tab": "아티클",
-            "groups": [
-              {
-                "group": "아티클",
-                "pages": [
-                  "ko/articles/multi-model-ai-chat-platforms",
-                  "ko/articles/ai-subscriptions-under-20",
-                  "ko/articles/llm-gateway-security",
-                  "ko/articles/chatgpt-plus-alternative",
-                  "ko/articles/claude-vs-chatgpt",
-                  "ko/articles/claude-api-pricing",
-                  "ko/articles/openai-api-pricing",
-                  "ko/articles/gemini-api-pricing",
-                  "ko/articles/claude-usage-limits",
-                  "ko/articles/ai-chat-without-login",
-                  "ko/articles/capriole-ai-vs-magai",
-                  "ko/articles/capriole-ai-vs-venice",
-                  "ko/articles/charged-tokens",
-                  "ko/articles/unified-model-api",
-                  "ko/articles/coding-agent-compatibility",
-                  "ko/articles/switch-models-mid-chat",
-                  "ko/articles/capriole-ai-vs-typingmind",
-                  "ko/articles/capriole-ai-vs-t3-chat",
-                  "ko/articles/capriole-ai-vs-poe",
-                  "ko/articles/capriole-ai-vs-openrouter",
-                  "ko/articles/ai-api-cost-comparison",
-                  "ko/articles/openrouter-alternatives",
-                  "ko/articles/one-ai-subscription",
-                  "ko/articles/why-we-built-capriole-ai"
-                ]
-              }
+            "pages": [
+              "ko/articles/multi-model-ai-chat-platforms",
+              "ko/articles/ai-subscriptions-under-20",
+              "ko/articles/llm-gateway-security",
+              "ko/articles/chatgpt-plus-alternative",
+              "ko/articles/claude-vs-chatgpt",
+              "ko/articles/claude-api-pricing",
+              "ko/articles/openai-api-pricing",
+              "ko/articles/gemini-api-pricing",
+              "ko/articles/claude-usage-limits",
+              "ko/articles/ai-chat-without-login",
+              "ko/articles/capriole-ai-vs-magai",
+              "ko/articles/capriole-ai-vs-venice",
+              "ko/articles/charged-tokens",
+              "ko/articles/unified-model-api",
+              "ko/articles/coding-agent-compatibility",
+              "ko/articles/switch-models-mid-chat",
+              "ko/articles/capriole-ai-vs-typingmind",
+              "ko/articles/capriole-ai-vs-t3-chat",
+              "ko/articles/capriole-ai-vs-poe",
+              "ko/articles/capriole-ai-vs-openrouter",
+              "ko/articles/ai-api-cost-comparison",
+              "ko/articles/openrouter-alternatives",
+              "ko/articles/one-ai-subscription",
+              "ko/articles/why-we-built-capriole-ai"
             ]
           },
           {
