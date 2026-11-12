@@ -25,9 +25,9 @@ A geração de imagens com GPT Image 2.6 e Nano Banana 2.1 exige uma conta conec
 
 ## O que significa ilimitado
 
-O chat web do Premium e do Team não tem medidor de tokens em nenhum [modelo suportado](/pt-br/guides/choose-a-model), incluindo os modos **Thinking**. O chat web com login tem um limite de uso justo de 200 mensagens por conta por dia UTC: ele impede abusos automatizados feitos por scripts, e o uso normal fica bem abaixo disso.
+O chat web do Premium e do Team não tem medidor de tokens em nenhum [modelo suportado](/pt-br/guides/choose-a-model), incluindo os modos **Thinking**. O chat web com login tem limites de uso justo de 200 mensagens e 30 imagens por conta por dia UTC: eles impedem abusos automatizados feitos por scripts, e o uso normal fica bem abaixo disso. Imagens que o modelo de imagem recusa não contam.
 
-Se você atingir o limite, a Capriole AI mostra um aviso e o chat volta a funcionar às 00:00 UTC. O limite não se aplica às API keys.
+Se você atingir um limite, a Capriole AI mostra um aviso e o limite reinicia às 00:00 UTC. Os limites não se aplicam às API keys.
 
 Os planos Pro e Max do próprio Claude funcionam de outro jeito, com um limite por sessão de cinco horas e um limite semanal. [Limites de uso do Claude](/pt-br/articles/claude-usage-limits) compara esses planos com a Capriole AI.
 
@@ -64,6 +64,7 @@ Quando precisar de mais tokens, selecione **Recarregar** na página da API. Comp
 |---|---|
 | Limite de taxa da API | 300 solicitações por minuto por API key |
 | Anexos no chat | 10 MB por arquivo. PDFs de até 10 MB e outros documentos de até 4 MB podem ser analisados. |
+| Imagens por dia | 30 por conta por dia UTC. Imagens que o modelo de imagem recusa não contam. |
 | Imagens em andamento | Até 4 por vez |
 
 ## Assinantes do Capriole Quant

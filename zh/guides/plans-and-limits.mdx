@@ -25,9 +25,9 @@ Capriole AI Premium 每月 USD 9，可在网页聊天中无限使用 GPT-6 Astra
 
 ## “无限”是什么意思
 
-Premium 和 Team 的网页聊天在所有[受支持的模型](/zh/guides/choose-a-model)上都不计 token，包括 **Thinking** 预设。登录后的网页聊天设有合理使用上限：每个账户每个 UTC 日 200 条消息。它用于阻止脚本驱动的自动化滥用，正常使用远低于这个上限。
+Premium 和 Team 的网页聊天在所有[受支持的模型](/zh/guides/choose-a-model)上都不计 token，包括 **Thinking** 预设。登录后的网页聊天设有合理使用上限：每个账户每个 UTC 日 200 条消息和 30 张图片。它们用于阻止脚本驱动的自动化滥用，正常使用远低于这些上限。被图片模型拒绝的图片不计入。
 
-达到上限时，Capriole AI 会显示提示，聊天在 UTC 时间 00:00 恢复。这个上限不适用于 API Key。
+达到上限时，Capriole AI 会显示提示，上限在 UTC 时间 00:00 重置。这些上限不适用于 API Key。
 
 Claude 自己的 Pro 和 Max 方案规则不同：有五小时会话上限和每周上限。[Claude 用量限制详解](/zh/articles/claude-usage-limits)把它们与 Capriole AI 做了对比。
 
@@ -64,6 +64,7 @@ API token 按计费 token 计算：未缓存输入，加上缓存输入的 10%�
 |---|---|
 | API 速率限制 | 每个 API Key 每分钟 300 个请求 |
 | 聊天附件 | 每个文件 10 MB。可分析最大 10 MB 的 PDF 和最大 4 MB 的其他文档。 |
+| 每日图片 | 每个账户每个 UTC 日 30 张。被图片模型拒绝的图片不计入。 |
 | 生成中的图片 | 最多同时 4 张 |
 
 ## Capriole Quant 订阅用户
