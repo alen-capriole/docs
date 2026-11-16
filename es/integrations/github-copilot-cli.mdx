@@ -94,7 +94,7 @@ export COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"
 export COPILOT_PROVIDER_WIRE_MODEL="moonshot/kimi-k3"
 ```
 
-Para los demás modelos, cambia `COPILOT_PROVIDER_WIRE_MODEL` a `google/gemini-3.8-flash`, `xai/grok-4.7` o `zai/glm-5.3-flash`.
+Para los demás modelos, cambia `COPILOT_PROVIDER_WIRE_MODEL` a `google-latest`, `google/gemini-4-carbon`, `google/gemini-4-argon`, `google/gemini-3.8-flash`, `xai/grok-4.7` o `zai/glm-5.3-flash`.
 
 Mantén `COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"`. Con un perfil GPT como `gpt-5.4`, Copilot envía tipos de herramienta que estos modelos rechazan.
 
@@ -124,13 +124,16 @@ copilot -p "Explain this repository." --allow-all-tools
 | GPT-6.1 Sol | `openai/gpt-6.1-sol` | `gpt-6.1-sol` | Responses |
 | Claude latest | `claude-latest` | `claude-opus-4.6` | Anthropic Messages |
 | Opus 5.5 | `claude-opus-5-5` | `claude-opus-4.6` | Anthropic Messages |
+| Google latest | `google-latest` | `claude-sonnet-4` | Chat Completions |
+| Gemini 4 Carbon | `google/gemini-4-carbon` | `claude-sonnet-4` | Chat Completions |
+| Gemini 4 Argon | `google/gemini-4-argon` | `claude-sonnet-4` | Chat Completions |
 | Gemini 3.8 Flash | `google/gemini-3.8-flash` | `claude-sonnet-4` | Chat Completions |
 | Grok 4.7 | `xai/grok-4.7` | `claude-sonnet-4` | Chat Completions |
 | GLM 5.3 Flash | `zai/glm-5.3-flash` | `claude-sonnet-4` | Chat Completions |
 | Kimi K3.1 Pro | `moonshot/kimi-k3.1-pro` | `claude-opus-4.6` | Chat Completions |
 | Kimi K3 | `moonshot/kimi-k3` | `claude-sonnet-4` | Chat Completions |
 
-`openai-latest` y `claude-latest` siempre apuntan a nuestro modelo insignia más reciente de cada familia, actualmente GPT-6 Astra y Claude Fable 5.1.
+`openai-latest`, `claude-latest` y `google-latest` siempre apuntan a nuestro modelo insignia más reciente de cada familia, actualmente GPT-6 Astra, Claude Fable 5.1 y Gemini 4 Carbon.
 
 ## Solución de problemas
 
@@ -154,5 +157,6 @@ Define `COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"`, o `"claude-opus-4.6"` para
 
 - Copilot CLI ejecuta las herramientas de programación en tu equipo. Capriole AI solo gestiona las solicitudes de modelo.
 - Ejecuta `copilot help providers` para ver todas las variables de entorno de BYOK.
+- Gemini 4 Carbon razona más tiempo que Gemini 4 Argon, así que cada turno puede tardar más y usar más tokens. Para turnos más rápidos, usa `google/gemini-4-argon`.
 - Para usar la misma clave en tus otros agentes de programación, consulta [Usa una sola clave API con agentes de programación](/es/guides/one-api-key-coding-agents).
 - Referencias oficiales: [Instalar GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli) y [Usar modelos BYOK en Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/use-byok-models).

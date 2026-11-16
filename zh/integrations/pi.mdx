@@ -83,6 +83,24 @@ npm install -g --ignore-scripts @earendil-works/pi-coding-agent
           "compat": { "forceAdaptiveThinking": true }
         },
         {
+          "id": "google-latest",
+          "contextWindow": 1048576,
+          "maxTokens": 65536,
+          "reasoning": true
+        },
+        {
+          "id": "google/gemini-4-carbon",
+          "contextWindow": 1048576,
+          "maxTokens": 65536,
+          "reasoning": true
+        },
+        {
+          "id": "google/gemini-4-argon",
+          "contextWindow": 1048576,
+          "maxTokens": 65536,
+          "reasoning": true
+        },
+        {
           "id": "zai/glm-5.3-flash",
           "contextWindow": 1000000,
           "maxTokens": 128000,
@@ -124,7 +142,7 @@ npm install -g --ignore-scripts @earendil-works/pi-coding-agent
 
 各项设置的作用如下。
 
-- 提供商的 `api` 是 `openai-completions`，因此 Grok、GLM 和 Kimi 使用 Chat Completions。GPT 模型用 `openai-responses` 覆盖它，Claude 模型则用 `anthropic-messages` 和不含 `/v1` 的 `baseUrl` 覆盖它。
+- 提供商的 `api` 是 `openai-completions`，因此 Gemini、Grok、GLM 和 Kimi 使用 Chat Completions。GPT 模型用 `openai-responses` 覆盖它，Claude 模型则用 `anthropic-messages` 和不含 `/v1` 的 `baseUrl` 覆盖它。
 - `$CAPRIOLE_AI_API_KEY` 从环境变量读取你的 API Key。
 - `authHeader: true` 让每种协议都以 Bearer Token 形式发送 Key。没有它时，Claude 模型会在 `x-api-key` 请求头中发送 Key，而 Capriole AI 不接受这种方式。
 - `forceAdaptiveThinking` 让 Claude 模型使用自适应思考。Opus 5.5 会拒绝固定的思考预算。
@@ -154,12 +172,15 @@ pi -p --model xai/grok-4.7 "Explain this repository."
 | GPT-6.1 Sol | `openai/gpt-6.1-sol` | Responses |
 | Claude latest | `claude-latest` | Anthropic Messages |
 | Opus 5.5 | `claude-opus-5-5` | Anthropic Messages |
+| Google latest | `google-latest` | Chat Completions |
+| Gemini 4 Carbon | `google/gemini-4-carbon` | Chat Completions |
+| Gemini 4 Argon | `google/gemini-4-argon` | Chat Completions |
 | Grok 4.7 | `xai/grok-4.7` | Chat Completions |
 | GLM 5.3 Flash | `zai/glm-5.3-flash` | Chat Completions |
 | Kimi K3.1 Pro | `moonshot/kimi-k3.1-pro` | Chat Completions |
 | Kimi K3 | `moonshot/kimi-k3` | Chat Completions |
 
-`openai-latest` 和 `claude-latest` 始终指向各自系列中我们最新的旗舰模型，目前分别是 GPT-6 Astra 和 Claude Fable 5.1。
+`openai-latest`、`claude-latest` 和 `google-latest` 始终指向各自系列中我们最新的旗舰模型，目前分别是 GPT-6 Astra、Claude Fable 5.1 和 Gemini 4 Carbon。
 
 ## 故障排除
 
@@ -182,5 +203,6 @@ Pi 在能解析自定义模型的 API Key 之前会隐藏该模型。启动 Pi �
 ## 说明
 
 - 如需添加其他 Capriole AI 模型，请复制同一系列中某个模型的条目并修改 ID。`GET https://api.caprioletech.com/v1/models` 会列出所有模型 ID。
+- Gemini 4 Carbon 的思考时间比 Gemini 4 Argon 长，每一轮可能更慢、用的 token 更多。想要更快的回应，请使用 `google/gemini-4-argon`。
 - 想在其他编程智能体中使用同一个 API Key，请参阅[使用一个 API Key 配置编程智能体](/zh/guides/one-api-key-coding-agents)。
 - 官方参考资料包括 [Pi](https://pi.dev)、[Pi 文档](https://pi.dev/docs)、[选择模型](https://github.com/earendil-works/pi/blob/main/packages/coding-agent/docs/models.md)和 [Pi 配置](https://github.com/earendil-works/pi/blob/main/packages/coding-agent/docs/configuration.md)。

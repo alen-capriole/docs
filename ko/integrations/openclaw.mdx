@@ -56,6 +56,9 @@ OpenClaw 2026.4.21 버전은 아래 구성으로 지원 모델 섹션의 모든 
         "capriole-ai-compatible/moonshot/kimi-k3.1-pro": {},
         "capriole-ai-compatible/moonshot/kimi-k3": {},
         "capriole-ai-compatible/xai/grok-4.7": {},
+        "capriole-ai-compatible/google-latest": {},
+        "capriole-ai-compatible/google/gemini-4-carbon": {},
+        "capriole-ai-compatible/google/gemini-4-argon": {},
         "capriole-ai-compatible/google/gemini-3.8-flash": {}
       }
     }
@@ -165,6 +168,33 @@ OpenClaw 2026.4.21 버전은 아래 구성으로 지원 모델 섹션의 모든 
             "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 }
           },
           {
+            "id": "google-latest",
+            "name": "Google latest",
+            "reasoning": true,
+            "input": ["text"],
+            "contextWindow": 1048576,
+            "maxTokens": 65536,
+            "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 }
+          },
+          {
+            "id": "google/gemini-4-carbon",
+            "name": "Gemini 4 Carbon",
+            "reasoning": true,
+            "input": ["text"],
+            "contextWindow": 1048576,
+            "maxTokens": 65536,
+            "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 }
+          },
+          {
+            "id": "google/gemini-4-argon",
+            "name": "Gemini 4 Argon",
+            "reasoning": true,
+            "input": ["text"],
+            "contextWindow": 1048576,
+            "maxTokens": 65536,
+            "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 }
+          },
+          {
             "id": "google/gemini-3.8-flash",
             "name": "Gemini 3.8 Flash",
             "reasoning": true,
@@ -226,13 +256,16 @@ openclaw agent --local --session-id capriole-test --message "Summarize the files
 | GPT-6.1 Sol | `capriole-ai-openai/openai/gpt-6.1-sol` | Responses |
 | Claude latest | `capriole-ai-anthropic/claude-latest` | Anthropic Messages |
 | Opus 5.5 | `capriole-ai-anthropic/claude-opus-5-5` | Anthropic Messages |
+| Google latest | `capriole-ai-compatible/google-latest` | Chat Completions |
+| Gemini 4 Carbon | `capriole-ai-compatible/google/gemini-4-carbon` | Chat Completions |
+| Gemini 4 Argon | `capriole-ai-compatible/google/gemini-4-argon` | Chat Completions |
 | Gemini 3.8 Flash | `capriole-ai-compatible/google/gemini-3.8-flash` | Chat Completions |
 | Grok 4.7 | `capriole-ai-compatible/xai/grok-4.7` | Chat Completions |
 | GLM 5.3 Flash | `capriole-ai-compatible/zai/glm-5.3-flash` | Chat Completions |
 | Kimi K3.1 Pro | `capriole-ai-compatible/moonshot/kimi-k3.1-pro` | Chat Completions |
 | Kimi K3 | `capriole-ai-compatible/moonshot/kimi-k3` | Chat Completions |
 
-`openai-latest`와 `claude-latest`는 항상 각 계열의 최신 플래그십 모델을 가리킵니다. 현재는 GPT-6 Astra와 Claude Fable 5.1입니다.
+`openai-latest`, `claude-latest`, `google-latest`는 항상 각 계열의 최신 플래그십 모델을 가리킵니다. 현재는 GPT-6 Astra, Claude Fable 5.1, Gemini 4 Carbon입니다.
 
 ## 문제 해결
 
@@ -259,5 +292,6 @@ openclaw agent --local --session-id capriole-test --message "Summarize the files
 ## 참고
 
 - 다른 Capriole AI 모델을 추가하려면 같은 계열 모델의 항목을 복사하고 ID를 바꾼 다음, 해당 참조를 `agents.defaults.models`에 추가하세요. `GET https://api.caprioletech.com/v1/models`는 모든 모델 ID를 나열합니다.
+- Gemini 4 Carbon은 Gemini 4 Argon보다 오래 추론하므로 턴마다 시간이 더 걸리고 토큰도 더 쓸 수 있습니다. 더 빠른 응답이 필요하면 `google/gemini-4-argon`을 사용하세요.
 - 같은 key를 다른 코딩 에이전트에서도 쓰려면 [코딩 에이전트에 API key 하나 사용하기](/ko/guides/one-api-key-coding-agents) 가이드를 참고하세요.
 - 공식 참고: [OpenClaw install](https://docs.openclaw.ai/install), [OpenClaw custom providers](https://docs.openclaw.ai/gateway/config-tools), [OpenClaw model providers](https://documentation.openclaw.ai/concepts/model-providers), [OpenClaw troubleshooting](https://docs.openclaw.ai/gateway/troubleshooting).

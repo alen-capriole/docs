@@ -111,6 +111,30 @@ Kilo CLI 7.8.15 は、下記の設定を使い、「対応モデル」のすべ�
           },
           "tool_call": true
         },
+        "google-latest": {
+          "name": "Google latest",
+          "limit": {
+            "context": 1048576,
+            "output": 65536
+          },
+          "tool_call": true
+        },
+        "google/gemini-4-carbon": {
+          "name": "Gemini 4 Carbon",
+          "limit": {
+            "context": 1048576,
+            "output": 65536
+          },
+          "tool_call": true
+        },
+        "google/gemini-4-argon": {
+          "name": "Gemini 4 Argon",
+          "limit": {
+            "context": 1048576,
+            "output": 65536
+          },
+          "tool_call": true
+        },
         "google/gemini-3.8-flash": {
           "name": "Gemini 3.8 Flash",
           "limit": {
@@ -200,13 +224,16 @@ kilo run -m capriole-ai/claude-latest "Explain this repository."
 | GPT-6.1 Sol | `openai/gpt-6.1-sol` | Responses |
 | Claude latest | `claude-latest` | Anthropic Messages |
 | Opus 5.5 | `claude-opus-5-5` | Anthropic Messages |
+| Google latest | `google-latest` | Chat Completions |
+| Gemini 4 Carbon | `google/gemini-4-carbon` | Chat Completions |
+| Gemini 4 Argon | `google/gemini-4-argon` | Chat Completions |
 | Gemini 3.8 Flash | `google/gemini-3.8-flash` | Chat Completions |
 | Grok 4.7 | `xai/grok-4.7` | Chat Completions |
 | GLM 5.3 Flash | `zai/glm-5.3-flash` | Chat Completions |
 | Kimi K3.1 Pro | `moonshot/kimi-k3.1-pro` | Chat Completions |
 | Kimi K3 | `moonshot/kimi-k3` | Chat Completions |
 
-`openai-latest` と `claude-latest` は、常に各ファミリーの最新の旗艦モデルを指します。現在は GPT-6 Astra と Claude Fable 5.1 です。
+`openai-latest`、`claude-latest`、`google-latest` は、常に各ファミリーの最新の旗艦モデルを指します。現在は GPT-6 Astra、Claude Fable 5.1、Gemini 4 Carbon です。
 
 ## トラブルシューティング
 
@@ -230,5 +257,6 @@ kilo run -m capriole-ai/claude-latest "Explain this repository."
 
 - Kilo Code はコーディング ツールをお使いのコンピューター上で実行します。Capriole AI が処理するのはモデル リクエストだけです。
 - Capriole AI の別のモデルを追加するには、同じファミリーのモデルのエントリーをコピーして ID を変更します。`GET https://api.caprioletech.com/v1/models` ですべてのモデル ID を一覧できます。
+- Gemini 4 Carbon は Gemini 4 Argon より長く思考するため、各ターンに時間がかかり、使うトークンも多くなることがあります。速さを重視する場合は `google/gemini-4-argon` を使ってください。
 - 同じキーを他のコーディング エージェントでも使うには、[1 つの API キーでコーディング エージェントを使う](/ja/guides/one-api-key-coding-agents)を参照してください。
 - 公式リファレンス: [Kilo CLI](https://kilo.ai/docs/cli)、[Kilo のカスタム モデル](https://kilo.ai/docs/code-with-ai/agents/custom-models)、[Kilo の設定](https://kilo.ai/docs/getting-started/settings)、[OpenCode のプロバイダー](https://opencode.ai/docs/providers)。

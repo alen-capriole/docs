@@ -210,6 +210,8 @@ completion = openai_client.chat.completions.create(
 print(completion.choices[0].message.content)
 ```
 
+`google-latest` 使用 Gemini 4 Carbon，它在 Chat Completions 上按 Google 的默认思考等级 `medium` 思考。如需减少 token 用量，可以添加 `extra_body={"extra_body": {"google": {"thinking_config": {"thinking_level": "low"}}}}`，或调用 `google/gemini-4-argon`。详见[选择模型](/zh/guides/choose-a-model#api-模型-id)。
+
 不要把 `google-latest` 移到 `responses.create()`。Responses 路由接受受支持的 OpenAI Responses 模型集合，Chat Completions 则接受范围更广的公共兼容模型目录。
 
 ## 解决常见 SDK 错误
@@ -240,4 +242,4 @@ API 调用按 charged token 计量。估算工作负载前，请阅读 [charged 
 - OpenAI [TypeScript 和 JavaScript SDK](https://github.com/openai/openai-node)
 - Anthropic [TypeScript SDK](https://github.com/anthropics/anthropic-sdk-typescript)
 
-[在有限的免费 Browser Chat 中试用 GPT-6 Astra、Claude Fable 5.1 或 Gemini 4 Argon](https://www.capriole.ai/zh)。需要通过 Python 或 TypeScript 使用会员包含的 API 余额时，可升级到 Premium。
+[在有限的免费 Browser Chat 中试用 GPT-6 Astra、Claude Fable 5.1 或 Gemini 4 Carbon](https://www.capriole.ai/zh)。需要通过 Python 或 TypeScript 使用会员包含的 API 余额时，可升级到 Premium。

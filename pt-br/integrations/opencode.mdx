@@ -109,6 +109,27 @@ Crie ou atualize `~/.config/opencode/opencode.json`:
             "output": 128000
           }
         },
+        "google-latest": {
+          "name": "Google latest",
+          "limit": {
+            "context": 1048576,
+            "output": 65536
+          }
+        },
+        "google/gemini-4-carbon": {
+          "name": "Gemini 4 Carbon",
+          "limit": {
+            "context": 1048576,
+            "output": 65536
+          }
+        },
+        "google/gemini-4-argon": {
+          "name": "Gemini 4 Argon",
+          "limit": {
+            "context": 1048576,
+            "output": 65536
+          }
+        },
         "google/gemini-3.8-flash": {
           "name": "Gemini 3.8 Flash",
           "limit": {
@@ -226,6 +247,27 @@ O OpenCode 1 não lê o formato do OpenCode 2, mas o OpenCode 2 lê este, então
             "output": 128000
           }
         },
+        "google-latest": {
+          "name": "Google latest",
+          "limit": {
+            "context": 1048576,
+            "output": 65536
+          }
+        },
+        "google/gemini-4-carbon": {
+          "name": "Gemini 4 Carbon",
+          "limit": {
+            "context": 1048576,
+            "output": 65536
+          }
+        },
+        "google/gemini-4-argon": {
+          "name": "Gemini 4 Argon",
+          "limit": {
+            "context": 1048576,
+            "output": 65536
+          }
+        },
         "google/gemini-3.8-flash": {
           "name": "Gemini 3.8 Flash",
           "limit": {
@@ -304,13 +346,16 @@ As referências de modelo usam o formato `capriole-ai/<model-id>`.
 | GPT-6.1 Sol | `openai/gpt-6.1-sol` | Responses |
 | Claude latest | `claude-latest` | Anthropic Messages |
 | Opus 5.5 | `claude-opus-5-5` | Anthropic Messages |
+| Google latest | `google-latest` | Chat Completions |
+| Gemini 4 Carbon | `google/gemini-4-carbon` | Chat Completions |
+| Gemini 4 Argon | `google/gemini-4-argon` | Chat Completions |
 | Gemini 3.8 Flash | `google/gemini-3.8-flash` | Chat Completions |
 | Grok 4.7 | `xai/grok-4.7` | Chat Completions |
 | GLM 5.3 Flash | `zai/glm-5.3-flash` | Chat Completions |
 | Kimi K3.1 Pro | `moonshot/kimi-k3.1-pro` | Chat Completions |
 | Kimi K3 | `moonshot/kimi-k3` | Chat Completions |
 
-`openai-latest` e `claude-latest` sempre apontam para o nosso modelo principal mais recente de cada família, atualmente GPT-6 Astra e Claude Fable 5.1.
+`openai-latest`, `claude-latest` e `google-latest` sempre apontam para o nosso modelo principal mais recente de cada família, atualmente GPT-6 Astra, Claude Fable 5.1 e Gemini 4 Carbon.
 
 ## Solução de problemas
 
@@ -342,6 +387,7 @@ Limpe `~/.cache/opencode` e reinicie o OpenCode para que ele reinstale os pacote
 
 - Mantenha sua key no ambiente. Não a cole em `opencode.json`.
 - Para adicionar outro modelo da Capriole AI, copie a entrada de um modelo da mesma família e altere o ID. `GET https://api.caprioletech.com/v1/models` lista todos os IDs de modelo.
+- O Gemini 4 Carbon raciocina por mais tempo que o Gemini 4 Argon, então cada turno pode demorar mais e usar mais tokens. Para turnos mais rápidos, use `google/gemini-4-argon`.
 - Para usar a mesma key nos seus outros agentes de programação, veja [Usar uma API key com agentes de programação](/pt-br/guides/one-api-key-coding-agents).
 - Referências do OpenCode 2: [instalação](https://opencode.ai/v2/docs/), [migração do OpenCode 1](https://opencode.ai/v2/docs/migrate-v1/), [provedores](https://opencode.ai/v2/docs/providers/), [modelos](https://opencode.ai/v2/docs/models/), [serviço em segundo plano](https://opencode.ai/v2/docs/cli/) e [versões](https://github.com/anomalyco/opencode/releases).
 - Referências do OpenCode 1: [instalação](https://opencode.ai/docs), [configuração](https://opencode.ai/docs/config), [provedores](https://opencode.ai/docs/providers), [modelos](https://opencode.ai/docs/models) e [solução de problemas](https://opencode.ai/docs/troubleshooting).

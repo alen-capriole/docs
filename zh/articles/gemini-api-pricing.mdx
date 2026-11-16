@@ -6,7 +6,7 @@ description: "Gemini 4 Argon 每 100 万 token 输入 USD 2、输出 USD 10，11
 
 Google 的 Gemini API 收费如下：**Gemini 4 Argon 的推广价为每 100 万输入 token USD 2、每 100 万输出 token USD 10**，有效期至 2026 年 11 月 30 日。从 2026 年 12 月 1 日起，Argon 的价格为 **USD 4 和 USD 20**。按输入与输出 token 3:1 的比例、以 Google 标准费率计算，500 万 token 在推广价下要 USD 20，12 月 1 日起要 USD 40。
 
-Capriole AI Premium 每月 USD 9，可无限使用 GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5 和 Gemini 4 Argon 的网页聊天。它的 API 通过 OpenAI Chat Completions 提供 Gemini 4 Argon，任意受支持模型均为每 500 万 token USD 8，最多比官方 API 价格低 92%。Google 给 Argon 的定价低于 GPT-6 Astra 和 Claude Fable 5.1，所以在 Argon 上省得少一些：推广价期间低 60%，12 月 1 日起低 80%。一个 API key 既能用于你自己的应用，也能用于编程智能体。
+Capriole AI Premium 每月 USD 9，可无限使用 GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5 和 Gemini 4 Carbon 的网页聊天。它的 API 通过 OpenAI Chat Completions 提供 Gemini 4 Argon，任意受支持模型均为每 500 万 token USD 8，最多比官方 API 价格低 92%。Google 给 Argon 的定价低于 GPT-6 Astra 和 Claude Fable 5.1，所以在 Argon 上省得少一些：推广价期间低 60%，12 月 1 日起低 80%。一个 API key 既能用于你自己的应用，也能用于编程智能体。
 
 ## Gemini API 每 100 万 token 价格
 
@@ -14,6 +14,8 @@ Google 在其 [Gemini Developer API 定价页面](https://ai.google.dev/gemini-a
 
 | 模型 | API 模型 ID | 期间 | 输入 | 缓存输入 | 输出 |
 |---|---|---|---:|---:|---:|
+| Gemini 4 Carbon | `gemini-4-carbon` | 至 2026 年 11 月 30 日 | USD 2 | USD 0.10 | USD 10 |
+| Gemini 4 Carbon | `gemini-4-carbon` | 2026 年 12 月 1 日起 | USD 4 | USD 0.20 | USD 20 |
 | Gemini 4 Argon | `gemini-4-argon` | 至 2026 年 11 月 30 日 | USD 2 | USD 0.10 | USD 10 |
 | Gemini 4 Argon | `gemini-4-argon` | 2026 年 12 月 1 日起 | USD 4 | USD 0.20 | USD 20 |
 | Gemini 3.8 Flash | `gemini-3.8-flash` | 至 2026 年 12 月 31 日 | USD 0.75 | USD 0.075 | USD 3.75 |
@@ -21,13 +23,13 @@ Google 在其 [Gemini Developer API 定价页面](https://ai.google.dev/gemini-a
 
 同一页面还列出了会改变这些费率的规则：
 
-- **Batch 和 Flex**：两者都是标准费率的一半。Gemini 4 Argon 在 11 月 30 日前输入 USD 1、输出 USD 5，之后为 USD 2 和 USD 10。
-- **Priority**：Gemini 4 Argon 在 11 月 30 日前输入 USD 3.60、输出 USD 18，之后为 USD 7.20 和 USD 36。
-- **缓存**：Gemini 4 Argon 只支持隐式缓存，对至少 4,096 个 token 的提示默认开启，不支持显式缓存。
-- **免费层级**：Gemini 3.8 Flash 有免费层级，Gemini 4 Argon 没有。
+- **Batch 和 Flex**：两者都是标准费率的一半。Gemini 4 Carbon 和 Gemini 4 Argon 在 11 月 30 日前均为输入 USD 1、输出 USD 5，之后为 USD 2 和 USD 10。
+- **Priority**：Gemini 4 Carbon 和 Gemini 4 Argon 在 11 月 30 日前均为输入 USD 3.60、输出 USD 18，之后为 USD 7.20 和 USD 36。
+- **缓存**：Gemini 4 Carbon 和 Gemini 4 Argon 只支持隐式缓存，对至少 4,096 个 token 的提示默认开启，不支持显式缓存。
+- **免费层级**：Gemini 3.8 Flash 有免费层级，Gemini 4 Carbon 和 Gemini 4 Argon 没有。
 - **Google 搜索接地**：每月 5,000 次搜索请求免费，由 Gemini 3 及更新的模型共享，超出后每 1,000 次请求 USD 14。
 
-Google 没有为这两款模型列出单独的长提示费率。
+Google 没有为这些模型列出单独的长提示费率。
 
 ## 100 万和 500 万 token 的费用
 
@@ -61,8 +63,8 @@ Google 的输出价格（包括思考 token）是输入的五倍。Capriole 对�
 
 Capriole 通过 `POST /v1/chat/completions` 上的 OpenAI Chat Completions 提供 Gemini 模型。把 OpenAI SDK 的 base URL 设为 `https://api.caprioletech.com/v1`。
 
-- `google-latest` 选择 Gemini 4 Argon，你的配置会始终跟随当前推荐的 Google 模型。
-- `google/gemini-4-argon` 和 `google/gemini-3.8-flash` 用于明确指定模型。
+- `google/gemini-4-argon` 选择 Gemini 4 Argon。`google/gemini-4-carbon` 和 `google/gemini-3.8-flash` 选择对应的模型。
+- `google-latest` 选择 Google 最强的模型 Gemini 4 Carbon，它每轮消耗的思考 token 比 Argon 多。在 Chat Completions 上，它按 Google 的默认思考等级 `medium` 思考；[选择模型](/zh/guides/choose-a-model#api-模型-id)介绍了如何设为 `low`。
 - Responses 和 Messages 端点不接受 Gemini 模型。
 
 ```python
@@ -76,7 +78,7 @@ client = OpenAI(
 )
 
 completion = client.chat.completions.create(
-    model="google-latest",
+    model="google/gemini-4-argon",
     messages=[{"role": "user", "content": "Explain this stack trace."}],
 )
 print(completion.choices[0].message.content)
@@ -104,7 +106,7 @@ Google 的免费层级不包含 Gemini 4 Argon。在 Capriole AI 上，无需账
 
 ### `google-latest` 在 Capriole AI 上指什么
 
-`google-latest` 指向 Gemini 4 Argon，可用于 `/v1/chat/completions`，也就是提供 Gemini 模型的端点。
+自 2026 年 11 月 17 日起，`google-latest` 指向 Google 最强的模型 Gemini 4 Carbon，可用于 `/v1/chat/completions`，也就是提供 Gemini 模型的端点。如需继续使用 Argon，请调用 `google/gemini-4-argon`。
 
 ### 无限聊天包含 API 用量吗
 
@@ -117,6 +119,6 @@ Google 的免费层级不包含 Gemini 4 Argon。在 Capriole AI 上，无需账
 ## 官方来源
 
 - Google：[Gemini Developer API 定价](https://ai.google.dev/gemini-api/docs/pricing)
-- Google：[Gemini 4 Argon](https://ai.google.dev/gemini-api/docs/latest-model)
+- Google：[Gemini 4 Argon](https://aistudio.google.com/docs/models/gemini-4-argon)
 
 本页中的 Capriole AI 方案、充值和计费 token 事实作为第一方文档持续维护。

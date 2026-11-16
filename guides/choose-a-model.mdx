@@ -1,10 +1,10 @@
 ---
-title: "Which AI Model to Use: GPT-6 Astra, Claude or Gemini 4 Argon"
+title: "Which AI Model to Use: GPT-6 Astra, Claude or Gemini 4 Carbon"
 sidebarTitle: "Choose a Model"
-description: "Compare GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5 and Gemini 4 Argon by vendor-stated strengths, context and official price, then pick Thinking or Fast."
+description: "Compare GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5 and Gemini 4 Carbon by vendor-stated strengths, context and official price, then pick Thinking or Fast."
 ---
 
-Capriole AI includes four flagship models: GPT-6 Astra from OpenAI, Claude Fable 5.1 and Claude Opus 5.5 from Anthropic, and Gemini 4 Argon from Google. Premium gives you unlimited web chat with all four for USD 9 a month, and the API costs up to 92% less than official API prices. Web chat starts on GPT-6 Astra Thinking. Switch when another model's vendor describes it as built for your task, as summarized below.
+Capriole AI includes four flagship models: GPT-6 Astra from OpenAI, Claude Fable 5.1 and Claude Opus 5.5 from Anthropic, and Gemini 4 Carbon from Google. Premium gives you unlimited web chat with all four for USD 9 a month, and the API costs up to 92% less than official API prices. Web chat starts on GPT-6 Astra Thinking. Switch when another model's vendor describes it as built for your task, as summarized below.
 
 ## The four flagship models
 
@@ -13,7 +13,7 @@ Capriole AI includes four flagship models: GPT-6 Astra from OpenAI, Claude Fable
 | [GPT-6 Astra](https://developers.openai.com/api/docs/models/gpt-6-astra) (OpenAI) | Complex reasoning, coding, computer use, research, and document creation | 1.05M tokens | USD 10 / USD 50 |
 | [Claude Fable 5.1](https://platform.claude.com/docs/en/models/fable-5-1/overview) (Anthropic) | Demanding reasoning and long-horizon agentic work | 1M tokens | USD 10 / USD 50 |
 | [Claude Opus 5.5](https://platform.claude.com/docs/en/models/opus-5-5/overview) (Anthropic) | Long-running agentic coding and knowledge work | 1M tokens | USD 4 / USD 20 |
-| [Gemini 4 Argon](https://ai.google.dev/gemini-api/docs/latest-model) (Google) | The hardest problems, with longer reasoning on complex coding, agentic, math, and science tasks | 1M tokens | USD 2 / USD 10 through November 30, 2026, then USD 4 / USD 20 |
+| [Gemini 4 Carbon](https://aistudio.google.com/docs/models/gemini-4-carbon) (Google) | Tasks that test the limits of a model's intelligence, such as complex multi-step coding and debugging, long-horizon agentic work, and scientific reasoning | 1M tokens | USD 2 / USD 10 through November 30, 2026, then USD 4 / USD 20 |
 
 In Capriole AI, every model in this table is unlimited in Premium and Team web chat. On the API, a token costs the same on every model: USD 8 per 5M tokens.
 
@@ -29,9 +29,9 @@ Anthropic positions Claude Fable 5.1 for demanding reasoning and long-horizon ag
 
 Anthropic built Claude Opus 5.5 for long-running agentic coding and knowledge work, at less than half of Fable 5.1's official price. Anthropic suggests starting most workloads on Opus 5.5 and moving to Fable 5.1 when Opus 5.5 at higher effort still falls short. Like Fable 5.1, it always thinks, so in Capriole AI **Fast** lowers its effort instead of turning thinking off.
 
-### Gemini 4 Argon
+### Gemini 4 Carbon
 
-Google calls Gemini 4 Argon its most capable model, built to solve the hardest problems. Google says it can reason longer on complex coding, agentic, math, and science tasks. Its 1M-token context window is shared by input, thinking, and output. `google-latest` uses Gemini 4 Argon.
+Google calls Gemini 4 Carbon its strongest model, built for tasks that test the limits of a model's intelligence, such as complex multi-step coding and debugging, long-horizon agentic work, and scientific reasoning. Carbon spends more thinking tokens per turn than Gemini 4 Argon, so it is slower and uses more tokens, and Google notes that hard prompts can take several minutes. Google says Argon remains the ideal choice for the majority of software engineering and knowledge work. Carbon's 1M-token context window is shared by input, thinking, and output. `google-latest` uses Gemini 4 Carbon.
 
 ## Other models
 
@@ -42,6 +42,7 @@ These models are also available in web chat and on the API.
 | GPT-6.1 Sol (OpenAI) | Near-Astra performance at a lower cost, for complex coding, computer use, and professional work | 1.05M tokens | USD 2 / USD 10 | `openai/gpt-6.1-sol` |
 | GPT-6 Sol (OpenAI) | Complex coding and agentic workflows | 1.05M tokens | USD 2 / USD 10 | `openai/gpt-6-sol` |
 | GPT-6 Luna (OpenAI) | Focused, high-volume tasks, as OpenAI's most efficient model | 1.05M tokens | USD 0.10 / USD 0.50 | `openai/gpt-6-luna` |
+| Gemini 4 Argon (Google) | Most software engineering and knowledge work, with faster responses and lower token use per turn than Gemini 4 Carbon | 1M tokens | USD 2 / USD 10 through November 30, 2026, then USD 4 / USD 20 | `google/gemini-4-argon` |
 | Gemini 3.8 Flash (Google) | Google's most intelligent Flash model, for long-horizon software engineering, autonomous agents, and complex enterprise workflows | Not listed | USD 0.75 / USD 3.75 through December 31, 2026, then USD 1.50 / USD 7.50 | `google/gemini-3.8-flash` |
 | Grok 4.7 (xAI) | Coding, agentic tasks, and knowledge work | 500K tokens | USD 2 / USD 6 for prompts under 200K tokens | `xai/grok-4.7` |
 | GLM 5.3 Flash (Z.ai) | More capability than GLM 5.2 at a very low cost, including office tasks, financial research, and document processing | 1M tokens | USD 0.15 / USD 0.50 | `zai/glm-5.3-flash` |
@@ -62,7 +63,7 @@ Thinking uses more tokens. On Premium and Team, web chat stays unlimited either 
 |---|---|
 | GPT-6 Astra, GPT-6.1 Sol, GPT-6 Sol, GPT-6 Luna | **Thinking** (medium effort) and **Fast** (low effort) |
 | Claude Fable 5.1, Claude Opus 5.5 | Thinking is always on. **Thinking** uses medium effort and **Fast** low effort. |
-| Gemini 4 Argon | Web chat offers the **Thinking** preset only. Selecting **Fast** switches the chat to Gemini 3.8 Flash. |
+| Gemini 4 Carbon, Gemini 4 Argon | Web chat offers the **Thinking** preset only. Selecting **Fast** switches the chat to Gemini 3.8 Flash. |
 | Kimi K3.1 Pro | The model always thinks. **Thinking** uses high effort and **Fast** low effort. |
 | GLM | **Fast** is GLM 5.3 Flash. **Thinking** uses the earlier GLM 5.2 (`zai/glm-5.2` on the API). |
 | Grok 4.7 | One preset |
@@ -83,9 +84,34 @@ The API base URL is `https://api.caprioletech.com`. Use a concrete model ID to p
 |---|---|---|
 | `openai-latest` | `openai/gpt-6-astra` | Chat Completions, Responses |
 | `claude-latest` | `anthropic/claude-fable-5-1` (`claude-fable-5-1` on Messages) | Chat Completions, Messages |
-| `google-latest` | `google/gemini-4-argon` | Chat Completions |
+| `google-latest` | `google/gemini-4-carbon` | Chat Completions |
 
-The flagship IDs are `openai/gpt-6-astra`, `anthropic/claude-fable-5-1`, `anthropic/claude-opus-5-5`, and `google/gemini-4-argon`. On Anthropic Messages, use bare Claude IDs such as `claude-opus-5-5`. Call `GET /v1/models` for the current list, or see [List models](/api-reference/endpoint/get).
+<Note>
+Since November 17, 2026, `google-latest` uses Gemini 4 Carbon instead of Gemini 4 Argon. On Chat Completions, Carbon thinks at Google's default level, `medium`, which in our test used about 3 to 4 times Argon's output tokens for the same prompt. OpenAI's `reasoning_effort` does not change it. For lighter calls, set Google's `thinking_level` to `low` (`medium` and `high` also work), or call `google/gemini-4-argon`.
+
+<CodeGroup>
+```bash curl
+curl https://api.caprioletech.com/v1/chat/completions \
+  -H "Authorization: Bearer YOUR_CAPRIOLE_AI_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "google-latest",
+    "messages": [{"role": "user", "content": "Hello"}],
+    "extra_body": {"google": {"thinking_config": {"thinking_level": "low"}}}
+  }'
+```
+
+```python OpenAI Python SDK
+completion = client.chat.completions.create(
+    model="google-latest",
+    messages=[{"role": "user", "content": "Hello"}],
+    extra_body={"extra_body": {"google": {"thinking_config": {"thinking_level": "low"}}}},
+)
+```
+</CodeGroup>
+</Note>
+
+The flagship IDs are `openai/gpt-6-astra`, `anthropic/claude-fable-5-1`, `anthropic/claude-opus-5-5`, and `google/gemini-4-carbon`. On Anthropic Messages, use bare Claude IDs such as `claude-opus-5-5`. Call `GET /v1/models` for the current list, or see [List models](/api-reference/endpoint/get).
 
 Capriole AI counts charged tokens the same way on every model: uncached input, plus 10% of cached input, plus output. [Charged tokens explained](/articles/charged-tokens) has examples.
 
@@ -103,7 +129,7 @@ Not in web chat: Premium and Team chat is unlimited on every supported model. On
 
 ### Can I use Claude or Gemini with the OpenAI SDK?
 
-Yes. OpenAI Chat Completions accepts every public model ID, including `anthropic/claude-fable-5-1` and `google/gemini-4-argon`, plus the three aliases. The [OpenAI and Anthropic SDK guide](/guides/openai-anthropic-sdks) shows the setup.
+Yes. OpenAI Chat Completions accepts every public model ID, including `anthropic/claude-fable-5-1` and `google/gemini-4-carbon`, plus the three aliases. The [OpenAI and Anthropic SDK guide](/guides/openai-anthropic-sdks) shows the setup.
 
 ### Can I use the Thinking presets through the API?
 
@@ -117,7 +143,7 @@ Anthropic suggests starting most work on Claude Opus 5.5 and moving to Claude Fa
 
 - [OpenAI: GPT-6 Astra](https://developers.openai.com/api/docs/models/gpt-6-astra), [GPT-6.1 Sol](https://developers.openai.com/api/docs/models/gpt-6.1-sol), [GPT-6 Sol](https://developers.openai.com/api/docs/models/gpt-6-sol), and [GPT-6 Luna](https://developers.openai.com/api/docs/models/gpt-6-luna)
 - [Anthropic: Claude Fable 5.1](https://platform.claude.com/docs/en/models/fable-5-1/overview) and [Claude Opus 5.5](https://platform.claude.com/docs/en/models/opus-5-5/overview)
-- [Google: Gemini 4 Argon](https://ai.google.dev/gemini-api/docs/latest-model) and [Gemini API pricing](https://ai.google.dev/gemini-api/docs/pricing)
+- [Google: Gemini 4 Carbon](https://aistudio.google.com/docs/models/gemini-4-carbon), [Gemini 4 Argon](https://aistudio.google.com/docs/models/gemini-4-argon), and [Gemini API pricing](https://ai.google.dev/gemini-api/docs/pricing)
 - [xAI: Grok 4.7](https://docs.x.ai/developers/models/grok-4.7)
 - [Z.ai: GLM 5.3 Flash](https://docs.z.ai/guides/llm/glm-5.3-flash) and [Z.ai pricing](https://docs.z.ai/guides/overview/pricing)
 - [Moonshot AI: Kimi K3.1 Pro](https://platform.kimi.ai/docs/guide/kimi-k3-1-pro-quickstart) and [Kimi pricing](https://platform.kimi.ai/docs/pricing/chat)

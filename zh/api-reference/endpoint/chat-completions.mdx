@@ -18,6 +18,16 @@ Latest alias 只是请求输入的快捷方式。用量按解析后的具体模�
 
 Kimi K3.1 Pro 固定 `temperature` 为 1、`top_p` 为 0.95。调用此模型时请省略 `temperature`、`top_p`、`n`、`presence_penalty` 和 `frequency_penalty`，并用 `system` 角色而不是 `developer` 发送指令。
 
+## Gemini 4 Carbon
+
+`google-latest` 解析为 `google/gemini-4-carbon`。此端点会原样转发请求的其余部分，因此 Gemini 4 Carbon 按 Google 的默认思考等级 `medium` 思考；在我们的测试中，同一提示下它的输出 token 约为 Gemini 4 Argon 的 3 到 4 倍。OpenAI 的 `reasoning_effort` 不会改变 Carbon 的思考等级。如需设置，请发送 Google 的字段，取值为 `low`、`medium` 或 `high`：
+
+```json
+"extra_body": {"google": {"thinking_config": {"thinking_level": "low"}}}
+```
+
+使用 OpenAI Python SDK 时，请传入 `extra_body={"extra_body": {"google": {"thinking_config": {"thinking_level": "low"}}}}`。Google 提到，Carbon 处理较难的提示可能需要几分钟，因此请按[长任务](#长任务)中的说明使用流式传输；想缩短等待时，请把 `thinking_level` 设为 `low`，或改用 `google/gemini-4-argon`。
+
 ## 网页搜索
 
 此端点不提供网页搜索。对于 Grok 模型，如果请求中的 `web_search_options` 或 `search_parameters` 字段不为 null，请求会以 HTTP 400 失败：

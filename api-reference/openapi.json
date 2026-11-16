@@ -83,6 +83,9 @@
                           "id": "google-latest"
                         },
                         {
+                          "id": "google/gemini-4-carbon"
+                        },
+                        {
                           "id": "google/gemini-4-argon"
                         },
                         {
@@ -707,6 +710,7 @@
               "anthropic/claude-opus-4-6",
               "anthropic/claude-sonnet-4-6",
               "google-latest",
+              "google/gemini-4-carbon",
               "google/gemini-4-argon",
               "google/gemini-3.8-flash",
               "xai/grok-4.7",

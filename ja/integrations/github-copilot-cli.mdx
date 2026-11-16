@@ -94,7 +94,7 @@ export COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"
 export COPILOT_PROVIDER_WIRE_MODEL="moonshot/kimi-k3"
 ```
 
-他のモデルでは、`COPILOT_PROVIDER_WIRE_MODEL` を `google/gemini-3.8-flash`、`xai/grok-4.7`、または `zai/glm-5.3-flash` に変更します。
+他のモデルでは、`COPILOT_PROVIDER_WIRE_MODEL` を `google-latest`、`google/gemini-4-carbon`、`google/gemini-4-argon`、`google/gemini-3.8-flash`、`xai/grok-4.7`、または `zai/glm-5.3-flash` に変更します。
 
 `COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"` はそのままにしてください。`gpt-5.4` などの GPT プロファイルでは、これらのモデルが受け付けないツール タイプを Copilot が送ります。
 
@@ -124,13 +124,16 @@ copilot -p "Explain this repository." --allow-all-tools
 | GPT-6.1 Sol | `openai/gpt-6.1-sol` | `gpt-6.1-sol` | Responses |
 | Claude latest | `claude-latest` | `claude-opus-4.6` | Anthropic Messages |
 | Opus 5.5 | `claude-opus-5-5` | `claude-opus-4.6` | Anthropic Messages |
+| Google latest | `google-latest` | `claude-sonnet-4` | Chat Completions |
+| Gemini 4 Carbon | `google/gemini-4-carbon` | `claude-sonnet-4` | Chat Completions |
+| Gemini 4 Argon | `google/gemini-4-argon` | `claude-sonnet-4` | Chat Completions |
 | Gemini 3.8 Flash | `google/gemini-3.8-flash` | `claude-sonnet-4` | Chat Completions |
 | Grok 4.7 | `xai/grok-4.7` | `claude-sonnet-4` | Chat Completions |
 | GLM 5.3 Flash | `zai/glm-5.3-flash` | `claude-sonnet-4` | Chat Completions |
 | Kimi K3.1 Pro | `moonshot/kimi-k3.1-pro` | `claude-opus-4.6` | Chat Completions |
 | Kimi K3 | `moonshot/kimi-k3` | `claude-sonnet-4` | Chat Completions |
 
-`openai-latest` と `claude-latest` は、常に各ファミリーの最新の旗艦モデルを指します。現在は GPT-6 Astra と Claude Fable 5.1 です。
+`openai-latest`、`claude-latest`、`google-latest` は、常に各ファミリーの最新の旗艦モデルを指します。現在は GPT-6 Astra、Claude Fable 5.1、Gemini 4 Carbon です。
 
 ## トラブルシューティング
 
@@ -154,5 +157,6 @@ GPT、Gemini、Grok、GLM、Kimi のモデルでは、`COPILOT_PROVIDER_BASE_URL
 
 - Copilot CLI はコーディング ツールをお使いのコンピューター上で実行します。Capriole AI が処理するのはモデル リクエストだけです。
 - `copilot help providers` を実行すると、すべての BYOK 環境変数を確認できます。
+- Gemini 4 Carbon は Gemini 4 Argon より長く思考するため、各ターンに時間がかかり、使うトークンも多くなることがあります。速さを重視する場合は `google/gemini-4-argon` を使ってください。
 - 同じキーを他のコーディング エージェントでも使うには、[1 つの API キーでコーディング エージェントを使う](/ja/guides/one-api-key-coding-agents)を参照してください。
 - 公式リファレンス: [GitHub Copilot CLI のインストール](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli)、[Copilot CLI で BYOK モデルを使う](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/use-byok-models)。

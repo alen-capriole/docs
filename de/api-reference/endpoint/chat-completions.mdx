@@ -18,6 +18,16 @@ Latest-Aliase sind Eingabe-Kurzformen. Die Nutzung wird für das aufgelöste Mod
 
 Bei Kimi K3.1 Pro sind `temperature` auf 1 und `top_p` auf 0,95 festgelegt. Lassen Sie `temperature`, `top_p`, `n`, `presence_penalty` und `frequency_penalty` bei diesem Modell weg, und senden Sie Anweisungen mit der Rolle `system` statt `developer`.
 
+## Gemini 4 Carbon
+
+`google-latest` wird zu `google/gemini-4-carbon` aufgelöst. Dieser Endpunkt leitet den Rest Ihrer Anfrage unverändert weiter, daher denkt Gemini 4 Carbon auf der Standardstufe von Google, `medium`, die in unserem Test für denselben Prompt etwa das 3- bis 4-Fache der Ausgabe-Tokens von Gemini 4 Argon verbrauchte. `reasoning_effort` von OpenAI ändert die Thinking-Stufe von Carbon nicht. Um sie festzulegen, senden Sie das Feld von Google mit `low`, `medium` oder `high`:
+
+```json
+"extra_body": {"google": {"thinking_config": {"thinking_level": "low"}}}
+```
+
+Übergeben Sie mit dem OpenAI Python SDK `extra_body={"extra_body": {"google": {"thinking_config": {"thinking_level": "low"}}}}`. Laut Google können schwierige Prompts bei Carbon mehrere Minuten dauern, streamen Sie sie daher wie unter [Lange Aufgaben](#lange-aufgaben) beschrieben; für kürzere Wartezeiten setzen Sie `thinking_level` auf `low` oder verwenden Sie `google/gemini-4-argon`.
+
 ## Websuche
 
 Dieser Endpunkt bietet keine Websuche. Bei Grok-Modellen schlägt eine Anfrage mit einem Feld `web_search_options` oder `search_parameters`, das nicht null ist, mit HTTP 400 fehl:

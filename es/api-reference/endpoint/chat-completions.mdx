@@ -18,6 +18,16 @@ Los alias latest son atajos de entrada. El uso se registra contra el modelo resu
 
 Kimi K3.1 Pro fija `temperature` en 1 y `top_p` en 0,95. Omite `temperature`, `top_p`, `n`, `presence_penalty` y `frequency_penalty` con este modelo, y envía las instrucciones con el rol `system` en lugar de `developer`.
 
+## Gemini 4 Carbon
+
+`google-latest` se resuelve a `google/gemini-4-carbon`. Este endpoint reenvía el resto de tu solicitud sin cambios, así que Gemini 4 Carbon razona con el nivel predeterminado de Google, `medium`, que en nuestra prueba usó entre 3 y 4 veces los tokens de salida de Gemini 4 Argon con el mismo prompt. El `reasoning_effort` de OpenAI no cambia el nivel de razonamiento de Carbon. Para definirlo, envía el campo de Google con `low`, `medium` o `high`:
+
+```json
+"extra_body": {"google": {"thinking_config": {"thinking_level": "low"}}}
+```
+
+Con el SDK de OpenAI para Python, pasa `extra_body={"extra_body": {"google": {"thinking_config": {"thinking_level": "low"}}}}`. Google advierte que los prompts difíciles en Carbon pueden tardar varios minutos, así que transmítelos en streaming como se describe en [Tareas largas](#tareas-largas); para esperar menos, establece `thinking_level` en `low` o usa `google/gemini-4-argon`.
+
 ## Búsqueda web
 
 Este endpoint no ofrece búsqueda web. Para los modelos Grok, una solicitud con un campo `web_search_options` o `search_parameters` distinto de null falla con HTTP 400:

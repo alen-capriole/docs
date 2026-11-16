@@ -6,7 +6,7 @@ description: "Gemini 4 Argon cuesta USD 2 de entrada y USD 10 de salida por 1M d
 
 La API de Gemini de Google cobra **USD 2 por 1M de tokens de entrada y USD 10 por 1M de tokens de salida en Gemini 4 Argon** con su precio introductorio, vigente hasta el 30 de noviembre de 2026. Desde el 1 de diciembre de 2026, Argon cuesta **USD 4 y USD 20**. Con tres tokens de entrada por cada token de salida, 5M de tokens cuestan USD 20 con el precio introductorio y USD 40 desde el 1 de diciembre con las tarifas estándar de Google.
 
-Capriole AI Premium cuesta USD 9 al mes e incluye chat web ilimitado con GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5 y Gemini 4 Argon. Su API ofrece Gemini 4 Argon a través de OpenAI Chat Completions a USD 8 por 5M de tokens de cualquier modelo compatible, hasta un 92% menos que los precios oficiales de la API. Google pone a Argon un precio más bajo que a GPT-6 Astra y Claude Fable 5.1, así que el ahorro en Argon es menor: un 60% con el precio introductorio y un 80% desde el 1 de diciembre. Una sola clave API funciona en tus propias aplicaciones y en agentes de programación.
+Capriole AI Premium cuesta USD 9 al mes e incluye chat web ilimitado con GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5 y Gemini 4 Carbon. Su API ofrece Gemini 4 Argon a través de OpenAI Chat Completions a USD 8 por 5M de tokens de cualquier modelo compatible, hasta un 92% menos que los precios oficiales de la API. Google pone a Argon un precio más bajo que a GPT-6 Astra y Claude Fable 5.1, así que el ahorro en Argon es menor: un 60% con el precio introductorio y un 80% desde el 1 de diciembre. Una sola clave API funciona en tus propias aplicaciones y en agentes de programación.
 
 ## Precios de la API de Gemini por 1M de tokens
 
@@ -14,6 +14,8 @@ Google publica estas tarifas del nivel de pago en su [página de precios de la G
 
 | Modelo | ID de modelo en la API | Periodo | Entrada | Entrada en caché | Salida |
 |---|---|---|---:|---:|---:|
+| Gemini 4 Carbon | `gemini-4-carbon` | Hasta el 30 de noviembre de 2026 | USD 2 | USD 0.10 | USD 10 |
+| Gemini 4 Carbon | `gemini-4-carbon` | Desde el 1 de diciembre de 2026 | USD 4 | USD 0.20 | USD 20 |
 | Gemini 4 Argon | `gemini-4-argon` | Hasta el 30 de noviembre de 2026 | USD 2 | USD 0.10 | USD 10 |
 | Gemini 4 Argon | `gemini-4-argon` | Desde el 1 de diciembre de 2026 | USD 4 | USD 0.20 | USD 20 |
 | Gemini 3.8 Flash | `gemini-3.8-flash` | Hasta el 31 de diciembre de 2026 | USD 0.75 | USD 0.075 | USD 3.75 |
@@ -21,13 +23,13 @@ Google publica estas tarifas del nivel de pago en su [página de precios de la G
 
 La misma página indica las reglas que cambian estas tarifas:
 
-- **Batch y Flex**: Ambos cuestan la mitad de las tarifas estándar. Gemini 4 Argon cuesta USD 1 de entrada y USD 5 de salida hasta el 30 de noviembre; luego, USD 2 y USD 10.
-- **Priority**: Gemini 4 Argon cuesta USD 3.60 de entrada y USD 18 de salida hasta el 30 de noviembre; luego, USD 7.20 y USD 36.
-- **Caché**: Gemini 4 Argon solo admite caché implícita, activada de forma predeterminada en prompts de al menos 4.096 tokens. No admite caché explícita.
-- **Nivel gratuito**: Gemini 3.8 Flash tiene nivel gratuito. Gemini 4 Argon no.
+- **Batch y Flex**: Ambos cuestan la mitad de las tarifas estándar. Gemini 4 Carbon y Gemini 4 Argon cuestan cada uno USD 1 de entrada y USD 5 de salida hasta el 30 de noviembre; luego, USD 2 y USD 10.
+- **Priority**: Gemini 4 Carbon y Gemini 4 Argon cuestan cada uno USD 3.60 de entrada y USD 18 de salida hasta el 30 de noviembre; luego, USD 7.20 y USD 36.
+- **Caché**: Gemini 4 Carbon y Gemini 4 Argon solo admiten caché implícita, activada de forma predeterminada en prompts de al menos 4.096 tokens. No admiten caché explícita.
+- **Nivel gratuito**: Gemini 3.8 Flash tiene nivel gratuito. Gemini 4 Carbon y Gemini 4 Argon no.
 - **Grounding con la Búsqueda de Google**: 5.000 solicitudes de búsqueda al mes son gratuitas, compartidas entre Gemini 3 y los modelos posteriores; después, USD 14 por cada 1.000 solicitudes.
 
-Google no indica una tarifa aparte para prompts largos en ninguno de los dos modelos.
+Google no indica una tarifa aparte para prompts largos en estos modelos.
 
 ## Cuánto cuestan 1M y 5M de tokens
 
@@ -61,8 +63,8 @@ Para ver una prueba de 5M de tokens que también incluye la comisión de crédit
 
 Capriole ofrece los modelos de Gemini a través de OpenAI Chat Completions en `POST /v1/chat/completions`. Configura la URL base del SDK de OpenAI como `https://api.caprioletech.com/v1`.
 
-- `google-latest` selecciona Gemini 4 Argon, así tu configuración sigue el modelo de Google recomendado en cada momento.
-- `google/gemini-4-argon` y `google/gemini-3.8-flash` seleccionan un modelo de forma explícita.
+- `google/gemini-4-argon` selecciona Gemini 4 Argon. `google/gemini-4-carbon` y `google/gemini-3.8-flash` seleccionan esos modelos.
+- `google-latest` selecciona Gemini 4 Carbon, el modelo más potente de Google, que gasta más tokens de razonamiento por turno que Argon. En Chat Completions razona con el nivel `medium` predeterminado de Google; [Elige un modelo](/es/guides/choose-a-model#ids-de-modelo-para-la-api) muestra cómo establecer `low`.
 - Los endpoints Responses y Messages no aceptan modelos de Gemini.
 
 ```python
@@ -76,7 +78,7 @@ client = OpenAI(
 )
 
 completion = client.chat.completions.create(
-    model="google-latest",
+    model="google/gemini-4-argon",
     messages=[{"role": "user", "content": "Explain this stack trace."}],
 )
 print(completion.choices[0].message.content)
@@ -104,7 +106,7 @@ El nivel gratuito de Google no incluye Gemini 4 Argon. En Capriole AI puedes pro
 
 ### ¿Qué significa `google-latest` en Capriole AI?
 
-`google-latest` apunta a Gemini 4 Argon. Funciona en `/v1/chat/completions`, el endpoint que ofrece los modelos de Gemini.
+`google-latest` apunta a Gemini 4 Carbon, el modelo más potente de Google, desde el 17 de noviembre de 2026. Funciona en `/v1/chat/completions`, el endpoint que ofrece los modelos de Gemini. Para seguir usando Argon, llama a `google/gemini-4-argon`.
 
 ### ¿El chat ilimitado incluye el uso de la API?
 
@@ -117,6 +119,6 @@ No. Lo ilimitado cubre el chat web. Las solicitudes de la API y de los agentes d
 ## Fuentes oficiales
 
 - Google: [precios de la Gemini Developer API](https://ai.google.dev/gemini-api/docs/pricing)
-- Google: [Gemini 4 Argon](https://ai.google.dev/gemini-api/docs/latest-model)
+- Google: [Gemini 4 Argon](https://aistudio.google.com/docs/models/gemini-4-argon)
 
 Los hechos de plan, recarga y tokens cobrados de Capriole AI en esta página se mantienen como documentación de primera parte.

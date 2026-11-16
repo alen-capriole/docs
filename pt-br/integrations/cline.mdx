@@ -82,13 +82,16 @@ Todos os modelos usam Chat Completions.
 | GPT-6.1 Sol | `openai/gpt-6.1-sol` |
 | Claude latest | `claude-latest` |
 | Opus 5.5 | `anthropic/claude-opus-5-5` |
+| Google latest | `google-latest` |
+| Gemini 4 Carbon | `google/gemini-4-carbon` |
+| Gemini 4 Argon | `google/gemini-4-argon` |
 | Gemini 3.8 Flash | `google/gemini-3.8-flash` |
 | Grok 4.7 | `xai/grok-4.7` |
 | GLM 5.3 Flash | `zai/glm-5.3-flash` |
 | Kimi K3.1 Pro | `moonshot/kimi-k3.1-pro` |
 | Kimi K3 | `moonshot/kimi-k3` |
 
-`openai-latest` e `claude-latest` sempre apontam para o nosso modelo principal mais recente de cada família, atualmente GPT-6 Astra e Claude Fable 5.1. `GET https://api.caprioletech.com/v1/models` lista todos os IDs de modelo.
+`openai-latest`, `claude-latest` e `google-latest` sempre apontam para o nosso modelo principal mais recente de cada família, atualmente GPT-6 Astra, Claude Fable 5.1 e Gemini 4 Carbon. `GET https://api.caprioletech.com/v1/models` lista todos os IDs de modelo.
 
 ## Solução de problemas
 
@@ -107,5 +110,6 @@ Confirme que a URL base é `https://api.caprioletech.com/v1`.
 ## Observações
 
 - O Cline executa ferramentas de programação no seu computador. A Capriole AI só trata as solicitações de modelo.
+- O Gemini 4 Carbon raciocina por mais tempo que o Gemini 4 Argon, então cada turno pode demorar mais e usar mais tokens. Para turnos mais rápidos, use `google/gemini-4-argon`.
 - Para usar a mesma key nos seus outros agentes de programação, veja [Usar uma API key com agentes de programação](/pt-br/guides/one-api-key-coding-agents).
 - Referências oficiais: [Cline CLI](https://docs.cline.bot/cline-cli/overview) e [Provedor OpenAI Compatible do Cline](https://docs.cline.bot/provider-config/openai-compatible).

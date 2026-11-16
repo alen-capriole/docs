@@ -56,6 +56,9 @@ model add capriole/openai-latest --name "OpenAI latest" --context-window 1050000
 model add capriole/openai/gpt-6.1-sol --name "GPT-6.1 Sol" --context-window 1050000 --default-max-tokens 32000 --can-reason true
 model add capriole/claude-latest --name "Claude latest" --context-window 1000000 --default-max-tokens 32000 --can-reason true
 model add capriole/anthropic/claude-opus-5-5 --name "Opus 5.5" --context-window 1000000 --default-max-tokens 32000 --can-reason true
+model add capriole/google-latest --name "Google latest" --context-window 1048576 --default-max-tokens 32000 --can-reason true
+model add capriole/google/gemini-4-carbon --name "Gemini 4 Carbon" --context-window 1048576 --default-max-tokens 32000 --can-reason true
+model add capriole/google/gemini-4-argon --name "Gemini 4 Argon" --context-window 1048576 --default-max-tokens 32000 --can-reason true
 model add capriole/google/gemini-3.8-flash --name "Gemini 3.8 Flash" --context-window 1048576 --default-max-tokens 32000 --can-reason true
 model add capriole/xai/grok-4.7 --name "Grok 4.7" --context-window 500000 --default-max-tokens 32000 --can-reason true
 model add capriole/zai/glm-5.3-flash --name "GLM 5.3 Flash" --context-window 1000000 --default-max-tokens 32000 --can-reason true
@@ -98,13 +101,16 @@ Model references use the form `capriole/<model-id>`.
 | GPT-6.1 Sol | `openai/gpt-6.1-sol` |
 | Claude latest | `claude-latest` |
 | Opus 5.5 | `anthropic/claude-opus-5-5` |
+| Google latest | `google-latest` |
+| Gemini 4 Carbon | `google/gemini-4-carbon` |
+| Gemini 4 Argon | `google/gemini-4-argon` |
 | Gemini 3.8 Flash | `google/gemini-3.8-flash` |
 | Grok 4.7 | `xai/grok-4.7` |
 | GLM 5.3 Flash | `zai/glm-5.3-flash` |
 | Kimi K3.1 Pro | `moonshot/kimi-k3.1-pro` |
 | Kimi K3 | `moonshot/kimi-k3` |
 
-`openai-latest` and `claude-latest` always point to our latest flagship in each family, currently GPT-6 Astra and Claude Fable 5.1.
+`openai-latest`, `claude-latest`, and `google-latest` always point to our latest flagship in each family, currently GPT-6 Astra, Claude Fable 5.1, and Gemini 4 Carbon.
 
 ## Troubleshooting
 
@@ -124,5 +130,6 @@ A `.crushrc` or `crushrc` file in the project directory takes priority over `~/.
 
 - `crushrc` runs as a shell script. Do not paste your key into it.
 - To add another Capriole AI model, add one more `model add` line. `GET https://api.caprioletech.com/v1/models` lists every model ID.
+- Gemini 4 Carbon thinks longer than Gemini 4 Argon, so its turns can take longer and use more tokens. For quicker turns, use `google/gemini-4-argon`.
 - To use the same key with your other coding agents, see [Use one API key with coding agents](/guides/one-api-key-coding-agents).
 - Official references: [Crush](https://github.com/charmbracelet/crush) and [Crush configuration](https://github.com/charmbracelet/crush#configuration).

@@ -83,6 +83,24 @@ Erstellen oder aktualisieren Sie `~/.pi/agent/models.json`:
           "compat": { "forceAdaptiveThinking": true }
         },
         {
+          "id": "google-latest",
+          "contextWindow": 1048576,
+          "maxTokens": 65536,
+          "reasoning": true
+        },
+        {
+          "id": "google/gemini-4-carbon",
+          "contextWindow": 1048576,
+          "maxTokens": 65536,
+          "reasoning": true
+        },
+        {
+          "id": "google/gemini-4-argon",
+          "contextWindow": 1048576,
+          "maxTokens": 65536,
+          "reasoning": true
+        },
+        {
           "id": "zai/glm-5.3-flash",
           "contextWindow": 1000000,
           "maxTokens": 128000,
@@ -124,7 +142,7 @@ Legen Sie anschließend Capriole AI in `~/.pi/agent/settings.json` als Standard 
 
 Was die einzelnen Einstellungen bewirken:
 
-- Das `api` des Anbieters ist `openai-completions`, sodass Grok, GLM und Kimi Chat Completions verwenden. GPT-Modelle überschreiben es mit `openai-responses`, Claude-Modelle mit `anthropic-messages` und einer `baseUrl` ohne `/v1`.
+- Das `api` des Anbieters ist `openai-completions`, sodass Gemini, Grok, GLM und Kimi Chat Completions verwenden. GPT-Modelle überschreiben es mit `openai-responses`, Claude-Modelle mit `anthropic-messages` und einer `baseUrl` ohne `/v1`.
 - `$CAPRIOLE_AI_API_KEY` liest Ihren Schlüssel aus der Umgebung.
 - `authHeader: true` sendet den Schlüssel bei jedem Protokoll als Bearer-Token. Ohne diese Einstellung senden Claude-Modelle den Schlüssel in einem `x-api-key`-Header, den Capriole AI nicht akzeptiert.
 - `forceAdaptiveThinking` sorgt dafür, dass Claude-Modelle adaptives Thinking verwenden. Opus 5.5 lehnt ein festes Thinking-Budget ab.
@@ -154,12 +172,15 @@ pi -p --model xai/grok-4.7 "Explain this repository."
 | GPT-6.1 Sol | `openai/gpt-6.1-sol` | Responses |
 | Claude latest | `claude-latest` | Anthropic Messages |
 | Opus 5.5 | `claude-opus-5-5` | Anthropic Messages |
+| Google latest | `google-latest` | Chat Completions |
+| Gemini 4 Carbon | `google/gemini-4-carbon` | Chat Completions |
+| Gemini 4 Argon | `google/gemini-4-argon` | Chat Completions |
 | Grok 4.7 | `xai/grok-4.7` | Chat Completions |
 | GLM 5.3 Flash | `zai/glm-5.3-flash` | Chat Completions |
 | Kimi K3.1 Pro | `moonshot/kimi-k3.1-pro` | Chat Completions |
 | Kimi K3 | `moonshot/kimi-k3` | Chat Completions |
 
-`openai-latest` und `claude-latest` zeigen immer auf unser neuestes Flaggschiff-Modell der jeweiligen Familie, derzeit GPT-6 Astra und Claude Fable 5.1.
+`openai-latest`, `claude-latest` und `google-latest` zeigen immer auf unser neuestes Flaggschiff-Modell der jeweiligen Familie, derzeit GPT-6 Astra, Claude Fable 5.1 und Gemini 4 Carbon.
 
 ## Fehlerbehebung
 
@@ -182,5 +203,6 @@ Claude-Modelle auf `anthropic-messages` benötigen die Claude-IDs ohne Präfix, 
 ## Hinweise
 
 - Um ein weiteres Capriole AI-Modell hinzuzufügen, kopieren Sie den Eintrag eines Modells derselben Familie und ändern Sie die ID. `GET https://api.caprioletech.com/v1/models` listet alle Modell-IDs auf.
+- Gemini 4 Carbon denkt länger nach als Gemini 4 Argon, daher können Durchläufe länger dauern und mehr Tokens verbrauchen. Für schnellere Durchläufe nutzen Sie `google/gemini-4-argon`.
 - Wie Sie denselben Schlüssel mit Ihren anderen Coding-Agents nutzen, zeigt [Einen API-Schlüssel mit Coding-Agents nutzen](/de/guides/one-api-key-coding-agents).
 - Offizielle Referenzen: [Pi](https://pi.dev), [Pi-Dokumentation](https://pi.dev/docs), [Modell auswählen](https://github.com/earendil-works/pi/blob/main/packages/coding-agent/docs/models.md) und [Pi-Konfiguration](https://github.com/earendil-works/pi/blob/main/packages/coding-agent/docs/configuration.md).

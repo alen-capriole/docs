@@ -82,13 +82,16 @@ cline -m moonshot/kimi-k3 "Explain this repository."
 | GPT-6.1 Sol | `openai/gpt-6.1-sol` |
 | Claude latest | `claude-latest` |
 | Opus 5.5 | `anthropic/claude-opus-5-5` |
+| Google latest | `google-latest` |
+| Gemini 4 Carbon | `google/gemini-4-carbon` |
+| Gemini 4 Argon | `google/gemini-4-argon` |
 | Gemini 3.8 Flash | `google/gemini-3.8-flash` |
 | Grok 4.7 | `xai/grok-4.7` |
 | GLM 5.3 Flash | `zai/glm-5.3-flash` |
 | Kimi K3.1 Pro | `moonshot/kimi-k3.1-pro` |
 | Kimi K3 | `moonshot/kimi-k3` |
 
-`openai-latest` 和 `claude-latest` 始终指向各自系列中我们最新的旗舰模型，目前分别是 GPT-6 Astra 和 Claude Fable 5.1。`GET https://api.caprioletech.com/v1/models` 会列出所有模型 ID。
+`openai-latest`、`claude-latest` 和 `google-latest` 始终指向各自系列中我们最新的旗舰模型，目前分别是 GPT-6 Astra、Claude Fable 5.1 和 Gemini 4 Carbon。`GET https://api.caprioletech.com/v1/models` 会列出所有模型 ID。
 
 ## 故障排除
 
@@ -107,5 +110,6 @@ cline -m moonshot/kimi-k3 "Explain this repository."
 ## 说明
 
 - Cline 在你的电脑上运行编程工具。Capriole AI 只处理模型请求。
+- Gemini 4 Carbon 的思考时间比 Gemini 4 Argon 长，每一轮可能更慢、用的 token 更多。想要更快的回应，请使用 `google/gemini-4-argon`。
 - 想在其他编程智能体中使用同一个 API Key，请参阅[使用一个 API Key 配置编程智能体](/zh/guides/one-api-key-coding-agents)。
 - 官方参考资料包括 [Cline CLI](https://docs.cline.bot/cline-cli/overview)和 [Cline OpenAI Compatible 提供商](https://docs.cline.bot/provider-config/openai-compatible)。

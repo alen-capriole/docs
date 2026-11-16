@@ -18,6 +18,16 @@ Latest 별칭은 입력 단축키입니다. 사용량은 해석된 모델에 대
 
 Kimi K3.1 Pro는 `temperature`를 1, `top_p`를 0.95로 고정합니다. 이 모델에서는 `temperature`, `top_p`, `n`, `presence_penalty`, `frequency_penalty`를 생략하고, 지침은 `developer`가 아닌 `system` 역할로 보내세요.
 
+## Gemini 4 Carbon
+
+`google-latest`는 `google/gemini-4-carbon`으로 해석됩니다. 이 엔드포인트는 요청의 나머지 부분을 그대로 전달하므로, Gemini 4 Carbon은 Google의 기본 수준인 `medium`으로 추론합니다. 우리 테스트에서는 같은 프롬프트에 Gemini 4 Argon보다 출력 토큰을 약 3~4배 썼습니다. OpenAI의 `reasoning_effort`로는 Carbon의 추론 수준이 바뀌지 않습니다. 수준을 설정하려면 Google의 필드를 `low`, `medium`, `high` 중 하나로 보내세요.
+
+```json
+"extra_body": {"google": {"thinking_config": {"thinking_level": "low"}}}
+```
+
+OpenAI Python SDK에서는 `extra_body={"extra_body": {"google": {"thinking_config": {"thinking_level": "low"}}}}`를 전달하세요. Google은 Carbon에서 어려운 프롬프트는 몇 분이 걸릴 수 있다고 안내하므로, [긴 작업](#긴-작업)에 설명된 대로 스트리밍하세요. 기다리는 시간을 줄이려면 `thinking_level`을 `low`로 설정하거나 `google/gemini-4-argon`을 사용하세요.
+
 ## 웹 검색
 
 이 엔드포인트는 웹 검색을 제공하지 않습니다. Grok 모델에서 `web_search_options` 또는 `search_parameters` 필드가 null이 아닌 요청은 HTTP 400으로 실패합니다.

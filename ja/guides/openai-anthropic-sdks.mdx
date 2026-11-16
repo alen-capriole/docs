@@ -210,6 +210,8 @@ completion = openai_client.chat.completions.create(
 print(completion.choices[0].message.content)
 ```
 
+`google-latest` は Gemini 4 Carbon を使い、Chat Completions では Google の既定の思考レベル `medium` で思考します。トークンを減らすには、`extra_body={"extra_body": {"google": {"thinking_config": {"thinking_level": "low"}}}}` を追加するか、`google/gemini-4-argon` を呼び出してください。詳しくは [モデル選びのガイド](/ja/guides/choose-a-model#api-のモデル-id) をご覧ください。
+
 `google-latest` を `responses.create()` に移さないでください。Responses ルートは対応する OpenAI Responses モデル集合を受け付け、Chat Completions はより広い公開互換カタログを受け付けます。
 
 ## よくある SDK エラーを直す
@@ -240,4 +242,4 @@ API 呼び出しは課金トークンで計量されます。ワークロード�
 - OpenAI: [TypeScript と JavaScript SDK](https://github.com/openai/openai-node)
 - Anthropic: [TypeScript SDK](https://github.com/anthropics/anthropic-sdk-typescript)
 
-[制限付きの無料 Browser Chat で GPT-6 Astra、Claude Fable 5.1、または Gemini 4 Argon を試す](https://www.capriole.ai/ja)。Python または TypeScript から含まれる API 残高を使うときは Premium にアップグレードしてください。
+[制限付きの無料 Browser Chat で GPT-6 Astra、Claude Fable 5.1、または Gemini 4 Carbon を試す](https://www.capriole.ai/ja)。Python または TypeScript から含まれる API 残高を使うときは Premium にアップグレードしてください。

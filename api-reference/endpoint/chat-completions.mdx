@@ -18,6 +18,16 @@ Latest aliases are input shortcuts. Usage is recorded against the resolved model
 
 Kimi K3.1 Pro fixes `temperature` at 1 and `top_p` at 0.95. Omit `temperature`, `top_p`, `n`, `presence_penalty`, and `frequency_penalty` for this model, and send instructions with the `system` role rather than `developer`.
 
+## Gemini 4 Carbon
+
+`google-latest` resolves to `google/gemini-4-carbon`. This endpoint forwards the rest of your request unchanged, so Gemini 4 Carbon thinks at Google's default level, `medium`, which in our test used about 3 to 4 times the output tokens of Gemini 4 Argon for the same prompt. OpenAI's `reasoning_effort` does not change Carbon's thinking level. To set it, send Google's field with `low`, `medium`, or `high`:
+
+```json
+"extra_body": {"google": {"thinking_config": {"thinking_level": "low"}}}
+```
+
+With the OpenAI Python SDK, pass `extra_body={"extra_body": {"google": {"thinking_config": {"thinking_level": "low"}}}}`. Google notes that hard prompts on Carbon can take several minutes, so stream them as described in [Long tasks](#long-tasks); for shorter waits, set `thinking_level` to `low` or call `google/gemini-4-argon`.
+
 ## Web search
 
 This endpoint does not provide web search. For Grok models, a request with a non-null `web_search_options` or `search_parameters` field fails with HTTP 400:

@@ -56,6 +56,9 @@ Añade el bloque `models` y los ajustes de modelo de `agents.defaults` siguiente
         "capriole-ai-compatible/moonshot/kimi-k3.1-pro": {},
         "capriole-ai-compatible/moonshot/kimi-k3": {},
         "capriole-ai-compatible/xai/grok-4.7": {},
+        "capriole-ai-compatible/google-latest": {},
+        "capriole-ai-compatible/google/gemini-4-carbon": {},
+        "capriole-ai-compatible/google/gemini-4-argon": {},
         "capriole-ai-compatible/google/gemini-3.8-flash": {}
       }
     }
@@ -165,6 +168,33 @@ Añade el bloque `models` y los ajustes de modelo de `agents.defaults` siguiente
             "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 }
           },
           {
+            "id": "google-latest",
+            "name": "Google latest",
+            "reasoning": true,
+            "input": ["text"],
+            "contextWindow": 1048576,
+            "maxTokens": 65536,
+            "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 }
+          },
+          {
+            "id": "google/gemini-4-carbon",
+            "name": "Gemini 4 Carbon",
+            "reasoning": true,
+            "input": ["text"],
+            "contextWindow": 1048576,
+            "maxTokens": 65536,
+            "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 }
+          },
+          {
+            "id": "google/gemini-4-argon",
+            "name": "Gemini 4 Argon",
+            "reasoning": true,
+            "input": ["text"],
+            "contextWindow": 1048576,
+            "maxTokens": 65536,
+            "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 }
+          },
+          {
             "id": "google/gemini-3.8-flash",
             "name": "Gemini 3.8 Flash",
             "reasoning": true,
@@ -226,13 +256,16 @@ Las referencias de modelo usan el formato `<provider-id>/<model-id>`.
 | GPT-6.1 Sol | `capriole-ai-openai/openai/gpt-6.1-sol` | Responses |
 | Claude latest | `capriole-ai-anthropic/claude-latest` | Anthropic Messages |
 | Opus 5.5 | `capriole-ai-anthropic/claude-opus-5-5` | Anthropic Messages |
+| Google latest | `capriole-ai-compatible/google-latest` | Chat Completions |
+| Gemini 4 Carbon | `capriole-ai-compatible/google/gemini-4-carbon` | Chat Completions |
+| Gemini 4 Argon | `capriole-ai-compatible/google/gemini-4-argon` | Chat Completions |
 | Gemini 3.8 Flash | `capriole-ai-compatible/google/gemini-3.8-flash` | Chat Completions |
 | Grok 4.7 | `capriole-ai-compatible/xai/grok-4.7` | Chat Completions |
 | GLM 5.3 Flash | `capriole-ai-compatible/zai/glm-5.3-flash` | Chat Completions |
 | Kimi K3.1 Pro | `capriole-ai-compatible/moonshot/kimi-k3.1-pro` | Chat Completions |
 | Kimi K3 | `capriole-ai-compatible/moonshot/kimi-k3` | Chat Completions |
 
-`openai-latest` y `claude-latest` siempre apuntan a nuestro modelo insignia más reciente de cada familia, actualmente GPT-6 Astra y Claude Fable 5.1.
+`openai-latest`, `claude-latest` y `google-latest` siempre apuntan a nuestro modelo insignia más reciente de cada familia, actualmente GPT-6 Astra, Claude Fable 5.1 y Gemini 4 Carbon.
 
 ## Solución de problemas
 
@@ -259,5 +292,6 @@ Ejecuta `openclaw status`, `openclaw gateway status`, `openclaw logs --follow` y
 ## Notas
 
 - Para añadir otro modelo de Capriole AI, copia la entrada de un modelo de la misma familia, cambia el ID y añade su referencia a `agents.defaults.models`. `GET https://api.caprioletech.com/v1/models` devuelve la lista de todos los IDs de modelo.
+- Gemini 4 Carbon razona más tiempo que Gemini 4 Argon, así que cada turno puede tardar más y usar más tokens. Para turnos más rápidos, usa `google/gemini-4-argon`.
 - Para usar la misma clave en tus otros agentes de programación, consulta [Usa una sola clave API con agentes de programación](/es/guides/one-api-key-coding-agents).
 - Referencias oficiales: [instalación de OpenClaw](https://docs.openclaw.ai/install), [proveedores personalizados de OpenClaw](https://docs.openclaw.ai/gateway/config-tools), [proveedores de modelos de OpenClaw](https://documentation.openclaw.ai/concepts/model-providers) y [solución de problemas de OpenClaw](https://docs.openclaw.ai/gateway/troubleshooting).

@@ -56,6 +56,9 @@ model add capriole/openai-latest --name "OpenAI latest" --context-window 1050000
 model add capriole/openai/gpt-6.1-sol --name "GPT-6.1 Sol" --context-window 1050000 --default-max-tokens 32000 --can-reason true
 model add capriole/claude-latest --name "Claude latest" --context-window 1000000 --default-max-tokens 32000 --can-reason true
 model add capriole/anthropic/claude-opus-5-5 --name "Opus 5.5" --context-window 1000000 --default-max-tokens 32000 --can-reason true
+model add capriole/google-latest --name "Google latest" --context-window 1048576 --default-max-tokens 32000 --can-reason true
+model add capriole/google/gemini-4-carbon --name "Gemini 4 Carbon" --context-window 1048576 --default-max-tokens 32000 --can-reason true
+model add capriole/google/gemini-4-argon --name "Gemini 4 Argon" --context-window 1048576 --default-max-tokens 32000 --can-reason true
 model add capriole/google/gemini-3.8-flash --name "Gemini 3.8 Flash" --context-window 1048576 --default-max-tokens 32000 --can-reason true
 model add capriole/xai/grok-4.7 --name "Grok 4.7" --context-window 500000 --default-max-tokens 32000 --can-reason true
 model add capriole/zai/glm-5.3-flash --name "GLM 5.3 Flash" --context-window 1000000 --default-max-tokens 32000 --can-reason true
@@ -98,13 +101,16 @@ crush run -m capriole/xai/grok-4.7 "Explain this repository."
 | GPT-6.1 Sol | `openai/gpt-6.1-sol` |
 | Claude latest | `claude-latest` |
 | Opus 5.5 | `anthropic/claude-opus-5-5` |
+| Google latest | `google-latest` |
+| Gemini 4 Carbon | `google/gemini-4-carbon` |
+| Gemini 4 Argon | `google/gemini-4-argon` |
 | Gemini 3.8 Flash | `google/gemini-3.8-flash` |
 | Grok 4.7 | `xai/grok-4.7` |
 | GLM 5.3 Flash | `zai/glm-5.3-flash` |
 | Kimi K3.1 Pro | `moonshot/kimi-k3.1-pro` |
 | Kimi K3 | `moonshot/kimi-k3` |
 
-`openai-latest`와 `claude-latest`는 항상 각 계열의 최신 플래그십 모델을 가리킵니다. 현재는 GPT-6 Astra와 Claude Fable 5.1입니다.
+`openai-latest`, `claude-latest`, `google-latest`는 항상 각 계열의 최신 플래그십 모델을 가리킵니다. 현재는 GPT-6 Astra, Claude Fable 5.1, Gemini 4 Carbon입니다.
 
 ## 문제 해결
 
@@ -124,5 +130,6 @@ Chat Completions에서는 `anthropic/claude-opus-5-5`처럼 `anthropic/` 접두�
 
 - `crushrc`는 셸 스크립트로 실행됩니다. 키를 이 파일에 붙여 넣지 마세요.
 - 다른 Capriole AI 모델을 추가하려면 `model add` 줄을 하나 더 추가하세요. `GET https://api.caprioletech.com/v1/models`는 모든 모델 ID를 나열합니다.
+- Gemini 4 Carbon은 Gemini 4 Argon보다 오래 추론하므로 턴마다 시간이 더 걸리고 토큰도 더 쓸 수 있습니다. 더 빠른 응답이 필요하면 `google/gemini-4-argon`을 사용하세요.
 - 같은 key를 다른 코딩 에이전트에서도 쓰려면 [코딩 에이전트에 API key 하나 사용하기](/ko/guides/one-api-key-coding-agents) 가이드를 참고하세요.
 - 공식 참고: [Crush](https://github.com/charmbracelet/crush), [Crush configuration](https://github.com/charmbracelet/crush#configuration).

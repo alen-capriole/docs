@@ -111,6 +111,30 @@ Erstellen oder aktualisieren Sie `~/.config/kilo/kilo.jsonc`:
           },
           "tool_call": true
         },
+        "google-latest": {
+          "name": "Google latest",
+          "limit": {
+            "context": 1048576,
+            "output": 65536
+          },
+          "tool_call": true
+        },
+        "google/gemini-4-carbon": {
+          "name": "Gemini 4 Carbon",
+          "limit": {
+            "context": 1048576,
+            "output": 65536
+          },
+          "tool_call": true
+        },
+        "google/gemini-4-argon": {
+          "name": "Gemini 4 Argon",
+          "limit": {
+            "context": 1048576,
+            "output": 65536
+          },
+          "tool_call": true
+        },
         "google/gemini-3.8-flash": {
           "name": "Gemini 3.8 Flash",
           "limit": {
@@ -200,13 +224,16 @@ Modellreferenzen haben die Form `capriole-ai/<model-id>`.
 | GPT-6.1 Sol | `openai/gpt-6.1-sol` | Responses |
 | Claude latest | `claude-latest` | Anthropic Messages |
 | Opus 5.5 | `claude-opus-5-5` | Anthropic Messages |
+| Google latest | `google-latest` | Chat Completions |
+| Gemini 4 Carbon | `google/gemini-4-carbon` | Chat Completions |
+| Gemini 4 Argon | `google/gemini-4-argon` | Chat Completions |
 | Gemini 3.8 Flash | `google/gemini-3.8-flash` | Chat Completions |
 | Grok 4.7 | `xai/grok-4.7` | Chat Completions |
 | GLM 5.3 Flash | `zai/glm-5.3-flash` | Chat Completions |
 | Kimi K3.1 Pro | `moonshot/kimi-k3.1-pro` | Chat Completions |
 | Kimi K3 | `moonshot/kimi-k3` | Chat Completions |
 
-`openai-latest` und `claude-latest` zeigen immer auf unser neuestes Flaggschiff-Modell der jeweiligen Familie, derzeit GPT-6 Astra und Claude Fable 5.1.
+`openai-latest`, `claude-latest` und `google-latest` zeigen immer auf unser neuestes Flaggschiff-Modell der jeweiligen Familie, derzeit GPT-6 Astra, Claude Fable 5.1 und Gemini 4 Carbon.
 
 ## Fehlerbehebung
 
@@ -230,5 +257,6 @@ Bestätigen Sie, dass der Modelleintrag `"tool_call": true` enthält.
 
 - Kilo Code führt Coding-Tools auf Ihrem Computer aus. Capriole AI verarbeitet nur die Modellanfragen.
 - Um ein weiteres Capriole AI-Modell hinzuzufügen, kopieren Sie den Eintrag eines Modells derselben Familie und ändern Sie die ID. `GET https://api.caprioletech.com/v1/models` listet alle Modell-IDs auf.
+- Gemini 4 Carbon denkt länger nach als Gemini 4 Argon, daher können Durchläufe länger dauern und mehr Tokens verbrauchen. Für schnellere Durchläufe nutzen Sie `google/gemini-4-argon`.
 - Wie Sie denselben Schlüssel mit Ihren anderen Coding-Agents nutzen, zeigt [Einen API-Schlüssel mit Coding-Agents nutzen](/de/guides/one-api-key-coding-agents).
 - Offizielle Referenzen: [Kilo CLI](https://kilo.ai/docs/cli), [Benutzerdefinierte Modelle in Kilo](https://kilo.ai/docs/code-with-ai/agents/custom-models), [Kilo-Einstellungen](https://kilo.ai/docs/getting-started/settings) und [OpenCode-Anbieter](https://opencode.ai/docs/providers).

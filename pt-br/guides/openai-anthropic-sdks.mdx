@@ -210,6 +210,8 @@ completion = openai_client.chat.completions.create(
 print(completion.choices[0].message.content)
 ```
 
+`google-latest` usa o Gemini 4 Carbon, que raciocina no nível padrão do Google, `medium`, no Chat Completions. Para usar menos tokens, adicione `extra_body={"extra_body": {"google": {"thinking_config": {"thinking_level": "low"}}}}` ou chame `google/gemini-4-argon`. [Escolha um modelo](/pt-br/guides/choose-a-model#ids-de-modelo-para-a-api) traz os detalhes.
+
 Não mova `google-latest` para `responses.create()`. A rota Responses aceita o conjunto suportado de modelos OpenAI Responses, enquanto Chat Completions aceita o catálogo público compatível mais amplo.
 
 ## Corrija erros comuns de SDK
@@ -240,4 +242,4 @@ As chamadas de API são medidas em tokens cobrados. Leia [como os tokens cobrado
 - OpenAI: [SDK TypeScript e JavaScript](https://github.com/openai/openai-node)
 - Anthropic: [SDK TypeScript](https://github.com/anthropics/anthropic-sdk-typescript)
 
-[Experimente GPT-6 Astra, Claude Fable 5.1 ou Gemini 4 Argon no Browser Chat gratuito limitado](https://www.capriole.ai/pt-br) e faça upgrade para Premium quando quiser usar o saldo incluído da API a partir de Python ou TypeScript.
+[Experimente GPT-6 Astra, Claude Fable 5.1 ou Gemini 4 Carbon no Browser Chat gratuito limitado](https://www.capriole.ai/pt-br) e faça upgrade para Premium quando quiser usar o saldo incluído da API a partir de Python ou TypeScript.

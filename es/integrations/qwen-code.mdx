@@ -121,6 +121,33 @@ Crea o actualiza `~/.qwen/settings.json`:
         }
       },
       {
+        "id": "google-latest",
+        "name": "google-latest",
+        "baseUrl": "https://api.caprioletech.com/v1",
+        "envKey": "CAPRIOLE_AI_API_KEY",
+        "generationConfig": {
+          "contextWindowSize": 1048576
+        }
+      },
+      {
+        "id": "google/gemini-4-carbon",
+        "name": "google/gemini-4-carbon",
+        "baseUrl": "https://api.caprioletech.com/v1",
+        "envKey": "CAPRIOLE_AI_API_KEY",
+        "generationConfig": {
+          "contextWindowSize": 1048576
+        }
+      },
+      {
+        "id": "google/gemini-4-argon",
+        "name": "google/gemini-4-argon",
+        "baseUrl": "https://api.caprioletech.com/v1",
+        "envKey": "CAPRIOLE_AI_API_KEY",
+        "generationConfig": {
+          "contextWindowSize": 1048576
+        }
+      },
+      {
         "id": "google/gemini-3.8-flash",
         "name": "google/gemini-3.8-flash",
         "baseUrl": "https://api.caprioletech.com/v1",
@@ -184,13 +211,16 @@ qwen "Explain this repository." -m claude-latest --auth-type anthropic
 | GPT-6.1 Sol | `openai/gpt-6.1-sol` | `openai` | Responses |
 | Claude latest | `claude-latest` | `anthropic` | Anthropic Messages |
 | Opus 5.5 | `claude-opus-5-5` | `anthropic` | Anthropic Messages |
+| Google latest | `google-latest` | `openai` | Chat Completions |
+| Gemini 4 Carbon | `google/gemini-4-carbon` | `openai` | Chat Completions |
+| Gemini 4 Argon | `google/gemini-4-argon` | `openai` | Chat Completions |
 | Gemini 3.8 Flash | `google/gemini-3.8-flash` | `openai` | Chat Completions |
 | Grok 4.7 | `xai/grok-4.7` | `openai` | Chat Completions |
 | GLM 5.3 Flash | `zai/glm-5.3-flash` | `openai` | Chat Completions |
 | Kimi K3.1 Pro | `moonshot/kimi-k3.1-pro` | `openai` | Chat Completions |
 | Kimi K3 | `moonshot/kimi-k3` | `openai` | Chat Completions |
 
-`openai-latest` y `claude-latest` siempre apuntan a nuestro modelo insignia más reciente de cada familia, actualmente GPT-6 Astra y Claude Fable 5.1.
+`openai-latest`, `claude-latest` y `google-latest` siempre apuntan a nuestro modelo insignia más reciente de cada familia, actualmente GPT-6 Astra, Claude Fable 5.1 y Gemini 4 Carbon.
 
 ## Solución de problemas
 
@@ -210,5 +240,6 @@ Los modelos Claude dentro de `anthropic` necesitan los IDs de Claude sin prefijo
 
 - Guarda tu clave en `~/.qwen/.env`, no en `settings.json`.
 - Para añadir otro modelo de Capriole AI, copia la entrada de un modelo de la misma familia y cambia el ID. `GET https://api.caprioletech.com/v1/models` devuelve la lista de todos los IDs de modelo.
+- Gemini 4 Carbon razona más tiempo que Gemini 4 Argon, así que cada turno puede tardar más y usar más tokens. Para turnos más rápidos, usa `google/gemini-4-argon`.
 - Para usar la misma clave en tus otros agentes de programación, consulta [Usa una sola clave API con agentes de programación](/es/guides/one-api-key-coding-agents).
 - Referencias oficiales: [Qwen Code](https://github.com/QwenLM/qwen-code) y [proveedores de modelos de Qwen Code](https://qwenlm.github.io/qwen-code-docs/en/users/configuration/model-providers/).

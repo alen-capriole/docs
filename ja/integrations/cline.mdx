@@ -82,13 +82,16 @@ cline -m moonshot/kimi-k3 "Explain this repository."
 | GPT-6.1 Sol | `openai/gpt-6.1-sol` |
 | Claude latest | `claude-latest` |
 | Opus 5.5 | `anthropic/claude-opus-5-5` |
+| Google latest | `google-latest` |
+| Gemini 4 Carbon | `google/gemini-4-carbon` |
+| Gemini 4 Argon | `google/gemini-4-argon` |
 | Gemini 3.8 Flash | `google/gemini-3.8-flash` |
 | Grok 4.7 | `xai/grok-4.7` |
 | GLM 5.3 Flash | `zai/glm-5.3-flash` |
 | Kimi K3.1 Pro | `moonshot/kimi-k3.1-pro` |
 | Kimi K3 | `moonshot/kimi-k3` |
 
-`openai-latest` と `claude-latest` は、常に各ファミリーの最新の旗艦モデルを指します。現在は GPT-6 Astra と Claude Fable 5.1 です。`GET https://api.caprioletech.com/v1/models` ですべてのモデル ID を一覧できます。
+`openai-latest`、`claude-latest`、`google-latest` は、常に各ファミリーの最新の旗艦モデルを指します。現在は GPT-6 Astra、Claude Fable 5.1、Gemini 4 Carbon です。`GET https://api.caprioletech.com/v1/models` ですべてのモデル ID を一覧できます。
 
 ## トラブルシューティング
 
@@ -107,5 +110,6 @@ Chat Completions では、`anthropic/claude-opus-5-5` などの `anthropic/` プ
 ## 注意事項
 
 - Cline はコーディング ツールをお使いのコンピューター上で実行します。Capriole AI が処理するのはモデル リクエストだけです。
+- Gemini 4 Carbon は Gemini 4 Argon より長く思考するため、各ターンに時間がかかり、使うトークンも多くなることがあります。速さを重視する場合は `google/gemini-4-argon` を使ってください。
 - 同じキーを他のコーディング エージェントでも使うには、[1 つの API キーでコーディング エージェントを使う](/ja/guides/one-api-key-coding-agents)を参照してください。
 - 公式リファレンス: [Cline CLI](https://docs.cline.bot/cline-cli/overview)、[Cline の OpenAI Compatible プロバイダー](https://docs.cline.bot/provider-config/openai-compatible)。
