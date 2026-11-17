@@ -4,7 +4,7 @@ sidebarTitle: "Compatibilidade de agentes de programação"
 description: "Veja como uma conta Capriole AI conecta 10 agentes de programação documentados pelo protocolo que cada cliente espera."
 ---
 
-Uma conta Capriole AI pode conectar Codex, Claude Code, Kilo Code, GitHub Copilot CLI, OpenCode, OpenClaw, Cline, Qwen Code, Crush e Pi. O Premium custa USD 9 por mês, inclui 5 milhões de tokens cobrados de API e também oferece Browser Chat ilimitado com o conjunto de modelos Premium suportado.
+Uma conta Capriole AI pode conectar Codex, Claude Code, Kilo Code, GitHub Copilot CLI, OpenCode, OpenClaw, Cline, Qwen Code, Crush e Pi. O Premium custa USD 9 por mês e oferece chat web ilimitado com GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5 e Gemini 4 Carbon, e a API custa até 92% menos que os preços oficiais das APIs, com 5M de tokens por mês incluídos.
 
 Cada cliente mantém o formato de transmissão que espera. A Capriole mantém caminhos OpenAI Responses, Chat Completions compatível com OpenAI e Anthropic Messages para as integrações documentadas.
 
@@ -33,7 +33,7 @@ Os agentes de programação podem parecer semelhantes no prompt, mas os clientes
 | Crush | Chat Completions compatível com OpenAI | [`claude-latest`](/pt-br/integrations/crush) |
 | Pi | OpenAI Responses, Anthropic Messages ou Chat Completions, conforme a família de modelo | [`claude-latest`](/pt-br/integrations/pi) |
 
-A mesma conta e o mesmo saldo da API ficam atrás dessas integrações. A forma da solicitação ainda segue o cliente.
+Todas essas integrações usam a mesma conta e o mesmo saldo da API. A forma da solicitação ainda segue o cliente.
 
 O Codex envia solicitações Responses. O Claude Code envia solicitações Anthropic Messages e pode usar a pré-checagem de contagem de tokens quando o provedor selecionado oferece suporte. O Cline e o Crush usam Chat Completions para todos os modelos. Kilo Code, OpenCode, Qwen Code e Pi enviam cada família de modelo ao protocolo que a Capriole oferece para ela: Responses para GPT, Messages para Claude e Chat Completions para os demais modelos. GitHub Copilot CLI e OpenClaw usam um caminho de protocolo ou um provedor separado para cada família de modelo.
 
@@ -77,7 +77,7 @@ Há limites específicos do cliente. O Codex permanece nos modelos OpenAI Respon
 
 Os guias de integração ligados na tabela são a fonte da verdade para os campos atuais e os seletores suportados.
 
-Leia [como a Capriole testa a compatibilidade da API com vários modelos](/pt-br/articles/unified-model-api#como-testamos-a-compatibilidade) para a diferença entre cobertura de rota e um passe real de agente de programação.
+Leia [como a Capriole testa a compatibilidade da API com vários modelos](/pt-br/articles/unified-model-api#como-testamos-a-compatibilidade) para a diferença entre cobertura de rota e uma execução real aprovada com um agente de programação.
 
 ## Browser Chat e agentes de programação resolvem partes diferentes do trabalho
 

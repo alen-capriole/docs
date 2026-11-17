@@ -4,7 +4,7 @@ description: "Capriole AI の Claude モデルで Anthropic Messages 互換の�
 openapi: "api-reference/openapi.json POST /v1/messages"
 ---
 
-アプリケーション、SDK、またはエージェントが Anthropic Messages のリクエストとレスポンス形式を期待する場合は、このエンドポイントを使ってください。
+アプリケーション、SDK、またはエージェントが Anthropic Messages のリクエストとレスポンス形式を前提としている場合は、このエンドポイントを使ってください。
 
 `model`、`messages`、`max_tokens` を含む標準の Messages ペイロードを送信します。Capriole AI は上流へ送る前に latest エイリアスを選択した上流 Claude モデルに解決し、`system`、`tools`、`thinking`、`stream` などの互換フィールドを転送し、上流の JSON または SSE ストリームをそのまま返します。
 

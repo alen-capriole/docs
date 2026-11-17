@@ -38,7 +38,7 @@ OpenAI Responses representa a saída como eventos e itens tipados. Anthropic Mes
 
 Um adaptador superficial pode fazer um prompt de texto simples funcionar. Agentes de programação e clientes de produção expõem os detalhes ausentes depressa. Eles dependem da ordem do streaming, de turnos de resultado de ferramenta, de metadados de uso e de controles específicos do modelo.
 
-A Capriole, portanto, possui várias rotas que preservam o protocolo atrás de uma camada de autenticação e cobrança.
+Por isso, a Capriole mantém várias rotas que preservam o protocolo, todas sob uma única camada de autenticação e cobrança.
 
 ## Uma key, seleção explícita de modelo
 
@@ -46,7 +46,7 @@ Todas as rotas públicas de geração usam a mesma API key e o mesmo saldo da co
 
 Por exemplo, o caminho Responses aceita o alias OpenAI mantido e os modelos OpenAI compatíveis com Responses suportados, além dos modelos Grok enviados com o prefixo `xai/`. O caminho Messages aceita o alias Claude mantido e os IDs de modelo Claude Messages suportados. Caminhos de chat compatíveis podem expor um conjunto mais amplo de modelos públicos de chat.
 
-Se um modelo não for válido para a rota escolhida, a solicitação deve falhar na validação. A Capriole não remapeia em silêncio uma key aposentada não suportada para outra coisa.
+Se um modelo não for válido para a rota escolhida, a solicitação deve falhar na validação. A Capriole não remapeia em silêncio um ID de modelo aposentado e não suportado para outro.
 
 Essa falha explícita é mais segura do que devolver uma resposta de um modelo que o chamador não pediu.
 
@@ -66,7 +66,7 @@ Nas rotas suportadas, a Capriole pode tentar outra fonte configurada quando a pr
 
 Depois que uma resposta em stream começou, trocar de fonte arriscaria saída duplicada ou contraditória. O fallback automático só roda antes da saída começar. Ele não pode esconder toda falha de provedor nem trocar de modelo no meio de uma resposta.
 
-A key de modelo pedida é preservada em um fallback de fonte suportada. A Capriole altera a fonte de entrega, não a escolha de modelo declarada pelo usuário.
+O ID de modelo pedido é preservado em um fallback de fonte suportada. A Capriole altera a fonte de entrega, não a escolha de modelo declarada pelo usuário.
 
 O Browser Chat pode oferecer, à parte, troca automática opcional de modelo e [mudanças manuais de modelo dentro de uma conversa](/pt-br/articles/switch-models-mid-chat). Esses são comportamentos do espaço de trabalho, não o contrato de fallback da API bruta.
 
@@ -102,12 +102,12 @@ As suítes focadas de rotas públicas e conversão de arquivos concluíram **68 
 
 | Faixa de teste | Evidência verificada | Limite atual |
 |---|---|---|
-| OpenAI Responses | Saída sem streaming, conclusão SSE, function call, acompanhamento stateless de function-result e `openai-latest` | Somente modelos OpenAI Responses |
+| OpenAI Responses | Saída sem streaming, conclusão SSE, function call, acompanhamento stateless de function-result e `openai-latest` | Modelos OpenAI, mais modelos Grok com o prefixo `xai/` |
 | Chat Completions | Saída sem streaming, conclusão SSE, tool call, acompanhamento de tool-result e os três aliases latest mantidos | O modelo selecionado precisa oferecer suporte à rota compatível |
 | Anthropic Messages | Saída sem streaming, SSE da Anthropic, `tool_use`, `tool_result` e `claude-latest` | Somente modelos Claude Messages |
 | Aliases latest | Gate de endpoint, resolução canônica, linhas de uso canônicas e execuções representativas de cliente | Os aliases são seletores de entrada e não criam um modelo de uso separado |
 | Arquivos no Browser Chat | Detecção de tipo de arquivo, conversão e montagem do payload do modelo para imagens, PDFs, texto, DOCX, PPTX, CSV, XLS e XLSX | Esta evidência pertence ao espaço de trabalho do Browser Chat |
-| Arquivos pela API pública | Nenhum passe publicado entre protocolos | A Capriole não afirma um contrato universal de arquivo entre Responses, Chat Completions e Messages |
+| Arquivos pela API pública | Nenhum teste aprovado publicado entre protocolos | A Capriole não afirma um contrato universal de arquivo entre Responses, Chat Completions e Messages |
 
 As verificações de stream consomem a resposta completa e exigem o evento terminal de cada protocolo. Responses termina com o próprio evento de conclusão, Chat Completions chega a `[DONE]` e Messages chega a `message_stop`. Os testes de ferramenta enviam o resultado da ferramenta de volta e exigem o turno final do assistente.
 

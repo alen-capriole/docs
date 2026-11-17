@@ -15,7 +15,7 @@ Claude Code 是 Anthropic 推出的智能体编程工具，可以读取代码库
 开始前请确保你已经拥有以下内容。
 
 - Capriole AI 账户，可在[此处注册](https://www.capriole.ai/zh)
-- Premium 套餐（每月 USD 9，还包含无限网页聊天）或 Team 套餐，API Key 需要其中之一，可在[此处订阅](https://www.capriole.ai/zh?view=api)
+- Premium 方案（每月 USD 9，还包含无限网页聊天）或 Team 方案，获取 API Key 需要其中之一，可在[此处订阅](https://www.capriole.ai/zh?view=api)
 - Capriole AI API Key，可在[此处获取](https://www.capriole.ai/zh?view=api)
 
 ## 安装
@@ -128,9 +128,9 @@ Claude Code 不认识 `claude-latest` 这个模型名称，因此会假定它的
 
 保留三个 `ANTHROPIC_DEFAULT_*_MODEL` 值。没有它们时，Claude Code 会发送 Anthropic 自己的别名目标。例如，`sonnet` 会请求 `claude-sonnet-5-5`，而 Capriole AI 不提供该模型，请求会因 `Unsupported Claude Messages model` 失败。
 
-### 为什么 Claude Code 没有使用我设置的思考强度
+### 为什么 Claude Code 没有使用我设置的推理强度
 
-Claude Code 会为每个模型单独保存思考强度。请在使用该模型时通过 `/effort` 选择。用户设置中顶层的 `effortLevel` 对 Opus 5.5 不生效。
+Claude Code 会为每个模型单独保存推理强度。请在使用该模型时通过 `/effort` 选择。用户设置中顶层的 `effortLevel` 对 Opus 5.5 不生效。
 
 ### 为什么 Token 计数失败
 

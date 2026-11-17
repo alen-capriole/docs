@@ -6,7 +6,7 @@ openapi: "api-reference/openapi.json POST /v1/chat/completions"
 
 Use this endpoint when your application, SDK, or gateway expects the OpenAI Chat Completions request and response format.
 
-Send a standard Chat Completions payload with `model` and `messages`. Capriole AI resolves latest aliases to the selected provider model ID before upstream dispatch, forwards compatible fields such as `messages`, `tools`, `tool_choice`, `response_format`, and `stream`, and returns the upstream JSON or SSE stream unchanged, except for the GLM SSE correction below. For streaming requests, Capriole AI sets `stream_options.include_usage=true` before forwarding so usage can be recorded.
+Send a standard Chat Completions payload with `model` and `messages`. Capriole AI resolves latest aliases to the selected provider model ID before upstream dispatch, forwards compatible fields such as `messages`, `tools`, `tool_choice`, `response_format`, and `stream`, and returns the upstream JSON or SSE stream unchanged, except for the GLM SSE correction and the heartbeat comments described below. For streaming requests, Capriole AI sets `stream_options.include_usage=true` before forwarding so usage can be recorded.
 
 For some SSE responses with `model="zai/glm-5.3-flash"`, Capriole AI removes only the empty legacy `function_call={"name":"","arguments":""}` field from streamed deltas. Real or partial function calls, `tool_calls`, text, and usage remain intact. This exception does not change non-streaming responses or other models.
 
@@ -42,4 +42,4 @@ Function tools that your client defines, even one named `web_search`, are forwar
 
 ## Long tasks
 
-For long tasks such as long reasoning, set `"stream": true`. Without streaming, the connection can time out after about 2 minutes.
+For long tasks such as long reasoning, set `"stream": true`. Without streaming, the connection can time out after about 2 minutes. While a stream waits for the model, Capriole AI sends an SSE `: heartbeat` comment every 15 seconds, and streamed `google/*` requests can wait up to 20 minutes for the first token. If the model has not answered within 60 seconds, the 200 response has already started, so a later upstream error arrives as one final SSE event with an `error` object.

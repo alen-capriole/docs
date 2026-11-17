@@ -1,14 +1,14 @@
 ---
-title: "BYOK、プライバシー、API アクセスにおける Capriole AI と TypingMind"
+title: "Capriole AI と TypingMind の比較：BYOK・プライバシー・API"
 sidebarTitle: "Capriole AI と TypingMind"
 description: "Capriole AI と TypingMind の比較。モデル込みの月額 USD 9 で GPT-6 Astra、Claude、Gemini とチャットし放題。API は公式価格より最大 92% 安く使えます。"
 ---
 
-旗艦モデル アクセスを、プロバイダー キーを別々に購入して管理するのではなく含めたいユーザーにとって、**Capriole AI のほうがシンプルで低コストな実務セットアップです**。Premium は月額 USD 9 で、GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5、Gemini 4 Carbon との Browser Chat が無制限になり、公式 API 価格より最大 92% 安い API アクセスと、10 のコーディング エージェント向けセットアップ ガイドも利用できます。どれも別々のプロバイダー アカウントは不要です。支払い前に、制限付きの無料チャットで旗艦モデルを試せます。
+プロバイダー キーを別々に購入・管理するのではなく、旗艦モデルへのアクセスが最初から含まれたサービスを使いたいなら、**Capriole AI のほうがシンプルで、費用も抑えられます**。Premium は月額 USD 9 で、GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5、Gemini 4 Carbon とのウェブチャットが無制限になり、公式 API 価格より最大 92% 安い API アクセスと、10 のコーディング エージェント向けセットアップ ガイドも利用できます。どれも別々のプロバイダー アカウントは不要です。支払い前に、制限付きの無料チャットで旗艦モデルを試せます。
 
 TypingMind の個人ライセンスが買うのはインターフェイスであり、モデル アクセスではありません。ユーザーは引き続きプロバイダー アカウント、キー、残高、継続的なモデル使用量を供給します。
 
-この比較では、TypingMind の現行ドキュメント、プライバシー ポリシー、クラウド同期ページ、機能一覧、ライセンス ページを確認しました。両製品とも 1 つのインターフェイスで複数のモデル系統を見せられますが、アカウント所有権とデータフローの置き場所が異なります。
+この比較では、2026 年 11 月 17 日に TypingMind の現行ドキュメント、プライバシー ポリシー、クラウド同期ページ、機能一覧、ライセンス ページを確認しました。両製品とも 1 つのインターフェイスで複数のモデル系統を見せられますが、アカウント所有権とデータフローの置き場所が異なります。
 
 ## キー、履歴、モデル請求を誰が持つか
 
@@ -16,8 +16,8 @@ TypingMind の個人ライセンスが買うのはインターフェイスであ
 |---|---|---|
 | 含まれるモデル アクセス | GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5、Gemini 4 Carbon、および対応する Premium セット | 個人ユーザーがプロバイダー API キーを供給する。ライセンスにモデル クレジットは含まれない |
 | 継続コストの合計 | 月額 USD 9 にワークスペースと対応モデル アクセスが含まれる | インターフェイス ライセンスに加え、継続的なプロバイダー API 課金 |
-| Browser Chat | 対応する Premium モデル群で無制限 | 各モデル リクエストは接続先プロバイダーが課金する |
-| 含まれる API 使用量 | 月 5M の課金 API トークン | 個人ユーザーは自身のプロバイダー アカウントで使用量を賄う |
+| ウェブチャット | 対応する Premium モデル群で無制限 | 各モデル リクエストは接続先プロバイダーが課金する |
+| 含まれる API 使用量 | 月 500 万の課金 API トークン | 個人ユーザーは自身のプロバイダー アカウントで使用量を賄う |
 | コーディング エージェントのセットアップ | 10 の外部コーディング エージェント向けセットアップ ガイド | 個人製品は TypingMind クライアント内のエージェントに焦点を当てる |
 | ストレージの選択 | 同期アカウント履歴、ブラウザ ローカル履歴、または No Storage | デフォルトはブラウザ ローカル ストレージ。任意でクラウド同期 |
 
@@ -25,13 +25,15 @@ BYOK クライアントとバンドル済みモデル アクセスを比較す�
 
 ## Capriole はモデル アクセスを含む
 
-Capriole はアクセス レイヤーの責任を負います。サインアウト中の訪問者と Free ユーザーは、まず制限付き Browser Chat で対応旗艦モデルを試せます。Premium はその後、対応する Premium モデル群の無制限 Browser Chat を提供します。公開 API とコーディング エージェント トラフィックは、含まれる毎月 500 万の課金 API トークンから引きます。
+Capriole はアクセス レイヤーの責任を負います。サインアウト中の訪問者と Free ユーザーは、まず制限付きのウェブチャットで対応旗艦モデルを試せます。Premium はその後、すべての対応モデルとのウェブチャットを無制限で提供します。ただし、スクリプトによる乱用を防ぐ 1 日 200 メッセージの[フェアユース上限](/ja/guides/plans-and-limits#「無制限」の意味)があります。公開 API とコーディング エージェント トラフィックは、含まれる毎月 500 万の課金 API トークンから引きます。
 
-これにより、プロバイダー アカウントを開く、複数キーを保存する、複数残高に資金を入れる、複数の請求ページを確認する、といった管理手順が置き換わります。ブラウザ ワークスペース、API 許容量、維持エージェント経路は、1 つの Capriole アカウントの下にあります。
+これにより、プロバイダー アカウントを開く、複数キーを保存する、複数残高に資金を入れる、複数の請求ページを確認する、といった管理手順が置き換わります。ブラウザ ワークスペース、API 利用枠、継続的に整備しているエージェント経路は、1 つの Capriole アカウントの下にあります。
 
-TypingMind の個人製品は異なります。インターフェイスに支払い、プロバイダー API キーを追加し、選択したプロバイダーにモデル使用量を払い続けます。任意のクラウド ストレージは、含まれる許容量のあとで追加コストになる場合があります。
+TypingMind の個人製品は異なります。インターフェイスに支払い、プロバイダー API キーを追加し、選択したプロバイダーにモデル使用量を払い続けます。任意のクラウド ストレージは、含まれる容量を超えると追加コストになる場合があります。
 
-Capriole ユーザーに別々のプロバイダー キーは不要です。[1 つの AI サブスクリプション ガイド](/ja/articles/one-ai-subscription) は、含まれるアクセスと、無制限 Browser Chat と計量 API 作業の境界を説明します。
+たとえば、GPT-6 Astra で入力と出力の比率が 3:1 のチャットを月に 500 万トークン行うと、OpenAI の標準 API 料金で USD 100 になり、TypingMind のライセンスとは別に OpenAI から請求されます。Capriole AI では、このチャットは USD 9 の Premium プランに含まれます。
+
+Capriole ユーザーに別々のプロバイダー キーは不要です。[1 つの AI サブスクリプション ガイド](/ja/articles/one-ai-subscription) は、含まれるアクセスと、無制限のウェブチャットと計量 API 作業の境界を説明します。
 
 ## Capriole は製品を変えずにストレージ選択肢を与える
 
@@ -43,9 +45,9 @@ Server Storage を使うログイン済みアカウントでは、GPT Image 2.6�
 
 ## 1 つのワークスペースは外部ツールへ続けられる
 
-Capriole では、ワークスペース内の既存スレッド コンテキストを保ったまま、別の対応モデルでアクティブな会話を続けられます。同じアカウントはその後、OpenAI と Anthropic のプロトコル エンドポイント、および [文書化された 10 のコーディング エージェント経路](/ja/articles/coding-agent-compatibility) へ広がります。
+Capriole では、ワークスペース内の既存スレッド コンテキストを保ったまま、別の対応モデルでアクティブな会話を続けられます。同じアカウントはその後、OpenAI と Anthropic のプロトコル エンドポイント、および [ドキュメントのある 10 種類のコーディング エージェント経路](/ja/articles/coding-agent-compatibility) へ広がります。
 
-これが、スタンドアロン BYOK インターフェイスに対する製品上の利点です。Capriole はワークスペース、対応モデル アクセス、公開 API 許容量、外部エージェント設定を一緒に提供します。
+Capriole AI は、ワークスペース、対応モデル アクセス、公開 API 利用枠、外部エージェント設定をまとめて提供します。
 
 ## Capriole の API は個人ワークスペースの一部
 
@@ -55,26 +57,30 @@ TypingMind Teams には、チーム ワークスペース向けの Custom API �
 
 ## BYOK はコストとセットアップをユーザーへ戻す
 
-TypingMind は BYOK、セルフホスト、MCP、プラグイン、深いクライアントカスタマイズを提供します。それらの選択肢でも、プロバイダー アカウント、キー、残高、モデル請求はユーザーに残ります。Capriole は対応モデル アクセスを含み、1 つのアカウントの下でワークフローを Browser Chat から API とコーディング エージェント利用へ運びます。
+TypingMind は BYOK、セルフホスト、MCP、プラグイン、深いクライアントカスタマイズを提供します。それらの選択肢でも、プロバイダー アカウント、キー、残高、モデル請求はユーザーに残ります。Capriole は対応モデル アクセスを含み、1 つのアカウントの下でワークフローをウェブチャットから API とコーディング エージェント利用へ運びます。
+
+## TypingMind が向いている場合
+
+クライアントをセルフホストしたい場合、MCP やプラグインで拡張したい場合、自分のキーで各プロバイダーと直接契約して支払いたい場合は、TypingMind が向いています。
 
 ## スタックを組み立てずに Capriole を使う
 
-対応する最先端モデル、無制限の Premium Browser Chat、含まれる API 許容量、コーディング エージェント経路、ストレージ制御を、アクセス レイヤーを自分で組み立てずに欲しいときは、Capriole を選んでください。
+対応する最先端モデル、無制限の Premium ウェブチャット、含まれる API 利用枠、コーディング エージェント経路、ストレージ制御を、アクセス レイヤーを自分で組み立てずに欲しいときは、Capriole を選んでください。
 
-[制限付きの無料 Browser Chat を試す](https://www.capriole.ai/ja) と、先にプロバイダー アカウントを作ったり、インターフェイス ライセンスを買ったり、別々の API キーを供給したりせずに、対応旗艦モデルを使えます。さらに使いたい場合は、[USD 9 の Premium にアップグレードすると、無制限チャットと API キーを利用できます](https://www.capriole.ai/ja?view=api)。
+[制限付きの無料ウェブチャットを試す](https://www.capriole.ai/ja) と、先にプロバイダー アカウントを作ったり、インターフェイス ライセンスを買ったり、別々の API キーを供給したりせずに、対応旗艦モデルを使えます。さらに使いたい場合は、[USD 9 の Premium にアップグレードすると、無制限チャットと API キーを利用できます](https://www.capriole.ai/ja?view=api)。
 
 ## 公式ソース
 
-- [TypingMind documentation](https://docs.typingmind.com/)
-- [TypingMind general FAQ](https://docs.typingmind.com/general-faqs)
-- [TypingMind personal licenses](https://www.typingmind.com/buy)
-- [TypingMind personal and team comparison](https://docs.typingmind.com/quickstart/typingmind-vs-typingmind-team)
-- [TypingMind Team plans](https://docs.typingmind.com/typingmind-team/getting-started/compare-typingmind-team-plans)
-- [TypingMind Team API overview](https://docs.typingmind.com/typingmind-team/integrations/api-integration-overview)
-- [TypingMind feature list](https://docs.typingmind.com/feature-list)
-- [TypingMind privacy policy](https://docs.typingmind.com/security-and-compliance/privacy-policy)
-- [TypingMind cloud sync and backup](https://docs.typingmind.com/cloud-sync-and-backup/cloud-sync-and-backup-overview)
-- [TypingMind multi-model responses](https://docs.typingmind.com/manage-and-connect-ai-models/activate-multi-model-responses)
-- [TypingMind MCP documentation](https://docs.typingmind.com/model-context-protocol-%28mcp%29-in-typingmind)
+- [TypingMind ドキュメント](https://docs.typingmind.com/)
+- [TypingMind 一般的な FAQ](https://docs.typingmind.com/general-faqs)
+- [TypingMind 個人ライセンス](https://www.typingmind.com/buy)
+- [TypingMind 個人版と Team 版の比較](https://docs.typingmind.com/quickstart/typingmind-vs-typingmind-team)
+- [TypingMind Team のプラン](https://docs.typingmind.com/typingmind-team/getting-started/compare-typingmind-team-plans)
+- [TypingMind Team API の概要](https://docs.typingmind.com/typingmind-team/integrations/api-integration-overview)
+- [TypingMind 機能一覧](https://docs.typingmind.com/feature-list)
+- [TypingMind プライバシーポリシー](https://docs.typingmind.com/security-and-compliance/privacy-policy)
+- [TypingMind クラウド同期とバックアップ](https://docs.typingmind.com/cloud-sync-and-backup/cloud-sync-and-backup-overview)
+- [TypingMind マルチモデル応答](https://docs.typingmind.com/manage-and-connect-ai-models/activate-multi-model-responses)
+- [TypingMind MCP のドキュメント](https://docs.typingmind.com/model-context-protocol-%28mcp%29-in-typingmind)
 
-このページの Capriole AI の事実は、第一当事者ドキュメントとして維持されています。
+このページの Capriole AI に関する情報は、当社が公式ドキュメントとして管理しています。

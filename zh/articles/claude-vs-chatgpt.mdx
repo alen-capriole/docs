@@ -24,9 +24,9 @@ Claude 和 ChatGPT 各有擅长的工作，所以最实际的做法是两个都�
 
 ## Anthropic 如何介绍 Claude Fable 5.1 和 Opus 5.5
 
-Anthropic 称，Claude Fable 5.1 在长时间运行的智能体编程、多步骤研究，以及文档、表格和幻灯片工作上更强。它是两者中较慢的一个。
+Anthropic 称，Claude Fable 5.1 为编程、知识工作和长时间解决问题的任务树立了新标准。
 
-对于大多数工作负载，Anthropic 建议先从 Claude Opus 5.5 开始。其发布公告称，Opus 5.5 在大多数工作上达到 Fable 5.1 的水平，并在 Anthropic 的基准测试中，于智能体编程、计算机操作和知识工作方面领先。如果调高推理强度后 Opus 5.5 仍然不够，Anthropic 建议改用 Fable 5.1。
+对于大多数工作负载，Anthropic 建议先从 Claude Opus 5.5 开始。其发布公告称，Opus 5.5 在大多数工作上达到 Fable 5.1 的水平，并在 Anthropic 的基准测试中，于智能体编程、计算机操作和知识工作方面领先。如果调高推理强度后 Opus 5.5 仍然不够，Anthropic 建议改用它的 Fable 模型。
 
 两个模型的思考都始终开启，都能读取文本和图片、输出文本，上下文窗口均为 100 万 token。
 
@@ -38,7 +38,7 @@ GPT-6 Astra 能读取文本和图片、输出文本。在 API 上，输入超过
 
 ## 各家订阅包含什么
 
-**Claude。** Free、Pro 和 Max 都有五小时会话限制，付费方案另有每周限制。Claude Pro 每个会话的用量至少是 Free 方案的 5 倍。Max 每个会话的用量是 Pro 的 5 倍，Ultra 每周的用量是 Pro 的 10 倍，已验证账户没有五小时限制。在 Pro 上，Fable 5.1 不计入方案的用量限制，而是通过用量积分（usage credits）按标准 API 价格计费。在 Max 和 Ultra 上，Fable 模型最多可使用每周限制的 50%。详情请阅读 [Claude 用量限制详解](/zh/articles/claude-usage-limits)。
+**Claude。** Free、Pro 和 Max 都有五小时会话限制和每周限制。Claude Pro 每个会话的用量多于 Free 方案。Max 每个会话的用量是 Pro 的 5 倍，Ultra 每周的用量是 Pro 的 10 倍，已验证账户没有五小时限制。在 Pro 上，Fable 5.1 不计入方案的用量限制，而是通过用量积分（usage credits）按标准 API 价格计费。在 Max 和 Ultra 上，Fable 模型最多可使用每周限制的 50%。详情请阅读 [Claude 用量限制详解](/zh/articles/claude-usage-limits)。
 
 **ChatGPT。** 在 Plus 上，Chat 中的 GPT-6 由 GPT-6 Sol 运行。GPT-6 Astra 包含在 ChatGPT Work 和 Codex 中，OpenAI 估计每五小时可发送 5 至 45 条本地消息，并称还可能有每周限制。GPT-6 Pro 是 Chat 中由 Astra 驱动的选项，需要 Pro、Business 或 Enterprise。OpenAI 表示，即使在 Pro 上，GPT-6 Pro 也不能无限使用。[ChatGPT Plus 替代方案](/zh/articles/chatgpt-plus-alternative)一文完整对比了 Plus 与 Capriole AI。
 
@@ -48,13 +48,13 @@ Claude Pro 和 ChatGPT Plus 都不包含 API 用量，使用这两个方案时�
 
 Capriole AI Premium 每月 USD 9，可在网页聊天中无限使用所有受支持的模型，包括 GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5 和 Gemini 4 Carbon。每个账户每天 200 条消息的[合理使用上限](/zh/guides/plans-and-limits#“无限”是什么意思)只用于阻止脚本滥用。
 
-每个对话不必只选一家厂商。[在对话中切换模型](/zh/articles/switch-models-mid-chat)后，对话线程、其中的文件和上下文都会保留：
+每个对话不必只选一家厂商。[在对话中切换模型](/zh/articles/switch-models-mid-chat)后，对话、其中的文件和上下文都会保留：
 
 1. 用 GPT-6 Astra 起草。
 2. 切换到 Claude Fable 5.1，让它质疑这份草稿。
 3. 切换到 Claude Opus 5.5 或 Gemini 4 Carbon，获取第三种看法，或完成剩下的工作。
 
-Premium 还包括用 GPT Image 2.6、Nano Banana 2.1 和 Seedream 5.5 免费生图、文件和网页搜索、项目、聊天导出、个性化以及存储控制。
+Premium 还包括用 GPT Image 2.6、Nano Banana 2.1 和 Seedream 5.5 [免费生成图片](/zh/guides/files-web-search)、文件和网页搜索、项目、聊天导出、个性化以及存储控制。
 
 ## API 价格对比
 
@@ -102,13 +102,15 @@ Premium 还包括用 GPT Image 2.6、Nano Banana 2.1 和 Seedream 5.5 免费生�
     无需账户，在同一个对话中切换 Claude 和 GPT-6 Astra。
   </Card>
   <Card title="获取 Premium" icon="crown" href="https://www.capriole.ai/zh?view=api">
-    每月 USD 9，享受无限网页聊天和 API key。
+    每月 USD 9，享受无限网页聊天和 API Key。
   </Card>
 </CardGroup>
 
 ## 官方来源
 
-- Anthropic：[Claude Fable 5.1](https://platform.claude.com/docs/en/models/fable-5-1/overview)、[Claude Opus 5.5](https://platform.claude.com/docs/en/models/opus-5-5/overview)、[Claude Opus 5.5 announcement](https://www.anthropic.com/claude-opus-5-5)、[Claude plans and pricing](https://claude.com/pricing)、[What is the Max plan?](https://support.claude.com/en/articles/11049741-what-is-the-max-plan) 和 [Claude Fable models on your plan](https://support.claude.com/en/articles/15424964-claude-fable-models-on-your-plan)
-- OpenAI：[GPT-6 Astra model](https://developers.openai.com/api/docs/models/gpt-6-astra)、[What is ChatGPT Plus?](https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus)、[GPT-6 and other models in ChatGPT](https://help.openai.com/en/articles/20001354-gpt-6-and-other-models-in-chatgpt)、[Managing usage with GPT-6 Astra in Work and Codex](https://help.openai.com/en/articles/20001516-managing-usage-with-gpt-6-astra-in-work-and-codex) 和 [About ChatGPT Pro tiers](https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers)
+我们于 2026 年 11 月 17 日核对了这些页面。
 
-本页中的 Capriole AI 事实作为第一方文档持续维护。
+- Anthropic：[Claude Fable 5.1](https://platform.claude.com/docs/en/models/fable-5-1/overview)、[Claude Opus 5.5](https://platform.claude.com/docs/en/models/opus-5-5/overview)、[Claude Opus 5.5 发布公告](https://www.anthropic.com/claude-opus-5-5)、[Claude 方案与价格](https://claude.com/pricing)、[What is the Max plan?](https://support.claude.com/en/articles/11049741-what-is-the-max-plan) 和 [Claude Fable models on your plan](https://support.claude.com/en/articles/15424964-claude-fable-models-on-your-plan)
+- OpenAI：[GPT-6 Astra 模型页面](https://developers.openai.com/api/docs/models/gpt-6-astra)、[What is ChatGPT Plus?](https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus)、[GPT-6 and other models in ChatGPT](https://help.openai.com/en/articles/20001354-gpt-6-and-other-models-in-chatgpt)、[Managing usage with GPT-6 Astra in Work and Codex](https://help.openai.com/en/articles/20001516-managing-usage-with-gpt-6-astra-in-work-and-codex) 和 [About ChatGPT Pro tiers](https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers)
+
+本页中关于 Capriole AI 的信息由我们作为官方文档持续维护。

@@ -4,9 +4,9 @@ sidebarTitle: "Coding-Agent-Kompatibilität"
 description: "Sehen Sie, wie ein Capriole AI-Konto 10 dokumentierte Coding-Agents über das Protokoll verbindet, das jeder Client erwartet."
 ---
 
-Ein Capriole AI-Konto kann Codex, Claude Code, Kilo Code, GitHub Copilot CLI, OpenCode, OpenClaw, Cline, Qwen Code, Crush und Pi verbinden. Premium kostet USD 9 pro Monat, umfasst 5 Millionen berechnete API-Tokens und stellt außerdem unbegrenzten Browser Chat mit der unterstützten Premium-Modellgruppe bereit.
+Ein Capriole-AI-Konto kann Codex, Claude Code, Kilo Code, GitHub Copilot CLI, OpenCode, OpenClaw, Cline, Qwen Code, Crush und Pi verbinden. Premium kostet USD 9 pro Monat für unbegrenzten Web-Chat mit GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5 und Gemini 4 Carbon, und die API kostet bis zu 92% weniger als die offiziellen API-Preise, mit 5M enthaltenen Tokens pro Monat.
 
-Jeder Client behält das Wire-Format, das er erwartet. Capriole unterhält OpenAI Responses-, OpenAI-kompatible Chat Completions- und Anthropic Messages-Pfade für die dokumentierten Integrationen.
+Jeder Client behält das Wire-Format, das er erwartet. Capriole unterhält OpenAI-Responses-, OpenAI-kompatible Chat-Completions- und Anthropic-Messages-Pfade für die dokumentierten Integrationen.
 
 „OpenAI compatible“ allein beschreibt keine moderne Coding-Agent-Unterstützung.
 
@@ -35,7 +35,7 @@ Coding-Agents können am Prompt ähnlich aussehen, ihre Modellclients sind aber 
 
 Dasselbe Konto und API-Guthaben stehen hinter diesen Integrationen. Die Anfrageform folgt weiterhin dem Client.
 
-Codex sendet Responses-Anfragen. Claude Code sendet Anthropic Messages-Anfragen und kann Token-Zähl-Preflight nutzen, wenn der gewählte Anbieter ihn unterstützt. Cline und Crush verwenden für jedes Modell Chat Completions. Kilo Code, OpenCode, Qwen Code und Pi senden jede Modellfamilie an das Protokoll, das Capriole für sie bereitstellt: Responses für GPT, Messages für Claude und Chat Completions für die übrigen Modelle. GitHub Copilot CLI und OpenClaw nutzen für jede Modellfamilie einen eigenen Protokollpfad oder Anbieter.
+Codex sendet Responses-Anfragen. Claude Code sendet Anthropic-Messages-Anfragen und kann Token-Zähl-Preflight nutzen, wenn der gewählte Anbieter ihn unterstützt. Cline und Crush verwenden für jedes Modell Chat Completions. Kilo Code, OpenCode, Qwen Code und Pi senden jede Modellfamilie an das Protokoll, das Capriole für sie bereitstellt: Responses für GPT, Messages für Claude und Chat Completions für die übrigen Modelle. GitHub Copilot CLI und OpenClaw nutzen für jede Modellfamilie einen eigenen Protokollpfad oder Anbieter.
 
 Capriole bewahrt diese Unterscheidungen. Seine öffentliche Responses-Route wird nicht still in Chat Completions umgewandelt, und seine Messages-Route wird nicht in eine OpenAI-Antwort umgeschrieben.
 
@@ -49,7 +49,7 @@ Ohne eine gemeinsame Zugangsschicht bedeutet das Ausprobieren mehrerer Coding-Ag
 - lernen, welchen Modellnamen und welche Base URL jeder Client erwartet;
 - jede Konfiguration erneut prüfen, wenn ein bevorzugtes Modell wechselt.
 
-Capriole reduziert diese Einrichtung auf ein Konto und einen Capriole API-Schlüssel. Die Integrationsanleitungen liefern die genaue Base URL, den Modellwähler und die client-spezifischen Felder.
+Capriole reduziert diese Einrichtung auf ein Konto und einen Capriole-API-Schlüssel. Die Integrationsanleitungen liefern die genaue Base URL, den Modellwähler und die client-spezifischen Felder.
 
 Die Agents behalten ihre eigenen Oberflächen, Tool-Systeme, Berechtigungsmodelle und lokales Ausführungsverhalten. Capriole liefert Modellzugang; jeder Coding-Agent entscheidet weiterhin, wie Dateien bearbeitet, Tools ausgeführt und das Ergebnis dargestellt werden.
 
@@ -73,24 +73,24 @@ Die gepflegte Einrichtung folgt tatsächlichen Client-Pfaden und Tests.
 
 Lokale Validierung deckt alle 10 Clients über ihre dokumentierten Konfigurationen ab. Tests umfassen grundlegende Prompts und unterstützte Tool-Interaktionsflows.
 
-Es gibt client-spezifische Limits. Codex bleibt auf den gepflegten OpenAI Responses-Modellen; die Auswahl eines Claude-Modells in Capriole macht es nicht zu einem Codex-kompatiblen Modell. Claude Code verwendet den Claude Messages-Pfad. Cline und Crush verwenden Chat Completions. Kilo Code, GitHub Copilot CLI, OpenCode, OpenClaw, Qwen Code und Pi bieten breitere Wahlmöglichkeiten, ihre Konfiguration muss aber weiterhin zum gewählten Protokoll passen.
+Es gibt client-spezifische Limits. Codex bleibt auf den gepflegten OpenAI-Responses-Modellen; die Auswahl eines Claude-Modells in Capriole macht es nicht zu einem Codex-kompatiblen Modell. Claude Code verwendet den Claude-Messages-Pfad. Cline und Crush verwenden Chat Completions. Kilo Code, GitHub Copilot CLI, OpenCode, OpenClaw, Qwen Code und Pi bieten breitere Wahlmöglichkeiten, ihre Konfiguration muss aber weiterhin zum gewählten Protokoll passen.
 
 Die in der Tabelle verlinkten Integrationsanleitungen sind die Quelle der Wahrheit für aktuelle Felder und unterstützte Auswähler.
 
 Lesen Sie [wie Capriole die Multi-Modell-API-Kompatibilität testet](/de/articles/unified-model-api#wie-wir-die-kompatibilität-testen) für den Unterschied zwischen Routenabdeckung und einem echten Coding-Agent-Durchlauf.
 
-## Browser Chat und Coding-Agents lösen unterschiedliche Teile der Aufgabe
+## Browser-Chat und Coding-Agents lösen unterschiedliche Teile der Aufgabe
 
-Recherche, Entwürfe, Dateien, Web Search und Modelländerungen mitten in der Unterhaltung können im Browser-Arbeitsbereich bleiben. Wenn die Aufgabe Repository-Kontext, lokale Tools oder Dateiänderungen braucht, kann ein Coding-Agent dasselbe Capriole-Konto nutzen.
+Recherche, Entwürfe, Dateien, Websuche und Modelländerungen mitten in der Unterhaltung können im Browser-Arbeitsbereich bleiben. Wenn die Aufgabe Repository-Kontext, lokale Tools oder Dateiänderungen braucht, kann ein Coding-Agent dasselbe Capriole-Konto nutzen.
 
-Capriole verbindet beide Flächen mit demselben Konto. Eine Premium-Mitgliedschaft kostet derzeit **USD 9 pro Monat**, umfasst unbegrenzten Browser Chat über die unterstützte Premium-Modellgruppe und fügt **5 Millionen berechnete API-Tokens jeden Monat** hinzu. Coding-Agent-Nutzung ist API-Nutzung, greift also auf dieses gemessene Guthaben zu und nicht auf das unbegrenzte Browser-Chat-Kontingent.
+Capriole verbindet beide Flächen mit demselben Konto. Eine Premium-Mitgliedschaft kostet derzeit **USD 9 pro Monat**, umfasst unbegrenzten Browser-Chat über die unterstützte Premium-Modellgruppe und fügt **5 Millionen abgerechnete API-Tokens jeden Monat** hinzu. Coding-Agent-Nutzung ist API-Nutzung, greift also auf dieses nutzungsabhängig abgerechnete Guthaben zu und nicht auf das unbegrenzte Browser-Chat-Kontingent.
 
-Der Plan hält die beiden Arbeitslasten getrennt. Alltäglicher Browser Chat ist unter Premium unbegrenzt, während programmatische und Agent-Arbeitslasten sichtbare berechnete API-Tokens nutzen, mit Aufstockungen wenn nötig.
+Der Plan hält die beiden Arbeitslasten getrennt. Alltäglicher Browser-Chat ist unter Premium unbegrenzt, während programmatische und Agent-Arbeitslasten sichtbare abgerechnete API-Tokens nutzen, mit Aufstockungen wenn nötig.
 
-## Wählen Sie zuerst den Agent, folgen Sie dann seinem Protokoll
+## Wählen Sie zuerst den Agenten, folgen Sie dann seinem Protokoll
 
 Nutzen Sie Codex, wenn sein Responses-basierter OpenAI-Workflow zur Aufgabe passt. Nutzen Sie Claude Code, wenn Sie seinen Anthropic-nativen Client möchten. Kilo Code und Cline bieten IDE- oder Terminal-Workflows. GitHub Copilot CLI, OpenCode, OpenClaw, Qwen Code, Crush und Pi bieten mehr Client-Auswahl.
 
 Jeder dokumentierte Client erhält eine gepflegte Route zu den von diesem Protokoll unterstützten Modellen.
 
-[Probieren Sie GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5 oder Gemini 4 Carbon im begrenzten kostenlosen Browser Chat](https://www.capriole.ai/de) und upgraden Sie, wenn Sie bereit sind, einen API-Schlüssel zu erstellen. Beginnen Sie mit der [Ein-Schlüssel-Coding-Agent-Anleitung](/de/guides/one-api-key-coding-agents) für den gemeinsamen Workflow und öffnen Sie dann die Integrationsseite für den Agent, den Sie nutzen.
+[Probieren Sie GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5 oder Gemini 4 Carbon im begrenzten kostenlosen Browser-Chat](https://www.capriole.ai/de) und upgraden Sie, wenn Sie bereit sind, einen API-Schlüssel zu erstellen. Beginnen Sie mit der [Ein-Schlüssel-Coding-Agent-Anleitung](/de/guides/one-api-key-coding-agents) für den gemeinsamen Workflow und öffnen Sie dann die Integrationsseite für den Agenten, den Sie nutzen.

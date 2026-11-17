@@ -4,19 +4,19 @@ sidebarTitle: "Claude Code"
 description: "설정 파일 하나로 Claude Code가 Capriole AI를 사용하게 합니다. Claude Fable 5.1과 Opus 5.5 모델을 공식 API 가격보다 최대 92% 저렴하게 사용하세요."
 ---
 
-Capriole AI API key 하나로 Claude Code에서 Claude Fable 5.1과 Opus 5.5 모델을 공식 API 가격보다 최대 92% 저렴하게 사용할 수 있습니다.
+Capriole AI API 키 하나로 Claude Code에서 Claude Fable 5.1과 Opus 5.5 모델을 공식 API 가격보다 최대 92% 저렴하게 사용할 수 있습니다.
 
 ## Claude Code란
 
-Claude Code는 코드베이스 읽기, 파일 편집, 명령 실행, 개발 도구 통합을 위한 Anthropic의 에이전틱 코딩 도구입니다. 이 구성은 Claude Code의 게이트웨이 설정인 API 엔드포인트, 인증 토큰, 별칭별 모델을 지정해 Claude Code가 Capriole AI를 사용하게 합니다. Claude Pro나 Max로 로그인한 Claude Code는 플랜의 [5시간 및 주간 사용량 한도](/ko/articles/claude-usage-limits)를 쓰지만, Capriole AI API key를 쓰면 API 토큰 잔액을 사용합니다.
+Claude Code는 코드베이스 읽기, 파일 편집, 명령 실행, 개발 도구 통합을 위한 Anthropic의 에이전틱 코딩 도구입니다. 이 구성은 Claude Code의 게이트웨이 설정인 API 엔드포인트, 인증 토큰, 별칭별 모델을 지정해 Claude Code가 Capriole AI를 사용하게 합니다. Claude Pro나 Max로 로그인한 Claude Code는 플랜의 [5시간 및 주간 사용량 한도](/ko/articles/claude-usage-limits)를 쓰지만, Capriole AI API 키를 쓰면 API 토큰 잔액을 사용합니다.
 
 ## 사전 준비
 
 시작하기 전에 다음이 있는지 확인하세요.
 
 - Capriole AI 계정([여기에서 가입](https://www.capriole.ai/ko))
-- Premium 플랜(월 USD 9, 무제한 웹 채팅 포함) 또는 Team 플랜. API key를 만들려면 둘 중 하나가 필요합니다([구독하기](https://www.capriole.ai/ko?view=api))
-- Capriole AI API key([키 받기](https://www.capriole.ai/ko?view=api))
+- Premium 플랜(월 USD 9, 무제한 웹 채팅 포함) 또는 Team 플랜. API 키를 만들려면 둘 중 하나가 필요합니다([구독하기](https://www.capriole.ai/ko?view=api))
+- Capriole AI API 키([키 받기](https://www.capriole.ai/ko?view=api))
 
 ## 설치
 
@@ -72,7 +72,7 @@ Claude Code 2.1.304 버전은 아래 구성으로 지원 모델 섹션의 모든
 - `ANTHROPIC_AUTH_TOKEN`은 키를 Capriole AI가 요구하는 Bearer 토큰으로 보냅니다.
 - 세 개의 `ANTHROPIC_DEFAULT_*_MODEL` 값은 `opus`, `sonnet`, `haiku` 별칭이 Capriole AI가 제공하는 모델을 가리키게 합니다. `haiku`는 Claude Code가 빠른 백그라운드 작업에 사용하는 모델입니다.
 
-일회성 셸 구성이면 엔드포인트와 토큰을 내보낸 다음 모델을 전달하세요.
+현재 셸에서 한 번만 설정하려면 엔드포인트와 토큰을 내보낸 다음 모델을 전달하세요.
 
 ```bash
 export ANTHROPIC_BASE_URL="https://api.caprioletech.com"
@@ -128,9 +128,9 @@ Claude Code는 `claude-latest`를 모델 이름으로 인식하지 못해 200K �
 
 세 개의 `ANTHROPIC_DEFAULT_*_MODEL` 값을 유지하세요. 이 값이 없으면 Claude Code는 Anthropic 자체 별칭이 가리키는 모델을 보냅니다. 예를 들어 `sonnet`은 Capriole AI가 제공하지 않는 `claude-sonnet-5-5`를 요청하므로 요청이 `Unsupported Claude Messages model`로 실패합니다.
 
-### Claude Code가 설정한 effort level을 사용하지 않는 이유는 무엇인가요?
+### Claude Code가 내가 설정한 추론 강도를 사용하지 않는 이유는 무엇인가요?
 
-Claude Code는 모델마다 effort level을 따로 저장합니다. 해당 모델이 활성화된 상태에서 `/effort`로 선택하세요. 사용자 설정의 최상위 `effortLevel`은 Opus 5.5에 적용되지 않습니다.
+Claude Code는 모델마다 추론 강도를 따로 저장합니다. 해당 모델이 활성화된 상태에서 `/effort`로 선택하세요. 사용자 설정의 최상위 `effortLevel`은 Opus 5.5에 적용되지 않습니다.
 
 ### 토큰 계산이 실패하는 이유는 무엇인가요?
 
@@ -138,7 +138,7 @@ Capriole AI는 `/v1/messages/count_tokens`를 선택된 업스트림으로 전�
 
 ## 참고
 
-- `~/.claude/settings.json`은 모든 프로젝트에서 사용자 계정에 적용됩니다. `YOUR_CAPRIOLE_AI_API_KEY`를 Capriole AI API key로 바꾸세요.
+- `~/.claude/settings.json`은 모든 프로젝트에서 사용자 계정에 적용됩니다. `YOUR_CAPRIOLE_AI_API_KEY`를 Capriole AI API 키로 바꾸세요.
 - Claude Code는 Anthropic Messages 프로토콜만 사용하므로 Gemini, Grok, GLM, Kimi 모델은 Claude Code에서 실행되지 않습니다. 이 모델에는 OpenCode, Kilo Code 또는 다른 멀티 프로토콜 에이전트를 사용하세요.
-- 같은 key를 다른 코딩 에이전트에서도 쓰려면 [코딩 에이전트에 API key 하나 사용하기](/ko/guides/one-api-key-coding-agents) 가이드를 참고하세요.
-- 공식 참고: [Claude Code setup](https://code.claude.com/docs/en/setup), [model configuration](https://code.claude.com/docs/en/model-config), [LLM gateway configuration](https://code.claude.com/docs/en/llm-gateway-connect).
+- 같은 키를 다른 코딩 에이전트에서도 쓰려면 [코딩 에이전트에 API 키 하나 사용하기](/ko/guides/one-api-key-coding-agents) 가이드를 참고하세요.
+- 공식 참고: [Claude Code 설치 및 설정](https://code.claude.com/docs/en/setup), [모델 구성](https://code.claude.com/docs/en/model-config), [LLM 게이트웨이 구성](https://code.claude.com/docs/en/llm-gateway-connect).

@@ -79,7 +79,7 @@ A [comparação datada de custo da API](/pt-br/articles/ai-api-cost-comparison) 
 | Acesso | Saldo de API incluído | Preço-base da recarga | Regra atual |
 |---|---:|---:|---|
 | Premium pessoal | 5 milhões de tokens cobrados por período ativo de cota mensal | USD 8 por 5 milhões | A API pública e as recargas pessoais exigem acesso Premium ativo; compras de vários pacotes recebem o desconto de volume exibido, de até 15% |
-| Team | 50 milhões de tokens cobrados compartilhados por período ativo de cota mensal | USD 80 por 50 milhões | USD 70/mês inclui [cinco assentos](/pt-br/guides/team-plan); owners e admins podem comprar de um a cinco pacotes, com o desconto de volume exibido de até 10% |
+| Team | 50 milhões de tokens cobrados compartilhados por período ativo de cota mensal | USD 80 por 50 milhões | USD 70/mês inclui [cinco assentos](/pt-br/guides/team-plan); proprietários e administradores podem comprar de um a cinco pacotes, com o desconto de volume exibido de até 10% |
 
 A cota incluída é consumida antes da carteira de recarga pessoal ou Team correspondente. Saldos de recarga comprados persistem entre períodos de cota mensal e intervalos de acesso pago; consumi-los ainda exige acesso pago ativo elegível. O Browser Chat é separado da contabilidade da API; agentes de programação contam como tráfego de API e deduzem tokens cobrados.
 
@@ -98,18 +98,18 @@ A Capriole guarda o uso normalizado pelo protocolo e o uso cobrado como campos s
 - tokens cobrados deduzidos da cota;
 - o modelo resolvido e o status da solicitação.
 
-Os endpoints de Responses, Chat Completions e Messages preservam as formas de resposta do upstream e não devolvem um campo `charged_tokens`. A Capriole registra o valor correspondente de tokens cobrados para o uso da conta; você pode vê-lo na coluna **Charged tokens** da tabela de uso da [página da API](https://www.capriole.ai/pt-br?view=api).
+Os endpoints de Responses, Chat Completions e Messages preservam as formas de resposta do upstream e não devolvem um campo `charged_tokens`. A Capriole registra o valor correspondente de tokens cobrados para o uso da conta; você pode vê-lo na coluna **Tokens cobrados** da tabela de uso da [página da API](https://www.capriole.ai/pt-br?view=api).
 
 ## Confirme se a entrada em cache reduziu uma cobrança
 
-Abra a [página da API](https://www.capriole.ai/pt-br?view=api) da Capriole AI e use os filtros **Key**, **Model** e **Status** para isolar a solicitação. Compare estas colunas na tabela de uso:
+Abra a [página da API](https://www.capriole.ai/pt-br?view=api) da Capriole AI e use os filtros **Nome da chave**, **Modelo** e **Status** para isolar a solicitação. Compare estas colunas na tabela de uso:
 
 | Coluna | O que confirma |
 |---|---|
-| **Input tokens** | Entrada normalizada pelo protocolo antes de separar a entrada em cache |
-| **Cached tokens** | Entrada que o provedor informou como em cache |
-| **Charged tokens** | Cota deduzida depois de aplicar a fórmula de entrada em cache |
-| **Total tokens** | Entrada normalizada pelo protocolo mais saída |
+| **Tokens de entrada** | Entrada normalizada pelo protocolo antes de separar a entrada em cache |
+| **Tokens em cache** | Entrada que o provedor informou como em cache |
+| **Tokens cobrados** | Cota deduzida depois de aplicar a fórmula de entrada em cache |
+| **Tokens totais** | Entrada normalizada pelo protocolo mais saída |
 
 Um valor positivo de tokens em cache confirma que os metadados de uso compatíveis do provedor informaram um acerto de cache. Isso não prova que toda solicitação repetida vai acertar o mesmo cache do provedor. Roteamento do provedor, tempo de vida do cache, estrutura da solicitação e comportamento do modelo podem mudar o resultado.
 
@@ -121,9 +121,9 @@ As respostas da API mantêm os schemas do upstream, então a tabela de uso da co
 
 Só quando o provedor selecionado informa entrada em cache em metadados de uso compatíveis. Metadados de cache ausentes não são tratados como acerto de cache.
 
-### Tokens de reasoning são somados uma segunda vez?
+### Tokens de raciocínio são somados uma segunda vez?
 
-Não. O uso de saída informado pelo provedor já contém a contabilidade de saída usada pela rota. A Capriole não adiciona uma cobrança separada de tokens de reasoning por cima da saída nesta fórmula.
+Não. O uso de saída informado pelo provedor já contém a contabilidade de saída usada pela rota. A Capriole não adiciona uma cobrança separada de tokens de raciocínio por cima da saída nesta fórmula.
 
 ### O uso da API é ilimitado no Premium?
 
@@ -133,4 +133,4 @@ Não. O Browser Chat do Premium é ilimitado no conjunto de modelos Premium supo
 
 Use o [início rápido da API](/pt-br/quickstart) para a menor solicitação bruta ou o [guia dos SDKs OpenAI e Anthropic](/pt-br/guides/openai-anthropic-sdks) para clientes nativos de protocolo em Python e TypeScript. Se você ainda não assinou, [experimente os modelos principais no Browser Chat gratuito limitado](https://www.capriole.ai/pt-br) antes de fazer upgrade.
 
-Os fatos de plano, cota, recarga e tokens cobrados da Capriole nesta página são mantidos como documentação de primeira parte.
+As informações sobre planos, cotas, recargas e tokens cobrados da Capriole nesta página são documentação própria da Capriole AI.

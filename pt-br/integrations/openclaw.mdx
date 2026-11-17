@@ -216,7 +216,7 @@ O que cada configuração faz:
 - `${CAPRIOLE_AI_API_KEY}` lê sua key do ambiente.
 - `request.auth` com `authorization-bearer` faz o provedor Anthropic enviar a key como Bearer token. Sem ele, a key vai em um cabeçalho `x-api-key`, que a Capriole AI não aceita.
 - O `baseUrl` da Anthropic não tem `/v1`, porque o próprio OpenClaw adiciona `/v1/messages`.
-- `reasoning` é `false` para o Opus 5.5. Quando é `true`, o OpenClaw envia um orçamento de thinking, e o Opus 5.5 o rejeita com `requires adaptive thinking`.
+- `reasoning` é `false` para o Opus 5.5. Quando é `true`, o OpenClaw envia um orçamento de raciocínio, e o Opus 5.5 o rejeita com `requires adaptive thinking`.
 - `contextWindow` e `maxTokens` informam ao OpenClaw os limites de cada modelo.
 - `agents.defaults.models` é a lista de modelos que os agentes podem usar. `agents.defaults.model.primary` é o padrão.
 

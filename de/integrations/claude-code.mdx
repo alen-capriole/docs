@@ -4,19 +4,19 @@ sidebarTitle: "Claude Code"
 description: "Claude Code per Einstellungsdatei mit Capriole AI verbinden. Nutzen Sie Claude Fable 5.1 und Opus 5.5 bis zu 92 % unter den offiziellen API-Preisen."
 ---
 
-Mit einem einzigen Capriole AI API-Schlüssel nutzen Sie Claude Fable 5.1 und Opus 5.5 in Claude Code, bis zu 92 % unter den offiziellen API-Preisen.
+Mit einem einzigen Capriole-AI-API-Schlüssel nutzen Sie Claude Fable 5.1 und Opus 5.5 in Claude Code, bis zu 92% unter den offiziellen API-Preisen.
 
 ## Was ist Claude Code
 
-Claude Code ist das agentische Coding-Tool von Anthropic zum Lesen von Codebasen, Bearbeiten von Dateien, Ausführen von Befehlen und zur Integration mit Entwicklungswerkzeugen. Dieses Setup leitet Claude Code über seine Gateway-Einstellungen an Capriole AI weiter: API-Endpunkt, Auth-Token und das Modell für jeden Alias. Mit einer Claude-Pro- oder Max-Anmeldung zehrt Claude Code von den [Fünf-Stunden- und Wochenlimits](/de/articles/claude-usage-limits) des Plans; mit einem Capriole AI API-Schlüssel nutzt es stattdessen Ihr API-Token-Guthaben.
+Claude Code ist das agentische Coding-Tool von Anthropic zum Lesen von Codebasen, Bearbeiten von Dateien, Ausführen von Befehlen und zur Integration mit Entwicklungswerkzeugen. Dieses Setup leitet Claude Code über seine Gateway-Einstellungen an Capriole AI weiter: API-Endpunkt, Auth-Token und das Modell für jeden Alias. Mit einer Claude-Pro- oder Max-Anmeldung zehrt Claude Code von den [Fünf-Stunden- und Wochenlimits](/de/articles/claude-usage-limits) des Plans; mit einem Capriole-AI-API-Schlüssel nutzt es stattdessen Ihr API-Token-Guthaben.
 
 ## Voraussetzungen
 
 Bevor Sie beginnen, stellen Sie sicher, dass Sie Folgendes haben:
 
-- Ein Capriole AI-Konto ([Hier registrieren](https://www.capriole.ai/de))
+- Ein Capriole-AI-Konto ([Hier registrieren](https://www.capriole.ai/de))
 - Premium (USD 9 pro Monat, inklusive unbegrenztem Web-Chat) oder Team, denn API-Schlüssel gibt es nur mit einem dieser Pläne ([Abonnieren](https://www.capriole.ai/de?view=api))
-- Einen Capriole AI API-Schlüssel ([Schlüssel abrufen](https://www.capriole.ai/de?view=api))
+- Einen Capriole-AI-API-Schlüssel ([Schlüssel abrufen](https://www.capriole.ai/de?view=api))
 
 ## Installation
 
@@ -96,7 +96,7 @@ claude -p "Explain this repository."
 
 ## Unterstützte Modelle
 
-Claude Code verwendet das Anthropic Messages-Protokoll und unterstützt daher die Claude-Modelle von Capriole AI:
+Claude Code verwendet das Anthropic-Messages-Protokoll und unterstützt daher die Claude-Modelle von Capriole AI:
 
 - `claude-fable-5-1` (Fable 5.1, der empfohlene Standard)
 - `claude-opus-5-5` (Opus 5.5)
@@ -138,7 +138,7 @@ Capriole AI leitet `/v1/messages/count_tokens` an das gewählte Upstream weiter.
 
 ## Hinweise
 
-- `~/.claude/settings.json` gilt für Ihr Benutzerkonto in allen Projekten. Ersetzen Sie `YOUR_CAPRIOLE_AI_API_KEY` durch Ihren Capriole AI API-Schlüssel.
-- Gemini-, Grok-, GLM- und Kimi-Modelle laufen nicht in Claude Code, da es nur das Anthropic Messages-Protokoll spricht. Verwenden Sie für diese Modelle OpenCode, Kilo Code oder einen anderen Agent, der mehrere Protokolle unterstützt.
+- `~/.claude/settings.json` gilt für Ihr Benutzerkonto in allen Projekten. Ersetzen Sie `YOUR_CAPRIOLE_AI_API_KEY` durch Ihren Capriole-AI-API-Schlüssel.
+- Gemini-, Grok-, GLM- und Kimi-Modelle laufen nicht in Claude Code, da es nur das Anthropic-Messages-Protokoll spricht. Verwenden Sie für diese Modelle OpenCode, Kilo Code oder einen anderen Agenten, der mehrere Protokolle unterstützt.
 - Wie Sie denselben Schlüssel mit Ihren anderen Coding-Agents nutzen, zeigt [Einen API-Schlüssel mit Coding-Agents nutzen](/de/guides/one-api-key-coding-agents).
-- Offizielle Referenzen: [Claude Code-Einrichtung](https://code.claude.com/docs/en/setup), [Modellkonfiguration](https://code.claude.com/docs/en/model-config) und [LLM-Gateway-Konfiguration](https://code.claude.com/docs/en/llm-gateway-connect).
+- Offizielle Referenzen: [Claude-Code-Einrichtung](https://code.claude.com/docs/en/setup), [Modellkonfiguration](https://code.claude.com/docs/en/model-config) und [LLM-Gateway-Konfiguration](https://code.claude.com/docs/en/llm-gateway-connect).

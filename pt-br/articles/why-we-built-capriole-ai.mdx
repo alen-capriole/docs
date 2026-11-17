@@ -4,7 +4,7 @@ sidebarTitle: "Por que construímos a Capriole AI"
 description: "Por que construímos a Capriole AI: USD 9 por mês para chat ilimitado com GPT-6 Astra, Claude e Gemini, além de uma API até 92% abaixo dos preços oficiais."
 ---
 
-A Capriole AI é um espaço de trabalho unificado para chat com modelos de fronteira, uma API pública e agentes de programação suportados. Visitantes sem login e usuários Free podem experimentar GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5 e Gemini 4 Carbon antes de assinar; o Premium de USD 9 adiciona Browser Chat ilimitado, acesso à API por até 92% menos que os preços oficiais das APIs e 10 integrações documentadas de agentes de programação.
+A Capriole AI é um [espaço de trabalho unificado](/pt-br/overview) para chat com modelos de fronteira, uma API pública e agentes de programação suportados. Visitantes sem login e usuários Free podem experimentar GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5 e Gemini 4 Carbon antes de assinar; o Premium de USD 9 adiciona Browser Chat ilimitado, acesso à API por até 92% menos que os preços oficiais das APIs e 10 integrações documentadas de agentes de programação.
 
 Começou enquanto adicionávamos capacidades de IA ao Capriole Quant, que na época se chamava Capriole Charts.
 
@@ -36,7 +36,7 @@ Um seletor de modelo foi a menor parte do trabalho. Construímos e continuamos r
 
 As diferenças aparecem em solicitações reais. Uma família de modelo pode usar eventos OpenAI Responses enquanto outra espera Anthropic Messages. Uso de tokens e erros chegam em formas diferentes. Uma conversa longa pode precisar compactar o contexto antes que o próximo modelo possa continuá-la com segurança. Esses casos precisam funcionar juntos antes que uma troca de modelo possa passar despercebida.
 
-A maior parte desse trabalho fica atrás da interface. Um usuário pode trocar de um modelo ChatGPT para Claude ou Gemini no meio de uma conversa e continuar na mesma conversa.
+A maior parte desse trabalho fica por trás da interface. Um usuário pode trocar de um modelo ChatGPT para Claude ou Gemini no meio de uma conversa e continuar na mesma conversa.
 
 A mesma conta Capriole AI cobre Browser Chat, a API pública e 10 agentes de programação documentados: [Codex](/pt-br/integrations/codex), [Claude Code](/pt-br/integrations/claude-code), [GitHub Copilot CLI](/pt-br/integrations/github-copilot-cli), [OpenCode](/pt-br/integrations/opencode), [OpenClaw](/pt-br/integrations/openclaw), [Kilo Code](/pt-br/integrations/kilo-code), [Cline](/pt-br/integrations/cline), [Qwen Code](/pt-br/integrations/qwen-code), [Crush](/pt-br/integrations/crush) e [Pi](/pt-br/integrations/pi). Aliases de modelo latest simplificam a configuração suportada de API e agentes, sem fazer você acompanhar nomes de modelo específicos do provedor. Nós tratamos os caminhos de protocolo compatíveis para que conectar um agente não vire outro projeto de integração de provedor.
 
@@ -44,7 +44,7 @@ A mesma conta Capriole AI cobre Browser Chat, a API pública e 10 agentes de pro
 
 Construímos a Capriole AI para substituir uma coleção de assinaturas caras de IA por uma conta acessível.
 
-O Premium custa **USD 9 por mês**. Inclui Browser Chat ilimitado no conjunto de modelos Premium suportado. Não há saldo de crédito de Browser Chat para vigiar nem uma cota separada deduzida cada vez que você troca de modelo.
+O Premium custa **USD 9 por mês**. Inclui chat web ilimitado em todos os modelos suportados. Não há saldo de créditos de chat para vigiar nem uma cota separada deduzida cada vez que você troca de modelo. O chat web com login tem um [limite de uso justo de 200 mensagens por dia](/pt-br/guides/plans-and-limits#o-que-significa-ilimitado) que impede abusos automatizados feitos por scripts; o uso normal fica bem abaixo disso.
 
 Membros Premium também recebem **5 milhões de tokens cobrados de API por mês**, e o uso adicional está disponível por recargas. Na nossa [comparação datada de custo](/pt-br/articles/ai-api-cost-comparison), a Capriole custa USD 9 para cada modelo testado que ela oferece. O preço Standard pago direto vai de USD 6.75 a USD 90, enquanto o OpenRouter vai de USD 7.55 a USD 94.95 depois da taxa publicada de compra de créditos. Neste exemplo, tanto a API direta quanto o OpenRouter custam menos para Gemini 3.8 Flash.
 
@@ -56,9 +56,9 @@ Uma conta pode, portanto, cobrir o chat usado para o pensamento cotidiano e a AP
 
 Uma conversa de pesquisa salva e uma conversa com material sensível não precisam da mesma política de armazenamento.
 
-| Modo | Persistência | Troca principal |
+| Modo | Persistência | Principal contrapartida |
 |---|---|---|
-| Synced | Histórico da conta disponível entre dispositivos | O estado do chat e dos arquivos enviados é armazenado para continuidade |
+| Sincronizado | Histórico da conta disponível entre dispositivos | O estado do chat e dos arquivos enviados é armazenado para continuidade |
 | Local | Só o navegador atual | Sem histórico entre dispositivos; envios desativados |
 | No Storage | Só a sessão atual da página | Atualizar ou sair perde o chat; envios desativados |
 
@@ -72,7 +72,7 @@ A Capriole AI é para pessoas que querem acesso a modelos fortes sem transformar
 
 Várias assinaturas caras fazem pouco sentido quando o objetivo é simplesmente usar o modelo certo para uma tarefa. Uma conversa útil deve poder continuar quando esse modelo muda. Agentes de programação devem se conectar sem reconstruir a mesma configuração de provedor cada vez.
 
-Queríamos um espaço de trabalho que economize dinheiro, reduza a configuração e deixe a escolha de modelo aberta conforme o trabalho muda. A Capriole é agora o produto que gostaríamos de ter tido quando assinaturas, keys, históricos e interfaces separados estavam no caminho.
+Queríamos um espaço de trabalho que economizasse dinheiro, reduzisse a configuração e deixasse a escolha de modelo aberta conforme o trabalho mudasse. A Capriole é agora o produto que gostaríamos de ter tido quando assinaturas, keys, históricos e interfaces separados estavam no caminho.
 
 Se você está decidindo entre um espaço de trabalho como este e um gateway mais amplo de modelos, a nossa [comparação Capriole AI e OpenRouter](/pt-br/articles/capriole-ai-vs-openrouter) explica onde cada produto se encaixa.
 

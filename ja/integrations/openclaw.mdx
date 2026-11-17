@@ -1,7 +1,7 @@
 ---
 title: "OpenClaw にカスタム モデル プロバイダーを追加"
 sidebarTitle: "OpenClaw"
-description: "Capriole AI を OpenClaw のカスタム モデル プロバイダーとして追加します。GPT-6 Astra、Claude Fable 5.1、Opus 5.5、Gemini 4 Carbon を公式 API 価格より最大 92% 安く使えます。"
+description: "Capriole AI を OpenClaw のカスタム モデル プロバイダーに追加し、GPT-6 Astra、Claude Fable 5.1、Opus 5.5、Gemini 4 Carbon を公式 API 価格より最大 92% 安く使えます。"
 ---
 
 Capriole AI の API キー 1 つで、OpenClaw から GPT-6 Astra、Claude Fable 5.1、Opus 5.5、Gemini 4 Carbon を公式 API 価格より最大 92% 安く使えます。
@@ -15,7 +15,7 @@ OpenClaw は、オープンソースでセルフホスト型の個人向け AI �
 始める前に、次を用意してください。
 
 - Capriole AI アカウント（[こちらから登録](https://www.capriole.ai/ja)）
-- Premium プラン（月額 USD 9、無制限の Web チャットも含む）または Team プラン。API キーにはどちらかが必要です（[購読する](https://www.capriole.ai/ja?view=api)）
+- Premium プラン（月額 USD 9、無制限のウェブチャットも含む）または Team プラン。API キーにはどちらかが必要です（[購読する](https://www.capriole.ai/ja?view=api)）
 - Capriole AI API キー（[キーを取得](https://www.capriole.ai/ja?view=api)）
 
 ## インストール
@@ -277,7 +277,7 @@ openclaw agent --local --session-id capriole-test --message "Summarize the files
 
 `claude-opus-5-5` の `reasoning` を `false` に設定してください。
 
-### OpenClaw がモデルは許可されていない、または見つからないと報告するのはなぜですか？
+### OpenClaw でモデルが許可されていない、または見つからないと表示されるのはなぜですか？
 
 `openclaw models list` を実行してください。モデル参照が `agents.defaults.models` にあること、およびモデルのエントリーが `id` と `name` だけでなく、上記の完全なオブジェクトになっていることを確認してください。
 
@@ -294,4 +294,4 @@ openclaw agent --local --session-id capriole-test --message "Summarize the files
 - Capriole AI の別のモデルを追加するには、同じファミリーのモデルのエントリーをコピーして ID を変更し、その参照を `agents.defaults.models` に追加します。`GET https://api.caprioletech.com/v1/models` ですべてのモデル ID を一覧できます。
 - Gemini 4 Carbon は Gemini 4 Argon より長く思考するため、各ターンに時間がかかり、使うトークンも多くなることがあります。速さを重視する場合は `google/gemini-4-argon` を使ってください。
 - 同じキーを他のコーディング エージェントでも使うには、[1 つの API キーでコーディング エージェントを使う](/ja/guides/one-api-key-coding-agents)を参照してください。
-- 公式リファレンス: [OpenClaw のインストール](https://docs.openclaw.ai/install)、[OpenClaw のカスタム プロバイダー](https://docs.openclaw.ai/gateway/config-tools)、[OpenClaw のモデル プロバイダー](https://documentation.openclaw.ai/concepts/model-providers)、[OpenClaw のトラブルシューティング](https://docs.openclaw.ai/gateway/troubleshooting)。
+- 公式リファレンス：[OpenClaw のインストール](https://docs.openclaw.ai/install)、[OpenClaw のカスタム プロバイダー](https://docs.openclaw.ai/gateway/config-tools)、[OpenClaw のモデル プロバイダー](https://documentation.openclaw.ai/concepts/model-providers)、[OpenClaw のトラブルシューティング](https://docs.openclaw.ai/gateway/troubleshooting)。

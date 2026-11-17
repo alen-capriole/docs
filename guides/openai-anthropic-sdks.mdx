@@ -212,7 +212,7 @@ print(completion.choices[0].message.content)
 
 `google-latest` uses Gemini 4 Carbon, which thinks at Google's default `medium` level on Chat Completions. To use fewer tokens, add `extra_body={"extra_body": {"google": {"thinking_config": {"thinking_level": "low"}}}}` or call `google/gemini-4-argon`. [Choose a model](/guides/choose-a-model#model-ids-for-the-api) has the details.
 
-Do not move `google-latest` to `responses.create()`. The Responses route accepts the supported OpenAI Responses model set, while Chat Completions accepts the broader public compatible catalog.
+Do not move `google-latest` to `responses.create()`. The Responses route accepts OpenAI models and Grok models with the `xai/` prefix, while Chat Completions accepts the broader public compatible catalog.
 
 ## Fix common SDK errors
 

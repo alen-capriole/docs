@@ -1,7 +1,7 @@
 ---
 title: "Pi コーディング エージェントにプロバイダーを追加"
 sidebarTitle: "Pi"
-description: "Capriole AI を Pi コーディング エージェントの models.json に追加します。GPT-6 Astra、Claude Fable 5.1、Opus 5.5、Gemini 4 Carbon を公式 API 価格より最大 92% 安く使えます。"
+description: "Capriole AI を Pi コーディング エージェントの models.json に追加し、GPT-6 Astra、Claude Fable 5.1、Opus 5.5、Gemini 4 Carbon を公式 API 価格より最大 92% 安く使えます。"
 ---
 
 Capriole AI の API キー 1 つで、Pi から GPT-6 Astra、Claude Fable 5.1、Opus 5.5、Gemini 4 Carbon を公式 API 価格より最大 92% 安く使えます。
@@ -15,7 +15,7 @@ Pi は、ターミナル向けのオープンソースでミニマルなコー�
 始める前に、次を用意してください。
 
 - Capriole AI アカウント（[こちらから登録](https://www.capriole.ai/ja)）
-- Premium プラン（月額 USD 9、無制限の Web チャットも含む）または Team プラン。API キーにはどちらかが必要です（[購読する](https://www.capriole.ai/ja?view=api)）
+- Premium プラン（月額 USD 9、無制限のウェブチャットも含む）または Team プラン。API キーにはどちらかが必要です（[購読する](https://www.capriole.ai/ja?view=api)）
 - Capriole AI API キー（[キーを取得](https://www.capriole.ai/ja?view=api)）
 
 ## インストール
@@ -205,4 +205,4 @@ Claude モデルのエントリーに `"compat": { "forceAdaptiveThinking": true
 - Capriole AI の別のモデルを追加するには、同じファミリーのモデルのエントリーをコピーして ID を変更します。`GET https://api.caprioletech.com/v1/models` ですべてのモデル ID を一覧できます。
 - Gemini 4 Carbon は Gemini 4 Argon より長く思考するため、各ターンに時間がかかり、使うトークンも多くなることがあります。速さを重視する場合は `google/gemini-4-argon` を使ってください。
 - 同じキーを他のコーディング エージェントでも使うには、[1 つの API キーでコーディング エージェントを使う](/ja/guides/one-api-key-coding-agents)を参照してください。
-- 公式リファレンス: [Pi](https://pi.dev)、[Pi のドキュメント](https://pi.dev/docs)、[モデルを選ぶ](https://github.com/earendil-works/pi/blob/main/packages/coding-agent/docs/models.md)、[Pi の設定](https://github.com/earendil-works/pi/blob/main/packages/coding-agent/docs/configuration.md)。
+- 公式リファレンス：[Pi](https://pi.dev)、[Pi のドキュメント](https://pi.dev/docs)、[モデルを選ぶ](https://github.com/earendil-works/pi/blob/main/packages/coding-agent/docs/models.md)、[Pi の設定](https://github.com/earendil-works/pi/blob/main/packages/coding-agent/docs/configuration.md)。

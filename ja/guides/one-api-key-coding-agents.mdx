@@ -6,9 +6,9 @@ description: "1 つの Capriole AI API キーで、ドキュメント化され�
 
 1 つの Capriole AI API キーで、Codex、Claude Code、Kilo Code、GitHub Copilot CLI、OpenCode、OpenClaw、Cline、Qwen Code、Crush、Pi を認証できます。キーは同じまま、Base URL、プロトコル、モデル セレクターは設定中のクライアントに合わせる必要があります。
 
-このガイドで、1 つの Capriole アカウントから動作するエージェントまで進めます。個人 Premium は月額 USD 9 で、500 万の課金 API トークンを含み、対応する Premium モデル群の無制限 Browser Chat も解除します。そのため、1 つのメンバーシップでブラウザ ワークスペースと、維持されている 10 のエージェント経路をすべてカバーできます。
+このガイドで、1 つの Capriole アカウントから動作するエージェントまで進めます。個人 Premium は月額 USD 9 で、500 万の課金 API トークンが含まれ、対応する Premium モデル群とのウェブチャットも無制限で使えるようになります。そのため、1 つのメンバーシップでブラウザ ワークスペースと、継続的に整備している 10 のエージェント経路をすべてカバーできます。
 
-完全なクライアント設定の根拠は、引き続き各統合ページです。
+クライアントごとの完全な設定は、各統合ページを正としてください。
 
 ## 始める前に
 
@@ -69,7 +69,7 @@ test -n "$CAPRIOLE_AI_API_KEY" && echo "Capriole API key is set"
 
 <Step title="クライアント経路を選ぶ">
 
-表の統合ページを開き、維持されている設定をコピーします。そのクライアントがトークンを求める場所では、`CAPRIOLE_AI_API_KEY` の同じ値を使ってください。
+表の統合ページを開き、掲載している設定をコピーします。そのクライアントがトークンを求める場所では、`CAPRIOLE_AI_API_KEY` の同じ値を使ってください。
 
 - Codex は `env_key` 経由で `CAPRIOLE_AI_API_KEY` からキーを読みます。
 - Claude Code は `ANTHROPIC_AUTH_TOKEN` を使います。起動前に共有変数から設定してください。
@@ -82,7 +82,7 @@ test -n "$CAPRIOLE_AI_API_KEY" && echo "Capriole API key is set"
 - Crush は `crushrc` のプロバイダー エントリで `$CAPRIOLE_AI_API_KEY` を読み込みます。
 - Pi は `models.json` で `$CAPRIOLE_AI_API_KEY` を読み込みます。
 
-Claude Code の場合:
+Claude Code の場合：
 
 ```bash
 export ANTHROPIC_AUTH_TOKEN="$CAPRIOLE_AI_API_KEY"
@@ -92,13 +92,13 @@ export ANTHROPIC_AUTH_TOKEN="$CAPRIOLE_AI_API_KEY"
 
 <Step title="モデルを互換ルートに保つ">
 
-正確なモデル バージョンが必要な場合を除き、維持されているエイリアスから始めてください。
+正確なモデル バージョンが必要な場合を除き、当社が管理するエイリアスから始めてください。
 
 - OpenAI Responses 経路では `openai-latest`、Codex ではネイティブの `gpt-6-astra` を使う
 - Anthropic Messages 経路では `claude-latest`、Claude Code では `claude-fable-5-1` を使う
 - Chat Completions 互換経路では、統合ページに載っているモデルを使う
 
-[現在のモデルカタログ](/ja/api-reference/endpoint/get) は公開 API モデルを一覧します。Browser Chat のモデルが、すべての API プロトコルで自動的に有効になるわけではありません。
+[現在のモデルカタログ](/ja/api-reference/endpoint/get) は公開 API モデルを一覧します。ウェブチャットのモデルが、すべての API プロトコルで自動的に有効になるわけではありません。
 
 </Step>
 
@@ -112,14 +112,14 @@ Reply with CAPRIOLE_OK and no other text.
 
 空でない回答、できれば要求した `CAPRIOLE_OK` マーカーを探してください。モデルは正確な出力を求めるプロンプトに常に従うわけではないため、文言は異なる場合があります。
 
-次に [API ページ](https://www.capriole.ai/ja?view=api) を開き、想定したキーとモデルの使用量ビューにリクエストが表示されることを確認してください。使用量記録は、クライアントが Capriole を使ったことの決定的な確認です。クライアントに別のプロバイダーまたはフォールバックがある場合、応答だけでは不十分です。正確なフィルタとキーのライフサイクルは、[API キーと使用量ガイド](/ja/guides/api-keys-usage) を参照してください。
+次に [API ページ](https://www.capriole.ai/ja?view=api) を開き、想定したキーとモデルの使用量ビューにリクエストが表示されることを確認してください。使用量記録は、クライアントが Capriole を使ったかどうかを確かめる確実な確認方法です。クライアントに別のプロバイダーまたはフォールバックがある場合、応答だけでは不十分です。正確なフィルタとキーのライフサイクルは、[API キーと使用量ガイド](/ja/guides/api-keys-usage) を参照してください。
 
 この確認は、すべてのツールまたはモデル機能をテストするものではありません。
 
 </Step>
 </Steps>
 
-## 成功の見た目
+## 正しく設定できたときの状態
 
 | 確認項目 | 期待する結果 |
 |---|---|
@@ -129,7 +129,7 @@ Reply with CAPRIOLE_OK and no other text.
 | モデル | クライアントが設定した latest エイリアスまたは具体的な ID を受け付ける |
 | 使用量 | リクエストが計量 API トラフィックとして API 使用量ビューに表示される |
 
-コーディング エージェントのリクエストは、対象となる個人または [Team](/ja/guides/team-plan) の API 残高を使います。無制限の有料 Browser Chat の一部ではありません。大きな自動ワークロードを実行する前に、[Capriole AI の課金トークン](/ja/articles/charged-tokens) を読んでください。
+コーディング エージェントのリクエストは、対象となる個人または [Team](/ja/guides/team-plan) の API 残高を使います。有料プランの無制限のウェブチャットには含まれません。大きな自動ワークロードを実行する前に、[Capriole AI の課金トークン](/ja/articles/charged-tokens) を読んでください。
 
 ## よくあるセットアップ失敗を直す
 
@@ -139,10 +139,10 @@ Reply with CAPRIOLE_OK and no other text.
 | `404` またはプロトコル エラー | Base URL が `/v1` を誤って含む、または省略している | 一致する統合ページから正確な Base URL をコピーする |
 | 非対応モデル | そのモデルがそのプロトコルに属さない | Responses では `openai-latest`、Messages では `claude-latest` から始める |
 | クライアントが別のプロバイダーを使う | 組み込みプロバイダーまたはプロジェクト上書きが優先される | カスタム Capriole プロバイダーを選び、クライアントを再起動する |
-| 許容量を使い切ったあとエージェントが止まる | コーディング エージェント トラフィックが API 残高を消費した | API 使用量を確認し、対象となる有料アクセスが有効なあいだにチャージを追加する |
+| 利用枠を使い切ったあとエージェントが止まる | コーディング エージェント トラフィックが API 残高を消費した | API 使用量を確認し、対象となる有料アクセスが有効なあいだにチャージを追加する |
 
 ## 次のページを選ぶ
 
-これらのルートの背後にあるモデルが必要なときは、[コーディング エージェント互換性の記事](/ja/articles/coding-agent-compatibility) を読んでください。アプリケーション コードを直接書く場合は、[OpenAI と Anthropic の SDK ガイド](/ja/guides/openai-anthropic-sdks) に進んでください。[LLM ゲートウェイのセキュリティ リスク](/ja/articles/llm-gateway-security) では、エージェントがソース コードを送る前に確認すべき点を挙げています。
+これらのルートの背後にあるモデルが必要なときは、[コーディング エージェント互換性の記事](/ja/articles/coding-agent-compatibility) を読んでください。アプリケーション コードを直接書く場合は、[OpenAI と Anthropic の SDK ガイド](/ja/guides/openai-anthropic-sdks) に進んでください。[LLM ゲートウェイのセキュリティ リスク](/ja/articles/llm-gateway-security) では、エージェントがソース コードを送る前に確認すべき点を挙げています。お使いのエージェントがこの 10 種類に含まれていない場合は、[カスタム エンドポイントで接続してください](/ja/integrations/more-agents)。
 
-[制限付きの無料 Browser Chat で現在の旗艦モデルを試す](https://www.capriole.ai/ja)。コーディング エージェントが使う API キーを作成する準備ができたら Premium にアップグレードしてください。
+[制限付きの無料ウェブチャットで現在の旗艦モデルを試す](https://www.capriole.ai/ja)。コーディング エージェントが使う API キーを作成する準備ができたら Premium にアップグレードしてください。

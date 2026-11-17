@@ -102,7 +102,7 @@ The focused public-route and file-conversion suites completed **68 automated tes
 
 | Test lane | Verified evidence | Current boundary |
 |---|---|---|
-| OpenAI Responses | Non-streaming output, SSE completion, function call, stateless function-result follow-up, and `openai-latest` | OpenAI Responses models only |
+| OpenAI Responses | Non-streaming output, SSE completion, function call, stateless function-result follow-up, and `openai-latest` | OpenAI models, plus Grok models with the `xai/` prefix |
 | Chat Completions | Non-streaming output, SSE completion, tool call, tool-result follow-up, and all three maintained latest aliases | The selected model must support the compatible route |
 | Anthropic Messages | Non-streaming output, Anthropic SSE, `tool_use`, `tool_result`, and `claude-latest` | Claude Messages models only |
 | Latest aliases | Endpoint gating, canonical resolution, canonical usage rows, and representative client runs | Aliases are input selectors and do not create a separate usage model |

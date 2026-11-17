@@ -25,9 +25,9 @@ Dieselbe Seite nennt die Regeln, die diese Preise verändern:
 
 - **Batch und Flex**: Beide kosten die Hälfte der Standardpreise. Gemini 4 Carbon und Gemini 4 Argon kosten jeweils bis 30. November USD 1 Eingabe und USD 5 Ausgabe, danach USD 2 und USD 10.
 - **Priority**: Gemini 4 Carbon und Gemini 4 Argon kosten jeweils bis 30. November USD 3.60 Eingabe und USD 18 Ausgabe, danach USD 7.20 und USD 36.
-- **Caching**: Gemini 4 Carbon und Gemini 4 Argon unterstützen nur implizites Caching, standardmäßig aktiv für Prompts ab 4.096 Tokens. Explizites Caching wird nicht unterstützt.
+- **Caching**: Gemini 4 Carbon und Gemini 4 Argon unterstützen nur implizites Caching, standardmäßig aktiv für Prompts ab 4,096 Tokens. Explizites Caching wird nicht unterstützt.
 - **Kostenlose Stufe**: Gemini 3.8 Flash hat eine kostenlose Stufe, Gemini 4 Carbon und Gemini 4 Argon nicht.
-- **Grounding mit der Google Suche**: 5.000 Suchanfragen pro Monat sind kostenlos, geteilt über Gemini 3 und neuere Modelle, danach USD 14 pro 1.000 Anfragen.
+- **Grounding mit der Google-Suche**: 5,000 Suchanfragen pro Monat sind kostenlos, geteilt über Gemini 3 und neuere Modelle, danach USD 14 pro 1,000 Anfragen.
 
 Für lange Prompts nennt Google bei diesen Modellen keinen eigenen Preis.
 
@@ -84,7 +84,7 @@ completion = client.chat.completions.create(
 print(completion.choices[0].message.content)
 ```
 
-Streamen Sie bei langem Reasoning die Antwort mit `stream=True`; ohne Streaming kann eine Anfrage nach etwa 2 Minuten abbrechen. Jeder Schlüssel erlaubt 300 Anfragen pro Minute. Alle akzeptierten Modell-IDs finden Sie in der [Chat Completions-Referenz](/de/api-reference/endpoint/chat-completions); wie sich Gemini 4 Carbon und Argon von GPT-6 Astra und Claude unterscheiden, zeigt [Welches KI-Modell?](/de/guides/choose-a-model).
+Streamen Sie bei langem Reasoning die Antwort mit `stream=True`; ohne Streaming kann eine Anfrage nach etwa 2 Minuten abbrechen. Jeder Schlüssel erlaubt 300 Anfragen pro Minute. Alle akzeptierten Modell-IDs finden Sie in der [Chat-Completions-Referenz](/de/api-reference/endpoint/chat-completions); wie sich Gemini 4 Carbon und Argon von GPT-6 Astra und Claude unterscheiden, zeigt [Welches KI-Modell?](/de/guides/choose-a-model).
 
 ## Was in USD 9 im Monat enthalten ist
 
@@ -92,7 +92,7 @@ Neben unbegrenztem Web-Chat mit Gemini 4 Carbon, Gemini 4 Argon und allen weiter
 
 ## Wann die offizielle API besser passt
 
-Nutzen Sie Google direkt, wenn Ihre Arbeitslast vor 2027 nur auf Gemini 3.8 Flash läuft, wenn Sie Gemini 4 Hydrogen möchten, das Capriole AI nicht anbietet, oder wenn Sie die kostenlose Stufe, Batch, Flex, Priority, Grounding mit der Google Suche oder einen Vertrag direkt mit Google brauchen.
+Nutzen Sie Google direkt, wenn Ihre Arbeitslast vor 2027 nur auf Gemini 3.8 Flash läuft, wenn Sie Gemini 4 Hydrogen möchten, das Capriole AI nicht anbietet, oder wenn Sie die kostenlose Stufe, Batch, Flex, Priority, Grounding mit der Google-Suche oder einen Vertrag direkt mit Google brauchen.
 
 ## Häufige Fragen
 
@@ -118,8 +118,10 @@ Nein. Unbegrenzt gilt für den Web-Chat. API- und Coding-Agent-Anfragen verbrauc
 
 ## Offizielle Quellen
 
+Wir haben diese Seiten am 17. November 2026 geprüft.
+
 - Google: [Preise der Gemini Developer API](https://ai.google.dev/gemini-api/docs/pricing)
 - Google: [Gemini 4 Carbon](https://aistudio.google.com/docs/models/gemini-4-carbon)
 - Google: [Gemini 4 Argon](https://aistudio.google.com/docs/models/gemini-4-argon)
 
-Angaben zu Plänen, Aufstockungen und abgerechneten Tokens von Capriole AI auf dieser Seite werden als First-Party-Dokumentation gepflegt.
+Die Angaben zu Plänen, Aufstockungen und abgerechneten Tokens von Capriole AI auf dieser Seite pflegt Capriole AI selbst.

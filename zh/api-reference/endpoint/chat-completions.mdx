@@ -6,13 +6,13 @@ openapi: "api-reference/openapi.json POST /v1/chat/completions"
 
 当应用、SDK 或网关需要 OpenAI Chat Completions 请求与响应格式时，请使用此端点。
 
-发送包含 `model` 和 `messages` 的标准 Chat Completions 请求体。Capriole AI 会在转发给上游前，把 latest alias 解析为所选提供商的模型 ID；继续转发 `messages`、`tools`、`tool_choice`、`response_format` 和 `stream` 等兼容字段；并返回上游 JSON 或 SSE 流，以下 GLM SSE 修正除外。对于流式请求，Capriole AI 会在转发前设置 `stream_options.include_usage=true`，以便记录用量。
+发送包含 `model` 和 `messages` 的标准 Chat Completions 请求体。Capriole AI 会在转发给上游前，把 latest 别名解析为所选提供商的模型 ID，转发 `messages`、`tools`、`tool_choice`、`response_format` 和 `stream` 等兼容字段，并原样返回上游 JSON 或 SSE 流（下文的 GLM SSE 修正和心跳注释除外）。对于流式请求，Capriole AI 会在转发前设置 `stream_options.include_usage=true`，以便记录用量。
 
 对于部分 `model="zai/glm-5.3-flash"` SSE 响应，Capriole AI 仅移除流式增量中空的旧式 `function_call={"name":"","arguments":""}` 字段。真实或尚未拼完的函数调用、`tool_calls`、文本和用量保持不变。此例外不影响非流式响应或其他模型。
 
-`POST /v1/chat/completions` 接受 `openai-latest`、`claude-latest`、`google-latest`，以及 `GET /v1/models` 返回的公开具体模型 ID。使用 latest alias 可以让 Capriole AI 为对应提供商选择当前推荐的旗舰模型。
+`POST /v1/chat/completions` 接受 `openai-latest`、`claude-latest`、`google-latest`，以及 `GET /v1/models` 返回的公开具体模型 ID。使用 latest 别名可以让 Capriole AI 为对应提供商选择当前推荐的旗舰模型。
 
-Latest alias 只是请求输入的快捷方式。用量按解析后的具体模型记录，响应体则保留所选兼容端点原有的模型命名方式。
+latest 别名只是请求输入的简写。用量按解析后的具体模型记录，响应体则保留所选兼容端点原有的模型命名方式。
 
 ## Kimi K3.1 Pro
 
@@ -42,4 +42,4 @@ Kimi K3.1 Pro 固定 `temperature` 为 1、`top_p` 为 0.95。调用此模型时
 
 ## 长任务
 
-长时间推理等长任务请设置 `"stream": true`。不使用流式传输时，连接可能在约 2 分钟后超时。
+长时间推理等长任务请设置 `"stream": true`。不使用流式传输时，连接可能在约 2 分钟后超时。流式请求等待模型时，Capriole AI 每 15 秒发送一条 SSE `: heartbeat` 注释；以流式发送的 `google/*` 请求最多可以等待 20 分钟才收到第一个 token。如果模型在 60 秒内还没有开始回答，200 响应就已经开始发送，因此之后的上游错误会作为最后一个 SSE 事件返回，其中带有 `error` 对象。

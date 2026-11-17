@@ -1,10 +1,10 @@
 ---
 title: "Capriole AI가 서로 다른 모델 API에서 작동하는 방식"
 sidebarTitle: "다중 프로토콜 API"
-description: "Capriole AI 키 하나로 OpenAI와 Anthropic 프로토콜을 공식 가격보다 최대 92% 저렴하게 쓰세요. 별칭, 사용량, fallback도 설명합니다."
+description: "Capriole AI 키 하나로 OpenAI와 Anthropic 프로토콜을 공식 가격보다 최대 92% 저렴하게 쓰세요. 별칭, 사용량, 대체 경로도 설명합니다."
 ---
 
-Capriole AI는 지원되는 모델 계열 전반에 계정 하나와 API key 하나를 제공하며, API는 공식 API 가격보다 최대 92% 저렴합니다. 같은 USD 9 Premium 멤버십에는 GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5, Gemini 4 Carbon과의 무제한 Browser Chat도 포함되어, 계정 하나로 애플리케이션, 코딩 에이전트, 일상 채팅을 모두 커버할 수 있습니다.
+Capriole AI는 지원되는 모델 계열 전반에 계정 하나와 API 키 하나를 제공하며, API는 공식 API 가격보다 최대 92% 저렴합니다. 같은 USD 9 Premium 멤버십에는 GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5, Gemini 4 Carbon과의 무제한 웹 채팅도 포함되어, 계정 하나로 애플리케이션, 코딩 에이전트, 일상 채팅을 모두 커버할 수 있습니다.
 
 Capriole은 세 가지 공개 경로를 유지합니다. OpenAI Responses, OpenAI 호환 Chat Completions, Anthropic Messages입니다.
 
@@ -12,7 +12,7 @@ Capriole은 세 가지 공개 경로를 유지합니다. OpenAI Responses, OpenA
 
 ## 이것이 Capriole을 더 유용하게 만드는 이유
 
-하나의 USD 9 Premium 멤버십은 지원되는 Premium 모델 세트의 무제한 Browser Chat, 월 500만 과금 API 토큰, 문서화된 코딩 에이전트 경로 10개를 커버합니다. 애플리케이션은 이미 사용하는 프로토콜을 유지하고, 사용자는 Capriole 계정, 키, 잔액, 청구 페이지 하나만 유지합니다.
+하나의 USD 9 Premium 멤버십은 지원되는 Premium 모델 세트의 무제한 웹 채팅, 월 500만 과금 API 토큰, 문서화된 코딩 에이전트 경로 10개를 커버합니다. 애플리케이션은 이미 사용하는 프로토콜을 유지하고, 사용자는 Capriole 계정, 키, 잔액, 청구 페이지 하나만 유지합니다.
 
 이것이 제공자 계정을 따로 모으는 것보다 실용적인 이점입니다. [날짜가 있는 비용 비교](/ko/articles/ai-api-cost-comparison) 또한 테스트한 모델 중 Capriole이 제공하는 각 모델이 USD 9임을 보여 줍니다. 같은 500만 토큰 워크로드에서 직접 유료 Standard 가격은 USD 6.75에서 USD 90이고, OpenRouter는 게시된 크레딧 구매 수수료 후 USD 7.55에서 USD 94.95입니다. 현재 플래그십 모델의 공식 가격과 Capriole의 500만 토큰당 USD 8 비교는 [Claude API 가격](/ko/articles/claude-api-pricing), [OpenAI API 가격](/ko/articles/openai-api-pricing), [Gemini API 가격](/ko/articles/gemini-api-pricing)에서 확인하세요. 이 예에서 Gemini 3.8 Flash는 직접 API와 OpenRouter가 더 저렴합니다.
 
@@ -42,7 +42,7 @@ OpenAI Responses는 출력을 타입이 있는 이벤트와 항목으로 표현�
 
 ## 키 하나, 명시적 모델 선택
 
-모든 공개 생성 경로는 같은 Capriole API key와 계정 잔액을 사용합니다. 요청한 모델은 여전히 선택한 프로토콜에 속해야 합니다.
+모든 공개 생성 경로는 같은 Capriole API 키와 계정 잔액을 사용합니다. 요청한 모델은 여전히 선택한 프로토콜에 속해야 합니다.
 
 예를 들어 Responses 경로는 유지 중인 OpenAI 별칭, 지원되는 Responses 호환 OpenAI 모델, 그리고 `xai/` 접두사를 붙여 보낸 Grok 모델을 받습니다. Messages 경로는 유지 중인 Claude 별칭과 지원되는 Claude Messages 모델 ID를 받습니다. 호환 채팅 경로는 더 넓은 공개 채팅 모델 집합을 노출할 수 있습니다.
 
@@ -54,41 +54,41 @@ OpenAI Responses는 출력을 타입이 있는 이벤트와 항목으로 표현�
 
 Capriole은 지원하는 공개 경로에 `openai-latest`, `claude-latest`, `google-latest` 같은 유지 중인 별칭을 노출합니다.
 
-별칭은 업스트림 전달 전에 해석됩니다. 사용량, 할당량, fallback 기록은 모호한 “latest” 버킷이 아니라 해석된 정규 모델에 붙습니다.
+별칭은 업스트림 전달 전에 해석됩니다. 사용량, 할당량, 대체 경로 전환 기록은 모호한 “latest” 버킷이 아니라 해석된 정규 모델에 붙습니다.
 
 지원 릴리스와 함께 Capriole의 유지 중인 기본값이 움직이게 하려면 별칭을 사용하세요. 정확한 버전이 결과의 일부이고 재현 가능해야 하면 구체적인 모델 ID를 사용하세요.
 
-[모델 목록 엔드포인트](/ko/api-reference/endpoint/get)가 현재 공개 목록입니다. Browser Chat에 표시된 모델이 모든 API 프로토콜에서 자동으로 유효하다고 가정하지 마세요.
+[모델 목록 엔드포인트](/ko/api-reference/endpoint/get)가 현재 공개 목록입니다. 웹 채팅에 표시된 모델이 모든 API 프로토콜에서 자동으로 유효하다고 가정하지 마세요.
 
-## Fallback은 응답이 시작되기 전에 일어납니다
+## 대체 경로 전환은 응답이 시작되기 전에 일어납니다
 
 지원 경로에서 Capriole은 응답 바이트가 보내지기 전에 첫 소스가 실패하면 다른 구성된 소스를 시도할 수 있습니다.
 
-스트리밍 응답이 시작된 뒤 소스를 바꾸면 중복되거나 모순된 출력이 생길 수 있습니다. 자동 fallback은 출력이 시작되기 전에만 실행됩니다. 모든 제공자 실패를 숨기거나 응답 중간에 모델을 바꿀 수는 없습니다.
+스트리밍 응답이 시작된 뒤 소스를 바꾸면 중복되거나 모순된 출력이 생길 수 있습니다. 자동 대체 경로 전환은 출력이 시작되기 전에만 실행됩니다. 모든 제공자 실패를 숨기거나 응답 중간에 모델을 바꿀 수는 없습니다.
 
-요청한 모델 키는 지원되는 소스 fallback을 통해 유지됩니다. Capriole은 전달 소스를 바꾸며, 사용자가 명시한 모델 선택은 바꾸지 않습니다.
+지원되는 소스로 대체 경로 전환이 일어나도 요청한 모델 키는 유지됩니다. Capriole은 전달 소스를 바꾸며, 사용자가 명시한 모델 선택은 바꾸지 않습니다.
 
-Browser Chat은 별도로 선택적 모델 자동 전환과 [대화 안에서의 수동 모델 변경](/ko/articles/switch-models-mid-chat)을 제공할 수 있습니다. 이는 작업 공간 동작이며 원시 API fallback 계약이 아닙니다.
+웹 채팅은 별도로 선택적 모델 자동 전환과 [대화 안에서의 수동 모델 변경](/ko/articles/switch-models-mid-chat)을 제공할 수 있습니다. 이는 작업 공간 동작이며, API 자체의 대체 경로 규칙과는 별개입니다.
 
 ## 사용량은 계속 보입니다
 
 프로그래밍 워크로드는 측정됩니다. Capriole은 일치하는 프로토콜이 제공한 메타데이터에서 사용량을 기록하며, 사용량을 사용할 수 있으면 완료된 스트리밍 응답도 포함합니다.
 
-Premium은 현재 **월 500만 과금 API 토큰**을 포함합니다. Capriole은 이 잔액에서 캐시되지 않은 입력과 출력을 100%, 캐시된 입력을 10%로 계산합니다. 추가 토큰 팩은 top-up으로 제공됩니다. Premium의 무제한 부분은 지원되는 Premium 모델 세트의 Browser Chat에 적용되며, API나 코딩 에이전트 트래픽에는 적용되지 않습니다.
+Premium은 현재 **월 500만 과금 API 토큰**을 포함합니다. Capriole은 이 잔액에서 캐시되지 않은 입력과 출력을 100%, 캐시된 입력을 10%로 계산합니다. 추가 토큰 팩은 충전으로 구매할 수 있습니다. Premium의 무제한 부분은 지원되는 Premium 모델 세트의 웹 채팅에 적용되며, API나 코딩 에이전트 트래픽에는 적용되지 않습니다.
 
-[과금 토큰 글](/ko/articles/charged-tokens)에 정확한 공식, 반올림 규칙, 재현 가능한 예시가 있습니다.
+[과금 토큰 글](/ko/articles/charged-tokens)에 정확한 공식, 올림 규칙, 재현 가능한 예시가 있습니다.
 
-Browser Chat과 자동화 API 워크로드는 별도 허용량을 사용합니다. 수백만 토큰을 처리하는 코딩 에이전트는 보이는 과금 토큰 잔액에서 가져갑니다.
+웹 채팅과 자동화 API 워크로드는 별도 허용량을 사용합니다. 수백만 토큰을 처리하는 코딩 에이전트는 보이는 과금 토큰 잔액에서 가져갑니다.
 
 ## 통합 계층이 실제로 제공하는 것
 
 유용한 공통 계층은 하나의 응답 스키마가 아닙니다. 주변 제품 계약입니다.
 
-- Capriole 계정과 API key 하나
+- Capriole 계정과 API 키 하나
 - 보이는 API 잔액 하나
 - 유지 중인 모델 별칭
 - 선택한 프로토콜에 대한 검증
-- 출력이 시작되기 전의 지원 소스 fallback
+- 출력이 시작되기 전의 지원 소스 대체 경로 전환
 - 해석된 모델에 대한 사용량 회계
 - 애플리케이션과 코딩 에이전트를 위한 문서화된 설정
 
@@ -102,11 +102,11 @@ Capriole은 프로토콜 계약과 대표적인 실제 클라이언트 흐름이
 
 | 테스트 레인 | 검증된 증거 | 현재 경계 |
 |---|---|---|
-| OpenAI Responses | 비스트리밍 출력, SSE 완료, function call, 상태 없는 function-result 후속, `openai-latest` | OpenAI Responses 모델만 |
+| OpenAI Responses | 비스트리밍 출력, SSE 완료, function call, 상태 없는 function-result 후속, `openai-latest` | OpenAI 모델과 `xai/` 접두사가 붙은 Grok 모델 |
 | Chat Completions | 비스트리밍 출력, SSE 완료, tool call, tool-result 후속, 유지 중인 latest 별칭 세 개 모두 | 선택한 모델이 호환 경로를 지원해야 함 |
 | Anthropic Messages | 비스트리밍 출력, Anthropic SSE, `tool_use`, `tool_result`, `claude-latest` | Claude Messages 모델만 |
 | Latest 별칭 | 엔드포인트 게이팅, 정규 해석, 정규 사용량 행, 대표적인 클라이언트 실행 | 별칭은 입력 선택자이며 별도 사용량 모델을 만들지 않음 |
-| Browser Chat의 파일 | 이미지, PDF, 텍스트, DOCX, PPTX, CSV, XLS, XLSX의 파일 종류 감지, 변환, 모델 페이로드 조립 | 이 증거는 Browser Chat 작업 공간에 속함 |
+| 웹 채팅의 파일 | 이미지, PDF, 텍스트, DOCX, PPTX, CSV, XLS, XLSX의 파일 종류 감지, 변환, 모델 페이로드 조립 | 이 증거는 웹 채팅 작업 공간에 속함 |
 | 공개 API를 통한 파일 | 게시된 교차 프로토콜 통과 없음 | Capriole은 Responses, Chat Completions, Messages에 하나의 보편 파일 계약을 주장하지 않음 |
 
 스트림 검사는 전체 응답을 소비하고 각 프로토콜 고유의 종료 이벤트를 요구합니다. Responses는 완료 이벤트로 끝나고, Chat Completions는 `[DONE]`에 도달하며, Messages는 `message_stop`에 도달합니다. 도구 테스트는 도구 결과를 다시 보내고 최종 assistant 턴을 요구합니다.
@@ -121,4 +121,4 @@ Capriole은 프로토콜 계약과 대표적인 실제 클라이언트 흐름이
 
 첫 요청은 [API 빠른 시작](/ko/quickstart)부터 시작하세요. Python 개발자는 [OpenAI 및 Anthropic SDK 가이드](/ko/guides/openai-anthropic-sdks)를 따를 수 있습니다. 코딩 에이전트 사용자는 [코딩 에이전트용 하나의 API](/ko/articles/coding-agent-compatibility)에서 유지 중인 클라이언트 행렬을 볼 수 있습니다. [LLM 게이트웨이 보안 위험](/ko/articles/llm-gateway-security)에서는 어떤 게이트웨이든 코드를 보내기 전에 확인할 점을 정리합니다.
 
-Capriole의 역할은 클라이언트가 실제로 말하는 프로토콜을 존중하면서 계정과 접근 파편화를 제거하는 것입니다. [제한된 무료 Browser Chat에서 지원 플래그십 모델을 써 본 다음](https://www.capriole.ai/ko), [USD 9 Premium으로 업그레이드해 API key를 만드세요](https://www.capriole.ai/ko?view=api).
+Capriole의 역할은 클라이언트가 실제로 말하는 프로토콜을 존중하면서 계정과 접근 파편화를 제거하는 것입니다. [제한된 무료 웹 채팅에서 지원 플래그십 모델을 써 본 다음](https://www.capriole.ai/ko), [USD 9 Premium으로 업그레이드해 API 키를 만드세요](https://www.capriole.ai/ko?view=api).

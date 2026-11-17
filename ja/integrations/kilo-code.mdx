@@ -15,7 +15,7 @@ Kilo Code は、VS Code とターミナル向けの AI コーディング エー
 始める前に、次を用意してください。
 
 - Capriole AI アカウント（[こちらから登録](https://www.capriole.ai/ja)）
-- Premium プラン（月額 USD 9、無制限の Web チャットも含む）または Team プラン。API キーにはどちらかが必要です（[購読する](https://www.capriole.ai/ja?view=api)）
+- Premium プラン（月額 USD 9、無制限のウェブチャットも含む）または Team プラン。API キーにはどちらかが必要です（[購読する](https://www.capriole.ai/ja?view=api)）
 - Capriole AI API キー（[キーを取得](https://www.capriole.ai/ja?view=api)）
 
 ## インストール
@@ -245,7 +245,7 @@ kilo run -m capriole-ai/claude-latest "Explain this repository."
 
 `@ai-sdk/anthropic` を使う Claude モデルには、`claude-opus-5-5` などのプレフィックスなしの Claude ID が必要です。`anthropic/` プレフィックス付きの ID は Chat Completions 用です。
 
-### Kilo Code がモデルが見つからないと表示するのはなぜですか？
+### Kilo Code でモデルが見つからないと表示されるのはなぜですか？
 
 選択したモデルが `capriole-ai/<model-id>` の形式であること、および `provider.capriole-ai.models` に一致するエントリーがあることを確認してください。`kilo models capriole-ai` を実行すると、Kilo が読み込んだモデルを一覧できます。
 
@@ -259,4 +259,4 @@ kilo run -m capriole-ai/claude-latest "Explain this repository."
 - Capriole AI の別のモデルを追加するには、同じファミリーのモデルのエントリーをコピーして ID を変更します。`GET https://api.caprioletech.com/v1/models` ですべてのモデル ID を一覧できます。
 - Gemini 4 Carbon は Gemini 4 Argon より長く思考するため、各ターンに時間がかかり、使うトークンも多くなることがあります。速さを重視する場合は `google/gemini-4-argon` を使ってください。
 - 同じキーを他のコーディング エージェントでも使うには、[1 つの API キーでコーディング エージェントを使う](/ja/guides/one-api-key-coding-agents)を参照してください。
-- 公式リファレンス: [Kilo CLI](https://kilo.ai/docs/cli)、[Kilo のカスタム モデル](https://kilo.ai/docs/code-with-ai/agents/custom-models)、[Kilo の設定](https://kilo.ai/docs/getting-started/settings)、[OpenCode のプロバイダー](https://opencode.ai/docs/providers)。
+- 公式リファレンス：[Kilo CLI](https://kilo.ai/docs/cli)、[Kilo のカスタム モデル](https://kilo.ai/docs/code-with-ai/agents/custom-models)、[Kilo の設定](https://kilo.ai/docs/getting-started/settings)、[OpenCode のプロバイダー](https://opencode.ai/docs/providers)。

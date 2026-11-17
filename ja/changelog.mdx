@@ -11,7 +11,7 @@ rss: true
   <img src="/images/changelog/2026-11-17-gemini-4-carbon-card.jpg" alt="Google × Capriole：Gemini 4 Carbon、月額 9 ドルで無制限" />
 </Frame>
 
-Google の Gemini 4 Carbon を利用できるようになりました。Google で最も強力なモデルで、複雑な多段階のコーディングとデバッグ、長期にわたるエージェント作業、科学的推論など、モデルの知能の限界が試されるタスク向けです。ウェブチャットのモデル メニューで Google グループの一番上にある **Gemini 4 Carbon Thinking** を選ぶか、[Chat Completions](/ja/api-reference/endpoint/chat-completions) で `google/gemini-4-carbon` を呼び出してください。`google-latest` は Carbon を指すようになり、Chat Completions では軽い呼び出し向けに [Google の `thinking_level` を `low` に設定](/ja/guides/choose-a-model#api-のモデル-id)できます。Gemini 4 Argon は、ウェブチャットでは **Gemini 4 Argon Thinking**、API では `google/gemini-4-argon` として引き続き利用できます。
+Google の Gemini 4 Carbon を利用できるようになりました。Google で最も強力なモデルで、複雑な多段階のコーディングとデバッグ、長時間のエージェント作業、科学的推論など、モデルの知能の限界が試されるタスク向けです。ウェブチャットのモデル メニューで Google グループの一番上にある **Gemini 4 Carbon Thinking** を選ぶか、[Chat Completions](/ja/api-reference/endpoint/chat-completions) で `google/gemini-4-carbon` を呼び出してください。`google-latest` は Carbon を指すようになり、Chat Completions では軽い呼び出し向けに [Google の `thinking_level` を `low` に設定](/ja/guides/choose-a-model#api-のモデル-id)できます。Gemini 4 Argon は、ウェブチャットでは **Gemini 4 Argon Thinking**、API では `google/gemini-4-argon` として引き続き利用できます。
 
 <Frame>
   <img src="/images/changelog/2026-11-17-gemini-4-carbon-light.png" alt="ウェブチャットのモデル メニューで、Google グループの一番上にある Gemini 4 Carbon Thinking" />
@@ -23,10 +23,10 @@ Google の Gemini 4 Carbon を利用できるようになりました。Google �
   <img src="/images/changelog/2026-11-17-seedream-5-5-card.jpg" alt="ByteDance × Capriole：Seedream 5.5、Image モードで作成と編集" />
 </Frame>
 
-ByteDance Seed の Seedream 5.5 を **Image** モードで利用できるようになりました。ByteDance Seed によると、[複数回の編集にわたって狙った箇所だけを正確に変更し、編集していない部分はそのまま保ちます](https://seed.bytedance.com/en/seedream5_5)。光の表現はより自然に、素材はより精細に、肌の質感はより繊細になっています。モデル メニューの **Image** タブで **ByteDance** の下にある **Seedream 5.5** を選ぶと、新しい画像の作成や、添付した画像の編集ができます。解像度は 1K と 2K で、**Auto** を含むすべてのアスペクト比に対応します。ほかの画像モデルと同じく、ログインして **Server Storage** を使うアカウントは無料で利用できます。既定のモデルは引き続き GPT Image 2.6 です。**Text** モードの Text Agent は、あなたが指定した画像モデルを使い、指定がなければチャット内の最新の画像のモデル、それもなければ GPT Image 2.6 を使います。どのモデルを使うかを確認することはなくなりました。[画像生成ガイドを見る](/ja/guides/files-web-search)。
+ByteDance Seed の Seedream 5.5 を **画像** モードで利用できるようになりました。ByteDance Seed によると、[複数回の編集にわたって狙った箇所だけを正確に変更し、編集していない部分はそのまま保てる](https://seed.bytedance.com/en/seedream5_5)うえ、光の表現はより自然に、素材はより精細に、肌の質感はより繊細になったとのことです。モデル メニューの **画像** タブで **ByteDance** の下にある **Seedream 5.5** を選ぶと、新しい画像の作成や、添付した画像の編集ができます。解像度は 1K と 2K で、**自動** を含むすべてのアスペクト比に対応します。ほかの画像モデルと同じく、ログインして **Server Storage** を使うアカウントは無料で利用できます。既定のモデルは引き続き GPT Image 2.6 です。**テキスト** モードの Text Agent は、あなたが指定した画像モデルを使い、指定がなければチャット内の最新の画像のモデル、それもなければ GPT Image 2.6 を使います。どのモデルを使うかを確認することはなくなりました。[画像生成ガイドを見る](/ja/guides/files-web-search)。
 
 <Frame>
-  <img src="/images/changelog/2026-11-17-seedream-5-5-light.png" alt="モデル選択の Image タブ。GPT Image 2.6 Sunburst、GPT Image 2.5 Sunburst、Nano Banana 2.1 の下にある ByteDance に Seedream 5.5 が並ぶ" />
+  <img src="/images/changelog/2026-11-17-seedream-5-5-light.png" alt="モデル メニューの Image タブ。GPT Image 2.6 Sunburst、GPT Image 2.5 Sunburst、Nano Banana 2.1 の下にある ByteDance に Seedream 5.5 が並ぶ" />
 </Frame>
 </Update>
 
@@ -36,7 +36,7 @@ ByteDance Seed の Seedream 5.5 を **Image** モードで利用できるよう�
 パソコンでも Enter キーで改行できるようになりました。**アカウント** ページの **設定** で **Ctrl/⌘ + Enter で送信** をオンにすると、Enter キーで改行し、Ctrl+Enter（Mac では ⌘+Enter）で送信します。設定はアカウントに保存されるので、どのパソコンでも同じように使えます。
 
 <Frame>
-  <img src="/images/changelog/2026-11-16-send-with-ctrl-enter.png" alt="アカウント設定で「Ctrl/⌘ + Enter で送信」がオンになっている画面。「言語」と「ウェブ検索の画像」の間にあります" />
+  <img src="/images/changelog/2026-11-16-send-with-ctrl-enter.png" alt="アカウント設定で「Ctrl/⌘ + Enter で送信」がオンになっている画面。「言語」と「ウェブ検索画像を有効にする」の間にあります" />
 </Frame>
 
 ## チャットのタイトルを全部表示
@@ -59,7 +59,7 @@ ByteDance Seed の Seedream 5.5 を **Image** モードで利用できるよう�
 <Update label="2026年11月12日">
 ## 使用量をひと目で確認
 
-メッセージ ボックスの小さなリングに、このチャットのコンテキストがどれだけ残っているかが表示されます。リングを選ぶと、今日のメッセージと画像、現地時間でのリセット時刻、Free プランでは今月の利用枠を確認できます。残りが少なくなったときや使い切ったときは、メッセージ ボックスの上に案内が表示されます。
+メッセージ ボックスの小さなリングに、このチャットのコンテキストがどれだけ残っているかが表示されます。リングを選ぶと、今日のメッセージと画像、現地時間でのリセット時刻、Free プランでは今月の利用枠を確認できます。残りが少なくなったときや使い切ったときは、メッセージ ボックスの上にバーが表示されます。
 
 ログイン中のウェブチャットには、1 アカウントあたり 1 日（UTC）200 メッセージと画像 30 枚のフェアユース上限があります。通常の利用を大きく上回る水準で、自動化された乱用を防ぐためのものです。[プランと上限を見る](/ja/guides/plans-and-limits#「無制限」の意味)。
 
@@ -81,7 +81,7 @@ ByteDance Seed の Seedream 5.5 を **Image** モードで利用できるよう�
 
 - **音声入力**：文字起こしが速くなり、失敗が減りました。話し声が入っていない録音では、エラーではなく録音し直すよう案内します。
 - **添付ファイル**：文字を読み取れない PDF は、会話が長すぎるという表示ではなく、ファイルを読み取れないと表示されるようになりました。
-- **長いチャット**: 長いチャットはモデルごとのコンテキスト ウィンドウに合わせて要約されるようになり、ウィンドウの小さいモデルや中国語・日本語・韓国語の長いチャットでも「会話が長すぎます」というエラーで止まらなくなりました。
+- **長いチャット**：長いチャットはモデルごとのコンテキスト ウィンドウに合わせて要約されるようになり、ウィンドウの小さいモデルや中国語・日本語・韓国語の長いチャットでも「会話が長すぎます」というエラーで止まらなくなりました。
 </Update>
 
 <Update label="2026年11月11日">
@@ -118,9 +118,9 @@ ByteDance Seed の Seedream 5.5 を **Image** モードで利用できるよう�
 <Update label="2026年11月10日">
 ## 画像の編集
 
-Capriole AI で画像を編集できるようになりました。**Image** モードで、クリップ アイコン、貼り付け、ドラッグのいずれかで PNG または JPEG の画像を 10 枚まで添付し、変更したい内容を説明します。**@** を入力すると、`@image1` のように画像を指定できます。生成した画像の **Edit** を選ぶと、その画像がメッセージ ボックスに戻り、続けて作業できます。
+Capriole AI で画像を編集できるようになりました。**画像** モードで、クリップ アイコン、貼り付け、ドラッグのいずれかで PNG または JPEG の画像を 10 枚まで添付し、変更したい内容を説明します。**@** を入力すると、`@image1` のように画像を指定できます。生成した画像の **編集** を選ぶと、その画像がメッセージ ボックスに戻り、続けて作業できます。
 
-GPT Image 2.6、GPT Image 2.5、Nano Banana 2.1 はいずれも画像を編集でき、Capriole AI は選択したモデルを使います。**Text** モードでは、チャットモデルに画像の変更を依頼することもできます。どの画像モデルを使うか判断できない場合は、チャットモデルが確認します。[画像生成ガイドを見る](/ja/guides/files-web-search)。
+GPT Image 2.6、GPT Image 2.5、Nano Banana 2.1 はいずれも画像を編集でき、Capriole AI は選択したモデルを使います。**テキスト** モードでは、チャットモデルに画像の変更を依頼することもできます。どの画像モデルを使うか判断できない場合は、チャットモデルが確認します。[画像生成ガイドを見る](/ja/guides/files-web-search)。
 
 アスペクト比のメニューに 2 つの選択肢が加わりました。新しい既定の **Auto** は、編集する画像の形を保ち、新しい画像ではモデルが形を選びます。**21:9** は横長の画像向けです。編集した画像も、1 枚ごとに 1 日の画像生成の上限に数えられます。
 
@@ -135,7 +135,7 @@ GPT Image 2.6、GPT Image 2.5、Nano Banana 2.1 はいずれも画像を編集�
   <img src="/images/changelog/2026-11-10-gpt-image-2-6-card.jpg" alt="OpenAI × Capriole：GPT Image 2.6、月額 9 ドルで無制限" />
 </Frame>
 
-OpenAI の GPT Image 2.6 を利用できるようになりました。OpenAI の最新画像モデルで、**Image** モードの既定モデルです。GPT Image 2.5 と Nano Banana 2.1 は引き続き **Image** タブで選べます。このタブでは、2 つの GPT Image モデルが正式なモデル名 **GPT Image 2.6 Sunburst**、**GPT Image 2.5 Sunburst** で表示されます。[画像生成ガイドを見る](/ja/guides/files-web-search)。
+OpenAI の GPT Image 2.6 を利用できるようになりました。OpenAI の最新画像モデルで、**画像** モードの既定モデルです。GPT Image 2.5 と Nano Banana 2.1 は引き続き **画像** タブで選べます。このタブでは、2 つの GPT Image モデルが正式なモデル名 **GPT Image 2.6 Sunburst**、**GPT Image 2.5 Sunburst** で表示されます。[画像生成ガイドを見る](/ja/guides/files-web-search)。
 
 <Frame>
   <img className="block dark:hidden" src="/images/changelog/2026-11-10-gpt-image-2-6-light.png" alt="モデル選択の Image タブ。GPT Image 2.6 Sunburst が選択され、その下に GPT Image 2.5 Sunburst と Nano Banana 2.1 が並ぶ" />
@@ -268,7 +268,7 @@ OpenAI の GPT Image 2.6 を利用できるようになりました。OpenAI の
 
 ## Kimi K3.1 Pro
 
-Moonshot AI の Kimi K3.1 Pro を利用できるようになりました。Kimi で最も高性能なモデルで、コーディング、3D 制作、金融リサーチの性能が大きく向上し、1M トークンのコンテキスト ウィンドウを備えています。ウェブチャットでは、難しい作業には **Kimi K3.1 Pro Thinking**、すばやい回答には **Kimi K3.1 Pro** を選んでください。API では [Chat Completions](/ja/api-reference/endpoint/chat-completions) で `moonshot/kimi-k3.1-pro` を呼び出せます。[コーディングエージェントのガイド](/ja/integrations/opencode)にも掲載しています。Kimi K3 は引き続き **その他のモデル** から利用できます。
+Moonshot AI の Kimi K3.1 Pro を利用できるようになりました。Kimi で最も高性能なモデルで、コーディング、3D 制作、金融リサーチの性能が大きく向上し、100 万トークンのコンテキスト ウィンドウを備えています。ウェブチャットでは、難しい作業には **Kimi K3.1 Pro Thinking**、すばやい回答には **Kimi K3.1 Pro** を選んでください。API では [Chat Completions](/ja/api-reference/endpoint/chat-completions) で `moonshot/kimi-k3.1-pro` を呼び出せます。[コーディングエージェントのガイド](/ja/integrations/opencode)にも掲載しています。Kimi K3 は引き続き **その他のモデル** から利用できます。
 
 <Frame>
   <img className="block dark:hidden" src="/images/changelog/2026-10-27-kimi-k3-1-pro-light.png" alt="モデル選択の Moonshot AI グループに並ぶ Kimi K3.1 Pro Thinking と Kimi K3.1 Pro" />

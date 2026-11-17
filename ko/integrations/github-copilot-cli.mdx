@@ -1,10 +1,10 @@
 ---
 title: "GitHub Copilot CLI BYOK 모델 설정"
 sidebarTitle: "GitHub Copilot CLI"
-description: "GitHub Copilot CLI의 BYOK 모드가 Capriole AI를 사용하게 합니다. GPT-6 Astra, Claude Fable 5.1, Opus 5.5, Gemini 4 Carbon 모델을 공식 API 가격보다 최대 92% 저렴하게 사용하세요."
+description: "GitHub Copilot CLI의 BYOK 모드를 Capriole AI에 연결해 GPT-6 Astra, Claude Fable 5.1, Opus 5.5, Gemini 4 Carbon을 공식 API 가격보다 최대 92% 저렴하게 쓰세요."
 ---
 
-Capriole AI API key 하나로 GitHub Copilot CLI에서 GPT-6 Astra, Claude Fable 5.1, Opus 5.5, Gemini 4 Carbon 모델을 공식 API 가격보다 최대 92% 저렴하게 사용할 수 있습니다.
+Capriole AI API 키 하나로 GitHub Copilot CLI에서 GPT-6 Astra, Claude Fable 5.1, Opus 5.5, Gemini 4 Carbon 모델을 공식 API 가격보다 최대 92% 저렴하게 사용할 수 있습니다.
 
 ## GitHub Copilot CLI란
 
@@ -15,8 +15,8 @@ GitHub Copilot CLI는 터미널용 GitHub 코딩 에이전트입니다. BYOK(bri
 시작하기 전에 다음이 있는지 확인하세요.
 
 - Capriole AI 계정([여기에서 가입](https://www.capriole.ai/ko))
-- Premium 플랜(월 USD 9, 무제한 웹 채팅 포함) 또는 Team 플랜. API key를 만들려면 둘 중 하나가 필요합니다([구독하기](https://www.capriole.ai/ko?view=api))
-- Capriole AI API key([키 받기](https://www.capriole.ai/ko?view=api))
+- Premium 플랜(월 USD 9, 무제한 웹 채팅 포함) 또는 Team 플랜. API 키를 만들려면 둘 중 하나가 필요합니다([구독하기](https://www.capriole.ai/ko?view=api))
+- Capriole AI API 키([키 받기](https://www.capriole.ai/ko?view=api))
 
 ## 설치
 
@@ -78,7 +78,7 @@ Opus 5.5에는 `COPILOT_PROVIDER_WIRE_MODEL="claude-opus-5-5"`를 설정하세�
 
 - `COPILOT_PROVIDER_BEARER_TOKEN`은 키를 Bearer 토큰으로 보냅니다. `COPILOT_PROVIDER_API_KEY`를 쓰면 키가 `x-api-key` 헤더로 전송되는데, Capriole AI는 이를 받지 않습니다.
 - Copilot이 `/v1/messages`를 직접 추가하므로 Base URL에는 `/v1`이 없습니다.
-- `COPILOT_PROVIDER_MODEL_ID="claude-opus-4.6"`을 유지하세요. `claude-sonnet-4` 같은 이전 프로필을 쓰면 Copilot이 thinking 예산을 보내고, Opus 5.5는 `requires adaptive thinking`으로 이를 거부합니다.
+- `COPILOT_PROVIDER_MODEL_ID="claude-opus-4.6"`을 유지하세요. `claude-sonnet-4` 같은 이전 프로필을 쓰면 Copilot이 추론 예산을 보내고, Opus 5.5는 `requires adaptive thinking`으로 이를 거부합니다.
 
 ### Gemini, Grok, GLM, Kimi 모델
 
@@ -158,5 +158,5 @@ GPT, Gemini, Grok, GLM, Kimi 모델에서 `COPILOT_PROVIDER_BASE_URL`은 `https:
 - Copilot CLI는 사용자 컴퓨터에서 코딩 도구를 실행합니다. Capriole AI는 모델 요청만 처리합니다.
 - 모든 BYOK 환경 변수를 보려면 `copilot help providers`를 실행하세요.
 - Gemini 4 Carbon은 Gemini 4 Argon보다 오래 추론하므로 턴마다 시간이 더 걸리고 토큰도 더 쓸 수 있습니다. 더 빠른 응답이 필요하면 `google/gemini-4-argon`을 사용하세요.
-- 같은 key를 다른 코딩 에이전트에서도 쓰려면 [코딩 에이전트에 API key 하나 사용하기](/ko/guides/one-api-key-coding-agents) 가이드를 참고하세요.
-- 공식 참고: [Install GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli), [Use BYOK models in Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/use-byok-models).
+- 같은 키를 다른 코딩 에이전트에서도 쓰려면 [코딩 에이전트에 API 키 하나 사용하기](/ko/guides/one-api-key-coding-agents) 가이드를 참고하세요.
+- 공식 참고: [GitHub Copilot CLI 설치](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli), [Copilot CLI에서 BYOK 모델 사용하기](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/use-byok-models).

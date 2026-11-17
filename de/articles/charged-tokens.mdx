@@ -4,9 +4,9 @@ sidebarTitle: "Abgerechnete Tokens"
 description: "So zählt Capriole AI abgerechnete Tokens für eine API bis zu 92% unter offiziellen Preisen: ungecachte Eingabe, gecachte Eingabe zu 10%, Ausgabe und Rechenbeispiele."
 ---
 
-Abgerechnete Tokens sind die Einheiten, die von einem Capriole AI API-Guthaben abgezogen werden. Persönliches Premium umfasst 5 Millionen pro Monat als Teil der USD 9 Arbeitsbereich-Mitgliedschaft. Ungecachte Eingabe und Ausgabe zählen zu 100%. Gecachte Eingabe zählt zu 10%, aufgerundet auf das nächste ganze Token.
+Abgerechnete Tokens sind die Einheiten, die von einem Capriole-AI-API-Guthaben abgezogen werden. Persönliches Premium umfasst 5 Millionen pro Monat als Teil der Mitgliedschaft für USD 9, die den ganzen Arbeitsbereich umfasst. Ungecachte Eingabe und Ausgabe zählen zu 100%. Gecachte Eingabe zählt zu 10%, aufgerundet auf das nächste ganze Token.
 
-Sie gelten für öffentlichen API- und Coding-Agent-Traffic, der bis zu 92% weniger kostet als die offiziellen API-Preise. Unbegrenzter Premium Browser Chat verbraucht dieses API-Guthaben nicht.
+Sie gelten für öffentlichen API- und Coding-Agent-Traffic, der bis zu 92% weniger kostet als die offiziellen API-Preise. Unbegrenzter Premium Browser-Chat verbraucht dieses API-Guthaben nicht.
 
 ## Die Formel
 
@@ -41,7 +41,7 @@ Bei Anthropic Messages bleibt die Cache-Erstellung 100% Eingabe. Nur gemeldete C
 
 Die dritte Anfrage hat 228,897 rohe Eingabe-plus-Ausgabe-Tokens. Sie zieht 23,496 abgerechnete Tokens ab, weil der Anbieter 228,224 Eingabe-Tokens als gecacht gemeldet hat.
 
-Die Rundung erfolgt auf dem gecachten Anteil jeder erfassten Anfrage. Ein gecachtes Eingabe-Token berechnet daher nach `ceil(0.1)` ein Token, während zehn gecachte Eingabe-Tokens ebenfalls ein Token berechnen.
+Die Rundung erfolgt auf dem gecachten Anteil jeder erfassten Anfrage. Ein einzelnes gecachtes Eingabe-Token wird daher nach `ceil(0.1)` als ein Token abgerechnet, zehn gecachte Eingabe-Tokens ebenfalls als ein Token.
 
 ## Schätzen, wie viele Anfragen in 5 Millionen abgerechnete Tokens passen
 
@@ -58,7 +58,7 @@ estimated_requests = floor(5,000,000 / average_charged_tokens_per_request)
 | 25,000 | 200 |
 | 100,000 | 50 |
 
-Diese Zeilen sind Planungsarithmetik, keine typischen Arbeitslastbehauptungen. Ein kurzer Klassifikationsaufruf und ein langer Coding-Agent-Turn können um Größenordnungen voneinander abweichen. Ausgabelänge, wiederholter Kontext, vom Anbieter gemeldete Cache-Treffer und Tool-Ergebnisse ändern alle den gemessenen Durchschnitt.
+Diese Zeilen sind Planungsarithmetik, keine typischen Arbeitslastbehauptungen. Ein kurzer Klassifikationsaufruf und ein langer Coding-Agent-Turn können um Größenordnungen voneinander abweichen. Ausgabelänge, wiederholter Kontext, vom Anbieter gemeldete Cache-Treffer und Tool-Ergebnisse ändern alle den ermittelten Durchschnitt.
 
 ## Abgerechnete Tokens und Anbieterpreise verwenden unterschiedliche Einheiten
 
@@ -74,22 +74,22 @@ Multiplizieren Sie abgerechnete Tokens nicht mit einem veröffentlichten Input- 
 
 Der [datierte API-Kostenvergleich](/de/articles/ai-api-cost-comparison) wendet diese Formel auf eine feste Arbeitslast von 5 Millionen Tokens an und vergleicht dann die Barkosten unter jedem Dienst. [Claude-API-Preise](/de/articles/claude-api-pricing), [OpenAI-API-Preise](/de/articles/openai-api-pricing) und [Gemini-API-Preise](/de/articles/gemini-api-pricing) vergleichen die aktuellen offiziellen Preise pro 1M Tokens mit den USD 8 pro 5M Tokens bei Capriole.
 
-## Grenzen des Personal- und Team-Guthabens
+## Grenzen des persönlichen und des Team-Guthabens
 
 | Zugang | Enthaltenes API-Guthaben | Basispreis der Aufstockung | Aktuelle Regel |
 |---|---:|---:|---|
-| Personal Premium | 5 Millionen abgerechnete Tokens pro aktivem monatlichem Kontingentzeitraum | USD 8 pro 5 Millionen | Öffentliche API und persönliche Aufstockungen erfordern aktiven Premium-Zugang; Käufe mehrerer Pakete erhalten den angezeigten Mengenrabatt, bis zu 15% |
-| Team | 50 Millionen geteilte abgerechnete Tokens pro aktivem monatlichem Kontingentzeitraum | USD 80 pro 50 Millionen | USD 70/Monat umfasst [fünf Plätze](/de/guides/team-plan); Owners und Admins können ein bis fünf Pakete kaufen, mit dem angezeigten Mengenrabatt bis zu 10% |
+| Persönliches Premium | 5 Millionen abgerechnete Tokens pro aktivem monatlichem Kontingentzeitraum | USD 8 pro 5 Millionen | Öffentliche API und persönliche Aufstockungen erfordern aktiven Premium-Zugang; Käufe mehrerer Pakete erhalten den angezeigten Mengenrabatt, bis zu 15% |
+| Team | 50 Millionen geteilte abgerechnete Tokens pro aktivem monatlichem Kontingentzeitraum | USD 80 pro 50 Millionen | USD 70/Monat umfasst [fünf Plätze](/de/guides/team-plan); Inhaber und Administratoren können ein bis fünf Pakete kaufen, mit dem angezeigten Mengenrabatt bis zu 10% |
 
-Das enthaltene Kontingent wird vor der passenden persönlichen oder Team-Aufstockungsbörse verbraucht. Gekaufte Aufstockungsguthaben bleiben über monatliche Kontingentzeiträume und Lücken im bezahlten Zugang bestehen; ihr Verbrauch erfordert weiterhin berechtigten aktiven bezahlten Zugang. Browser Chat ist von der API-Abrechnung getrennt; Coding-Agents zählen als API-Traffic und ziehen abgerechnete Tokens ab.
+Das enthaltene Kontingent wird vor dem passenden persönlichen oder Team-Aufstockungsguthaben verbraucht. Gekaufte Aufstockungsguthaben bleiben über monatliche Kontingentzeiträume und Lücken im bezahlten Zugang bestehen; ihr Verbrauch erfordert weiterhin berechtigten aktiven bezahlten Zugang. Browser-Chat ist von der API-Abrechnung getrennt; Coding-Agents zählen als API-Traffic und ziehen abgerechnete Tokens ab.
 
-Die monatlichen 5 Millionen sind Teil der vollständigen USD 9 Premium-Arbeitsbereich-Mitgliedschaft. Es ist kein unbegrenzter API-Plan und sollte nicht als eigenständiger API-Preis dargestellt werden.
+Die monatlichen 5 Millionen sind Teil der Premium-Mitgliedschaft für USD 9 mit dem vollständigen Arbeitsbereich. Es ist kein unbegrenzter API-Plan und sollte nicht als eigenständiger API-Preis dargestellt werden.
 
 Aufstockungen erweitern die programmatische Nutzung. Sie ändern nicht das Browser-Chat-Kontingent, die Modellkompatibilität oder die Anforderung eines berechtigten aktiven persönlichen oder Team-Zugangs.
 
 ## Was die API erfasst
 
-Capriole hält protokolnormalisierte Nutzung und berechnete Nutzung als getrennte Felder. Eine erfolgreiche öffentliche API-Anfrage kann erfassen:
+Capriole hält protokollnormalisierte Nutzung und abgerechnete Nutzung als getrennte Felder. Eine erfolgreiche öffentliche API-Anfrage kann erfassen:
 
 - normalisierte Eingabe-Tokens;
 - Ausgabe-Tokens;
@@ -98,18 +98,18 @@ Capriole hält protokolnormalisierte Nutzung und berechnete Nutzung als getrennt
 - vom Kontingent abgezogene abgerechnete Tokens;
 - das aufgelöste Modell und den Anfragestatus.
 
-Die Responses-, Chat Completions- und Messages-Endpunkte bewahren ihre Upstream-Antwortformen und geben kein Feld `charged_tokens` zurück. Capriole erfasst den passenden Wert der abgerechneten Tokens für die Kontonutzung; Sie sehen ihn in der Spalte **Charged tokens** der Nutzungstabelle auf der [API-Seite](https://www.capriole.ai/de?view=api).
+Die Responses-, Chat-Completions- und Messages-Endpunkte bewahren ihre Upstream-Antwortformen und geben kein Feld `charged_tokens` zurück. Capriole erfasst den passenden Wert der abgerechneten Tokens für die Kontonutzung; Sie sehen ihn in der Spalte **Abgerechnete Tokens** der Nutzungstabelle auf der [API-Seite](https://www.capriole.ai/de?view=api).
 
 ## Bestätigen, ob gecachte Eingabe eine Belastung reduziert hat
 
-Öffnen Sie die Capriole AI [API-Seite](https://www.capriole.ai/de?view=api) und nutzen Sie die Filter **Key**, **Model** und **Status**, um die Anfrage zu isolieren. Vergleichen Sie diese Spalten in der Nutzungstabelle:
+Öffnen Sie die [API-Seite](https://www.capriole.ai/de?view=api) von Capriole AI und nutzen Sie die Filter **Schlüsselname**, **Modell** und **Status**, um die Anfrage zu isolieren. Vergleichen Sie diese Spalten in der Nutzungstabelle:
 
 | Spalte | Was sie bestätigt |
 |---|---|
-| **Input tokens** | Protokolnormalisierte Eingabe, bevor gecachte Eingabe getrennt wird |
-| **Cached tokens** | Eingabe, die der Anbieter als gecacht gemeldet hat |
-| **Charged tokens** | Nach Anwendung der Formel für gecachte Eingabe abgezogenes Kontingent |
-| **Total tokens** | Protokolnormalisierte Eingabe plus Ausgabe |
+| **Input-Tokens** | Protokollnormalisierte Eingabe, bevor gecachte Eingabe getrennt wird |
+| **Gecachte Tokens** | Eingabe, die der Anbieter als gecacht gemeldet hat |
+| **Abgerechnete Tokens** | Nach Anwendung der Formel für gecachte Eingabe abgezogenes Kontingent |
+| **Tokens gesamt** | Protokollnormalisierte Eingabe plus Ausgabe |
 
 Ein positiver Wert für gecachte Tokens bestätigt, dass kompatible Anbieternutzungsmetadaten einen Cache-Treffer gemeldet haben. Er beweist nicht, dass jede wiederholte Anfrage denselben Anbieter-Cache trifft. Anbieterrouting, Cache-Lebensdauer, Anfragestruktur und Modellverhalten können das Ergebnis ändern.
 
@@ -127,10 +127,10 @@ Nein. Die vom Anbieter gemeldete Ausgabe-Nutzung enthält bereits die Ausgabeabr
 
 ### Ist die API-Nutzung unter Premium unbegrenzt?
 
-Nein. Premium Browser Chat ist über die unterstützte Premium-Modellgruppe unbegrenzt. API- und Coding-Agent-Anfragen nutzen das enthaltene Guthaben an abgerechneten Tokens und jedes verfügbare Aufstockungsguthaben.
+Nein. Der Browser-Chat mit Premium ist über die unterstützte Premium-Modellgruppe unbegrenzt. API- und Coding-Agent-Anfragen nutzen das enthaltene Guthaben an abgerechneten Tokens und jedes verfügbare Aufstockungsguthaben.
 
 ### Wo sollte ich mit dem Programmieren beginnen?
 
-Nutzen Sie den [API-Schnellstart](/de/quickstart) für die kleinste Rohanfrage oder die [OpenAI- und Anthropic-SDK-Anleitung](/de/guides/openai-anthropic-sdks) für protokollnative Python- und TypeScript-Clients. Wenn Sie noch nicht abonniert haben, [probieren Sie die Flaggschiff-Modelle im begrenzten kostenlosen Browser Chat](https://www.capriole.ai/de), bevor Sie upgraden.
+Nutzen Sie den [API-Schnellstart](/de/quickstart) für die kleinste Rohanfrage oder die [OpenAI- und Anthropic-SDK-Anleitung](/de/guides/openai-anthropic-sdks) für protokollnative Python- und TypeScript-Clients. Wenn Sie noch nicht abonniert haben, [probieren Sie die Flaggschiff-Modelle im begrenzten kostenlosen Browser-Chat](https://www.capriole.ai/de), bevor Sie upgraden.
 
-Capriole-Plan-, Kontingent-, Aufstockungs- und berechnete-Token-Fakten auf dieser Seite werden als First-Party-Dokumentation gepflegt.
+Die Angaben zu Plänen, Kontingenten, Aufstockungen und abgerechneten Tokens von Capriole auf dieser Seite pflegt Capriole AI selbst.

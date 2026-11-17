@@ -4,7 +4,7 @@ sidebarTitle: "모델 선택"
 description: "GPT-6 Astra, Claude Fable 5.1·Opus 5.5, Gemini 4 Carbon을 강점, 컨텍스트, 공식 가격으로 비교하고 Thinking과 Fast를 고르세요."
 ---
 
-Capriole AI에는 플래그십 모델 4개가 있습니다. OpenAI의 GPT-6 Astra, Anthropic의 Claude Fable 5.1과 Claude Opus 5.5, Google의 Gemini 4 Carbon입니다. Premium은 월 USD 9로 네 모델 모두와 웹 채팅을 무제한으로 할 수 있고, API는 공식 API 가격보다 최대 92% 저렴합니다. 웹 채팅은 GPT-6 Astra Thinking으로 시작합니다. 아래 요약에서 다른 모델의 제공사가 그 모델을 내 작업에 맞게 만들었다고 설명하면 그 모델로 전환하세요.
+Capriole AI에는 플래그십 모델 4개가 있습니다. OpenAI의 GPT-6 Astra, Anthropic의 Claude Fable 5.1과 Claude Opus 5.5, Google의 Gemini 4 Carbon입니다. Premium은 월 USD 9로 네 모델 모두와 웹 채팅을 무제한으로 할 수 있고, API는 공식 API 가격보다 최대 92% 저렴합니다. 다른 모델을 고르기 전까지 웹 채팅은 GPT-6 Astra Thinking으로 시작합니다. 아래 요약을 보고, 제공사가 내 작업에 맞게 만들었다고 설명하는 다른 모델이 있으면 그 모델로 전환하세요.
 
 ## 플래그십 모델 4개
 
@@ -19,7 +19,7 @@ Capriole AI에서는 이 표의 모든 모델을 Premium과 Team 웹 채팅에�
 
 ### GPT-6 Astra
 
-OpenAI는 GPT-6 Astra를 가장 까다로운 작업을 위한 가장 뛰어난 모델이라고 부릅니다. OpenAI가 밝힌 컨텍스트 창은 105만 토큰이고, 출력은 최대 128,000토큰입니다. Capriole AI에서는 **GPT-6 Astra Thinking**이 웹 채팅 기본값이며, API에서는 `openai-latest`가 GPT-6 Astra를 사용합니다.
+OpenAI는 GPT-6 Astra를 가장 까다로운 작업을 위한 가장 뛰어난 모델이라고 부릅니다. OpenAI가 밝힌 컨텍스트 창은 105만 토큰이고, 출력은 최대 128,000토큰입니다. Capriole AI에서는 다른 모델을 고르기 전까지 **GPT-6 Astra Thinking**이 웹 채팅 기본값이며, API에서는 `openai-latest`가 GPT-6 Astra를 사용합니다.
 
 ### Claude Fable 5.1
 
@@ -74,6 +74,8 @@ Thinking 프리셋은 웹 채팅 전용입니다. API에서 더 많은 추론이
 
 모델 메뉴에서 다른 모델을 고르고 다음 메시지를 보내세요. 채팅 기록은 그대로 유지되고, 새 모델이 거기서부터 답합니다. [대화 중 모델 전환 방식](/ko/articles/switch-models-mid-chat)을 참고하세요.
 
+최신 메시지에 대한 두 번째 답변을 받으려면 답변 아래의 **다시 시도**를 선택하고 다른 모델을 고르세요. 새 답변이 기존 답변 자리를 대신하며, 옆의 화살표로 두 답변을 오갈 수 있습니다.
+
 **계정** → **설정**에서 **모델 자동 전환 사용**을 켜 두면, 선택한 모델에 수요가 몰릴 때 Capriole AI가 사용 가능한 다른 모델로 답할 수 있습니다. 기본값은 꺼짐입니다.
 
 ## API 모델 ID
@@ -121,7 +123,7 @@ Capriole AI는 모든 모델에서 과금 토큰을 같은 방식으로 계산�
 
 ### Capriole AI는 기본으로 어떤 모델을 쓰나요?
 
-웹 채팅은 GPT-6 Astra Thinking으로 시작합니다. API에서는 `openai-latest`가 GPT-6 Astra를 사용합니다.
+게스트와 새 계정은 GPT-6 Astra Thinking으로 웹 채팅을 시작합니다. 모델을 고른 뒤에는 새 채팅이 마지막으로 고른 모델로 시작되고, 저장된 채팅은 마지막으로 사용한 모델로 다시 열립니다. API에서는 `openai-latest`가 GPT-6 Astra를 사용합니다.
 
 ### Capriole AI에서 플래그십 모델은 더 비싼가요?
 
@@ -150,4 +152,4 @@ Anthropic은 대부분의 작업을 Claude Opus 5.5로 시작하고, 까다로�
 
 ## Capriole AI 시작하기
 
-이 모델들로 [채팅을 시작](https://www.capriole.ai/ko)하거나, 앱과 코딩 에이전트에서 쓸 [API key를 받으세요](https://www.capriole.ai/ko?view=api).
+이 모델들로 [채팅을 시작](https://www.capriole.ai/ko)하거나, 앱과 코딩 에이전트에서 쓸 [API 키를 받으세요](https://www.capriole.ai/ko?view=api).

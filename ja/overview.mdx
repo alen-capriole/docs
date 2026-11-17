@@ -15,25 +15,25 @@ Capriole AI は、GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5、Gemini 4 Ca
   </Card>
 </CardGroup>
 
-Capriole AI は Capriole Investments が開発しており、同社の市場データプラットフォーム [Capriole Quant](https://quant.capriole.com/)（旧 Capriole Charts）や投資ファンドとは別の製品です。有効な Capriole Quant サブスクライバーは、Capriole AI を無償で利用できます。
+Capriole AI は Capriole Investments が開発しており、同社の市場データプラットフォーム [Capriole Quant](https://quant.capriole.com/)（旧 Capriole Charts）や投資ファンドとは別の製品です。有効な Capriole Quant サブスクライバーは、Capriole AI を無償で利用できます。Capriole Quant から Capriole AI が生まれた経緯は、[私たちが Capriole AI を作った理由](/ja/articles/why-we-built-capriole-ai)で紹介しています。
 
 ## ひと目でわかる要点
 
 | | Capriole AI |
 |---|---|
 | Premium | 月額 USD 9 で、すべての対応モデルとのウェブチャットが無制限。さらに毎月 500 万 API トークン付き |
-| フェアユース | ログイン中のウェブチャットは 1 アカウントあたり 1 UTC 日 200 メッセージまで。スクリプトによる乱用を防ぐための上限で、通常の利用ではこれを大きく下回ります。[「無制限」の意味](/ja/guides/plans-and-limits#「無制限」の意味) |
+| フェアユース | ログイン中のウェブチャットは 1 アカウントあたり 1 日（UTC 基準）200 メッセージ、画像 30 枚まで。いずれもスクリプトによる乱用を防ぐための上限で、通常の利用ではこれを大きく下回ります。[「無制限」の意味](/ja/guides/plans-and-limits#「無制限」の意味) |
 | 無料とゲスト | ゲストは[アカウントなしで](/ja/articles/ai-chat-without-login) 1 日 5 メッセージまでウェブチャットを試せます。無料アカウントでは毎月 50 万トークン分のウェブチャットを使えますが、API は使えません |
 | Team | 5 シートで月額 USD 70。メンバー全員のウェブチャットが無制限で、毎月 5,000 万 API トークンをチームで共有します。[Team プラン](/ja/guides/team-plan) |
 | 旗艦モデル | GPT-6 Astra（OpenAI）、Claude Fable 5.1 と Claude Opus 5.5（Anthropic）、Gemini 4 Carbon（Google） |
 | API | Base URL は `https://api.caprioletech.com`。OpenAI Chat Completions、OpenAI Responses、Anthropic Messages と互換性があります |
 | モデル エイリアス | `openai-latest` → GPT-6 Astra、`claude-latest` → Claude Fable 5.1、`google-latest` → Gemini 4 Carbon |
 | レート制限 | API キーごとに 1 分あたり 300 リクエスト |
-| 節約額の例 | 入力と出力の比率が 3:1 の場合、GPT-6 Astra または Claude Fable 5.1 の公式 API で 500 万トークンを使うと USD 100 です。新規の月額 USD 9 Premium にはこの使用量が含まれます（91% 安）。有効な個人 Premium 会員は 500 万トークンを USD 8 でチャージできます（92% 安）。 [Claude API の料金](/ja/articles/claude-api-pricing)と [OpenAI API の料金](/ja/articles/openai-api-pricing)を参照してください |
+| 節約額の例 | 入力と出力の比率が 3:1 の場合、GPT-6 Astra または Claude Fable 5.1 の公式 API で 500 万トークンを使うと USD 100 です。新規の月額 USD 9 Premium にはこの使用量が含まれます（91% 安い）。有効な個人 Premium 会員は 500 万トークンを USD 8 でチャージできます（92% 安い）。[Claude API の料金](/ja/articles/claude-api-pricing)と [OpenAI API の料金](/ja/articles/openai-api-pricing)を参照してください |
 
 ## USD 9 で無制限チャット
 
-**Thinking** プリセットも無制限です。次の質問に別のモデルが向いているときは、同じチャットのままモデルを切り替えられます。[プランと制限を比較する](/ja/guides/plans-and-limits)か、[モデルを選ぶ](/ja/guides/choose-a-model)。
+Premium のウェブチャットは、**Thinking** プリセットを含め、すべての対応モデルで無制限です。次の質問に別のモデルが向いているときは、同じチャットのままモデルを切り替えられます。詳しくは[プランと制限](/ja/guides/plans-and-limits)と[モデルの選び方](/ja/guides/choose-a-model)をご覧ください。
 
 ## 公式価格より最大 92% 安い API トークンのチャージ
 
@@ -51,4 +51,4 @@ API については、[OpenRouter の料金と直接 API の比較](/ja/articles
 
 ## そのほかの機能
 
-ログインして **Server Storage** を使う Free・Premium・Team アカウントは、ウェブチャットで **GPT Image 2.6**、**Nano Banana 2.1**、**Seedream 5.5** を使い、無料で画像を作成できます。ファイル、ウェブ検索、プロジェクト、チャットのエクスポート、[プライバシーとストレージの管理](/ja/guides/privacy-and-security)はワークスペースに組み込まれています。[画像生成ガイドを見る](/ja/guides/files-web-search)。
+ログインして **Server Storage** を使う Free・Premium・Team アカウントは、ウェブチャットで **GPT Image 2.6**、**Nano Banana 2.1**、**Seedream 5.5** を使い、無料で画像を作成できます。ファイル、ウェブ検索、音声入力、プロジェクト、パーソナライズ、チャットのエクスポート、[プライバシーとストレージの管理](/ja/guides/privacy-and-security)はワークスペースに組み込まれています。[画像生成ガイドを見る](/ja/guides/files-web-search)。各リリースの内容は[更新履歴](/ja/changelog)に掲載しています。

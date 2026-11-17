@@ -1,18 +1,18 @@
 ---
 title: "Chat completions"
-description: "Capriole AI 모델로 OpenAI 호환 chat completions를 만듭니다."
+description: "Capriole AI 모델로 OpenAI 호환 Chat Completions 응답을 만듭니다."
 openapi: "api-reference/openapi.json POST /v1/chat/completions"
 ---
 
 애플리케이션, SDK 또는 게이트웨이가 OpenAI Chat Completions 요청 및 응답 형식을 기대할 때 이 엔드포인트를 사용하세요.
 
-`model`과 `messages`가 있는 표준 Chat Completions 페이로드를 보내세요. Capriole AI는 업스트림 전달 전에 latest 별칭을 선택한 제공자 모델 ID로 해석하고, `messages`, `tools`, `tool_choice`, `response_format`, `stream` 같은 호환 필드를 전달하며, 업스트림 JSON 또는 SSE 스트림을 아래 GLM SSE 보정을 제외하고 그대로 반환합니다. 스트리밍 요청의 경우 Capriole AI는 전달 전에 `stream_options.include_usage=true`를 설정해 사용량을 기록할 수 있게 합니다.
+`model`과 `messages`가 있는 표준 Chat Completions 페이로드를 보내세요. Capriole AI는 업스트림 전달 전에 latest 별칭을 선택한 제공자 모델 ID로 해석하고, `messages`, `tools`, `tool_choice`, `response_format`, `stream` 같은 호환 필드를 전달하며, 업스트림 JSON 또는 SSE 스트림을 아래에 설명한 GLM SSE 보정과 하트비트 주석을 제외하고 그대로 반환합니다. 스트리밍 요청의 경우 Capriole AI는 전달 전에 `stream_options.include_usage=true`를 설정해 사용량을 기록할 수 있게 합니다.
 
-일부 `model="zai/glm-5.3-flash"` SSE 응답에서 Capriole AI는 델타의 빈 레거시 `function_call={"name":"","arguments":""}` 필드만 제거합니다. 실제 또는 전송 중인 함수 호출, `tool_calls`, 텍스트, 사용량은 유지됩니다. 이 예외는 비스트리밍 응답이나 다른 모델에 적용되지 않습니다.
+일부 `model="zai/glm-5.3-flash"` SSE 응답에서 Capriole AI는 델타의 빈 레거시 `function_call={"name":"","arguments":""}` 필드만 제거합니다. 완전한 함수 호출과 일부만 담긴 함수 호출, `tool_calls`, 텍스트, 사용량은 유지됩니다. 이 예외는 비스트리밍 응답이나 다른 모델에 적용되지 않습니다.
 
-`POST /v1/chat/completions`는 `openai-latest`, `claude-latest`, `google-latest`와 `GET /v1/models`가 반환하는 공개 구체 모델 ID를 받습니다. 해당 제공자의 권장 플래그십 모델을 Capriole AI가 선택하게 하려면 latest 별칭을 사용하세요.
+`POST /v1/chat/completions`는 `openai-latest`, `claude-latest`, `google-latest`와 `GET /v1/models`가 반환하는 구체적인 공개 모델 ID를 받습니다. 해당 제공자에서 Capriole AI가 권장하는 플래그십 모델을 쓰려면 latest 별칭을 사용하세요.
 
-Latest 별칭은 입력 단축키입니다. 사용량은 해석된 모델에 대해 기록되고, 응답 본문은 선택한 호환 엔드포인트의 모델 이름 지정 방식을 유지합니다.
+latest 별칭은 모델 ID 대신 입력하는 약칭입니다. 사용량은 해석된 모델 기준으로 기록되며, 응답 본문의 모델 이름은 선택한 호환 엔드포인트의 표기 방식을 그대로 따릅니다.
 
 ## Kimi K3.1 Pro
 
@@ -42,4 +42,4 @@ OpenAI Python SDK에서는 `extra_body={"extra_body": {"google": {"thinking_conf
 
 ## 긴 작업
 
-긴 추론 같은 긴 작업에는 `"stream": true`를 설정하세요. 스트리밍을 사용하지 않으면 약 2분 후 연결이 시간 초과될 수 있습니다.
+긴 추론 같은 긴 작업에는 `"stream": true`를 설정하세요. 스트리밍을 사용하지 않으면 약 2분 후 연결이 시간 초과될 수 있습니다. 스트림이 모델을 기다리는 동안 Capriole AI는 15초마다 SSE `: heartbeat` 주석을 보내며, 스트리밍하는 `google/*` 요청은 첫 토큰을 최대 20분까지 기다릴 수 있습니다. 모델이 60초 안에 응답하지 않으면 200 응답이 이미 시작된 상태이므로, 이후의 업스트림 오류는 `error` 객체가 담긴 마지막 SSE 이벤트 하나로 전달됩니다.

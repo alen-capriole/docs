@@ -8,7 +8,7 @@ Você pode usar os SDKs oficiais OpenAI e Anthropic para Python ou TypeScript co
 
 O Premium pessoal custa USD 9 por mês e inclui 5 milhões de tokens cobrados de API, além de Browser Chat ilimitado no conjunto de modelos Premium suportado. A mesma assinatura pode alimentar um aplicativo por esses SDKs, um agente de programação por uma integração mantida e o trabalho do dia a dia no navegador.
 
-Este guia monta a mesma verificação de duas solicitações nos dois idiomas. Cada exemplo envia uma solicitação OpenAI Responses e uma solicitação Anthropic Messages.
+Este guia monta a mesma verificação de duas solicitações nas duas linguagens. Cada exemplo envia uma solicitação OpenAI Responses e uma solicitação Anthropic Messages.
 
 ## Escolha o caminho da solicitação
 
@@ -22,7 +22,7 @@ Use Responses para aplicativos OpenAI nativos de Responses. Use Chat Completions
 
 ## Antes de começar
 
-Você precisa de Premium ativo ou acesso Team elegível, uma [API key da Capriole AI](https://www.capriole.ai/pt-br?view=api) e Python ou Node.js 20 ou posterior. Copie uma key recém-criada quando a Capriole a mostrar; o secret completo não é mostrado de novo.
+Você precisa de Premium ativo ou acesso Team elegível, uma [API key da Capriole AI](https://www.capriole.ai/pt-br?view=api) e Python ou Node.js 20 ou posterior. Copie uma key recém-criada quando a Capriole a mostrar; a chave secreta completa não é mostrada de novo.
 
 <Steps>
 <Step title="Crie um ambiente e instale os dois SDKs">
@@ -53,7 +53,7 @@ Mantenha o ambiente ativo nos passos restantes. O comando de instalação deve t
 export CAPRIOLE_AI_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
 ```
 
-O programa abaixo lê a key do ambiente. Ele não coloca o secret no código-fonte.
+O programa abaixo lê a key do ambiente. Ele não coloca a chave secreta no código-fonte.
 
 </Step>
 
@@ -212,7 +212,7 @@ print(completion.choices[0].message.content)
 
 `google-latest` usa o Gemini 4 Carbon, que raciocina no nível padrão do Google, `medium`, no Chat Completions. Para usar menos tokens, adicione `extra_body={"extra_body": {"google": {"thinking_config": {"thinking_level": "low"}}}}` ou chame `google/gemini-4-argon`. [Escolha um modelo](/pt-br/guides/choose-a-model#ids-de-modelo-para-a-api) traz os detalhes.
 
-Não mova `google-latest` para `responses.create()`. A rota Responses aceita o conjunto suportado de modelos OpenAI Responses, enquanto Chat Completions aceita o catálogo público compatível mais amplo.
+Não mova `google-latest` para `responses.create()`. A rota Responses aceita modelos OpenAI e modelos Grok com o prefixo `xai/`, enquanto Chat Completions aceita o catálogo público compatível mais amplo.
 
 ## Corrija erros comuns de SDK
 
@@ -227,7 +227,7 @@ Não mova `google-latest` para `responses.create()`. A rota Responses aceita o c
 
 ## Entenda o limite do resultado
 
-A Capriole preserva o protocolo pedido pelo SDK. A saída de Responses permanece saída de Responses, e a saída de Anthropic Messages permanece saída de Messages. Uma conta e um saldo ficam atrás das duas rotas; os schemas de resposta não se tornam intercambiáveis.
+A Capriole preserva o protocolo pedido pelo SDK. A saída de Responses permanece saída de Responses, e a saída de Anthropic Messages permanece saída de Messages. As duas rotas usam a mesma conta e o mesmo saldo; os schemas de resposta não se tornam intercambiáveis.
 
 O [artigo da API de vários protocolos](/pt-br/articles/unified-model-api) explica essa arquitetura. Use a [referência de Responses](/pt-br/api-reference/endpoint/responses), a [referência de Chat Completions](/pt-br/api-reference/endpoint/chat-completions) ou a [referência de Messages](/pt-br/api-reference/endpoint/messages) para os campos do endpoint. O [início rápido da API](/pt-br/quickstart) continua o caminho mais curto para uma primeira solicitação bruta.
 

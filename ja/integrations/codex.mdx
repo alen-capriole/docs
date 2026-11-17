@@ -15,7 +15,7 @@ Codex は、ソフトウェア開発向けの OpenAI のコーディング エ�
 始める前に、次を用意してください。
 
 - Capriole AI アカウント（[こちらから登録](https://www.capriole.ai/ja)）
-- Premium プラン（月額 USD 9、無制限の Web チャットも含む）または Team プラン。API キーにはどちらかが必要です（[購読する](https://www.capriole.ai/ja?view=api)）
+- Premium プラン（月額 USD 9、無制限のウェブチャットも含む）または Team プラン。API キーにはどちらかが必要です（[購読する](https://www.capriole.ai/ja?view=api)）
 - Capriole AI API キー（[キーを取得](https://www.capriole.ai/ja?view=api)）
 
 ## インストール
@@ -40,7 +40,7 @@ npm install -g @openai/codex
 codex --version
 ```
 
-### Codex app
+### Codex アプリ
 
 [OpenAI Codex](https://developers.openai.com/codex) からアプリをダウンロードしてください。
 
@@ -127,10 +127,10 @@ Codex に組み込まれているメタデータは、OpenAI のネイティブ 
 
 ### 設定の変更が反映されないのはなぜですか？
 
-`~/.codex/config.toml` が有効なユーザー設定ファイルであることを確認し、プロジェクトスコープの `.codex/config.toml` に頼る前にプロジェクトを信頼してから、Codex を再起動してください。
+`~/.codex/config.toml` が有効なユーザー設定ファイルであることを確認し、プロジェクト単位の `.codex/config.toml` を使う場合は、先にそのプロジェクトを信頼済みにしてから、Codex を再起動してください。
 
 ## 注意事項
 
 - この設定は `env_key` を使うため、API キーは設定ファイルではなくシェル環境に残ります。
 - 同じキーを他のコーディング エージェントでも使うには、[1 つの API キーでコーディング エージェントを使う](/ja/guides/one-api-key-coding-agents)を参照してください。
-- 公式リファレンス: [Codex CLI](https://developers.openai.com/codex/cli)、[Codex 設定の基本](https://developers.openai.com/codex/config-basic)、[Codex 設定リファレンス](https://developers.openai.com/codex/config-reference)、[設定サンプル](https://developers.openai.com/codex/config-sample)。
+- 公式リファレンス：[Codex CLI](https://developers.openai.com/codex/cli)、[Codex 設定の基本](https://developers.openai.com/codex/config-basic)、[Codex 設定リファレンス](https://developers.openai.com/codex/config-reference)、[設定サンプル](https://developers.openai.com/codex/config-sample)。

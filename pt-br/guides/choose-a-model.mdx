@@ -4,7 +4,7 @@ sidebarTitle: "Escolha um modelo"
 description: "Compare GPT-6 Astra, Claude Fable 5.1, Opus 5.5 e Gemini 4 Carbon por pontos fortes segundo o fabricante, contexto e preço oficial, e escolha Thinking ou Fast."
 ---
 
-A Capriole AI inclui quatro modelos principais: GPT-6 Astra, da OpenAI; Claude Fable 5.1 e Claude Opus 5.5, da Anthropic; e Gemini 4 Carbon, do Google. O Premium dá chat web ilimitado com os quatro por USD 9 por mês, e a API custa até 92% menos que os preços oficiais das APIs. O chat web começa no GPT-6 Astra Thinking. Troque de modelo quando o fabricante de outro modelo disser que ele foi feito para a sua tarefa, conforme o resumo abaixo.
+A Capriole AI inclui quatro modelos principais: GPT-6 Astra, da OpenAI; Claude Fable 5.1 e Claude Opus 5.5, da Anthropic; e Gemini 4 Carbon, do Google. O Premium dá chat web ilimitado com os quatro por USD 9 por mês, e a API custa até 92% menos que os preços oficiais das APIs. O chat web começa no GPT-6 Astra Thinking até você escolher outro modelo. Troque de modelo quando o fabricante de outro modelo disser que ele foi feito para a sua tarefa, conforme o resumo abaixo.
 
 ## Os quatro modelos principais
 
@@ -19,7 +19,7 @@ Na Capriole AI, todos os modelos desta tabela são ilimitados no chat web do Pre
 
 ### GPT-6 Astra
 
-A OpenAI apresenta o GPT-6 Astra como seu modelo mais capaz para o trabalho mais exigente. A OpenAI informa uma janela de contexto de 1.05M de tokens e até 128.000 tokens de saída. Na Capriole AI, o **GPT-6 Astra Thinking** é o padrão do chat web, e `openai-latest` usa o GPT-6 Astra na API.
+A OpenAI apresenta o GPT-6 Astra como seu modelo mais capaz para o trabalho mais exigente. A OpenAI informa uma janela de contexto de 1.05M de tokens e até 128,000 tokens de saída. Na Capriole AI, o **GPT-6 Astra Thinking** é o padrão do chat web até você escolher outro modelo, e `openai-latest` usa o GPT-6 Astra na API.
 
 ### Claude Fable 5.1
 
@@ -74,6 +74,8 @@ Os modos Thinking existem só no chat web. Na API, chame o ID do modelo e defina
 
 Escolha outro modelo no seletor de modelos e envie a próxima mensagem. O chat mantém o histórico, e o novo modelo responde a partir dali. [Como funciona a troca de modelo no meio do chat](/pt-br/articles/switch-models-mid-chat).
 
+Para receber uma segunda resposta à sua última mensagem, selecione **Tentar novamente** abaixo da resposta e escolha outro modelo. A nova resposta substitui a anterior no mesmo lugar, e as setas ao lado dela alternam entre as duas.
+
 Com **Ativar troca automática de modelo** ligado em **Conta** → **Configurações**, a Capriole AI pode responder com outro modelo disponível quando o modelo escolhido estiver com alta demanda. Essa opção vem desligada por padrão.
 
 ## IDs de modelo para a API
@@ -121,7 +123,7 @@ Para criar imagens, escolha **Imagem** no seletor de modelos e selecione GPT Ima
 
 ### Qual modelo a Capriole AI usa por padrão?
 
-O chat web começa no GPT-6 Astra Thinking. Na API, `openai-latest` usa o GPT-6 Astra.
+Visitantes e contas novas começam o chat web no GPT-6 Astra Thinking. Depois que você escolhe um modelo, os novos chats começam com o último modelo escolhido, e um chat salvo reabre com o modelo que usou por último. Na API, `openai-latest` usa o GPT-6 Astra.
 
 ### Os modelos principais custam mais na Capriole AI?
 

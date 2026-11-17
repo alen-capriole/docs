@@ -21,7 +21,7 @@ charged_tokens =
   + output_tokens
 ```
 
-如果提供商没有报告缓存输入，全部输入 token 都按 100% 计算。Capriole 不会在用量 metadata 未报告的情况下，自行推断发生了 cache hit。
+如果提供商没有报告缓存输入，全部输入 token 都按 100% 计算。Capriole 不会在用量元数据未报告的情况下，自行推断发生了缓存命中。
 
 | 协议 | 统一后的输入 | 缓存子集 |
 |---|---|---|
@@ -29,15 +29,15 @@ charged_tokens =
 | OpenAI Chat Completions | `prompt_tokens` | `prompt_tokens_details.cached_tokens` |
 | Anthropic Messages | `input_tokens + cache_creation_input_tokens + cache_read_input_tokens` | `cache_read_input_tokens` |
 
-对于 Anthropic Messages，cache creation 仍按 100% 输入计算。只有提供商报告的 cache reads 才能按 10% 计算计费 token。
+对于 Anthropic Messages，缓存写入（cache creation）仍按 100% 输入计算。只有提供商报告的缓存读取（cache reads）才能按 10% 计算计费 token。
 
 ## 三个可复现示例
 
 | 示例 | 输入总数 | 缓存输入 | 输出 | 计算 | 计费 token |
 |---|---:|---:|---:|---|---:|
-| 没有 cache hit | 800 | 0 | 200 | `800 + 0 + 200` | 1,000 |
+| 没有缓存命中 | 800 | 0 | 200 | `800 + 0 + 200` | 1,000 |
 | 提示词大部分被缓存 | 10,000 | 8,000 | 500 | `2,000 + ceil(800) + 500` | 3,300 |
-| 提供商报告大量 cache hit | 228,807 | 228,224 | 90 | `583 + ceil(22,822.4) + 90` | 23,496 |
+| 提供商报告大量缓存命中 | 228,807 | 228,224 | 90 | `583 + ceil(22,822.4) + 90` | 23,496 |
 
 第三个请求的原始输入加输出 token 总数为 228,897。由于提供商报告其中 228,224 个输入 token 已缓存，它会扣除 23,496 个计费 token。
 
@@ -58,7 +58,7 @@ estimated_requests = floor(5,000,000 / average_charged_tokens_per_request)
 | 25,000 | 200 |
 | 100,000 | 50 |
 
-这些行只是用于规划的算术示例，不代表典型工作负载。一条简短分类调用和一轮较长的编程智能体交互，可能相差几个数量级。输出长度、重复上下文、提供商报告的 cache hit 和工具结果都会改变实测平均值。
+这些行只是用于规划的算术示例，不代表典型工作负载。一条简短分类调用和一轮较长的编程智能体交互，可能相差几个数量级。输出长度、重复上下文、提供商报告的缓存命中和工具结果都会改变实测平均值。
 
 ## 计费 token 与提供商价格使用不同单位
 
@@ -76,16 +76,16 @@ estimated_requests = floor(5,000,000 / average_charged_tokens_per_request)
 
 ## 个人与 Team 余额边界
 
-| 访问类型 | 内含 API 余额 | Top-up 基础价格 | 当前规则 |
+| 访问类型 | 内含 API 余额 | 充值基础价格 | 当前规则 |
 |---|---:|---:|---|
-| Personal Premium | 每个有效月度配额周期 500 万计费 token | 每 500 万 USD 8 | 公共 API 和个人 top-up 要求用户拥有有效 Premium 访问权限。一次购买多个包可获得页面显示的批量折扣，最高 15% |
-| Team | 每个有效月度配额周期共享 5000 万计费 token | 每 5000 万 USD 80 | 每月 USD 70 包含[五个席位](/zh/guides/team-plan)。owners 和 admins 可以购买一至五个包，并获得页面显示的批量折扣，最高 10% |
+| 个人 Premium | 每个有效月度配额周期 500 万计费 token | 每 500 万 USD 8 | 公共 API 和个人充值要求用户拥有有效 Premium 访问权限。一次购买多个包可获得页面显示的批量折扣，最高 15% |
+| Team | 每个有效月度配额周期共享 5000 万计费 token | 每 5000 万 USD 80 | 每月 USD 70 包含[五个席位](/zh/guides/team-plan)。所有者和管理员可以购买一至五个包，并获得页面显示的批量折扣，最高 10% |
 
-系统会先消耗内含配额，再消耗相应的个人或 Team top-up wallet。购买的 top-up 余额可以跨月度配额周期和付费访问中断继续保留，实际使用时仍要求符合条件的有效付费访问。浏览器聊天与 API 计量分开，编程智能体属于 API 流量，会扣除计费 token。
+系统会先消耗内含配额，再消耗相应的个人或 Team 充值余额。购买的充值余额可以跨月度配额周期和付费访问中断继续保留，实际使用时仍要求符合条件的有效付费访问。浏览器聊天与 API 计量分开，编程智能体属于 API 流量，会扣除计费 token。
 
 每月 500 万额度属于完整的 USD 9 Premium 工作区会员。它不是无限 API 方案，也不应被描述为独立 API 价格。
 
-Top-up 用于扩展程序化用量，不会改变浏览器聊天额度、模型兼容性，也不会取消有效个人或 Team 访问权限要求。
+充值用于扩展程序化用量，不会改变浏览器聊天额度、模型兼容性，也不会取消有效个人或 Team 访问权限要求。
 
 ## API 记录什么
 
@@ -98,20 +98,20 @@ Capriole 会把经过协议统一的用量和计费用量记录为不同字段�
 - 从配额中扣除的计费 token
 - 解析后的模型和请求状态
 
-Responses、Chat Completions 和 Messages endpoint 保留各自的上游响应结构，不会返回 `charged_tokens` 字段。Capriole 会为账户用量记录相应的计费 token，你可以在 [API 页面](https://www.capriole.ai/zh?view=api)用量表格的 **Charged tokens** 列中查看。
+Responses、Chat Completions 和 Messages 端点保留各自的上游响应结构，不会返回 `charged_tokens` 字段。Capriole 会为账户用量记录相应的计费 token，你可以在 [API 页面](https://www.capriole.ai/zh?view=api)用量表格的 **计费 tokens** 列中查看。
 
 ## 确认缓存输入是否减少了扣费
 
-打开 Capriole AI [API 页面](https://www.capriole.ai/zh?view=api)，再使用 **Key**、**Model** 和 **Status** 筛选条件找出请求。比较用量表格中的这些列。
+打开 Capriole AI [API 页面](https://www.capriole.ai/zh?view=api)，再使用 **密钥名称**、**模型** 和 **状态** 筛选条件找出请求。比较用量表格中的这些列。
 
 | 列 | 它确认的信息 |
 |---|---|
-| **Input tokens** | 划分缓存输入前，经过协议统一的输入 |
-| **Cached tokens** | 提供商报告为已缓存的输入 |
-| **Charged tokens** | 应用缓存输入公式后扣除的配额 |
-| **Total tokens** | 经过协议统一的输入加输出 |
+| **输入 tokens** | 划分缓存输入前，经过协议统一的输入 |
+| **缓存 tokens** | 提供商报告为已缓存的输入 |
+| **计费 tokens** | 应用缓存输入公式后扣除的配额 |
+| **总 tokens** | 经过协议统一的输入加输出 |
 
-缓存 token 大于零，可以确认兼容的提供商用量 metadata 报告了 cache hit。它无法证明每个重复请求都会命中相同的提供商缓存。提供商路由、缓存时限、请求结构和模型行为都可能改变结果。
+缓存 token 大于零，可以确认兼容的提供商用量元数据报告了缓存命中。它无法证明每个重复请求都会命中相同的提供商缓存。提供商路由、缓存时限、请求结构和模型行为都可能改变结果。
 
 API 响应会保留上游 schema，因此账户用量表是跨路由比较请求的一致位置。
 
@@ -119,7 +119,7 @@ API 响应会保留上游 schema，因此账户用量表是跨路由比较请求
 
 ### 缓存输入总能获得 90% 的配额折扣吗
 
-只有在所选提供商通过兼容的用量 metadata 报告缓存输入时才会获得。缺少缓存 metadata 不会被当作 cache hit。
+只有在所选提供商通过兼容的用量元数据报告缓存输入时才会获得。缺少缓存元数据不会被当作缓存命中。
 
 ### Reasoning tokens 会被重复计算吗
 
@@ -127,10 +127,10 @@ API 响应会保留上游 schema，因此账户用量表是跨路由比较请求
 
 ### Premium 下的 API 用量无限吗
 
-不无限。受支持 Premium 模型范围内的浏览器聊天无限，API 与编程智能体请求则使用内含计费 token 余额和可用的 top-up 余额。
+不无限。受支持 Premium 模型范围内的浏览器聊天无限，API 与编程智能体请求则使用内含计费 token 余额和可用的充值余额。
 
 ### 应该从哪里开始写代码
 
 最小的原始请求可以参阅 [API 快速入门](/zh/quickstart)，使用协议原生 Python 和 TypeScript 客户端则可参阅 [OpenAI 与 Anthropic SDK 指南](/zh/guides/openai-anthropic-sdks)。如果尚未订阅，可以先[在有限的免费浏览器聊天中试用旗舰模型](https://www.capriole.ai/zh)，再决定是否升级。
 
-本页中的 Capriole 方案、配额、top-up 和计费 token 事实作为第一方文档持续维护。
+本页中关于 Capriole 方案、配额、充值和计费 token 的信息由我们作为官方文档持续维护。

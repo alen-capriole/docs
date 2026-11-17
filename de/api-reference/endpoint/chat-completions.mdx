@@ -6,7 +6,7 @@ openapi: "api-reference/openapi.json POST /v1/chat/completions"
 
 Verwenden Sie diesen Endpunkt, wenn Ihre Anwendung, Ihr SDK oder Ihr Gateway das Anfrage- und Antwortformat von OpenAI Chat Completions erwartet.
 
-Senden Sie eine Standard-Chat Completions-Nutzlast mit `model` und `messages`. Capriole AI löst Latest-Aliase vor der Upstream-Weiterleitung zur ausgewählten Anbietermodell-ID auf, leitet kompatible Felder wie `messages`, `tools`, `tool_choice`, `response_format` und `stream` weiter und gibt den Upstream-JSON- oder SSE-Stream unverändert zurück, mit Ausnahme der unten beschriebenen GLM-SSE-Korrektur. Bei Streaming-Anfragen setzt Capriole AI vor der Weiterleitung `stream_options.include_usage=true`, damit die Nutzung erfasst werden kann.
+Senden Sie eine Standard-Chat-Completions-Nutzlast mit `model` und `messages`. Capriole AI löst Latest-Aliase vor der Upstream-Weiterleitung zur ausgewählten Anbietermodell-ID auf, leitet kompatible Felder wie `messages`, `tools`, `tool_choice`, `response_format` und `stream` weiter und gibt den Upstream-JSON- oder SSE-Stream unverändert zurück, mit Ausnahme der unten beschriebenen GLM-SSE-Korrektur und der Heartbeat-Kommentare. Bei Streaming-Anfragen setzt Capriole AI vor der Weiterleitung `stream_options.include_usage=true`, damit die Nutzung erfasst werden kann.
 
 Bei manchen SSE-Antworten mit `model="zai/glm-5.3-flash"` entfernt Capriole AI nur das leere Legacy-Feld `function_call={"name":"","arguments":""}` aus den Deltas. Echte oder teilweise übertragene Funktionsaufrufe, `tool_calls`, Text und Nutzungsdaten bleiben erhalten. Diese Ausnahme betrifft weder nicht gestreamte Antworten noch andere Modelle.
 
@@ -16,7 +16,7 @@ Latest-Aliase sind Eingabe-Kurzformen. Die Nutzung wird für das aufgelöste Mod
 
 ## Kimi K3.1 Pro
 
-Bei Kimi K3.1 Pro sind `temperature` auf 1 und `top_p` auf 0,95 festgelegt. Lassen Sie `temperature`, `top_p`, `n`, `presence_penalty` und `frequency_penalty` bei diesem Modell weg, und senden Sie Anweisungen mit der Rolle `system` statt `developer`.
+Bei Kimi K3.1 Pro sind `temperature` auf 1 und `top_p` auf 0.95 festgelegt. Lassen Sie `temperature`, `top_p`, `n`, `presence_penalty` und `frequency_penalty` bei diesem Modell weg, und senden Sie Anweisungen mit der Rolle `system` statt `developer`.
 
 ## Gemini 4 Carbon
 
@@ -42,4 +42,4 @@ Funktionstools, die Ihr Client definiert, werden unverändert weitergeleitet, au
 
 ## Lange Aufgaben
 
-Setzen Sie für lange Aufgaben wie ausgedehntes Reasoning `"stream": true`. Ohne Streaming kann die Verbindung nach etwa 2 Minuten in ein Timeout laufen.
+Setzen Sie für lange Aufgaben wie ausgedehntes Reasoning `"stream": true`. Ohne Streaming kann die Verbindung nach etwa 2 Minuten in ein Timeout laufen. Solange ein Stream auf das Modell wartet, sendet Capriole AI alle 15 Sekunden einen SSE-Kommentar `: heartbeat`, und gestreamte `google/*`-Anfragen können bis zu 20 Minuten auf das erste Token warten. Hat das Modell nach 60 Sekunden noch nicht geantwortet, hat die 200-Antwort bereits begonnen, sodass ein späterer Upstream-Fehler als letztes SSE-Ereignis mit einem `error`-Objekt ankommt.

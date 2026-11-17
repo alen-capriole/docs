@@ -6,7 +6,7 @@ openapi: "api-reference/openapi.json GET /v1/models"
 
 이 엔드포인트로 현재 공개 모델 카탈로그를 조회하세요.
 
-카탈로그는 구체적인 모델 ID보다 제공자 수준 latest 별칭을 먼저 포함합니다.
+카탈로그에는 구체적인 모델 ID보다 제공자별 latest 별칭이 먼저 나옵니다.
 
 - `openai-latest`
 - `claude-latest`
@@ -16,7 +16,7 @@ openapi: "api-reference/openapi.json GET /v1/models"
 
 | 모델 선택 | 적합한 경우 |
 | --- | --- |
-| `openai-latest`, `claude-latest`, `google-latest` | 한 번 구성한 뒤 Capriole AI가 권장 플래그십을 유지하게 할 때 |
+| `openai-latest`, `claude-latest`, `google-latest` | 한 번 설정해 두고 Capriole AI가 권장하는 플래그십 모델을 계속 쓰게 할 때 |
 | `openai/gpt-6-astra` 같은 구체적인 모델 ID | 정확한 모델 버전을 고정할 때 |
 
 `POST /v1/chat/completions`에서 latest 별칭은 다음과 같이 해석됩니다.
@@ -38,4 +38,4 @@ Anthropic Messages 엔드포인트는 `claude-fable-5-1`, `claude-fable-5`, `cla
 
 `POST /v1/messages`와 `POST /v1/messages/count_tokens`에서 `claude-latest`는 `claude-fable-5-1`로 해석되며, Chat Completions latest 별칭과 같습니다.
 
-위에 나온 그대로의 별칭 ID를 사용하세요. `openai/openai-latest` 같은 제공자 접두사는 클라이언트 쪽 선택자 패턴이며 Capriole AI 모델 ID가 아닙니다.
+위에 나온 접두사 없는 별칭 ID를 사용하세요. `openai/openai-latest` 같은 제공자 접두사는 클라이언트 쪽 선택자 패턴이며 Capriole AI 모델 ID가 아닙니다.

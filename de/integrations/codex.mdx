@@ -4,7 +4,7 @@ sidebarTitle: "Codex"
 description: "Capriole AI als eigenen Modellanbieter in Codex einrichten. Nutzen Sie GPT-6 Astra und GPT-6.1 Sol bis zu 92 % unter den offiziellen API-Preisen."
 ---
 
-Mit einem einzigen Capriole AI API-Schlüssel nutzen Sie GPT-6 Astra und GPT-6.1 Sol in Codex, bis zu 92 % unter den offiziellen API-Preisen.
+Mit einem einzigen Capriole-AI-API-Schlüssel nutzen Sie GPT-6 Astra und GPT-6.1 Sol in Codex, bis zu 92% unter den offiziellen API-Preisen.
 
 ## Was ist Codex
 
@@ -14,9 +14,9 @@ Codex ist der Coding-Agent von OpenAI für die Softwareentwicklung. Er kann Capr
 
 Bevor Sie beginnen, stellen Sie sicher, dass Sie Folgendes haben:
 
-- Ein Capriole AI-Konto ([Hier registrieren](https://www.capriole.ai/de))
+- Ein Capriole-AI-Konto ([Hier registrieren](https://www.capriole.ai/de))
 - Premium (USD 9 pro Monat, inklusive unbegrenztem Web-Chat) oder Team, denn API-Schlüssel gibt es nur mit einem dieser Pläne ([Abonnieren](https://www.capriole.ai/de?view=api))
-- Einen Capriole AI API-Schlüssel ([Schlüssel abrufen](https://www.capriole.ai/de?view=api))
+- Einen Capriole-AI-API-Schlüssel ([Schlüssel abrufen](https://www.capriole.ai/de?view=api))
 
 ## Installation
 
@@ -68,7 +68,7 @@ env_key_instructions = "Export CAPRIOLE_AI_API_KEY before starting Codex"
 Was die einzelnen Einstellungen bewirken:
 
 - `model` ist das Standardmodell. Ändern Sie es mit `/model` in einer Sitzung oder mit `--model` auf der Befehlszeile.
-- `model_provider` wählt den darunter definierten Capriole AI-Anbieter aus.
+- `model_provider` wählt den darunter definierten Capriole-AI-Anbieter aus.
 - `base_url` enthält `/v1`, da Codex `/responses` selbst ergänzt.
 - `wire_api = "responses"` verwendet die Responses API, das einzige Protokoll, das Codex für benutzerdefinierte Anbieter unterstützt.
 - `env_key` liest Ihren Schlüssel aus der Umgebung und sendet ihn als Bearer-Token.
@@ -121,7 +121,7 @@ Bestätigen Sie, dass `model_provider = "capriole_ai"` gesetzt ist und dass `mod
 
 Bestätigen Sie, dass unter `[model_providers.capriole_ai]` `base_url = "https://api.caprioletech.com/v1"` und `wire_api = "responses"` gesetzt sind.
 
-### Warum ignoriert Codex den Capriole AI-Anbieter?
+### Warum ignoriert Codex den Capriole-AI-Anbieter?
 
 Verwenden Sie keine reservierte integrierte Anbieter-ID wie `openai`; behalten Sie die benutzerdefinierte Anbieter-ID als `capriole_ai` bei.
 

@@ -4,15 +4,15 @@ description: "Capriole AI モデルで OpenAI 互換の Chat Completions を作�
 openapi: "api-reference/openapi.json POST /v1/chat/completions"
 ---
 
-アプリケーション、SDK、またはゲートウェイが OpenAI Chat Completions のリクエストとレスポンス形式を期待する場合は、このエンドポイントを使ってください。
+アプリケーション、SDK、またはゲートウェイが OpenAI Chat Completions のリクエストとレスポンス形式を前提としている場合は、このエンドポイントを使ってください。
 
-`model` と `messages` を含む標準の Chat Completions ペイロードを送信します。Capriole AI は上流へ送る前に latest エイリアスを選択したプロバイダーのモデル ID に解決し、`messages`、`tools`、`tool_choice`、`response_format`、`stream` などの互換フィールドを転送し、上流の JSON または SSE ストリームを下記の GLM SSE 修正を除き、そのまま返します。ストリーミング リクエストでは、使用量を記録できるよう、転送前に `stream_options.include_usage=true` を設定します。
+`model` と `messages` を含む標準の Chat Completions ペイロードを送信します。Capriole AI は上流へ送る前に latest エイリアスを選択したプロバイダーのモデル ID に解決し、`messages`、`tools`、`tool_choice`、`response_format`、`stream` などの互換フィールドを転送し、上流の JSON または SSE ストリームを、下記の GLM SSE 修正とハートビート コメントを除いてそのまま返します。ストリーミング リクエストでは、使用量を記録できるよう、転送前に `stream_options.include_usage=true` を設定します。
 
 `model="zai/glm-5.3-flash"` の一部の SSE 応答では、Capriole AI はデルタ内の空の旧式フィールド `function_call={"name":"","arguments":""}` だけを削除します。実際の関数呼び出しやその途中のデータ、`tool_calls`、テキスト、使用量は保持します。この例外は非ストリーミング応答や他のモデルには適用されません。
 
-`POST /v1/chat/completions` は `openai-latest`、`claude-latest`、`google-latest`、および `GET /v1/models` が返す公開の具体的なモデル ID を受け付けます。対応プロバイダーの推奨旗艦モデルを Capriole AI に選ばせるには、latest エイリアスを使ってください。
+`POST /v1/chat/completions` は `openai-latest`、`claude-latest`、`google-latest`、および `GET /v1/models` が返す公開の具体的なモデル ID を受け付けます。各プロバイダーで当社が推奨する旗艦モデルを Capriole AI に選ばせるには、latest エイリアスを使ってください。
 
-latest エイリアスは入力のショートカットです。使用量は解決後のモデルに対して記録され、レスポンス本文は選択した互換エンドポイント本来のモデル命名の動作を保持します。
+latest エイリアスは、モデル ID の代わりに指定できる略記です。使用量は解決後のモデルに対して記録され、レスポンス本文のモデル名は、選択した互換エンドポイント本来の表記のままです。
 
 ## Kimi K3.1 Pro
 
@@ -42,4 +42,4 @@ OpenAI Python SDK では `extra_body={"extra_body": {"google": {"thinking_config
 
 ## 長時間のタスク
 
-長い推論などの長時間タスクでは `"stream": true` を設定してください。ストリーミングを使わない場合、約 2 分で接続がタイムアウトすることがあります。
+長い推論などの長時間タスクでは `"stream": true` を設定してください。ストリーミングを使わない場合、約 2 分で接続がタイムアウトすることがあります。ストリームがモデルを待っている間、Capriole AI は 15 秒ごとに SSE の `: heartbeat` コメントを送ります。ストリーミングする `google/*` リクエストは、最初のトークンを最大 20 分待てます。モデルが 60 秒以内に応答しなかった場合は 200 レスポンスがすでに始まっているため、その後に上流で発生したエラーは、`error` オブジェクトを含む最後の SSE イベントとして届きます。

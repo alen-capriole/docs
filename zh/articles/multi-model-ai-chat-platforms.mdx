@@ -4,7 +4,7 @@ sidebarTitle: "多模型 AI 聊天平台"
 description: "Capriole AI：每月 USD 9 无限畅聊 GPT-6 Astra、Claude 和 Gemini，API 价格最多比官方低 92%，并与 Magai、T3 Chat、Venice、OpenRouter 对比。"
 ---
 
-多模型 AI 聊天平台把 GPT、Claude 和 Gemini 放进同一个聊天界面，各家差别最大的地方在于旗舰模型怎么收费。Capriole AI **每月 USD 9**，就能在网页聊天中无限使用 **GPT-6 Astra**、**Claude Fable 5.1**、**Claude Opus 5.5** 和 **Gemini 4 Carbon**。Magai、T3 Chat、Venice 和 OpenRouter 对旗舰模型则按用量预算、定时恢复的余额、credits 或按量付费来计量。
+多模型 AI 聊天平台把 GPT、Claude 和 Gemini 放进同一个聊天界面，各家差别最大的地方在于旗舰模型怎么收费。Capriole AI **每月 USD 9**，就能在网页聊天中无限使用 **GPT-6 Astra**、**Claude Fable 5.1**、**Claude Opus 5.5** 和 **Gemini 4 Carbon**。Magai、T3 Chat、Venice 和 OpenRouter 对旗舰模型则按用量预算、定时恢复的余额、积分或按量付费来计量。
 
 Capriole AI 还包含 API，最多比官方 API 价格低 92%，同一个账户就能运行你的应用和编程智能体。本文比较的是公开的方案和功能，不测试回答质量。
 
@@ -12,8 +12,8 @@ Capriole AI 还包含 API，最多比官方 API 价格低 92%，同一个账户�
 
 | | Capriole AI | [Magai](/zh/articles/capriole-ai-vs-magai) | [T3 Chat](/zh/articles/capriole-ai-vs-t3-chat) | [Venice](/zh/articles/capriole-ai-vs-venice) | [OpenRouter](/zh/articles/capriole-ai-vs-openrouter) |
 |---|---|---|---|---|---|
-| 顶级 GPT 和 Claude 模型的价格 | 每月 USD 9（Premium） | 每月 USD 20（Standard）；其方案表显示，顶级 GPT 和 Claude 档位等高级模型从 USD 40 的 Pro 起提供 | 没有固定的公开价格 | Pro 每月 USD 18；前沿文本模型消耗 credits | 按提供商标价按量付费，Standard 用户用银行卡充值时另收 5.5% 手续费（最低 USD 0.80） |
-| 旗舰模型聊天的计量方式 | 无限，设有每天 200 条消息的[合理使用上限](/zh/guides/plans-and-limits#“无限”是什么意思)，用于阻止脚本驱动的自动化滥用 | 每月提供与方案价格等额的用量，可充值 | Base 余额每 4 小时恢复一次，Overage 余额在你每月的续订日恢复 | Pro 每月 100 credits，价值 USD 1 | 每个请求都从你的 credits 中扣除 |
+| 顶级 GPT 和 Claude 模型的价格 | 每月 USD 9（Premium） | 每月 USD 20（Standard）；其方案表显示，顶级 GPT 和 Claude 档位等高级模型从 USD 40 的 Pro 起提供 | 没有固定的公开价格 | Pro 每月 USD 18；前沿文本模型消耗积分 | 按提供商标价按量付费，Standard 用户用银行卡充值时另收 5.5% 手续费（最低 USD 0.80） |
+| 旗舰模型聊天的计量方式 | 无限，设有每天 200 条消息的[合理使用上限](/zh/guides/plans-and-limits#“无限”是什么意思)，用于阻止脚本驱动的自动化滥用 | 每月提供与方案价格等额的用量，可充值 | Base 余额每 4 小时恢复一次，Burst overage 余额在你每月的续订日恢复 | Pro 每月 100 积分，价值 USD 1 | 每个请求都从你的充值额度中扣除 |
 | 列出的当前旗舰模型 | GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5、Gemini 4 Carbon | GPT-6 Astra、Claude Opus 5.5、Gemini 4 Carbon；其模型页未列出 Claude Fable 5.1 | 我们核对的页面未列出 | 通过 Venice 的代理提供 GPT、Claude 和 Gemini | 取决于其目录中的提供商 |
 | 免费入口 | 无需账户每天 5 条消息；免费账户每月 50 万 token | 没有免费方案；30 天退款保证 | 其常见问题未记载 | 免费方案：基础模型，每天 10 条文本提示词 | 提供免费模型，有速率限制 |
 | 开发者 API | OpenAI Chat Completions、OpenAI Responses 和 Anthropic Messages；每月含 500 万 token | 未记载 | 未记载 | 按公布的模型费率按量付费 | 按量付费，兼容 OpenAI |
@@ -35,7 +35,7 @@ Magai 的定价页也列出了在对话中切换模型而不中断对话。T3 Ch
 |---|---|---|---|
 | Capriole AI | 不用于训练 AI 模型 | 由你选择：你的账户（默认）、仅在浏览器中，或不保存 | API 不保留请求或响应内容，只保留 token 数量等用量记录 |
 | Magai | 称你的内容绝不会用于训练模型 | 账户有效期间保存在 Magai 的服务器上 | 其服务器和服务提供商位于美国 |
-| T3 Chat | 不训练自己的模型；尽可能退出了提供商的训练 | 其常见问题未说明 | 使用你自己的提供商 key 时，适用该提供商的设置 |
+| T3 Chat | 不训练自己的模型；尽可能退出了提供商的训练 | 其常见问题未说明 | 使用你自己的提供商密钥时，适用该提供商的设置 |
 | Venice | 我们核对的页面未说明 | 在你的设备上 | 请求只做转发，不会存储；对于前沿模型，Venice 称应假定提供商会存储你的内容 |
 | OpenRouter | 称不会用你的数据训练 | Chatroom 对话保留在你的设备上，不会同步 | 模型和 token 数量等请求元数据；除非你主动开启，否则不记录提示词，但在 Safety Retention 端点上，OpenRouter 或提供商可能为防止滥用而保留提示词 |
 
@@ -48,11 +48,12 @@ Capriole AI 的网页聊天包含文件和网页搜索、带有专属指令和�
 ## 你会失去什么
 
 Capriole AI 面向个人和小团队。Magai 有内置智能体、定时任务运行和与其他应用的集成，Magai 和 Venice 还能生成视频；Capriole AI 没有定时任务、应用集成或视频生成。它也不提供 SAML 单点登录等企业级管控；[LLM 网关安全风险](/zh/articles/llm-gateway-security)列出了 Capriole AI 提供和不提供的内容。网页聊天无限，但 API 请求和编程智能体使用按量计费的余额：Premium 每月 500 万 token，超出后每 500 万 token USD 8。
+
 ## 常见问题
 
 <AccordionGroup>
   <Accordion title="哪个多模型 AI 聊天平台最好？">
-    如果你想以一个固定价格无限畅聊 GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5 和 Gemini 4 Carbon，Capriole AI 每月 USD 9，并包含 API。Magai、T3 Chat、Venice 和 OpenRouter 则用用量预算、定时恢复的余额、credits 或按请求计价来计量旗舰模型。
+    如果你想以一个固定价格无限畅聊 GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5 和 Gemini 4 Carbon，Capriole AI 每月 USD 9，并包含 API。Magai、T3 Chat、Venice 和 OpenRouter 则用用量预算、定时恢复的余额、积分或按请求计价来计量旗舰模型。
   </Accordion>
   <Accordion title="能在一个对话里同时使用 ChatGPT、Claude 和 Gemini 的模型吗？">
     可以。Capriole AI 在同一个对话中提供 GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5 和 Gemini 4 Carbon，你可以在消息之间切换模型，无需重新开始。
@@ -75,16 +76,17 @@ Capriole AI 面向个人和小团队。Magai 有内置智能体、定时任务�
     无需账户即可试用 GPT-6 Astra、Claude 和 Gemini。
   </Card>
   <Card title="获取 Premium" icon="crown" href="https://www.capriole.ai/zh?view=api">
-    每月 USD 9，享受无限网页聊天和 API key。
+    每月 USD 9，享受无限网页聊天和 API Key。
   </Card>
 </CardGroup>
 
 ## 官方来源
 
-我们于 2026 年 11 月 6 日核对了这些页面，并于 2026 年 11 月 17 日再次核对了 Magai 的模型页面。
+我们于 2026 年 11 月 6 日核对了这些页面，并于 2026 年 11 月 17 日再次核对了 Magai 的模型页面和 T3 的 FAQ。
 
 - Magai：[定价](https://magai.co/pricing/)、[模型](https://magai.co/models/)和[隐私政策](https://magai.co/privacy-policy/)
 - T3 Chat：[常见问题](https://t3.chat/faq)、[对话分支](https://feedback.t3.chat/p/branching-chats)和[模型切换器](https://feedback.t3.chat/p/model-switcher-with-keyboard)
 - Venice：[定价](https://venice.ai/pricing)、[隐私](https://venice.ai/privacy)、[Claude Code 指南](https://docs.venice.ai/guides/integrations/claude-code)和 [Codex CLI 指南](https://docs.venice.ai/guides/integrations/codex-cli)
 - OpenRouter：[定价](https://openrouter.ai/pricing)和[常见问题](https://openrouter.ai/docs/faq)
-本页中的 Capriole AI 事实作为第一方文档持续维护。
+
+本页中关于 Capriole AI 的信息由我们作为官方文档持续维护。

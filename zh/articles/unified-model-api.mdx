@@ -1,12 +1,12 @@
 ---
 title: "Capriole AI 如何适配不同的模型 API"
 sidebarTitle: "多协议 API"
-description: "一个 Capriole AI key 兼容 OpenAI Responses、Chat Completions 和 Anthropic Messages，价格最多比官方 API 低 92%。"
+description: "一个 Capriole AI key 兼容 OpenAI Responses、Chat Completions 和 Anthropic Messages，价格最多比官方 API 低 92%，并提供模型别名、用量记录和自动回退。"
 ---
 
-一个 Capriole AI 账户和 API key 可以用于多个受支持的模型家族，价格最多比官方 API 低 92%。同一份 USD 9 Premium 会员还包含 GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5 和 Gemini 4 Carbon 的无限浏览器聊天，因此一个账户就能覆盖应用、编程智能体和日常聊天。
+一个 Capriole AI 账户和 API Key 可以用于多个受支持的模型家族，价格最多比官方 API 低 92%。同一份 USD 9 Premium 会员还包含 GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5 和 Gemini 4 Carbon 的无限浏览器聊天，因此一个账户就能覆盖应用、编程智能体和日常聊天。
 
-Capriole 维护三条公共路径，包括 OpenAI Responses、OpenAI-compatible Chat Completions 和 Anthropic Messages。
+Capriole 维护三条公共路径：OpenAI Responses、兼容 OpenAI 的 Chat Completions 和 Anthropic Messages。
 
 共享账户和账单层位于这些协议特定路由之上。
 
@@ -18,63 +18,63 @@ Capriole 维护三条公共路径，包括 OpenAI Responses、OpenAI-compatible 
 
 ## 公共路径
 
-| 路径 | 预期契约 | 典型用途 |
+| 路径 | 接口约定 | 典型用途 |
 |---|---|---|
-| `POST /v1/chat/completions` | OpenAI-compatible Chat Completions | 兼容的客户端和智能体 |
+| `POST /v1/chat/completions` | 兼容 OpenAI 的 Chat Completions | 兼容的客户端和智能体 |
 | `POST /v1/responses` | OpenAI Responses | 基于 Responses 的应用和 Codex |
-| `POST /v1/messages` | Anthropic Messages | Claude-native clients 和 Claude Code |
+| `POST /v1/messages` | Anthropic Messages | Claude 原生客户端和 Claude Code |
 
-成功路由的响应和流式事件会保留客户端所请求的协议。Responses payload 在返回时不会转换成 Chat Completions，Anthropic Messages stream 也不会重新包装成 OpenAI 输出。
+成功路由的响应和流式事件会保留客户端所请求的协议。Responses 的响应内容在返回时不会转换成 Chat Completions，Anthropic Messages 的流也不会重新包装成 OpenAI 输出。
 
 这样可以保留 Responses、Messages 和 Chat Completions 客户端预期的协议特定行为。
 
-共享层处理访问和计量，每条公共路由则保留对应客户端期望的请求与响应契约。模型分组是针对不同路由的兼容集合，并没有层级关系。一个模型如果实现了多种契约，就可能出现在多条受支持路由上。
+共享层处理访问和计量，每条公共路由则保留对应客户端期望的请求与响应约定。模型分组是针对不同路由的兼容集合，并没有层级关系。一个模型如果实现了多种接口约定，就可能出现在多条受支持路由上。
 
-## 为什么一条 endpoint 不够
+## 为什么一个端点不够
 
 各模型家族的差异不限于字段名称。
 
-OpenAI Responses 用带类型的事件和 items 表达输出。Anthropic Messages 使用自己的 content blocks 和流式事件，Chat Completions 又有另一套请求与响应结构。推理控制、tool calls、用量数据、错误和 token-counting 行为也不相同。
+OpenAI Responses 用带类型的事件和条目（items）表达输出。Anthropic Messages 使用自己的内容块（content blocks）和流式事件，Chat Completions 又有另一套请求与响应结构。推理控制、工具调用、用量数据、错误和 token 计数方式也不相同。
 
-简单适配器可以让基础文本提示词工作。编程智能体和生产客户端很快就会暴露缺少的细节，因为它们依赖流式顺序、工具结果轮次、用量 metadata 和模型特定控制。
+简单适配器可以让基础文本提示词工作。编程智能体和生产客户端很快就会暴露缺少的细节，因为它们依赖流式顺序、工具结果轮次、用量元数据和模型特定控制。
 
 因此，Capriole 在同一套身份验证和账单层背后维护多条保留协议的路由。
 
 ## 一个密钥，明确选择模型
 
-所有公共生成路由共用同一个 Capriole API key 和账户余额，所请求的模型仍须属于所选协议。
+所有公共生成路由共用同一个 Capriole API Key 和账户余额，所请求的模型仍须属于所选协议。
 
-例如，Responses 路径接受持续维护的 OpenAI 别名和受支持的 Responses-compatible OpenAI 模型，也接受带 `xai/` 前缀发送的 Grok 模型。Messages 路径接受持续维护的 Claude 别名和受支持的 Claude Messages model ID。Compatible chat 路径则可以提供范围更广的公共聊天模型。
+例如，Responses 路径接受持续维护的 OpenAI 别名和受支持的兼容 Responses 的 OpenAI 模型，也接受带 `xai/` 前缀发送的 Grok 模型。Messages 路径接受持续维护的 Claude 别名和受支持的 Claude Messages 模型 ID。兼容聊天路径则可以提供范围更广的公共聊天模型。
 
-模型不适用于所选路由时，请求应当验证失败。Capriole 不会把已经停用且不受支持的旧 key 悄悄改映射到其他模型。
+模型不适用于所选路由时，请求应当验证失败。Capriole 不会把已经停用且不受支持的旧模型 ID 悄悄映射到其他模型。
 
 明确失败比返回调用方没有请求的模型答案更安全。
 
-## Latest aliases 与可复现 ID
+## latest 别名与可复现 ID
 
 Capriole 在支持它们的公共路径上提供 `openai-latest`、`claude-latest` 和 `google-latest` 等持续维护的别名。
 
-别名会在上游分发之前解析。用量、配额和 fallback 记录会关联到解析后的 canonical model，不会落在含义模糊的“latest”分组中。
+别名会在上游分发之前解析。用量、配额和回退记录会关联到解析后的规范模型，不会落在含义模糊的“latest”分组中。
 
-希望 Capriole 的持续维护默认值随受支持版本更新时，可以使用别名。如果精确版本属于结果的一部分且必须可复现，则应使用具体 model ID。
+希望 Capriole 的持续维护默认值随受支持版本更新时，可以使用别名。如果精确版本属于结果的一部分且必须可复现，则应使用具体的模型 ID。
 
-[List models endpoint](/zh/api-reference/endpoint/get)提供当前公开清单。不要假定浏览器聊天中出现的模型会自动适用于每一种 API 协议。
+[列出模型端点](/zh/api-reference/endpoint/get)提供当前公开清单。不要假定浏览器聊天中出现的模型会自动适用于每一种 API 协议。
 
-## Fallback 只在响应开始前发生
+## 回退只在响应开始前发生
 
 对于受支持的路由，如果第一个来源在发送任何响应字节前失败，Capriole 可以尝试另一个已配置来源。
 
-流式响应开始后再切换来源，可能产生重复或互相矛盾的输出。因此，自动 fallback 只会在输出开始前运行。它无法掩盖所有提供商故障，也不能在响应进行到一半时更换模型。
+流式响应开始后再切换来源，可能产生重复或互相矛盾的输出。因此，自动回退只会在输出开始前运行。它无法掩盖所有提供商故障，也不能在响应进行到一半时更换模型。
 
-通过受支持的来源 fallback 时，请求所用 model key 保持不变。Capriole 更改的是交付来源，不会改变用户明确选择的模型。
+通过受支持的来源回退时，请求的模型 ID 保持不变。Capriole 更改的是交付来源，不会改变用户明确选择的模型。
 
-浏览器聊天还可以单独提供可选的自动模型切换，以及[在对话中手动更换模型](/zh/articles/switch-models-mid-chat)。这些属于工作区行为，不是原始 API fallback 契约。
+浏览器聊天还可以单独提供可选的自动模型切换，以及[在对话中手动更换模型](/zh/articles/switch-models-mid-chat)。这些属于工作区行为，不是原始 API 的回退约定。
 
 ## 用量始终可见
 
-程序化工作负载会被计量。Capriole 根据对应协议提供的 metadata 记录用量，在可获得用量信息时也包括已经完成的流式响应。
+程序化工作负载会被计量。Capriole 根据对应协议提供的元数据记录用量，在可获得用量信息时也包括已经完成的流式响应。
 
-Premium 当前每月包含 **500 万 API 计费 token**。对于这份余额，Capriole 按 100% 计算未缓存输入和输出，按 10% 计算缓存输入。还可以通过 top-up 购买额外 token 包。Premium 的无限部分适用于受支持 Premium 模型范围内的浏览器聊天，不适用于 API 或编程智能体流量。
+Premium 当前每月包含 **500 万 API 计费 token**。对于这份余额，Capriole 按 100% 计算未缓存输入和输出，按 10% 计算缓存输入。还可以通过充值购买额外 token 包。Premium 的无限部分适用于受支持 Premium 模型范围内的浏览器聊天，不适用于 API 或编程智能体流量。
 
 [计费 token 文章](/zh/articles/charged-tokens)提供准确公式、取整规则和可复现示例。
 
@@ -82,13 +82,13 @@ Premium 当前每月包含 **500 万 API 计费 token**。对于这份余额，C
 
 ## 统一层实际提供什么
 
-共享层提供下面这些外围产品契约，不会把各协议改成同一种响应 schema。
+共享层提供的是下面这些外围产品约定，不会把各协议改成同一种响应结构。
 
-- 一个 Capriole 账户和 API key
+- 一个 Capriole 账户和 API Key
 - 一份可见的 API 余额
 - 持续维护的模型别名
 - 根据所选协议进行验证
-- 在输出开始前使用受支持的来源 fallback
+- 在输出开始前通过受支持的来源回退
 - 按解析后的模型记录用量
 - 为应用和编程智能体提供设置文档
 
@@ -96,29 +96,29 @@ Premium 当前每月包含 **500 万 API 计费 token**。对于这份余额，C
 
 ## 我们如何测试兼容性
 
-一条路由只有在协议契约与具有代表性的真实客户端流程均通过后，才会被 Capriole 记录为受支持。成功返回一条文本提示词只是初步检查。流式响应、工具结果轮次、别名解析、用量计量和协议反向测试共同提供其余证据。
+一条路由只有在协议约定与具有代表性的真实客户端流程均通过后，才会被 Capriole 记录为受支持。一条简单文本提示词请求成功只是初步检查。流式响应、工具结果轮次、别名解析、用量计量和协议反向测试共同提供其余证据。
 
-针对公共路由和文件转换的集中测试套件，已经在受控的上游响应上完成 **68 项自动化测试**，这些并非生产环境实时调用。另有本地上游和编程智能体运行，用于检查 mock endpoint 无法证明的行为。
+针对公共路由和文件转换的集中测试套件，已经在受控的上游响应上完成 **68 项自动化测试**，这些并非生产环境实时调用。另有本地上游和编程智能体运行，用于检查模拟端点无法证明的行为。
 
 | 测试路径 | 已验证证据 | 当前边界 |
 |---|---|---|
-| OpenAI Responses | 非流式输出、SSE 完成、function call、stateless function-result follow-up 和 `openai-latest` | 仅限 OpenAI Responses 模型 |
-| Chat Completions | 非流式输出、SSE 完成、tool call、tool-result follow-up 和全部三个持续维护的 latest aliases | 所选模型必须支持 compatible route |
+| OpenAI Responses | 非流式输出、SSE 完成、函数调用、无状态的函数结果后续请求和 `openai-latest` | OpenAI 模型，以及带 `xai/` 前缀的 Grok 模型 |
+| Chat Completions | 非流式输出、SSE 完成、工具调用、工具结果后续请求和全部三个持续维护的 latest 别名 | 所选模型必须支持兼容路由 |
 | Anthropic Messages | 非流式输出、Anthropic SSE、`tool_use`、`tool_result` 和 `claude-latest` | 仅限 Claude Messages 模型 |
-| Latest aliases | Endpoint gating、canonical resolution、canonical usage rows 和具有代表性的客户端运行 | Aliases 是输入选择器，不会创建独立的 usage model |
-| 浏览器聊天中的文件 | 对图片、PDF、文本、DOCX、PPTX、CSV、XLS 和 XLSX 进行文件类型检测、转换和模型 payload 组装 | 这项证据属于 Browser Chat 工作区 |
-| 通过公共 API 处理文件 | 没有公开的跨协议通过记录 | Capriole 不宣称 Responses、Chat Completions 和 Messages 共享一种通用文件契约 |
+| latest 别名 | 端点准入检查、规范模型解析、规范模型用量记录和具有代表性的客户端运行 | 别名只是输入选择器，不会创建独立的用量模型 |
+| 网页聊天中的文件 | 对图片、PDF、文本、DOCX、PPTX、CSV、XLS 和 XLSX 进行文件类型检测、转换和模型请求体组装 | 这项证据属于网页聊天工作区 |
+| 通过公共 API 处理文件 | 没有公开的跨协议通过记录 | Capriole 不宣称 Responses、Chat Completions 和 Messages 共享一种通用文件约定 |
 
-流式检查会读取完整响应，并要求出现各协议自己的结束事件。Responses 以自己的 completion event 结束，Chat Completions 到达 `[DONE]`，Messages 则到达 `message_stop`。工具测试会把工具结果发回，并要求返回最终 assistant turn。
+流式检查会读取完整响应，并要求出现各协议自己的结束事件。Responses 以自己的完成事件结束，Chat Completions 到达 `[DONE]`，Messages 则到达 `message_stop`。工具测试会把工具结果发回，并要求返回最终的 assistant 回合。
 
-反向测试让协议边界保持可见。`google-latest` 在 Responses 上会失败，`openai-latest` 在 Messages 上也会失败。Capriole 不会把任何一个请求转移到其他 endpoint。
+反向测试让协议边界保持可见。`google-latest` 在 Responses 上会失败，`openai-latest` 在 Messages 上也会失败。Capriole 不会把任何一个请求转移到其他端点。
 
-公共 API 文件支持使用单独的发布门槛。每条候选路由需要使用同一组小型图片、PDF、CSV 和 DOCX fixture，通过内容特定答案测试，在支持时重复流式测试，并记录准确的 SDK、model ID、请求结构和测试日期。实时 fixture 通过前，公共 API 文档会继续遵循每种原生协议支持的文件格式，不会宣传共享的 Capriole attachment field。
+公共 API 的文件支持有单独的发布门槛。每条候选路由都要用同一组小型图片、PDF、CSV 和 DOCX 测试文件通过针对内容的回答测试，在支持流式时重复一次，并记录准确的 SDK、模型 ID、请求结构和测试日期。这些实时测试通过前，公共 API 文档会继续沿用每种原生协议支持的文件格式，不会宣传 Capriole 共享的附件字段。
 
 ## 从现有客户端开始
 
-如果应用使用 Chat Completions，请参阅 [Chat Completions 参考](/zh/api-reference/endpoint/chat-completions)。基于 Responses 构建的应用请使用 [Responses 参考](/zh/api-reference/endpoint/responses)。Claude-native clients 应使用 [Messages 参考](/zh/api-reference/endpoint/messages)。
+如果应用使用 Chat Completions，请参阅 [Chat Completions 参考](/zh/api-reference/endpoint/chat-completions)。基于 Responses 构建的应用请使用 [Responses 参考](/zh/api-reference/endpoint/responses)。Claude 原生客户端应使用 [Messages 参考](/zh/api-reference/endpoint/messages)。
 
 第一次请求可从 [API 快速入门](/zh/quickstart)开始。Python 开发者可以参阅 [OpenAI 与 Anthropic SDK 指南](/zh/guides/openai-anthropic-sdks)。编程智能体用户可以在[一个 API 连接编程智能体](/zh/articles/coding-agent-compatibility)中查看持续维护的客户端矩阵。[LLM 网关安全风险](/zh/articles/llm-gateway-security)列出了通过任何网关发送代码之前需要检查的事项。
 
-Capriole 的职责是减少账户和访问层的碎片，同时保留客户端实际使用的协议。[在有限的免费浏览器聊天中试用受支持的旗舰模型](https://www.capriole.ai/zh)，再[升级到每月 USD 9 的 Premium 并创建 API key](https://www.capriole.ai/zh?view=api)。
+Capriole 的职责是减少账户和访问层的碎片，同时保留客户端实际使用的协议。[在有限的免费浏览器聊天中试用受支持的旗舰模型](https://www.capriole.ai/zh)，再[升级到每月 USD 9 的 Premium 并创建 API Key](https://www.capriole.ai/zh?view=api)。

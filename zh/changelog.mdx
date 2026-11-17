@@ -23,10 +23,10 @@ Google 的 Gemini 4 Carbon 现已上线。这是 Google 最强的模型，适合
   <img src="/images/changelog/2026-11-17-seedream-5-5-card.jpg" alt="ByteDance × Capriole：Seedream 5.5，在 Image 模式中生成和编辑" />
 </Frame>
 
-字节跳动 Seed 团队的 Seedream 5.5 现已在 **Image** 模式上线。据字节跳动 Seed 介绍，它能[在多轮编辑中精准修改指定内容，同时保持未编辑的区域不变](https://seed.bytedance.com/en/seedream5_5)，光影更自然，材质更精细，肤质也更细腻。在模型菜单的 **Image** 标签页中，选择 **ByteDance** 分组下的 **Seedream 5.5**，即可生成新图片或编辑你添加的图片，分辨率为 1K 或 2K，支持包括 **Auto** 在内的所有比例。和其他图像模型一样，已登录并使用 **Server Storage** 的账户可以免费使用。默认模型仍是 GPT Image 2.6。在 **Text** 模式中，Text Agent 会用你点名的图像模型；没有点名时，用对话中最新一张图片的模型；对话里还没有图片时，用 GPT Image 2.6，不再询问你用哪个。[查看生图指南](/zh/guides/files-web-search)。
+字节跳动 Seed 团队的 Seedream 5.5 现已在 **图片** 模式上线。据字节跳动 Seed 介绍，它能[在多轮编辑中精准修改指定内容，同时保持未编辑的区域不变](https://seed.bytedance.com/en/seedream5_5)，光影更自然，材质更精细，肤质也更细腻。在模型菜单的 **图片** 标签页中，选择 **ByteDance** 分组下的 **Seedream 5.5**，即可生成新图片或编辑你添加的图片，分辨率为 1K 或 2K，支持包括 **自动** 在内的所有比例。和其他图像模型一样，已登录并使用 **Server Storage** 的账户可以免费使用。默认模型仍是 GPT Image 2.6。在 **文本** 模式中，Text Agent 会用你点名的图像模型；没有点名时，用对话中最新一张图片的模型；对话里还没有图片时，用 GPT Image 2.6，不再询问你用哪个。[查看生图指南](/zh/guides/files-web-search)。
 
 <Frame>
-  <img src="/images/changelog/2026-11-17-seedream-5-5-light.png" alt="模型选择器的 Image 标签页，GPT Image 2.6 Sunburst、GPT Image 2.5 Sunburst 和 Nano Banana 2.1 下方的 ByteDance 分组里是 Seedream 5.5" />
+  <img src="/images/changelog/2026-11-17-seedream-5-5-light.png" alt="模型菜单的 Image 标签页，GPT Image 2.6 Sunburst、GPT Image 2.5 Sunburst 和 Nano Banana 2.1 下方的 ByteDance 分组里是 Seedream 5.5" />
 </Frame>
 </Update>
 
@@ -41,7 +41,7 @@ Google 的 Gemini 4 Carbon 现已上线。这是 Google 最强的模型，适合
 
 ## 看完整的对话标题
 
-侧栏里的对话标题被截断时，鼠标停在上面，完整标题就会出现在侧栏旁边，不用打开对话也能找到要的那个。
+侧栏里的对话标题显示不全时，把鼠标移到上面，完整标题就会显示在侧栏旁边，不用打开对话也能找到想要的那一个。
 
 <Frame>
   <img src="/images/changelog/2026-11-16-full-chat-titles.png" alt="“最近”里一条标题被截断的对话，侧栏旁边显示它的完整标题“Weekly study plan for statistics, economics and English exams”" />
@@ -72,14 +72,14 @@ Google 的 Gemini 4 Carbon 现已上线。这是 Google 最强的模型，适合
 
 ## 改进
 
-- **重新回答**：在回答之间切换现在立即完成。
+- **重新回答**：现在可以在几个回答之间即时切换。
 - **生图**：图片没能生成时，聊天模型会在下一条回复里告诉你原因；被图片模型拒绝的图片不再计入每天 30 张的上限。
 - **新对话**：新对话现在用你上次手动选的模型，不再固定为 GPT-6 Astra Thinking，也不会沿用刚打开的旧对话的模型。
 - **输入框**：手机上模型按钮能完整显示模型名，不再被截断，输入框也更宽；麦克风和发送按钮更小巧。
 
 ## 修复
 
-- **语音输入**：转写更快、更少失败；没录到说话时会提示你重新录制，不再报错。
+- **语音输入**：转写更快，也更少失败；没有录到语音时会提示你重新录制，不再显示错误。
 - **附件**：读不出文字的 PDF 现在会提示无法读取这个文件，不再误报对话太长。
 - **长对话**：长对话现在按每个模型的上下文窗口在合适的时候自动总结，窗口较小的模型和很长的中文、日文、韩文对话不会再因“对话过长”报错而中断。
 </Update>
@@ -118,9 +118,9 @@ Google 的 Gemini 4 Carbon 现已上线。这是 Google 最强的模型，适合
 <Update label="2026 年 11 月 10 日">
 ## 编辑图片
 
-现在可以在 Capriole AI 里编辑图片了。在 **Image** 模式下，通过回形针按钮、粘贴或拖入，最多可以附上 10 张 PNG 或 JPEG 图片，然后描述要怎么改。输入 **@** 可以指定某张图片，例如 `@image1`。在生成的图片上选择 **Edit**，图片会回到输入框，可以接着改。
+现在可以在 Capriole AI 里编辑图片了。在 **图片** 模式下，通过回形针按钮、粘贴或拖入，最多可以附上 10 张 PNG 或 JPEG 图片，然后描述要怎么改。输入 **@** 可以指定某张图片，例如 `@image1`。在生成的图片上选择 **编辑**，图片会回到输入框，可以接着改。
 
-GPT Image 2.6、GPT Image 2.5 和 Nano Banana 2.1 都能编辑图片，Capriole AI 使用你选中的模型。在 **Text** 模式下，也可以让聊天模型修改图片；它判断不出该用哪个图像模型时，会先问你。[查看生图指南](/zh/guides/files-web-search)。
+GPT Image 2.6、GPT Image 2.5 和 Nano Banana 2.1 都能编辑图片，Capriole AI 使用你选中的模型。在 **文本** 模式下，也可以让聊天模型修改图片；它判断不出该用哪个图像模型时，会先问你。[查看生图指南](/zh/guides/files-web-search)。
 
 比例菜单新增两项。**Auto** 是新的默认选项：编辑时保持原图的形状，生成新图时由模型决定形状。**21:9** 适合宽幅图片。每张编辑出的图片都计入每日图片上限。
 
@@ -135,7 +135,7 @@ GPT Image 2.6、GPT Image 2.5 和 Nano Banana 2.1 都能编辑图片，Capriole 
   <img src="/images/changelog/2026-11-10-gpt-image-2-6-card.jpg" alt="OpenAI × Capriole：GPT Image 2.6，每月 9 美元无限使用" />
 </Frame>
 
-OpenAI 的 GPT Image 2.6 现已上线。它是 OpenAI 最新的图像模型，也是 **Image** 模式的默认模型。GPT Image 2.5 和 Nano Banana 2.1 仍可在 **Image** 标签页里选用。标签页里的两个 GPT Image 模型显示完整型号：**GPT Image 2.6 Sunburst** 和 **GPT Image 2.5 Sunburst**。[查看生图指南](/zh/guides/files-web-search)。
+OpenAI 的 GPT Image 2.6 现已上线。它是 OpenAI 最新的图像模型，也是 **图片** 模式的默认模型。GPT Image 2.5 和 Nano Banana 2.1 仍可在 **图片** 标签页里选用。标签页里的两个 GPT Image 模型显示完整型号：**GPT Image 2.6 Sunburst** 和 **GPT Image 2.5 Sunburst**。[查看生图指南](/zh/guides/files-web-search)。
 
 <Frame>
   <img className="block dark:hidden" src="/images/changelog/2026-11-10-gpt-image-2-6-light.png" alt="模型选择器的 Image 标签页，选中 GPT Image 2.6 Sunburst，下方是 GPT Image 2.5 Sunburst 和 Nano Banana 2.1" />
@@ -159,7 +159,7 @@ OpenAI 的 GPT Image 2.6 现已上线。它是 OpenAI 最新的图像模型，�
 <Update label="2026 年 11 月 9 日">
 ## Premium 订阅价格
 
-新开通的 Premium 网页订阅为**每月 USD 9**。已有的 USD 8 订阅只要保持有效，续费仍是**每月 USD 8**。 [查看套餐与用量限制](/zh/guides/plans-and-limits).
+新开通的 Premium 网页订阅为**每月 USD 9**。已有的 USD 8 订阅只要保持有效，续费仍是**每月 USD 8**。[查看方案与用量限制](/zh/guides/plans-and-limits)。
 
 自 4 月以来，我们一直努力让每个人都能以尽可能实惠的价格使用前沿 AI。这次调价有助于我们继续提供无限网页聊天，支持 GPT-6 Astra、Fable 5.1、Opus 5.5、Gemini 4 Argon 等前沿模型。
 

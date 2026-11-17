@@ -1,18 +1,18 @@
 ---
-title: "Privacidade na Capriole AI: seus chats não treinam modelos"
+title: "Privacidade na Capriole AI: sem treinamento, modos de armazenamento e exclusão"
 sidebarTitle: "Privacidade e controle de dados"
 description: "A Capriole AI não treina modelos com seus chats, arquivos ou conteúdo da API. Use Server, Local ou No Storage, exporte ou exclua chats e veja o que a API retém."
 ---
 
-A Capriole AI não usa seus chats, arquivos ou conteúdo da API para treinar modelos de IA. Você escolhe onde seu histórico de chat fica guardado: na sua conta, só no seu navegador ou em lugar nenhum. A API não guarda o conteúdo das solicitações nem das respostas, apenas registros de uso, como a contagem de tokens. Você pode exportar todos os chats, excluir chats a qualquer momento e pedir a exclusão da sua conta.
+A Capriole AI não usa seus chats, arquivos ou conteúdo da API para treinar modelos de IA. Você escolhe onde seu histórico de chat fica guardado: na sua conta, só no seu navegador ou em lugar nenhum. A API não guarda o conteúdo das solicitações nem das respostas, apenas registros de uso, como a contagem de tokens. Você pode exportar todos os chats, excluir chats a qualquer momento e excluir sua conta.
 
-Este guia resume como seus dados são tratados. A [política de privacidade](/pt-br/legal/privacy) traz o texto completo.
+Este guia resume como seus dados são tratados. A [política de privacidade](/pt-br/legal/privacy) traz o texto completo, e os [Termos de serviço](/pt-br/legal/terms) cobrem planos, limites e uso proibido.
 
 ## Seu conteúdo não é usado para treinamento
 
 A Capriole AI não usa seus chats, arquivos ou conteúdo da API para treinar modelos de IA.
 
-Mesmo assim, cada solicitação vai para o provedor do modelo de IA que a responde: OpenAI, Anthropic, Google, xAI, Z.ai ou Moonshot AI, ou uma plataforma de nuvem que hospeda os modelos deles. Esse provedor trata a solicitação de acordo com os próprios termos.
+Mesmo assim, cada solicitação vai para o provedor do modelo de IA que a responde: OpenAI, Anthropic, Google, xAI, Z.ai, Moonshot AI ou ByteDance, ou uma plataforma de nuvem que hospeda os modelos deles. Esse provedor trata a solicitação de acordo com os próprios termos.
 
 ## Escolha onde o histórico de chat fica guardado
 
@@ -65,7 +65,7 @@ Para exportar um único chat, abra o menu dele na barra lateral e escolha **Expo
 - **Um chat**: abra o menu do chat na barra lateral e escolha **Excluir**.
 - **Todos os chats**: em **Conta** → **Configurações**, selecione **Excluir tudo** ao lado de **Excluir todo o histórico de chats**. Seus projetos mantêm as instruções e os arquivos.
 - **Um projeto**: abra o menu dele e escolha **Excluir**. As instruções, os arquivos e os chats dele também são excluídos.
-- **Sua conta**: envie um e-mail para [info@capriole.ai](mailto:info@capriole.ai). Como a conta é compartilhada com o Capriole Quant, você também deixa de conseguir entrar no Capriole Quant.
+- **Sua conta**: abra **Conta**, selecione **Gerenciar conta** e escolha **Excluir Conta** na aba **Segurança**. Se você tiver uma assinatura paga ativa, envie um e-mail para [info@capriole.ai](mailto:info@capriole.ai) em vez disso. Como a conta é compartilhada com o Capriole Quant, ao excluí-la você também deixa de conseguir entrar no Capriole Quant.
 
 Excluir um chat, todo o histórico de chats ou um projeto remove esse conteúdo permanentemente dos nossos servidores. Os dados excluídos podem permanecer em backups do banco de dados por até 7 dias. Os chats em Local Storage ficam no seu navegador até você apagá-los.
 
@@ -76,7 +76,8 @@ Excluir um chat, todo o histórico de chats ou um projeto remove esse conteúdo 
 | Provedores de modelos de IA | O que cada solicitação precisa: suas mensagens, arquivos, gravações de voz e o contexto do chat, além do seu fuso horário e de uma localização aproximada com base nele |
 | Provedores de infraestrutura | As solicitações a caminho dos provedores de modelos |
 | Provedores de busca, como a Tavily | As consultas de busca que um modelo faz |
-| Prestadores de serviços | Amazon Web Services (servidores, banco de dados, arquivos), Vercel (hospedagem e análise do site), Clerk (login), Stripe (pagamentos), Resend (e-mail) e ferramentas de monitoramento de erros |
+| Um provedor de previsão do tempo | O lugar sobre o qual você pergunta, ou o seu endereço IP se você não indicar nenhum |
+| Prestadores de serviços | Amazon Web Services (servidores, banco de dados, arquivos), Vercel (hospedagem e análise do site), Clerk (login), Stripe (pagamentos na web), Apple, Google Play e RevenueCat (compras nos apps), Resend e Brevo (e-mail) e ferramentas de monitoramento de erros |
 | Google e LinkedIn | Visitas ao site e resultados de anúncios, por meio de tags no nosso site |
 | Proprietários e administradores do seu [Team](/pt-br/guides/team-plan) | Seu e-mail, sua função e seu uso da API no Team |
 
@@ -106,7 +107,7 @@ Sim. Ligue **Ativar No Storage** para ter chats que desaparecem quando você sai
 
 ### Como excluo minha conta da Capriole AI?
 
-Envie um e-mail para [info@capriole.ai](mailto:info@capriole.ai). Com a exclusão, você também deixa de conseguir entrar no Capriole Quant, porque os dois produtos compartilham uma única conta.
+Abra **Conta**, selecione **Gerenciar conta** e escolha **Excluir Conta** na aba **Segurança**. Se você tiver uma assinatura paga ativa, envie um e-mail para [info@capriole.ai](mailto:info@capriole.ai) em vez disso. Com a exclusão, você também deixa de conseguir entrar no Capriole Quant, porque os dois produtos compartilham uma única conta.
 
 ### Onde os dados da Capriole AI ficam armazenados?
 

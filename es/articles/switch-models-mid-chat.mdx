@@ -6,11 +6,11 @@ description: "Cambia entre GPT-6 Astra, Claude Fable 5.1, Opus 5.5 y Gemini 4 Ca
 
 Sí, puedes cambiar de modelo de IA sin empezar una conversación nueva. En Capriole AI, el modelo seleccionado puede cambiar de un turno al siguiente mientras el hilo permanece en el mismo espacio de trabajo. Los visitantes sin sesión y los usuarios Free pueden probar GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5 y Gemini 4 Carbon antes de pasar a Premium.
 
-El beneficio práctico aparece a mitad de una tarea, cuando otro modelo encaja mejor y la conversación ya no necesita reconstruirse en otro sitio. Premium mantiene ese flujo ilimitado en el conjunto de modelos Premium compatible por USD 9 al mes.
+El beneficio práctico aparece a mitad de una tarea, cuando otro modelo encaja mejor y la conversación ya no necesita reconstruirse en otro sitio. Premium mantiene ese flujo ilimitado con todos los modelos compatibles de Premium por USD 9 al mes.
 
 ## Por qué cambiar de modelo suele romper el flujo
 
-Supón que una conversación empieza con un modelo porque es rápido y familiar. A mitad de camino, el trabajo se vuelve más técnico. Quieres una segunda opinión de Claude, un estilo de reasoning distinto de Gemini u otro modelo compatible para el siguiente paso.
+Supón que una conversación empieza con un modelo porque es rápido y familiar. A mitad de camino, el trabajo se vuelve más técnico. Quieres una segunda opinión de Claude, un estilo de razonamiento distinto de Gemini u otro modelo compatible para el siguiente paso.
 
 Entre productos de IA separados, eso normalmente significa abrir otro sitio y reconstruir la situación. Copias los mensajes útiles, vuelves a subir los archivos, explicas lo que ya se decidió y esperas que el chat nuevo interprete el resumen de la misma forma.
 
@@ -24,7 +24,7 @@ Cambiar el modelo seleccionado no crea una segunda conversación de Capriole. El
 
 El espacio de trabajo también puede llevar archivos guardados relevantes y contexto de la conversación a la siguiente solicitud cuando el modo de almacenamiento y el modelo seleccionados los admiten. No necesitas mantener copias paralelas de la misma discusión en varios productos.
 
-Siguen existiendo límites técnicos reales. Los modelos tienen distintos límites de contexto, soporte de archivos, controles de reasoning y formatos de mensaje. Un modelo no puede usar un tipo de entrada que no admite solo porque otro modelo lo aceptó antes. Las conversaciones largas también pueden necesitar gestión de contexto antes de la siguiente solicitud.
+Siguen existiendo límites técnicos reales. Los modelos tienen distintos límites de contexto, soporte de archivos, controles de razonamiento y formatos de mensaje. Un modelo no puede usar un tipo de entrada que no admite solo porque otro modelo lo aceptó antes. Las conversaciones largas también pueden necesitar gestión de contexto antes de la siguiente solicitud.
 
 Capriole gestiona esas diferencias detrás del selector de modelo. Los modelos conservan sus propios límites y capacidades, mientras que el usuario continúa desde el hilo existente.
 
@@ -35,6 +35,8 @@ La función es más útil cuando el cambio tiene un motivo.
 ### Obtén una segunda lectura
 
 Pide a un modelo que redacte una respuesta, luego cambia de modelo y pide al siguiente que cuestione los supuestos. Como ambos turnos pertenecen al mismo hilo, el segundo modelo puede responder al trabajo que ya está en la página en lugar de a un resumen escrito a mano. [Claude vs ChatGPT](/es/articles/claude-vs-chatgpt) lo muestra paso a paso con GPT-6 Astra y Claude Fable 5.1.
+
+Para comparar dos respuestas al mismo mensaje, selecciona **Reintentar** debajo de la última respuesta y elige otro modelo. La nueva respuesta aparece en lugar de la primera, las flechas que tiene al lado alternan entre ambas y el botón de información muestra qué modelo escribió cada una.
 
 ### Cambia el tipo de ayuda
 
@@ -52,7 +54,7 @@ Capriole también mantiene fallback automático para el tráfico compatible ante
 
 Los principales proveedores de modelo no exponen un formato de conversación universal.
 
-OpenAI Responses, Chat Completions compatible con OpenAI y Anthropic Messages tienen formas distintas de solicitud y de streaming. Los ajustes de reasoning, los eventos de herramientas, los archivos, los registros de uso y los errores también difieren. Capriole mantiene una ruta compatible para cada protocolo admitido.
+OpenAI Responses, Chat Completions compatible con OpenAI y Anthropic Messages tienen formas distintas de solicitud y de streaming. Los ajustes de razonamiento, los eventos de herramientas, los archivos, los registros de uso y los errores también difieren. Capriole mantiene una ruta compatible para cada protocolo admitido.
 
 Para el chat del navegador, el espacio de trabajo reconstruye la conversación guardada en la entrada que el modelo seleccionado puede aceptar. También aplica los límites del modelo actual en lugar de asumir que las reglas del modelo anterior siguen vigentes.
 
@@ -68,7 +70,7 @@ La continuidad de la conversación depende de cómo elijas guardar el chat.
 - El historial **Local** se queda en el navegador actual y se pierde si se borran sus datos locales.
 - **No Storage** es una sesión efímera y renuncia al historial guardado, a las subidas y a la continuidad entre dispositivos.
 
-Esas elecciones son intencionadas. Un usuario que quiere un hilo de investigación duradero y un usuario que quiere una conversación no guardada no deberían verse forzados al mismo límite de almacenamiento. [La guía de almacenamiento del chat](/es/guides/chat-storage) explica los ajustes reales de Account y las compensaciones.
+Esas elecciones son intencionadas. Un usuario que quiere un hilo de investigación duradero y un usuario que quiere una conversación no guardada no deberían verse forzados al mismo límite de almacenamiento. [La guía de almacenamiento del chat](/es/guides/chat-storage) explica los ajustes reales de la cuenta y lo que implica cada opción.
 
 ## El modelo mental más simple
 

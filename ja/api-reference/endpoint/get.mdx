@@ -12,7 +12,7 @@ openapi: "api-reference/openapi.json GET /v1/models"
 - `claude-latest`
 - `google-latest`
 
-対応プロバイダーの推奨旗艦モデルを Capriole AI に選ばせたい場合は、latest エイリアスを使ってください。特定のモデル バージョンに固定する必要がある場合は、具体的なモデル ID を使ってください。
+各プロバイダーで当社が推奨する旗艦モデルを Capriole AI に選ばせたい場合は、latest エイリアスを使ってください。特定のモデル バージョンに固定する必要がある場合は、具体的なモデル ID を使ってください。
 
 | モデルの選び方 | 向いている用途 |
 | --- | --- |
@@ -38,4 +38,4 @@ Anthropic Messages エンドポイントは、`claude-fable-5-1`、`claude-fable
 
 `POST /v1/messages` と `POST /v1/messages/count_tokens` では、`claude-latest` は `claude-fable-5-1` に解決されます。これは Chat Completions の latest エイリアスと一致します。
 
-上に示したそのままのエイリアス ID を使ってください。`openai/openai-latest` のようなプロバイダー プレフィックスはクライアント側のセレクター形式であり、Capriole AI のモデル ID ではありません。
+上に示したプレフィックスなしのエイリアス ID を使ってください。`openai/openai-latest` のようなプロバイダー プレフィックスはクライアント側のセレクター形式であり、Capriole AI のモデル ID ではありません。

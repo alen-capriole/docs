@@ -6,7 +6,7 @@ description: "Gemini 4 Carbon과 Argon은 11월 30일까지 100만 토큰당 입
 
 Google의 Gemini API는 **Gemini 4 Carbon과 Gemini 4 Argon에 입력 토큰 100만당 USD 2, 출력 토큰 100만당 USD 10**을 청구합니다. 이는 2026년 11월 30일까지 적용되는 출시 기념 가격이며, 2026년 12월 1일부터 두 모델 모두 **USD 4와 USD 20**입니다. 출력 토큰 1개당 입력 토큰 3개 비율로 계산하면, Google 표준 요율에서 500만 토큰 비용은 출시 기념 가격으로 USD 20, 12월 1일부터 USD 40입니다.
 
-Capriole AI Premium은 월 USD 9에 GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5, Gemini 4 Carbon과의 웹 채팅을 무제한으로 제공합니다. API는 OpenAI Chat Completions로 Gemini 4 Carbon과 Gemini 4 Argon을 제공하며, 가격은 지원 모델 어느 것이든 500만 토큰당 USD 8로 공식 API 가격보다 최대 92% 저렴합니다. 다만 Google은 Carbon과 Argon을 GPT-6 Astra와 Claude Fable 5.1보다 낮게 책정하므로 두 모델에서는 절감 폭이 더 작습니다. 출시 기념 가격 기준 60%, 12월 1일부터 80%입니다. API key 하나로 직접 만든 앱과 코딩 에이전트를 모두 사용할 수 있습니다.
+Capriole AI Premium은 월 USD 9에 GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5, Gemini 4 Carbon과의 웹 채팅을 무제한으로 제공합니다. API는 OpenAI Chat Completions로 Gemini 4 Carbon과 Gemini 4 Argon을 제공하며, 가격은 지원 모델 어느 것이든 500만 토큰당 USD 8로 공식 API 가격보다 최대 92% 저렴합니다. 다만 Google은 Carbon과 Argon을 GPT-6 Astra와 Claude Fable 5.1보다 낮게 책정하므로 두 모델에서는 절감 폭이 더 작습니다. 출시 기념 가격 기준 60%, 12월 1일부터 80%입니다. API 키 하나로 직접 만든 앱과 코딩 에이전트를 모두 사용할 수 있습니다.
 
 ## 100만 토큰당 Gemini API 가격
 
@@ -50,14 +50,14 @@ Gemini 3.8 Flash는 같은 500만 토큰이 2026년 12월 31일까지 USD 7.50�
 
 Google은 사고 토큰을 포함한 출력 가격을 입력의 5배로 책정합니다. Capriole은 입력과 출력을 같은 요율로 계산하므로, 절감 폭은 실제 입력과 출력 비율에 따라 달라집니다. 예를 들어 입력 토큰만 500만 개를 쓰면 Carbon 또는 Argon은 출시 기념 가격으로 USD 10, 12월 1일부터 USD 20입니다.
 
-[무료로 채팅을 시작하거나](https://www.capriole.ai/ko) [API key를 받으세요](https://www.capriole.ai/ko?view=api).
+[무료로 채팅을 시작하거나](https://www.capriole.ai/ko) [API 키를 받으세요](https://www.capriole.ai/ko?view=api).
 
 ## 캐싱과 배치가 비교를 바꾸는 방식
 
 - **캐시된 입력**: Google은 Carbon과 Argon의 캐시된 토큰 100만당 11월 30일까지 USD 0.10, 12월 1일부터 USD 0.20을 청구합니다. Capriole은 응답에 보고된 캐시 입력을 10%로 계산하므로, 캐시된 토큰 100만당 USD 0.16에 해당합니다. 11월 30일까지는 Google의 캐시 요율이 더 낮고, 12월 1일부터는 Capriole이 더 낮습니다. 계산식은 [과금 토큰 설명](/ko/articles/charged-tokens)에 있습니다.
 - **Batch와 Flex**: 절반 가격이면 Carbon 또는 Argon 500만 토큰 예시는 11월 30일까지 USD 10, 12월 1일부터 USD 20입니다. Capriole에는 배치 엔드포인트가 없지만, 이 워크로드에서도 USD 8은 각각 20%, 60% 저렴합니다.
 
-OpenRouter의 credit 수수료까지 포함한 500만 토큰 테스트는 [AI API 비용 비교](/ko/articles/ai-api-cost-comparison)를 참고하세요.
+OpenRouter의 크레딧 수수료까지 포함한 500만 토큰 테스트는 [AI API 비용 비교](/ko/articles/ai-api-cost-comparison)를 참고하세요.
 
 ## Capriole API로 Gemini 4 Carbon과 Argon 호출하기
 
@@ -114,12 +114,14 @@ Google의 무료 등급에는 Gemini 4 Carbon과 Gemini 4 Argon이 포함되지 
 
 ## Capriole AI 시작하기
 
-계정 없이 [무료로 채팅을 시작하거나](https://www.capriole.ai/ko), Premium으로 [API key를 받으세요](https://www.capriole.ai/ko?view=api). 첫 요청은 [API 빠른 시작](/ko/quickstart)에서 안내합니다.
+계정 없이 [무료로 채팅을 시작하거나](https://www.capriole.ai/ko), Premium으로 [API 키를 받으세요](https://www.capriole.ai/ko?view=api). 첫 요청은 [API 빠른 시작](/ko/quickstart)에서 안내합니다.
 
 ## 공식 출처
+
+2026년 11월 17일에 아래 페이지를 확인했습니다.
 
 - Google: [Gemini Developer API 가격](https://ai.google.dev/gemini-api/docs/pricing)
 - Google: [Gemini 4 Carbon](https://aistudio.google.com/docs/models/gemini-4-carbon)
 - Google: [Gemini 4 Argon](https://aistudio.google.com/docs/models/gemini-4-argon)
 
-이 페이지의 Capriole AI 플랜, 충전, 과금 토큰 사실은 자사 문서로 유지됩니다.
+이 페이지의 Capriole AI 플랜, 충전, 과금 토큰 관련 정보는 Capriole이 직접 관리하는 문서를 기준으로 합니다.

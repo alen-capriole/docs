@@ -15,7 +15,7 @@ Claude Code は、コードベースの読み取り、ファイル編集、コ�
 始める前に、次を用意してください。
 
 - Capriole AI アカウント（[こちらから登録](https://www.capriole.ai/ja)）
-- Premium プラン（月額 USD 9、無制限の Web チャットも含む）または Team プラン。API キーにはどちらかが必要です（[購読する](https://www.capriole.ai/ja?view=api)）
+- Premium プラン（月額 USD 9、無制限のウェブチャットも含む）または Team プラン。API キーにはどちらかが必要です（[購読する](https://www.capriole.ai/ja?view=api)）
 - Capriole AI API キー（[キーを取得](https://www.capriole.ai/ja?view=api)）
 
 ## インストール
@@ -72,7 +72,7 @@ Claude Code 2.1.304 は、下記の設定を使い、「対応モデル」のす
 - `ANTHROPIC_AUTH_TOKEN` はキーを Bearer トークンとして送ります。Capriole AI ではこの形式が必須です。
 - 3 つの `ANTHROPIC_DEFAULT_*_MODEL` の値は、`opus`、`sonnet`、`haiku` の各エイリアスを Capriole AI が提供するモデルに割り当てます。`haiku` は、Claude Code が簡単なバックグラウンド処理に使うモデルです。
 
-一度きりのシェル設定では、エンドポイントとトークンをエクスポートしてから、モデルを渡します。
+現在のシェルだけで設定する場合は、エンドポイントとトークンをエクスポートしてから、モデルを渡します。
 
 ```bash
 export ANTHROPIC_BASE_URL="https://api.caprioletech.com"
@@ -128,9 +128,9 @@ Claude Code は `claude-latest` をモデル名として認識しないため、
 
 3 つの `ANTHROPIC_DEFAULT_*_MODEL` の値を残してください。これらがないと、Claude Code は Anthropic 独自のエイリアス先を送ります。たとえば `sonnet` は `claude-sonnet-5-5` をリクエストしますが、Capriole AI はこのモデルを提供していないため、リクエストは `Unsupported Claude Messages model` で失敗します。
 
-### Claude Code が設定した思考レベルを使わないのはなぜですか？
+### 設定したエフォート レベルが Claude Code で使われないのはなぜですか？
 
-Claude Code は思考レベルをモデルごとに保存します。そのモデルを使用中に `/effort` で選んでください。ユーザー設定のトップレベルにある `effortLevel` は Opus 5.5 には適用されません。
+Claude Code はエフォート レベルをモデルごとに保存します。そのモデルを使用中に `/effort` で選んでください。ユーザー設定のトップレベルにある `effortLevel` は Opus 5.5 には適用されません。
 
 ### トークンカウントが失敗するのはなぜですか？
 
@@ -138,7 +138,7 @@ Capriole AI は `/v1/messages/count_tokens` を選択した上流に転送しま
 
 ## 注意事項
 
-- `~/.claude/settings.json` は、すべてのプロジェクトでユーザー アカウントに適用されます。`YOUR_CAPRIOLE_AI_API_KEY` は Capriole AI API キーに置き換えてください。
+- `~/.claude/settings.json` の設定は、どのプロジェクトでも、あなたのユーザー アカウント全体に適用されます。`YOUR_CAPRIOLE_AI_API_KEY` は Capriole AI API キーに置き換えてください。
 - Claude Code は Anthropic Messages プロトコルしか扱わないため、Gemini、Grok、GLM、Kimi のモデルは Claude Code では動作しません。これらのモデルには OpenCode、Kilo Code、または他のマルチプロトコル対応エージェントを使ってください。
 - 同じキーを他のコーディング エージェントでも使うには、[1 つの API キーでコーディング エージェントを使う](/ja/guides/one-api-key-coding-agents)を参照してください。
-- 公式リファレンス: [Claude Code セットアップ](https://code.claude.com/docs/en/setup)、[モデル設定](https://code.claude.com/docs/en/model-config)、[LLM ゲートウェイ設定](https://code.claude.com/docs/en/llm-gateway-connect)。
+- 公式リファレンス：[Claude Code セットアップ](https://code.claude.com/docs/en/setup)、[モデル設定](https://code.claude.com/docs/en/model-config)、[LLM ゲートウェイ設定](https://code.claude.com/docs/en/llm-gateway-connect)。

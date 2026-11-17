@@ -24,21 +24,21 @@ Claude와 ChatGPT는 잘하는 작업이 서로 다르므로, 실용적인 답�
 
 ## Anthropic이 설명하는 Claude Fable 5.1과 Opus 5.5
 
-Anthropic에 따르면 Claude Fable 5.1은 오래 실행되는 에이전트 코딩, 여러 단계의 리서치, 문서·스프레드시트·슬라이드 작업에서 더 강해졌습니다. 두 모델 중 더 느립니다.
+Anthropic에 따르면 Claude Fable 5.1은 코딩, 지식 작업, 오래 걸리는 문제 해결 작업에서 새로운 기준을 세웁니다.
 
-Anthropic은 대부분의 워크로드에서 Claude Opus 5.5로 시작하기를 권장합니다. 발표에 따르면 Opus 5.5는 대부분의 작업에서 Fable 5.1 수준의 성능을 내며, Anthropic 벤치마크에서 에이전트 코딩, 컴퓨터 사용, 지식 작업을 선도합니다. Anthropic은 effort를 높인 Opus 5.5로도 부족할 때 Fable 5.1을 권합니다.
+Anthropic은 대부분의 워크로드에서 Claude Opus 5.5로 시작하기를 권장합니다. 발표에 따르면 Opus 5.5는 대부분의 작업에서 Fable 5.1 수준의 성능을 내며, Anthropic 벤치마크에서 에이전트 코딩, 컴퓨터 사용, 지식 작업을 선도합니다. Anthropic은 추론 강도를 높인 Opus 5.5로도 부족할 때 Fable 모델을 권합니다.
 
 두 모델 모두 thinking이 항상 켜져 있습니다. 텍스트와 이미지를 읽고 텍스트를 쓰며, 컨텍스트 창은 100만 토큰입니다.
 
 ## OpenAI가 설명하는 GPT-6 Astra
 
-OpenAI는 GPT-6 Astra를 가장 까다로운 작업을 위한 가장 뛰어난 모델이라고 부릅니다. 주요 용도로 복잡한 추론, 코딩, 컴퓨터 사용, 리서치, 문서 작성을 듭니다. reasoning effort는 `low`부터 `max`까지 설정할 수 있습니다.
+OpenAI는 GPT-6 Astra를 가장 까다로운 작업을 위한 가장 뛰어난 모델이라고 부릅니다. 주요 용도로 복잡한 추론, 코딩, 컴퓨터 사용, 리서치, 문서 작성을 듭니다. 추론 강도는 `low`부터 `max`까지 설정할 수 있습니다.
 
 GPT-6 Astra는 텍스트와 이미지를 읽고 텍스트를 씁니다. API에서는 입력 토큰이 272K를 넘는 프롬프트가 더 비쌉니다. 요청 전체에 입력 요금의 2배, 출력 요금의 1.5배가 적용됩니다.
 
 ## 각 구독으로 받는 것
 
-**Claude.** Free, Pro, Max에는 5시간 세션 한도가 있고, 유료 플랜에는 주간 한도가 더해집니다. Claude Pro는 세션당 Free 플랜 사용량의 최소 5배를 제공합니다. Max는 세션당 Pro 사용량의 5배를, Ultra는 주당 Pro 사용량의 10배를 제공하며 인증된 계정에는 5시간 한도가 없습니다. Pro에서 Fable 5.1은 플랜 사용량 한도에 포함되지 않으며, 표준 API 요금의 사용량 크레딧으로 청구됩니다. Max와 Ultra에서는 Fable 모델이 주간 한도의 최대 50%까지 사용할 수 있습니다. 자세한 내용은 [Claude 사용량 한도 정리](/ko/articles/claude-usage-limits)를 읽어 보세요.
+**Claude.** Free, Pro, Max에는 5시간 세션 한도와 주간 한도가 있습니다. Claude Pro는 세션당 Free 플랜보다 많은 사용량을 제공합니다. Max는 세션당 Pro 사용량의 5배를, Ultra는 주당 Pro 사용량의 10배를 제공하며 인증된 계정에는 5시간 한도가 없습니다. Pro에서 Fable 5.1은 플랜 사용량 한도에 포함되지 않으며, 표준 API 요금의 사용량 크레딧으로 청구됩니다. Max와 Ultra에서는 Fable 모델이 주간 한도의 최대 50%까지 사용할 수 있습니다. 자세한 내용은 [Claude 사용량 한도 정리](/ko/articles/claude-usage-limits)를 읽어 보세요.
 
 **ChatGPT.** Plus에서 Chat의 GPT-6은 GPT-6 Sol로 실행됩니다. GPT-6 Astra는 ChatGPT Work와 Codex에 포함되며, OpenAI는 5시간 창마다 로컬 메시지 5~45개로 추정하고 주간 한도가 추가로 적용될 수 있다고 말합니다. Astra 기반의 Chat 옵션인 GPT-6 Pro는 Pro, Business 또는 Enterprise가 필요합니다. OpenAI에 따르면 Pro에서도 GPT-6 Pro 사용은 무제한이 아닙니다. [ChatGPT Plus 대안](/ko/articles/chatgpt-plus-alternative) 페이지에서 Plus와 Capriole AI를 자세히 비교합니다.
 
@@ -54,7 +54,7 @@ Capriole AI Premium은 월 USD 9로 GPT-6 Astra, Claude Fable 5.1, Claude Opus 5
 2. Claude Fable 5.1로 전환해 초안을 반박하게 합니다.
 3. 세 번째 관점이 필요하거나 작업을 마무리하려면 Claude Opus 5.5나 Gemini 4 Carbon으로 전환합니다.
 
-Premium에는 GPT Image 2.6·Nano Banana 2.1·Seedream 5.5 무료 이미지 생성, 파일과 웹 검색, 프로젝트, 채팅 내보내기, 개인화, 저장 컨트롤도 포함됩니다.
+Premium에는 GPT Image 2.6·Nano Banana 2.1·Seedream 5.5 [무료 이미지 생성](/ko/guides/files-web-search), 파일과 웹 검색, 프로젝트, 채팅 내보내기, 개인화, 저장 컨트롤도 포함됩니다.
 
 ## API 가격 비교
 
@@ -102,13 +102,15 @@ Premium에는 GPT Image 2.6·Nano Banana 2.1·Seedream 5.5 무료 이미지 생�
     계정 없이 한 채팅에서 Claude와 GPT-6 Astra를 바꿔 가며 써 보세요.
   </Card>
   <Card title="Premium 가입하기" icon="crown" href="https://www.capriole.ai/ko?view=api">
-    월 USD 9에 무제한 웹 채팅과 API key를 받으세요.
+    월 USD 9에 무제한 웹 채팅과 API 키를 받으세요.
   </Card>
 </CardGroup>
 
 ## 공식 출처
 
-- Anthropic: [Claude Fable 5.1](https://platform.claude.com/docs/en/models/fable-5-1/overview), [Claude Opus 5.5](https://platform.claude.com/docs/en/models/opus-5-5/overview), [Claude Opus 5.5 announcement](https://www.anthropic.com/claude-opus-5-5), [Claude plans and pricing](https://claude.com/pricing), [What is the Max plan?](https://support.claude.com/en/articles/11049741-what-is-the-max-plan) 및 [Claude Fable models on your plan](https://support.claude.com/en/articles/15424964-claude-fable-models-on-your-plan)
-- OpenAI: [GPT-6 Astra model](https://developers.openai.com/api/docs/models/gpt-6-astra), [What is ChatGPT Plus?](https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus), [GPT-6 and other models in ChatGPT](https://help.openai.com/en/articles/20001354-gpt-6-and-other-models-in-chatgpt), [Managing usage with GPT-6 Astra in Work and Codex](https://help.openai.com/en/articles/20001516-managing-usage-with-gpt-6-astra-in-work-and-codex) 및 [About ChatGPT Pro tiers](https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers)
+2026년 11월 17일에 아래 페이지를 확인했습니다.
 
-이 페이지의 Capriole AI 사실은 자사 문서로 유지됩니다.
+- Anthropic: [Claude Fable 5.1](https://platform.claude.com/docs/en/models/fable-5-1/overview), [Claude Opus 5.5](https://platform.claude.com/docs/en/models/opus-5-5/overview), [Claude Opus 5.5 발표](https://www.anthropic.com/claude-opus-5-5), [Claude 플랜 및 가격](https://claude.com/pricing), [What is the Max plan?](https://support.claude.com/en/articles/11049741-what-is-the-max-plan) 및 [Claude Fable models on your plan](https://support.claude.com/en/articles/15424964-claude-fable-models-on-your-plan)
+- OpenAI: [GPT-6 Astra 모델 페이지](https://developers.openai.com/api/docs/models/gpt-6-astra), [What is ChatGPT Plus?](https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus), [GPT-6 and other models in ChatGPT](https://help.openai.com/en/articles/20001354-gpt-6-and-other-models-in-chatgpt), [Managing usage with GPT-6 Astra in Work and Codex](https://help.openai.com/en/articles/20001516-managing-usage-with-gpt-6-astra-in-work-and-codex) 및 [About ChatGPT Pro tiers](https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers)
+
+이 페이지의 Capriole AI 관련 정보는 Capriole이 직접 관리하는 문서를 기준으로 합니다.

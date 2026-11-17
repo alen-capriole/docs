@@ -4,11 +4,11 @@ sidebarTitle: "OpenAI- und Anthropic-SDKs"
 description: "Rufen Sie Capriole AI aus Python oder TypeScript mit den offiziellen OpenAI- und Anthropic-SDKs, unterstützten Protokollen, Latest-Aliasen und korrekten Base URLs auf."
 ---
 
-Sie können die offiziellen OpenAI- und Anthropic-SDKs für Python oder TypeScript mit einem Capriole AI API-Schlüssel nutzen. Konfigurieren Sie den OpenAI-Client mit der `/v1`-Base-URL und den Anthropic-Client mit der API-Wurzel und rufen Sie dann den protokollnativen Endpunkt auf, den jedes SDK erwartet.
+Sie können die offiziellen OpenAI- und Anthropic-SDKs für Python oder TypeScript mit einem Capriole-AI-API-Schlüssel nutzen. Konfigurieren Sie den OpenAI-Client mit der `/v1`-Base-URL und den Anthropic-Client mit der API-Wurzel und rufen Sie dann den protokollnativen Endpunkt auf, den jedes SDK erwartet.
 
-Persönliches Premium kostet USD 9 pro Monat und umfasst 5 Millionen berechnete API-Tokens plus unbegrenzten Browser Chat über die unterstützte Premium-Modellgruppe. Dieselbe Mitgliedschaft kann eine Anwendung über diese SDKs, einen Coding-Agent über eine gepflegte Integration und Alltagsarbeit im Browser antreiben.
+Persönliches Premium kostet USD 9 pro Monat und umfasst 5 Millionen abgerechnete API-Tokens plus unbegrenzten Browser-Chat über die unterstützte Premium-Modellgruppe. Dieselbe Mitgliedschaft kann eine Anwendung über diese SDKs, einen Coding-Agenten über eine gepflegte Integration und Alltagsarbeit im Browser antreiben.
 
-Diese Anleitung baut dieselbe Zwei-Anfragen-Prüfung in beiden Sprachen. Jedes Beispiel sendet eine OpenAI Responses-Anfrage und eine Anthropic Messages-Anfrage.
+Diese Anleitung baut dieselbe Zwei-Anfragen-Prüfung in beiden Sprachen. Jedes Beispiel sendet eine OpenAI-Responses-Anfrage und eine Anthropic-Messages-Anfrage.
 
 ## Den Anfragepfad wählen
 
@@ -18,11 +18,11 @@ Diese Anleitung baut dieselbe Zwei-Anfragen-Prüfung in beiden Sprachen. Jedes B
 | `openai.chat.completions.create()` | `POST /v1/chat/completions` | `https://api.caprioletech.com/v1` | Ein kompatibler Latest-Alias oder eine Modell-ID |
 | `anthropic.messages.create()` | `POST /v1/messages` | `https://api.caprioletech.com` | `claude-latest` |
 
-Verwenden Sie Responses für Responses-native OpenAI-Anwendungen. Verwenden Sie Chat Completions, wenn eine bestehende OpenAI-kompatible Anwendung diesen Vertrag erwartet. Verwenden Sie Messages für Claude-nativen Code.
+Verwenden Sie Responses für Responses-native OpenAI-Anwendungen. Verwenden Sie Chat Completions, wenn eine bestehende OpenAI-kompatible Anwendung diese Schnittstelle erwartet. Verwenden Sie Messages für Claude-nativen Code.
 
 ## Bevor Sie beginnen
 
-Sie brauchen aktiven Premium- oder berechtigten Team-Zugang, einen [Capriole AI API-Schlüssel](https://www.capriole.ai/de?view=api) und entweder Python oder Node.js 20 oder neuer. Kopieren Sie einen neu erstellten Schlüssel, wenn Capriole ihn anzeigt; das vollständige Secret wird nicht erneut gezeigt.
+Sie brauchen aktiven Premium- oder berechtigten Team-Zugang, einen [Capriole-AI-API-Schlüssel](https://www.capriole.ai/de?view=api) und entweder Python oder Node.js 20 oder neuer. Kopieren Sie einen neu erstellten Schlüssel, wenn Capriole ihn anzeigt; das vollständige Secret wird nicht erneut gezeigt.
 
 <Steps>
 <Step title="Eine Umgebung erstellen und beide SDKs installieren">
@@ -47,7 +47,7 @@ Halten Sie die Umgebung für die restlichen Schritte aktiv. Der Installationsbef
 
 </Step>
 
-<Step title="Den Capriole API-Schlüssel setzen">
+<Step title="Den Capriole-API-Schlüssel setzen">
 
 ```bash
 export CAPRIOLE_AI_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
@@ -99,7 +99,7 @@ anthropic_response = anthropic_client.messages.create(
 print(anthropic_response.content[0].text)
 ```
 
-`auth_token` ist Absicht. Dadurch sendet das Anthropic-SDK den Capriole API-Schlüssel als Bearer-Token.
+`auth_token` ist Absicht. Dadurch sendet das Anthropic-SDK den Capriole-API-Schlüssel als Bearer-Token.
 
 </Step>
 
@@ -194,7 +194,7 @@ Sie sollten zwei nicht leere Antworten erhalten. Die TypeScript-Konstruktoren ve
 
 ## Chat Completions verwenden, wenn Ihre App es erwartet
 
-Derselbe OpenAI-Client kann den Chat Completions-kompatiblen Endpunkt aufrufen:
+Derselbe OpenAI-Client kann den Chat-Completions-kompatiblen Endpunkt aufrufen:
 
 ```python
 completion = openai_client.chat.completions.create(
@@ -212,7 +212,7 @@ print(completion.choices[0].message.content)
 
 `google-latest` nutzt Gemini 4 Carbon, das bei Chat Completions auf der Standardstufe `medium` von Google denkt. Um weniger Tokens zu verbrauchen, ergänzen Sie `extra_body={"extra_body": {"google": {"thinking_config": {"thinking_level": "low"}}}}` oder rufen `google/gemini-4-argon` auf. [Modell wählen](/de/guides/choose-a-model#modell-ids-für-die-api) enthält die Details.
 
-Verschieben Sie `google-latest` nicht zu `responses.create()`. Die Responses-Route akzeptiert die unterstützte OpenAI Responses-Modellgruppe, während Chat Completions den breiteren öffentlichen kompatiblen Katalog akzeptiert.
+Verschieben Sie `google-latest` nicht zu `responses.create()`. Die Responses-Route akzeptiert OpenAI-Modelle und Grok-Modelle mit dem Präfix `xai/`, während Chat Completions den breiteren öffentlichen kompatiblen Katalog akzeptiert.
 
 ## Häufige SDK-Fehler beheben
 
@@ -227,13 +227,13 @@ Verschieben Sie `google-latest` nicht zu `responses.create()`. Die Responses-Rou
 
 ## Die Ergebnisgrenze verstehen
 
-Capriole bewahrt das vom SDK angeforderte Protokoll. Responses-Ausgabe bleibt Responses-Ausgabe, und Anthropic Messages-Ausgabe bleibt Messages-Ausgabe. Ein Konto und ein Guthaben stehen hinter beiden Routen; die Antwortschemata werden nicht austauschbar.
+Capriole bewahrt das vom SDK angeforderte Protokoll. Responses-Ausgabe bleibt Responses-Ausgabe, und Anthropic-Messages-Ausgabe bleibt Messages-Ausgabe. Ein Konto und ein Guthaben stehen hinter beiden Routen; die Antwortschemata werden nicht austauschbar.
 
-Der [Artikel zur Multi-Protokoll-API](/de/articles/unified-model-api) erklärt diese Architektur. Nutzen Sie die [Responses-Referenz](/de/api-reference/endpoint/responses), die [Chat Completions-Referenz](/de/api-reference/endpoint/chat-completions) oder die [Messages-Referenz](/de/api-reference/endpoint/messages) für Endpunktfelder. Der [API-Schnellstart](/de/quickstart) bleibt der kürzeste Weg zu einer ersten Rohanfrage.
+Der [Artikel zur Multi-Protokoll-API](/de/articles/unified-model-api) erklärt diese Architektur. Nutzen Sie die [Responses-Referenz](/de/api-reference/endpoint/responses), die [Chat-Completions-Referenz](/de/api-reference/endpoint/chat-completions) oder die [Messages-Referenz](/de/api-reference/endpoint/messages) für Endpunktfelder. Der [API-Schnellstart](/de/quickstart) bleibt der kürzeste Weg zu einer ersten Rohanfrage.
 
 Lesen Sie [wie Capriole die Multi-Modell-API-Kompatibilität testet](/de/articles/unified-model-api#wie-wir-die-kompatibilität-testen) für die Evidenz, die erforderlich ist, bevor ein Protokoll, Alias oder Client-Pfad als unterstützt dokumentiert wird.
 
-API-Aufrufe werden in abgerechneten Tokens gemessen. Lesen Sie [wie abgerechnete Tokens ermittelt werden](/de/articles/charged-tokens), bevor Sie eine Arbeitslast schätzen.
+API-Aufrufe werden in abgerechneten Tokens gezählt. Lesen Sie [wie abgerechnete Tokens ermittelt werden](/de/articles/charged-tokens), bevor Sie eine Arbeitslast schätzen.
 
 ## Offizielle SDK-Referenzen
 
@@ -242,4 +242,4 @@ API-Aufrufe werden in abgerechneten Tokens gemessen. Lesen Sie [wie abgerechnete
 - OpenAI: [TypeScript- und JavaScript-SDK](https://github.com/openai/openai-node)
 - Anthropic: [TypeScript-SDK](https://github.com/anthropics/anthropic-sdk-typescript)
 
-[Probieren Sie GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5 oder Gemini 4 Carbon im begrenzten kostenlosen Browser Chat](https://www.capriole.ai/de) und wechseln Sie zu Premium, wenn Sie das enthaltene API-Guthaben aus Python oder TypeScript nutzen möchten.
+[Probieren Sie GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5 oder Gemini 4 Carbon im begrenzten kostenlosen Browser-Chat](https://www.capriole.ai/de) und wechseln Sie zu Premium, wenn Sie das enthaltene API-Guthaben aus Python oder TypeScript nutzen möchten.

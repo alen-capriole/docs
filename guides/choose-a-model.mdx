@@ -4,7 +4,7 @@ sidebarTitle: "Choose a Model"
 description: "Compare GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5 and Gemini 4 Carbon by vendor-stated strengths, context and official price, then pick Thinking or Fast."
 ---
 
-Capriole AI includes four flagship models: GPT-6 Astra from OpenAI, Claude Fable 5.1 and Claude Opus 5.5 from Anthropic, and Gemini 4 Carbon from Google. Premium gives you unlimited web chat with all four for USD 9 a month, and the API costs up to 92% less than official API prices. Web chat starts on GPT-6 Astra Thinking. Switch when another model's vendor describes it as built for your task, as summarized below.
+Capriole AI includes four flagship models: GPT-6 Astra from OpenAI, Claude Fable 5.1 and Claude Opus 5.5 from Anthropic, and Gemini 4 Carbon from Google. Premium gives you unlimited web chat with all four for USD 9 a month, and the API costs up to 92% less than official API prices. Web chat starts on GPT-6 Astra Thinking until you pick another model. Switch when another model's vendor describes it as built for your task, as summarized below.
 
 ## The four flagship models
 
@@ -19,7 +19,7 @@ In Capriole AI, every model in this table is unlimited in Premium and Team web c
 
 ### GPT-6 Astra
 
-OpenAI calls GPT-6 Astra its most capable model for the most demanding work. OpenAI lists a 1.05M-token context window and up to 128,000 output tokens. In Capriole AI, **GPT-6 Astra Thinking** is the web chat default, and `openai-latest` uses GPT-6 Astra on the API.
+OpenAI calls GPT-6 Astra its most capable model for the most demanding work. OpenAI lists a 1.05M-token context window and up to 128,000 output tokens. In Capriole AI, **GPT-6 Astra Thinking** is the web chat default until you pick another model, and `openai-latest` uses GPT-6 Astra on the API.
 
 ### Claude Fable 5.1
 
@@ -74,6 +74,8 @@ The Thinking presets are web chat only. On the API, call the model's ID and set 
 
 Choose another model from the model menu and send your next message. The chat keeps its history, and the new model answers from there. [How switching models mid-chat works](/articles/switch-models-mid-chat).
 
+To get a second answer to your latest message, select **Try again** under the answer and pick another model. The new answer replaces the old one in place, and the arrows next to it flip between the two.
+
 With **Enable model auto-switching** turned on in **Account** → **Settings**, Capriole AI can answer with another available model when the one you chose is under high demand. It is off by default.
 
 ## Model IDs for the API
@@ -121,7 +123,7 @@ For pictures, choose **Image** in the model menu and pick GPT Image 2.6, Nano Ba
 
 ### Which model does Capriole AI use by default?
 
-Web chat starts on GPT-6 Astra Thinking. On the API, `openai-latest` uses GPT-6 Astra.
+Guests and new accounts start web chat on GPT-6 Astra Thinking. After you pick a model, new chats start with the model you picked last, and a saved chat reopens with the model it last used. On the API, `openai-latest` uses GPT-6 Astra.
 
 ### Do flagship models cost more in Capriole AI?
 

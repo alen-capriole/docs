@@ -6,7 +6,7 @@ openapi: "api-reference/openapi.json POST /v1/chat/completions"
 
 Use este endpoint quando seu aplicativo, SDK ou gateway esperar o formato de solicitação e resposta do OpenAI Chat Completions.
 
-Envie um payload padrão de Chat Completions com `model` e `messages`. A Capriole AI resolve os aliases latest para o ID de modelo do provedor selecionado antes do despacho ao upstream, encaminha campos compatíveis como `messages`, `tools`, `tool_choice`, `response_format` e `stream`, e devolve o JSON ou o stream SSE do upstream sem alteração, exceto pela correção de SSE para GLM descrita abaixo. Em solicitações com streaming, a Capriole AI define `stream_options.include_usage=true` antes de encaminhar, para que o uso possa ser registrado.
+Envie um payload padrão de Chat Completions com `model` e `messages`. A Capriole AI resolve os aliases latest para o ID de modelo do provedor selecionado antes do despacho ao upstream, encaminha campos compatíveis como `messages`, `tools`, `tool_choice`, `response_format` e `stream`, e devolve o JSON ou o stream SSE do upstream sem alteração, exceto pela correção de SSE para GLM e pelos comentários de heartbeat descritos abaixo. Em solicitações com streaming, a Capriole AI define `stream_options.include_usage=true` antes de encaminhar, para que o uso possa ser registrado.
 
 Em algumas respostas SSE com `model="zai/glm-5.3-flash"`, a Capriole AI remove apenas o campo legado vazio `function_call={"name":"","arguments":""}` dos deltas. Chamadas reais ou parciais, `tool_calls`, texto e uso são preservados. Essa exceção não altera respostas sem streaming nem outros modelos.
 
@@ -16,7 +16,7 @@ Os aliases latest são atalhos de entrada. O uso é registrado no modelo resolvi
 
 ## Kimi K3.1 Pro
 
-O Kimi K3.1 Pro fixa `temperature` em 1 e `top_p` em 0,95. Omita `temperature`, `top_p`, `n`, `presence_penalty` e `frequency_penalty` para este modelo e envie as instruções com o papel `system` em vez de `developer`.
+O Kimi K3.1 Pro fixa `temperature` em 1 e `top_p` em 0.95. Omita `temperature`, `top_p`, `n`, `presence_penalty` e `frequency_penalty` para este modelo e envie as instruções com o papel `system` em vez de `developer`.
 
 ## Gemini 4 Carbon
 
@@ -42,4 +42,4 @@ Ferramentas de função definidas pelo seu cliente, mesmo uma chamada `web_searc
 
 ## Tarefas longas
 
-Para tarefas longas, como raciocínio extenso, defina `"stream": true`. Sem streaming, a conexão pode expirar após cerca de 2 minutos.
+Para tarefas longas, como raciocínio extenso, defina `"stream": true`. Sem streaming, a conexão pode expirar após cerca de 2 minutos. Enquanto uma solicitação com streaming espera pelo modelo, a Capriole AI envia um comentário SSE `: heartbeat` a cada 15 segundos, e solicitações `google/*` com streaming podem esperar até 20 minutos pelo primeiro token. Se o modelo não tiver respondido em 60 segundos, a resposta 200 já terá começado, então um erro posterior do upstream chega como um último evento SSE com um objeto `error`.

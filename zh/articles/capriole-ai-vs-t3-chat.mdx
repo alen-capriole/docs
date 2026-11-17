@@ -4,22 +4,22 @@ sidebarTitle: "Capriole AI 与 T3 Chat"
 description: "Capriole AI 对比 T3 Chat：每月 USD 9 无限畅聊 GPT-6 Astra、Claude 和 Gemini，API 价格最多比官方低 92%，可接入编程智能体。"
 ---
 
-对于希望通过一个账户同时使用前沿模型聊天、API 和编程智能体的用户，**Capriole AI 是更完整的选择**。Premium 每月收费 USD 9，提供 GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5 和 Gemini 4 Carbon 的无限浏览器聊天，API 访问价格最多比官方低 92%，还有 10 个编程智能体的设置指南。未登录访客和 Free 用户可以先试用这些旗舰模型。
+对于希望通过一个账户同时使用前沿模型聊天、API 和编程智能体的用户，**Capriole AI 用一个账户就能覆盖这三项**。Premium 每月收费 USD 9，提供 GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5 和 Gemini 4 Carbon 的无限浏览器聊天，API 访问价格最多比官方低 92%，还有 10 个编程智能体的设置指南。未登录访客和 Free 用户可以先试用这些旗舰模型。
 
-T3 Chat 通过 Base 和 Overage 两类余额计量浏览器用量。我们审阅的公开页面没有记载同类通用 API 与编程智能体工作流。
+T3 Chat 通过 Base 和 Burst overage 两类余额计量浏览器用量。我们审阅的公开页面没有记载同类通用 API 与编程智能体工作流。
 
-本次对比核对了 T3 的常见问题、隐私政策和官方产品反馈页面。T3 没有维护稳定的公开定价页，因此本文不提供固定的 T3 价格或方案额度。
+本次对比于 2026 年 11 月 17 日核对了 T3 的常见问题、隐私政策和官方产品反馈页面。T3 没有维护稳定的公开定价页，因此本文不提供固定的 T3 价格或方案额度。
 
 ## 两款产品如何安排访问权限
 
 | 范围 | Capriole AI | T3 Chat |
 |---|---|---|
-| 当前旗舰模型访问 | 一个工作区内提供 GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5 和 Gemini 4 Carbon | 以聊天为先，通过 Base 和 Overage 余额计量模型访问 |
-| 付费浏览器用量 | 每月 USD 9，可无限使用受支持 Premium 模型 | 使用会消耗根据成本计算的 Base 和 Overage 余额 |
+| 当前旗舰模型访问 | 一个工作区内提供 GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5 和 Gemini 4 Carbon | 以聊天为先，通过 Base 和 Burst overage 余额计量模型访问 |
+| 付费浏览器用量 | 每月 USD 9，可无限使用受支持 Premium 模型 | 使用会消耗根据成本计算的 Base 和 Burst overage 余额 |
 | 内含 API 用量 | 每月 500 万计费 API token | 没有记载通用开发者 API 额度 |
 | 公共 API | OpenAI Chat Completions、OpenAI Responses 和 Anthropic Messages | 我们审阅的官方页面没有记载通用的公共开发者 API |
 | 编程智能体路径 | 10 个编程智能体的设置指南 | 我们审阅的官方文档没有为这些客户端维护设置页面 |
-| 工作区与存储 | 模型切换、文件、网页搜索，以及 Synced、Local 或 No Storage 历史 | 以聊天为先的工作区，temporary-chat 行为另有文档说明 |
+| 工作区与存储 | 模型切换、文件、网页搜索，以及 Synced、Local 或 No Storage 历史 | 以聊天为先的工作区，临时聊天行为另有文档说明 |
 
 更完整的 [OpenRouter 替代方案指南](/zh/articles/openrouter-alternatives)把两款产品与网关和可配置 BYOK 客户端放在一起比较。我们还把 Capriole AI 与 [Poe](/zh/articles/capriole-ai-vs-poe)、[TypingMind](/zh/articles/capriole-ai-vs-typingmind)、[Magai](/zh/articles/capriole-ai-vs-magai) 和 [Venice](/zh/articles/capriole-ai-vs-venice) 做了对比。
 
@@ -35,15 +35,13 @@ T3 Chat 通过 Base 和 Overage 两类余额计量浏览器用量。我们审阅
 
 Capriole 通过会员和 API 余额提供模型访问。用户无需自带提供商密钥、为多个账户充值，或为每个受支持的模型家族分别维护账单关系。
 
-对目标用户而言，优势很明确。每个受支持模型家族都不再需要独立的提供商账户、密钥、余额或账单页面。当前旗舰模型组合位于同一个 Capriole 工作区。
-
 ## 两种方案采用不同的用量计量方式
 
-T3 当前的常见问题介绍了 Base 和 Overage 余额。Base 每四小时补充一次，Overage 每月补充一次。系统会在请求开始前预留估算金额，完成后再按实际成本结算。
+T3 当前的常见问题介绍了 Base 和 Burst overage 余额。Base 每四小时补充一次，Burst overage 在每月续订日补充。系统会在请求开始前预留估算金额，完成后再按实际成本结算。
 
-在这套系统中，一条消息没有固定成本。长线程、大附件、搜索和价格更高的模型可能消耗更多余额。过去用固定消息数描述方案的说法，已经无法代表当前的常见问题。
+在这套系统中，一条消息没有固定成本。长对话、大附件、搜索和价格更高的模型可能消耗更多余额。过去用固定消息数描述方案的说法，已经无法代表当前的常见问题。
 
-Capriole Premium 把浏览器用量和程序化用量分开。受支持 Premium 模型范围内的浏览器聊天无限。公共 API 和编程智能体会消耗每月内含的 500 万 API 计费 token，也可以另外购买 top-up。
+Capriole Premium 把浏览器用量和程序化用量分开。网页聊天在所有受支持的模型上无限，设有每天 200 条消息的[合理使用上限](/zh/guides/plans-and-limits#“无限”是什么意思)，用于阻止脚本化滥用。公共 API 和编程智能体会消耗每月内含的 500 万计费 API token，也可以另外充值。
 
 这种区分适合频繁聊天，同时希望开发工作拥有明确额度的用户。[一个 AI 订阅指南](/zh/articles/one-ai-subscription)列出了 Capriole 会员所含内容，也说明从哪里开始计量。
 
@@ -55,7 +53,7 @@ Capriole 记载了多种公共协议路径。OpenAI Responses 支持 [Codex](/zh
 
 编程智能体在本地执行自己的工具和文件更改，Capriole 负责受支持的模型访问。智能体用量仍按 API 流量计量，所以无限浏览器聊天不会延伸到自动化编程工作负载。
 
-如果外部客户端是购买决策的核心，Capriole 提供一条从账户到 API key 再到可用客户端的文档路径。T3 经审阅的公开文档没有提供同类的持续维护路径。
+如果外部客户端是购买决策的核心，Capriole 提供一条从账户到 API Key 再到可用客户端的文档路径。T3 经审阅的公开文档没有提供同类的持续维护路径。
 
 ## Capriole 让历史存储成为明确选择
 
@@ -67,11 +65,15 @@ Capriole 提供 Synced、Local 和 No Storage 三种聊天历史模式。Local �
 
 T3 强调以聊天为先的界面、对话分支和 BYOK。Capriole 无需额外提供商账户就能覆盖更完整的工作流。用户可以从浏览器聊天开始，继续使用公共 API 路径，并在同一份 USD 9 会员下连接 10 种有文档说明的编程智能体。
 
+## 何时更适合用 T3 Chat
+
+如果你只用聊天，并且看重对话分支、用键盘切换模型，或想使用自己的提供商密钥，T3 Chat 更合适。如果同一个方案还要覆盖 API 和编程智能体，选择 Capriole AI。
+
 ## 用 Capriole 走出聊天界面
 
 如果同一个账户需要以每月 USD 9 覆盖日常聊天、受支持的前沿模型、外部 API 客户端和编程智能体，可以选择 Capriole。
 
-[试用有限的免费浏览器聊天](https://www.capriole.ai/zh)，或[升级到每月 USD 9 的 Premium，获得无限聊天和 API key](https://www.capriole.ai/zh?view=api)。[API 快速入门](/zh/quickstart)介绍如何发出第一个应用请求。
+[试用有限的免费浏览器聊天](https://www.capriole.ai/zh)，或[升级到每月 USD 9 的 Premium，获得无限聊天和 API Key](https://www.capriole.ai/zh?view=api)。[API 快速入门](/zh/quickstart)介绍如何发出第一个应用请求。
 
 ## 官方来源
 
@@ -83,4 +85,4 @@ T3 强调以聊天为先的界面、对话分支和 BYOK。Capriole 无需额外
 
 T3 反馈网站上的用户评论没有被当作产品事实。我们只在能够确认身份时采用产品状态和员工回复。
 
-本页中的 Capriole AI 事实作为第一方文档持续维护。
+本页中关于 Capriole AI 的信息由我们作为官方文档持续维护。

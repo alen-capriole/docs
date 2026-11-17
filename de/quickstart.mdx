@@ -4,7 +4,7 @@ sidebarTitle: "Schnellstart"
 description: "Senden Sie Ihre erste Capriole AI API-Anfrage mit einem Schlüssel für OpenAI Chat Completions, Responses und Anthropic Messages, bis zu 92 % unter den offiziellen Preisen."
 ---
 
-Die API von Capriole AI unter `https://api.caprioletech.com` ist mit OpenAI Chat Completions, OpenAI Responses und Anthropic Messages kompatibel, sodass ein Schlüssel Ihre Apps und Coding-Agents bedient, bis zu 92 % günstiger als die offiziellen API-Preise.
+Die API von Capriole AI unter `https://api.caprioletech.com` ist mit OpenAI Chat Completions, OpenAI Responses und Anthropic Messages kompatibel, sodass ein Schlüssel Ihre Apps und Coding-Agents bedient, bis zu 92% günstiger als die offiziellen API-Preise.
 
 ## Base URL
 
@@ -14,7 +14,7 @@ Die API von Capriole AI unter `https://api.caprioletech.com` ist mit OpenAI Chat
 
 ### 1. API-Schlüssel erstellen
 
-Ein API-Schlüssel erfordert Premium (USD 9 pro Monat) oder Team. Erstellen Sie Ihren Schlüssel nach der Anmeldung auf der [Capriole AI API-Seite](https://www.capriole.ai/de?view=api).
+Ein API-Schlüssel erfordert Premium (USD 9 pro Monat) oder Team. Erstellen Sie Ihren Schlüssel nach der Anmeldung auf der [Capriole-AI-API-Seite](https://www.capriole.ai/de?view=api).
 
 ### 2. `POST /v1/chat/completions` aufrufen
 
@@ -62,7 +62,7 @@ Setzen Sie für lange Aufgaben wie Websuche oder ausgedehntes Reasoning `"stream
 
 ## Protokollkompatible Endpunkte
 
-Verwenden Sie `POST /v1/responses` für OpenAI Responses-Clients, `POST /v1/chat/completions` für OpenAI Chat Completions-Clients und `POST /v1/messages` für Anthropic Messages-Clients.
+Verwenden Sie `POST /v1/responses` für OpenAI-Responses-Clients, `POST /v1/chat/completions` für OpenAI-Chat-Completions-Clients und `POST /v1/messages` für Anthropic-Messages-Clients.
 
 Verwenden Sie `openai-latest`, `claude-latest` oder `google-latest`, wenn Capriole AI das von uns empfohlene Flaggschiff-Modell für diesen Anbieter wählen soll. Verwenden Sie eine konkrete Modell-ID, wenn Sie eine genaue Modellversion benötigen. [Modell wählen](/de/guides/choose-a-model) listet die IDs auf und zeigt, wofür jeder Anbieter seine Modelle baut.
 
@@ -72,26 +72,26 @@ Latest-Aliase sind Eingabe-Kurzformen. Capriole AI erfasst die Nutzung für das 
 
 ### Soll die Base URL `/v1` enthalten?
 
-Verwenden Sie `https://api.caprioletech.com` für direkte API-Aufrufe. Einige Coding-Agents fragen nach einer Anbieter-Base-URL; folgen Sie der Integrationsseite für diesen Agent, weil OpenAI-kompatible und Anthropic-kompatible Clients unterschiedliche Base URLs erwarten.
+Verwenden Sie `https://api.caprioletech.com` für direkte API-Aufrufe. Einige Coding-Agents fragen nach einer Anbieter-Base-URL; folgen Sie der Integrationsseite für diesen Agenten, weil OpenAI-kompatible und Anthropic-kompatible Clients unterschiedliche Base URLs erwarten.
 
-### Welche Latest-Aliase funktionieren auf jedem Endpunkt?
+### Welche Latest-Aliase funktionieren auf welchem Endpunkt?
 
-`POST /v1/chat/completions` unterstützt alle drei Latest-Aliase. `POST /v1/responses` unterstützt `openai-latest`. `POST /v1/messages` unterstützt `claude-latest` sowie konkrete Claude Messages-IDs wie `claude-fable-5-1`, `claude-fable-5`, `claude-opus-5-5`, `claude-opus-5`, `claude-opus-4-8`, `claude-opus-4-7`, `claude-opus-4-6` und `claude-sonnet-4-6`.
+`POST /v1/chat/completions` unterstützt alle drei Latest-Aliase. `POST /v1/responses` unterstützt `openai-latest`. `POST /v1/messages` unterstützt `claude-latest` sowie konkrete Claude-Messages-IDs wie `claude-fable-5-1`, `claude-fable-5`, `claude-opus-5-5`, `claude-opus-5`, `claude-opus-4-8`, `claude-opus-4-7`, `claude-opus-4-6` und `claude-sonnet-4-6`.
 
 ### Warum zeigt das Antwortmodell nicht den Alias, den ich gesendet habe?
 
-Das ist erwartet. Der Alias dient nur zur Modellauswahl. Antworten behalten das Modellbenennungsverhalten des gewählten Endpunkts.
+Das ist so vorgesehen. Der Alias dient nur zur Modellauswahl. Antworten behalten das Modellbenennungsverhalten des gewählten Endpunkts.
 
-### Warum habe ich einen unsupported model-Fehler erhalten?
+### Warum erhalte ich den Fehler „unsupported model“?
 
 Verwenden Sie einen Latest-Alias nur auf einem Endpunkt, der ihn unterstützt, oder wechseln Sie zu einer konkreten Modell-ID aus `GET /v1/models`.
 
 ### Funktioniert `/v1/messages/count_tokens` immer?
 
-Der Endpunkt akzeptiert `claude-latest` und konkrete Claude Messages-IDs. Die Token-Zählung hängt davon ab, ob das gewählte Upstream Anthropic Token Counting unterstützt.
+`POST /v1/messages/count_tokens` akzeptiert `claude-latest` und konkrete Claude-Messages-IDs. Die Token-Zählung funktioniert nur, wenn der gewählte Upstream die Token-Zählung von Anthropic unterstützt.
 
 ## Mit einem SDK fortfahren
 
-Nutzen Sie die [OpenAI- und Anthropic-SDK-Anleitung](/de/guides/openai-anthropic-sdks), um protokollnative Python- oder TypeScript-Clients mit demselben Capriole AI API-Schlüssel auszuführen.
+Nutzen Sie die [OpenAI- und Anthropic-SDK-Anleitung](/de/guides/openai-anthropic-sdks), um protokollnative Python- oder TypeScript-Clients mit demselben Capriole-AI-API-Schlüssel auszuführen.
 
 Nach der ersten Anfrage nutzen Sie die [Anleitung zu API-Schlüsseln und Nutzung](/de/guides/api-keys-usage), um Schlüssel, Modell, Status und den Eintrag der abgerechneten Tokens zu prüfen.

@@ -1,10 +1,10 @@
 ---
 title: "Cline에서 OpenAI 호환 API 사용하기"
 sidebarTitle: "Cline"
-description: "Cline의 OpenAI Compatible 제공자를 Capriole AI에 연결합니다. GPT-6 Astra, Claude Fable 5.1, Opus 5.5, Gemini 4 Carbon 모델을 공식 API 가격보다 최대 92% 저렴하게 사용하세요."
+description: "Cline의 OpenAI Compatible 제공자를 Capriole AI에 연결해 GPT-6 Astra, Claude Fable 5.1, Opus 5.5, Gemini 4 Carbon을 공식 API 가격보다 최대 92% 저렴하게 쓰세요."
 ---
 
-Capriole AI API key 하나로 Cline에서 GPT-6 Astra, Claude Fable 5.1, Opus 5.5, Gemini 4 Carbon 모델을 공식 API 가격보다 최대 92% 저렴하게 사용할 수 있습니다.
+Capriole AI API 키 하나로 Cline에서 GPT-6 Astra, Claude Fable 5.1, Opus 5.5, Gemini 4 Carbon 모델을 공식 API 가격보다 최대 92% 저렴하게 사용할 수 있습니다.
 
 ## Cline이란
 
@@ -15,8 +15,8 @@ Cline은 터미널과 VS Code를 위한 오픈 소스 코딩 에이전트입니�
 시작하기 전에 다음이 있는지 확인하세요.
 
 - Capriole AI 계정([여기에서 가입](https://www.capriole.ai/ko))
-- Premium 플랜(월 USD 9, 무제한 웹 채팅 포함) 또는 Team 플랜. API key를 만들려면 둘 중 하나가 필요합니다([구독하기](https://www.capriole.ai/ko?view=api))
-- Capriole AI API key([키 받기](https://www.capriole.ai/ko?view=api))
+- Premium 플랜(월 USD 9, 무제한 웹 채팅 포함) 또는 Team 플랜. API 키를 만들려면 둘 중 하나가 필요합니다([구독하기](https://www.capriole.ai/ko?view=api))
+- Capriole AI API 키([키 받기](https://www.capriole.ai/ko?view=api))
 
 ## 설치
 
@@ -56,7 +56,7 @@ cline auth -p openai-compatible \
 
 Cline은 이 값을 `~/.cline`에 저장하므로 `cline auth`는 한 번만 실행하면 됩니다.
 
-VS Code 확장에서는 Cline 설정을 열고 **OpenAI Compatible**을 선택한 다음, 같은 Base URL, API key, 모델 ID를 입력하세요.
+VS Code 확장에서는 Cline 설정을 열고 **OpenAI Compatible**을 선택한 다음, 같은 Base URL, API 키, 모델 ID를 입력하세요.
 
 ## Cline 실행
 
@@ -97,7 +97,7 @@ cline -m moonshot/kimi-k3 "Explain this repository."
 
 ### Cline이 인증 오류를 반환하는 이유는 무엇인가요?
 
-현재 Capriole AI API key로 `cline auth`를 다시 실행하세요.
+현재 Capriole AI API 키로 `cline auth`를 다시 실행하세요.
 
 ### Claude 모델이 `Unsupported chat model_key`로 실패하는 이유는 무엇인가요?
 
@@ -111,5 +111,5 @@ Base URL이 `https://api.caprioletech.com/v1`인지 확인하세요.
 
 - Cline은 사용자 컴퓨터에서 코딩 도구를 실행합니다. Capriole AI는 모델 요청만 처리합니다.
 - Gemini 4 Carbon은 Gemini 4 Argon보다 오래 추론하므로 턴마다 시간이 더 걸리고 토큰도 더 쓸 수 있습니다. 더 빠른 응답이 필요하면 `google/gemini-4-argon`을 사용하세요.
-- 같은 key를 다른 코딩 에이전트에서도 쓰려면 [코딩 에이전트에 API key 하나 사용하기](/ko/guides/one-api-key-coding-agents) 가이드를 참고하세요.
-- 공식 참고: [Cline CLI](https://docs.cline.bot/cline-cli/overview), [Cline OpenAI Compatible provider](https://docs.cline.bot/provider-config/openai-compatible).
+- 같은 키를 다른 코딩 에이전트에서도 쓰려면 [코딩 에이전트에 API 키 하나 사용하기](/ko/guides/one-api-key-coding-agents) 가이드를 참고하세요.
+- 공식 참고: [Cline CLI](https://docs.cline.bot/cline-cli/overview), [Cline OpenAI Compatible 제공자](https://docs.cline.bot/provider-config/openai-compatible).

@@ -6,7 +6,7 @@ description: "Llama a Capriole AI desde Python o TypeScript con los SDK oficiale
 
 Puedes usar los SDK oficiales de OpenAI y Anthropic para Python o TypeScript con una sola clave API de Capriole AI. Configura el cliente de OpenAI con la Base URL `/v1` y el cliente de Anthropic con la raíz de la API, y luego llama al endpoint nativo del protocolo que cada SDK espera.
 
-Premium personal cuesta USD 9 al mes e incluye 5 millones de tokens cobrados de API más chat ilimitado del navegador en el conjunto de modelos Premium compatible. La misma membresía puede alimentar una aplicación a través de estos SDK, un agente de programación a través de una integración mantenida y el trabajo cotidiano en el navegador.
+Premium personal cuesta USD 9 al mes e incluye 5 millones de tokens cobrados de API más chat ilimitado del navegador con todos los modelos compatibles de Premium. La misma membresía puede alimentar una aplicación a través de estos SDK, un agente de programación a través de una integración mantenida y el trabajo cotidiano en el navegador.
 
 Esta guía construye la misma comprobación de dos solicitudes en ambos lenguajes. Cada ejemplo envía una solicitud de OpenAI Responses y una solicitud de Anthropic Messages.
 
@@ -212,7 +212,7 @@ print(completion.choices[0].message.content)
 
 `google-latest` usa Gemini 4 Carbon, que en Chat Completions razona con el nivel `medium` predeterminado de Google. Para usar menos tokens, añade `extra_body={"extra_body": {"google": {"thinking_config": {"thinking_level": "low"}}}}` o llama a `google/gemini-4-argon`. [Elige un modelo](/es/guides/choose-a-model#ids-de-modelo-para-la-api) tiene los detalles.
 
-No muevas `google-latest` a `responses.create()`. La ruta Responses acepta el conjunto de modelos de OpenAI Responses compatible, mientras que Chat Completions acepta el catálogo público compatible más amplio.
+No muevas `google-latest` a `responses.create()`. La ruta Responses acepta modelos de OpenAI y modelos Grok con el prefijo `xai/`, mientras que Chat Completions acepta el catálogo público compatible más amplio.
 
 ## Corrige errores habituales del SDK
 
@@ -237,9 +237,9 @@ Las llamadas a la API se miden en tokens cobrados. Lee [cómo se calculan los to
 
 ## Referencias oficiales de los SDK
 
-- OpenAI: [Python SDK](https://github.com/openai/openai-python)
-- Anthropic: [Python SDK](https://github.com/anthropics/anthropic-sdk-python)
-- OpenAI: [TypeScript and JavaScript SDK](https://github.com/openai/openai-node)
-- Anthropic: [TypeScript SDK](https://github.com/anthropics/anthropic-sdk-typescript)
+- OpenAI: [SDK de Python](https://github.com/openai/openai-python)
+- Anthropic: [SDK de Python](https://github.com/anthropics/anthropic-sdk-python)
+- OpenAI: [SDK de TypeScript y JavaScript](https://github.com/openai/openai-node)
+- Anthropic: [SDK de TypeScript](https://github.com/anthropics/anthropic-sdk-typescript)
 
 [Prueba GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5 o Gemini 4 Carbon en el chat limitado gratuito del navegador](https://www.capriole.ai/es) y luego pasa a Premium cuando quieras usar el saldo de API incluido desde Python o TypeScript.

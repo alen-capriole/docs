@@ -6,7 +6,7 @@ description: "使用官方 OpenAI 和 Anthropic SDK，通过 Python 或 TypeScri
 
 你可以使用一个 Capriole AI API Key，通过官方 OpenAI 和 Anthropic SDK 编写 Python 或 TypeScript 程序。OpenAI 客户端使用包含 `/v1` 的 Base URL，Anthropic 客户端使用 API 根地址，然后调用各 SDK 对应的原生协议端点。
 
-个人 Premium 每月 9 美元，包含 500 万 charged API token，并可不限量使用受支持的 Premium Browser Chat 模型。同一份会员权益可以通过这些 SDK 为应用提供能力，也能用于持续维护的编程智能体集成和日常 Browser Chat 工作。
+个人 Premium 每月 USD 9，包含 500 万计费 API token，并可在网页聊天中不限量使用受支持的 Premium 模型。同一份会员权益可以通过这些 SDK 为应用提供能力，也能用于持续维护的编程智能体集成和日常网页聊天。
 
 本指南使用两种编程语言构建相同的双请求检查。每个示例都会发送一条 OpenAI Responses 请求和一条 Anthropic Messages 请求。
 
@@ -18,11 +18,11 @@ description: "使用官方 OpenAI 和 Anthropic SDK，通过 Python 或 TypeScri
 | `openai.chat.completions.create()` | `POST /v1/chat/completions` | `https://api.caprioletech.com/v1` | 兼容的 latest 别名或模型 ID |
 | `anthropic.messages.create()` | `POST /v1/messages` | `https://api.caprioletech.com` | `claude-latest` |
 
-原生使用 Responses 的 OpenAI 应用请选择 Responses。现有 OpenAI 兼容应用依赖 Chat Completions 契约时请选择 Chat Completions。Claude 原生代码请选择 Messages。
+原生使用 Responses 的 OpenAI 应用请选择 Responses。现有 OpenAI 兼容应用依赖 Chat Completions 接口约定时请选择 Chat Completions。Claude 原生代码请选择 Messages。
 
 ## 开始前
 
-你需要有效的 Premium 或符合条件的 Team 权限、[Capriole AI API Key](https://www.capriole.ai/zh?view=api)，以及 Python 或 Node.js 20 及更高版本。Capriole 显示新建的 Key 时请立即复制，完整 Secret 不会再次显示。
+你需要有效的 Premium 或符合条件的 Team 权限、[Capriole AI API Key](https://www.capriole.ai/zh?view=api)，以及 Python 或 Node.js 20 及更高版本。Capriole 显示新建的 Key 时请立即复制，完整密钥不会再次显示。
 
 <Steps>
 <Step title="创建环境并安装两个 SDK">
@@ -53,7 +53,7 @@ python -m pip install openai anthropic
 export CAPRIOLE_AI_API_KEY="YOUR_CAPRIOLE_AI_API_KEY"
 ```
 
-下面的程序从环境中读取 Key，不会把 Secret 写入源代码。
+下面的程序从环境中读取 Key，不会把密钥写入源代码。
 
 </Step>
 
@@ -212,7 +212,7 @@ print(completion.choices[0].message.content)
 
 `google-latest` 使用 Gemini 4 Carbon，它在 Chat Completions 上按 Google 的默认思考等级 `medium` 思考。如需减少 token 用量，可以添加 `extra_body={"extra_body": {"google": {"thinking_config": {"thinking_level": "low"}}}}`，或调用 `google/gemini-4-argon`。详见[选择模型](/zh/guides/choose-a-model#api-模型-id)。
 
-不要把 `google-latest` 移到 `responses.create()`。Responses 路由接受受支持的 OpenAI Responses 模型集合，Chat Completions 则接受范围更广的公共兼容模型目录。
+不要把 `google-latest` 移到 `responses.create()`。Responses 路由接受 OpenAI 模型和带 `xai/` 前缀的 Grok 模型，Chat Completions 则接受范围更广的公共兼容模型目录。
 
 ## 解决常见 SDK 错误
 
@@ -223,7 +223,7 @@ print(completion.choices[0].message.content)
 | `404 Not Found` | 客户端 Base URL 的 `/v1` 边界错误 | OpenAI 使用包含 `/v1` 的地址，Anthropic 使用 API 根地址 |
 | 模型不受支持 | 所选别名不属于该端点 | Responses 使用 `openai-latest`，Messages 使用 `claude-latest` |
 | Token 计数预检失败 | 所选 Claude 上游不支持 Anthropic Token 计数 | 将 `/v1/messages/count_tokens` 支持视为取决于上游的能力 |
-| `403` 额度错误 | 会员权限或 API 余额无法授权请求 | 检查有效会员和剩余 charged-token 余额 |
+| `403` 额度错误 | 会员权限或 API 余额无法授权请求 | 检查有效会员和剩余的计费 token 余额 |
 
 ## 理解返回结果的边界
 
@@ -233,7 +233,7 @@ Capriole 会保留 SDK 请求的协议。Responses 输出仍是 Responses 输出
 
 关于协议、别名或客户端路径在文档标记为受支持前需要哪些证据，请阅读 [Capriole 如何测试多模型 API 兼容性](/zh/articles/unified-model-api#我们如何测试兼容性)。
 
-API 调用按 charged token 计量。估算工作负载前，请阅读 [charged token 如何计算](/zh/articles/charged-tokens)。
+API 调用按计费 token 计量。估算工作负载前，请阅读[计费 token 如何计算](/zh/articles/charged-tokens)。
 
 ## SDK 官方参考资料
 
