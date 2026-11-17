@@ -19,7 +19,7 @@ description: "월 USD 9에 GPT-6 Astra·Claude Fable 5.1·Opus 5.5·Gemini 4 Car
 | 최첨단 모델 채팅 | GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5, Gemini 4 Carbon을 비롯한 모든 지원 모델에서 무제한 | Pro 모델에서 텍스트 프롬프트 무제한, 최첨단 텍스트 모델은 크레딧 사용 |
 | 월간 크레딧 또는 API 토큰 | Premium: API 토큰 500만, Team: 5,000만 | Pro: 100 크레딧(USD 1), Pro Plus: 7,500(USD 75), Max: 22,500(USD 225) |
 | Claude Fable 5.1 API 가격 | 지원 모델 어느 것이든 500만 토큰당 USD 8 | 100만 토큰당 입력 USD 10, 출력 USD 50 |
-| API 프로토콜 | OpenAI Chat Completions, OpenAI Responses, Anthropic Messages | OpenAI 호환 API, Responses는 베타 |
+| API 프로토콜 | OpenAI Chat Completions, OpenAI Responses, Anthropic Messages | OpenAI 호환 API, Responses 엔드포인트 포함 |
 | 코딩 에이전트 | 문서화된 설정 10개, Claude Code는 Anthropic Messages로 직접 연결 | Claude Code, Codex CLI, Cline, Kilo Code, OpenCode 등의 가이드, Claude Code에는 claude-code-router 애드온 필요 |
 | 개인정보 모델 | 동기화, 브라우저 전용 또는 채팅 기록 저장 안 함, 콘텐츠를 AI 모델 학습에 사용하지 않음 | 개인정보 모드 4가지, Claude, GPT, Gemini 모델은 Anonymized여서 제공자가 여전히 프롬프트를 봄 |
 | 미디어 | GPT Image 2.6과 Nano Banana 2.1 무료 이미지 생성 | 모든 플랜에서 이미지, 동영상과 음악은 크레딧 사용 |
@@ -52,7 +52,7 @@ Venice API는 게시된 모델 요율에 따라 사용한 만큼 지불합니다
 
 Capriole Premium에는 월 500만 API 토큰이 포함되며, 추가 토큰은 500만 토큰당 USD 8입니다. [Claude API 가격](/ko/articles/claude-api-pricing), [OpenAI API 가격](/ko/articles/openai-api-pricing), [Gemini API 가격](/ko/articles/gemini-api-pricing) 페이지에서 같은 요율을 Anthropic, OpenAI, Google과 비교합니다.
 
-Capriole 키 하나로 OpenAI Chat Completions, OpenAI Responses, Anthropic Messages를 모두 쓸 수 있고, [문서화된 코딩 에이전트 10개](/ko/articles/coding-agent-compatibility)도 실행할 수 있습니다. Venice는 `https://api.venice.ai/api/v1`의 OpenAI 호환 API를 문서화하며, Responses 엔드포인트는 베타입니다. Venice의 Claude Code 가이드는 Anthropic Messages 요청을 Venice의 OpenAI 호환 형식으로 변환하는 오픈소스 로컬 도구인 claude-code-router를 추가합니다.
+Capriole 키 하나로 OpenAI Chat Completions, OpenAI Responses, Anthropic Messages를 모두 쓸 수 있고, [문서화된 코딩 에이전트 10개](/ko/articles/coding-agent-compatibility)도 실행할 수 있습니다. Venice는 `https://api.venice.ai/api/v1`의 OpenAI 호환 API를 문서화하며, Responses 엔드포인트도 제공합니다. Venice의 Claude Code 가이드는 Anthropic Messages 요청을 Venice의 OpenAI 호환 형식으로 변환하는 오픈소스 로컬 도구인 claude-code-router를 추가합니다.
 
 ## 개인정보 보호
 
@@ -81,7 +81,7 @@ Anthropic, OpenAI, Google의 최첨단 모델에서는 두 제품 모두 프롬�
 
 - 검열 없는 오픈소스 모델
 - 지원 모델에서 데이터 무보존, TEE 또는 종단 간 암호화 추론
-- 동영상과 음악 생성, 또는 [암호화폐로 크레딧 구매](https://docs.venice.ai/overview/pricing)
+- 동영상과 음악 생성, 또는 [암호화폐로 크레딧 구매](https://docs.venice.ai/pricing)
 
 ## 자주 묻는 질문
 
@@ -107,8 +107,10 @@ Private, TEE, E2EE 모드의 오픈소스 모델이라면 Venice입니다. Claud
 
 ## 공식 출처
 
+2026년 11월 17일에 아래 페이지를 확인했습니다.
+
 - Venice: [pricing](https://venice.ai/pricing)
-- Venice: [API pricing](https://docs.venice.ai/overview/pricing)
+- Venice: [API pricing](https://docs.venice.ai/pricing)
 - Venice: [privacy architecture](https://docs.venice.ai/overview/privacy)
 - Venice: [API documentation index](https://docs.venice.ai/llms.txt)
 - Venice: [Claude Code guide](https://docs.venice.ai/guides/integrations/claude-code)

@@ -19,7 +19,7 @@ Para esta comparación revisamos la página de precios, los precios de la API y 
 | Chat con modelos de frontera | Ilimitado en GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5, Gemini 4 Carbon y todos los demás modelos compatibles | Prompts de texto ilimitados en modelos Pro; los modelos de texto de frontera usan créditos |
 | Créditos o tokens de API mensuales | Premium: 5M de tokens de API; Team: 50M | Pro: 100 créditos (USD 1); Pro Plus: 7.500 (USD 75); Max: 22.500 (USD 225) |
 | Precio de la API de Claude Fable 5.1 | USD 8 por 5M de tokens de cualquier modelo compatible | USD 10 de entrada y USD 50 de salida por 1M de tokens |
-| Protocolos de API | OpenAI Chat Completions, OpenAI Responses y Anthropic Messages | API compatible con OpenAI, con Responses en beta |
+| Protocolos de API | OpenAI Chat Completions, OpenAI Responses y Anthropic Messages | API compatible con OpenAI, con endpoint Responses |
 | Agentes de programación | 10 configuraciones documentadas; Claude Code se conecta directamente mediante Anthropic Messages | Guías para Claude Code, Codex CLI, Cline, Kilo Code, OpenCode y otros; Claude Code necesita el complemento claude-code-router |
 | Modelo de privacidad | Historial de chat sincronizado, solo en el navegador o sin guardar; el contenido no se usa para entrenar modelos de IA | Cuatro modos de privacidad; los modelos de Claude, GPT y Gemini son Anonymized, así que el proveedor sigue viendo el prompt |
 | Multimedia | Generación gratuita de imágenes con GPT Image 2.6 y Nano Banana 2.1 | Imágenes en todos los planes; video y música con créditos |
@@ -52,7 +52,7 @@ La tabla calcula el precio de 5M de tokens con tres tokens de entrada por cada t
 
 Capriole Premium incluye 5M de tokens de API al mes, y los adicionales cuestan USD 8 por 5M de tokens. Las páginas de [precios de la API de Claude](/es/articles/claude-api-pricing), [precios de la API de OpenAI](/es/articles/openai-api-pricing) y [precios de la API de Gemini](/es/articles/gemini-api-pricing) comparan las mismas tarifas con las de Anthropic, OpenAI y Google.
 
-Una sola clave de Capriole funciona con OpenAI Chat Completions, OpenAI Responses y Anthropic Messages, y sirve para [10 agentes de programación documentados](/es/articles/coding-agent-compatibility). Venice documenta una API compatible con OpenAI en `https://api.venice.ai/api/v1`, con un endpoint Responses en beta. Su guía de Claude Code añade claude-code-router, una herramienta local de código abierto que convierte las solicitudes de Anthropic Messages al formato compatible con OpenAI de Venice.
+Una sola clave de Capriole funciona con OpenAI Chat Completions, OpenAI Responses y Anthropic Messages, y sirve para [10 agentes de programación documentados](/es/articles/coding-agent-compatibility). Venice documenta una API compatible con OpenAI en `https://api.venice.ai/api/v1`, con un endpoint Responses. Su guía de Claude Code añade claude-code-router, una herramienta local de código abierto que convierte las solicitudes de Anthropic Messages al formato compatible con OpenAI de Venice.
 
 ## Privacidad
 
@@ -81,7 +81,7 @@ Elige Venice si quieres:
 
 - Modelos de código abierto sin censura
 - Inferencia sin retención de datos, en TEE o con cifrado de extremo a extremo en los modelos compatibles
-- Generación de video y música, o [comprar créditos con criptomonedas](https://docs.venice.ai/overview/pricing)
+- Generación de video y música, o [comprar créditos con criptomonedas](https://docs.venice.ai/pricing)
 
 ## Preguntas frecuentes
 
@@ -107,10 +107,12 @@ Sí, con un complemento. La guía de Venice instala claude-code-router para conv
 
 ## Fuentes oficiales
 
-- Venice: [pricing](https://venice.ai/pricing)
-- Venice: [API pricing](https://docs.venice.ai/overview/pricing)
-- Venice: [privacy architecture](https://docs.venice.ai/overview/privacy)
-- Venice: [API documentation index](https://docs.venice.ai/llms.txt)
-- Venice: [Claude Code guide](https://docs.venice.ai/guides/integrations/claude-code)
+Revisamos estas páginas el 17 de noviembre de 2026.
+
+- Venice: [precios](https://venice.ai/pricing)
+- Venice: [precios de la API](https://docs.venice.ai/pricing)
+- Venice: [arquitectura de privacidad](https://docs.venice.ai/overview/privacy)
+- Venice: [índice de la documentación de la API](https://docs.venice.ai/llms.txt)
+- Venice: [guía de Claude Code](https://docs.venice.ai/guides/integrations/claude-code)
 
 Los hechos de Capriole AI en esta página se mantienen como documentación de primera parte.

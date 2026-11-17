@@ -1,7 +1,7 @@
 ---
 title: "OpenRouter-Preise vs direkte APIs: 5M-Token-Kostentest"
 sidebarTitle: "KI-API-Kostenvergleich"
-description: "OpenRouter berechnet den Listenpreis des jeweiligen Anbieters plus 5.5% Gebühr beim Kauf von Standard-Credits per Karte. Vergleichen Sie die 5M-Token-Summen für direkte APIs, OpenRouter und den USD 9-Plan von Capriole AI."
+description: "GPT-6 Astra mit 4M Eingabe + 1M Ausgabe: USD 90 direkt, USD 94.95 bei OpenRouter (5.5% Kartengebühr), gegenüber Capriole AI Premium für USD 9."
 ---
 
 OpenRouter berechnet den Listenpreis des jeweiligen Anbieters und erhebt beim Kauf von Standard-Credits per Karte eine Gebühr von 5.5%. Für die feste Arbeitslast von 5 Millionen Tokens unten **kostet Capriole USD 9** für jedes Modell in der Tabelle, das es anbietet. Dieselben Modelle kosten **USD 6.75 bis USD 90** zu bezahlten Standard-Listenpreisen, während die berechnete OpenRouter-Barsumme nach der veröffentlichten Kreditkaufgebühr **USD 7.55 bis USD 94.95** beträgt. Premium, der Plan für USD 9, enthält außerdem unbegrenzten Web-Chat mit den vier Flaggschiff-Modellen: GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5 und Gemini 4 Carbon.
@@ -10,7 +10,9 @@ In diesem Vergleich kostet Premium bei jedem angebotenen Modell außer Gemini 3.
 
 Dies ist ein reproduzierbarer Vergleich, kein universelles Preisversprechen. Er hält die Token-Mischung konstant und verwendet die angegebenen öffentlichen Preise. Preise geprüft am 17. November 2026.
 
-## Der Vergleich mit 5 Millionen Tokens
+## Was kosten 5M Tokens bei den einzelnen APIs?
+
+Bei 4M Eingabe- und 1M Ausgabe-Tokens kosten GPT-6 Astra und Claude Fable 5.1 über die offiziellen APIs USD 90 und über OpenRouter USD 94.95. Capriole Premium kostet USD 9 für jedes Modell in der Tabelle, das Capriole anbietet.
 
 Die Tabelle hält abgerechnete Token-Zahlen konstant, nicht Quelltext oder semantische Arbeitslast. Tokenizer unterscheiden sich zwischen Modellfamilien. Das Szenario verwendet 100 Anfragen mit je 40 000 ungecachten Eingabe-Tokens und 10 000 Ausgabe-Tokens und hält jeden Prompt unter den Preisschwellen von OpenAI und Google für lange Prompts. Die Artikel zu den API-Preisen von [Claude](/de/articles/claude-api-pricing), [OpenAI](/de/articles/openai-api-pricing) und [Gemini](/de/articles/gemini-api-pricing) rechnen dagegen mit drei Eingabe-Tokens pro Ausgabe-Token, daher liegen ihre Summen für 5M Tokens höher, etwa bei USD 100 für GPT-6 Astra. Das Szenario schließt Cache-Reads und Writes, Tools, kostenlose Stufen, alternative Dienststufen, Batch-Verarbeitung, Steuern und kontospezifische Rabatte aus.
 
@@ -46,7 +48,7 @@ GPT-6 Astra, Claude Fable 5.1 und Claude Fable 5 kosten daher:
 4 × USD 10 + 1 × USD 50 = USD 90
 ```
 
-OpenRouter gibt an, den Inferenzpreis des gewählten Anbieters ohne Aufschlag durchzureichen. Sein Pay-as-you-go-Plan listet eine Gebühr von 5.5%, mit einem Minimum von USD 0.80, wenn Sie Credits per Karte kaufen. Zum angezeigten Inferenzsatz ist die Bargeldberechnung:
+OpenRouter gibt an, den Inferenzpreis des gewählten Anbieters ohne Aufschlag durchzureichen. Sein Standard-Plan listet eine Gebühr von 5.5%, mit einem Minimum von USD 0.80, wenn Sie Credits per Karte kaufen. Zum angezeigten Inferenzsatz ist die Bargeldberechnung:
 
 ```text
 openrouter_cash = inference_cost + max(USD 0.80, inference_cost × 0.055)
@@ -75,7 +77,7 @@ Direkte APIs und OpenRouter lassen Sie für Inferenz zahlen, ohne eine Capriole-
 
 Der USD 9 Premium-Plan umfasst:
 
-- Unbegrenzten Browser Chat über die unterstützte Premium-Modellgruppe
+- Unbegrenzten Browser Chat über die unterstützte Premium-Modellgruppe, mit einem [Fair-Use-Limit](/de/guides/plans-and-limits#was-unbegrenzt-bedeutet) von 200 Nachrichten pro Tag gegen skriptgesteuerten Missbrauch
 - Die ersten 5 Millionen monatlichen berechneten API-Tokens
 - Zugang zur öffentlichen API und zu gepflegten Coding-Agent-Integrationen
 - Einen Browser-Arbeitsbereich mit Modellwechsel, Dateien, Web Search und Chat-Speichersteuerungen

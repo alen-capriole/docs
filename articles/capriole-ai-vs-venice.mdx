@@ -19,7 +19,7 @@ We checked Venice's pricing page, API pricing, and privacy documentation for thi
 | Frontier-model chat | Unlimited on GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5, Gemini 4 Carbon, and every other supported model | Unlimited text prompts on Pro models; frontier text models use credits |
 | Monthly credits or API tokens | Premium: 5M API tokens; Team: 50M | Pro: 100 credits (USD 1); Pro Plus: 7,500 (USD 75); Max: 22,500 (USD 225) |
 | Claude Fable 5.1 API price | USD 8 per 5M tokens of any supported model | USD 10 input and USD 50 output per 1M tokens |
-| API protocols | OpenAI Chat Completions, OpenAI Responses, and Anthropic Messages | OpenAI-compatible API, with Responses in beta |
+| API protocols | OpenAI Chat Completions, OpenAI Responses, and Anthropic Messages | OpenAI-compatible API, including a Responses endpoint |
 | Coding agents | 10 documented setups; Claude Code connects directly through Anthropic Messages | Guides for Claude Code, Codex CLI, Cline, Kilo Code, OpenCode, and others; Claude Code needs the claude-code-router add-on |
 | Privacy model | Synced, browser-only, or no stored chat history; content not used to train AI models | Four privacy modes; Claude, GPT, and Gemini models are Anonymized, so the provider still sees the prompt |
 | Media | Free image generation with GPT Image 2.6 and Nano Banana 2.1 | Images on every plan; video and music with credits |
@@ -52,7 +52,7 @@ The table prices 5M tokens with three input tokens for every output token and no
 
 Capriole Premium includes 5M API tokens a month, and more cost USD 8 per 5M tokens. The [Claude API pricing](/articles/claude-api-pricing), [OpenAI API pricing](/articles/openai-api-pricing), and [Gemini API pricing](/articles/gemini-api-pricing) pages compare the same rates with Anthropic, OpenAI, and Google.
 
-One Capriole key works with OpenAI Chat Completions, OpenAI Responses, and Anthropic Messages, and powers [10 documented coding agents](/articles/coding-agent-compatibility). Venice documents an OpenAI-compatible API at `https://api.venice.ai/api/v1`, with a Responses endpoint in beta. Its Claude Code guide adds claude-code-router, an open-source local tool that converts Anthropic Messages requests into Venice's OpenAI-compatible format.
+One Capriole key works with OpenAI Chat Completions, OpenAI Responses, and Anthropic Messages, and powers [10 documented coding agents](/articles/coding-agent-compatibility). Venice documents an OpenAI-compatible API at `https://api.venice.ai/api/v1`, with a Responses endpoint. Its Claude Code guide adds claude-code-router, an open-source local tool that converts Anthropic Messages requests into Venice's OpenAI-compatible format.
 
 ## Privacy
 
@@ -81,7 +81,7 @@ Choose Venice if you want:
 
 - Uncensored open-source models
 - Zero-data-retention, TEE, or end-to-end encrypted inference on supported models
-- Video and music generation, or [buying credits with crypto](https://docs.venice.ai/overview/pricing)
+- Video and music generation, or [buying credits with crypto](https://docs.venice.ai/pricing)
 
 ## Frequently asked questions
 
@@ -107,8 +107,10 @@ Yes, with an add-on. Venice's guide installs claude-code-router to convert Claud
 
 ## Official sources
 
+We checked these pages on November 17, 2026.
+
 - Venice: [pricing](https://venice.ai/pricing)
-- Venice: [API pricing](https://docs.venice.ai/overview/pricing)
+- Venice: [API pricing](https://docs.venice.ai/pricing)
 - Venice: [privacy architecture](https://docs.venice.ai/overview/privacy)
 - Venice: [API documentation index](https://docs.venice.ai/llms.txt)
 - Venice: [Claude Code guide](https://docs.venice.ai/guides/integrations/claude-code)

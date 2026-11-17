@@ -1,7 +1,7 @@
 ---
 title: "Precios de OpenRouter vs APIs directas: prueba de costo de 5M tokens"
 sidebarTitle: "Comparación de costos de API de IA"
-description: "OpenRouter cobra el precio de lista de cada proveedor más una tarifa del 5.5% al comprar créditos Standard con tarjeta. Compara el total de 5M tokens en APIs directas, OpenRouter y el plan de USD 9 de Capriole AI."
+description: "GPT-6 Astra con 4M de entrada + 1M de salida: USD 90 directo, USD 94.95 en OpenRouter (5.5% con tarjeta), frente al plan de USD 9 de Capriole AI."
 ---
 
 OpenRouter cobra el precio de lista de cada proveedor y añade una tarifa del 5.5% cuando compras créditos Standard con tarjeta. Para la carga de trabajo fija de 5 millones de tokens de abajo, **Capriole cuesta USD 9** para cada modelo de la tabla que ofrece. Los mismos modelos cuestan **USD 6.75 a USD 90** a precios de lista Standard de pago, mientras que el total en efectivo calculado de OpenRouter es **USD 7.55 a USD 94.95** después de su tarifa publicada de compra de créditos. Premium, el plan de USD 9, también incluye chat web ilimitado con los cuatro modelos insignia: GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5 y Gemini 4 Carbon.
@@ -10,7 +10,9 @@ En esta comparación, Premium cuesta menos en todos los modelos que ofrece Capri
 
 Esta es una comparación reproducible, no una promesa universal de precio. Mantiene constante la mezcla de tokens y usa los precios públicos citados. Tarifas verificadas el 17 de noviembre de 2026.
 
-## La comparación de 5 millones de tokens
+## ¿Cuánto cuestan 5M de tokens en cada API?
+
+Con 4M de tokens de entrada y 1M de salida, GPT-6 Astra y Claude Fable 5.1 cuestan USD 90 a través de las APIs oficiales y USD 94.95 a través de OpenRouter. Capriole Premium cuesta USD 9 para cada modelo de la tabla que ofrece Capriole.
 
 La tabla mantiene constantes los recuentos de tokens facturados, no el texto fuente ni la carga de trabajo semántica. Los tokenizers difieren entre familias de modelo. El escenario usa 100 solicitudes con 40 000 tokens de entrada no cacheada y 10 000 tokens de salida cada una, manteniendo cada prompt por debajo de los umbrales de precio para prompts largos de OpenAI y de Google. Los artículos de precios de la API de [Claude](/es/articles/claude-api-pricing), [OpenAI](/es/articles/openai-api-pricing) y [Gemini](/es/articles/gemini-api-pricing) usan en cambio tres tokens de entrada por cada token de salida, por lo que sus totales para 5M de tokens son más altos; por ejemplo, USD 100 para GPT-6 Astra. El escenario excluye lecturas y escrituras de caché, herramientas, niveles gratuitos, niveles de servicio alternativos, procesamiento por lotes, impuestos y descuentos específicos de cada cuenta.
 
@@ -46,7 +48,7 @@ Por tanto, GPT-6 Astra, Claude Fable 5.1 y Claude Fable 5 cuestan:
 4 × USD 10 + 1 × USD 50 = USD 90
 ```
 
-OpenRouter afirma que transfiere el precio de inferencia del proveedor seleccionado sin un recargo. Su plan de pago por uso lista una tarifa de 5.5%, con un mínimo de USD 0.80, al comprar créditos con tarjeta. A la tarifa de inferencia mostrada, el cálculo en efectivo es:
+OpenRouter afirma que transfiere el precio de inferencia del proveedor seleccionado sin un recargo. Su plan Standard lista una tarifa de 5.5%, con un mínimo de USD 0.80, al comprar créditos con tarjeta. A la tarifa de inferencia mostrada, el cálculo en efectivo es:
 
 ```text
 openrouter_cash = inference_cost + max(USD 0.80, inference_cost × 0.055)
@@ -75,7 +77,7 @@ Las APIs directas y OpenRouter te dejan pagar por inferencia sin una membresía 
 
 El plan Premium de USD 9 incluye:
 
-- Chat ilimitado del navegador en el conjunto de modelos Premium compatible
+- Chat ilimitado del navegador en el conjunto de modelos Premium compatible, con un [límite de uso justo](/es/guides/plans-and-limits#qué-significa-ilimitado) de 200 mensajes al día contra el abuso mediante scripts
 - Los primeros 5 millones de tokens cobrados de API al mes
 - Acceso a la API pública y a las integraciones mantenidas de agentes de programación
 - Un espacio de trabajo de navegador con cambio de modelo, archivos, búsqueda web y controles de almacenamiento del chat

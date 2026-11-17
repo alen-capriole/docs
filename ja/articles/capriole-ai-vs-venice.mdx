@@ -19,7 +19,7 @@ description: "Capriole AI は月額 USD 9 で GPT-6 Astra、Claude Fable 5.1、O
 | 最先端モデルとのチャット | GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5、Gemini 4 Carbon をはじめ、すべての対応モデルで無制限 | Pro モデルのテキスト プロンプトは無制限。最先端のテキスト モデルはクレジットを使用 |
 | 毎月のクレジットまたは API トークン | Premium: 500 万 API トークン、Team: 5,000 万 | Pro: 100 クレジット（USD 1）、Pro Plus: 7,500（USD 75）、Max: 22,500（USD 225） |
 | Claude Fable 5.1 の API 料金 | どの対応モデルでも 500 万トークンあたり USD 8 | 100 万トークンあたり入力 USD 10、出力 USD 50 |
-| API プロトコル | OpenAI Chat Completions、OpenAI Responses、Anthropic Messages | OpenAI 互換 API（Responses はベータ版） |
+| API プロトコル | OpenAI Chat Completions、OpenAI Responses、Anthropic Messages | OpenAI 互換 API（Responses エンドポイントを含む） |
 | コーディング エージェント | 10 種類のセットアップをドキュメント化。Claude Code は Anthropic Messages で直接接続 | Claude Code、Codex CLI、Cline、Kilo Code、OpenCode などのガイドあり。Claude Code には claude-code-router アドオンが必要 |
 | プライバシー モデル | チャット履歴は同期、ブラウザのみ、保存なしから選択。コンテンツは AI モデルの学習に使われない | 4 つのプライバシー モード。Claude、GPT、Gemini のモデルは Anonymized のため、プロバイダーにはプロンプトが見える |
 | メディア | GPT Image 2.6 と Nano Banana 2.1 による無料の画像生成 | 画像はすべてのプランで利用可能。動画と音楽はクレジットで利用 |
@@ -52,7 +52,7 @@ Venice の API は、公開されているモデル料金での従量課金で�
 
 Capriole Premium には毎月 500 万 API トークンが含まれ、追加分は 500 万トークンあたり USD 8 です。[Claude API の料金](/ja/articles/claude-api-pricing)、[OpenAI API の料金](/ja/articles/openai-api-pricing)、[Gemini API の料金](/ja/articles/gemini-api-pricing)のページでは、同じ料金を Anthropic、OpenAI、Google の料金と比べています。
 
-Capriole のキー 1 つで OpenAI Chat Completions、OpenAI Responses、Anthropic Messages を使え、[ドキュメントのある 10 種類のコーディング エージェント](/ja/articles/coding-agent-compatibility)も動かせます。Venice は `https://api.venice.ai/api/v1` の OpenAI 互換 API をドキュメント化しており、Responses エンドポイントはベータ版です。Venice の Claude Code ガイドでは、Anthropic Messages のリクエストを Venice の OpenAI 互換形式に変換するオープンソースのローカル ツール、claude-code-router を追加します。
+Capriole のキー 1 つで OpenAI Chat Completions、OpenAI Responses、Anthropic Messages を使え、[ドキュメントのある 10 種類のコーディング エージェント](/ja/articles/coding-agent-compatibility)も動かせます。Venice は `https://api.venice.ai/api/v1` の OpenAI 互換 API をドキュメント化しており、Responses エンドポイントもあります。Venice の Claude Code ガイドでは、Anthropic Messages のリクエストを Venice の OpenAI 互換形式に変換するオープンソースのローカル ツール、claude-code-router を追加します。
 
 ## プライバシー
 
@@ -81,7 +81,7 @@ Anthropic、OpenAI、Google の最先端モデルでは、どちらの製品も�
 
 - 検閲のないオープンソース モデルを使いたい
 - 対応モデルで、ゼロデータ保持、TEE、またはエンドツーエンド暗号化の推論を使いたい
-- 動画や音楽を生成したい、または[暗号資産でクレジットを購入したい](https://docs.venice.ai/overview/pricing)
+- 動画や音楽を生成したい、または[暗号資産でクレジットを購入したい](https://docs.venice.ai/pricing)
 
 ## よくある質問
 
@@ -107,8 +107,10 @@ Private、TEE、E2EE モードのオープンソース モデルなら Venice �
 
 ## 公式ソース
 
+これらのページは 2026 年 11 月 17 日に確認しました。
+
 - Venice: [pricing](https://venice.ai/pricing)
-- Venice: [API pricing](https://docs.venice.ai/overview/pricing)
+- Venice: [API pricing](https://docs.venice.ai/pricing)
 - Venice: [privacy architecture](https://docs.venice.ai/overview/privacy)
 - Venice: [API documentation index](https://docs.venice.ai/llms.txt)
 - Venice: [Claude Code guide](https://docs.venice.ai/guides/integrations/claude-code)
