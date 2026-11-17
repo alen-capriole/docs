@@ -47,7 +47,7 @@ Capriole 的计费 token 公式没有长提示词档位，因此一条 300K toke
 
 ## 缓存和批处理如何影响对比
 
-- **缓存输入**：OpenAI 按输入费率的 10% 收费，GPT-6 Astra 为每 100 万缓存 token USD 1。Capriole 同样按 10% 计算缓存输入，折合每 100 万缓存 token USD 0.16。[计费 token 说明](/zh/articles/charged-tokens)给出了计算公式。
+- **缓存输入**：OpenAI 对 GPT-6 Astra 收取每 100 万缓存 token USD 1，即其输入费率的 10%；对 GPT-6.1 Sol 收取 USD 0.10，即其输入费率的 5%。Capriole 对所有模型都按 10% 计算缓存输入，折合每 100 万缓存 token USD 0.16。[计费 token 说明](/zh/articles/charged-tokens)给出了计算公式。
 - **缓存写入**：OpenAI 对 30 分钟缓存写入收取输入价格的 1.25 倍，对 12 小时缓存写入收取 2.5 倍。Capriole 对所有未缓存的输入 token（包括缓存写入）都按正常费率计算。
 - **Batch 和 Flex**：按半价计算，GPT-6 Astra 的 500 万 token 示例要 USD 50。Capriole 没有批处理端点，但对这项工作负载，它的 USD 8 仍低 84%。
 

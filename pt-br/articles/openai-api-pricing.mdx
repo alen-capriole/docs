@@ -47,7 +47,7 @@ A fórmula de tokens cobrados da Capriole não tem faixa para prompts longos, en
 
 ## Como o cache e o processamento em lote mudam a comparação
 
-- **Entrada em cache**: a OpenAI cobra 10% da tarifa de entrada, USD 1 por 1M de tokens em cache no GPT-6 Astra. A Capriole também conta a entrada em cache a 10%, o que dá USD 0.16 por 1M de tokens em cache. [Tokens cobrados explicados](/pt-br/articles/charged-tokens) mostra a fórmula.
+- **Entrada em cache**: a OpenAI cobra USD 1 por 1M de tokens em cache no GPT-6 Astra, 10% da sua tarifa de entrada, e USD 0.10 no GPT-6.1 Sol, 5% da tarifa de entrada dele. A Capriole conta a entrada em cache a 10% em todos os modelos, o que dá USD 0.16 por 1M de tokens em cache. [Tokens cobrados explicados](/pt-br/articles/charged-tokens) mostra a fórmula.
 - **Gravações de cache**: a OpenAI cobra 1.25 vez o preço de entrada por uma gravação de cache de 30 minutos e 2.5 vezes por uma de 12 horas. A Capriole conta cada token de entrada sem cache, incluindo as gravações de cache, na taxa normal.
 - **Batch e Flex**: pela metade do preço, o exemplo de 5M de tokens no GPT-6 Astra custa USD 50. A Capriole não tem endpoint de lote, e os USD 8 dela ainda custam 84% menos nessa carga de trabalho.
 

@@ -47,7 +47,7 @@ Capriole's charged-token formula has no long-prompt tier, so a 300K-token prompt
 
 ## How caching and batch change the comparison
 
-- **Cached input**: OpenAI charges 10% of the input rate, USD 1 per 1M cached tokens on GPT-6 Astra. Capriole also counts cached input at 10%, which works out to USD 0.16 per 1M cached tokens. [Charged tokens explained](/articles/charged-tokens) shows the formula.
+- **Cached input**: OpenAI charges USD 1 per 1M cached tokens on GPT-6 Astra, 10% of its input rate, and USD 0.10 on GPT-6.1 Sol, 5% of its input rate. Capriole counts cached input at 10% on every model, which works out to USD 0.16 per 1M cached tokens. [Charged tokens explained](/articles/charged-tokens) shows the formula.
 - **Cache writes**: OpenAI charges 1.25 times input for a 30-minute cache write and 2.5 times input for a 12-hour cache write. Capriole counts every uncached input token, including cache writes, at the normal rate.
 - **Batch and Flex**: At half price, the 5M-token GPT-6 Astra example costs USD 50. Capriole has no batch endpoint, and its USD 8 is still 84% less for that workload.
 

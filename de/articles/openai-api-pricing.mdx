@@ -47,7 +47,7 @@ Die Formel für abgerechnete Tokens von Capriole kennt keine Stufe für lange Pr
 
 ## Wie Caching und Batch den Vergleich verändern
 
-- **Gecachte Eingabe**: OpenAI berechnet 10% des Eingabepreises, bei GPT-6 Astra USD 1 pro 1M gecachte Tokens. Capriole zählt gecachte Eingabe ebenfalls zu 10%, das entspricht USD 0.16 pro 1M gecachte Tokens. [Abgerechnete Tokens erklärt](/de/articles/charged-tokens) zeigt die Formel.
+- **Gecachte Eingabe**: OpenAI berechnet bei GPT-6 Astra USD 1 pro 1M gecachte Tokens, also 10% des Eingabepreises, und bei GPT-6.1 Sol USD 0.10, also 5% des Eingabepreises. Capriole zählt gecachte Eingabe bei allen Modellen zu 10%, das entspricht USD 0.16 pro 1M gecachte Tokens. [Abgerechnete Tokens erklärt](/de/articles/charged-tokens) zeigt die Formel.
 - **Cache-Writes**: OpenAI berechnet für einen 30-Minuten-Cache-Write das 1,25-Fache des Eingabepreises und für einen 12-Stunden-Cache-Write das 2,5-Fache. Capriole zählt jedes ungecachte Eingabe-Token, auch Cache-Writes, zum normalen Satz.
 - **Batch und Flex**: Zum halben Preis kostet das 5M-Token-Beispiel mit GPT-6 Astra USD 50. Capriole hat keinen Batch-Endpunkt, und seine USD 8 sind für diese Arbeitslast trotzdem 84% günstiger.
 

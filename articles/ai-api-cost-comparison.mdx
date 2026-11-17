@@ -4,15 +4,15 @@ sidebarTitle: "AI API Cost Comparison"
 description: "OpenRouter charges provider list prices plus a 5.5% fee when you buy Standard credits by card. Compare 5M-token totals for direct APIs, OpenRouter, and Capriole AI's USD 9 plan."
 ---
 
-OpenRouter bills each provider's list price and adds a 5.5% fee when you buy Standard credits by card. For the fixed 5 million-token workload below, **Capriole costs USD 9** for every model in the table that it still offers, including the four flagships GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5, and Gemini 4 Carbon. The same models cost **USD 6.75 to USD 90** at paid Standard list prices, while the calculated OpenRouter cash total is **USD 7.55 to USD 94.95** after its published credit-purchase fee.
+OpenRouter bills each provider's list price and adds a 5.5% fee when you buy Standard credits by card. For the fixed 5 million-token workload below, **Capriole costs USD 9** for every model in the table that it offers. The same models cost **USD 6.75 to USD 90** at paid Standard list prices, while the calculated OpenRouter cash total is **USD 7.55 to USD 94.95** after its published credit-purchase fee. Premium, the USD 9 plan, also includes unlimited web chat with the four flagships: GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5, and Gemini 4 Carbon.
 
-In this comparison, Premium costs less for each of them except Gemini 3.8 Flash, where the direct API and OpenRouter both cost less than the USD 9 subscription. Gemini 3.1 Pro Preview stays in the table for reference; Capriole AI no longer offers it.
+In this comparison, Premium costs less for every offered model except Gemini 3.8 Flash, where the direct API and OpenRouter both cost less than the USD 9 subscription. Gemini 3.1 Pro Preview stays in the table for reference; Capriole AI no longer offers it.
 
 This is a reproducible comparison, not a universal price promise. It holds the token mix constant and uses the cited public prices. Rates checked November 17, 2026.
 
 ## The 5 million token comparison
 
-The table holds billed token counts constant, not source text or semantic workload. Tokenizers differ between model families. The scenario uses 100 requests with 40,000 uncached input tokens and 10,000 output tokens each, keeping every prompt below OpenAI's and Google's long-prompt price thresholds. It excludes cache reads and writes, tools, free tiers, alternative service tiers, batch processing, taxes, and account-specific discounts.
+The table holds billed token counts constant, not source text or semantic workload. Tokenizers differ between model families. The scenario uses 100 requests with 40,000 uncached input tokens and 10,000 output tokens each, keeping every prompt below OpenAI's and Google's long-prompt price thresholds. The [Claude](/articles/claude-api-pricing), [OpenAI](/articles/openai-api-pricing), and [Gemini](/articles/gemini-api-pricing) API pricing articles use three input tokens per output token instead, so their 5M-token totals are higher, such as USD 100 for GPT-6 Astra. The scenario excludes cache reads and writes, tools, free tiers, alternative service tiers, batch processing, taxes, and account-specific discounts.
 
 | Exact model | New personal Capriole Premium | Direct paid Standard | OpenRouter at the same displayed inference rate | OpenRouter credits with card fee | Published Standard input / output price per 1M tokens |
 |---|---:|---:|---:|---:|---:|
@@ -40,7 +40,7 @@ Direct providers publish separate prices for input and output. For this workload
 direct_cost = 4 × input_price_per_1M + 1 × output_price_per_1M
 ```
 
-GPT-6 Astra and Claude Fable 5.1 therefore cost:
+GPT-6 Astra, Claude Fable 5.1, and Claude Fable 5 therefore cost:
 
 ```text
 4 × USD 10 + 1 × USD 50 = USD 90
@@ -53,7 +53,7 @@ openrouter_cash = inference_cost + max(USD 0.80, inference_cost × 0.055)
 USD 90 + max(USD 0.80, USD 4.95) = USD 94.95
 ```
 
-The same arithmetic produces USD 37.98 for Claude Opus 5.5, USD 18.99 for Gemini 4 Carbon, Gemini 4 Argon, and GPT-6.1 Sol, and USD 21.10 for Gemini 3.1 Pro Preview. Gemini 3.8 Flash costs USD 6.75 at Google’s introductory Standard rates through December 31, 2026 (4 × USD 0.75 + 1 × USD 3.75). OpenRouter’s USD 0.80 minimum card fee brings the total to USD 7.55.
+The same arithmetic produces USD 37.98 for Claude Opus 5.5, USD 18.99 for Gemini 4 Carbon, Gemini 4 Argon, and GPT-6.1 Sol, and USD 21.10 for Gemini 3.1 Pro Preview. Gemini 3.8 Flash costs USD 6.75 at Google's introductory Standard rates through December 31, 2026 (4 × USD 0.75 + 1 × USD 3.75). OpenRouter's USD 0.80 minimum card fee brings the total to USD 7.55.
 
 OpenRouter can route the same model to different providers or service tiers, and fallback can change the endpoint that serves a request. The table therefore compares the displayed matching inference rate; it does not guarantee the bill from every default routing configuration.
 
@@ -71,7 +71,7 @@ A charged token is an account balance unit. It is not the same thing as a provid
 
 ## What USD 9 includes beyond the API balance
 
-Direct APIs and OpenRouter let you pay for inference without a Capriole membership. This table covers a new personal Premium subscription. Capriole API access otherwise requires an eligible active personal or Team entitlement; Team pricing is outside this comparison.
+Direct APIs and OpenRouter let you pay for inference without a Capriole membership. This table covers a new personal Premium subscription. Capriole API access otherwise requires an active personal Premium or Team plan; Team pricing is outside this comparison.
 
 The USD 9 Premium plan includes:
 
@@ -82,9 +82,9 @@ The USD 9 Premium plan includes:
 
 Before subscribing, signed-out visitors and Free users can try GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5, and Gemini 4 Carbon in limited browser chat. That free flagship trial is separate from the API cost table above.
 
-For the target user who wants frontier-model chat and programmatic access together, this is the practical advantage: one low monthly price covers the daily browser workspace and a useful API allowance. The same account also works with [10 documented coding-agent integrations](/articles/coding-agent-compatibility).
+If you want frontier-model chat and API access together, USD 9 covers the browser workspace and 5M API tokens a month. The same account also works with [10 documented coding-agent integrations](/articles/coding-agent-compatibility).
 
-The first 5 million tokens should not be described as a standalone API product. The payment buys the full Premium bundle. An active personal Premium member who needs another 5 million charged tokens can purchase one USD 8 top-up pack.
+The first 5 million tokens are not sold as a standalone API product; the payment buys the full Premium bundle. An active personal Premium member who needs another 5 million charged tokens can purchase one USD 8 top-up pack.
 
 ## When the table will not predict your bill
 

@@ -4,15 +4,15 @@ sidebarTitle: "KI-API-Kostenvergleich"
 description: "OpenRouter berechnet den Listenpreis des jeweiligen Anbieters plus 5.5% Gebühr beim Kauf von Standard-Credits per Karte. Vergleichen Sie die 5M-Token-Summen für direkte APIs, OpenRouter und den USD 9-Plan von Capriole AI."
 ---
 
-OpenRouter berechnet den Listenpreis des jeweiligen Anbieters und erhebt beim Kauf von Standard-Credits per Karte eine Gebühr von 5.5%. Für die feste Arbeitslast von 5 Millionen Tokens unten **kostet Capriole USD 9** für jedes Modell in der Tabelle, das es noch anbietet, darunter die vier Flaggschiff-Modelle GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5 und Gemini 4 Carbon. Dieselben Modelle kosten **USD 6.75 bis USD 90** zu bezahlten Standard-Listenpreisen, während die berechnete OpenRouter-Barsumme nach der veröffentlichten Kreditkaufgebühr **USD 7.55 bis USD 94.95** beträgt.
+OpenRouter berechnet den Listenpreis des jeweiligen Anbieters und erhebt beim Kauf von Standard-Credits per Karte eine Gebühr von 5.5%. Für die feste Arbeitslast von 5 Millionen Tokens unten **kostet Capriole USD 9** für jedes Modell in der Tabelle, das es anbietet. Dieselben Modelle kosten **USD 6.75 bis USD 90** zu bezahlten Standard-Listenpreisen, während die berechnete OpenRouter-Barsumme nach der veröffentlichten Kreditkaufgebühr **USD 7.55 bis USD 94.95** beträgt. Premium, der Plan für USD 9, enthält außerdem unbegrenzten Web-Chat mit den vier Flaggschiff-Modellen: GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5 und Gemini 4 Carbon.
 
-In diesem Vergleich kostet Premium für jedes dieser Modelle außer Gemini 3.8 Flash weniger; dort sind die direkte API und OpenRouter günstiger als das Abo für USD 9. Gemini 3.1 Pro Preview bleibt zur Orientierung in der Tabelle; Capriole AI bietet es nicht mehr an.
+In diesem Vergleich kostet Premium bei jedem angebotenen Modell außer Gemini 3.8 Flash weniger; dort sind die direkte API und OpenRouter günstiger als das Abo für USD 9. Gemini 3.1 Pro Preview bleibt zur Orientierung in der Tabelle; Capriole AI bietet es nicht mehr an.
 
 Dies ist ein reproduzierbarer Vergleich, kein universelles Preisversprechen. Er hält die Token-Mischung konstant und verwendet die angegebenen öffentlichen Preise. Preise geprüft am 17. November 2026.
 
 ## Der Vergleich mit 5 Millionen Tokens
 
-Die Tabelle hält abgerechnete Token-Zahlen konstant, nicht Quelltext oder semantische Arbeitslast. Tokenizer unterscheiden sich zwischen Modellfamilien. Das Szenario verwendet 100 Anfragen mit je 40 000 ungecachten Eingabe-Tokens und 10 000 Ausgabe-Tokens und hält jeden Prompt unter den Preisschwellen von OpenAI und Google für lange Prompts. Es schließt Cache-Reads und Writes, Tools, kostenlose Stufen, alternative Dienststufen, Batch-Verarbeitung, Steuern und kontospezifische Rabatte aus.
+Die Tabelle hält abgerechnete Token-Zahlen konstant, nicht Quelltext oder semantische Arbeitslast. Tokenizer unterscheiden sich zwischen Modellfamilien. Das Szenario verwendet 100 Anfragen mit je 40 000 ungecachten Eingabe-Tokens und 10 000 Ausgabe-Tokens und hält jeden Prompt unter den Preisschwellen von OpenAI und Google für lange Prompts. Die Artikel zu den API-Preisen von [Claude](/de/articles/claude-api-pricing), [OpenAI](/de/articles/openai-api-pricing) und [Gemini](/de/articles/gemini-api-pricing) rechnen dagegen mit drei Eingabe-Tokens pro Ausgabe-Token, daher liegen ihre Summen für 5M Tokens höher, etwa bei USD 100 für GPT-6 Astra. Das Szenario schließt Cache-Reads und Writes, Tools, kostenlose Stufen, alternative Dienststufen, Batch-Verarbeitung, Steuern und kontospezifische Rabatte aus.
 
 | Genaues Modell | Neues persönliches Capriole Premium | Direkter bezahlter Standard | OpenRouter zum selben angezeigten Inferenzsatz | OpenRouter-Credits mit Kartengebühr | Veröffentlichter Standard Input- / Output-Preis pro 1M Tokens |
 |---|---:|---:|---:|---:|---:|
@@ -40,7 +40,7 @@ Direkte Anbieter veröffentlichen getrennte Preise für Eingabe und Ausgabe. Fü
 direct_cost = 4 × input_price_per_1M + 1 × output_price_per_1M
 ```
 
-GPT-6 Astra und Claude Fable 5.1 kosten daher:
+GPT-6 Astra, Claude Fable 5.1 und Claude Fable 5 kosten daher:
 
 ```text
 4 × USD 10 + 1 × USD 50 = USD 90
@@ -71,7 +71,7 @@ Ein abgerechnetes Token ist eine Kontoguthabeneinheit. Es ist nicht dasselbe wie
 
 ## Was USD 9 über das API-Guthaben hinaus umfasst
 
-Direkte APIs und OpenRouter lassen Sie für Inferenz zahlen, ohne eine Capriole-Mitgliedschaft. Diese Tabelle deckt ein neues persönliches Premium-Abonnement ab. Capriole API-Zugang erfordert sonst eine berechtigte aktive persönliche oder Team-Berechtigung; Team-Preise liegen außerhalb dieses Vergleichs.
+Direkte APIs und OpenRouter lassen Sie für Inferenz zahlen, ohne eine Capriole-Mitgliedschaft. Diese Tabelle deckt ein neues persönliches Premium-Abonnement ab. Ansonsten setzt der API-Zugang bei Capriole einen aktiven persönlichen Premium- oder Team-Plan voraus; Team-Preise liegen außerhalb dieses Vergleichs.
 
 Der USD 9 Premium-Plan umfasst:
 
@@ -80,11 +80,11 @@ Der USD 9 Premium-Plan umfasst:
 - Zugang zur öffentlichen API und zu gepflegten Coding-Agent-Integrationen
 - Einen Browser-Arbeitsbereich mit Modellwechsel, Dateien, Web Search und Chat-Speichersteuerungen
 
-Vor dem Abonnieren können abgemeldete Besucher und Free-Nutzer GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5 und Gemini 4 Carbon im begrenzten Browser Chat ausprobieren. Dieser kostenlose Flaggschiff-Versuch ist von der API-Kostentabelle oben getrennt.
+Vor dem Abonnieren können abgemeldete Besucher und Free-Nutzer GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5 und Gemini 4 Carbon im begrenzten Browser Chat ausprobieren. Dieser kostenlose Test der Flaggschiff-Modelle ist unabhängig von der API-Kostentabelle oben.
 
-Für den Zielnutzer, der Frontier-Modell-Chat und programmatischen Zugang zusammen will, ist das der praktische Vorteil: ein niedriger Monatspreis deckt den täglichen Browser-Arbeitsbereich und ein nützliches API-Kontingent. Dasselbe Konto funktioniert auch mit [10 dokumentierten Coding-Agent-Integrationen](/de/articles/coding-agent-compatibility).
+Wenn Sie sowohl Chat mit Frontier-Modellen als auch API-Zugang möchten, deckt das Abo für USD 9 den Browser-Arbeitsbereich und 5M API-Tokens pro Monat ab. Dasselbe Konto funktioniert auch mit [10 dokumentierten Coding-Agent-Integrationen](/de/articles/coding-agent-compatibility).
 
-Die ersten 5 Millionen Tokens sollten nicht als eigenständiges API-Produkt beschrieben werden. Die Zahlung kauft das vollständige Premium-Bündel. Ein aktives persönliches Premium-Mitglied, das weitere 5 Millionen abgerechnete Tokens braucht, kann ein Aufstockungspaket für USD 8 kaufen.
+Die ersten 5 Millionen Tokens werden nicht als eigenständiges API-Produkt verkauft; mit der Zahlung erwerben Sie das vollständige Premium-Bündel. Ein aktives persönliches Premium-Mitglied, das weitere 5 Millionen abgerechnete Tokens braucht, kann ein Aufstockungspaket für USD 8 kaufen.
 
 ## Wann die Tabelle Ihre Rechnung nicht vorhersagt
 
@@ -108,10 +108,10 @@ Sie können [Capriole AI im begrenzten kostenlosen Browser Chat ausprobieren](ht
 
 ## Offizielle Quellen
 
-- OpenAI: [API pricing](https://developers.openai.com/api/docs/pricing)
-- Anthropic: [Claude API pricing](https://platform.claude.com/docs/en/about-claude/pricing)
-- Google: [Gemini Developer API pricing](https://ai.google.dev/gemini-api/docs/pricing)
-- OpenRouter: [pricing](https://openrouter.ai/pricing), [credit purchase fees](https://openrouter.ai/blog/announcements/simplifying-our-platform-fee/) und die Modellseiten für [GPT-6 Astra](https://openrouter.ai/openai/gpt-6-astra), [GPT-6.1 Sol](https://openrouter.ai/openai/gpt-6.1-sol), [Claude Fable 5.1](https://openrouter.ai/anthropic/claude-fable-5.1), [Claude Opus 5.5](https://openrouter.ai/anthropic/claude-opus-5.5), [Gemini 4 Carbon](https://openrouter.ai/google/gemini-4-carbon), [Gemini 4 Argon](https://openrouter.ai/google/gemini-4-argon), [Gemini 3.8 Flash](https://openrouter.ai/google/gemini-3.8-flash), [Claude Fable 5](https://openrouter.ai/anthropic/claude-fable-5/pricing) und [Gemini 3.1 Pro Preview](https://openrouter.ai/google/gemini-3.1-pro-preview/providers)
+- OpenAI: [API-Preise](https://developers.openai.com/api/docs/pricing)
+- Anthropic: [Preise der Claude API](https://platform.claude.com/docs/en/about-claude/pricing)
+- Google: [Preise der Gemini Developer API](https://ai.google.dev/gemini-api/docs/pricing)
+- OpenRouter: [Preise](https://openrouter.ai/pricing), [Gebühren beim Credit-Kauf](https://openrouter.ai/blog/announcements/simplifying-our-platform-fee/) und die Modellseiten für [GPT-6 Astra](https://openrouter.ai/openai/gpt-6-astra), [GPT-6.1 Sol](https://openrouter.ai/openai/gpt-6.1-sol), [Claude Fable 5.1](https://openrouter.ai/anthropic/claude-fable-5.1), [Claude Opus 5.5](https://openrouter.ai/anthropic/claude-opus-5.5), [Gemini 4 Carbon](https://openrouter.ai/google/gemini-4-carbon), [Gemini 4 Argon](https://openrouter.ai/google/gemini-4-argon), [Gemini 3.8 Flash](https://openrouter.ai/google/gemini-3.8-flash), [Claude Fable 5](https://openrouter.ai/anthropic/claude-fable-5/pricing) und [Gemini 3.1 Pro Preview](https://openrouter.ai/google/gemini-3.1-pro-preview/providers)
 - Capriole AI: [öffentliches Produkt und Plan](https://www.capriole.ai/de) und [aktueller öffentlicher Modellkatalog](https://api.caprioletech.com/v1/models)
 
 Capriole-Plan-, Aufstockungs- und berechnete-Token-Fakten auf dieser Seite werden als First-Party-Dokumentation gepflegt. Der Vergleich verwendet nur öffentliche Kundenpreise und Kontingentregeln.

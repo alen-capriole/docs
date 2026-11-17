@@ -50,7 +50,7 @@ Venice 的 API 按其公布的模型费率按量付费。其文档称，没有�
 | Gemini 4 Carbon | USD 2.50 / USD 12.50 | USD 25 | **USD 8** |
 | Gemini 4 Argon | USD 2.50 / USD 12.50 | USD 25 | **USD 8** |
 
-Capriole Premium 每月包含 500 万 API token，额外用量为每 500 万 token USD 8。[Claude API 价格](/zh/articles/claude-api-pricing)和 [OpenAI API 价格](/zh/articles/openai-api-pricing)页面把同样的费率与 Anthropic 和 OpenAI 做了对比。
+Capriole Premium 每月包含 500 万 API token，额外用量为每 500 万 token USD 8。[Claude API 价格](/zh/articles/claude-api-pricing)、[OpenAI API 价格](/zh/articles/openai-api-pricing)和 [Gemini API 价格](/zh/articles/gemini-api-pricing)页面把同样的费率与 Anthropic、OpenAI 和 Google 做了对比。
 
 一个 Capriole key 可用于 OpenAI Chat Completions、OpenAI Responses 和 Anthropic Messages，还能驱动 [10 个有文档说明的编程智能体](/zh/articles/coding-agent-compatibility)。Venice 的文档记载了位于 `https://api.venice.ai/api/v1` 的兼容 OpenAI 的 API，其 Responses 端点处于 beta 阶段。它的 Claude Code 指南额外加入了 claude-code-router，这是一个开源本地工具，会把 Anthropic Messages 请求转换成 Venice 兼容 OpenAI 的格式。
 
@@ -91,7 +91,7 @@ Capriole 不会用你的聊天、文件或 API 内容训练模型；聊天历史
 
 ### Venice 的 API 比官方价格便宜吗
 
-对这些旗舰模型来说并不便宜。Venice 给 Claude Fable 5.1 和 GPT-6 Astra 标的价格是每 100 万 token 输入 USD 10、输出 USD 50，与 Anthropic 和 OpenAI 相同。Capriole 对任意受支持模型收取每 500 万 token USD 8，最多比官方 API 价格低 92%。
+Claude Fable 5.1 和 GPT-6 Astra 并不便宜。Venice 给这两个模型标的价格是每 100 万 token 输入 USD 10、输出 USD 50，与 Anthropic 和 OpenAI 相同。Gemini 4 Carbon 和 Argon 在 Venice 的标价为 USD 2.50 和 USD 12.50，高于 Google 到 11 月 30 日为止的 USD 2 和 USD 10，低于 Google 从 12 月 1 日起的 USD 4 和 USD 20。Capriole 对任意受支持模型收取每 500 万 token USD 8，最多比官方 API 价格低 92%。
 
 ### 哪个更注重隐私
 
