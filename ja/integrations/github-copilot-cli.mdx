@@ -55,11 +55,11 @@ export COPILOT_PROVIDER_TYPE="openai"
 export COPILOT_PROVIDER_BASE_URL="https://api.caprioletech.com/v1"
 export COPILOT_PROVIDER_API_KEY="$CAPRIOLE_AI_API_KEY"
 export COPILOT_PROVIDER_WIRE_API="responses"
-export COPILOT_PROVIDER_MODEL_ID="gpt-6.2-astra"
+export COPILOT_PROVIDER_MODEL_ID="gpt-6-astra"
 export COPILOT_PROVIDER_WIRE_MODEL="openai-latest"
 ```
 
-GPT-6.2 Sol では、`COPILOT_PROVIDER_MODEL_ID="gpt-6.2-sol"` と `COPILOT_PROVIDER_WIRE_MODEL="openai/gpt-6.2-sol"` を設定します。
+GPT-6.2 Sol では、`COPILOT_PROVIDER_MODEL_ID="gpt-6.1-sol"` と `COPILOT_PROVIDER_WIRE_MODEL="openai/gpt-6.2-sol"` を設定します。
 
 ### Claude モデル
 
@@ -120,8 +120,8 @@ copilot -p "Explain this repository." --allow-all-tools
 
 | モデル | `COPILOT_PROVIDER_WIRE_MODEL` | `COPILOT_PROVIDER_MODEL_ID` | プロトコル |
 | --- | --- | --- | --- |
-| OpenAI latest | `openai-latest` | `gpt-6.2-astra` | Responses |
-| GPT-6.2 Sol | `openai/gpt-6.2-sol` | `gpt-6.2-sol` | Responses |
+| OpenAI latest | `openai-latest` | `gpt-6-astra` | Responses |
+| GPT-6.2 Sol | `openai/gpt-6.2-sol` | `gpt-6.1-sol` | Responses |
 | Claude latest | `claude-latest` | `claude-opus-4.6` | Anthropic Messages |
 | Opus 5.5 | `claude-opus-5-5` | `claude-opus-4.6` | Anthropic Messages |
 | Google latest | `google-latest` | `claude-sonnet-4` | Chat Completions |
