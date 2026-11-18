@@ -1,10 +1,10 @@
 ---
 title: "Add a custom provider to OpenCode: Capriole AI setup"
 sidebarTitle: "OpenCode"
-description: "Add Capriole AI to OpenCode 2 or OpenCode 1 as one custom provider. Run GPT-6 Astra, Claude Fable 5.1, Opus 5.5, and Gemini 4 Carbon at up to 92% less than official API prices."
+description: "Add Capriole AI to OpenCode 2 or OpenCode 1 as one custom provider. Run GPT-6.2 Astra, Claude Fable 5.1, Opus 5.5, and Gemini 4 Carbon at up to 92% less than official API prices."
 ---
 
-With one Capriole AI API key, you can run GPT-6 Astra, Claude Fable 5.1, Opus 5.5, and Gemini 4 Carbon in OpenCode at up to 92% less than official API prices.
+With one Capriole AI API key, you can run GPT-6.2 Astra, Claude Fable 5.1, Opus 5.5, and Gemini 4 Carbon in OpenCode at up to 92% less than official API prices.
 
 ## What is OpenCode
 
@@ -82,8 +82,8 @@ Create or update `~/.config/opencode/opencode.json`:
             "reasoningEffort": "medium"
           }
         },
-        "openai/gpt-6.1-sol": {
-          "name": "GPT-6.1 Sol",
+        "openai/gpt-6.2-sol": {
+          "name": "GPT-6.2 Sol",
           "package": "@opencode/ai/providers/openai-compatible/responses",
           "limit": {
             "context": 1050000,
@@ -214,8 +214,8 @@ OpenCode 1 does not read the OpenCode 2 form, but OpenCode 2 reads this one, so 
             "forceReasoning": true
           }
         },
-        "openai/gpt-6.1-sol": {
-          "name": "GPT-6.1 Sol",
+        "openai/gpt-6.2-sol": {
+          "name": "GPT-6.2 Sol",
           "provider": {
             "npm": "@ai-sdk/openai"
           },
@@ -343,7 +343,7 @@ Model references use the form `capriole-ai/<model-id>`.
 | Model | Model ID | Protocol |
 | --- | --- | --- |
 | OpenAI latest | `openai-latest` | Responses |
-| GPT-6.1 Sol | `openai/gpt-6.1-sol` | Responses |
+| GPT-6.2 Sol | `openai/gpt-6.2-sol` | Responses |
 | Claude latest | `claude-latest` | Anthropic Messages |
 | Opus 5.5 | `claude-opus-5-5` | Anthropic Messages |
 | Google latest | `google-latest` | Chat Completions |
@@ -355,7 +355,7 @@ Model references use the form `capriole-ai/<model-id>`.
 | Kimi K3.1 Pro | `moonshot/kimi-k3.1-pro` | Chat Completions |
 | Kimi K3 | `moonshot/kimi-k3` | Chat Completions |
 
-`openai-latest`, `claude-latest`, and `google-latest` always point to our latest flagship in each family, currently GPT-6 Astra, Claude Fable 5.1, and Gemini 4 Carbon.
+`openai-latest`, `claude-latest`, and `google-latest` always point to our latest flagship in each family, currently GPT-6.2 Astra, Claude Fable 5.1, and Gemini 4 Carbon.
 
 ## Troubleshooting
 

@@ -1,10 +1,10 @@
 ---
 title: "OpenClaw にカスタム モデル プロバイダーを追加"
 sidebarTitle: "OpenClaw"
-description: "Capriole AI を OpenClaw のカスタム モデル プロバイダーに追加し、GPT-6 Astra、Claude Fable 5.1、Opus 5.5、Gemini 4 Carbon を公式 API 価格より最大 92% 安く使えます。"
+description: "Capriole AI を OpenClaw のカスタム モデル プロバイダーに追加し、GPT-6.2 Astra、Claude Fable 5.1、Opus 5.5、Gemini 4 Carbon を公式 API 価格より最大 92% 安く使えます。"
 ---
 
-Capriole AI の API キー 1 つで、OpenClaw から GPT-6 Astra、Claude Fable 5.1、Opus 5.5、Gemini 4 Carbon を公式 API 価格より最大 92% 安く使えます。
+Capriole AI の API キー 1 つで、OpenClaw から GPT-6.2 Astra、Claude Fable 5.1、Opus 5.5、Gemini 4 Carbon を公式 API 価格より最大 92% 安く使えます。
 
 ## OpenClaw とは
 
@@ -49,7 +49,7 @@ OpenClaw 2026.4.21 は、下記の設定を使い、「対応モデル」のす�
       },
       "models": {
         "capriole-ai-openai/openai-latest": {},
-        "capriole-ai-openai/openai/gpt-6.1-sol": {},
+        "capriole-ai-openai/openai/gpt-6.2-sol": {},
         "capriole-ai-anthropic/claude-latest": {},
         "capriole-ai-anthropic/claude-opus-5-5": {},
         "capriole-ai-compatible/zai/glm-5.3-flash": {},
@@ -82,8 +82,8 @@ OpenClaw 2026.4.21 は、下記の設定を使い、「対応モデル」のす�
             "api": "openai-responses"
           },
           {
-            "id": "openai/gpt-6.1-sol",
-            "name": "GPT-6.1 Sol",
+            "id": "openai/gpt-6.2-sol",
+            "name": "GPT-6.2 Sol",
             "reasoning": true,
             "input": ["text"],
             "contextWindow": 1050000,
@@ -253,7 +253,7 @@ openclaw agent --local --session-id capriole-test --message "Summarize the files
 | モデル | モデル参照 | プロトコル |
 | --- | --- | --- |
 | OpenAI latest | `capriole-ai-openai/openai-latest` | Responses |
-| GPT-6.1 Sol | `capriole-ai-openai/openai/gpt-6.1-sol` | Responses |
+| GPT-6.2 Sol | `capriole-ai-openai/openai/gpt-6.2-sol` | Responses |
 | Claude latest | `capriole-ai-anthropic/claude-latest` | Anthropic Messages |
 | Opus 5.5 | `capriole-ai-anthropic/claude-opus-5-5` | Anthropic Messages |
 | Google latest | `capriole-ai-compatible/google-latest` | Chat Completions |
@@ -265,7 +265,7 @@ openclaw agent --local --session-id capriole-test --message "Summarize the files
 | Kimi K3.1 Pro | `capriole-ai-compatible/moonshot/kimi-k3.1-pro` | Chat Completions |
 | Kimi K3 | `capriole-ai-compatible/moonshot/kimi-k3` | Chat Completions |
 
-`openai-latest`、`claude-latest`、`google-latest` は、常に各ファミリーの最新の旗艦モデルを指します。現在は GPT-6 Astra、Claude Fable 5.1、Gemini 4 Carbon です。
+`openai-latest`、`claude-latest`、`google-latest` は、常に各ファミリーの最新の旗艦モデルを指します。現在は GPT-6.2 Astra、Claude Fable 5.1、Gemini 4 Carbon です。
 
 ## トラブルシューティング
 

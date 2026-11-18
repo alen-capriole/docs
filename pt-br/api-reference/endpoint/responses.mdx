@@ -8,9 +8,9 @@ Use este endpoint quando seu aplicativo, SDK ou agente esperar o formato de soli
 
 Envie um payload padrão de Responses com `model` e `input`. A Capriole AI resolve os aliases latest para o ID de modelo upstream selecionado antes do despacho, encaminha campos compatíveis como `instructions`, `tools`, `reasoning`, `previous_response_id` e `stream`, e devolve o JSON ou o stream SSE do upstream sem alteração.
 
-`POST /v1/responses` aceita `openai-latest`, `openai/gpt-6-astra`, `openai/gpt-6.1-sol`, `openai/gpt-6-sol`, `openai/gpt-6-luna`, `openai/gpt-5.6-terra`, `openai/gpt-5.6-luna` e `openai/gpt-5.5`. Use `openai-latest` para deixar a Capriole AI escolher o modelo principal de OpenAI Responses que recomendamos.
+`POST /v1/responses` aceita `openai-latest`, `openai/gpt-6.2-astra`, `openai/gpt-6.2-sol`, `openai/gpt-6-astra`, `openai/gpt-6.1-sol`, `openai/gpt-6-sol`, `openai/gpt-6-luna`, `openai/gpt-5.6-terra`, `openai/gpt-5.6-luna` e `openai/gpt-5.5`. Use `openai-latest` para deixar a Capriole AI escolher o modelo principal de OpenAI Responses que recomendamos.
 
-Você também pode enviar IDs nativos da OpenAI sem o prefixo `openai/`, como `gpt-6-astra`. Os IDs nativos e os que têm prefixo usam a mesma entrada de modelo para roteamento, preços e cota.
+Você também pode enviar IDs nativos da OpenAI sem o prefixo `openai/`, como `gpt-6.2-astra`. Os IDs nativos e os que têm prefixo usam a mesma entrada de modelo para roteamento, preços e cota.
 
 Este endpoint também aceita os modelos Grok `xai/grok-4.7`, `xai/grok-4.6` e `xai/grok-4.5`. Sempre envie os IDs do Grok com o prefixo `xai/`; um ID sem prefixo, como `grok-4.7`, é tratado como ID nativo da OpenAI e é rejeitado. As solicitações do Grok são encaminhadas para a própria API de Responses da xAI sem conversão de formato.
 

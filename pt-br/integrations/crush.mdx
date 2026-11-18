@@ -1,10 +1,10 @@
 ---
 title: "Provedor personalizado no Charm Crush: configure a Capriole AI"
 sidebarTitle: "Crush"
-description: "Adicione a Capriole AI ao Charm Crush como provedor. Use GPT-6 Astra, Claude Fable 5.1, Opus 5.5 e Gemini 4 Carbon pagando até 92% menos que na API oficial."
+description: "Adicione a Capriole AI ao Charm Crush como provedor. Use GPT-6.2 Astra, Claude Fable 5.1, Opus 5.5 e Gemini 4 Carbon pagando até 92% menos que na API oficial."
 ---
 
-Com uma única API key da Capriole AI, você usa GPT-6 Astra, Claude Fable 5.1, Opus 5.5 e Gemini 4 Carbon no Crush pagando até 92% menos que os preços oficiais da API.
+Com uma única API key da Capriole AI, você usa GPT-6.2 Astra, Claude Fable 5.1, Opus 5.5 e Gemini 4 Carbon no Crush pagando até 92% menos que os preços oficiais da API.
 
 ## O que é Crush
 
@@ -53,7 +53,7 @@ provider add capriole --name "Capriole AI" --type openai-compat \
   --discover-models false
 
 model add capriole/openai-latest --name "OpenAI latest" --context-window 1050000 --default-max-tokens 32000 --can-reason true
-model add capriole/openai/gpt-6.1-sol --name "GPT-6.1 Sol" --context-window 1050000 --default-max-tokens 32000 --can-reason true
+model add capriole/openai/gpt-6.2-sol --name "GPT-6.2 Sol" --context-window 1050000 --default-max-tokens 32000 --can-reason true
 model add capriole/claude-latest --name "Claude latest" --context-window 1000000 --default-max-tokens 32000 --can-reason true
 model add capriole/anthropic/claude-opus-5-5 --name "Opus 5.5" --context-window 1000000 --default-max-tokens 32000 --can-reason true
 model add capriole/google-latest --name "Google latest" --context-window 1048576 --default-max-tokens 32000 --can-reason true
@@ -98,7 +98,7 @@ As referências de modelo usam o formato `capriole/<model-id>`.
 | Modelo | ID do modelo |
 | --- | --- |
 | OpenAI latest | `openai-latest` |
-| GPT-6.1 Sol | `openai/gpt-6.1-sol` |
+| GPT-6.2 Sol | `openai/gpt-6.2-sol` |
 | Claude latest | `claude-latest` |
 | Opus 5.5 | `anthropic/claude-opus-5-5` |
 | Google latest | `google-latest` |
@@ -110,7 +110,7 @@ As referências de modelo usam o formato `capriole/<model-id>`.
 | Kimi K3.1 Pro | `moonshot/kimi-k3.1-pro` |
 | Kimi K3 | `moonshot/kimi-k3` |
 
-`openai-latest`, `claude-latest` e `google-latest` sempre apontam para o nosso modelo principal mais recente de cada família, atualmente GPT-6 Astra, Claude Fable 5.1 e Gemini 4 Carbon.
+`openai-latest`, `claude-latest` e `google-latest` sempre apontam para o nosso modelo principal mais recente de cada família, atualmente GPT-6.2 Astra, Claude Fable 5.1 e Gemini 4 Carbon.
 
 ## Solução de problemas
 

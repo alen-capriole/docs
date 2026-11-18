@@ -1,10 +1,10 @@
 ---
 title: "Codex에서 다른 API 제공자 사용하기"
 sidebarTitle: "Codex"
-description: "Capriole AI를 Codex의 사용자 지정 모델 제공자로 추가합니다. GPT-6 Astra와 GPT-6.1 Sol 모델을 공식 API 가격보다 최대 92% 저렴하게 사용하세요."
+description: "Capriole AI를 Codex의 사용자 지정 모델 제공자로 추가합니다. GPT-6.2 Astra와 GPT-6.2 Sol 모델을 공식 API 가격보다 최대 92% 저렴하게 사용하세요."
 ---
 
-Capriole AI API 키 하나로 Codex에서 GPT-6 Astra와 GPT-6.1 Sol 모델을 공식 API 가격보다 최대 92% 저렴하게 사용할 수 있습니다.
+Capriole AI API 키 하나로 Codex에서 GPT-6.2 Astra와 GPT-6.2 Sol 모델을 공식 API 가격보다 최대 92% 저렴하게 사용할 수 있습니다.
 
 ## Codex란
 
@@ -53,7 +53,7 @@ Codex CLI 0.160.1 버전은 아래 구성으로 Capriole AI를 통한 파일 읽
 `~/.codex/config.toml`을 만들거나 업데이트하세요.
 
 ```toml
-model = "gpt-6-astra"
+model = "gpt-6.2-astra"
 model_reasoning_effort = "high"
 model_provider = "capriole_ai"
 
@@ -92,6 +92,8 @@ codex exec "Explain this repository."
 
 Codex는 Responses API를 통해 Capriole AI의 OpenAI 모델을 사용합니다. 아래 네이티브 모델 ID를 사용하면 Codex에 내장된 모델 선택과 추론 설정을 이용할 수 있습니다. 별도의 `model_catalog_json`은 필요하지 않습니다. Capriole AI가 지원하는 모델만 호출할 수 있습니다.
 
+- `gpt-6.2-astra`
+- `gpt-6.2-sol`
 - `gpt-6-astra`
 - `gpt-6.1-sol`
 - `gpt-6-sol`
@@ -99,13 +101,13 @@ Codex는 Responses API를 통해 Capriole AI의 OpenAI 모델을 사용합니다
 - `gpt-5.6-terra`
 - `gpt-5.6-luna`
 
-`gpt-6.1-sol`에는 Codex 0.159.2 이상을 사용하세요. 이전 버전에는 이 모델의 메타데이터가 없어 일반 설정으로 대체됩니다.
+`gpt-6.2-astra`와 `gpt-6.2-sol`에는 Codex 0.169.1 이상을, `gpt-6.1-sol`에는 0.159.2 이상을 사용하세요. 이전 버전에는 이 모델들의 메타데이터가 없어 일반 설정으로 대체됩니다.
 
 API는 `openai/` 접두사가 붙은 ID와 `openai-latest`도 받습니다. `openai-latest` 별칭은 Capriole AI가 권장하는 OpenAI 플래그십 모델을 따릅니다.
 
 Capriole AI는 Responses API로 Grok을 제공하므로 Codex는 같은 제공자로 `xai/grok-4.7`도 실행할 수 있습니다.
 
-Codex에는 OpenAI 네이티브 모델 ID의 메타데이터만 내장되어 있습니다. `openai-latest`와 `xai/grok-4.7`에서는 `Model metadata ... not found`를 출력하고 대체 설정을 사용합니다. 세션은 그대로 작동하지만, 최상의 결과를 얻으려면 `gpt-6-astra` 같은 네이티브 ID를 사용하세요.
+Codex에는 OpenAI 네이티브 모델 ID의 메타데이터만 내장되어 있습니다. `openai-latest`와 `xai/grok-4.7`에서는 `Model metadata ... not found`를 출력하고 대체 설정을 사용합니다. 세션은 그대로 작동하지만, 최상의 결과를 얻으려면 `gpt-6.2-astra` 같은 네이티브 ID를 사용하세요.
 
 ## 문제 해결
 

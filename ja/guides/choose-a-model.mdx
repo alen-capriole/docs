@@ -1,25 +1,25 @@
 ---
-title: "GPT-6 Astra・Claude・Gemini の選び方"
+title: "GPT-6.2 Astra・Claude・Gemini の選び方"
 sidebarTitle: "モデルを選ぶ"
-description: "GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5、Gemini 4 Carbon を開発元の説明、コンテキスト長、公式価格で比較し、Thinking か Fast を選びます。"
+description: "GPT-6.2 Astra、Claude Fable 5.1、Claude Opus 5.5、Gemini 4 Carbon を開発元の説明、コンテキスト長、公式価格で比較し、Thinking か Fast を選びます。"
 ---
 
-Capriole AI には 4 つの旗艦モデルがあります。OpenAI の GPT-6 Astra、Anthropic の Claude Fable 5.1 と Claude Opus 5.5、Google の Gemini 4 Carbon です。Premium なら月額 USD 9 で 4 つすべてとウェブチャットで無制限に会話でき、API は公式 API 価格より最大 92% 安く使えます。ウェブチャットは、別のモデルを選ぶまで GPT-6 Astra Thinking で始まります。以下の要約で、別のモデルの開発元がそのモデルをあなたの作業向けと説明していれば、そちらに切り替えてください。
+Capriole AI には 4 つの旗艦モデルがあります。OpenAI の GPT-6.2 Astra、Anthropic の Claude Fable 5.1 と Claude Opus 5.5、Google の Gemini 4 Carbon です。Premium なら月額 USD 9 で 4 つすべてとウェブチャットで無制限に会話でき、API は公式 API 価格より最大 92% 安く使えます。ウェブチャットは、別のモデルを選ぶまで GPT-6.2 Astra Thinking で始まります。以下の要約で、別のモデルの開発元がそのモデルをあなたの作業向けと説明していれば、そちらに切り替えてください。
 
 ## 4 つの旗艦モデル
 
 | モデル | 開発元が想定する用途 | コンテキスト ウィンドウ | 公式 API 価格（100 万トークンあたり、入力 / 出力） |
 |---|---|---|---|
-| [GPT-6 Astra](https://developers.openai.com/api/docs/models/gpt-6-astra)（OpenAI） | 複雑な推論、コーディング、コンピューター操作、リサーチ、ドキュメント作成 | 105 万トークン | USD 10 / USD 50 |
+| [GPT-6.2 Astra](https://developers.openai.com/api/docs/models/gpt-6.2-astra)（OpenAI） | 最も難しいプロジェクトを最初から最後まで。プロ向けのドキュメント、コーディング、コンピューター操作が向上 | 105 万トークン | USD 8 / USD 40 |
 | [Claude Fable 5.1](https://platform.claude.com/docs/en/models/fable-5-1/overview)（Anthropic） | 高度な推論と長時間のエージェント作業 | 100 万トークン | USD 10 / USD 50 |
 | [Claude Opus 5.5](https://platform.claude.com/docs/en/models/opus-5-5/overview)（Anthropic） | 長時間のエージェント型コーディングとナレッジワーク | 100 万トークン | USD 4 / USD 20 |
 | [Gemini 4 Carbon](https://aistudio.google.com/docs/models/gemini-4-carbon)（Google） | モデルの知能の限界が試されるタスク。複雑な多段階のコーディングとデバッグ、長時間のエージェント作業、科学的推論など | 100 万トークン | 2026 年 11 月 30 日まで USD 2 / USD 10、その後は USD 4 / USD 20 |
 
 Capriole AI では、この表のどのモデルも Premium と Team のウェブチャットで無制限です。API では、トークンの料金はどのモデルでも同じで、500 万トークンあたり USD 8 です。
 
-### GPT-6 Astra
+### GPT-6.2 Astra
 
-OpenAI は GPT-6 Astra を、最も要求の高い作業向けの最も高性能なモデルと位置づけています。OpenAI が示すコンテキスト ウィンドウは 105 万トークン、出力は最大 128,000 トークンです。Capriole AI では、別のモデルを選ぶまで **GPT-6 Astra Thinking** がウェブチャットの既定で、API では `openai-latest` が GPT-6 Astra を使います。
+OpenAI は GPT-6.2 Astra を、最も難しいプロジェクトに向けた新しいフロンティア モデルと位置づけており、OpenAI の旗艦モデルとして GPT-6 Astra に代わります。OpenAI によると、スライド、スプレッドシート、ドキュメントは AI が書いたような印象が薄れ、テンプレートや分野ごとの慣例に沿うようになり、コードはよりクリーンに、フロントエンドはより良くなっています。OpenAI が示すコンテキスト ウィンドウは 105 万トークン、出力は最大 128,000 トークンで、API 価格は GPT-6 Astra より 20% 安くなっています。Capriole AI では、別のモデルを選ぶまで **GPT-6.2 Astra Thinking** がウェブチャットの既定で、API では `openai-latest` が GPT-6.2 Astra を使います。
 
 ### Claude Fable 5.1
 
@@ -39,6 +39,8 @@ Google は Gemini 4 Carbon を最も強力なモデルと呼び、複雑な多�
 
 | モデル | 開発元が想定する用途 | コンテキスト ウィンドウ | 公式 API 価格（100 万トークンあたり、入力 / 出力） | API ID |
 |---|---|---|---|---|
+| GPT-6.2 Sol（OpenAI） | コーディングから大規模なエージェントの実行まで、日常の作業向け。GPT-6.1 Sol より賢く、効率的 | 105 万トークン | USD 2 / USD 10 | `openai/gpt-6.2-sol` |
+| GPT-6 Astra（OpenAI） | 複雑な推論、コーディング、コンピューター操作、リサーチ、ドキュメント作成 | 105 万トークン | USD 10 / USD 50 | `openai/gpt-6-astra` |
 | GPT-6.1 Sol（OpenAI） | 低コストで Astra に近い性能。複雑なコーディング、コンピューター操作、専門業務向け | 105 万トークン | USD 2 / USD 10 | `openai/gpt-6.1-sol` |
 | GPT-6 Sol（OpenAI） | 複雑なコーディングとエージェント型ワークフロー | 105 万トークン | USD 2 / USD 10 | `openai/gpt-6-sol` |
 | GPT-6 Luna（OpenAI） | OpenAI で最も効率的なモデルとして、対象を絞った大量処理タスク向け | 105 万トークン | USD 0.10 / USD 0.50 | `openai/gpt-6-luna` |
@@ -48,7 +50,7 @@ Google は Gemini 4 Carbon を最も強力なモデルと呼び、複雑な多�
 | GLM 5.3 Flash（Z.ai） | 非常に低いコストで GLM 5.2 を上回る性能。オフィス業務、金融リサーチ、ドキュメント処理など | 100 万トークン | USD 0.15 / USD 0.50 | `zai/glm-5.3-flash` |
 | Kimi K3.1 Pro（Moonshot AI） | Moonshot で最も高性能な Kimi モデル。コーディング、3D 制作、金融リサーチが向上 | 100 万トークン | USD 2 / USD 10 | `moonshot/kimi-k3.1-pro` |
 
-ウェブチャットのモデル メニューでは、GPT-6.1 Sol、GPT-6 Sol、GPT-6 Luna と、Claude Fable 5 などの以前のバージョンは **その他のモデル** にあります。以前のバージョンは、既存のチャットや API の設定のために引き続き利用できます。
+ウェブチャットのモデル メニューでは、GPT-6.2 Sol、GPT-6 Astra、GPT-6.1 Sol、GPT-6 Sol、GPT-6 Luna と、Claude Fable 5 などの以前のバージョンは **その他のモデル** にあります。以前のバージョンは、既存のチャットや API の設定のために引き続き利用できます。
 
 ## Thinking と Fast
 
@@ -61,7 +63,7 @@ Thinking はより多くのトークンを使います。Premium と Team では
 
 | モデル | ウェブチャットのプリセット |
 |---|---|
-| GPT-6 Astra、GPT-6.1 Sol、GPT-6 Sol、GPT-6 Luna | **Thinking**（推論レベル中）と **Fast**（推論レベル低） |
+| GPT-6.2 Astra、GPT-6.2 Sol、GPT-6 Astra、GPT-6.1 Sol、GPT-6 Sol、GPT-6 Luna | **Thinking**（推論レベル中）と **Fast**（推論レベル低） |
 | Claude Fable 5.1、Claude Opus 5.5 | 思考は常にオン。**Thinking** は推論レベル中、**Fast** は推論レベル低です。 |
 | Gemini 4 Carbon、Gemini 4 Argon | ウェブチャットで使えるのは **Thinking** プリセットのみです。**Fast** を選ぶと、チャットは Gemini 3.8 Flash に切り替わります。 |
 | Kimi K3.1 Pro | 常に思考するモデルです。**Thinking** は推論レベル高、**Fast** は推論レベル低を使います。 |
@@ -84,9 +86,13 @@ API のベース URL は `https://api.caprioletech.com` です。1 つのモデ�
 
 | エイリアス | 使うモデル | エンドポイント |
 |---|---|---|
-| `openai-latest` | `openai/gpt-6-astra` | Chat Completions、Responses |
+| `openai-latest` | `openai/gpt-6.2-astra` | Chat Completions、Responses |
 | `claude-latest` | `anthropic/claude-fable-5-1`（Messages では `claude-fable-5-1`） | Chat Completions、Messages |
 | `google-latest` | `google/gemini-4-carbon` | Chat Completions |
+
+<Note>
+2026 年 11 月 18 日から、`openai-latest` は GPT-6 Astra ではなく GPT-6.2 Astra を使います。GPT-6 Astra を使い続けるには、`openai/gpt-6-astra` を呼び出してください。
+</Note>
 
 <Note>
 2026 年 11 月 17 日から、`google-latest` は Gemini 4 Argon ではなく Gemini 4 Carbon を使います。Chat Completions では、Carbon は Google の既定の思考レベル `medium` で思考し、当社のテストでは同じプロンプトで Argon の約 3〜4 倍の出力トークンを使いました。OpenAI の `reasoning_effort` では変わりません。軽い呼び出しには、Google の `thinking_level` を `low` に設定する（`medium` と `high` も使えます）か、`google/gemini-4-argon` を呼び出してください。
@@ -113,7 +119,7 @@ completion = client.chat.completions.create(
 </CodeGroup>
 </Note>
 
-旗艦モデルの ID は `openai/gpt-6-astra`、`anthropic/claude-fable-5-1`、`anthropic/claude-opus-5-5`、`google/gemini-4-carbon` です。Anthropic Messages では、`claude-opus-5-5` のようにプレフィックスなしの Claude ID を使います。最新の一覧は `GET /v1/models` を呼び出すか、[モデル一覧](/ja/api-reference/endpoint/get)で確認してください。
+旗艦モデルの ID は `openai/gpt-6.2-astra`、`anthropic/claude-fable-5-1`、`anthropic/claude-opus-5-5`、`google/gemini-4-carbon` です。Anthropic Messages では、`claude-opus-5-5` のようにプレフィックスなしの Claude ID を使います。最新の一覧は `GET /v1/models` を呼び出すか、[モデル一覧](/ja/api-reference/endpoint/get)で確認してください。
 
 Capriole AI は、どのモデルでも課金トークンを同じ方法で数えます。キャッシュなし入力に、キャッシュ入力の 10% と出力を足したものです。例は[課金トークンの説明](/ja/articles/charged-tokens)をご覧ください。
 
@@ -123,7 +129,7 @@ Capriole AI は、どのモデルでも課金トークンを同じ方法で数�
 
 ### Capriole AI の既定のモデルは何ですか？
 
-ゲストと新規アカウントのウェブチャットは GPT-6 Astra Thinking で始まります。モデルを選んだあとは、新しいチャットは最後に選んだモデルで始まり、保存済みのチャットは最後に使ったモデルで開きます。API では、`openai-latest` が GPT-6 Astra を使います。
+ゲストと新規アカウントのウェブチャットは GPT-6.2 Astra Thinking で始まります。モデルを選んだあとは、新しいチャットは最後に選んだモデルで始まり、保存済みのチャットは最後に使ったモデルで開きます。API では、`openai-latest` が GPT-6.2 Astra を使います。
 
 ### Capriole AI では旗艦モデルのほうが高くなりますか？
 
@@ -143,7 +149,7 @@ Anthropic は、ほとんどの作業を Claude Opus 5.5 から始め、高度�
 
 ## 公式情報
 
-- [OpenAI：GPT-6 Astra](https://developers.openai.com/api/docs/models/gpt-6-astra)、[GPT-6.1 Sol](https://developers.openai.com/api/docs/models/gpt-6.1-sol)、[GPT-6 Sol](https://developers.openai.com/api/docs/models/gpt-6-sol)、[GPT-6 Luna](https://developers.openai.com/api/docs/models/gpt-6-luna)
+- [OpenAI：GPT-6.2 Astra](https://developers.openai.com/api/docs/models/gpt-6.2-astra)、[GPT-6.2 Sol](https://developers.openai.com/api/docs/models/gpt-6.2-sol)、[GPT-6 Astra](https://developers.openai.com/api/docs/models/gpt-6-astra)、[GPT-6.1 Sol](https://developers.openai.com/api/docs/models/gpt-6.1-sol)、[GPT-6 Sol](https://developers.openai.com/api/docs/models/gpt-6-sol)、[GPT-6 Luna](https://developers.openai.com/api/docs/models/gpt-6-luna)
 - [Anthropic：Claude Fable 5.1](https://platform.claude.com/docs/en/models/fable-5-1/overview)、[Claude Opus 5.5](https://platform.claude.com/docs/en/models/opus-5-5/overview)
 - [Google：Gemini 4 Carbon](https://aistudio.google.com/docs/models/gemini-4-carbon)、[Gemini 4 Argon](https://aistudio.google.com/docs/models/gemini-4-argon)、[Gemini API の料金](https://ai.google.dev/gemini-api/docs/pricing)
 - [xAI：Grok 4.7](https://docs.x.ai/developers/models/grok-4.7)

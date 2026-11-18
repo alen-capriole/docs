@@ -1,10 +1,10 @@
 ---
 title: "Proveedor de modelos en Qwen Code: configura Capriole AI"
 sidebarTitle: "Qwen Code"
-description: "Añade modelos de Capriole AI a modelProviders de Qwen Code. Usa GPT-6 Astra, Claude Fable 5.1, Opus 5.5 y Gemini 4 Carbon pagando hasta un 92% menos que en la API oficial."
+description: "Añade modelos de Capriole AI a modelProviders de Qwen Code. Usa GPT-6.2 Astra, Claude Fable 5.1, Opus 5.5 y Gemini 4 Carbon pagando hasta un 92% menos que en la API oficial."
 ---
 
-Con una sola clave API de Capriole AI, usas GPT-6 Astra, Claude Fable 5.1, Opus 5.5 y Gemini 4 Carbon en Qwen Code pagando hasta un 92% menos que los precios oficiales de la API.
+Con una sola clave API de Capriole AI, usas GPT-6.2 Astra, Claude Fable 5.1, Opus 5.5 y Gemini 4 Carbon en Qwen Code pagando hasta un 92% menos que los precios oficiales de la API.
 
 ## Qué es Qwen Code
 
@@ -75,8 +75,8 @@ Crea o actualiza `~/.qwen/settings.json`:
         "wireApi": "responses"
       },
       {
-        "id": "openai/gpt-6.1-sol",
-        "name": "openai/gpt-6.1-sol",
+        "id": "openai/gpt-6.2-sol",
+        "name": "openai/gpt-6.2-sol",
         "baseUrl": "https://api.caprioletech.com/v1",
         "envKey": "CAPRIOLE_AI_API_KEY",
         "generationConfig": {
@@ -208,7 +208,7 @@ qwen "Explain this repository." -m claude-latest --auth-type anthropic
 | Modelo | ID de modelo | Grupo | Protocolo |
 | --- | --- | --- | --- |
 | OpenAI latest | `openai-latest` | `openai` | Responses |
-| GPT-6.1 Sol | `openai/gpt-6.1-sol` | `openai` | Responses |
+| GPT-6.2 Sol | `openai/gpt-6.2-sol` | `openai` | Responses |
 | Claude latest | `claude-latest` | `anthropic` | Anthropic Messages |
 | Opus 5.5 | `claude-opus-5-5` | `anthropic` | Anthropic Messages |
 | Google latest | `google-latest` | `openai` | Chat Completions |
@@ -220,7 +220,7 @@ qwen "Explain this repository." -m claude-latest --auth-type anthropic
 | Kimi K3.1 Pro | `moonshot/kimi-k3.1-pro` | `openai` | Chat Completions |
 | Kimi K3 | `moonshot/kimi-k3` | `openai` | Chat Completions |
 
-`openai-latest`, `claude-latest` y `google-latest` siempre apuntan a nuestro modelo insignia más reciente de cada familia, actualmente GPT-6 Astra, Claude Fable 5.1 y Gemini 4 Carbon.
+`openai-latest`, `claude-latest` y `google-latest` siempre apuntan a nuestro modelo insignia más reciente de cada familia, actualmente GPT-6.2 Astra, Claude Fable 5.1 y Gemini 4 Carbon.
 
 ## Solución de problemas
 

@@ -1,10 +1,10 @@
 ---
 title: "OpenCode にカスタム プロバイダーを追加"
 sidebarTitle: "OpenCode"
-description: "Capriole AI を OpenCode 2・1 のカスタム プロバイダーに追加し、GPT-6 Astra、Claude Fable 5.1、Opus 5.5、Gemini 4 Carbon を公式 API 価格より最大 92% 安く使えます。"
+description: "Capriole AI を OpenCode 2・1 のカスタム プロバイダーに追加し、GPT-6.2 Astra、Claude Fable 5.1、Opus 5.5、Gemini 4 Carbon を公式 API 価格より最大 92% 安く使えます。"
 ---
 
-Capriole AI の API キー 1 つで、OpenCode から GPT-6 Astra、Claude Fable 5.1、Opus 5.5、Gemini 4 Carbon を公式 API 価格より最大 92% 安く使えます。
+Capriole AI の API キー 1 つで、OpenCode から GPT-6.2 Astra、Claude Fable 5.1、Opus 5.5、Gemini 4 Carbon を公式 API 価格より最大 92% 安く使えます。
 
 ## OpenCode とは
 
@@ -82,8 +82,8 @@ OpenCode 2.2.5 は、OpenCode 2 の設定を使い、「対応モデル」のす
             "reasoningEffort": "medium"
           }
         },
-        "openai/gpt-6.1-sol": {
-          "name": "GPT-6.1 Sol",
+        "openai/gpt-6.2-sol": {
+          "name": "GPT-6.2 Sol",
           "package": "@opencode/ai/providers/openai-compatible/responses",
           "limit": {
             "context": 1050000,
@@ -214,8 +214,8 @@ OpenCode 1 は OpenCode 2 の形式を読み込みませんが、OpenCode 2 は�
             "forceReasoning": true
           }
         },
-        "openai/gpt-6.1-sol": {
-          "name": "GPT-6.1 Sol",
+        "openai/gpt-6.2-sol": {
+          "name": "GPT-6.2 Sol",
           "provider": {
             "npm": "@ai-sdk/openai"
           },
@@ -343,7 +343,7 @@ opencode run -m capriole-ai/claude-latest "Explain this repository."
 | モデル | モデル ID | プロトコル |
 | --- | --- | --- |
 | OpenAI latest | `openai-latest` | Responses |
-| GPT-6.1 Sol | `openai/gpt-6.1-sol` | Responses |
+| GPT-6.2 Sol | `openai/gpt-6.2-sol` | Responses |
 | Claude latest | `claude-latest` | Anthropic Messages |
 | Opus 5.5 | `claude-opus-5-5` | Anthropic Messages |
 | Google latest | `google-latest` | Chat Completions |
@@ -355,7 +355,7 @@ opencode run -m capriole-ai/claude-latest "Explain this repository."
 | Kimi K3.1 Pro | `moonshot/kimi-k3.1-pro` | Chat Completions |
 | Kimi K3 | `moonshot/kimi-k3` | Chat Completions |
 
-`openai-latest`、`claude-latest`、`google-latest` は、常に各ファミリーの最新の旗艦モデルを指します。現在は GPT-6 Astra、Claude Fable 5.1、Gemini 4 Carbon です。
+`openai-latest`、`claude-latest`、`google-latest` は、常に各ファミリーの最新の旗艦モデルを指します。現在は GPT-6.2 Astra、Claude Fable 5.1、Gemini 4 Carbon です。
 
 ## トラブルシューティング
 

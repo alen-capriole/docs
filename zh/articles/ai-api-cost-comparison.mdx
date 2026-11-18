@@ -4,26 +4,27 @@ sidebarTitle: "AI API 成本对比"
 description: "GPT-6 Astra 400 万输入 + 100 万输出 token：官方 USD 90，OpenRouter USD 94.95（含 5.5% 刷卡费），对比 Capriole AI 的 USD 9 方案。"
 ---
 
-OpenRouter 按各提供商的公开价格计费，Standard 用户用银行卡充值时另收 5.5% 手续费。对于下文固定的 500 万 token 工作负载，表中 Capriole 提供的每个模型，**成本均为 USD 9**。按照付费 Standard 公开价格，使用相同模型需要 **USD 6.75 至 USD 90**。计入 OpenRouter 公开的充值手续费后，计算所得现金总额为 **USD 7.55 至 USD 94.95**。USD 9 的 Premium 方案还包含四个旗舰模型的无限网页聊天：GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5 和 Gemini 4 Carbon。
+OpenRouter 按各提供商的公开价格计费，Standard 用户用银行卡充值时另收 5.5% 手续费。对于下文固定的 500 万 token 工作负载，表中 Capriole 提供的每个模型，**成本均为 USD 9**。按照付费 Standard 公开价格，使用相同模型需要 **USD 6.75 至 USD 90**。计入 OpenRouter 公开的充值手续费后，计算所得现金总额为 **USD 7.55 至 USD 94.95**。USD 9 的 Premium 方案还包含四个旗舰模型的无限网页聊天：GPT-6.2 Astra、Claude Fable 5.1、Claude Opus 5.5 和 Gemini 4 Carbon。
 
 在这次对比中，对于 Capriole 提供的所有模型，Premium 都更便宜，唯一的例外是 Gemini 3.8 Flash：它的官方直连和 OpenRouter 费用都低于 USD 9 的订阅价。Gemini 3.1 Pro Preview 保留在表中仅供参考，Capriole AI 已不再提供该模型。
 
-这是一项可复现的对比，不代表所有情况下的价格承诺。测试固定了 token 构成，并采用文中引用的公开价格。价格核查日期为 2026 年 11 月 17 日。
+这是一项可复现的对比，不代表所有情况下的价格承诺。测试固定了 token 构成，并采用文中引用的公开价格。价格核查日期为 2026 年 11 月 18 日。
 
 ## 500 万 token 在各家 API 上要多少钱？
 
-按 400 万输入、100 万输出 token 计算，GPT-6 Astra 和 Claude Fable 5.1 通过官方 API 需要 USD 90，通过 OpenRouter 需要 USD 94.95。对于表中 Capriole 提供的每个模型，Capriole Premium 都是 USD 9。
+按 400 万输入、100 万输出 token 计算，GPT-6 Astra 和 Claude Fable 5.1 通过官方 API 需要 USD 90，通过 OpenRouter 需要 USD 94.95；GPT-6.2 Astra 分别为 USD 72 和 USD 75.96。对于表中 Capriole 提供的每个模型，Capriole Premium 都是 USD 9。
 
 表格固定的是计费 token 数量，并非源文本或语义工作负载。不同模型家族使用不同的 tokenizer。测试场景包含 100 个请求，每个请求使用 40,000 个未缓存输入 token 和 10,000 个输出 token，同时确保每条提示词都低于 OpenAI 和 Google 的长提示词价格阈值。[Claude](/zh/articles/claude-api-pricing)、[OpenAI](/zh/articles/openai-api-pricing) 和 [Gemini](/zh/articles/gemini-api-pricing) 的 API 价格页面则按输入与输出 token 3:1 的比例计算，因此 500 万 token 的总额更高，例如 GPT-6 Astra 为 USD 100。测试不包含缓存读取与写入、工具、免费层、其他服务层级、批处理、税费和账户专属折扣。
 
 | 精确模型 | 新个人用户购买 Capriole Premium | 官方直连付费 Standard | OpenRouter 使用相同展示推理价格 | OpenRouter 充值额度（含刷卡手续费） | 公开的 Standard 输入 / 输出价格，每 100 万 token |
 |---|---:|---:|---:|---:|---:|
+| `gpt-6.2-astra` | **USD 9.00*** | USD 72.00 | USD 72.00 | USD 75.96 | USD 8 / USD 40 |
 | `gpt-6-astra` | **USD 9.00*** | USD 90.00 | USD 90.00 | USD 94.95 | USD 10 / USD 50 |
 | `claude-fable-5-1` | **USD 9.00*** | USD 90.00 | USD 90.00 | USD 94.95 | USD 10 / USD 50 |
 | `claude-opus-5-5` | **USD 9.00*** | USD 36.00 | USD 36.00 | USD 37.98 | USD 4 / USD 20 |
 | `gemini-4-carbon` | **USD 9.00*** | USD 18.00 | USD 18.00 | USD 18.99 | USD 2 / USD 10 |
 | `gemini-4-argon` | **USD 9.00*** | USD 18.00 | USD 18.00 | USD 18.99 | USD 2 / USD 10 |
-| `gpt-6.1-sol` | **USD 9.00*** | USD 18.00 | USD 18.00 | USD 18.99 | USD 2 / USD 10 |
+| `gpt-6.2-sol` | **USD 9.00*** | USD 18.00 | USD 18.00 | USD 18.99 | USD 2 / USD 10 |
 | `gemini-3.8-flash` | **USD 9.00*** | USD 6.75 | USD 6.75 | USD 7.55 | USD 0.75 / USD 3.75 |
 | `claude-fable-5` | **USD 9.00*** | USD 90.00 | USD 90.00 | USD 94.95 | USD 10 / USD 50 |
 | `gemini-3.1-pro-preview` | 已不再提供 | USD 20.00 | USD 20.00 | USD 21.10 | USD 2 / USD 12 |
@@ -55,7 +56,7 @@ openrouter_cash = inference_cost + max(USD 0.80, inference_cost × 0.055)
 USD 90 + max(USD 0.80, USD 4.95) = USD 94.95
 ```
 
-按同样的方法计算，Claude Opus 5.5 的结果为 USD 37.98，Gemini 4 Carbon、Gemini 4 Argon 和 GPT-6.1 Sol 为 USD 18.99，Gemini 3.1 Pro Preview 为 USD 21.10。按 Google 截至 2026 年 12 月 31 日的 Standard 推广价，Gemini 3.8 Flash 为 USD 6.75（4 × USD 0.75 + 1 × USD 3.75）。加上 OpenRouter USD 0.80 的最低刷卡手续费，合计 USD 7.55。
+按同样的方法计算，GPT-6.2 Astra 的结果为 USD 75.96（官方直连为 4 × USD 8 + 1 × USD 40 = USD 72），Claude Opus 5.5 为 USD 37.98，Gemini 4 Carbon、Gemini 4 Argon 和 GPT-6.2 Sol 为 USD 18.99，Gemini 3.1 Pro Preview 为 USD 21.10。按 Google 截至 2026 年 12 月 31 日的 Standard 推广价，Gemini 3.8 Flash 为 USD 6.75（4 × USD 0.75 + 1 × USD 3.75）。加上 OpenRouter USD 0.80 的最低刷卡手续费，合计 USD 7.55。
 
 OpenRouter 可以把同一个模型路由到不同的提供商或服务层级，回退也可能改变实际响应请求的端点。因此，表格比较的是页面展示的匹配推理价格，无法保证每一种默认路由配置都会产生相同账单。
 
@@ -82,7 +83,7 @@ USD 9 的 Premium 方案包含以下内容。
 - 公共 API 和持续维护的编程智能体集成访问权限
 - 提供模型切换、文件、网页搜索和聊天存储控制的统一浏览器工作区
 
-订阅前，未登录访客和 Free 用户可以在有限的浏览器聊天中试用 GPT-6 Astra、Claude Fable 5.1、Claude Opus 5.5 和 Gemini 4 Carbon。该免费旗舰模型试用与上面的 API 成本对比表彼此独立。
+订阅前，未登录访客和 Free 用户可以在有限的浏览器聊天中试用 GPT-6.2 Astra、Claude Fable 5.1、Claude Opus 5.5 和 Gemini 4 Carbon。该免费旗舰模型试用与上面的 API 成本对比表彼此独立。
 
 如果你既想和前沿模型聊天，又需要 API 访问，USD 9 即可涵盖浏览器工作区和每月 500 万 API token。同一个账户还可用于 [10 项有文档说明的编程智能体集成](/zh/articles/coding-agent-compatibility)。
 
@@ -93,7 +94,7 @@ USD 9 的 Premium 方案包含以下内容。
 本例没有纳入几种可能显著改变成本的定价路径。
 
 - **缓存**。提供商分别为缓存写入和读取定价。Capriole 在计费 token 公式中按 10% 计算缓存输入。
-- **长提示词**。请求的输入超过 272,000 token 时，OpenAI 会对 GPT-6 Astra 和 GPT-6.1 Sol 采用更高费率；单条提示词超过 200,000 token 时，Google 会对 Gemini 3.1 Pro Preview 采用更高费率。
+- **长提示词**。请求的输入超过 272,000 token 时，OpenAI 会对 GPT-6.2 Astra、GPT-6 Astra 和 GPT-6.2 Sol 采用更高费率；单条提示词超过 200,000 token 时，Google 会对 Gemini 3.1 Pro Preview 采用更高费率。
 - **服务层级和批处理**。Free、Flex、Priority、Batch 或其他提供商层级的价格可能不同于本例采用的付费 Standard 费率。
 - **OpenRouter 路由**。实际处理请求的端点或回退目标，可能采用不同于表格匹配费率的价格。
 - **工具和搜索**。服务端工具、搜索增强（grounding）和搜索可能增加按请求或用量计算的费用。
@@ -113,7 +114,7 @@ USD 9 订阅包含无限网页聊天、浏览器工作区、每月 500 万 API t
 - OpenAI 的 [API 定价](https://developers.openai.com/api/docs/pricing)
 - Anthropic 的 [Claude API 定价](https://platform.claude.com/docs/en/about-claude/pricing)
 - Google 的 [Gemini Developer API 定价](https://ai.google.dev/gemini-api/docs/pricing)
-- OpenRouter 的[定价](https://openrouter.ai/pricing)、[购买额度的手续费](https://openrouter.ai/blog/announcements/simplifying-our-platform-fee/)，以及 [GPT-6 Astra](https://openrouter.ai/openai/gpt-6-astra)、[GPT-6.1 Sol](https://openrouter.ai/openai/gpt-6.1-sol)、[Claude Fable 5.1](https://openrouter.ai/anthropic/claude-fable-5.1)、[Claude Opus 5.5](https://openrouter.ai/anthropic/claude-opus-5.5)、[Gemini 4 Carbon](https://openrouter.ai/google/gemini-4-carbon)、[Gemini 4 Argon](https://openrouter.ai/google/gemini-4-argon)、[Gemini 3.8 Flash](https://openrouter.ai/google/gemini-3.8-flash)、[Claude Fable 5](https://openrouter.ai/anthropic/claude-fable-5/pricing) 和 [Gemini 3.1 Pro Preview](https://openrouter.ai/google/gemini-3.1-pro-preview/providers) 的模型页
+- OpenRouter 的[定价](https://openrouter.ai/pricing)、[购买额度的手续费](https://openrouter.ai/blog/announcements/simplifying-our-platform-fee/)，以及 [GPT-6.2 Astra](https://openrouter.ai/openai/gpt-6.2-astra)、[GPT-6 Astra](https://openrouter.ai/openai/gpt-6-astra)、[GPT-6.2 Sol](https://openrouter.ai/openai/gpt-6.2-sol)、[Claude Fable 5.1](https://openrouter.ai/anthropic/claude-fable-5.1)、[Claude Opus 5.5](https://openrouter.ai/anthropic/claude-opus-5.5)、[Gemini 4 Carbon](https://openrouter.ai/google/gemini-4-carbon)、[Gemini 4 Argon](https://openrouter.ai/google/gemini-4-argon)、[Gemini 3.8 Flash](https://openrouter.ai/google/gemini-3.8-flash)、[Claude Fable 5](https://openrouter.ai/anthropic/claude-fable-5/pricing) 和 [Gemini 3.1 Pro Preview](https://openrouter.ai/google/gemini-3.1-pro-preview/providers) 的模型页
 - Capriole AI 的[公开产品与方案](https://www.capriole.ai/zh)和[当前公开模型目录](https://api.caprioletech.com/v1/models)
 
 本页中关于 Capriole 方案、充值和计费 token 的信息由我们作为官方文档持续维护。对比只使用面向客户的公开定价和配额规则。

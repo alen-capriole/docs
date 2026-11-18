@@ -1,10 +1,10 @@
 ---
 title: "Pi コーディング エージェントにプロバイダーを追加"
 sidebarTitle: "Pi"
-description: "Capriole AI を Pi コーディング エージェントの models.json に追加し、GPT-6 Astra、Claude Fable 5.1、Opus 5.5、Gemini 4 Carbon を公式 API 価格より最大 92% 安く使えます。"
+description: "Capriole AI を Pi コーディング エージェントの models.json に追加し、GPT-6.2 Astra、Claude Fable 5.1、Opus 5.5、Gemini 4 Carbon を公式 API 価格より最大 92% 安く使えます。"
 ---
 
-Capriole AI の API キー 1 つで、Pi から GPT-6 Astra、Claude Fable 5.1、Opus 5.5、Gemini 4 Carbon を公式 API 価格より最大 92% 安く使えます。
+Capriole AI の API キー 1 つで、Pi から GPT-6.2 Astra、Claude Fable 5.1、Opus 5.5、Gemini 4 Carbon を公式 API 価格より最大 92% 安く使えます。
 
 ## Pi とは
 
@@ -58,7 +58,7 @@ Pi 1.3.0 は、下記の設定を使い、「対応モデル」のすべての�
           "api": "openai-responses"
         },
         {
-          "id": "openai/gpt-6.1-sol",
+          "id": "openai/gpt-6.2-sol",
           "contextWindow": 1050000,
           "maxTokens": 128000,
           "reasoning": true,
@@ -169,7 +169,7 @@ pi -p --model xai/grok-4.7 "Explain this repository."
 | モデル | モデル ID | プロトコル |
 | --- | --- | --- |
 | OpenAI latest | `openai-latest` | Responses |
-| GPT-6.1 Sol | `openai/gpt-6.1-sol` | Responses |
+| GPT-6.2 Sol | `openai/gpt-6.2-sol` | Responses |
 | Claude latest | `claude-latest` | Anthropic Messages |
 | Opus 5.5 | `claude-opus-5-5` | Anthropic Messages |
 | Google latest | `google-latest` | Chat Completions |
@@ -180,7 +180,7 @@ pi -p --model xai/grok-4.7 "Explain this repository."
 | Kimi K3.1 Pro | `moonshot/kimi-k3.1-pro` | Chat Completions |
 | Kimi K3 | `moonshot/kimi-k3` | Chat Completions |
 
-`openai-latest`、`claude-latest`、`google-latest` は、常に各ファミリーの最新の旗艦モデルを指します。現在は GPT-6 Astra、Claude Fable 5.1、Gemini 4 Carbon です。
+`openai-latest`、`claude-latest`、`google-latest` は、常に各ファミリーの最新の旗艦モデルを指します。現在は GPT-6.2 Astra、Claude Fable 5.1、Gemini 4 Carbon です。
 
 ## トラブルシューティング
 

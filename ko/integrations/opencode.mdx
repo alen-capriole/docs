@@ -1,10 +1,10 @@
 ---
 title: "OpenCode 사용자 지정 제공자 추가"
 sidebarTitle: "OpenCode"
-description: "Capriole AI를 OpenCode 2·1의 사용자 지정 제공자로 추가해 GPT-6 Astra, Claude Fable 5.1, Opus 5.5, Gemini 4 Carbon을 공식 API 가격보다 최대 92% 저렴하게 쓰세요."
+description: "Capriole AI를 OpenCode 2·1의 사용자 지정 제공자로 추가해 GPT-6.2 Astra, Claude Fable 5.1, Opus 5.5, Gemini 4 Carbon을 공식 API 가격보다 최대 92% 저렴하게 쓰세요."
 ---
 
-Capriole AI API 키 하나로 OpenCode에서 GPT-6 Astra, Claude Fable 5.1, Opus 5.5, Gemini 4 Carbon 모델을 공식 API 가격보다 최대 92% 저렴하게 사용할 수 있습니다.
+Capriole AI API 키 하나로 OpenCode에서 GPT-6.2 Astra, Claude Fable 5.1, Opus 5.5, Gemini 4 Carbon 모델을 공식 API 가격보다 최대 92% 저렴하게 사용할 수 있습니다.
 
 ## OpenCode란
 
@@ -82,8 +82,8 @@ OpenCode 2.2.5 버전은 OpenCode 2 구성으로 지원 모델 섹션의 모든 
             "reasoningEffort": "medium"
           }
         },
-        "openai/gpt-6.1-sol": {
-          "name": "GPT-6.1 Sol",
+        "openai/gpt-6.2-sol": {
+          "name": "GPT-6.2 Sol",
           "package": "@opencode/ai/providers/openai-compatible/responses",
           "limit": {
             "context": 1050000,
@@ -214,8 +214,8 @@ OpenCode 1은 OpenCode 2 형식을 읽지 않지만, OpenCode 2는 이 형식도
             "forceReasoning": true
           }
         },
-        "openai/gpt-6.1-sol": {
-          "name": "GPT-6.1 Sol",
+        "openai/gpt-6.2-sol": {
+          "name": "GPT-6.2 Sol",
           "provider": {
             "npm": "@ai-sdk/openai"
           },
@@ -343,7 +343,7 @@ opencode run -m capriole-ai/claude-latest "Explain this repository."
 | 모델 | 모델 ID | 프로토콜 |
 | --- | --- | --- |
 | OpenAI latest | `openai-latest` | Responses |
-| GPT-6.1 Sol | `openai/gpt-6.1-sol` | Responses |
+| GPT-6.2 Sol | `openai/gpt-6.2-sol` | Responses |
 | Claude latest | `claude-latest` | Anthropic Messages |
 | Opus 5.5 | `claude-opus-5-5` | Anthropic Messages |
 | Google latest | `google-latest` | Chat Completions |
@@ -355,7 +355,7 @@ opencode run -m capriole-ai/claude-latest "Explain this repository."
 | Kimi K3.1 Pro | `moonshot/kimi-k3.1-pro` | Chat Completions |
 | Kimi K3 | `moonshot/kimi-k3` | Chat Completions |
 
-`openai-latest`, `claude-latest`, `google-latest`는 항상 각 계열의 최신 플래그십 모델을 가리킵니다. 현재는 GPT-6 Astra, Claude Fable 5.1, Gemini 4 Carbon입니다.
+`openai-latest`, `claude-latest`, `google-latest`는 항상 각 계열의 최신 플래그십 모델을 가리킵니다. 현재는 GPT-6.2 Astra, Claude Fable 5.1, Gemini 4 Carbon입니다.
 
 ## 문제 해결
 

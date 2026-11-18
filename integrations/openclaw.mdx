@@ -1,10 +1,10 @@
 ---
 title: "Add custom model providers to OpenClaw: Capriole AI setup"
 sidebarTitle: "OpenClaw"
-description: "Add Capriole AI to OpenClaw as custom model providers. Run GPT-6 Astra, Claude Fable 5.1, Opus 5.5, and Gemini 4 Carbon at up to 92% less than official API prices."
+description: "Add Capriole AI to OpenClaw as custom model providers. Run GPT-6.2 Astra, Claude Fable 5.1, Opus 5.5, and Gemini 4 Carbon at up to 92% less than official API prices."
 ---
 
-With one Capriole AI API key, you can run GPT-6 Astra, Claude Fable 5.1, Opus 5.5, and Gemini 4 Carbon in OpenClaw at up to 92% less than official API prices.
+With one Capriole AI API key, you can run GPT-6.2 Astra, Claude Fable 5.1, Opus 5.5, and Gemini 4 Carbon in OpenClaw at up to 92% less than official API prices.
 
 ## What is OpenClaw
 
@@ -49,7 +49,7 @@ Add the `models` block and the `agents.defaults` model settings below to `~/.ope
       },
       "models": {
         "capriole-ai-openai/openai-latest": {},
-        "capriole-ai-openai/openai/gpt-6.1-sol": {},
+        "capriole-ai-openai/openai/gpt-6.2-sol": {},
         "capriole-ai-anthropic/claude-latest": {},
         "capriole-ai-anthropic/claude-opus-5-5": {},
         "capriole-ai-compatible/zai/glm-5.3-flash": {},
@@ -82,8 +82,8 @@ Add the `models` block and the `agents.defaults` model settings below to `~/.ope
             "api": "openai-responses"
           },
           {
-            "id": "openai/gpt-6.1-sol",
-            "name": "GPT-6.1 Sol",
+            "id": "openai/gpt-6.2-sol",
+            "name": "GPT-6.2 Sol",
             "reasoning": true,
             "input": ["text"],
             "contextWindow": 1050000,
@@ -253,7 +253,7 @@ Model references use the form `<provider-id>/<model-id>`.
 | Model | Model reference | Protocol |
 | --- | --- | --- |
 | OpenAI latest | `capriole-ai-openai/openai-latest` | Responses |
-| GPT-6.1 Sol | `capriole-ai-openai/openai/gpt-6.1-sol` | Responses |
+| GPT-6.2 Sol | `capriole-ai-openai/openai/gpt-6.2-sol` | Responses |
 | Claude latest | `capriole-ai-anthropic/claude-latest` | Anthropic Messages |
 | Opus 5.5 | `capriole-ai-anthropic/claude-opus-5-5` | Anthropic Messages |
 | Google latest | `capriole-ai-compatible/google-latest` | Chat Completions |
@@ -265,7 +265,7 @@ Model references use the form `<provider-id>/<model-id>`.
 | Kimi K3.1 Pro | `capriole-ai-compatible/moonshot/kimi-k3.1-pro` | Chat Completions |
 | Kimi K3 | `capriole-ai-compatible/moonshot/kimi-k3` | Chat Completions |
 
-`openai-latest`, `claude-latest`, and `google-latest` always point to our latest flagship in each family, currently GPT-6 Astra, Claude Fable 5.1, and Gemini 4 Carbon.
+`openai-latest`, `claude-latest`, and `google-latest` always point to our latest flagship in each family, currently GPT-6.2 Astra, Claude Fable 5.1, and Gemini 4 Carbon.
 
 ## Troubleshooting
 

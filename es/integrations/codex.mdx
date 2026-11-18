@@ -1,10 +1,10 @@
 ---
 title: "Codex con otro proveedor de API: configura Capriole AI"
 sidebarTitle: "Codex"
-description: "Añade Capriole AI a Codex como proveedor de modelos. Usa GPT-6 Astra y GPT-6.1 Sol pagando hasta un 92% menos que en la API oficial."
+description: "Añade Capriole AI a Codex como proveedor de modelos. Usa GPT-6.2 Astra y GPT-6.2 Sol pagando hasta un 92% menos que en la API oficial."
 ---
 
-Con una sola clave API de Capriole AI, usas GPT-6 Astra y GPT-6.1 Sol en Codex pagando hasta un 92% menos que los precios oficiales de la API.
+Con una sola clave API de Capriole AI, usas GPT-6.2 Astra y GPT-6.2 Sol en Codex pagando hasta un 92% menos que los precios oficiales de la API.
 
 ## Qué es Codex
 
@@ -53,7 +53,7 @@ Codex CLI 0.160.1 supera una prueba de lectura de archivos, escritura de archivo
 Crea o actualiza `~/.codex/config.toml`:
 
 ```toml
-model = "gpt-6-astra"
+model = "gpt-6.2-astra"
 model_reasoning_effort = "high"
 model_provider = "capriole_ai"
 
@@ -92,6 +92,8 @@ codex exec "Explain this repository."
 
 Codex usa los modelos OpenAI de Capriole AI a través de la API Responses. Usa los IDs de modelo nativos de abajo con el selector de modelos y los ajustes de razonamiento integrados de Codex. No necesitas un `model_catalog_json` personalizado. Solo puedes invocar modelos compatibles con Capriole AI.
 
+- `gpt-6.2-astra`
+- `gpt-6.2-sol`
 - `gpt-6-astra`
 - `gpt-6.1-sol`
 - `gpt-6-sol`
@@ -99,13 +101,13 @@ Codex usa los modelos OpenAI de Capriole AI a través de la API Responses. Usa l
 - `gpt-5.6-terra`
 - `gpt-5.6-luna`
 
-Usa Codex 0.159.2 o posterior para `gpt-6.1-sol`. Las versiones anteriores no incluyen sus metadatos de modelo y recurren a una configuración genérica.
+Usa Codex 0.169.1 o posterior para `gpt-6.2-astra` y `gpt-6.2-sol`, y 0.159.2 o posterior para `gpt-6.1-sol`. Las versiones anteriores no incluyen sus metadatos de modelo y recurren a una configuración genérica.
 
 La API también acepta las formas con el prefijo `openai/` y `openai-latest`. El alias `openai-latest` sigue el modelo insignia de OpenAI recomendado por Capriole AI.
 
 Codex también puede ejecutar `xai/grok-4.7` a través del mismo proveedor, porque Capriole AI sirve Grok en la API Responses.
 
-Codex solo incluye metadatos integrados para los IDs de modelo nativos de OpenAI. Con `openai-latest` y `xai/grok-4.7`, muestra `Model metadata ... not found` y usa una configuración de respaldo. La sesión sigue funcionando, pero usa un ID nativo como `gpt-6-astra` para obtener los mejores resultados.
+Codex solo incluye metadatos integrados para los IDs de modelo nativos de OpenAI. Con `openai-latest` y `xai/grok-4.7`, muestra `Model metadata ... not found` y usa una configuración de respaldo. La sesión sigue funcionando, pero usa un ID nativo como `gpt-6.2-astra` para obtener los mejores resultados.
 
 ## Solución de problemas
 

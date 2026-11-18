@@ -1,10 +1,10 @@
 ---
 title: "Eigener Modellanbieter in Qwen Code: Capriole AI einrichten"
 sidebarTitle: "Qwen Code"
-description: "Capriole AI-Modelle in modelProviders von Qwen Code eintragen. Nutzen Sie GPT-6 Astra, Claude Fable 5.1, Opus 5.5 und Gemini 4 Carbon bis zu 92 % unter den offiziellen API-Preisen."
+description: "Capriole AI-Modelle in modelProviders von Qwen Code eintragen. Nutzen Sie GPT-6.2 Astra, Claude Fable 5.1, Opus 5.5 und Gemini 4 Carbon bis zu 92 % unter den offiziellen API-Preisen."
 ---
 
-Mit einem einzigen Capriole-AI-API-Schlüssel nutzen Sie GPT-6 Astra, Claude Fable 5.1, Opus 5.5 und Gemini 4 Carbon in Qwen Code, bis zu 92% unter den offiziellen API-Preisen.
+Mit einem einzigen Capriole-AI-API-Schlüssel nutzen Sie GPT-6.2 Astra, Claude Fable 5.1, Opus 5.5 und Gemini 4 Carbon in Qwen Code, bis zu 92% unter den offiziellen API-Preisen.
 
 ## Was ist Qwen Code
 
@@ -75,8 +75,8 @@ Erstellen oder aktualisieren Sie `~/.qwen/settings.json`:
         "wireApi": "responses"
       },
       {
-        "id": "openai/gpt-6.1-sol",
-        "name": "openai/gpt-6.1-sol",
+        "id": "openai/gpt-6.2-sol",
+        "name": "openai/gpt-6.2-sol",
         "baseUrl": "https://api.caprioletech.com/v1",
         "envKey": "CAPRIOLE_AI_API_KEY",
         "generationConfig": {
@@ -208,7 +208,7 @@ qwen "Explain this repository." -m claude-latest --auth-type anthropic
 | Modell | Modell-ID | Gruppe | Protokoll |
 | --- | --- | --- | --- |
 | OpenAI latest | `openai-latest` | `openai` | Responses |
-| GPT-6.1 Sol | `openai/gpt-6.1-sol` | `openai` | Responses |
+| GPT-6.2 Sol | `openai/gpt-6.2-sol` | `openai` | Responses |
 | Claude latest | `claude-latest` | `anthropic` | Anthropic Messages |
 | Opus 5.5 | `claude-opus-5-5` | `anthropic` | Anthropic Messages |
 | Google latest | `google-latest` | `openai` | Chat Completions |
@@ -220,7 +220,7 @@ qwen "Explain this repository." -m claude-latest --auth-type anthropic
 | Kimi K3.1 Pro | `moonshot/kimi-k3.1-pro` | `openai` | Chat Completions |
 | Kimi K3 | `moonshot/kimi-k3` | `openai` | Chat Completions |
 
-`openai-latest`, `claude-latest` und `google-latest` zeigen immer auf unser neuestes Flaggschiff-Modell der jeweiligen Familie, derzeit GPT-6 Astra, Claude Fable 5.1 und Gemini 4 Carbon.
+`openai-latest`, `claude-latest` und `google-latest` zeigen immer auf unser neuestes Flaggschiff-Modell der jeweiligen Familie, derzeit GPT-6.2 Astra, Claude Fable 5.1 und Gemini 4 Carbon.
 
 ## Fehlerbehebung
 

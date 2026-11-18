@@ -32,6 +32,12 @@
                           "id": "openai-latest"
                         },
                         {
+                          "id": "openai/gpt-6.2-astra"
+                        },
+                        {
+                          "id": "openai/gpt-6.2-sol"
+                        },
+                        {
                           "id": "openai/gpt-6-astra"
                         },
                         {
@@ -260,7 +266,7 @@
                       "id": "chatcmpl_123",
                       "object": "chat.completion",
                       "created": 1764547200,
-                      "model": "gpt-5.5",
+                      "model": "gpt-6.2-astra",
                       "choices": [
                         {
                           "index": 0,
@@ -590,6 +596,8 @@
             "type": "string",
             "description": "Native OpenAI ID, public Responses-compatible model key, or OpenAI latest alias",
             "enum": [
+              "gpt-6.2-astra",
+              "gpt-6.2-sol",
               "gpt-6-astra",
               "gpt-6.1-sol",
               "gpt-6-sol",
@@ -598,6 +606,8 @@
               "gpt-5.6-luna",
               "gpt-5.5",
               "openai-latest",
+              "openai/gpt-6.2-astra",
+              "openai/gpt-6.2-sol",
               "openai/gpt-6-astra",
               "openai/gpt-6.1-sol",
               "openai/gpt-6-sol",
@@ -693,6 +703,8 @@
             "description": "Public model identifier or latest alias returned by GET /v1/models",
             "enum": [
               "openai-latest",
+              "openai/gpt-6.2-astra",
+              "openai/gpt-6.2-sol",
               "openai/gpt-6-astra",
               "openai/gpt-6.1-sol",
               "openai/gpt-6-sol",

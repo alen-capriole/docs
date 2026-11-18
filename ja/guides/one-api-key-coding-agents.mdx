@@ -33,7 +33,7 @@ API キーをリポジトリやコミット済み設定ファイルに置かな�
 
 | エージェント | Capriole プロトコル | Base URL | 開始モデル | 完全な設定 |
 |---|---|---|---|---|
-| Codex | OpenAI Responses | `https://api.caprioletech.com/v1` | `gpt-6-astra` | [Codex を設定する](/ja/integrations/codex) |
+| Codex | OpenAI Responses | `https://api.caprioletech.com/v1` | `gpt-6.2-astra` | [Codex を設定する](/ja/integrations/codex) |
 | Claude Code | Anthropic Messages | `https://api.caprioletech.com` | `claude-fable-5-1` | [Claude Code を設定する](/ja/integrations/claude-code) |
 | Kilo Code | モデル系統に応じて Responses、Messages、または Chat Completions | `https://api.caprioletech.com/v1` | `openai-latest` または `claude-latest` | [Kilo Code を設定する](/ja/integrations/kilo-code) |
 | GitHub Copilot CLI | Chat Completions、Responses、または Messages | プロトコルによる | プロトコルによる | [GitHub Copilot CLI を設定する](/ja/integrations/github-copilot-cli) |
@@ -94,7 +94,7 @@ export ANTHROPIC_AUTH_TOKEN="$CAPRIOLE_AI_API_KEY"
 
 正確なモデル バージョンが必要な場合を除き、当社が管理するエイリアスから始めてください。
 
-- OpenAI Responses 経路では `openai-latest`、Codex ではネイティブの `gpt-6-astra` を使う
+- OpenAI Responses 経路では `openai-latest`、Codex ではネイティブの `gpt-6.2-astra` を使う
 - Anthropic Messages 経路では `claude-latest`、Claude Code では `claude-fable-5-1` を使う
 - Chat Completions 互換経路では、統合ページに載っているモデルを使う
 

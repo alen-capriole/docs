@@ -17,13 +17,13 @@ Verwenden Sie einen Latest-Alias, wenn Capriole AI das von uns empfohlene Flaggs
 | Modellwahl | Am besten geeignet für |
 | --- | --- |
 | `openai-latest`, `claude-latest`, `google-latest` | Einmal konfigurieren; Capriole AI hält Sie beim empfohlenen Flaggschiff-Modell |
-| Konkrete Modell-IDs wie `openai/gpt-6-astra` | Eine genaue Modellversion festlegen |
+| Konkrete Modell-IDs wie `openai/gpt-6.2-astra` | Eine genaue Modellversion festlegen |
 
 Latest-Aliase werden auf `POST /v1/chat/completions` wie folgt aufgelöst:
 
 | Latest-Alias | Wird aufgelöst zu |
 | --- | --- |
-| `openai-latest` | `openai/gpt-6-astra` |
+| `openai-latest` | `openai/gpt-6.2-astra` |
 | `claude-latest` | `anthropic/claude-fable-5-1` |
 | `google-latest` | `google/gemini-4-carbon` |
 

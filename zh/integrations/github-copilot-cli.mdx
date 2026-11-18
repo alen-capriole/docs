@@ -1,10 +1,10 @@
 ---
 title: "GitHub Copilot CLI 使用 BYOK 模型：Capriole AI 配置"
 sidebarTitle: "GitHub Copilot CLI"
-description: "让 GitHub Copilot CLI 的 BYOK 模式接入 Capriole AI，使用 GPT-6 Astra、Claude Fable 5.1、Opus 5.5 和 Gemini 4 Carbon，价格比官方 API 最多低 92%。"
+description: "让 GitHub Copilot CLI 的 BYOK 模式接入 Capriole AI，使用 GPT-6.2 Astra、Claude Fable 5.1、Opus 5.5 和 Gemini 4 Carbon，价格比官方 API 最多低 92%。"
 ---
 
-只需一个 Capriole AI API Key，就能在 GitHub Copilot CLI 中使用 GPT-6 Astra、Claude Fable 5.1、Opus 5.5 和 Gemini 4 Carbon，价格比官方 API 最多低 92%。
+只需一个 Capriole AI API Key，就能在 GitHub Copilot CLI 中使用 GPT-6.2 Astra、Claude Fable 5.1、Opus 5.5 和 Gemini 4 Carbon，价格比官方 API 最多低 92%。
 
 ## GitHub Copilot CLI 是什么
 
@@ -55,11 +55,11 @@ export COPILOT_PROVIDER_TYPE="openai"
 export COPILOT_PROVIDER_BASE_URL="https://api.caprioletech.com/v1"
 export COPILOT_PROVIDER_API_KEY="$CAPRIOLE_AI_API_KEY"
 export COPILOT_PROVIDER_WIRE_API="responses"
-export COPILOT_PROVIDER_MODEL_ID="gpt-6-astra"
+export COPILOT_PROVIDER_MODEL_ID="gpt-6.2-astra"
 export COPILOT_PROVIDER_WIRE_MODEL="openai-latest"
 ```
 
-如需使用 GPT-6.1 Sol，请设置 `COPILOT_PROVIDER_MODEL_ID="gpt-6.1-sol"` 和 `COPILOT_PROVIDER_WIRE_MODEL="openai/gpt-6.1-sol"`。
+如需使用 GPT-6.2 Sol，请设置 `COPILOT_PROVIDER_MODEL_ID="gpt-6.2-sol"` 和 `COPILOT_PROVIDER_WIRE_MODEL="openai/gpt-6.2-sol"`。
 
 ### Claude 模型
 
@@ -120,8 +120,8 @@ copilot -p "Explain this repository." --allow-all-tools
 
 | 模型 | `COPILOT_PROVIDER_WIRE_MODEL` | `COPILOT_PROVIDER_MODEL_ID` | 协议 |
 | --- | --- | --- | --- |
-| OpenAI latest | `openai-latest` | `gpt-6-astra` | Responses |
-| GPT-6.1 Sol | `openai/gpt-6.1-sol` | `gpt-6.1-sol` | Responses |
+| OpenAI latest | `openai-latest` | `gpt-6.2-astra` | Responses |
+| GPT-6.2 Sol | `openai/gpt-6.2-sol` | `gpt-6.2-sol` | Responses |
 | Claude latest | `claude-latest` | `claude-opus-4.6` | Anthropic Messages |
 | Opus 5.5 | `claude-opus-5-5` | `claude-opus-4.6` | Anthropic Messages |
 | Google latest | `google-latest` | `claude-sonnet-4` | Chat Completions |
@@ -133,7 +133,7 @@ copilot -p "Explain this repository." --allow-all-tools
 | Kimi K3.1 Pro | `moonshot/kimi-k3.1-pro` | `claude-opus-4.6` | Chat Completions |
 | Kimi K3 | `moonshot/kimi-k3` | `claude-sonnet-4` | Chat Completions |
 
-`openai-latest`、`claude-latest` 和 `google-latest` 始终指向各自系列中我们最新的旗舰模型，目前分别是 GPT-6 Astra、Claude Fable 5.1 和 Gemini 4 Carbon。
+`openai-latest`、`claude-latest` 和 `google-latest` 始终指向各自系列中我们最新的旗舰模型，目前分别是 GPT-6.2 Astra、Claude Fable 5.1 和 Gemini 4 Carbon。
 
 ## 故障排除
 

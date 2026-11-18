@@ -8,9 +8,9 @@ openapi: "api-reference/openapi.json POST /v1/responses"
 
 发送包含 `model` 和 `input` 的标准 Responses 请求体。Capriole AI 会在转发给上游前，把 latest 别名 解析为所选上游模型 ID；继续转发 `instructions`、`tools`、`reasoning`、`previous_response_id` 和 `stream` 等兼容字段；并原样返回上游 JSON 或 SSE 流。
 
-`POST /v1/responses` 接受 `openai-latest`、`openai/gpt-6-astra`、`openai/gpt-6.1-sol`、`openai/gpt-6-sol`、`openai/gpt-6-luna`、`openai/gpt-5.6-terra`、`openai/gpt-5.6-luna` 和 `openai/gpt-5.5`。使用 `openai-latest` 可以让 Capriole AI 选择当前推荐的 OpenAI Responses 旗舰模型。
+`POST /v1/responses` 接受 `openai-latest`、`openai/gpt-6.2-astra`、`openai/gpt-6.2-sol`、`openai/gpt-6-astra`、`openai/gpt-6.1-sol`、`openai/gpt-6-sol`、`openai/gpt-6-luna`、`openai/gpt-5.6-terra`、`openai/gpt-5.6-luna` 和 `openai/gpt-5.5`。使用 `openai-latest` 可以让 Capriole AI 选择当前推荐的 OpenAI Responses 旗舰模型。
 
-也可以发送不带 `openai/` 前缀的原生 OpenAI ID，例如 `gpt-6-astra`。原生 ID 与带前缀的 ID 使用同一模型记录进行路由、计价和额度扣减。
+也可以发送不带 `openai/` 前缀的原生 OpenAI ID，例如 `gpt-6.2-astra`。原生 ID 与带前缀的 ID 使用同一模型记录进行路由、计价和额度扣减。
 
 此端点也接受 Grok 模型 `xai/grok-4.7`、`xai/grok-4.6` 和 `xai/grok-4.5`。Grok ID 必须带 `xai/` 前缀发送；`grok-4.7` 这类不带前缀的 ID 会被视为原生 OpenAI ID 并被拒绝。Grok 请求会直接转发到 xAI 自己的 Responses API，不做格式转换。
 

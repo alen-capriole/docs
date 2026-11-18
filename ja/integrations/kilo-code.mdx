@@ -1,10 +1,10 @@
 ---
 title: "Kilo Code にカスタム プロバイダーを追加"
 sidebarTitle: "Kilo Code"
-description: "Capriole AI を Kilo Code のカスタム プロバイダーとして追加します。GPT-6 Astra、Claude Fable 5.1、Opus 5.5、Gemini 4 Carbon を公式 API 価格より最大 92% 安く使えます。"
+description: "Capriole AI を Kilo Code のカスタム プロバイダーとして追加します。GPT-6.2 Astra、Claude Fable 5.1、Opus 5.5、Gemini 4 Carbon を公式 API 価格より最大 92% 安く使えます。"
 ---
 
-Capriole AI の API キー 1 つで、Kilo Code から GPT-6 Astra、Claude Fable 5.1、Opus 5.5、Gemini 4 Carbon を公式 API 価格より最大 92% 安く使えます。
+Capriole AI の API キー 1 つで、Kilo Code から GPT-6.2 Astra、Claude Fable 5.1、Opus 5.5、Gemini 4 Carbon を公式 API 価格より最大 92% 安く使えます。
 
 ## Kilo Code とは
 
@@ -75,8 +75,8 @@ Kilo CLI 7.8.15 は、下記の設定を使い、「対応モデル」のすべ�
           },
           "tool_call": true
         },
-        "openai/gpt-6.1-sol": {
-          "name": "GPT-6.1 Sol",
+        "openai/gpt-6.2-sol": {
+          "name": "GPT-6.2 Sol",
           "provider": {
             "npm": "@ai-sdk/openai"
           },
@@ -221,7 +221,7 @@ kilo run -m capriole-ai/claude-latest "Explain this repository."
 | モデル | モデル ID | プロトコル |
 | --- | --- | --- |
 | OpenAI latest | `openai-latest` | Responses |
-| GPT-6.1 Sol | `openai/gpt-6.1-sol` | Responses |
+| GPT-6.2 Sol | `openai/gpt-6.2-sol` | Responses |
 | Claude latest | `claude-latest` | Anthropic Messages |
 | Opus 5.5 | `claude-opus-5-5` | Anthropic Messages |
 | Google latest | `google-latest` | Chat Completions |
@@ -233,7 +233,7 @@ kilo run -m capriole-ai/claude-latest "Explain this repository."
 | Kimi K3.1 Pro | `moonshot/kimi-k3.1-pro` | Chat Completions |
 | Kimi K3 | `moonshot/kimi-k3` | Chat Completions |
 
-`openai-latest`、`claude-latest`、`google-latest` は、常に各ファミリーの最新の旗艦モデルを指します。現在は GPT-6 Astra、Claude Fable 5.1、Gemini 4 Carbon です。
+`openai-latest`、`claude-latest`、`google-latest` は、常に各ファミリーの最新の旗艦モデルを指します。現在は GPT-6.2 Astra、Claude Fable 5.1、Gemini 4 Carbon です。
 
 ## トラブルシューティング
 

@@ -1,10 +1,10 @@
 ---
 title: "Eigener Anbieter in Kilo Code: Capriole AI einrichten"
 sidebarTitle: "Kilo Code"
-description: "Capriole AI als eigenen Anbieter in Kilo Code einrichten. Nutzen Sie GPT-6 Astra, Claude Fable 5.1, Opus 5.5 und Gemini 4 Carbon bis zu 92 % unter den offiziellen API-Preisen."
+description: "Capriole AI als eigenen Anbieter in Kilo Code einrichten. Nutzen Sie GPT-6.2 Astra, Claude Fable 5.1, Opus 5.5 und Gemini 4 Carbon bis zu 92 % unter den offiziellen API-Preisen."
 ---
 
-Mit einem einzigen Capriole-AI-API-Schlüssel nutzen Sie GPT-6 Astra, Claude Fable 5.1, Opus 5.5 und Gemini 4 Carbon in Kilo Code, bis zu 92% unter den offiziellen API-Preisen.
+Mit einem einzigen Capriole-AI-API-Schlüssel nutzen Sie GPT-6.2 Astra, Claude Fable 5.1, Opus 5.5 und Gemini 4 Carbon in Kilo Code, bis zu 92% unter den offiziellen API-Preisen.
 
 ## Was ist Kilo Code
 
@@ -75,8 +75,8 @@ Erstellen oder aktualisieren Sie `~/.config/kilo/kilo.jsonc`:
           },
           "tool_call": true
         },
-        "openai/gpt-6.1-sol": {
-          "name": "GPT-6.1 Sol",
+        "openai/gpt-6.2-sol": {
+          "name": "GPT-6.2 Sol",
           "provider": {
             "npm": "@ai-sdk/openai"
           },
@@ -221,7 +221,7 @@ Modellreferenzen haben die Form `capriole-ai/<model-id>`.
 | Modell | Modell-ID | Protokoll |
 | --- | --- | --- |
 | OpenAI latest | `openai-latest` | Responses |
-| GPT-6.1 Sol | `openai/gpt-6.1-sol` | Responses |
+| GPT-6.2 Sol | `openai/gpt-6.2-sol` | Responses |
 | Claude latest | `claude-latest` | Anthropic Messages |
 | Opus 5.5 | `claude-opus-5-5` | Anthropic Messages |
 | Google latest | `google-latest` | Chat Completions |
@@ -233,7 +233,7 @@ Modellreferenzen haben die Form `capriole-ai/<model-id>`.
 | Kimi K3.1 Pro | `moonshot/kimi-k3.1-pro` | Chat Completions |
 | Kimi K3 | `moonshot/kimi-k3` | Chat Completions |
 
-`openai-latest`, `claude-latest` und `google-latest` zeigen immer auf unser neuestes Flaggschiff-Modell der jeweiligen Familie, derzeit GPT-6 Astra, Claude Fable 5.1 und Gemini 4 Carbon.
+`openai-latest`, `claude-latest` und `google-latest` zeigen immer auf unser neuestes Flaggschiff-Modell der jeweiligen Familie, derzeit GPT-6.2 Astra, Claude Fable 5.1 und Gemini 4 Carbon.
 
 ## Fehlerbehebung
 

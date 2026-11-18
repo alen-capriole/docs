@@ -1,10 +1,10 @@
 ---
 title: "GitHub Copilot CLI の BYOK モデル設定"
 sidebarTitle: "GitHub Copilot CLI"
-description: "GitHub Copilot CLI の BYOK モードの接続先を Capriole AI にします。GPT-6 Astra、Claude Fable 5.1、Opus 5.5、Gemini 4 Carbon を公式 API 価格より最大 92% 安く使えます。"
+description: "GitHub Copilot CLI の BYOK モードの接続先を Capriole AI にします。GPT-6.2 Astra、Claude Fable 5.1、Opus 5.5、Gemini 4 Carbon を公式 API 価格より最大 92% 安く使えます。"
 ---
 
-Capriole AI の API キー 1 つで、GitHub Copilot CLI から GPT-6 Astra、Claude Fable 5.1、Opus 5.5、Gemini 4 Carbon を公式 API 価格より最大 92% 安く使えます。
+Capriole AI の API キー 1 つで、GitHub Copilot CLI から GPT-6.2 Astra、Claude Fable 5.1、Opus 5.5、Gemini 4 Carbon を公式 API 価格より最大 92% 安く使えます。
 
 ## GitHub Copilot CLI とは
 
@@ -55,11 +55,11 @@ export COPILOT_PROVIDER_TYPE="openai"
 export COPILOT_PROVIDER_BASE_URL="https://api.caprioletech.com/v1"
 export COPILOT_PROVIDER_API_KEY="$CAPRIOLE_AI_API_KEY"
 export COPILOT_PROVIDER_WIRE_API="responses"
-export COPILOT_PROVIDER_MODEL_ID="gpt-6-astra"
+export COPILOT_PROVIDER_MODEL_ID="gpt-6.2-astra"
 export COPILOT_PROVIDER_WIRE_MODEL="openai-latest"
 ```
 
-GPT-6.1 Sol では、`COPILOT_PROVIDER_MODEL_ID="gpt-6.1-sol"` と `COPILOT_PROVIDER_WIRE_MODEL="openai/gpt-6.1-sol"` を設定します。
+GPT-6.2 Sol では、`COPILOT_PROVIDER_MODEL_ID="gpt-6.2-sol"` と `COPILOT_PROVIDER_WIRE_MODEL="openai/gpt-6.2-sol"` を設定します。
 
 ### Claude モデル
 
@@ -120,8 +120,8 @@ copilot -p "Explain this repository." --allow-all-tools
 
 | モデル | `COPILOT_PROVIDER_WIRE_MODEL` | `COPILOT_PROVIDER_MODEL_ID` | プロトコル |
 | --- | --- | --- | --- |
-| OpenAI latest | `openai-latest` | `gpt-6-astra` | Responses |
-| GPT-6.1 Sol | `openai/gpt-6.1-sol` | `gpt-6.1-sol` | Responses |
+| OpenAI latest | `openai-latest` | `gpt-6.2-astra` | Responses |
+| GPT-6.2 Sol | `openai/gpt-6.2-sol` | `gpt-6.2-sol` | Responses |
 | Claude latest | `claude-latest` | `claude-opus-4.6` | Anthropic Messages |
 | Opus 5.5 | `claude-opus-5-5` | `claude-opus-4.6` | Anthropic Messages |
 | Google latest | `google-latest` | `claude-sonnet-4` | Chat Completions |
@@ -133,7 +133,7 @@ copilot -p "Explain this repository." --allow-all-tools
 | Kimi K3.1 Pro | `moonshot/kimi-k3.1-pro` | `claude-opus-4.6` | Chat Completions |
 | Kimi K3 | `moonshot/kimi-k3` | `claude-sonnet-4` | Chat Completions |
 
-`openai-latest`、`claude-latest`、`google-latest` は、常に各ファミリーの最新の旗艦モデルを指します。現在は GPT-6 Astra、Claude Fable 5.1、Gemini 4 Carbon です。
+`openai-latest`、`claude-latest`、`google-latest` は、常に各ファミリーの最新の旗艦モデルを指します。現在は GPT-6.2 Astra、Claude Fable 5.1、Gemini 4 Carbon です。
 
 ## トラブルシューティング
 

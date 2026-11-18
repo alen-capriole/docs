@@ -1,10 +1,10 @@
 ---
 title: "Qwen Code 사용자 지정 모델 제공자 추가"
 sidebarTitle: "Qwen Code"
-description: "Capriole AI 모델을 Qwen Code의 modelProviders에 추가해 GPT-6 Astra, Claude Fable 5.1, Opus 5.5, Gemini 4 Carbon을 공식 API 가격보다 최대 92% 저렴하게 쓰세요."
+description: "Capriole AI 모델을 Qwen Code의 modelProviders에 추가해 GPT-6.2 Astra, Claude Fable 5.1, Opus 5.5, Gemini 4 Carbon을 공식 API 가격보다 최대 92% 저렴하게 쓰세요."
 ---
 
-Capriole AI API 키 하나로 Qwen Code에서 GPT-6 Astra, Claude Fable 5.1, Opus 5.5, Gemini 4 Carbon 모델을 공식 API 가격보다 최대 92% 저렴하게 사용할 수 있습니다.
+Capriole AI API 키 하나로 Qwen Code에서 GPT-6.2 Astra, Claude Fable 5.1, Opus 5.5, Gemini 4 Carbon 모델을 공식 API 가격보다 최대 92% 저렴하게 사용할 수 있습니다.
 
 ## Qwen Code란
 
@@ -75,8 +75,8 @@ CAPRIOLE_AI_API_KEY=YOUR_CAPRIOLE_AI_API_KEY
         "wireApi": "responses"
       },
       {
-        "id": "openai/gpt-6.1-sol",
-        "name": "openai/gpt-6.1-sol",
+        "id": "openai/gpt-6.2-sol",
+        "name": "openai/gpt-6.2-sol",
         "baseUrl": "https://api.caprioletech.com/v1",
         "envKey": "CAPRIOLE_AI_API_KEY",
         "generationConfig": {
@@ -208,7 +208,7 @@ qwen "Explain this repository." -m claude-latest --auth-type anthropic
 | 모델 | 모델 ID | 그룹 | 프로토콜 |
 | --- | --- | --- | --- |
 | OpenAI latest | `openai-latest` | `openai` | Responses |
-| GPT-6.1 Sol | `openai/gpt-6.1-sol` | `openai` | Responses |
+| GPT-6.2 Sol | `openai/gpt-6.2-sol` | `openai` | Responses |
 | Claude latest | `claude-latest` | `anthropic` | Anthropic Messages |
 | Opus 5.5 | `claude-opus-5-5` | `anthropic` | Anthropic Messages |
 | Google latest | `google-latest` | `openai` | Chat Completions |
@@ -220,7 +220,7 @@ qwen "Explain this repository." -m claude-latest --auth-type anthropic
 | Kimi K3.1 Pro | `moonshot/kimi-k3.1-pro` | `openai` | Chat Completions |
 | Kimi K3 | `moonshot/kimi-k3` | `openai` | Chat Completions |
 
-`openai-latest`, `claude-latest`, `google-latest`는 항상 각 계열의 최신 플래그십 모델을 가리킵니다. 현재는 GPT-6 Astra, Claude Fable 5.1, Gemini 4 Carbon입니다.
+`openai-latest`, `claude-latest`, `google-latest`는 항상 각 계열의 최신 플래그십 모델을 가리킵니다. 현재는 GPT-6.2 Astra, Claude Fable 5.1, Gemini 4 Carbon입니다.
 
 ## 문제 해결
 

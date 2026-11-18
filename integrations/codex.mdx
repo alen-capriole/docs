@@ -1,10 +1,10 @@
 ---
 title: "Use Codex with a custom API provider: Capriole AI setup"
 sidebarTitle: "Codex"
-description: "Add Capriole AI to Codex as a custom model provider. Run GPT-6 Astra and GPT-6.1 Sol at up to 92% less than official API prices."
+description: "Add Capriole AI to Codex as a custom model provider. Run GPT-6.2 Astra and GPT-6.2 Sol at up to 92% less than official API prices."
 ---
 
-With one Capriole AI API key, you can run GPT-6 Astra and GPT-6.1 Sol in Codex at up to 92% less than official API prices.
+With one Capriole AI API key, you can run GPT-6.2 Astra and GPT-6.2 Sol in Codex at up to 92% less than official API prices.
 
 ## What is Codex
 
@@ -53,7 +53,7 @@ Codex CLI 0.160.1 passes a file-read, file-write, and final-answer check through
 Create or update `~/.codex/config.toml`:
 
 ```toml
-model = "gpt-6-astra"
+model = "gpt-6.2-astra"
 model_reasoning_effort = "high"
 model_provider = "capriole_ai"
 
@@ -92,6 +92,8 @@ codex exec "Explain this repository."
 
 Codex uses Capriole AI OpenAI models through the Responses API. Use the native model IDs below with Codex's built-in model picker and reasoning settings. You do not need a custom `model_catalog_json`. Only models supported by Capriole AI can be called.
 
+- `gpt-6.2-astra`
+- `gpt-6.2-sol`
 - `gpt-6-astra`
 - `gpt-6.1-sol`
 - `gpt-6-sol`
@@ -99,13 +101,13 @@ Codex uses Capriole AI OpenAI models through the Responses API. Use the native m
 - `gpt-5.6-terra`
 - `gpt-5.6-luna`
 
-Use Codex 0.159.2 or later for `gpt-6.1-sol`. Older versions do not include its model metadata and fall back to generic settings.
+Use Codex 0.169.1 or later for `gpt-6.2-astra` and `gpt-6.2-sol`, and 0.159.2 or later for `gpt-6.1-sol`. Older versions do not include their model metadata and fall back to generic settings.
 
 The API also accepts the `openai/`-prefixed forms and `openai-latest`. The `openai-latest` alias follows Capriole AI's recommended OpenAI flagship model.
 
 Codex can also run `xai/grok-4.7` through the same provider, because Capriole AI serves Grok on the Responses API.
 
-Codex has built-in metadata only for OpenAI's native model IDs. For `openai-latest` and `xai/grok-4.7`, it prints `Model metadata ... not found` and uses fallback settings. The session still works, but use a native ID such as `gpt-6-astra` for the best results.
+Codex has built-in metadata only for OpenAI's native model IDs. For `openai-latest` and `xai/grok-4.7`, it prints `Model metadata ... not found` and uses fallback settings. The session still works, but use a native ID such as `gpt-6.2-astra` for the best results.
 
 ## Troubleshooting
 

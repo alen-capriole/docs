@@ -1,10 +1,10 @@
 ---
 title: "GitHub Copilot CLI con modelos BYOK: configura Capriole AI"
 sidebarTitle: "GitHub Copilot CLI"
-description: "Conecta el modo BYOK de GitHub Copilot CLI a Capriole AI. Usa GPT-6 Astra, Claude Fable 5.1, Opus 5.5 y Gemini 4 Carbon pagando hasta un 92% menos que en la API oficial."
+description: "Conecta el modo BYOK de GitHub Copilot CLI a Capriole AI. Usa GPT-6.2 Astra, Claude Fable 5.1, Opus 5.5 y Gemini 4 Carbon pagando hasta un 92% menos que en la API oficial."
 ---
 
-Con una sola clave API de Capriole AI, usas GPT-6 Astra, Claude Fable 5.1, Opus 5.5 y Gemini 4 Carbon en GitHub Copilot CLI pagando hasta un 92% menos que los precios oficiales de la API.
+Con una sola clave API de Capriole AI, usas GPT-6.2 Astra, Claude Fable 5.1, Opus 5.5 y Gemini 4 Carbon en GitHub Copilot CLI pagando hasta un 92% menos que los precios oficiales de la API.
 
 ## Qué es GitHub Copilot CLI
 
@@ -55,11 +55,11 @@ export COPILOT_PROVIDER_TYPE="openai"
 export COPILOT_PROVIDER_BASE_URL="https://api.caprioletech.com/v1"
 export COPILOT_PROVIDER_API_KEY="$CAPRIOLE_AI_API_KEY"
 export COPILOT_PROVIDER_WIRE_API="responses"
-export COPILOT_PROVIDER_MODEL_ID="gpt-6-astra"
+export COPILOT_PROVIDER_MODEL_ID="gpt-6.2-astra"
 export COPILOT_PROVIDER_WIRE_MODEL="openai-latest"
 ```
 
-Para GPT-6.1 Sol, define `COPILOT_PROVIDER_MODEL_ID="gpt-6.1-sol"` y `COPILOT_PROVIDER_WIRE_MODEL="openai/gpt-6.1-sol"`.
+Para GPT-6.2 Sol, define `COPILOT_PROVIDER_MODEL_ID="gpt-6.2-sol"` y `COPILOT_PROVIDER_WIRE_MODEL="openai/gpt-6.2-sol"`.
 
 ### Modelos Claude
 
@@ -120,8 +120,8 @@ copilot -p "Explain this repository." --allow-all-tools
 
 | Modelo | `COPILOT_PROVIDER_WIRE_MODEL` | `COPILOT_PROVIDER_MODEL_ID` | Protocolo |
 | --- | --- | --- | --- |
-| OpenAI latest | `openai-latest` | `gpt-6-astra` | Responses |
-| GPT-6.1 Sol | `openai/gpt-6.1-sol` | `gpt-6.1-sol` | Responses |
+| OpenAI latest | `openai-latest` | `gpt-6.2-astra` | Responses |
+| GPT-6.2 Sol | `openai/gpt-6.2-sol` | `gpt-6.2-sol` | Responses |
 | Claude latest | `claude-latest` | `claude-opus-4.6` | Anthropic Messages |
 | Opus 5.5 | `claude-opus-5-5` | `claude-opus-4.6` | Anthropic Messages |
 | Google latest | `google-latest` | `claude-sonnet-4` | Chat Completions |
@@ -133,7 +133,7 @@ copilot -p "Explain this repository." --allow-all-tools
 | Kimi K3.1 Pro | `moonshot/kimi-k3.1-pro` | `claude-opus-4.6` | Chat Completions |
 | Kimi K3 | `moonshot/kimi-k3` | `claude-sonnet-4` | Chat Completions |
 
-`openai-latest`, `claude-latest` y `google-latest` siempre apuntan a nuestro modelo insignia más reciente de cada familia, actualmente GPT-6 Astra, Claude Fable 5.1 y Gemini 4 Carbon.
+`openai-latest`, `claude-latest` y `google-latest` siempre apuntan a nuestro modelo insignia más reciente de cada familia, actualmente GPT-6.2 Astra, Claude Fable 5.1 y Gemini 4 Carbon.
 
 ## Solución de problemas
 

@@ -1,10 +1,10 @@
 ---
 title: "Add a custom provider to Charm Crush: Capriole AI setup"
 sidebarTitle: "Crush"
-description: "Add Capriole AI to Charm Crush as one provider. Run GPT-6 Astra, Claude Fable 5.1, Opus 5.5, and Gemini 4 Carbon at up to 92% less than official API prices."
+description: "Add Capriole AI to Charm Crush as one provider. Run GPT-6.2 Astra, Claude Fable 5.1, Opus 5.5, and Gemini 4 Carbon at up to 92% less than official API prices."
 ---
 
-With one Capriole AI API key, you can run GPT-6 Astra, Claude Fable 5.1, Opus 5.5, and Gemini 4 Carbon in Crush at up to 92% less than official API prices.
+With one Capriole AI API key, you can run GPT-6.2 Astra, Claude Fable 5.1, Opus 5.5, and Gemini 4 Carbon in Crush at up to 92% less than official API prices.
 
 ## What is Crush
 
@@ -53,7 +53,7 @@ provider add capriole --name "Capriole AI" --type openai-compat \
   --discover-models false
 
 model add capriole/openai-latest --name "OpenAI latest" --context-window 1050000 --default-max-tokens 32000 --can-reason true
-model add capriole/openai/gpt-6.1-sol --name "GPT-6.1 Sol" --context-window 1050000 --default-max-tokens 32000 --can-reason true
+model add capriole/openai/gpt-6.2-sol --name "GPT-6.2 Sol" --context-window 1050000 --default-max-tokens 32000 --can-reason true
 model add capriole/claude-latest --name "Claude latest" --context-window 1000000 --default-max-tokens 32000 --can-reason true
 model add capriole/anthropic/claude-opus-5-5 --name "Opus 5.5" --context-window 1000000 --default-max-tokens 32000 --can-reason true
 model add capriole/google-latest --name "Google latest" --context-window 1048576 --default-max-tokens 32000 --can-reason true
@@ -98,7 +98,7 @@ Model references use the form `capriole/<model-id>`.
 | Model | Model ID |
 | --- | --- |
 | OpenAI latest | `openai-latest` |
-| GPT-6.1 Sol | `openai/gpt-6.1-sol` |
+| GPT-6.2 Sol | `openai/gpt-6.2-sol` |
 | Claude latest | `claude-latest` |
 | Opus 5.5 | `anthropic/claude-opus-5-5` |
 | Google latest | `google-latest` |
@@ -110,7 +110,7 @@ Model references use the form `capriole/<model-id>`.
 | Kimi K3.1 Pro | `moonshot/kimi-k3.1-pro` |
 | Kimi K3 | `moonshot/kimi-k3` |
 
-`openai-latest`, `claude-latest`, and `google-latest` always point to our latest flagship in each family, currently GPT-6 Astra, Claude Fable 5.1, and Gemini 4 Carbon.
+`openai-latest`, `claude-latest`, and `google-latest` always point to our latest flagship in each family, currently GPT-6.2 Astra, Claude Fable 5.1, and Gemini 4 Carbon.
 
 ## Troubleshooting
 

@@ -1,10 +1,10 @@
 ---
 title: "Pi coding agent custom provider: Capriole AI setup"
 sidebarTitle: "Pi"
-description: "Add Capriole AI to the Pi coding agent's models.json. Run GPT-6 Astra, Claude Fable 5.1, Opus 5.5, and Gemini 4 Carbon at up to 92% less than official API prices."
+description: "Add Capriole AI to the Pi coding agent's models.json. Run GPT-6.2 Astra, Claude Fable 5.1, Opus 5.5, and Gemini 4 Carbon at up to 92% less than official API prices."
 ---
 
-With one Capriole AI API key, you can run GPT-6 Astra, Claude Fable 5.1, Opus 5.5, and Gemini 4 Carbon in Pi at up to 92% less than official API prices.
+With one Capriole AI API key, you can run GPT-6.2 Astra, Claude Fable 5.1, Opus 5.5, and Gemini 4 Carbon in Pi at up to 92% less than official API prices.
 
 ## What is Pi
 
@@ -58,7 +58,7 @@ Create or update `~/.pi/agent/models.json`:
           "api": "openai-responses"
         },
         {
-          "id": "openai/gpt-6.1-sol",
+          "id": "openai/gpt-6.2-sol",
           "contextWindow": 1050000,
           "maxTokens": 128000,
           "reasoning": true,
@@ -169,7 +169,7 @@ pi -p --model xai/grok-4.7 "Explain this repository."
 | Model | Model ID | Protocol |
 | --- | --- | --- |
 | OpenAI latest | `openai-latest` | Responses |
-| GPT-6.1 Sol | `openai/gpt-6.1-sol` | Responses |
+| GPT-6.2 Sol | `openai/gpt-6.2-sol` | Responses |
 | Claude latest | `claude-latest` | Anthropic Messages |
 | Opus 5.5 | `claude-opus-5-5` | Anthropic Messages |
 | Google latest | `google-latest` | Chat Completions |
@@ -180,7 +180,7 @@ pi -p --model xai/grok-4.7 "Explain this repository."
 | Kimi K3.1 Pro | `moonshot/kimi-k3.1-pro` | Chat Completions |
 | Kimi K3 | `moonshot/kimi-k3` | Chat Completions |
 
-`openai-latest`, `claude-latest`, and `google-latest` always point to our latest flagship in each family, currently GPT-6 Astra, Claude Fable 5.1, and Gemini 4 Carbon.
+`openai-latest`, `claude-latest`, and `google-latest` always point to our latest flagship in each family, currently GPT-6.2 Astra, Claude Fable 5.1, and Gemini 4 Carbon.
 
 ## Troubleshooting
 

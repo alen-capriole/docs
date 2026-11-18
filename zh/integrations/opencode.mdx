@@ -1,10 +1,10 @@
 ---
 title: "OpenCode 添加自定义提供商：Capriole AI 配置"
 sidebarTitle: "OpenCode"
-description: "将 Capriole AI 添加为 OpenCode 2 或 OpenCode 1 的自定义提供商，使用 GPT-6 Astra、Claude Fable 5.1、Opus 5.5 和 Gemini 4 Carbon，价格比官方 API 最多低 92%。"
+description: "将 Capriole AI 添加为 OpenCode 2 或 OpenCode 1 的自定义提供商，使用 GPT-6.2 Astra、Claude Fable 5.1、Opus 5.5 和 Gemini 4 Carbon，价格比官方 API 最多低 92%。"
 ---
 
-只需一个 Capriole AI API Key，就能在 OpenCode 中使用 GPT-6 Astra、Claude Fable 5.1、Opus 5.5 和 Gemini 4 Carbon，价格比官方 API 最多低 92%。
+只需一个 Capriole AI API Key，就能在 OpenCode 中使用 GPT-6.2 Astra、Claude Fable 5.1、Opus 5.5 和 Gemini 4 Carbon，价格比官方 API 最多低 92%。
 
 ## OpenCode 是什么
 
@@ -82,8 +82,8 @@ opencode --version
             "reasoningEffort": "medium"
           }
         },
-        "openai/gpt-6.1-sol": {
-          "name": "GPT-6.1 Sol",
+        "openai/gpt-6.2-sol": {
+          "name": "GPT-6.2 Sol",
           "package": "@opencode/ai/providers/openai-compatible/responses",
           "limit": {
             "context": 1050000,
@@ -214,8 +214,8 @@ OpenCode 1 不读取 OpenCode 2 的写法，但 OpenCode 2 能读取下面的写
             "forceReasoning": true
           }
         },
-        "openai/gpt-6.1-sol": {
-          "name": "GPT-6.1 Sol",
+        "openai/gpt-6.2-sol": {
+          "name": "GPT-6.2 Sol",
           "provider": {
             "npm": "@ai-sdk/openai"
           },
@@ -343,7 +343,7 @@ opencode run -m capriole-ai/claude-latest "Explain this repository."
 | 模型 | 模型 ID | 协议 |
 | --- | --- | --- |
 | OpenAI latest | `openai-latest` | Responses |
-| GPT-6.1 Sol | `openai/gpt-6.1-sol` | Responses |
+| GPT-6.2 Sol | `openai/gpt-6.2-sol` | Responses |
 | Claude latest | `claude-latest` | Anthropic Messages |
 | Opus 5.5 | `claude-opus-5-5` | Anthropic Messages |
 | Google latest | `google-latest` | Chat Completions |
@@ -355,7 +355,7 @@ opencode run -m capriole-ai/claude-latest "Explain this repository."
 | Kimi K3.1 Pro | `moonshot/kimi-k3.1-pro` | Chat Completions |
 | Kimi K3 | `moonshot/kimi-k3` | Chat Completions |
 
-`openai-latest`、`claude-latest` 和 `google-latest` 始终指向各自系列中我们最新的旗舰模型，目前分别是 GPT-6 Astra、Claude Fable 5.1 和 Gemini 4 Carbon。
+`openai-latest`、`claude-latest` 和 `google-latest` 始终指向各自系列中我们最新的旗舰模型，目前分别是 GPT-6.2 Astra、Claude Fable 5.1 和 Gemini 4 Carbon。
 
 ## 故障排除
 

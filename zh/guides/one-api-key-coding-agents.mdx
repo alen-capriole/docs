@@ -33,7 +33,7 @@ description: "使用一个 Capriole AI API Key 配置 10 个有配置文档的�
 
 | 智能体 | Capriole 协议 | Base URL | 起始模型 | 完整配置 |
 |---|---|---|---|---|
-| Codex | OpenAI Responses | `https://api.caprioletech.com/v1` | `gpt-6-astra` | [配置 Codex](/zh/integrations/codex) |
+| Codex | OpenAI Responses | `https://api.caprioletech.com/v1` | `gpt-6.2-astra` | [配置 Codex](/zh/integrations/codex) |
 | Claude Code | Anthropic Messages | `https://api.caprioletech.com` | `claude-fable-5-1` | [配置 Claude Code](/zh/integrations/claude-code) |
 | Kilo Code | Responses、Messages 或 Chat Completions（按模型家族） | `https://api.caprioletech.com/v1` | `openai-latest` 或 `claude-latest` | [配置 Kilo Code](/zh/integrations/kilo-code) |
 | GitHub Copilot CLI | Chat Completions、Responses 或 Messages | 取决于协议 | 取决于协议 | [配置 GitHub Copilot CLI](/zh/integrations/github-copilot-cli) |
@@ -94,7 +94,7 @@ export ANTHROPIC_AUTH_TOKEN="$CAPRIOLE_AI_API_KEY"
 
 除非需要指定准确模型版本，否则先使用持续维护的别名。
 
-- OpenAI Responses 路径使用 `openai-latest`，Codex 中使用原生 `gpt-6-astra`
+- OpenAI Responses 路径使用 `openai-latest`，Codex 中使用原生 `gpt-6.2-astra`
 - Anthropic Messages 路径使用 `claude-latest`，Claude Code 中使用 `claude-fable-5-1`
 - Chat Completions 兼容路径使用集成页面列出的模型
 
