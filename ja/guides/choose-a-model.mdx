@@ -10,7 +10,7 @@ Capriole AI には 4 つの旗艦モデルがあります。OpenAI の GPT-6.2 A
 
 | モデル | 開発元が想定する用途 | コンテキスト ウィンドウ | 公式 API 価格（100 万トークンあたり、入力 / 出力） |
 |---|---|---|---|
-| [GPT-6.2 Astra](https://developers.openai.com/api/docs/models/gpt-6.2-astra)（OpenAI） | 最も難しいプロジェクトを最初から最後まで。専門的なドキュメント、コーディング、コンピューター操作が向上 | 105 万トークン | USD 8 / USD 40 |
+| [GPT-6.2 Astra](https://developers.openai.com/api/docs/models/gpt-6.2-astra)（OpenAI） | 最も難しいプロジェクトを最初から最後まで。専門的なドキュメント、コーディング、コンピューター操作が向上 | 105 万トークン（Capriole AI では 87.2 万） | USD 8 / USD 40 |
 | [Claude Fable 5.1](https://platform.claude.com/docs/en/models/fable-5-1/overview)（Anthropic） | 高度な推論と長時間のエージェント作業 | 100 万トークン | USD 10 / USD 50 |
 | [Claude Opus 5.5](https://platform.claude.com/docs/en/models/opus-5-5/overview)（Anthropic） | 長時間のエージェント型コーディングとナレッジワーク | 100 万トークン | USD 4 / USD 20 |
 | [Gemini 4 Carbon](https://aistudio.google.com/docs/models/gemini-4-carbon)（Google） | モデルの知能の限界が試されるタスク。複雑な多段階のコーディングとデバッグ、長時間のエージェント作業、科学的推論など | 100 万トークン | 2026 年 11 月 30 日まで USD 2 / USD 10、その後は USD 4 / USD 20 |
@@ -19,7 +19,7 @@ Capriole AI では、この表のどのモデルも Premium と Team のウェ�
 
 ### GPT-6.2 Astra
 
-OpenAI は GPT-6.2 Astra を、最も難しいプロジェクトに向けた新しいフロンティア モデルと位置づけており、OpenAI の旗艦モデルとして GPT-6 Astra に代わります。OpenAI によると、スライド、スプレッドシート、ドキュメントは AI が書いたような印象が薄れ、テンプレートや分野ごとの慣例に沿うようになり、コードはよりクリーンに、フロントエンドはより良くなっています。OpenAI が示すコンテキスト ウィンドウは 105 万トークン、出力は最大 128,000 トークンで、API 価格は GPT-6 Astra より 20% 安くなっています。Capriole AI では、別のモデルを選ぶまで **GPT-6.2 Astra Thinking** がウェブチャットの既定で、API では `openai-latest` が GPT-6.2 Astra を使います。
+OpenAI は GPT-6.2 Astra を、最も難しいプロジェクトに向けた新しいフロンティア モデルと位置づけており、OpenAI の旗艦モデルとして GPT-6 Astra に代わります。OpenAI によると、スライド、スプレッドシート、ドキュメントは AI が書いたような印象が薄れ、テンプレートや分野ごとの慣例に沿うようになり、コードはよりクリーンに、フロントエンドはより良くなっています。OpenAI が示すコンテキスト ウィンドウは 105 万トークン、出力は最大 128,000 トークンで、API 価格は GPT-6 Astra より 20% 安くなっています。Capriole AI での GPT-6.2 Astra のコンテキスト ウィンドウは 87.2 万トークンです。別のモデルを選ぶまで **GPT-6.2 Astra Thinking** がウェブチャットの既定で、API では `openai-latest` が GPT-6.2 Astra を使います。
 
 ### Claude Fable 5.1
 
@@ -39,7 +39,7 @@ Google は Gemini 4 Carbon を最も強力なモデルと呼び、複雑な多�
 
 | モデル | 開発元が想定する用途 | コンテキスト ウィンドウ | 公式 API 価格（100 万トークンあたり、入力 / 出力） | API ID |
 |---|---|---|---|---|
-| GPT-6.2 Sol（OpenAI） | コーディングから大規模なエージェントの実行まで、日常の作業向け。GPT-6.1 Sol より賢く、効率的 | 105 万トークン | USD 2 / USD 10 | `openai/gpt-6.2-sol` |
+| GPT-6.2 Sol（OpenAI） | コーディングから大規模なエージェントの実行まで、日常の作業向け。GPT-6.1 Sol より賢く、効率的 | 105 万トークン（Capriole AI では 87.2 万） | USD 2 / USD 10 | `openai/gpt-6.2-sol` |
 | GPT-6 Astra（OpenAI） | 複雑な推論、コーディング、コンピューター操作、リサーチ、ドキュメント作成 | 105 万トークン | USD 10 / USD 50 | `openai/gpt-6-astra` |
 | GPT-6.1 Sol（OpenAI） | 低コストで Astra に近い性能。複雑なコーディング、コンピューター操作、専門業務向け | 105 万トークン | USD 2 / USD 10 | `openai/gpt-6.1-sol` |
 | GPT-6 Sol（OpenAI） | 複雑なコーディングとエージェント型ワークフロー | 105 万トークン | USD 2 / USD 10 | `openai/gpt-6-sol` |

@@ -10,7 +10,7 @@ Capriole AI에는 플래그십 모델 4개가 있습니다. OpenAI의 GPT-6.2 As
 
 | 모델 | 제공사가 말하는 용도 | 컨텍스트 창 | 공식 API 가격, 토큰 100만당 (입력 / 출력) |
 |---|---|---|---|
-| [GPT-6.2 Astra](https://developers.openai.com/api/docs/models/gpt-6.2-astra) (OpenAI) | 가장 어려운 프로젝트를 처음부터 끝까지. 전문 문서, 코딩, 컴퓨터 사용 성능 향상 | 105만 토큰 | USD 8 / USD 40 |
+| [GPT-6.2 Astra](https://developers.openai.com/api/docs/models/gpt-6.2-astra) (OpenAI) | 가장 어려운 프로젝트를 처음부터 끝까지. 전문 문서, 코딩, 컴퓨터 사용 성능 향상 | 105만 토큰 (Capriole AI에서는 87.2만) | USD 8 / USD 40 |
 | [Claude Fable 5.1](https://platform.claude.com/docs/en/models/fable-5-1/overview) (Anthropic) | 까다로운 추론과 장기 에이전트 작업 | 100만 토큰 | USD 10 / USD 50 |
 | [Claude Opus 5.5](https://platform.claude.com/docs/en/models/opus-5-5/overview) (Anthropic) | 오래 실행되는 에이전트 코딩과 지식 작업 | 100만 토큰 | USD 4 / USD 20 |
 | [Gemini 4 Carbon](https://aistudio.google.com/docs/models/gemini-4-carbon) (Google) | 모델 지능의 한계를 시험하는 작업. 복잡한 여러 단계의 코딩과 디버깅, 장기 에이전트 작업, 과학적 추론 등 | 100만 토큰 | 2026년 11월 30일까지 USD 2 / USD 10, 이후 USD 4 / USD 20 |
@@ -19,7 +19,7 @@ Capriole AI에서는 이 표의 모든 모델을 Premium과 Team 웹 채팅에�
 
 ### GPT-6.2 Astra
 
-OpenAI는 GPT-6.2 Astra를 가장 어려운 프로젝트를 위한 새 최첨단 모델이라고 부르며, 이 모델은 GPT-6 Astra를 대신하는 OpenAI의 플래그십입니다. OpenAI에 따르면 이 모델이 만든 슬라이드, 스프레드시트, 문서는 AI가 쓴 티가 덜 나고 템플릿과 분야별 관례를 따르며, 코드는 더 깔끔하고 프런트엔드는 더 낫습니다. OpenAI가 밝힌 컨텍스트 창은 105만 토큰이고, 출력은 최대 128,000토큰이며, API 가격은 GPT-6 Astra보다 20% 낮습니다. Capriole AI에서는 다른 모델을 고르기 전까지 **GPT-6.2 Astra Thinking**이 웹 채팅 기본값이며, API에서는 `openai-latest`가 GPT-6.2 Astra를 사용합니다.
+OpenAI는 GPT-6.2 Astra를 가장 어려운 프로젝트를 위한 새 최첨단 모델이라고 부르며, 이 모델은 GPT-6 Astra를 대신하는 OpenAI의 플래그십입니다. OpenAI에 따르면 이 모델이 만든 슬라이드, 스프레드시트, 문서는 AI가 쓴 티가 덜 나고 템플릿과 분야별 관례를 따르며, 코드는 더 깔끔하고 프런트엔드는 더 낫습니다. OpenAI가 밝힌 컨텍스트 창은 105만 토큰이고, 출력은 최대 128,000토큰이며, API 가격은 GPT-6 Astra보다 20% 낮습니다. Capriole AI에서 GPT-6.2 Astra의 컨텍스트 창은 87.2만 토큰입니다. 다른 모델을 고르기 전까지 **GPT-6.2 Astra Thinking**이 웹 채팅 기본값이며, API에서는 `openai-latest`가 GPT-6.2 Astra를 사용합니다.
 
 ### Claude Fable 5.1
 
@@ -39,7 +39,7 @@ Google은 Gemini 4 Carbon을 복잡한 여러 단계의 코딩과 디버깅, 장
 
 | 모델 | 제공사가 말하는 용도 | 컨텍스트 창 | 공식 API 가격, 토큰 100만당 (입력 / 출력) | API ID |
 |---|---|---|---|---|
-| GPT-6.2 Sol (OpenAI) | 코딩부터 대규모 에이전트 구동까지 일상 업무용. GPT-6.1 Sol보다 똑똑하고 효율적 | 105만 토큰 | USD 2 / USD 10 | `openai/gpt-6.2-sol` |
+| GPT-6.2 Sol (OpenAI) | 코딩부터 대규모 에이전트 구동까지 일상 업무용. GPT-6.1 Sol보다 똑똑하고 효율적 | 105만 토큰 (Capriole AI에서는 87.2만) | USD 2 / USD 10 | `openai/gpt-6.2-sol` |
 | GPT-6 Astra (OpenAI) | 복잡한 추론, 코딩, 컴퓨터 사용, 리서치, 문서 작성 | 105만 토큰 | USD 10 / USD 50 | `openai/gpt-6-astra` |
 | GPT-6.1 Sol (OpenAI) | 더 낮은 비용으로 Astra에 가까운 성능. 복잡한 코딩, 컴퓨터 사용, 전문 업무용 | 105만 토큰 | USD 2 / USD 10 | `openai/gpt-6.1-sol` |
 | GPT-6 Sol (OpenAI) | 복잡한 코딩과 에이전트 워크플로 | 105만 토큰 | USD 2 / USD 10 | `openai/gpt-6-sol` |

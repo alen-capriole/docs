@@ -10,7 +10,7 @@ A Capriole AI inclui quatro modelos principais: GPT-6.2 Astra, da OpenAI; Claude
 
 | Modelo | Para que o fabricante o desenvolve | Janela de contexto | Preço oficial da API por 1M de tokens (entrada / saída) |
 |---|---|---|---|
-| [GPT-6.2 Astra](https://developers.openai.com/api/docs/models/gpt-6.2-astra) (OpenAI) | Seus projetos mais difíceis, do início ao fim, com mais qualidade em documentos profissionais, programação e uso do computador | 1.05M de tokens | USD 8 / USD 40 |
+| [GPT-6.2 Astra](https://developers.openai.com/api/docs/models/gpt-6.2-astra) (OpenAI) | Seus projetos mais difíceis, do início ao fim, com mais qualidade em documentos profissionais, programação e uso do computador | 1.05M de tokens (872K na Capriole AI) | USD 8 / USD 40 |
 | [Claude Fable 5.1](https://platform.claude.com/docs/en/models/fable-5-1/overview) (Anthropic) | Raciocínio exigente e trabalho agêntico de longo horizonte | 1M de tokens | USD 10 / USD 50 |
 | [Claude Opus 5.5](https://platform.claude.com/docs/en/models/opus-5-5/overview) (Anthropic) | Programação agêntica de longa duração e trabalho do conhecimento | 1M de tokens | USD 4 / USD 20 |
 | [Gemini 4 Carbon](https://aistudio.google.com/docs/models/gemini-4-carbon) (Google) | Tarefas que testam os limites da inteligência de um modelo, como programação e depuração complexas em várias etapas, trabalho agêntico de longo horizonte e raciocínio científico | 1M de tokens | USD 2 / USD 10 até 30 de novembro de 2026; depois, USD 4 / USD 20 |
@@ -19,7 +19,7 @@ Na Capriole AI, todos os modelos desta tabela são ilimitados no chat web do Pre
 
 ### GPT-6.2 Astra
 
-A OpenAI apresenta o GPT-6.2 Astra como seu novo modelo de fronteira para os seus projetos mais difíceis, e ele substitui o GPT-6 Astra como modelo principal da OpenAI. Segundo a OpenAI, as apresentações, planilhas e documentos que ele cria parecem menos feitos por IA e seguem templates e as convenções de cada área, e ele escreve código mais limpo e frontends melhores. A OpenAI informa uma janela de contexto de 1.05M de tokens e até 128,000 tokens de saída, e o preço da API dele é 20% menor que o do GPT-6 Astra. Na Capriole AI, o **GPT-6.2 Astra Thinking** é o padrão do chat web até você escolher outro modelo, e `openai-latest` usa o GPT-6.2 Astra na API.
+A OpenAI apresenta o GPT-6.2 Astra como seu novo modelo de fronteira para os seus projetos mais difíceis, e ele substitui o GPT-6 Astra como modelo principal da OpenAI. Segundo a OpenAI, as apresentações, planilhas e documentos que ele cria parecem menos feitos por IA e seguem templates e as convenções de cada área, e ele escreve código mais limpo e frontends melhores. A OpenAI informa uma janela de contexto de 1.05M de tokens e até 128,000 tokens de saída, e o preço da API dele é 20% menor que o do GPT-6 Astra. Na Capriole AI, o GPT-6.2 Astra tem uma janela de contexto de 872,000 tokens. O **GPT-6.2 Astra Thinking** é o padrão do chat web até você escolher outro modelo, e `openai-latest` usa o GPT-6.2 Astra na API.
 
 ### Claude Fable 5.1
 
@@ -39,7 +39,7 @@ Estes modelos também estão disponíveis no chat web e na API.
 
 | Modelo | Para que o fabricante o desenvolve | Janela de contexto | Preço oficial da API por 1M de tokens (entrada / saída) | ID da API |
 |---|---|---|---|---|
-| GPT-6.2 Sol (OpenAI) | Trabalho do dia a dia, da programação a agentes em grande escala, com mais inteligência e eficiência que o GPT-6.1 Sol | 1.05M de tokens | USD 2 / USD 10 | `openai/gpt-6.2-sol` |
+| GPT-6.2 Sol (OpenAI) | Trabalho do dia a dia, da programação a agentes em grande escala, com mais inteligência e eficiência que o GPT-6.1 Sol | 1.05M de tokens (872K na Capriole AI) | USD 2 / USD 10 | `openai/gpt-6.2-sol` |
 | GPT-6 Astra (OpenAI) | Raciocínio complexo, programação, uso do computador, pesquisa e criação de documentos | 1.05M de tokens | USD 10 / USD 50 | `openai/gpt-6-astra` |
 | GPT-6.1 Sol (OpenAI) | Desempenho próximo ao do Astra a um custo menor, para programação complexa, uso do computador e trabalho profissional | 1.05M de tokens | USD 2 / USD 10 | `openai/gpt-6.1-sol` |
 | GPT-6 Sol (OpenAI) | Programação complexa e fluxos de trabalho agênticos | 1.05M de tokens | USD 2 / USD 10 | `openai/gpt-6-sol` |

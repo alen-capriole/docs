@@ -10,7 +10,7 @@ Capriole AI 提供四个旗舰模型：OpenAI 的 GPT-6.2 Astra、Anthropic 的 
 
 | 模型 | 厂商的定位 | 上下文窗口 | 官方 API 价格，每 100 万 token（输入 / 输出） |
 |---|---|---|---|
-| [GPT-6.2 Astra](https://developers.openai.com/api/docs/models/gpt-6.2-astra)（OpenAI） | 从头到尾完成你最艰巨的项目，专业文档、编程和计算机操作表现更好 | 105 万 token | USD 8 / USD 40 |
+| [GPT-6.2 Astra](https://developers.openai.com/api/docs/models/gpt-6.2-astra)（OpenAI） | 从头到尾完成你最艰巨的项目，专业文档、编程和计算机操作表现更好 | 105 万 token（在 Capriole AI 中为 87.2 万） | USD 8 / USD 40 |
 | [Claude Fable 5.1](https://platform.claude.com/docs/en/models/fable-5-1/overview)（Anthropic） | 高要求推理和长周期智能体任务 | 100 万 token | USD 10 / USD 50 |
 | [Claude Opus 5.5](https://platform.claude.com/docs/en/models/opus-5-5/overview)（Anthropic） | 长时间运行的智能体编程和知识工作 | 100 万 token | USD 4 / USD 20 |
 | [Gemini 4 Carbon](https://aistudio.google.com/docs/models/gemini-4-carbon)（Google） | 考验模型智能极限的任务，例如复杂的多步骤编程和调试、长周期智能体任务和科学推理 | 100 万 token | 截至 2026 年 11 月 30 日为 USD 2 / USD 10，之后为 USD 4 / USD 20 |
@@ -19,7 +19,7 @@ Capriole AI 提供四个旗舰模型：OpenAI 的 GPT-6.2 Astra、Anthropic 的 
 
 ### GPT-6.2 Astra
 
-OpenAI 称 GPT-6.2 Astra 是其面向你最艰巨项目的全新前沿模型，它取代 GPT-6 Astra，成为 OpenAI 的旗舰模型。OpenAI 表示，它做出的幻灯片、表格和文档更不像 AI 写的，并会遵循模板和所在领域的惯例；它写的代码也更简洁，前端更出色。OpenAI 列出的上下文窗口为 105 万 token，最多输出 128,000 个 token，API 价格比 GPT-6 Astra 低 20%。在 Capriole AI 中，在你选择其他模型之前，**GPT-6.2 Astra Thinking** 是网页聊天的默认模型，API 上的 `openai-latest` 使用 GPT-6.2 Astra。
+OpenAI 称 GPT-6.2 Astra 是其面向你最艰巨项目的全新前沿模型，它取代 GPT-6 Astra，成为 OpenAI 的旗舰模型。OpenAI 表示，它做出的幻灯片、表格和文档更不像 AI 写的，并会遵循模板和所在领域的惯例；它写的代码也更简洁，前端更出色。OpenAI 列出的上下文窗口为 105 万 token，最多输出 128,000 个 token，API 价格比 GPT-6 Astra 低 20%。在 Capriole AI 中，GPT-6.2 Astra 的上下文窗口为 87.2 万 token。在你选择其他模型之前，**GPT-6.2 Astra Thinking** 是网页聊天的默认模型，API 上的 `openai-latest` 使用 GPT-6.2 Astra。
 
 ### Claude Fable 5.1
 
@@ -39,7 +39,7 @@ Google 称 Gemini 4 Carbon 是其最强的模型，专为考验模型智能极�
 
 | 模型 | 厂商的定位 | 上下文窗口 | 官方 API 价格，每 100 万 token（输入 / 输出） | API ID |
 |---|---|---|---|---|
-| GPT-6.2 Sol（OpenAI） | 日常工作，从编程到大规模驱动智能体，比 GPT-6.1 Sol 更智能、更高效 | 105 万 token | USD 2 / USD 10 | `openai/gpt-6.2-sol` |
+| GPT-6.2 Sol（OpenAI） | 日常工作，从编程到大规模驱动智能体，比 GPT-6.1 Sol 更智能、更高效 | 105 万 token（在 Capriole AI 中为 87.2 万） | USD 2 / USD 10 | `openai/gpt-6.2-sol` |
 | GPT-6 Astra（OpenAI） | 复杂推理、编程、计算机操作、研究和文档创作 | 105 万 token | USD 10 / USD 50 | `openai/gpt-6-astra` |
 | GPT-6.1 Sol（OpenAI） | 以更低成本接近 Astra 的表现，适合复杂编程、计算机操作和专业工作 | 105 万 token | USD 2 / USD 10 | `openai/gpt-6.1-sol` |
 | GPT-6 Sol（OpenAI） | 复杂编程和智能体工作流 | 105 万 token | USD 2 / USD 10 | `openai/gpt-6-sol` |
