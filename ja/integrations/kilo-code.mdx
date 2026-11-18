@@ -185,7 +185,7 @@ Kilo CLI 7.8.15 は、下記の設定を使い、「対応モデル」のすべ�
 
 - `npm: "@ai-sdk/openai-compatible"` はプロバイダーのデフォルト パッケージです。そのため、Gemini、Grok、GLM、Kimi は Chat Completions を使います。
 - 各 GPT モデルは `provider.npm` を `@ai-sdk/openai` で上書きし、Responses API を使います。各 Claude モデルは `@ai-sdk/anthropic` で上書きし、Anthropic Messages を使います。
-- `{env:CAPRIOLE_AI_API_KEY}` は環境変数からキーを読み取ります。`Authorization` ヘッダーにより、どのパッケージでもキーが Bearer トークンとして送られます。このヘッダーがないと、Anthropic パッケージはキーを `x-api-key` ヘッダーで送りますが、Capriole AI はこれを受け付けません。
+- `{env:CAPRIOLE_AI_API_KEY}` は環境変数からキーを読み取ります。`Authorization` ヘッダーにより、どのパッケージでもキーが Bearer トークンとして送られます。
 - `tool_call: true` により、モデルが Kilo のツールを呼び出せるようになります。
 - `limit` は各モデルのコンテキスト ウィンドウと出力上限を設定します。これがないと、Kilo は両方を `0` として扱い、長いセッションを圧縮しません。
 
@@ -255,7 +255,7 @@ kilo run -m capriole-ai/claude-latest "Explain this repository."
 
 ## 注意事項
 
-- Kilo Code はコーディング ツールをお使いのコンピューター上で実行します。Capriole AI が処理するのはモデル リクエストだけです。
+- Kilo Codeはローカルでコーディングツールを実行し、Capriole AI がモデルへのリクエストを処理します。
 - Capriole AI の別のモデルを追加するには、同じファミリーのモデルのエントリーをコピーして ID を変更します。`GET https://api.caprioletech.com/v1/models` ですべてのモデル ID を一覧できます。
 - Gemini 4 Carbon は Gemini 4 Argon より長く思考するため、各ターンに時間がかかり、使うトークンも多くなることがあります。速さを重視する場合は `google/gemini-4-argon` を使ってください。
 - 同じキーを他のコーディング エージェントでも使うには、[1 つの API キーでコーディング エージェントを使う](/ja/guides/one-api-key-coding-agents)を参照してください。

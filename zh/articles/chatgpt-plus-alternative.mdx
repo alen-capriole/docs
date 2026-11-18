@@ -44,22 +44,9 @@ OpenAI 的定价页将 Free、Go、Plus 和 Pro 的日常文字聊天标为不�
 - **一个对话里用两家厂商的模型。** 先问 GPT-6.2 Astra，再[在对话中切换模型](/zh/articles/switch-models-mid-chat)，让 Claude Fable 5.1 检查答案。
 - **工作区的其他功能。** 用 GPT Image 2.6、Nano Banana 2.1 和 Seedream 5.5 [免费生成图片](/zh/guides/files-web-search)，还有文件和网页搜索、项目、聊天导出、个性化以及存储控制。
 
-API 请求和编程智能体消耗的是 API 余额，不属于无限网页聊天。[计费 token](/zh/articles/charged-tokens) 说明了这份余额如何计算。
+编程智能体使用你的 Capriole AI API 密钥，按用量从 API token 余额中扣费。[计费 token](/zh/articles/charged-tokens) 说明了这份余额如何计算。
 
-## 你会失去什么
-
-Capriole AI 是独立的工作区，不是 ChatGPT，也与 OpenAI 没有关联。离开 Plus 后，你会失去只在 OpenAI 应用中提供的功能。OpenAI 定价页为 Plus 列出了这些功能：
-
-- 用 ChatGPT 账号登录使用 ChatGPT Work 和 Codex
-- 深度研究
-- 语音对话，包括带视频的语音
-- 可参考过往聊天的记忆、定时任务、自定义 GPT 和插件
-- Excel、Word、PowerPoint 和 Google Sheets 扩展
-- ChatGPT 自己的桌面端和移动端应用
-
-Capriole AI 在浏览器中运行。你可以用 Capriole AI API Key 使用 Codex，但这些请求消耗的是按量计费的 API 余额，而不是 ChatGPT 额度。
-
-如果你每天都用这些功能，就保留 Plus。如果你主要用来聊天和写作，想在聊天中使用 GPT-6.2 Astra（ChatGPT 只在 Work 和 Codex 中提供），想在聊天中使用 GPT-6 Astra 又不想为 ChatGPT Pro 付费，或者想同时用上 Claude 和 Gemini，就选 Capriole AI。[Claude vs ChatGPT](/zh/articles/claude-vs-chatgpt) 并排比较了 Claude 与 OpenAI 的旗舰模型。如果你经常碰到 Claude 方案的用量上限，请读 [Claude 用量限制详解](/zh/articles/claude-usage-limits)。
+可以[按任务比较 Claude 和 ChatGPT](/zh/articles/claude-vs-chatgpt)，也可以查看 [Claude 的用量限制](/zh/articles/claude-usage-limits)和重置周期。
 
 ## 常见问题
 
@@ -71,13 +58,13 @@ Capriole AI 在浏览器中运行。你可以用 Capriole AI API Key 使用 Code
     可以。在 ChatGPT 中，Chat 里的 GPT-6 Pro 由 GPT-6 Astra 驱动，需要 Pro、Business 或 Enterprise 方案。在 Capriole AI 上，GPT-6 Astra 和较新的 GPT-6.2 Astra 都属于 USD 9 Premium 方案的无限网页聊天。ChatGPT 只在 Work 和 Codex 中提供 GPT-6.2 Astra。
   </Accordion>
   <Accordion title="Capriole AI 的网页聊天真的无限吗？">
-    正常使用下是的。唯一的上限是[合理使用上限](/zh/guides/plans-and-limits#“无限”是什么意思)，用于阻止脚本驱动的自动化滥用。
+    网页聊天没有五小时或每周上限。每个账户每天 200 条消息的[合理使用上限](/zh/guides/plans-and-limits#“无限”是什么意思)用于防止自动化滥用。
   </Accordion>
   <Accordion title="付费前可以先试用 Capriole AI 吗？">
     可以。访客无需账户，每天可发送 5 条消息。免费账户每月另有 50 万 token 的网页聊天额度。参见[免登录 AI 聊天](/zh/articles/ai-chat-without-login)。
   </Accordion>
   <Accordion title="Capriole AI 包含 API 访问吗？">
-    包含，需要 Premium 或 Team。Premium 每月含 500 万 API token，充值价格为每 500 万 token USD 8。免费账户没有 API 访问权限。
+    包含，需要 Premium 或 Team。Premium 每月含 5,000,000 API token，充值价格为每 5,000,000 token USD 8。
   </Accordion>
 </AccordionGroup>
 
@@ -91,6 +78,8 @@ Capriole AI 在浏览器中运行。你可以用 Capriole AI API Key 使用 Code
     每月 USD 9，享受无限网页聊天和 API Key。
   </Card>
 </CardGroup>
+
+Capriole AI 是独立工作区，与 OpenAI 无隶属关系。
 
 ## 官方来源
 

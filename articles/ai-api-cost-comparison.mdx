@@ -4,15 +4,15 @@ sidebarTitle: "AI API Cost Comparison"
 description: "OpenRouter adds a 5.5% card fee. 4M input + 1M output tokens on GPT-6 Astra: USD 90 direct, USD 94.95 on OpenRouter, vs Capriole AI's USD 9 plan."
 ---
 
-OpenRouter bills each provider's list price and adds a 5.5% fee when you buy Standard credits by card. For the fixed 5 million-token workload below, **Capriole costs USD 9** for every model in the table that it offers. The same models cost **USD 6.75 to USD 90** at paid Standard list prices, while the calculated OpenRouter cash total is **USD 7.55 to USD 94.95** after its published credit-purchase fee. Premium, the USD 9 plan, also includes unlimited web chat with the four flagships: GPT-6.2 Astra, Claude Fable 5.1, Claude Opus 5.5, and Gemini 4 Carbon.
+OpenRouter bills each provider's list price and adds a 5.5% fee when you buy Standard credits by card. A new personal Capriole AI Premium subscription costs **USD 9 per month** and includes 5M API tokens, enough for the example below. The same models cost **USD 6.75 to USD 90** at paid Standard list prices, while the calculated OpenRouter cash total is **USD 7.55 to USD 94.95** after its published credit-purchase fee. Premium, the USD 9 plan, also includes unlimited web chat with the four flagships: GPT-6.2 Astra, Claude Fable 5.1, Claude Opus 5.5, and Gemini 4 Carbon.
 
-In this comparison, Premium costs less for every offered model except Gemini 3.8 Flash, where the direct API and OpenRouter both cost less than the USD 9 subscription. Gemini 3.1 Pro Preview stays in the table for reference; Capriole AI no longer offers it.
+For Gemini 3.8 Flash, this workload costs USD 6.75 through the direct API or USD 7.55 through OpenRouter including its credit-purchase fee. The USD 9 Premium subscription also includes unlimited web chat.
 
 This is a reproducible comparison, not a universal price promise. It holds the token mix constant and uses the cited public prices. Rates checked November 18, 2026.
 
 ## How much do 5M tokens cost on each API?
 
-With 4M input and 1M output tokens, GPT-6 Astra and Claude Fable 5.1 cost USD 90 through the official APIs and USD 94.95 through OpenRouter, and GPT-6.2 Astra costs USD 72 and USD 75.96. Capriole Premium costs USD 9 for every model in the table that Capriole offers.
+With 4M input and 1M output tokens, GPT-6 Astra and Claude Fable 5.1 cost USD 90 through the official APIs and USD 94.95 through OpenRouter, and GPT-6.2 Astra costs USD 72 and USD 75.96. If your Capriole AI token balance covers the example, you pay nothing extra. A personal Premium top-up costs USD 8 for 5M additional tokens.
 
 The table holds billed token counts constant, not source text or semantic workload. Tokenizers differ between model families. The scenario uses 100 requests with 40,000 uncached input tokens and 10,000 output tokens each, keeping every prompt below OpenAI's and Google's long-prompt price thresholds. The [Claude](/articles/claude-api-pricing), [OpenAI](/articles/openai-api-pricing), and [Gemini](/articles/gemini-api-pricing) API pricing articles use three input tokens per output token instead, so their 5M-token totals are higher, such as USD 100 for GPT-6 Astra. The scenario excludes cache reads and writes, tools, free tiers, alternative service tiers, batch processing, taxes, and account-specific discounts.
 
@@ -27,13 +27,12 @@ The table holds billed token counts constant, not source text or semantic worklo
 | `gpt-6.2-sol` | **USD 9.00*** | USD 18.00 | USD 18.00 | USD 18.99 | USD 2 / USD 10 |
 | `gemini-3.8-flash` | **USD 9.00*** | USD 6.75 | USD 6.75 | USD 7.55 | USD 0.75 / USD 3.75 |
 | `claude-fable-5` | **USD 9.00*** | USD 90.00 | USD 90.00 | USD 94.95 | USD 10 / USD 50 |
-| `gemini-3.1-pro-preview` | No longer offered | USD 20.00 | USD 20.00 | USD 21.10 | USD 2 / USD 12 |
 
 \* Premium costs USD 9 per month and includes unlimited browser chat across the supported Premium model set plus the first 5 million monthly charged tokens. This is the new customer's public purchase price for that complete workspace bundle, not a per-model token rate or marginal inference cost. An existing Premium member with enough included balance pays no additional cash for this usage. After the included allowance is used, one additional 5 million charged-token pack has a USD 8 base price. Personal top-ups require active personal Premium access.
 
 Gemini 4 Carbon and Gemini 4 Argon use Google's prices through November 30, 2026. From December 1, both cost USD 4 / USD 20, which makes this workload USD 36 direct and USD 37.98 through OpenRouter with the card fee.
 
-[Try Capriole AI in limited free browser chat](https://www.capriole.ai/) before you [subscribe to Premium for the full workspace and API access](https://www.capriole.ai/?view=api).
+[Try Capriole AI in free browser chat](https://www.capriole.ai/) before you [subscribe to Premium for the full workspace and API access](https://www.capriole.ai/?view=api).
 
 ## How to reproduce the calculation
 
@@ -58,11 +57,13 @@ USD 90 + max(USD 0.80, USD 4.95) = USD 94.95
 
 The same arithmetic produces USD 75.96 for GPT-6.2 Astra (4 × USD 8 + 1 × USD 40 = USD 72 direct), USD 37.98 for Claude Opus 5.5, USD 18.99 for Gemini 4 Carbon, Gemini 4 Argon, and GPT-6.2 Sol, and USD 21.10 for Gemini 3.1 Pro Preview. Gemini 3.8 Flash costs USD 6.75 at Google's introductory Standard rates through December 31, 2026 (4 × USD 0.75 + 1 × USD 3.75). OpenRouter's USD 0.80 minimum card fee brings the total to USD 7.55.
 
+For Gemini 3.1 Pro Preview, the input and output rates per 1M tokens give a direct cost of 4 × USD 2 + 1 × USD 12 = USD 20. On OpenRouter, the same inference costs USD 20 and the card fee adds USD 1.10.
+
 OpenRouter can route the same model to different providers or service tiers, and fallback can change the endpoint that serves a request. The table therefore compares the displayed matching inference rate; it does not guarantee the bill from every default routing configuration.
 
 ## Why Capriole uses a different unit
 
-Capriole's public customer balance does not copy each provider's input and output price table. It deducts a unified balance called charged tokens:
+Capriole AI measures API usage in charged tokens. Each request draws from the same balance using this formula.
 
 ```text
 charged_tokens = uncached_input + ceil(cached_input × 0.1) + output
@@ -70,11 +71,11 @@ charged_tokens = uncached_input + ceil(cached_input × 0.1) + output
 
 Uncached input and output count at 100%. Cached input counts at 10%. The example has no cached input, so 4 million input tokens plus 1 million output tokens consume 5 million charged tokens.
 
-A charged token is an account balance unit. It is not the same thing as a provider's input-token or output-token price. The table compares what the fixed workload costs under each billing system; it does not claim that their pricing units are interchangeable. [Capriole AI Charged Tokens Explained](/articles/charged-tokens) provides three additional examples, rounding behavior, and the Premium quota boundary.
+Capriole deducts charged tokens from your balance. The table shows the price of a new personal Premium subscription alongside the direct API and OpenRouter charges for the example. [Capriole AI Charged Tokens Explained](/articles/charged-tokens) provides three additional examples, rounding behavior, and the Premium quota boundary.
 
 ## What USD 9 includes beyond the API balance
 
-Direct APIs and OpenRouter let you pay for inference without a Capriole membership. This table covers a new personal Premium subscription. Capriole API access otherwise requires an active personal Premium or Team plan; Team pricing is outside this comparison.
+Capriole AI Premium includes the web workspace and 5M monthly API tokens for USD 9. Team members use their shared API balance.
 
 The USD 9 Premium plan includes:
 
@@ -83,13 +84,13 @@ The USD 9 Premium plan includes:
 - Access to the public API and maintained coding-agent integrations
 - One browser workspace with model switching, files, web search, and chat-storage controls
 
-Before subscribing, signed-out visitors and Free users can try GPT-6.2 Astra, Claude Fable 5.1, Claude Opus 5.5, and Gemini 4 Carbon in limited browser chat. That free flagship trial is separate from the API cost table above.
+Before subscribing, signed-out visitors and Free users can try GPT-6.2 Astra, Claude Fable 5.1, Claude Opus 5.5, and Gemini 4 Carbon in free browser chat. That free flagship trial is separate from the API cost table above.
 
 If you want frontier-model chat and API access together, USD 9 covers the browser workspace and 5M API tokens a month. The same account also works with [10 documented coding-agent integrations](/articles/coding-agent-compatibility).
 
-The first 5 million tokens are not sold as a standalone API product; the payment buys the full Premium bundle. An active personal Premium member who needs another 5 million charged tokens can purchase one USD 8 top-up pack.
+An active personal Premium member who needs another 5 million charged tokens can purchase one USD 8 top-up pack.
 
-## When the table will not predict your bill
+## What changes the cost of a request?
 
 The example excludes several pricing paths that can materially change cost:
 
@@ -105,9 +106,11 @@ Recalculate with your expected model, token mix, and features before choosing a 
 
 ## The practical choice
 
-The USD 9 subscription includes unlimited web chat, a browser workspace, 5M monthly API tokens, and coding-agent integrations. If you only need inference, compare the API cost for your chosen model.
+The USD 9 subscription includes unlimited web chat, a browser workspace, 5M monthly API tokens, and coding-agent integrations.
 
-You can [try Capriole AI in limited free browser chat](https://www.capriole.ai/) or [upgrade to USD 9 Premium for unlimited chat and an API key](https://www.capriole.ai/?view=api). For a wider product comparison, read [Capriole AI vs OpenRouter](/articles/capriole-ai-vs-openrouter). For official per-token prices of the current flagship models, see [Claude API pricing](/articles/claude-api-pricing), [OpenAI API pricing](/articles/openai-api-pricing), and [Gemini API pricing](/articles/gemini-api-pricing). Developers can continue with the [API quickstart](/quickstart).
+You can [try Capriole AI in free browser chat](https://www.capriole.ai/) or [upgrade to USD 9 Premium for unlimited chat and an API key](https://www.capriole.ai/?view=api). For a wider product comparison, read [Capriole AI vs OpenRouter](/articles/capriole-ai-vs-openrouter). For official per-token prices of the current flagship models, see [Claude API pricing](/articles/claude-api-pricing), [OpenAI API pricing](/articles/openai-api-pricing), and [Gemini API pricing](/articles/gemini-api-pricing). Developers can continue with the [API quickstart](/quickstart).
+
+Capriole AI is an independent workspace, not affiliated with OpenRouter.
 
 ## Official sources
 

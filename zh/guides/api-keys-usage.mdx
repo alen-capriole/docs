@@ -71,7 +71,7 @@ API 访问需要有效的 Premium 会员或符合条件的 Team 权限。个人 
 | **状态** | 全部状态、成功或错误 | 区分已完成调用和失败调用 |
 | **成员** | Team 所有者和管理员可查看 Team 成员 | 按成员查看 Team 流量 |
 
-每条请求记录可以显示时间、API Key、模型、输入 Token、缓存 Token、输出 Token、计费 token、总 Token、延迟、状态和错误消息。如果上游响应或失败请求未提供某项指标，该指标可能无法显示。
+每条请求记录可以显示时间、API Key、模型、输入 Token、缓存 Token、输出 Token、计费 token、总 Token、延迟、状态和错误消息。
 
 ## 验证客户端使用了预期的 API Key
 
@@ -99,12 +99,10 @@ API 访问需要有效的 Premium 会员或符合条件的 Team 权限。个人 
 
 ## Team 可见范围
 
-Team 所有者和管理员可以按成员筛选用量，对比不同成员的请求或计费 token。普通 Team 成员只能看到其权限允许的用量。Team 充值和整个 Team 的控制项也只对符合条件的 Team 角色开放。[Team 方案指南](/zh/guides/team-plan)介绍了角色、共享 token，以及按成员设置的提醒和上限。
-
-用量筛选不会显示 Capriole 的内部提供商路由、上游成本或回退诊断信息。它只报告管理 API 访问所需的客户侧模型、请求结果和 Token 计费信息。
+Team 所有者和管理员可以按成员筛选用量，对比不同成员的请求或计费 token。Team 的所有者和管理员负责账单和充值，成员可以查看自己的用量。[Team 方案指南](/zh/guides/team-plan)介绍了角色、共享 token，以及按成员设置的提醒和上限。
 
 ## 后续操作
 
 你可以阅读[通过一个 API Key 使用编程智能体](/zh/guides/one-api-key-coding-agents)进行初步兼容性测试，也可以打开维护中的 [Codex 集成指南](/zh/integrations/codex)进行客户端专用配置。[API 成本对比](/zh/articles/ai-api-cost-comparison)解释了 Capriole 额度单位与提供商输入、输出价格的区别。通过任何网关发送源代码之前，请先阅读 [LLM 网关安全风险](/zh/articles/llm-gateway-security)。
 
-[在有限的免费浏览器聊天中试用 GPT-6.2 Astra、Claude Fable 5.1、Claude Opus 5.5 或 Gemini 4 Carbon](https://www.capriole.ai/zh)。需要创建 API Key 和使用每月包含的 API 额度时，可升级到 Premium。
+[在免费浏览器聊天中试用 GPT-6.2 Astra、Claude Fable 5.1、Claude Opus 5.5 或 Gemini 4 Carbon](https://www.capriole.ai/zh)。需要创建 API Key 和使用每月包含的 API 额度时，可升级到 Premium。

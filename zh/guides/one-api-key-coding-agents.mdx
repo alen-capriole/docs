@@ -98,7 +98,7 @@ export ANTHROPIC_AUTH_TOKEN="$CAPRIOLE_AI_API_KEY"
 - Anthropic Messages 路径使用 `claude-latest`，Claude Code 中使用 `claude-fable-5-1`
 - Chat Completions 兼容路径使用集成页面列出的模型
 
-[当前模型目录](/zh/api-reference/endpoint/get)列出了公共 API 模型。网页聊天中的模型不会自动适用于每种 API 协议。
+[当前模型目录](/zh/api-reference/endpoint/get)列出了公共 API 模型。
 
 </Step>
 
@@ -114,8 +114,6 @@ Reply with CAPRIOLE_OK and no other text.
 
 然后打开 [API 页面](https://www.capriole.ai/zh?view=api)，确认请求显示在用量视图中，并对应预期的 Key 和模型。用量记录是客户端确实使用 Capriole 的决定性依据。客户端配置了其他提供商或回退时，只收到回答并不足以证明请求经过 Capriole。[API Key 与用量指南](/zh/guides/api-keys-usage)介绍了准确的筛选方式和 Key 生命周期。
 
-这项检查不会测试每项工具或模型功能。
-
 </Step>
 </Steps>
 
@@ -129,7 +127,7 @@ Reply with CAPRIOLE_OK and no other text.
 | 模型 | 客户端接受配置的 latest 别名或具体 ID |
 | 用量 | 请求以计量 API 流量的形式出现在 API 用量视图中 |
 
-编程智能体请求使用符合条件的个人或 [Team API 余额](/zh/guides/team-plan)，不属于付费会员无限网页聊天的范围。运行大型自动化工作负载前，请阅读 [Capriole AI 计费 token 说明](/zh/articles/charged-tokens)。
+编程智能体使用你的 API 密钥，按用量从个人或[团队 API 余额](/zh/guides/team-plan)中扣费。运行大型自动化工作负载前，请阅读 [Capriole AI 计费 token 说明](/zh/articles/charged-tokens)。
 
 ## 解决常见配置问题
 
@@ -145,4 +143,4 @@ Reply with CAPRIOLE_OK and no other text.
 
 需要了解这些路由背后的模型时，请阅读[编程智能体兼容性文章](/zh/articles/coding-agent-compatibility)。如需直接编写应用代码，请继续阅读 [OpenAI 和 Anthropic SDK 指南](/zh/guides/openai-anthropic-sdks)。[LLM 网关安全风险](/zh/articles/llm-gateway-security)列出了在智能体发送你的源代码之前需要检查的事项。如果你的智能体不在这 10 个之中，可以[通过自定义端点连接](/zh/integrations/more-agents)。
 
-[在有限的免费网页聊天中试用当前旗舰模型](https://www.capriole.ai/zh)。准备好创建编程智能体使用的 API Key 后，可升级到 Premium。
+[在免费网页聊天中试用当前旗舰模型](https://www.capriole.ai/zh)。准备好创建编程智能体使用的 API Key 后，可升级到 Premium。

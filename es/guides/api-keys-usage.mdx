@@ -71,7 +71,7 @@ Usa los filtros para responder una pregunta a la vez.
 | **Estado** | Todos los estados, éxito o error | Separar llamadas completadas de fallos |
 | **Miembro** | Miembros del equipo, para propietarios y administradores | Revisar el tráfico del equipo por persona |
 
-Cada fila de solicitud puede mostrar la hora, la clave, el modelo, los tokens de entrada, los tokens en caché, los tokens de salida, los tokens cobrados, los tokens totales, la latencia, el estado y un mensaje de error. Algunas métricas pueden no estar disponibles cuando una respuesta de upstream o una solicitud fallida no las proporciona.
+Cada fila de solicitud puede mostrar la hora, la clave, el modelo, los tokens de entrada, los tokens en caché, los tokens de salida, los tokens cobrados, los tokens totales, la latencia, el estado y un mensaje de error.
 
 ## Verifica que un cliente usó la clave prevista
 
@@ -99,12 +99,10 @@ La lista muestra los valores **Creada** y **Último uso** para ayudar a identifi
 
 ## Visibilidad de Team
 
-Los propietarios y administradores de Team pueden filtrar el uso por miembro y comparar solicitudes o tokens cobrados entre miembros. Un miembro normal del equipo solo ve el uso permitido para ese miembro. Las recargas de Team y los controles de todo el equipo también están limitados a roles de equipo elegibles. La [guía del plan Team](/es/guides/team-plan) explica los roles, los tokens compartidos y las alertas y topes por miembro.
-
-Los filtros de uso no exponen la ruta interna de proveedor de Capriole, el costo de upstream ni el diagnóstico de fallback. Informan el modelo visible para el cliente, el resultado de la solicitud y la contabilidad de tokens necesaria para gestionar el acceso a la API.
+Los propietarios y administradores de Team pueden filtrar el uso por miembro y comparar solicitudes o tokens cobrados entre miembros. En Team, los propietarios y administradores gestionan la facturación y las recargas. Los miembros pueden consultar su propio uso. La [guía del plan Team](/es/guides/team-plan) explica los roles, los tokens compartidos y las alertas y topes por miembro.
 
 ## Continúa desde aquí
 
 Usa [una clave con agentes de programación](/es/guides/one-api-key-coding-agents) para una prueba inicial de compatibilidad, o abre las [guías de integración](/es/integrations/codex) mantenidas para la configuración específica de cada cliente. La [comparación fechada de costos de API](/es/articles/ai-api-cost-comparison) explica cómo las unidades de cuota de Capriole difieren de los precios de entrada y salida del proveedor. Antes de enviar código fuente a través de cualquier gateway, lee [Riesgos de seguridad de un gateway LLM](/es/articles/llm-gateway-security).
 
-[Prueba GPT-6.2 Astra, Claude Fable 5.1, Claude Opus 5.5 o Gemini 4 Carbon en el chat limitado gratuito del navegador](https://www.capriole.ai/es). Pasa a Premium cuando quieras crear una clave y usar el saldo mensual de API incluido.
+[Prueba GPT-6.2 Astra, Claude Fable 5.1, Claude Opus 5.5 o Gemini 4 Carbon en el chat gratuito del navegador](https://www.capriole.ai/es). Pasa a Premium cuando quieras crear una clave y usar el saldo mensual de API incluido.

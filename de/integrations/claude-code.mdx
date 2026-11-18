@@ -114,7 +114,7 @@ Claude Code erkennt `claude-latest` nicht als Modellnamen und nimmt dafür desha
 
 ### Warum gibt Claude Code einen Authentifizierungsfehler zurück?
 
-Verwenden Sie `ANTHROPIC_AUTH_TOKEN`, nicht `ANTHROPIC_API_KEY`. `ANTHROPIC_API_KEY` sendet den Schlüssel in einem `x-api-key`-Header, und Capriole AI akzeptiert nur ein Bearer-Token.
+Verwenden Sie `ANTHROPIC_AUTH_TOKEN`, damit Claude Code Ihren Capriole-AI-Schlüssel als Bearer-Token im Header `Authorization` sendet.
 
 ### Warum schlagen Anfragen mit Endpunktfehlern fehl?
 
@@ -126,7 +126,7 @@ Entfernen Sie `ANTHROPIC_MODEL` aus Ihren Einstellungen und Ihrer Shell. Wenn di
 
 ### Warum schlägt `/model opus` oder `/model sonnet` fehl?
 
-Behalten Sie die drei `ANTHROPIC_DEFAULT_*_MODEL`-Werte bei. Ohne sie sendet Claude Code die eigenen Alias-Ziele von Anthropic. Zum Beispiel fordert `sonnet` `claude-sonnet-5-5` an, das Capriole AI nicht bereitstellt, und die Anfrage schlägt mit `Unsupported Claude Messages model` fehl.
+Behalten Sie die drei Werte für `ANTHROPIC_DEFAULT_*_MODEL` bei, damit Claude Code seine Aliasse den Claude-Modellen in Ihrer Capriole-AI-Konfiguration zuordnet.
 
 ### Warum verwendet Claude Code nicht meine Effort-Stufe?
 
@@ -139,6 +139,6 @@ Capriole AI leitet `/v1/messages/count_tokens` an das gewählte Upstream weiter.
 ## Hinweise
 
 - `~/.claude/settings.json` gilt für Ihr Benutzerkonto in allen Projekten. Ersetzen Sie `YOUR_CAPRIOLE_AI_API_KEY` durch Ihren Capriole-AI-API-Schlüssel.
-- Gemini-, Grok-, GLM- und Kimi-Modelle laufen nicht in Claude Code, da es nur das Anthropic-Messages-Protokoll spricht. Verwenden Sie für diese Modelle OpenCode, Kilo Code oder einen anderen Agenten, der mehrere Protokolle unterstützt.
+- Claude Code nutzt Claude-Modelle über Anthropic Messages. Für Gemini, Grok, GLM und Kimi verwenden Sie einen Agent mit mehreren Protokollen, etwa OpenCode oder Kilo Code.
 - Wie Sie denselben Schlüssel mit Ihren anderen Coding-Agents nutzen, zeigt [Einen API-Schlüssel mit Coding-Agents nutzen](/de/guides/one-api-key-coding-agents).
 - Offizielle Referenzen: [Claude-Code-Einrichtung](https://code.claude.com/docs/en/setup), [Modellkonfiguration](https://code.claude.com/docs/en/model-config) und [LLM-Gateway-Konfiguration](https://code.claude.com/docs/en/llm-gateway-connect).

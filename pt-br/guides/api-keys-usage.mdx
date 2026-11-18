@@ -71,7 +71,7 @@ Use os filtros para responder a uma pergunta de cada vez.
 | **Status** | Todos os status, sucesso ou erro | Separar chamadas concluídas de falhas |
 | **Membro** | Membros da equipe, para proprietários e administradores | Revisar o tráfego da equipe por pessoa |
 
-Cada linha de solicitação pode mostrar o horário, a key, o modelo, tokens de entrada, tokens em cache, tokens de saída, tokens cobrados, tokens totais, latência, status e uma mensagem de erro. Algumas métricas podem ficar indisponíveis quando uma resposta do upstream ou uma solicitação com falha não as fornece.
+Cada linha de solicitação pode mostrar o horário, a key, o modelo, tokens de entrada, tokens em cache, tokens de saída, tokens cobrados, tokens totais, latência, status e uma mensagem de erro.
 
 ## Verificar se um cliente usou a key pretendida
 
@@ -99,12 +99,10 @@ A lista mostra os valores **Criada** e **Último uso** para ajudar a identificar
 
 ## Visibilidade no Team
 
-Proprietários e administradores do Team podem filtrar o uso por membro e comparar solicitações ou tokens cobrados entre membros. Um membro comum da equipe vê só o uso permitido para esse membro. Recargas do Team e controles de toda a equipe também ficam limitados a papéis elegíveis da equipe. O [guia do plano Team](/pt-br/guides/team-plan) explica os papéis, os tokens compartilhados e os alertas e limites por membro.
-
-Os filtros de uso não expõem a rota interna de provedor da Capriole, o custo do upstream nem diagnósticos de fallback. Eles relatam o modelo voltado ao cliente, o resultado da solicitação e a contabilidade de tokens necessária para gerenciar o acesso à API.
+Proprietários e administradores do Team podem filtrar o uso por membro e comparar solicitações ou tokens cobrados entre membros. No Team, proprietários e administradores gerenciam o faturamento e as recargas. Os membros podem consultar o próprio uso. O [guia do plano Team](/pt-br/guides/team-plan) explica os papéis, os tokens compartilhados e os alertas e limites por membro.
 
 ## Continue daqui
 
 Use [uma key com agentes de programação](/pt-br/guides/one-api-key-coding-agents) para um teste inicial de compatibilidade, ou abra os [guias de integração](/pt-br/integrations/codex) mantidos para configuração específica do cliente. A [comparação datada de custo da API](/pt-br/articles/ai-api-cost-comparison) explica como as unidades de cota da Capriole diferem dos preços de entrada e saída do provedor. Antes de enviar código-fonte por qualquer gateway, leia [riscos de segurança de gateways de LLM](/pt-br/articles/llm-gateway-security).
 
-[Experimente GPT-6.2 Astra, Claude Fable 5.1, Claude Opus 5.5 ou Gemini 4 Carbon no Browser Chat gratuito limitado](https://www.capriole.ai/pt-br). Faça upgrade para Premium quando quiser criar uma key e usar o saldo mensal incluído da API.
+[Experimente GPT-6.2 Astra, Claude Fable 5.1, Claude Opus 5.5 ou Gemini 4 Carbon no Browser Chat gratuito](https://www.capriole.ai/pt-br). Faça upgrade para Premium quando quiser criar uma key e usar o saldo mensal incluído da API.

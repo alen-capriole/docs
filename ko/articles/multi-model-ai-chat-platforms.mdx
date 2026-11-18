@@ -39,15 +39,15 @@ Magai의 가격 페이지에도 흐름을 잃지 않고 대화 중에 모델을 
 | Venice | 확인한 페이지에 명시되어 있지 않음 | 기기에 보관 | 요청은 저장되지 않고 전달됨. 최첨단 모델은 제공자가 콘텐츠를 저장한다고 가정하라고 Venice가 안내함 |
 | OpenRouter | 사용자 데이터로 학습하지 않는다고 밝힘 | Chatroom 대화는 기기에 남고 동기화되지 않음 | 모델, 토큰 수 같은 요청 메타데이터. 직접 동의하지 않으면 프롬프트는 기록되지 않지만, Safety Retention 엔드포인트에서는 남용 방지를 위해 OpenRouter나 제공자가 보관할 수 있음 |
 
-Capriole AI의 **Local Storage**와 **No Storage** 모드는 기록을 Capriole AI 데이터베이스에 저장하지 않지만, 업로드와 이미지 생성에는 **Server Storage**가 필요합니다. [개인정보와 데이터 관리 가이드](/ko/guides/privacy-and-security)에 모드별로 보관되는 정보가 나와 있고, [채팅 저장 방식 가이드](/ko/guides/chat-storage)에서 전환 방법을 설명합니다.
+로그인 후 **Server Storage**를 선택하면 파일을 업로드하고 이미지를 생성할 수 있습니다. [개인정보와 데이터 관리 가이드](/ko/guides/privacy-and-security)에 모드별로 보관되는 정보가 나와 있고, [채팅 저장 방식 가이드](/ko/guides/chat-storage)에서 전환 방법을 설명합니다.
 
 ## 파일, 웹 검색, 그 밖의 작업 공간 기능
 
 Capriole AI 웹 채팅에는 파일과 웹 검색, 자체 지침과 파일을 갖는 [프로젝트](/ko/guides/projects), 채팅 내보내기, 개인화가 포함됩니다. GPT Image 2.6, Nano Banana 2.1, Seedream 5.5 무료 이미지 생성도 함께 제공되며, 로그인과 저장 방식 요건은 [파일, 이미지, 웹 검색 가이드](/ko/guides/files-web-search)에서 다룹니다.
 
-## 포기하는 것
+Premium은 앱과 코딩 에이전트에 사용할 API 토큰을 매월 5,000,000개 제공합니다. 토큰 5,000,000개 추가 충전 요금은 USD 8입니다.
 
-Capriole AI는 개인과 소규모 팀을 위해 만들어졌습니다. Magai에는 내장 에이전트, 예약 작업 실행, 다른 앱과의 통합이 있고 Magai와 Venice는 동영상을 생성합니다. Capriole AI에는 예약 작업, 앱 통합, 동영상 생성이 없습니다. SAML 싱글 사인온 같은 엔터프라이즈 관리 기능도 제공하지 않습니다. Capriole AI가 제공하는 것과 제공하지 않는 것은 [LLM 게이트웨이 보안 위험](/ko/articles/llm-gateway-security)에 정리되어 있습니다. 웹 채팅은 무제한이지만 API 요청과 코딩 에이전트는 측정되는 잔액을 씁니다. Premium에서는 매월 500만 토큰이 제공되고, 이후에는 500만 토큰당 USD 8입니다.
+요청 전달 경로와 로그에 기록되는 정보는 [LLM 게이트웨이 보안 가이드](/ko/articles/llm-gateway-security)에서 확인하세요.
 
 ## 자주 묻는 질문
 
@@ -79,6 +79,8 @@ Capriole AI는 개인과 소규모 팀을 위해 만들어졌습니다. Magai에
     월 USD 9에 무제한 웹 채팅과 API 키를 받으세요.
   </Card>
 </CardGroup>
+
+Capriole AI는 독립적인 워크스페이스이며 Magai, T3 Chat, Venice, OpenRouter 소속이 아닙니다.
 
 ## 공식 출처
 

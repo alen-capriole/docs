@@ -46,7 +46,7 @@ Construímos a Capriole AI para substituir uma coleção de assinaturas caras de
 
 O Premium custa **USD 9 por mês**. Inclui chat web ilimitado em todos os modelos suportados. Não há saldo de créditos de chat para vigiar nem uma cota separada deduzida cada vez que você troca de modelo. O chat web com login tem um [limite de uso justo de 200 mensagens por dia](/pt-br/guides/plans-and-limits#o-que-significa-ilimitado) que impede abusos automatizados feitos por scripts; o uso normal fica bem abaixo disso.
 
-Membros Premium também recebem **5 milhões de tokens cobrados de API por mês**, e o uso adicional está disponível por recargas. Na nossa [comparação datada de custo](/pt-br/articles/ai-api-cost-comparison), a Capriole custa USD 9 para cada modelo testado que ela oferece. O preço Standard pago direto vai de USD 6.75 a USD 90, enquanto o OpenRouter vai de USD 7.55 a USD 94.95 depois da taxa publicada de compra de créditos. Neste exemplo, tanto a API direta quanto o OpenRouter custam menos para Gemini 3.8 Flash.
+Membros Premium também recebem **5 milhões de tokens cobrados de API por mês**, e o uso adicional está disponível por recargas. Na nossa [comparação datada de custo](/pt-br/articles/ai-api-cost-comparison), a Capriole custa USD 9 para cada modelo testado que ela oferece. O preço Standard pago direto vai de USD 6.75 a USD 90, enquanto o OpenRouter vai de USD 7.55 a USD 94.95 depois da taxa publicada de compra de créditos.
 
 A comparação usa uma mistura fixa de tokens. O menor custo de API depende do modelo. O Premium também inclui espaço de trabalho no navegador e chat web ilimitado.
 
@@ -56,11 +56,13 @@ Uma conta pode, portanto, cobrir o chat usado para o pensamento cotidiano e a AP
 
 Uma conversa de pesquisa salva e uma conversa com material sensível não precisam da mesma política de armazenamento.
 
-| Modo | Persistência | Principal contrapartida |
-|---|---|---|
-| Sincronizado | Histórico da conta disponível entre dispositivos | O estado do chat e dos arquivos enviados é armazenado para continuidade |
-| Local | Só o navegador atual | Sem histórico entre dispositivos; envios desativados |
-| No Storage | Só a sessão atual da página | Atualizar ou sair perde o chat; envios desativados |
+| Modo | Persistência |
+|---|---|
+| Sincronizado | Histórico da conta disponível entre dispositivos |
+| Local | Só o navegador atual |
+| No Storage | Só a sessão atual da página |
+
+O armazenamento padrão da conta sincroniza conversas entre dispositivos e permite enviar arquivos.
 
 Ativar No Storage primeiro pede confirmação antes de excluir o histórico existente de chat do servidor e local. Todos os modos ainda enviam solicitações pela Capriole e pelo serviço de modelo selecionado; eles alteram a persistência do histórico, não o caminho da solicitação do modelo. O [guia de armazenamento do chat](/pt-br/guides/chat-storage) explica o limite completo.
 
@@ -76,4 +78,4 @@ Queríamos um espaço de trabalho que economizasse dinheiro, reduzisse a configu
 
 Se você está decidindo entre um espaço de trabalho como este e um gateway mais amplo de modelos, a nossa [comparação Capriole AI e OpenRouter](/pt-br/articles/capriole-ai-vs-openrouter) explica onde cada produto se encaixa.
 
-Você pode [abrir a Capriole AI](https://www.capriole.ai/pt-br) e experimentar o conjunto principal atual no chat gratuito limitado. Faça upgrade para o Premium de USD 9 quando quiser Browser Chat ilimitado, o saldo incluído da API e caminhos mantidos de agentes de programação sob a mesma conta. Desenvolvedores podem continuar com o [início rápido da API](/pt-br/quickstart).
+Você pode [abrir a Capriole AI](https://www.capriole.ai/pt-br) e experimentar o conjunto principal atual no chat gratuito. Faça upgrade para o Premium de USD 9 quando quiser Browser Chat ilimitado, o saldo incluído da API e caminhos mantidos de agentes de programação sob a mesma conta. Desenvolvedores podem continuar com o [início rápido da API](/pt-br/quickstart).

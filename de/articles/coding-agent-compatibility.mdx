@@ -65,7 +65,7 @@ Capriole stellt gepflegte Aliase für unterstützte öffentliche Pfade bereit:
 
 Der Alias wird vor Upstream-Weiterleitung und Nutzungserfassung aufgelöst. Der Coding-Agent sendet den stabilen Auswähler; Capriole erfasst das aufgelöste Modell, das die Anfrage verarbeitet hat.
 
-Konkrete Modell-IDs bleiben nützlich, wenn eine genaue Version für ein Audit, einen Test oder ein langlebiges Projekt zählt. „Latest“ ist eine Erleichterung, kein Ersatz für Versionsfestlegung.
+Konkrete Modell-IDs bleiben nützlich, wenn eine genaue Version für ein Audit, einen Test oder ein langlebiges Projekt zählt.
 
 ## Was getestet wurde
 
@@ -73,7 +73,7 @@ Die gepflegte Einrichtung folgt tatsächlichen Client-Pfaden und Tests.
 
 Lokale Validierung deckt alle 10 Clients über ihre dokumentierten Konfigurationen ab. Tests umfassen grundlegende Prompts und unterstützte Tool-Interaktionsflows.
 
-Es gibt client-spezifische Limits. Codex bleibt auf den gepflegten OpenAI-Responses-Modellen; die Auswahl eines Claude-Modells in Capriole macht es nicht zu einem Codex-kompatiblen Modell. Claude Code verwendet den Claude-Messages-Pfad. Cline und Crush verwenden Chat Completions. Kilo Code, GitHub Copilot CLI, OpenCode, OpenClaw, Qwen Code und Pi bieten breitere Wahlmöglichkeiten, ihre Konfiguration muss aber weiterhin zum gewählten Protokoll passen.
+Wählen Sie das Protokoll passend zum Client. Codex nutzt OpenAI Responses, Claude Code nutzt Anthropic Messages, Cline und Crush nutzen Chat Completions. Die Tabelle oben verweist auf die jeweilige Einrichtung.
 
 Die in der Tabelle verlinkten Integrationsanleitungen sind die Quelle der Wahrheit für aktuelle Felder und unterstützte Auswähler.
 
@@ -83,7 +83,7 @@ Lesen Sie [wie Capriole die Multi-Modell-API-Kompatibilität testet](/de/article
 
 Recherche, Entwürfe, Dateien, Websuche und Modelländerungen mitten in der Unterhaltung können im Browser-Arbeitsbereich bleiben. Wenn die Aufgabe Repository-Kontext, lokale Tools oder Dateiänderungen braucht, kann ein Coding-Agent dasselbe Capriole-Konto nutzen.
 
-Capriole verbindet beide Flächen mit demselben Konto. Eine Premium-Mitgliedschaft kostet derzeit **USD 9 pro Monat**, umfasst unbegrenzten Browser-Chat über die unterstützte Premium-Modellgruppe und fügt **5 Millionen abgerechnete API-Tokens jeden Monat** hinzu. Coding-Agent-Nutzung ist API-Nutzung, greift also auf dieses nutzungsabhängig abgerechnete Guthaben zu und nicht auf das unbegrenzte Browser-Chat-Kontingent.
+Capriole verbindet beide Flächen mit demselben Konto. Eine Premium-Mitgliedschaft kostet derzeit **USD 9 pro Monat**, umfasst unbegrenzten Browser-Chat über die unterstützte Premium-Modellgruppe und fügt **5 Millionen abgerechnete API-Tokens jeden Monat** hinzu. Coding-Agents verwenden Ihren API-Schlüssel von Capriole AI und rechnen die Anfragen über Ihr API-Token-Guthaben ab.
 
 Der Plan hält die beiden Arbeitslasten getrennt. Alltäglicher Browser-Chat ist unter Premium unbegrenzt, während programmatische und Agent-Arbeitslasten sichtbare abgerechnete API-Tokens nutzen, mit Aufstockungen wenn nötig.
 
@@ -93,4 +93,4 @@ Nutzen Sie Codex, wenn sein Responses-basierter OpenAI-Workflow zur Aufgabe pass
 
 Jeder dokumentierte Client erhält eine gepflegte Route zu den von diesem Protokoll unterstützten Modellen.
 
-[Probieren Sie GPT-6.2 Astra, Claude Fable 5.1, Claude Opus 5.5 oder Gemini 4 Carbon im begrenzten kostenlosen Browser-Chat](https://www.capriole.ai/de) und upgraden Sie, wenn Sie bereit sind, einen API-Schlüssel zu erstellen. Beginnen Sie mit der [Ein-Schlüssel-Coding-Agent-Anleitung](/de/guides/one-api-key-coding-agents) für den gemeinsamen Workflow und öffnen Sie dann die Integrationsseite für den Agenten, den Sie nutzen.
+[Probieren Sie GPT-6.2 Astra, Claude Fable 5.1, Claude Opus 5.5 oder Gemini 4 Carbon im kostenlosen Browser-Chat](https://www.capriole.ai/de) und upgraden Sie, wenn Sie bereit sind, einen API-Schlüssel zu erstellen. Beginnen Sie mit der [Ein-Schlüssel-Coding-Agent-Anleitung](/de/guides/one-api-key-coding-agents) für den gemeinsamen Workflow und öffnen Sie dann die Integrationsseite für den Agenten, den Sie nutzen.

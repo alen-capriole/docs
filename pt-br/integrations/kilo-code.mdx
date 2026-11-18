@@ -185,7 +185,7 @@ O que cada configuração faz:
 
 - `npm: "@ai-sdk/openai-compatible"` é o pacote padrão do provedor, então Gemini, Grok, GLM e Kimi usam Chat Completions.
 - Cada modelo GPT substitui `provider.npm` por `@ai-sdk/openai`, que usa a API Responses. Cada modelo Claude o substitui por `@ai-sdk/anthropic`, que usa Anthropic Messages.
-- `{env:CAPRIOLE_AI_API_KEY}` lê sua key do ambiente. O cabeçalho `Authorization` a envia como Bearer token em todos os pacotes. Sem ele, o pacote Anthropic envia a key em um cabeçalho `x-api-key`, que a Capriole AI não aceita.
+- `{env:CAPRIOLE_AI_API_KEY}` lê sua key do ambiente. O cabeçalho `Authorization` a envia como Bearer token em todos os pacotes.
 - `tool_call: true` permite que o modelo chame as ferramentas do Kilo.
 - `limit` define a janela de contexto e o limite de saída de cada modelo. Sem ele, o Kilo trata os dois como `0` e não compacta sessões longas.
 
@@ -255,7 +255,7 @@ Confirme que a entrada do modelo inclui `"tool_call": true`.
 
 ## Observações
 
-- O Kilo Code executa ferramentas de programação no seu computador. A Capriole AI só trata as solicitações de modelo.
+- Kilo Code executa as ferramentas de programação no seu computador. A Capriole AI processa as solicitações ao modelo.
 - Para adicionar outro modelo da Capriole AI, copie a entrada de um modelo da mesma família e altere o ID. `GET https://api.caprioletech.com/v1/models` lista todos os IDs de modelo.
 - O Gemini 4 Carbon raciocina por mais tempo que o Gemini 4 Argon, então cada turno pode demorar mais e usar mais tokens. Para turnos mais rápidos, use `google/gemini-4-argon`.
 - Para usar a mesma key nos seus outros agentes de programação, veja [Usar uma API key com agentes de programação](/pt-br/guides/one-api-key-coding-agents).

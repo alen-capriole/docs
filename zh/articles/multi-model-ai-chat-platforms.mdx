@@ -39,15 +39,15 @@ Magai 的定价页也列出了在对话中切换模型而不中断对话。T3 Ch
 | Venice | 我们核对的页面未说明 | 在你的设备上 | 请求只做转发，不会存储；对于前沿模型，Venice 称应假定提供商会存储你的内容 |
 | OpenRouter | 称不会用你的数据训练 | Chatroom 对话保留在你的设备上，不会同步 | 模型和 token 数量等请求元数据；除非你主动开启，否则不记录提示词，但在 Safety Retention 端点上，OpenRouter 或提供商可能为防止滥用而保留提示词 |
 
-Capriole AI 的 **Local Storage** 和 **No Storage** 模式不会把历史存进我们的数据库，但上传和生图需要 **Server Storage**。[隐私与数据控制指南](/zh/guides/privacy-and-security)列出了每种方式保留哪些内容，[聊天存储指南](/zh/guides/chat-storage)说明了如何切换。
+登录并使用 **Server Storage**，即可上传文件和生成图片。[隐私与数据控制指南](/zh/guides/privacy-and-security)列出了每种方式保留哪些内容，[聊天存储指南](/zh/guides/chat-storage)说明了如何切换。
 
 ## 文件、网页搜索和工作区的其他功能
 
 Capriole AI 的网页聊天包含文件和网页搜索、带有专属指令和文件的[项目](/zh/guides/projects)、聊天导出和个性化。还包括用 GPT Image 2.6、Nano Banana 2.1 和 Seedream 5.5 免费生图；登录和存储要求见[文件、生图与网页搜索指南](/zh/guides/files-web-search)。
 
-## 你会失去什么
+Premium 每月含 5,000,000 个 API token，可用于应用和编程智能体。额外 5,000,000 个 token 的充值价格为 USD 8。
 
-Capriole AI 面向个人和小团队。Magai 有内置智能体、定时任务运行和与其他应用的集成，Magai 和 Venice 还能生成视频；Capriole AI 没有定时任务、应用集成或视频生成。它也不提供 SAML 单点登录等企业级管控；[LLM 网关安全风险](/zh/articles/llm-gateway-security)列出了 Capriole AI 提供和不提供的内容。网页聊天无限，但 API 请求和编程智能体使用按量计费的余额：Premium 每月 500 万 token，超出后每 500 万 token USD 8。
+有关请求如何转发以及哪些信息会被记录，请参阅 [LLM 网关安全指南](/zh/articles/llm-gateway-security)。
 
 ## 常见问题
 
@@ -79,6 +79,8 @@ Capriole AI 面向个人和小团队。Magai 有内置智能体、定时任务�
     每月 USD 9，享受无限网页聊天和 API Key。
   </Card>
 </CardGroup>
+
+Capriole AI 是独立工作区，与 Magai、T3 Chat、Venice 和 OpenRouter 无隶属关系。
 
 ## 官方来源
 

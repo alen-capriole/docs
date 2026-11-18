@@ -214,7 +214,7 @@ openclaw onboard
 
 - `capriole-ai-openai` 把 GPT 模型请求发送到 Responses API。`capriole-ai-anthropic` 把 Claude 模型请求发送到 Anthropic Messages。`capriole-ai-compatible` 把 Gemini、Grok、GLM 和 Kimi 模型请求发送到 Chat Completions。
 - `${CAPRIOLE_AI_API_KEY}` 从环境变量读取你的 API Key。
-- `request.auth` 使用 `authorization-bearer` 时，Anthropic 提供商会以 Bearer Token 形式发送 Key。没有它时，Key 会放在 `x-api-key` 请求头中，而 Capriole AI 不接受这种方式。
+- `request.auth` 使用 `authorization-bearer` 时，Anthropic 提供商会以 Bearer Token 形式发送 Key。
 - Anthropic 的 `baseUrl` 不含 `/v1`，因为 OpenClaw 会自行添加 `/v1/messages`。
 - Opus 5.5 的 `reasoning` 为 `false`。设为 `true` 时，OpenClaw 会发送思考预算，Opus 5.5 会以 `requires adaptive thinking` 拒绝请求。
 - `contextWindow` 和 `maxTokens` 告诉 OpenClaw 每个模型的限制。

@@ -46,7 +46,7 @@ Capriole AI 把受支持的前沿模型放进同一个网页聊天界面。你�
 
 Premium 每月收费 **USD 9**，在所有受支持的模型上提供无限网页聊天。用户无需盯着聊天余额，每次切换模型也不会扣除另一份单独额度。登录后的网页聊天设有[每天 200 条消息的合理使用上限](/zh/guides/plans-and-limits#“无限”是什么意思)，用于阻止脚本驱动的自动化滥用，正常使用远低于这个上限。
 
-Premium 会员每月还会获得 **500 万计费 API token**，用完后可以充值购买更多。在我们的[500 万 token 成本对比](/zh/articles/ai-api-cost-comparison)中，Capriole 对它提供的每个测试模型都是 USD 9。直接使用官方付费 Standard 定价的成本在 USD 6.75 至 USD 90 之间，OpenRouter 加上其公开的充值手续费后则在 USD 7.55 至 USD 94.95 之间。在这个例子中，Gemini 3.8 Flash 用官方直连或 OpenRouter 更便宜。
+Premium 会员每月还会获得 **5,000,000 个计费 API token**，用完后可以充值购买更多。在我们的[5,000,000 token 成本对比](/zh/articles/ai-api-cost-comparison)中，Capriole 对它提供的每个测试模型都是 USD 9。直接使用官方付费 Standard 定价的成本在 USD 6.75 至 USD 90 之间，OpenRouter 加上其公开的充值手续费后则在 USD 7.55 至 USD 94.95 之间。
 
 这项对比使用固定的 token 构成。最低 API 成本取决于模型。Premium 还包含浏览器工作区和无限网页聊天。
 
@@ -56,11 +56,13 @@ Premium 会员每月还会获得 **500 万计费 API token**，用完后可以�
 
 一段需要保存的研究对话，与一段含有敏感资料的对话，并不需要采用相同的存储策略。
 
-| 模式 | 持久化方式 | 主要取舍 |
-|---|---|---|
-| Synced | 可跨设备查看账户历史 | 存储聊天和上传文件状态，以便持续使用 |
-| Local | 仅限当前浏览器 | 没有跨设备历史，且禁用上传 |
-| No Storage | 仅限当前页面会话 | 刷新或离开页面后对话即丢失，且禁用上传 |
+| 模式 | 持久化方式 |
+|---|---|
+| Synced | 可跨设备查看账户历史 |
+| Local | 仅限当前浏览器 |
+| No Storage | 仅限当前页面会话 |
+
+默认的账户存储支持跨设备同步聊天和上传文件。
 
 首次启用 No Storage 时，系统会先请求确认，再删除已有的服务端和本地聊天历史。所有模式都会把请求发送给 Capriole 和所选模型服务。它们改变的是历史记录持久化方式，不会改变模型请求路径。[聊天存储指南](/zh/guides/chat-storage)解释了完整边界。
 
@@ -76,4 +78,4 @@ Capriole AI 面向希望使用强大模型，又不愿把 AI 使用变成另一�
 
 如果你正在比较这类工作区和覆盖范围更广的模型网关，可以阅读 [Capriole AI 与 OpenRouter 对比](/zh/articles/capriole-ai-vs-openrouter)，了解两种产品各自适合的场景。
 
-你可以[打开 Capriole AI](https://www.capriole.ai/zh)，在有限的免费聊天中试用当前旗舰模型。需要无限浏览器聊天、内含 API 余额和同一账户下持续维护的编程智能体路径时，可升级到每月 USD 9 的 Premium。开发者可以继续阅读 [API 快速入门](/zh/quickstart)。
+你可以[打开 Capriole AI](https://www.capriole.ai/zh)，在免费聊天中试用当前旗舰模型。需要无限浏览器聊天、内含 API 余额和同一账户下持续维护的编程智能体路径时，可升级到每月 USD 9 的 Premium。开发者可以继续阅读 [API 快速入门](/zh/quickstart)。

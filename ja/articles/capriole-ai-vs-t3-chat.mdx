@@ -25,7 +25,7 @@ T3 Chat は Base と Burst overage の 2 つのバケットでブラウザ使用
 
 ## Capriole がウェブチャットより先へ進む理由
 
-サインアウト中の訪問者と Free ユーザーは、対応旗艦モデルの制限付きチャットで Capriole を始められます。Premium はその後、対応する Premium セット全体でウェブチャットのメーターを外します。
+サインアウト中の訪問者と Free ユーザーは、対応旗艦モデルの無料のチャットで Capriole を始められます。Premium はその後、対応する Premium セット全体でウェブチャットのメーターを外します。
 
 ファイル、ウェブ検索、保存履歴、[会話中のモデル切り替え](/ja/articles/switch-models-mid-chat) は同じワークスペースに残ります。同じアカウントは、公開 API エンドポイントと維持されているコーディング エージェント設定を通じて、その後ブラウザを離れられます。
 
@@ -51,7 +51,7 @@ Capriole Premium はブラウザ利用とプログラム利用を分けます。
 
 Capriole は複数の公開プロトコル経路を文書化します。OpenAI Responses は [Codex](/ja/integrations/codex) などのクライアントをサポートし、Anthropic Messages は [Claude Code](/ja/integrations/claude-code) をサポートします。[Kilo Code](/ja/integrations/kilo-code)、[GitHub Copilot CLI](/ja/integrations/github-copilot-cli)、[OpenCode](/ja/integrations/opencode)、[OpenClaw](/ja/integrations/openclaw)、[Cline](/ja/integrations/cline)、[Qwen Code](/ja/integrations/qwen-code)、[Crush](/ja/integrations/crush)、[Pi](/ja/integrations/pi) には、対応経路向けの維持設定があります。
 
-コーディング エージェントはローカル ツールとファイル変更を実行します。Capriole は対応モデル アクセスを扱います。エージェント使用量は計量 API トラフィックのままなので、無制限のウェブチャットは自動コーディング ワークロードへは延びません。
+コーディング エージェントはローカル ツールとファイル変更を実行します。Capriole は対応モデル アクセスを扱います。
 
 外部クライアントが購入の中心なら、Capriole にはアカウントから API キー、動作するクライアントまでの文書化された経路があります。確認した T3 の公開ドキュメントは、同等の維持経路を提供しません。
 
@@ -59,21 +59,19 @@ Capriole は複数の公開プロトコル経路を文書化します。OpenAI R
 
 Capriole は Synced、Local、No Storage のチャット履歴モードを提供します。Local は履歴を現在のブラウザに残します。No Storage は保存チャット履歴を残しません。どのモードでも、リクエストは引き続き Capriole と選択したモデル プロバイダーを通ります。
 
-これらの制御は、ユーザーを別製品へ移さずに永続化境界を見えるようにします。機密資料のときは、選択した上流プロバイダーを確認する必要はなくなりません。
+これらの制御は、ユーザーを別製品へ移さずに永続化境界を見えるようにします。
 
 ## チャットだけではデベロッパー ワークフローは未完成
 
 T3 はチャット優先インターフェイス、会話ブランチ、BYOK を強調します。Capriole は別々のプロバイダー アカウントなしで、より大きなワークフローをカバーします。ウェブチャットから始め、公開 API 経路を続け、同じ USD 9 メンバーシップの下でドキュメントのある 10 種類のコーディング エージェントを接続します。
 
-## T3 Chat が向いている場合
-
-チャットしか使わず、会話の分岐、キーボードで操作できるモデル切り替え、自分のプロバイダー キーの利用を重視するなら、T3 Chat が向いています。同じプランで API とコーディング エージェントもまかなう必要があるなら、Capriole AI を選んでください。
-
 ## Capriole でチャットを超える
 
 同じアカウントが日常チャット、対応する最先端モデル、外部 API クライアント、コーディング エージェントを月額 USD 9 でカバーする必要があるときは、Capriole を選んでください。
 
-[制限付きの無料ウェブチャットを試す](https://www.capriole.ai/ja) ことも、[USD 9 の Premium にアップグレードして無制限チャットと API キーを入手する](https://www.capriole.ai/ja?view=api) こともできます。最初のアプリケーション リクエストは [API クイックスタート](/ja/quickstart) が扱います。
+[無料ウェブチャットを試す](https://www.capriole.ai/ja) ことも、[USD 9 の Premium にアップグレードして無制限チャットと API キーを入手する](https://www.capriole.ai/ja?view=api) こともできます。最初のアプリケーション リクエストは [API クイックスタート](/ja/quickstart) が扱います。
+
+Capriole AI は、T3 Chat から独立して運営されているワークスペースです。
 
 ## 公式ソース
 

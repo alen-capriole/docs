@@ -42,12 +42,12 @@ Anthropic nennt, was mehr von Ihrem Kontingent verbraucht:
 
 Für Fable 5.1 gilt eine eigene Regel. Bei Pro gehören Fable 5 und Fable 5.1 nicht zu den Nutzungslimits des Plans, daher läuft jede Fable-Nachricht über Nutzungsguthaben, die zu Standard-API-Preisen abgerechnet werden. Bei Max und Ultra können Fable-Modelle ohne Zusatzkosten bis zu 50% Ihrer Wochenlimits nutzen.
 
-## Was Anthropic empfiehlt, wenn Sie ein Limit erreichen
+## Wie Anthropic Nutzungslimits handhabt
 
-1. **Warten Sie auf das Zurücksetzen.** Das Sitzungslimit wird alle fünf Stunden zurückgesetzt, und **Settings** → **Usage** zeigt, wann.
-2. **Wechseln Sie in einen höheren Plan.** Anthropic beschreibt Max als Plan für häufige Nutzer und Ultra als Plan für Ihre längsten Aufgaben. Die Limits eines neuen Plans gelten sofort.
-3. **Aktivieren Sie Nutzungsguthaben.** Mit Guthaben arbeiten Sie nach einem Limit weiter, abgerechnet zu Standard-API-Preisen. Sie können eine monatliche Ausgabenobergrenze festlegen.
-4. **Verbrauchen Sie weniger pro Nachricht.** Beginnen Sie eine neue Unterhaltung, statt eine lange fortzusetzen, senken Sie die Effort-Stufe, schalten Sie Extended Thinking und nicht benötigte Tools aus und kürzen Sie Projektanweisungen.
+1. **Sitzungslimit.** Das Sitzungslimit wird alle fünf Stunden zurückgesetzt, und **Settings** → **Usage** zeigt, wann.
+2. **Planwechsel.** Anthropic beschreibt Max als Plan für häufige Nutzer und Ultra als Plan für Ihre längsten Aufgaben. Die Limits eines neuen Plans gelten sofort.
+3. **Nutzungsguthaben.** Mit Guthaben arbeiten Sie nach einem Limit weiter, abgerechnet zu Standard-API-Preisen. Sie können eine monatliche Ausgabenobergrenze festlegen.
+4. **Verbrauch pro Nachricht.** Die Gesprächslänge, die gewählte Denkintensität, Extended Thinking, der Einsatz von Tools und die Länge der Projektanweisungen beeinflussen, wie viel Ihres Claude-Kontingents eine Nachricht verbraucht.
 
 Wenn Sie das Fünf-Stunden-Limit mitten in einer Antwort von Claude Code erreichen, kann Claude Code den aktuellen Schritt noch abschließen, bevor es anhält. Bei Pro passiert das höchstens einmal pro wöchentlichem Nutzungszeitraum.
 
@@ -55,15 +55,15 @@ Wenn Sie das Fünf-Stunden-Limit mitten in einer Antwort von Claude Code erreich
 
 Capriole AI Premium kostet USD 9 pro Monat für unbegrenzten Web-Chat mit jedem unterstützten Modell, darunter Claude Fable 5.1, Claude Opus 5.5, GPT-6.2 Astra und Gemini 4 Carbon.
 
-Der Web-Chat von Capriole AI hat kein Fünf-Stunden-Sitzungslimit und kein Wochenlimit, nur ein Fair-Use-Limit von 200 Nachrichten pro Konto und Tag.
+Für den Web-Chat gilt weder ein Fünf-Stunden- noch ein Wochenlimit. Ein Fair-Use-Limit von 200 Nachrichten pro Konto und Tag verhindert automatisierten Missbrauch.
 
-Fable 5.1 braucht kein Nutzungsguthaben. Jedes Modell gehört zum selben unbegrenzten Web-Chat, und Sie können [mitten im Chat das Modell wechseln](/de/articles/switch-models-mid-chat), etwa von Claude Opus 5.5 zu Claude Fable 5.1 für einen schwierigeren Schritt, ohne neu anzufangen.
+Jedes Modell gehört zum selben unbegrenzten Web-Chat, und Sie können [mitten im Chat das Modell wechseln](/de/articles/switch-models-mid-chat), etwa von Claude Opus 5.5 zu Claude Fable 5.1 für einen schwierigeren Schritt, ohne neu anzufangen.
 
 Premium enthält außerdem kostenlose Bilderzeugung (GPT Image 2.6, Nano Banana 2.1 und Seedream 5.5), Dateien und Websuche, Projekte, Chat-Export, Personalisierung und Speichersteuerungen.
 
 ## Intensive Nutzung von Coding-Agents: der Weg über die API
 
-Unbegrenzter Web-Chat deckt keine Coding-Agents ab. Für Claude Code und andere Agents nutzen Sie einen Capriole-AI-API-Schlüssel. Agent-Anfragen greifen auf ein nutzungsabhängig abgerechnetes API-Guthaben zu, das bis zu 92% weniger kostet als die offiziellen API-Preise.
+Für Claude Code und andere Agents nutzen Sie einen Capriole-AI-API-Schlüssel. Agent-Anfragen greifen auf ein nutzungsabhängig abgerechnetes API-Guthaben zu, das bis zu 92% weniger kostet als die offiziellen API-Preise.
 
 | Modell | Offizieller API-Preis pro 1M Tokens (Eingabe / Ausgabe) | Persönliche API-Aufstockung bei Capriole AI |
 |---|---|---|
@@ -77,10 +77,6 @@ Claude Code verbindet sich über den Anthropic-Messages-Endpunkt von Capriole AI
 
 Claude Max und Ultra enthalten monatliches API-Guthaben, aber [laut Anthropic](https://support.claude.com/en/articles/17154008-monthly-api-credits-for-max-ultra-and-team-plans) deckt es weder interaktive Claude-Code-Sitzungen noch zusätzliche Nutzung nach Erreichen der Plan-Limits ab.
 
-## Worauf Sie verzichten
-
-Capriole AI ist ein unabhängiger Arbeitsbereich und steht in keiner Verbindung zu Anthropic. Es ist nicht die Claude-App. Funktionen, die es nur in den Produkten von Anthropic gibt, etwa Artifacts, Konnektoren, Erinnerungen, Claude in Chrome sowie die Desktop- und Mobil-Apps von Claude, gehören nicht zu Capriole AI. Claude Code funktioniert weiterhin, über den oben beschriebenen API-Weg.
-
 ## Häufige Fragen
 
 <AccordionGroup>
@@ -93,11 +89,11 @@ Capriole AI ist ein unabhängiger Arbeitsbereich und steht in keiner Verbindung 
   <Accordion title="Ist Claude Fable 5.1 in Claude Pro enthalten?">
     Nicht in den Nutzungslimits von Pro. Anthropic rechnet Fable 5.1 bei Pro über Nutzungsguthaben zu Standard-API-Preisen ab. Bei Max und Ultra können Fable-Modelle bis zu 50% der Wochenlimits nutzen. Bei Capriole AI Premium ist Fable 5.1 Teil des unbegrenzten Web-Chats für USD 9 pro Monat.
   </Accordion>
-  <Accordion title="Reichen 200 Nachrichten pro Tag?">
-    Für Menschen ja. Das Limit soll skriptgesteuerten, automatisierten Missbrauch stoppen. Der aktivste echte Nutzer hat an einem Tag 132 Nachrichten gesendet.
+  <Accordion title="Wann wird das Fair-Use-Kontingent von 200 Nachrichten zurückgesetzt?">
+    Das Kontingent wird täglich um 00:00 UTC zurückgesetzt. Für jedes angemeldete Konto gilt ein Fair-Use-Limit von 200 Nachrichten pro Tag, um automatisierten Missbrauch zu verhindern. Zum Zeitpunkt dieses Vergleichs lag die höchste beobachtete Tagesnutzung einer Person bei 132 Nachrichten.
   </Accordion>
   <Accordion title="Kann ich Claude Code mit Capriole AI nutzen?">
-    Ja, mit einem Capriole-AI-API-Schlüssel aus Premium oder Team. Anfragen von Claude Code nutzen das nutzungsabhängig abgerechnete API-Guthaben, nicht den unbegrenzten Web-Chat. Siehe die [Einrichtung von Claude Code](/de/integrations/claude-code).
+    Ja, mit einem Capriole-AI-API-Schlüssel aus Premium oder Team. Coding-Agents verwenden Ihren API-Schlüssel von Capriole AI und rechnen die Anfragen über Ihr API-Token-Guthaben ab. Siehe die [Einrichtung von Claude Code](/de/integrations/claude-code).
   </Accordion>
 </AccordionGroup>
 
@@ -111,6 +107,8 @@ Capriole AI ist ein unabhängiger Arbeitsbereich und steht in keiner Verbindung 
     Unbegrenzter Web-Chat und ein API-Schlüssel für Claude Code, USD 9 pro Monat.
   </Card>
 </CardGroup>
+
+Capriole AI ist ein unabhängiger Arbeitsbereich und steht in keiner Verbindung zu Anthropic.
 
 ## Offizielle Quellen
 

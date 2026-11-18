@@ -42,12 +42,12 @@ Anthropic 列出了会消耗更多额度的因素：
 
 Fable 5.1 还有自己的规则。在 Pro 上，Fable 5 和 Fable 5.1 不计入方案的用量限制，所以每条 Fable 消息都消耗用量积分（usage credits），按标准 API 价格计费。在 Max 和 Ultra 上，Fable 模型最多可使用每周限制的 50%，不额外收费。
 
-## 触发限制时 Anthropic 的建议
+## Anthropic 的用量限制规则
 
-1. **等待重置。** 会话限制每五小时重置一次，**Settings** → **Usage** 会显示重置时间。
-2. **升级方案。** Anthropic 称 Max 适合经常使用 Claude 的用户，Ultra 适合最长的任务。新方案的限制立即生效。
-3. **开启用量积分。** 用量积分让你在触发限制后继续工作，按标准 API 价格计费。你可以设置每月消费上限。
-4. **减少每条消息的消耗。** 开始新对话，而不是继续拉长旧对话；降低推理强度；关闭扩展思考和不需要的工具；缩短项目指令。
+1. **会话重置。** 会话限制每五小时重置一次，**Settings** → **Usage** 会显示重置时间。
+2. **方案变更。** Anthropic 称 Max 适合经常使用 Claude 的用户，Ultra 适合最长的任务。新方案的限制立即生效。
+3. **用量积分。** 用量积分让你在触发限制后继续工作，按标准 API 价格计费。你可以设置每月消费上限。
+4. **每条消息的用量。** 对话长度、推理强度、扩展思考、工具使用情况和项目指令的长度都会影响每条消息消耗的 Claude 额度。
 
 如果你在 Claude Code 回复过程中触发五小时限制，Claude Code 可能会先完成当前步骤再停止。在 Pro 上，这种情况每个每周用量周期最多发生一次。
 
@@ -55,15 +55,15 @@ Fable 5.1 还有自己的规则。在 Pro 上，Fable 5 和 Fable 5.1 不计入�
 
 Capriole AI Premium 每月 USD 9，可在网页聊天中无限使用所有受支持的模型，包括 Claude Fable 5.1、Claude Opus 5.5、GPT-6.2 Astra 和 Gemini 4 Carbon。
 
-Capriole AI 的网页聊天没有五小时会话限制，也没有每周限制，只有每个账户每天 200 条消息的合理使用上限。
+网页聊天没有五小时或每周上限。每个账户每天 200 条消息的合理使用上限用于防止自动化滥用。
 
-Fable 5.1 不需要用量积分。所有模型都属于同一份无限网页聊天，你还可以[在对话中切换模型](/zh/articles/switch-models-mid-chat)，例如在遇到更难的步骤时从 Claude Opus 5.5 换到 Claude Fable 5.1，无需从头开始。
+所有模型都属于同一份无限网页聊天，你还可以[在对话中切换模型](/zh/articles/switch-models-mid-chat)，例如在遇到更难的步骤时从 Claude Opus 5.5 换到 Claude Fable 5.1，无需从头开始。
 
 Premium 还包括用 GPT Image 2.6、Nano Banana 2.1 和 Seedream 5.5 免费生图、文件和网页搜索、项目、聊天导出、个性化以及存储控制。
 
 ## 大量使用编程智能体：走 API 路线
 
-无限网页聊天不涵盖编程智能体。Claude Code 和其他智能体请使用 Capriole AI API Key。智能体请求消耗按量计费的 API 余额，价格最多比官方 API 低 92%。
+Claude Code 和其他智能体请使用 Capriole AI API Key。智能体请求消耗按量计费的 API 余额，价格最多比官方 API 低 92%。
 
 | 模型 | 官方 API 价格，每 100 万 token（输入 / 输出） | Capriole AI 个人 API 充值 |
 |---|---|---|
@@ -77,10 +77,6 @@ Claude Code 通过 Capriole AI 的 Anthropic Messages 端点连接。同一个 k
 
 Claude Max 和 Ultra 包含每月 API 额度，但 [Anthropic 称](https://support.claude.com/en/articles/17154008-monthly-api-credits-for-max-ultra-and-team-plans)这些额度不覆盖交互式 Claude Code 会话，也不覆盖达到方案限制后的额外用量。
 
-## 你会失去什么
-
-Capriole AI 是独立的工作区，与 Anthropic 没有关联，也不是 Claude 应用。只在 Anthropic 产品中提供的功能，例如 Artifacts、连接器、记忆、Claude in Chrome，以及 Claude 桌面端和移动端应用，都不属于 Capriole AI。Claude Code 仍然可用，走上面的 API 路线即可。
-
 ## 常见问题
 
 <AccordionGroup>
@@ -93,11 +89,11 @@ Capriole AI 是独立的工作区，与 Anthropic 没有关联，也不是 Claud
   <Accordion title="Claude Pro 包含 Claude Fable 5.1 吗？">
     不在 Pro 的用量限制内。在 Pro 上，Anthropic 通过用量积分按标准 API 价格对 Fable 5.1 计费。在 Max 和 Ultra 上，Fable 模型最多可使用每周限制的 50%。在 Capriole AI Premium 上，Fable 5.1 属于每月 USD 9 的无限网页聊天。
   </Accordion>
-  <Accordion title="每天 200 条消息够用吗？">
-    对真人用户来说，够用。这个上限用于阻止脚本驱动的自动化滥用。最活跃的真实用户一天发送过 132 条消息。
+  <Accordion title="每天 200 条消息的合理使用额度何时重置？">
+    额度在每天 00:00 UTC 重置。为防止自动化滥用，每个已登录账户的合理使用上限为每天 200 条消息。撰写这篇对比时，观察到的个人单日最高用量为 132 条消息。
   </Accordion>
   <Accordion title="Capriole AI 能用 Claude Code 吗？">
-    可以，需要 Premium 或 Team 的 Capriole AI API Key。Claude Code 请求消耗按量计费的 API 余额，而不是无限网页聊天。参见 [Claude Code 配置](/zh/integrations/claude-code)。
+    可以，需要 Premium 或 Team 的 Capriole AI API Key。编程智能体使用你的 Capriole AI API 密钥，按用量从 API token 余额中扣费。参见 [Claude Code 配置](/zh/integrations/claude-code)。
   </Accordion>
 </AccordionGroup>
 
@@ -111,6 +107,8 @@ Capriole AI 是独立的工作区，与 Anthropic 没有关联，也不是 Claud
     每月 USD 9，享受无限网页聊天和可用于 Claude Code 的 API Key。
   </Card>
 </CardGroup>
+
+Capriole AI 是独立工作区，与 Anthropic 无隶属关系。
 
 ## 官方来源
 

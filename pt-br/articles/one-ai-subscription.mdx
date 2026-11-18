@@ -4,7 +4,7 @@ sidebarTitle: "Uma assinatura de IA"
 description: "Uma assinatura de USD 9 para chat ilimitado com GPT-6.2 Astra, Claude Fable 5.1, Opus 5.5 e Gemini 4 Carbon, além de uma API até 92% abaixo dos preços oficiais."
 ---
 
-A Capriole AI substitui assinaturas de IA separadas por uma assinatura de USD 9: Browser Chat ilimitado com **GPT-6.2 Astra, Claude Fable 5.1, Claude Opus 5.5 e Gemini 4 Carbon**, além de acesso à API por até 92% menos que os preços oficiais das APIs. Visitantes sem login e usuários Free podem experimentar os mesmos modelos principais no Browser Chat limitado antes de pagar.
+A Capriole AI substitui assinaturas de IA separadas por uma assinatura de USD 9: Browser Chat ilimitado com **GPT-6.2 Astra, Claude Fable 5.1, Claude Opus 5.5 e Gemini 4 Carbon**, além de acesso à API por até 92% menos que os preços oficiais das APIs. Visitantes sem login e usuários Free podem experimentar os mesmos modelos principais no Browser Chat gratuito antes de pagar.
 
 O Premium custa **USD 9 por mês** para Browser Chat ilimitado no conjunto de modelos Premium suportado. Também inclui **5 milhões de tokens cobrados de API por mês**, guias de configuração para 10 agentes de programação, troca de modelo, arquivos, pesquisa na web e controles explícitos de armazenamento do chat.
 
@@ -20,19 +20,19 @@ A Capriole AI traz as partes comuns para um espaço de trabalho. Você pode conv
 
 ## O que uma assinatura de USD 9 substitui
 
-| Parte do plano | O que está incluído | Limite importante |
+| Parte do plano | O que está incluído | Como usar |
 |---|---|---|
 | Browser Chat do Premium | Chat ilimitado no conjunto de modelos Premium suportado | Um espaço de trabalho Capriole substitui interfaces de chat de provedor separadas para o trabalho cotidiano suportado |
-| Cota mensal da API | 5 milhões de tokens cobrados de API | O uso da API consome a cota; não é ilimitado |
+| Cota mensal da API | 5 milhões de tokens cobrados de API | Os agentes de programação usam sua chave de API da Capriole AI e consomem tokens do seu saldo. |
 | Recargas da API | Pacotes adicionais de tokens podem ser comprados | As recargas são separadas da assinatura mensal |
-| Agentes de programação | Uma API key da Capriole pode ser usada com integrações documentadas | O suporte se limita aos caminhos mantidos de protocolo e modelo |
-| Acesso Free | [Browser Chat limitado](/pt-br/articles/ai-chat-without-login) antes do upgrade | O acesso Free não inclui a API pública |
+| Agentes de programação | Uma API key da Capriole pode ser usada com integrações documentadas | [Configure seu agente](/pt-br/guides/one-api-key-coding-agents) |
+| Acesso Free | [Browser Chat gratuito](/pt-br/articles/ai-chat-without-login) antes do upgrade | Experimente os modelos de ponta antes de assinar |
 
 A Capriole mantém modelos suportados atuais da OpenAI, Anthropic, Google, xAI, Z.ai e Moonshot AI no mesmo espaço de trabalho, incluindo o conjunto principal nomeado acima.
 
 O navegador e a API têm modelos de uso diferentes. O Browser Chat do Premium não tem um saldo de tokens por mensagem para o usuário gerenciar. O chat com login tem um limite de uso justo de 200 mensagens por conta por dia UTC para impedir abusos automatizados feitos por scripts; o uso normal fica bem abaixo disso. As solicitações da API são medidas porque cargas de trabalho programáticas podem crescer muito além do uso normal de chat.
 
-O plano serve a quem conversa todos os dias e também precisa de acesso ocasional ou moderado à API ou a agentes de programação. As duas cotas permanecem claras: o Browser Chat é ilimitado no Premium, enquanto o trabalho automatizado usa o saldo visível de tokens cobrados.
+O chat na web e os agentes de programação usam a mesma conta Premium. Você pode acompanhar o consumo de tokens na página da API.
 
 Se você vai substituir um plano específico, compare o Premium com [ChatGPT Plus](/pt-br/articles/chatgpt-plus-alternative), [Claude e ChatGPT](/pt-br/articles/claude-vs-chatgpt), [Poe](/pt-br/articles/capriole-ai-vs-poe), [TypingMind](/pt-br/articles/capriole-ai-vs-typingmind), [Magai](/pt-br/articles/capriole-ai-vs-magai) ou [Venice](/pt-br/articles/capriole-ai-vs-venice).
 
@@ -50,27 +50,29 @@ A Capriole também oferece aliases de modelo latest para fluxos suportados de AP
 
 O acesso pago elegível libera a API pública da Capriole, além do Browser Chat. O [início rápido da API](/pt-br/quickstart) cobre a primeira solicitação, enquanto guias mantidos cobrem 10 agentes de programação: [Codex](/pt-br/integrations/codex), [Claude Code](/pt-br/integrations/claude-code), [GitHub Copilot CLI](/pt-br/integrations/github-copilot-cli), [OpenCode](/pt-br/integrations/opencode), [OpenClaw](/pt-br/integrations/openclaw), [Kilo Code](/pt-br/integrations/kilo-code), [Cline](/pt-br/integrations/cline), [Qwen Code](/pt-br/integrations/qwen-code), [Crush](/pt-br/integrations/crush) e [Pi](/pt-br/integrations/pi).
 
-Isso não torna todos os agentes de programação idênticos. Cada cliente ainda tem as próprias capacidades e expectativas. O benefício é que os clientes suportados podem usar uma conta Capriole e caminhos compatíveis da API, em vez de exigir uma configuração separada de provedor de modelo para cada família.
+Cada cliente ainda tem as próprias capacidades e expectativas. O benefício é que os clientes suportados podem usar uma conta Capriole e caminhos compatíveis da API, em vez de exigir uma configuração separada de provedor de modelo para cada família.
 
 ## Escolha onde o histórico do chat fica
 
 Nem toda conversa merece a mesma política de armazenamento.
 
-| Modo | Onde o histórico do chat permanece | Entre dispositivos | Envios |
-|---|---|---|---|
-| Sincronizado | Armazenamento da conta Capriole | Sim | Disponível |
-| Local | Armazenamento local deste navegador | Não | Desativado |
-| No Storage | Memória só da sessão atual da página | Não | Desativado |
+| Modo | Onde o histórico do chat permanece |
+|---|---|
+| Sincronizado | Armazenamento da conta Capriole |
+| Local | Armazenamento local deste navegador |
+| No Storage | Memória só da sessão atual da página |
+
+O armazenamento padrão da conta sincroniza conversas entre dispositivos e permite enviar arquivos.
 
 O histórico Local sobrevive a uma atualização até os dados do site daquele navegador serem apagados. O histórico No Storage se perde quando a página atualiza ou o usuário sai, e ativá-lo primeiro pede confirmação antes de excluir o histórico existente do servidor e local.
 
-Os três modos ainda enviam cada solicitação pela Capriole e pelo serviço de modelo selecionado. Eles controlam a persistência do histórico de chat; não prometem registros operacionais zero nem substituem a política de dados do provedor selecionado. Leia o [guia de armazenamento do chat](/pt-br/guides/chat-storage) antes de usar dados sensíveis ou regulamentados.
+Os três modos ainda enviam cada solicitação pela Capriole e pelo serviço de modelo selecionado. Leia o [guia de armazenamento do chat](/pt-br/guides/chat-storage) antes de usar dados sensíveis ou regulamentados.
 
 A geração gratuita de imagens com GPT Image 2.6, Nano Banana 2.1 e Seedream 5.5 também está incluída para contas com login que usam Server Storage; veja o [guia de geração de imagens](/pt-br/guides/files-web-search).
 
 ## Substitua a configuração recorrente
 
-[Experimente GPT-6.2 Astra, Claude Fable 5.1, Claude Opus 5.5 ou Gemini 4 Carbon no Browser Chat gratuito limitado](https://www.capriole.ai/pt-br). Faça upgrade para o Premium de USD 9 quando quiser Browser Chat ilimitado, o saldo incluído da API, configurações documentadas para 10 agentes de programação e um espaço de trabalho contínuo.
+[Experimente GPT-6.2 Astra, Claude Fable 5.1, Claude Opus 5.5 ou Gemini 4 Carbon no Browser Chat gratuito](https://www.capriole.ai/pt-br). Faça upgrade para o Premium de USD 9 quando quiser Browser Chat ilimitado, o saldo incluído da API, configurações documentadas para 10 agentes de programação e um espaço de trabalho contínuo.
 
 Se você também precisa de acesso programático, [crie uma API key com o Premium](https://www.capriole.ai/pt-br?view=api) e continue com o [início rápido da API](/pt-br/quickstart).
 

@@ -15,7 +15,7 @@ Wir haben die öffentliche Dokumentation jedes Produkts geprüft. Dieser Verglei
 | Bereich | Capriole AI | OpenRouter |
 |---|---|---|
 | Aktueller Flaggschiff-Zugang | GPT-6.2 Astra, Claude Fable 5.1, Claude Opus 5.5 und Gemini 4 Carbon in einem Arbeitsbereich | Modellverfügbarkeit und Preis hängen von der gewählten Route ab |
-| Vor dem Bezahlen | Begrenzter Flaggschiff-Chat für Abgemeldete und Free-Nutzer | Kostenlose Modelle sind mit veröffentlichten Ratenlimits verfügbar |
+| Vor dem Bezahlen | Kostenloser Flaggschiff-Chat für Abgemeldete und Free-Nutzer | Kostenlose Modelle sind mit veröffentlichten Ratenlimits verfügbar |
 | Bezahlter Browser-Chat | Unbegrenzt über die unterstützte Premium-Modellgruppe für USD 9/Monat | Modell- und Anbieternutzung wird weiterhin nutzungsabhängig abgerechnet |
 | Enthaltene API-Nutzung | 5M abgerechnete API-Tokens/Monat | Kein monatliches API-Kontingent; Nutzung wird mit Pay-as-you-go-Credits finanziert |
 | Chat-zu-Agent-Pfad | Ein Konto plus Einrichtungsanleitungen für 10 Coding-Agents | Ein kompatibler Client und eine Route müssen getrennt gewählt werden |
@@ -27,31 +27,33 @@ Wir vergleichen Capriole AI außerdem mit [Magai](/de/articles/capriole-ai-vs-ma
 
 Die zentrale Kaufentscheidung ist, ob Sie Infrastrukturoptionen oder eine fertige Arbeitsumgebung wollen.
 
-Capriole ist so gebaut, dass die Arbeit sofort beginnen kann. Abgemeldete Besucher und Free-Nutzer können unterstützte Flaggschiff-Modelle im begrenzten Browser-Chat ausprobieren. Premium entfernt dann den Browser-Chat-Zähler über die unterstützte Premium-Gruppe und fügt 5 Millionen monatliche abgerechnete API-Tokens hinzu.
+Capriole ist so gebaut, dass die Arbeit sofort beginnen kann. Abgemeldete Besucher und Free-Nutzer können unterstützte Flaggschiff-Modelle im kostenlosen Browser-Chat ausprobieren. Premium entfernt dann den Browser-Chat-Zähler über die unterstützte Premium-Gruppe und fügt 5 Millionen monatliche abgerechnete API-Tokens hinzu.
 
 Der Browser-Arbeitsbereich umfasst Modellwechsel, Dateien, Websuche, gespeicherte Historie und synchronisiertes, lokales oder No-Storage-Verhalten. Recherche kann im Chat beginnen, mit einem anderen unterstützten Modell im selben Thread fortfahren und mit demselben Konto in einen Coding-Agenten wechseln.
 
 Kostenlose Bilderzeugung mit GPT Image 2.6, Nano Banana 2.1 und Seedream 5.5 ist für angemeldete Konten mit Server Storage ebenfalls enthalten; siehe die [Anleitung zur Bilderzeugung](/de/guides/files-web-search).
 
-Premium kostet derzeit **USD 9 pro Monat**. Es umfasst unbegrenzten Web-Chat mit jedem unterstützten Modell, im Rahmen eines [Fair-Use-Limits](/de/guides/plans-and-limits#was-unbegrenzt-bedeutet) von 200 Nachrichten pro Tag, und **5 Millionen abgerechnete API-Tokens jeden Monat**. API-Aufstockungen sind getrennt, daher ist dies kein unbegrenzter API-Plan.
+Premium kostet derzeit **USD 9 pro Monat**. Es umfasst unbegrenzten Web-Chat mit jedem unterstützten Modell, im Rahmen eines [Fair-Use-Limits](/de/guides/plans-and-limits#was-unbegrenzt-bedeutet) von 200 Nachrichten pro Tag, und **5 Millionen abgerechnete API-Tokens jeden Monat**.
 
 Dasselbe Konto funktioniert über Browser-Chat, die API und 10 dokumentierte Coding-Agent-Pfade. Latest-Modell-Aliase vereinfachen unterstützte API- und Agent-Konfiguration, ohne ein getrenntes Anbieterkonto für jede Modellfamilie zu erfordern.
 
-Kosten sind ein weiterer klarer Unterschied. Im [datierten Vergleich mit 5 Millionen Tokens](/de/articles/ai-api-cost-comparison) kostet Capriole USD 9 für jedes getestete Modell, das es anbietet. Die berechneten direkten Summen liegen zwischen USD 6.75 und USD 90, während OpenRouter-Summen nach der veröffentlichten Gebühr für den Credit-Kauf zwischen USD 7.55 und USD 94.95 liegen. Diese Zahlen gelten für die genaue Arbeitslast und die Modelle in diesem Test. Für Gemini 3.8 Flash sind die direkte API und OpenRouter in diesem Beispiel günstiger.
+Kosten sind ein weiterer klarer Unterschied. Im [datierten Vergleich mit 5 Millionen Tokens](/de/articles/ai-api-cost-comparison) kostet Capriole USD 9 für jedes getestete Modell, das es anbietet. Die berechneten direkten Summen liegen zwischen USD 6.75 und USD 90, während OpenRouter-Summen nach der veröffentlichten Gebühr für den Credit-Kauf zwischen USD 7.55 und USD 94.95 liegen. Diese Zahlen gelten für die genaue Arbeitslast und die Modelle in diesem Test.
 
-Capriole stellt außerdem drei Chat-Speicherwahlen bereit: synchronisierte Historie, lokale nur-im-Browser-Historie und den Modus No Storage. Das sind Einstellungen des Arbeitsbereichs mit klar benannten Vor- und Nachteilen. Lokale Historie bleibt beim Browser; No Storage gibt Kontinuität und Funktionen auf, die von gespeicherten Uploads abhängen.
+Capriole stellt außerdem drei Chat-Speicherwahlen bereit: synchronisierte Historie, lokale nur-im-Browser-Historie und den Modus No Storage.
 
 Für Coding-Tools unterhält Capriole [10 dokumentierte Integrationspfade](/de/articles/coding-agent-compatibility). Der Fokus ist eine kurze, produkt-eigene Route von Konto über Schlüssel zu jedem unterstützten Client.
 
 ## Breite ersetzt den Arbeitsbereich nicht
 
-OpenRouter betont Katalogbreite, BYOK, Anbieterauswahl und Routing-Steuerungen. Capriole konzentriert sich auf den Teil, den die meisten einzelnen Nutzer jeden Tag brauchen: aktuelle Frontier-Modelle, einen fertigen Browser-Arbeitsbereich, ein monatliches API-Kontingent und gepflegte Coding-Agent-Pfade für USD 9 pro Monat. OpenRouter passt besser, wenn Sie ein Modell oder einen Anbieter brauchen, den Capriole AI nicht anbietet, Anbieter-Routing und BYOK steuern wollen, die kostenlosen Modelle nutzen oder lieber pro Anfrage ohne Monatsplan bezahlen.
+OpenRouter betont Katalogbreite, BYOK, Anbieterauswahl und Routing-Steuerungen. Capriole konzentriert sich auf den Teil, den die meisten einzelnen Nutzer jeden Tag brauchen: aktuelle Frontier-Modelle, einen fertigen Browser-Arbeitsbereich, ein monatliches API-Kontingent und gepflegte Coding-Agent-Pfade für USD 9 pro Monat.
 
 ## Capriole zuerst ausprobieren
 
 Wählen Sie Capriole, wenn Sie Browser-Arbeitsbereich, API-Zugriff und Coding-Agent-Integrationen in einem Abo möchten.
 
-[Probieren Sie den begrenzten kostenlosen Browser-Chat](https://www.capriole.ai/de) oder [wechseln Sie zu Premium für USD 9 mit unbegrenztem Chat und einem API-Schlüssel](https://www.capriole.ai/de?view=api).
+[Probieren Sie den kostenlosen Browser-Chat](https://www.capriole.ai/de) oder [wechseln Sie zu Premium für USD 9 mit unbegrenztem Chat und einem API-Schlüssel](https://www.capriole.ai/de?view=api).
+
+Capriole AI ist ein unabhängiger Arbeitsbereich und steht in keiner Verbindung zu OpenRouter.
 
 ## Quellen
 

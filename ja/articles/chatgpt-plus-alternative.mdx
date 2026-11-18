@@ -44,22 +44,9 @@ OpenAI の料金ページでは、日常的なテキスト チャットは Free�
 - **1 つのスレッドで 2 社のモデル。** GPT-6.2 Astra に質問してから[会話の途中でモデルを切り替え](/ja/articles/switch-models-mid-chat)、Claude Fable 5.1 に答えを確認してもらえます。
 - **ワークスペースのその他の機能。** GPT Image 2.6・Nano Banana 2.1・Seedream 5.5 による[無料の画像生成](/ja/guides/files-web-search)、ファイルとウェブ検索、プロジェクト、チャットのエクスポート、パーソナライズ、ストレージ制御。
 
-API リクエストとコーディング エージェントは、無制限のウェブチャットではなく API 残高を使います。残高の数え方は[課金トークン](/ja/articles/charged-tokens)で説明しています。
+コーディングエージェントは Capriole AI の API キーを使い、利用量に応じて API トークン残高を消費します。残高の数え方は[課金トークン](/ja/articles/charged-tokens)で説明しています。
 
-## 手放すもの
-
-Capriole AI は独立したワークスペースです。ChatGPT ではなく、OpenAI とも提携していません。Plus をやめると、OpenAI のアプリにしかない機能は使えなくなります。OpenAI の料金ページでは、Plus に次の機能が含まれています。
-
-- ChatGPT のサインインで使う ChatGPT Work と Codex
-- ディープリサーチ
-- 音声会話（ビデオ付きの音声を含む）
-- 過去のチャットを参照するメモリ、スケジュール タスク、カスタム GPT、プラグイン
-- Excel、Word、PowerPoint、Google スプレッドシートの拡張機能
-- ChatGPT 独自のデスクトップ アプリとモバイル アプリ
-
-Capriole AI はブラウザで動きます。Capriole AI の API キーで Codex を使うこともできますが、そのリクエストは ChatGPT の利用枠ではなく、従量制の API 残高から引かれます。
-
-これらの機能を毎日使うなら、Plus を続けてください。主にチャットと文章作成に使う場合、チャットで GPT-6.2 Astra を使いたい場合（ChatGPT では Work と Codex のみ）、ChatGPT Pro に払わずにチャットで GPT-6 Astra を使いたい場合、または Claude と Gemini も並べて使いたい場合は、Capriole AI を選んでください。Claude と OpenAI の旗艦モデルは [Claude と ChatGPT の比較](/ja/articles/claude-vs-chatgpt)で並べて比べています。Claude のプランの上限によく達するなら、[Claude の使用制限の解説](/ja/articles/claude-usage-limits)も参考になります。
+[タスク別の Claude と ChatGPT の比較](/ja/articles/claude-vs-chatgpt)や、[Claude の利用制限とリセットの仕組み](/ja/articles/claude-usage-limits)もご覧ください。
 
 ## よくある質問
 
@@ -71,13 +58,13 @@ Capriole AI はブラウザで動きます。Capriole AI の API キーで Codex
     はい。ChatGPT では、Chat の GPT-6 Pro は GPT-6 Astra を基盤としており、Pro、Business、Enterprise プランが必要です。Capriole AI では、USD 9 の Premium プランの無制限ウェブチャットで GPT-6 Astra も、より新しい GPT-6.2 Astra も使えます。ChatGPT では、GPT-6.2 Astra は Work と Codex でしか使えません。
   </Accordion>
   <Accordion title="Capriole AI のウェブチャットは本当に無制限ですか？">
-    はい、通常の利用では無制限です。上限は、スクリプトによる自動化された乱用を防ぐ[フェアユース上限](/ja/guides/plans-and-limits#「無制限」の意味)だけです。
+    ウェブチャットには 5 時間ごとや週ごとの上限はありません。自動化による不正利用を防ぐため、[フェアユース上限](/ja/guides/plans-and-limits#「無制限」の意味)を 1 アカウントにつき 1 日 200 メッセージとしています。
   </Accordion>
   <Accordion title="支払う前に Capriole AI を試せますか？">
     はい。ゲストはアカウントなしで 1 日 5 メッセージまで送れます。無料アカウントでは、さらに毎月 50 万トークン分のウェブチャットを使えます。[ログイン不要の AI チャット](/ja/articles/ai-chat-without-login)をご覧ください。
   </Accordion>
   <Accordion title="Capriole AI に API アクセスは含まれますか？">
-    はい、Premium または Team で使えます。Premium には毎月 500 万 API トークンが含まれ、チャージは 500 万トークンあたり USD 8 です。無料アカウントでは API を使えません。
+    はい、Premium または Team で使えます。Premium には毎月 5,000,000 API トークンが含まれ、チャージは 5,000,000 トークンあたり USD 8 です。
   </Accordion>
 </AccordionGroup>
 
@@ -91,6 +78,8 @@ Capriole AI はブラウザで動きます。Capriole AI の API キーで Codex
     無制限のウェブチャットと API キーが月額 USD 9。
   </Card>
 </CardGroup>
+
+Capriole AI は、OpenAI から独立して運営されているワークスペースです。
 
 ## 公式ソース
 

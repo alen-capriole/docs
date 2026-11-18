@@ -185,7 +185,7 @@ kilo --version
 
 - `npm: "@ai-sdk/openai-compatible"` 是该提供商的默认包，因此 Gemini、Grok、GLM 和 Kimi 使用 Chat Completions。
 - 每个 GPT 模型都用 `@ai-sdk/openai` 覆盖 `provider.npm`，从而使用 Responses API。每个 Claude 模型都用 `@ai-sdk/anthropic` 覆盖它，从而使用 Anthropic Messages。
-- `{env:CAPRIOLE_AI_API_KEY}` 从环境变量读取你的 API Key。`Authorization` 请求头让每个包都以 Bearer Token 形式发送 Key。没有它时，Anthropic 包会在 `x-api-key` 请求头中发送 Key，而 Capriole AI 不接受这种方式。
+- `{env:CAPRIOLE_AI_API_KEY}` 从环境变量读取你的 API Key。`Authorization` 请求头让每个包都以 Bearer Token 形式发送 Key。
 - `tool_call: true` 允许模型调用 Kilo 的工具。
 - `limit` 设置每个模型的上下文窗口和输出上限。没有它时，Kilo 会把两者都视为 `0`，不会压缩长会话。
 
@@ -255,7 +255,7 @@ kilo run -m capriole-ai/claude-latest "Explain this repository."
 
 ## 说明
 
-- Kilo Code 在你的电脑上运行编程工具。Capriole AI 只处理模型请求。
+- Kilo Code在你的电脑上运行编程工具，Capriole AI 负责处理模型请求。
 - 如需添加其他 Capriole AI 模型，请复制同一系列中某个模型的条目并修改 ID。`GET https://api.caprioletech.com/v1/models` 会列出所有模型 ID。
 - Gemini 4 Carbon 的思考时间比 Gemini 4 Argon 长，每一轮可能更慢、用的 token 更多。想要更快的回应，请使用 `google/gemini-4-argon`。
 - 想在其他编程智能体中使用同一个 API Key，请参阅[使用一个 API Key 配置编程智能体](/zh/guides/one-api-key-coding-agents)。

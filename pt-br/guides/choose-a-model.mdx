@@ -65,12 +65,12 @@ O Thinking usa mais tokens. No Premium e no Team, o chat web continua ilimitado 
 |---|---|
 | GPT-6.2 Astra, GPT-6.2 Sol, GPT-6 Astra, GPT-6.1 Sol, GPT-6 Sol, GPT-6 Luna | **Thinking** (esforço médio) e **Fast** (esforço baixo) |
 | Claude Fable 5.1, Claude Opus 5.5 | O raciocínio fica sempre ligado. **Thinking** usa esforço médio e **Fast**, esforço baixo. |
-| Gemini 4 Carbon, Gemini 4 Argon | O chat web oferece só o modo **Thinking**. Ao selecionar **Fast**, o chat troca para o Gemini 3.8 Flash. |
+| Gemini 4 Carbon, Gemini 4 Argon | Use a predefinição Thinking com o Gemini 4 Carbon / Gemini 4 Argon. Selecione **Fast** para mudar para o Gemini 3.8 Flash. |
 | Kimi K3.1 Pro | O modelo sempre raciocina. **Thinking** usa esforço alto e **Fast**, esforço baixo. |
 | GLM | **Fast** é o GLM 5.3 Flash. **Thinking** usa o GLM 5.2, a versão anterior (`zai/glm-5.2` na API). |
 | Grok 4.7 | Um único modo |
 
-Os modos Thinking existem só no chat web. Na API, chame o ID do modelo e defina a opção de raciocínio na sua solicitação quando precisar de mais raciocínio.
+Escolha uma predefinição Thinking no chat na web. Na API, chame o ID do modelo e defina a opção de raciocínio na sua solicitação quando precisar de mais raciocínio.
 
 ## Troque de modelo no meio de um chat
 
@@ -95,7 +95,7 @@ Desde 18 de novembro de 2026, `openai-latest` usa o GPT-6.2 Astra em vez do GPT-
 </Note>
 
 <Note>
-Desde 17 de novembro de 2026, `google-latest` usa o Gemini 4 Carbon em vez do Gemini 4 Argon. No Chat Completions, o Carbon raciocina no nível padrão do Google, `medium`, que no nosso teste usou cerca de 3 a 4 vezes os tokens de saída do Argon para o mesmo prompt. O `reasoning_effort` da OpenAI não altera esse nível. Para chamadas mais leves, defina o `thinking_level` do Google como `low` (`medium` e `high` também funcionam) ou chame `google/gemini-4-argon`.
+Desde 17 de novembro de 2026, `google-latest` usa o Gemini 4 Carbon em vez do Gemini 4 Argon. No Chat Completions, o Carbon raciocina no nível padrão do Google, `medium`, que no nosso teste usou cerca de 3 a 4 vezes os tokens de saída do Argon para o mesmo prompt. Para chamadas mais leves, defina o `thinking_level` do Google como `low` (`medium` e `high` também funcionam) ou chame `google/gemini-4-argon`.
 
 <CodeGroup>
 ```bash curl
@@ -123,7 +123,7 @@ Os IDs dos modelos principais são `openai/gpt-6.2-astra`, `anthropic/claude-fab
 
 A Capriole AI conta os tokens cobrados do mesmo jeito em todos os modelos: entrada sem cache, mais 10% da entrada em cache, mais a saída. [Tokens cobrados explicados](/pt-br/articles/charged-tokens) traz exemplos.
 
-Para criar imagens, escolha **Imagem** no seletor de modelos e selecione GPT Image 2.6, Nano Banana 2.1 ou Seedream 5.5. Os modelos de imagem funcionam só no chat web. [Veja o guia de geração de imagens](/pt-br/guides/files-web-search).
+Para criar imagens, escolha **Imagem** no seletor de modelos e selecione GPT Image 2.6, Nano Banana 2.1 ou Seedream 5.5. [Veja o guia de geração de imagens](/pt-br/guides/files-web-search).
 
 ## Perguntas comuns
 
@@ -139,9 +139,9 @@ Não no chat web: o chat do Premium e do Team é ilimitado em todos os modelos s
 
 Sim. O OpenAI Chat Completions aceita todos os IDs de modelo públicos, incluindo `anthropic/claude-fable-5-1` e `google/gemini-4-carbon`, além dos três aliases. O [guia dos SDKs OpenAI e Anthropic](/pt-br/guides/openai-anthropic-sdks) mostra a configuração.
 
-### Posso usar os modos Thinking pela API?
+### Como defino o esforço de raciocínio na API?
 
-Não. Eles existem só no chat web. Chame o ID de API do modelo e defina a opção de raciocínio na sua solicitação.
+Chame o ID de API do modelo e defina a opção de raciocínio na sua solicitação.
 
 ### Com qual modelo Claude devo começar?
 

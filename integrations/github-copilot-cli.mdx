@@ -76,7 +76,7 @@ export COPILOT_PROVIDER_WIRE_MODEL="claude-latest"
 
 For Opus 5.5, set `COPILOT_PROVIDER_WIRE_MODEL="claude-opus-5-5"`.
 
-- `COPILOT_PROVIDER_BEARER_TOKEN` sends the key as a Bearer token. `COPILOT_PROVIDER_API_KEY` would send it in an `x-api-key` header, which Capriole AI does not accept.
+- `COPILOT_PROVIDER_BEARER_TOKEN` sends the key as a Bearer token.
 - The base URL has no `/v1`, because Copilot adds `/v1/messages` itself.
 - Keep `COPILOT_PROVIDER_MODEL_ID="claude-opus-4.6"`. With an older profile such as `claude-sonnet-4`, Copilot sends a thinking budget, and Opus 5.5 rejects it with `requires adaptive thinking`.
 
@@ -155,7 +155,7 @@ Set `COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"`, or `"claude-opus-4.6"` for Ki
 
 ## Notes
 
-- Copilot CLI runs coding tools on your computer. Capriole AI only handles the model requests.
+- Copilot CLI runs coding tools on your computer. Capriole AI processes the model requests.
 - Run `copilot help providers` to see every BYOK environment variable.
 - Gemini 4 Carbon thinks longer than Gemini 4 Argon, so its turns can take longer and use more tokens. For quicker turns, use `google/gemini-4-argon`.
 - To use the same key with your other coding agents, see [Use one API key with coding agents](/guides/one-api-key-coding-agents).

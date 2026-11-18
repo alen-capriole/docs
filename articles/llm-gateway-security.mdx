@@ -6,7 +6,7 @@ description: "Logging, retention, training, keys and data location: what to chec
 
 A third-party LLM gateway adds one more company that sees your prompts and code, may keep them in logs, holds the API keys your tools use, and forwards each request to model providers you may not have chosen. Before you send source code through one, ask what it stores and for how long, whether it trains on your content, which companies and countries receive the request, how keys are revoked, and what happens when a provider fails.
 
-Capriole AI is one such gateway. It costs USD 9 a month for unlimited web chat with GPT-6.2 Astra, Claude Fable 5.1, Claude Opus 5.5, and Gemini 4 Carbon, and its API costs up to 92% less than official API prices for your apps and coding agents. Below, each question comes with Capriole AI's answer from its own documentation, including what it does not offer.
+Capriole AI is one such gateway. It costs USD 9 a month for unlimited web chat with GPT-6.2 Astra, Claude Fable 5.1, Claude Opus 5.5, and Gemini 4 Carbon, and its API costs up to 92% less than official API prices for your apps and coding agents.
 
 ## The risks, what to ask, and Capriole AI's answers
 
@@ -25,10 +25,6 @@ A gateway does not protect you from prompt injection or from what a coding agent
 
 Web chat history is separate from the API: you choose whether it is kept on your account, only in your browser, or not at all. The [privacy and data controls guide](/guides/privacy-and-security) and the [privacy policy](/legal/privacy) are the full text.
 
-## What Capriole AI does not offer
-
-Capriole AI is built for individuals and small teams. It has no SAML single sign-on, publishes no compliance certifications such as SOC 2 or ISO 27001, and offers no dedicated support SLA. If your company requires any of these before code leaves your network, Capriole AI does not meet that requirement.
-
 ## Before you send source code through any gateway
 
 1. **Strip secrets first.** Keep `.env` files, credentials, and private keys out of the files and context you send.
@@ -41,7 +37,7 @@ The [one API key for coding agents](/guides/one-api-key-coding-agents) guide set
 
 <AccordionGroup>
   <Accordion title="Is it safe to send source code through an LLM gateway?">
-    It depends on the gateway's answers to the questions above: what it stores, whether it trains on your content, who receives each request, and how keys are controlled. Capriole AI keeps no API request or response content and does not train on it, but every request still reaches the model provider that answers it.
+    It depends on the gateway's answers to the questions above: what it stores, whether it trains on your content, who receives each request, and how keys are controlled. Model providers process the requests they answer under their own terms. Capriole AI keeps API request and response content out of storage and training.
   </Accordion>
   <Accordion title="What should I do if an API key leaks?">
     Delete the key on the API page and create a replacement. Deactivating stops new requests at once if you want to investigate first. See [deactivate, reactivate, or delete a key](/guides/api-keys-usage#deactivate-reactivate-or-delete-a-key).

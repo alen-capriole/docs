@@ -21,7 +21,7 @@ charged_tokens =
   + output_tokens
 ```
 
-如果提供商没有报告缓存输入，全部输入 token 都按 100% 计算。Capriole 不会在用量元数据未报告的情况下，自行推断发生了缓存命中。
+如果提供商没有报告缓存输入，全部输入 token 都按 100% 计算。
 
 | 协议 | 统一后的输入 | 缓存子集 |
 |---|---|---|
@@ -83,9 +83,7 @@ estimated_requests = floor(5,000,000 / average_charged_tokens_per_request)
 
 系统会先消耗内含配额，再消耗相应的个人或 Team 充值余额。购买的充值余额可以跨月度配额周期和付费访问中断继续保留，实际使用时仍要求符合条件的有效付费访问。浏览器聊天与 API 计量分开，编程智能体属于 API 流量，会扣除计费 token。
 
-每月 500 万额度属于完整的 USD 9 Premium 工作区会员。它不是无限 API 方案，也不应被描述为独立 API 价格。
-
-充值用于扩展程序化用量，不会改变浏览器聊天额度、模型兼容性，也不会取消有效个人或 Team 访问权限要求。
+月费 USD 9 的 Premium 套餐每月包含 5,000,000 个计费 API token。
 
 ## API 记录什么
 
@@ -111,7 +109,7 @@ Responses、Chat Completions 和 Messages 端点保留各自的上游响应结�
 | **计费 tokens** | 应用缓存输入公式后扣除的配额 |
 | **总 tokens** | 经过协议统一的输入加输出 |
 
-缓存 token 大于零，可以确认兼容的提供商用量元数据报告了缓存命中。它无法证明每个重复请求都会命中相同的提供商缓存。提供商路由、缓存时限、请求结构和模型行为都可能改变结果。
+缓存 token 大于零，可以确认兼容的提供商用量元数据报告了缓存命中。提供商路由、缓存时限、请求结构和模型行为都可能改变结果。
 
 API 响应会保留上游 schema，因此账户用量表是跨路由比较请求的一致位置。
 
@@ -119,18 +117,18 @@ API 响应会保留上游 schema，因此账户用量表是跨路由比较请求
 
 ### 缓存输入总能获得 90% 的配额折扣吗
 
-只有在所选提供商通过兼容的用量元数据报告缓存输入时才会获得。缺少缓存元数据不会被当作缓存命中。
+提供商用量记录中标为缓存读取的输入 token 享受 90% 折扣，其余输入 token 按标准费率计算。
 
 ### Reasoning tokens 会被重复计算吗
 
 不会。提供商报告的输出用量已经包含路由采用的输出计量。Capriole 不会在此公式的输出之外另加一笔 reasoning-token 费用。
 
-### Premium 下的 API 用量无限吗
+### Premium 如何计算 API 和编程智能体的用量？
 
-不无限。受支持 Premium 模型范围内的浏览器聊天无限，API 与编程智能体请求则使用内含计费 token 余额和可用的充值余额。
+Premium 每月含 5,000,000 个 API token，可用于应用和编程智能体。额外 5,000,000 个 token 的充值价格为 USD 8。
 
 ### 应该从哪里开始写代码
 
-最小的原始请求可以参阅 [API 快速入门](/zh/quickstart)，使用协议原生 Python 和 TypeScript 客户端则可参阅 [OpenAI 与 Anthropic SDK 指南](/zh/guides/openai-anthropic-sdks)。如果尚未订阅，可以先[在有限的免费浏览器聊天中试用旗舰模型](https://www.capriole.ai/zh)，再决定是否升级。
+最小的原始请求可以参阅 [API 快速入门](/zh/quickstart)，使用协议原生 Python 和 TypeScript 客户端则可参阅 [OpenAI 与 Anthropic SDK 指南](/zh/guides/openai-anthropic-sdks)。如果尚未订阅，可以先[在免费浏览器聊天中试用旗舰模型](https://www.capriole.ai/zh)，再决定是否升级。
 
 本页中关于 Capriole 方案、配额、充值和计费 token 的信息由我们作为官方文档持续维护。

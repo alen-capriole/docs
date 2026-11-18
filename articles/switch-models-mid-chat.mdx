@@ -24,7 +24,7 @@ Changing the selected model does not create a second Capriole conversation. The 
 
 The workspace can also carry relevant saved files and conversation context into the next request when the selected storage mode and model support them. You do not need to maintain parallel copies of the same discussion across several products.
 
-There are still real technical boundaries. Models have different context limits, file support, reasoning controls, and message formats. A model cannot use an input type it does not support simply because another model accepted it earlier. Long conversations may also need context management before the next request.
+Models have different context limits, file support, reasoning controls, and message formats. Long conversations may also need context management before the next request.
 
 Capriole handles those differences behind the model selector. Models keep their own limits and capabilities, while the user continues from the existing thread.
 
@@ -46,7 +46,7 @@ A fast model may be enough to explore options. A more deliberate model may be a 
 
 When separate subscriptions are involved, comparison often becomes a collection of browser tabs and duplicated prompts. In one workspace, the comparison stays attached to the original problem.
 
-### Recover when a route is unavailable
+### Continue with another model
 
 Capriole also maintains automatic fallback for supported traffic before a response begins. Manual model switching and automatic fallback are different features: one is a user decision, while the other helps a request continue through a supported alternative route when necessary.
 
@@ -68,9 +68,9 @@ Conversation continuity depends on how you choose to store the chat.
 
 - **Synced** history supports saved conversations across devices.
 - **Local** history stays in the current browser and is lost if its local data is cleared.
-- **No Storage** is an ephemeral session and gives up saved history, uploads, and cross-device continuity.
+- **No Storage**: The session ends when you refresh or leave the page.
 
-Those choices are intentional. A user who wants a durable research thread and a user who wants an unsaved conversation should not be forced into the same storage boundary. [The chat storage guide](/guides/chat-storage) explains the real Account settings and tradeoffs.
+The [chat storage guide](/guides/chat-storage) explains how to use synced history, browser-local history, and temporary chats.
 
 ## The simpler mental model
 
@@ -78,6 +78,6 @@ In a single-provider product, the conversation belongs to that provider's model 
 
 Model switching is useful because the tool can change without discarding the work.
 
-[Open Capriole AI](https://www.capriole.ai/) to try the supported flagship set in limited free browser chat. [AI chat without login](/articles/ai-chat-without-login) explains the guest and free-account limits. Upgrade to USD 9 Premium when you want unlimited browser chat and the full continuous workspace.
+[Open Capriole AI](https://www.capriole.ai/) to try the supported flagship set in free browser chat. [AI chat without login](/articles/ai-chat-without-login) explains the guest and free-account limits. Upgrade to USD 9 Premium when you want unlimited browser chat and the full continuous workspace.
 
 [Multi-model AI chat platforms](/articles/multi-model-ai-chat-platforms) compares how Capriole AI, Magai, T3 Chat, Venice, and OpenRouter handle flagship models, switching, and privacy.

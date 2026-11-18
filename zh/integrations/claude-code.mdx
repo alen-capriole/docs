@@ -114,7 +114,7 @@ Claude Code 不认识 `claude-latest` 这个模型名称，因此会假定它的
 
 ### 为什么 Claude Code 返回身份验证错误
 
-请使用 `ANTHROPIC_AUTH_TOKEN`，不要使用 `ANTHROPIC_API_KEY`。`ANTHROPIC_API_KEY` 会在 `x-api-key` 请求头中发送 Key，而 Capriole AI 只接受 Bearer Token。
+使用 `ANTHROPIC_AUTH_TOKEN`，让 Claude Code 通过 `Authorization` 请求头以 Bearer token 发送 Capriole AI 密钥。
 
 ### 为什么请求出现端点错误
 
@@ -126,7 +126,7 @@ Claude Code 不认识 `claude-latest` 这个模型名称，因此会假定它的
 
 ### 为什么 `/model opus` 或 `/model sonnet` 失败
 
-保留三个 `ANTHROPIC_DEFAULT_*_MODEL` 值。没有它们时，Claude Code 会发送 Anthropic 自己的别名目标。例如，`sonnet` 会请求 `claude-sonnet-5-5`，而 Capriole AI 不提供该模型，请求会因 `Unsupported Claude Messages model` 失败。
+保留这三个 `ANTHROPIC_DEFAULT_*_MODEL` 设置，让 Claude Code 将别名映射到 Capriole AI 配置中的 Claude 模型。
 
 ### 为什么 Claude Code 没有使用我设置的推理强度
 
@@ -139,6 +139,6 @@ Capriole AI 会把 `/v1/messages/count_tokens` 转发到所选上游。如果该
 ## 说明
 
 - `~/.claude/settings.json` 会在所有项目中应用于你的用户账户。请将 `YOUR_CAPRIOLE_AI_API_KEY` 替换为你的 Capriole AI API Key。
-- Gemini、Grok、GLM 和 Kimi 模型无法在 Claude Code 中运行，因为它只支持 Anthropic Messages 协议。如需使用这些模型，请使用 OpenCode、Kilo Code 或其他支持多种协议的智能体。
+- Claude Code 通过 Anthropic Messages 调用 Claude 模型。使用 Gemini、Grok、GLM 和 Kimi 时，可以选择 OpenCode 或 Kilo Code 等支持多种协议的智能体。
 - 想在其他编程智能体中使用同一个 API Key，请参阅[使用一个 API Key 配置编程智能体](/zh/guides/one-api-key-coding-agents)。
 - 官方参考资料包括 [Claude Code 设置](https://code.claude.com/docs/en/setup)、[模型配置](https://code.claude.com/docs/en/model-config)和 [LLM 网关配置](https://code.claude.com/docs/en/llm-gateway-connect)。

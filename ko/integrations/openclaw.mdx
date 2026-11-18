@@ -214,7 +214,7 @@ OpenClaw 2026.4.21 버전은 아래 구성으로 지원 모델 섹션의 모든 
 
 - `capriole-ai-openai`는 GPT 모델을 Responses API로 보냅니다. `capriole-ai-anthropic`은 Claude 모델을 Anthropic Messages로 보냅니다. `capriole-ai-compatible`은 Gemini, Grok, GLM, Kimi 모델을 Chat Completions로 보냅니다.
 - `${CAPRIOLE_AI_API_KEY}`는 환경 변수에서 키를 읽습니다.
-- `authorization-bearer`를 지정한 `request.auth`는 Anthropic 제공자가 키를 Bearer 토큰으로 보내게 합니다. 이 설정이 없으면 키가 `x-api-key` 헤더로 전송되는데, Capriole AI는 이를 받지 않습니다.
+- `authorization-bearer`를 지정한 `request.auth`는 Anthropic 제공자가 키를 Bearer 토큰으로 보내게 합니다.
 - OpenClaw가 `/v1/messages`를 직접 추가하므로 Anthropic `baseUrl`에는 `/v1`이 없습니다.
 - Opus 5.5의 `reasoning`은 `false`입니다. `true`이면 OpenClaw가 추론 예산을 보내고, Opus 5.5는 `requires adaptive thinking`으로 이를 거부합니다.
 - `contextWindow`와 `maxTokens`는 OpenClaw에 각 모델의 한도를 알려 줍니다.

@@ -144,7 +144,7 @@ npm install -g --ignore-scripts @earendil-works/pi-coding-agent
 
 - 提供商的 `api` 是 `openai-completions`，因此 Gemini、Grok、GLM 和 Kimi 使用 Chat Completions。GPT 模型用 `openai-responses` 覆盖它，Claude 模型则用 `anthropic-messages` 和不含 `/v1` 的 `baseUrl` 覆盖它。
 - `$CAPRIOLE_AI_API_KEY` 从环境变量读取你的 API Key。
-- `authHeader: true` 让每种协议都以 Bearer Token 形式发送 Key。没有它时，Claude 模型会在 `x-api-key` 请求头中发送 Key，而 Capriole AI 不接受这种方式。
+- `authHeader: true` 让每种协议都以 Bearer Token 形式发送 Key。
 - `forceAdaptiveThinking` 让 Claude 模型使用自适应思考。Opus 5.5 会拒绝固定的思考预算。
 - Pi 对推理模型会用 `developer` 角色发送系统提示词，而 Kimi K3.1 Pro 不接受这个角色，因此它的条目设置了 `supportsDeveloperRole: false`。
 - `contextWindow` 和 `maxTokens` 告诉 Pi 每个模型的限制。

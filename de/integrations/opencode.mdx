@@ -175,7 +175,7 @@ Was die einzelnen Einstellungen bewirken:
 
 - `package: "@opencode/ai/providers/openai-compatible"` ist das Standardpaket für den Anbieter, sodass Gemini, Grok, GLM und Kimi Chat Completions verwenden.
 - Jedes GPT-Modell überschreibt `package` mit `@opencode/ai/providers/openai-compatible/responses`, das die Responses API verwendet. Jedes Claude-Modell überschreibt es mit `@opencode/ai/providers/anthropic-compatible`, das Anthropic Messages verwendet.
-- `env` nennt die Variable, die Ihren Schlüssel enthält. Der `Authorization`-Header sendet den Schlüssel für jedes Paket als Bearer-Token. Ohne diesen Header sendet das Anthropic-Paket den Schlüssel in einem `x-api-key`-Header, den Capriole AI nicht akzeptiert.
+- `env` nennt die Variable, die Ihren Schlüssel enthält. Der `Authorization`-Header sendet den Schlüssel für jedes Paket als Bearer-Token.
 - `reasoningEffort` gibt jedem GPT-Modell eine Standardstufe für das Reasoning. Ohne diese Einstellung antworten GPT-Modelle ohne Reasoning.
 - `baseURL` enthält für jedes Paket `/v1`. `limit` teilt OpenCode das Kontextfenster und das Ausgabelimit jedes Modells mit.
 - `agents.title` legt das Modell fest, das OpenCode für Sitzungstitel verwendet.
@@ -314,7 +314,7 @@ Was die einzelnen Einstellungen bewirken:
 - `npm: "@ai-sdk/openai-compatible"` ist das Standardpaket für den Anbieter, sodass Gemini, Grok, GLM und Kimi Chat Completions verwenden.
 - Jedes GPT-Modell überschreibt `provider.npm` mit `@ai-sdk/openai`, das die Responses API verwendet. Jedes Claude-Modell überschreibt es mit `@ai-sdk/anthropic`, das Anthropic Messages verwendet.
 - `baseURL` enthält für jedes Paket `/v1`.
-- `{env:CAPRIOLE_AI_API_KEY}` liest Ihren Schlüssel aus der Umgebung. Der `Authorization`-Header sendet ihn für jedes Paket als Bearer-Token. Ohne diesen Header sendet das Anthropic-Paket den Schlüssel in einem `x-api-key`-Header, den Capriole AI nicht akzeptiert.
+- `{env:CAPRIOLE_AI_API_KEY}` liest Ihren Schlüssel aus der Umgebung. Der `Authorization`-Header sendet ihn für jedes Paket als Bearer-Token.
 - `limit` teilt OpenCode das Kontextfenster und das Ausgabelimit jedes Modells mit, damit es den Kontext verfolgen und die Sitzung rechtzeitig komprimieren kann.
 - `small_model` ist das Modell, das OpenCode für leichte Aufgaben wie Sitzungstitel verwendet.
 

@@ -214,7 +214,7 @@ OpenClaw 2026.4.21 は、下記の設定を使い、「対応モデル」のす�
 
 - `capriole-ai-openai` は GPT モデルを Responses API に送ります。`capriole-ai-anthropic` は Claude モデルを Anthropic Messages に送ります。`capriole-ai-compatible` は Gemini、Grok、GLM、Kimi のモデルを Chat Completions に送ります。
 - `${CAPRIOLE_AI_API_KEY}` は環境変数からキーを読み取ります。
-- `authorization-bearer` を指定した `request.auth` により、Anthropic プロバイダーはキーを Bearer トークンとして送ります。これがないとキーは `x-api-key` ヘッダーで送られますが、Capriole AI はこれを受け付けません。
+- `authorization-bearer` を指定した `request.auth` により、Anthropic プロバイダーはキーを Bearer トークンとして送ります。
 - OpenClaw が `/v1/messages` を自動で付加するため、Anthropic の `baseUrl` には `/v1` を付けません。
 - Opus 5.5 では `reasoning` を `false` にします。`true` の場合、OpenClaw は思考予算を送り、Opus 5.5 はそれを `requires adaptive thinking` で拒否します。
 - `contextWindow` と `maxTokens` は各モデルの上限を OpenClaw に伝えます。

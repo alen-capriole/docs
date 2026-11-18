@@ -76,7 +76,7 @@ export COPILOT_PROVIDER_WIRE_MODEL="claude-latest"
 
 Opus 5.5 では、`COPILOT_PROVIDER_WIRE_MODEL="claude-opus-5-5"` を設定します。
 
-- `COPILOT_PROVIDER_BEARER_TOKEN` はキーを Bearer トークンとして送ります。`COPILOT_PROVIDER_API_KEY` を使うとキーが `x-api-key` ヘッダーで送られますが、Capriole AI はこれを受け付けません。
+- `COPILOT_PROVIDER_BEARER_TOKEN` はキーを Bearer トークンとして送ります。
 - Copilot が `/v1/messages` を自動で付加するため、ベース URL には `/v1` を付けません。
 - `COPILOT_PROVIDER_MODEL_ID="claude-opus-4.6"` はそのままにしてください。`claude-sonnet-4` などの古いプロファイルでは Copilot が思考予算を送り、Opus 5.5 はそれを `requires adaptive thinking` で拒否します。
 
@@ -155,7 +155,7 @@ GPT、Gemini、Grok、GLM、Kimi のモデルでは、`COPILOT_PROVIDER_BASE_URL
 
 ## 注意事項
 
-- Copilot CLI はコーディング ツールをお使いのコンピューター上で実行します。Capriole AI が処理するのはモデル リクエストだけです。
+- Copilot CLIはローカルでコーディングツールを実行し、Capriole AI がモデルへのリクエストを処理します。
 - `copilot help providers` を実行すると、すべての BYOK 環境変数を確認できます。
 - Gemini 4 Carbon は Gemini 4 Argon より長く思考するため、各ターンに時間がかかり、使うトークンも多くなることがあります。速さを重視する場合は `google/gemini-4-argon` を使ってください。
 - 同じキーを他のコーディング エージェントでも使うには、[1 つの API キーでコーディング エージェントを使う](/ja/guides/one-api-key-coding-agents)を参照してください。

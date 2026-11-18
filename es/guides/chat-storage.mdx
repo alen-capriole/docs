@@ -12,20 +12,22 @@ Debes haber iniciado sesión para cambiar estos ajustes.
 
 ## Compara los tres comportamientos
 
-| Elección en los ajustes de la cuenta | Dónde se guarda el historial del chat | Historial entre dispositivos | Subidas | Qué ocurre después de actualizar |
-|---|---|---|---|---|
-| Ambos interruptores de almacenamiento desactivados | Historial de la cuenta de Capriole | Disponible | Disponible | El hilo guardado se puede reabrir |
-| **Activar almacenamiento local** activado | Datos del navegador actual | No disponible | Deshabilitado | El hilo permanece hasta que se borren los datos del navegador |
-| **Activar No Storage** activado | No se guarda como historial de chat | No disponible | Deshabilitado | Se pierde la sesión actual |
+| Elección en los ajustes de la cuenta | Dónde se guarda el historial del chat | Qué ocurre después de actualizar |
+|---|---|---|
+| Ambos interruptores de almacenamiento desactivados | Historial de la cuenta de Capriole | El hilo guardado se puede reabrir |
+| **Activar almacenamiento local** activado | Datos del navegador actual | El hilo permanece hasta que se borren los datos del navegador |
+| **Activar No Storage** activado | Sesión actual | La sesión termina al actualizar la página o salir de ella. |
 
-Estos ajustes controlan la persistencia del historial de chat de Capriole. Las solicitudes de modelo siguen viajando por Capriole y el proveedor de inferencia seleccionado. Los ajustes no hacen una promesa general de cumplimiento ni de ausencia de registros operativos.
+El almacenamiento predeterminado de la cuenta sincroniza los chats entre dispositivos y permite subir archivos.
+
+Estos ajustes controlan la persistencia del historial de chat de Capriole. Cada solicitud pasa por Capriole AI y llega al proveedor del modelo o a la plataforma en la nube que la procesa.
 
 ## Abre los ajustes de almacenamiento
 
 <Steps>
 <Step title="Inicia sesión en Capriole AI">
 
-Abre [Capriole AI](https://www.capriole.ai/es) e inicia sesión. Los interruptores de almacenamiento no cambian de estado para un visitante sin sesión.
+Abre [Capriole AI](https://www.capriole.ai/es) e inicia sesión.
 
 </Step>
 
@@ -44,48 +46,48 @@ Deja **Activar No Storage** y **Activar almacenamiento local** desactivados.
 
 El historial de chat nuevo se guarda con tu cuenta, puede sincronizarse entre dispositivos y puede usar subidas guardadas. Elige este comportamiento para trabajo que esperas reabrir desde otro navegador o dispositivo.
 
-Si hay otro modo de almacenamiento activado, desactívalo. Un chat que se eliminó de forma intencionada o se perdió de los datos del navegador no se puede recrear al volver a cambiar el ajuste.
+Si hay otro modo de almacenamiento activado, desactívalo.
 
 ## Conserva el historial en este navegador
 
 Activa **Activar almacenamiento local**.
 
-El comportamiento de almacenamiento activo pasa a historial solo en el navegador. Las conversaciones siguen disponibles en el navegador actual y aún pueden aparecer en su lista de historial. No se sincronizan a otro dispositivo y las subidas de archivos quedan deshabilitadas.
+El comportamiento de almacenamiento activo pasa a historial solo en el navegador. Las conversaciones siguen disponibles en el navegador actual y aún pueden aparecer en su lista de historial.
 
 <Warning>
-Borrar los datos del sitio de este navegador elimina las conversaciones locales. Capriole no puede restaurar el historial solo del navegador desde el almacenamiento de la cuenta.
+Borrar los datos del sitio de este navegador elimina las conversaciones locales.
 </Warning>
 
 Desactiva **Activar almacenamiento local** para usar el almacenamiento sincronizado de la cuenta por defecto en el trabajo nuevo.
 
 ## Inicia una sesión No Storage
 
-<Warning>
-Activar No Storage elimina de forma permanente todo el historial de conversaciones del servidor y de este navegador. Lee la confirmación antes de continuar.
-</Warning>
-
 <Steps>
 <Step title="Activa No Storage">
 
 En **Cuenta** → **Ajustes**, activa **Activar No Storage**.
 
-Capriole abre un diálogo titulado **¿Eliminar todos los chats?**. El ajuste aún no ha cambiado.
+Capriole abre un diálogo titulado **¿Eliminar todos los chats?**.
 
 </Step>
 
 <Step title="Confirma la eliminación">
 
-Selecciona **Eliminar** para quitar el historial guardado del servidor y del navegador y entrar en el modo No Storage. Selecciona **Cancelar** si necesitas conservar las conversaciones existentes.
+<Warning>
+Al confirmar, se elimina de forma permanente todo el historial de chats del servidor y de este navegador.
+</Warning>
 
-Después de la eliminación, la sección de historial y búsqueda del chat desaparece de la barra lateral. **Activar almacenamiento local** queda deshabilitado mientras No Storage permanece activado.
+Selecciona **Eliminar** para activar No Storage o **Cancelar** para conservar tus conversaciones.
 
 </Step>
 
 <Step title="Usa el chat temporal">
 
-Envía mensajes sin adjuntar archivos. La conversación actual existe para la sesión activa de la página y desaparece cuando sales o actualizas la página.
+La conversación actual existe para la sesión activa de la página y desaparece cuando sales o actualizas la página.
 
-Desactiva **Activar No Storage** cuando quieras que los chats nuevos vuelvan a usar el historial sincronizado de la cuenta por defecto. Las conversaciones eliminadas antes no regresan.
+Desactiva **Activar No Storage** cuando quieras que los chats nuevos vuelvan a usar el historial sincronizado de la cuenta por defecto.
+
+Para volver a guardar los chats nuevos en este navegador, desactiva **Activar No Storage** y luego activa **Activar almacenamiento local**.
 
 </Step>
 </Steps>
@@ -111,24 +113,24 @@ También se incluye la generación gratuita de imágenes con GPT Image 2.6, Nano
 
 ### ¿El modo Local conserva una lista de historial?
 
-Sí. El navegador actual puede listar, buscar, renombrar, fijar y eliminar sus hilos locales. Otro navegador o dispositivo no puede verlos.
+Sí. El navegador actual puede listar, buscar, renombrar, fijar y eliminar sus hilos locales.
 
-### ¿Puedo subir un archivo en el modo Local o No Storage?
+### ¿Qué modo de almacenamiento permite subir archivos?
 
-No. Las subidas de archivos requieren el almacenamiento sincronizado de la cuenta por defecto.
+El almacenamiento predeterminado de la cuenta sincroniza los chats entre dispositivos y permite subir archivos.
 
-### ¿No Storage conserva el chat actual después de actualizar?
+### ¿Cuándo termina un chat temporal?
 
-No. Salir o actualizar la página termina esa sesión temporal.
+Salir o actualizar la página termina esa sesión temporal.
 
-### ¿Puedo recuperar chats eliminados cuando se activó No Storage?
+### ¿Cómo puedo conservar mis chats actuales?
 
-No. La confirmación elimina de forma permanente el historial de chat del servidor y del navegador.
+Selecciona **Cancelar** en el cuadro de confirmación para conservar tus chats. Al confirmar, se elimina de forma permanente todo el historial de chats del servidor y de este navegador.
 
-### ¿Estos ajustes impiden que el proveedor del modelo reciba una solicitud?
+### ¿Quién procesa cada solicitud?
 
-No. Controlan el historial de chat dentro del espacio de trabajo de Capriole. La solicitud sigue teniendo que llegar a Capriole y al proveedor de modelo seleccionado para la inferencia.
+Los ajustes de almacenamiento determinan dónde se guarda tu historial. Cada solicitud pasa por Capriole AI y llega al proveedor del modelo o a la plataforma en la nube que la procesa.
 
 ## Mantén la elección dentro de un solo espacio de trabajo
 
-Capriole te deja cambiar el límite de almacenamiento sin cambiar de productos de IA ni reconstruir la conversación en otra interfaz. [Prueba los modelos insignia en el chat limitado gratuito del navegador](https://www.capriole.ai/es) y luego pasa a Premium para chat ilimitado del navegador y el espacio de trabajo completo.
+Capriole te deja cambiar el límite de almacenamiento sin cambiar de productos de IA ni reconstruir la conversación en otra interfaz. [Prueba los modelos insignia en el chat gratuito del navegador](https://www.capriole.ai/es) y luego pasa a Premium para chat ilimitado del navegador y el espacio de trabajo completo.

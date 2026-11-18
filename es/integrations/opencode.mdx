@@ -175,7 +175,7 @@ Qué hace cada ajuste:
 
 - `package: "@opencode/ai/providers/openai-compatible"` es el paquete por defecto del proveedor, así que Gemini, Grok, GLM y Kimi usan Chat Completions.
 - Cada modelo GPT sustituye `package` por `@opencode/ai/providers/openai-compatible/responses`, que usa la API Responses. Cada modelo Claude lo sustituye por `@opencode/ai/providers/anthropic-compatible`, que usa Anthropic Messages.
-- `env` indica la variable que guarda tu clave. La cabecera `Authorization` envía la clave como token Bearer con todos los paquetes. Sin ella, el paquete de Anthropic envía la clave en una cabecera `x-api-key`, que Capriole AI no acepta.
+- `env` indica la variable que guarda tu clave. La cabecera `Authorization` envía la clave como token Bearer con todos los paquetes.
 - `reasoningEffort` da a cada modelo GPT un nivel de razonamiento por defecto. Sin él, los modelos GPT responden sin razonar.
 - `baseURL` incluye `/v1` para todos los paquetes. `limit` indica a OpenCode la ventana de contexto y el límite de salida de cada modelo.
 - `agents.title` define el modelo que OpenCode usa para los títulos de sesión.
@@ -314,7 +314,7 @@ Qué hace cada ajuste:
 - `npm: "@ai-sdk/openai-compatible"` es el paquete por defecto del proveedor, así que Gemini, Grok, GLM y Kimi usan Chat Completions.
 - Cada modelo GPT sustituye `provider.npm` por `@ai-sdk/openai`, que usa la API Responses. Cada modelo Claude lo sustituye por `@ai-sdk/anthropic`, que usa Anthropic Messages.
 - `baseURL` incluye `/v1` para todos los paquetes.
-- `{env:CAPRIOLE_AI_API_KEY}` lee tu clave del entorno. La cabecera `Authorization` la envía como token Bearer con todos los paquetes. Sin ella, el paquete de Anthropic envía la clave en una cabecera `x-api-key`, que Capriole AI no acepta.
+- `{env:CAPRIOLE_AI_API_KEY}` lee tu clave del entorno. La cabecera `Authorization` la envía como token Bearer con todos los paquetes.
 - `limit` indica a OpenCode la ventana de contexto y el límite de salida de cada modelo, para que pueda controlar el contexto y compactar la sesión a tiempo.
 - `small_model` es el modelo que OpenCode usa para tareas ligeras, como los títulos de sesión.
 

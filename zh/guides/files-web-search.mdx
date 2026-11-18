@@ -4,22 +4,22 @@ sidebarTitle: "文件、生图与网页搜索"
 description: "在网页聊天中用 GPT Image 2.6、Nano Banana 2.1 和 Seedream 5.5 免费生图、上传文件和搜索网页，了解登录及 Server Storage 要求。"
 ---
 
-在 Capriole AI 网页聊天中，问题需要最新信息时，模型会搜索网页。已登录并使用 **Server Storage** 的账户还可以用 GPT Image 2.6、Nano Banana 2.1 和 Seedream 5.5 免费生成图片，并附加文件（图片和 PDF 不超过 10 MB，其他文档不超过 4 MB）；访客以及 Local Storage 和 No Storage 模式无法生成图片或附加文件。
+在 Capriole AI 网页聊天中，问题需要最新信息时，模型会搜索网页。已登录并使用 **Server Storage** 的账户还可以用 GPT Image 2.6、Nano Banana 2.1 和 Seedream 5.5 免费生成图片，并附加文件（图片和 PDF 不超过 10 MB，其他文档不超过 4 MB）。
 
 同一个工作区可以使用 GPT-6.2 Astra、Claude Fable 5.1、Claude Opus 5.5 或 Gemini 4 Carbon 继续处理任务，无需把材料复制到不同产品中。Premium 每月 USD 9，在所有受支持的模型上都能无限网页聊天。
 
 ## 用 GPT Image 2.6、Nano Banana 2.1 和 Seedream 5.5 生成图片
 
-Capriole AI 为已登录并使用 **Server Storage** 的 Free、Premium 和 Team 用户提供免费的 **GPT Image 2.6**、**Nano Banana 2.1** 和 **Seedream 5.5** 网页生图。可以在 **图片** 模式中任选一个模型，也可以在聊天中让 **Text Agent** 生成图片。生图本身不消耗 API token 额度；Text Agent 的文字对话仍遵循普通聊天限制。这是网页功能，不是公开图片 API 或编程智能体模型。
+Capriole AI 为已登录并使用 **Server Storage** 的 Free、Premium 和 Team 用户提供免费的 **GPT Image 2.6**、**Nano Banana 2.1** 和 **Seedream 5.5** 网页生图。可以在 **图片** 模式中任选一个模型，也可以在聊天中让 **Text Agent** 生成图片。生图本身不消耗 API token 额度；Text Agent 的文字对话仍遵循普通聊天限制。
 
 1. 登录并使用 **Server Storage**：在 **账户** → **设置** 中关闭 **启用本地存储** 和 **启用 No Storage**。
 2. 打开模型菜单，切换到 **图片** 标签页，选择 **GPT Image 2.6**、**Nano Banana 2.1** 或 **Seedream 5.5**（**GPT Image 2.5** 仍可选用），输入想要的画面。
 3. 选择比例、**分辨率** 和每批 **1–4 张**，然后发送。比例可选默认的 **自动**，以及 **1:1、21:9、16:9、3:2、4:3、9:16、2:3、3:4** 八种；分辨率有 **1K、2K、4K** 三档，Seedream 5.5 只有 **1K、2K** 两档。选 **自动** 时，编辑会保持被编辑图片的形状。生成新图时，GPT Image 在 1K 下会按提示词选择合适的形状，在 2K 和 4K 下生成方图；Nano Banana 2.1 生成方图。
 4. 等待对话中的任务完成。之后可以重新打开已保存的对话，查看图片、打开 **Info** 或下载。
 
-要编辑图片，先在 **图片** 模式下通过回形针按钮、粘贴或拖入来添加图片：每条消息最多 10 张，PNG 或 JPEG，每张不超过 10 MB。然后描述要怎么改。输入 **@** 会列出已添加的图片，图片按顺序命名为 `@image1`、`@image2`，依此类推。生成的图片上有 **编辑** 按钮（鼠标悬停时显示，触屏设备上在 **…** 菜单里），选择后图片会立即进入输入框，可以接着描述下一步修改。GPT Image 2.6、GPT Image 2.5、Nano Banana 2.1 和 Seedream 5.5 都能编辑图片，Capriole AI 使用你选中的模型，不会替你换模型。
+要编辑图片，先在 **图片** 模式下通过回形针按钮、粘贴或拖入来添加图片：每条消息最多 10 张，PNG 或 JPEG，每张不超过 10 MB。然后描述要怎么改。输入 **@** 会列出已添加的图片，图片按顺序命名为 `@image1`、`@image2`，依此类推。生成的图片上有 **编辑** 按钮（鼠标悬停时显示，触屏设备上在 **…** 菜单里），选择后图片会立即进入输入框，可以接着描述下一步修改。GPT Image 2.6、GPT Image 2.5、Nano Banana 2.1 和 Seedream 5.5 都能编辑图片，Capriole AI 使用你选中的模型。
 
-每个账号最多同时生成 **4 张图片**。无论是编辑还是新生成，每张图片都计入这个上限和每日图片上限。在 **文本** 模式中，也可以直接让 Text Agent 生图，或者让它修改你添加的图片、对话里之前生成的图片，无需切换页签；两种入口使用同一套生图服务。Text Agent 会用你点名的图像模型；没有点名时，用对话中最新一张图片的模型；对话里还没有图片时，用默认图像模型 GPT Image 2.6，也就是 **图片** 标签页里的第一个模型。图片编辑目前只在网页端提供，没有框选区域、擦除或去除背景的工具。只有完成的图片才会作为结果展示。
+每个账号最多同时生成 **4 张图片**。无论是编辑还是新生成，每张图片都计入这个上限和每日图片上限。在 **文本** 模式中，也可以直接让 Text Agent 生图，或者让它修改你添加的图片、对话里之前生成的图片，无需切换页签；两种入口使用同一套生图服务。Text Agent 会用你点名的图像模型；没有点名时，用对话中最新一张图片的模型；对话里还没有图片时，用默认图像模型 GPT Image 2.6，也就是 **图片** 标签页里的第一个模型。
 
 各模型的官方能力说明见 [OpenAI 模型文档](https://developers.openai.com/api/docs/models/gpt-image-2.6-sunburst)、[Google 模型文档](https://ai.google.dev/gemini-api/docs/models/gemini-nano-banana-2.1)和 [字节跳动 Seed 的 Seedream 5.5 页面](https://seed.bytedance.com/en/seedream5_5)。Capriole AI 提供的功能以上文说明为准。
 
@@ -35,7 +35,7 @@ Capriole AI 为已登录并使用 **Server Storage** 的 Free、Premium 和 Team
 
 每条消息最多可以附加 10 个文件。合并后的大段上下文仍可能超过所选模型的输入限制。
 
-Local 和 No Storage 模式不支持上传文件。更改对话的存储边界前，请阅读[聊天存储指南](/zh/guides/chat-storage)。
+更改对话的存储边界前，请阅读[聊天存储指南](/zh/guides/chat-storage)。
 
 ## 让模型读取文件
 
@@ -75,7 +75,7 @@ Read the attached spreadsheet. Identify the three largest month-over-month chang
 
 ## 添加最新网页信息
 
-输入框中没有常规的网页搜索开关。请提出明确依赖近期或实时公开信息的问题。模型判断需要搜索时，可以调用网页聊天的搜索工具。
+请提出明确依赖近期或实时公开信息的问题。模型判断需要搜索时，可以调用网页聊天的搜索工具。
 
 ```text
 Use the attached product brief as the baseline. Search for official changes announced in the last 30 days, list the sources, and explain which parts of the brief now need revision.
@@ -83,19 +83,19 @@ Use the attached product brief as the baseline. Search for official changes anno
 
 搜索期间，Thinking 区域可能显示 **正在搜索**，后面跟着搜索词。搜索返回来源元数据后，回答中会出现 **来源** 控件，可以打开相关结果。
 
-模型不必为每条 Prompt 搜索。要求查询最新新闻或带日期的事实，可以更清楚地表达搜索需求，但不能保证特定结果、来源数量或搜索提供商。
+需要最新信息时，可以在问题里写明日期，并要求附上来源链接。
 
 ## 允许网页搜索上下文包含图片 URL
 
 已登录用户可以打开 **账户** → **设置**，开启 **启用网页搜索图片**。如果搜索结果包含图片，此设置允许网页搜索在普通结果之外返回图片 URL。
 
-这不是图片生成设置，也不能保证每次搜索都会返回或显示图片。添加图片结果会增加发送给模型的搜索上下文，并可能增加 Token 用量。
+添加图片结果会增加发送给模型的搜索上下文，并可能增加 Token 用量。
 
 ## Capriole 如何处理不同文件
 
 Capriole 使用统一的上传流程，并在底层调整模型输入。图片可以使用原生多模态输入；部分 PDF 和文本类文件也可以使用模型的原生文件路径。其他受支持的文档会在模型调用前转换成文本上下文。
 
-这种适配让同一个聊天可以在受支持的模型之间切换，无需用户手动重新添加每个附件。这并不代表所有模型都能原生读取每种文件、保留全部视觉细节，或拥有相同的上下文容量。
+这种适配让同一个聊天可以在受支持的模型之间切换，无需用户手动重新添加每个附件。
 
 如果当前模型无法接受合并后的上下文，请减少附件数量、拆分大型文档，或先提供当前问题所需的章节。
 
@@ -114,4 +114,4 @@ Capriole 使用统一的上传流程，并在底层调整模型输入。图片�
 
 你可以在发送下一条消息前更换所选模型，无需重新建立对话。另一模型接手对话时的上下文和存储边界，请参阅[无需重启对话即可切换 AI 模型](/zh/articles/switch-models-mid-chat)。
 
-[在有限的免费网页聊天中试用此工作流](https://www.capriole.ai/zh)。需要不限量网页聊天时可升级到 Premium，并继续使用同一个 Capriole 账户开展 API 和编程智能体工作。
+[在免费网页聊天中试用此工作流](https://www.capriole.ai/zh)。需要不限量网页聊天时可升级到 Premium，并继续使用同一个 Capriole 账户开展 API 和编程智能体工作。

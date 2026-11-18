@@ -114,7 +114,7 @@ O Claude Code não reconhece `claude-latest` como nome de modelo, então assume 
 
 ### Por que o Claude Code retorna um erro de autenticação?
 
-Use `ANTHROPIC_AUTH_TOKEN`, e não `ANTHROPIC_API_KEY`. `ANTHROPIC_API_KEY` envia a key em um cabeçalho `x-api-key`, e a Capriole AI só aceita Bearer token.
+Use `ANTHROPIC_AUTH_TOKEN` para que o Claude Code envie sua chave da Capriole AI como token Bearer no cabeçalho `Authorization`.
 
 ### Por que as solicitações falham com erros de endpoint?
 
@@ -126,7 +126,7 @@ Remova `ANTHROPIC_MODEL` das suas configurações e do shell. Quando essa variá
 
 ### Por que `/model opus` ou `/model sonnet` falha?
 
-Mantenha os três valores `ANTHROPIC_DEFAULT_*_MODEL`. Sem eles, o Claude Code envia os destinos de alias da própria Anthropic. Por exemplo, `sonnet` solicita `claude-sonnet-5-5`, que a Capriole AI não oferece, e a solicitação falha com `Unsupported Claude Messages model`.
+Mantenha os três valores `ANTHROPIC_DEFAULT_*_MODEL` para que o Claude Code associe os aliases aos modelos Claude da sua configuração da Capriole AI.
 
 ### Por que o Claude Code não usa meu nível de esforço?
 
@@ -139,6 +139,6 @@ A Capriole AI encaminha `/v1/messages/count_tokens` para o upstream selecionado.
 ## Observações
 
 - `~/.claude/settings.json` se aplica à sua conta de usuário em todos os projetos. Substitua `YOUR_CAPRIOLE_AI_API_KEY` pela sua API key da Capriole AI.
-- Modelos Gemini, Grok, GLM e Kimi não rodam no Claude Code, porque ele só fala o protocolo Anthropic Messages. Use OpenCode, Kilo Code ou outro agente multiprotocolo para esses modelos.
+- O Claude Code usa modelos Claude via Anthropic Messages. Para Gemini, Grok, GLM e Kimi, use um agente com vários protocolos, como OpenCode ou Kilo Code.
 - Para usar a mesma key nos seus outros agentes de programação, veja [Usar uma API key com agentes de programação](/pt-br/guides/one-api-key-coding-agents).
 - Referências oficiais: [Configuração do Claude Code](https://code.claude.com/docs/en/setup), [configuração de modelo](https://code.claude.com/docs/en/model-config) e [configuração de gateway LLM](https://code.claude.com/docs/en/llm-gateway-connect).

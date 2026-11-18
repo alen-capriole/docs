@@ -76,7 +76,7 @@ export COPILOT_PROVIDER_WIRE_MODEL="claude-latest"
 
 Para Opus 5.5, define `COPILOT_PROVIDER_WIRE_MODEL="claude-opus-5-5"`.
 
-- `COPILOT_PROVIDER_BEARER_TOKEN` envía la clave como token Bearer. `COPILOT_PROVIDER_API_KEY` la enviaría en una cabecera `x-api-key`, que Capriole AI no acepta.
+- `COPILOT_PROVIDER_BEARER_TOKEN` envía la clave como token Bearer.
 - La URL base no lleva `/v1`, porque Copilot añade `/v1/messages` por su cuenta.
 - Mantén `COPILOT_PROVIDER_MODEL_ID="claude-opus-4.6"`. Con un perfil más antiguo como `claude-sonnet-4`, Copilot envía un presupuesto de razonamiento y Opus 5.5 lo rechaza con `requires adaptive thinking`.
 
@@ -155,7 +155,7 @@ Define `COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"`, o `"claude-opus-4.6"` para
 
 ## Notas
 
-- Copilot CLI ejecuta las herramientas de programación en tu equipo. Capriole AI solo gestiona las solicitudes de modelo.
+- Copilot CLI ejecuta las herramientas de programación en tu equipo. Capriole AI procesa las solicitudes al modelo.
 - Ejecuta `copilot help providers` para ver todas las variables de entorno de BYOK.
 - Gemini 4 Carbon razona más tiempo que Gemini 4 Argon, así que cada turno puede tardar más y usar más tokens. Para turnos más rápidos, usa `google/gemini-4-argon`.
 - Para usar la misma clave en tus otros agentes de programación, consulta [Usa una sola clave API con agentes de programación](/es/guides/one-api-key-coding-agents).

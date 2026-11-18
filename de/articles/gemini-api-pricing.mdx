@@ -6,7 +6,7 @@ description: "Gemini 4 Carbon und Argon kosten bis 30. November USD 2 Eingabe un
 
 Die Gemini API von Google berechnet **für Gemini 4 Carbon und Gemini 4 Argon USD 2 pro 1M Eingabe-Tokens und USD 10 pro 1M Ausgabe-Tokens** zum Einführungspreis, der bis zum 30. November 2026 gilt. Ab dem 1. Dezember 2026 kosten beide **USD 4 und USD 20**. Bei drei Eingabe-Tokens pro Ausgabe-Token kosten 5M Tokens zu den Standardpreisen von Google USD 20 zum Einführungspreis und USD 40 ab dem 1. Dezember.
 
-Capriole AI Premium kostet USD 9 pro Monat für unbegrenzten Web-Chat mit GPT-6.2 Astra, Claude Fable 5.1, Claude Opus 5.5 und Gemini 4 Carbon. Die API stellt Gemini 4 Carbon und Gemini 4 Argon über OpenAI Chat Completions bereit, für USD 8 pro 5M Tokens jedes unterstützten Modells, bis zu 92% günstiger als die offiziellen API-Preise. Google bepreist Carbon und Argon niedriger als GPT-6 Astra und Claude Fable 5.1, daher fällt die Ersparnis bei ihnen kleiner aus: 60% zum Einführungspreis und 80% ab dem 1. Dezember. Ein API-Schlüssel funktioniert in Ihren eigenen Apps und in Coding-Agents.
+Capriole AI Premium kostet USD 9 pro Monat für unbegrenzten Web-Chat mit GPT-6.2 Astra, Claude Fable 5.1, Claude Opus 5.5 und Gemini 4 Carbon. Die API stellt Gemini 4 Carbon und Gemini 4 Argon über OpenAI Chat Completions bereit. Das persönliche Premium-Abo enthält monatlich 5 Millionen API-Tokens. Ein Zusatzpaket mit 5 Millionen Tokens kostet USD 8 und gilt für alle unterstützten Modelle. Damit sparen Sie bis zu 92% gegenüber den offiziellen API-Preisen. Im folgenden Beispiel für Carbon und Argon sparen Sie gegenüber dem Einführungspreis von Google 60% und ab dem 1. Dezember 80%. Ein API-Schlüssel funktioniert in Ihren eigenen Apps und in Coding-Agents.
 
 ## Gemini-API-Preise pro 1M Tokens
 
@@ -33,7 +33,7 @@ Für lange Prompts nennt Google bei diesen Modellen keinen eigenen Preis.
 
 ## Was 1M und 5M Tokens kosten
 
-Diese Beispiele verwenden Standardpreise, kein Caching und drei Eingabe-Tokens pro Ausgabe-Token.
+Diese Beispiele verwenden Standardpreise, kein Caching und drei Eingabe-Tokens pro Ausgabe-Token. Reicht Ihr API-Token-Guthaben bei Capriole AI für das Beispiel aus, fällt keine zusätzliche Zahlung an.
 
 ```text
 official_cost = input_millions × input_price + output_millions × output_price
@@ -44,9 +44,9 @@ official_cost = input_millions × input_price + output_millions × output_price
 | 1M | 750K / 250K | USD 4 | USD 8 | USD 1.60 |
 | 5M | 3.75M / 1.25M | USD 20 | USD 40 | **USD 8** |
 
-Zum Einführungspreis kosten 5M Tokens mit Gemini 4 Carbon oder Argon 3.75 × USD 2 + 1.25 × USD 10 = USD 20, die USD 8 von Capriole sind also 60% günstiger. Ab dem 1. Dezember kostet dieselbe Arbeitslast USD 40, USD 8 sind dann 80% günstiger. Die 92% gelten für Modelle mit Preisen von USD 10 und USD 50, etwa [GPT-6 Astra](/de/articles/openai-api-pricing) und [Claude Fable 5.1](/de/articles/claude-api-pricing). Capriole verkauft API-Tokens in Paketen zu 5M; der Wert für 1M ist ein Fünftel eines Pakets und dient nur dem Vergleich.
+Zum Einführungspreis kosten 5M Tokens mit Gemini 4 Carbon oder Argon 3.75 × USD 2 + 1.25 × USD 10 = USD 20, die USD 8 für das Zusatzpaket im persönlichen Premium-Abo sind also 60% günstiger. Ab dem 1. Dezember kostet dieselbe Arbeitslast USD 40, USD 8 sind dann 80% günstiger. Die 92% gelten für Modelle mit Preisen von USD 10 und USD 50, etwa [GPT-6 Astra](/de/articles/openai-api-pricing) und [Claude Fable 5.1](/de/articles/claude-api-pricing). Capriole verkauft API-Tokens in Paketen zu 5M; der Wert für 1M ist ein Fünftel eines Pakets und dient nur dem Vergleich.
 
-Gemini 3.8 Flash kostet für dieselben 5M Tokens bis 31. Dezember 2026 USD 7.50, etwas weniger als die USD 8 von Capriole. Ab dem 1. Januar 2027 kostet es USD 15, USD 8 sind dann 47% günstiger.
+Für dieselben 5M Tokens mit Gemini 3.8 Flash berechnet Google bis zum 31. Dezember 2026 USD 7.50. Ab dem 1. Januar 2027 berechnet Google USD 15. Das Zusatzpaket für USD 8 im persönlichen Premium-Abo liegt dann 47% darunter.
 
 Google berechnet für Ausgabe, einschließlich Thinking-Tokens, das Fünffache der Eingabe. Capriole zählt Eingabe und Ausgabe zum selben Satz, daher entscheidet Ihr eigenes Verhältnis über die Ersparnis. So kosten zum Beispiel 5M reine Eingabe-Tokens mit Carbon oder Argon USD 10 zum Einführungspreis und USD 20 ab dem 1. Dezember.
 
@@ -54,8 +54,8 @@ Google berechnet für Ausgabe, einschließlich Thinking-Tokens, das Fünffache d
 
 ## Wie Caching und Batch den Vergleich verändern
 
-- **Gecachte Eingabe**: Google berechnet bei Carbon und Argon USD 0.10 pro 1M gecachte Tokens bis 30. November und USD 0.20 ab dem 1. Dezember. Capriole zählt gecachte Eingabe, die die Antwort meldet, zu 10%, das entspricht USD 0.16 pro 1M gecachte Tokens. Bis 30. November ist der Cache-Preis von Google niedriger, ab dem 1. Dezember der von Capriole. [Abgerechnete Tokens erklärt](/de/articles/charged-tokens) zeigt die Formel.
-- **Batch und Flex**: Zum halben Preis kostet das 5M-Token-Beispiel mit Carbon oder Argon USD 10 bis 30. November und USD 20 ab dem 1. Dezember. Capriole hat keinen Batch-Endpunkt, und seine USD 8 sind für diese Arbeitslast trotzdem 20% bzw. 60% günstiger.
+- **Gecachte Eingabe**: Google berechnet bei Carbon und Argon USD 0.10 pro 1M gecachte Tokens bis 30. November und USD 0.20 ab dem 1. Dezember. Capriole zählt gecachte Eingabe, die die Antwort meldet, zu 10%. Zum Preis eines Zusatzpakets im persönlichen Premium-Abo entspricht das USD 0.16 pro 1M gecachte Tokens. [Abgerechnete Tokens erklärt](/de/articles/charged-tokens) zeigt die Formel.
+- **Batch und Flex**: Zum halben Preis kostet das 5M-Token-Beispiel mit Carbon oder Argon USD 10 bis 30. November und USD 20 ab dem 1. Dezember. Ein Zusatzpaket mit 5 Millionen Tokens kostet im persönlichen Premium-Abo USD 8. Das entspricht einer Ersparnis von 20% bzw. 60%.
 
 Einen 5M-Token-Test, der auch die Credit-Gebühr von OpenRouter einbezieht, finden Sie im [KI-API-Kostenvergleich](/de/articles/ai-api-cost-comparison).
 
@@ -65,7 +65,6 @@ Capriole stellt Gemini-Modelle über OpenAI Chat Completions unter `POST /v1/cha
 
 - `google/gemini-4-carbon` wählt Gemini 4 Carbon. `google/gemini-4-argon` und `google/gemini-3.8-flash` wählen diese Modelle.
 - `google-latest` wählt Gemini 4 Carbon, das stärkste Modell von Google, das pro Antwort mehr Thinking-Tokens verbraucht als Argon. Bei Chat Completions denkt es auf der Standardstufe `medium` von Google; [Modell wählen](/de/guides/choose-a-model#modell-ids-für-die-api) zeigt, wie Sie `low` setzen.
-- Die Endpunkte Responses und Messages akzeptieren keine Gemini-Modelle.
 
 ```python
 import os
@@ -90,10 +89,6 @@ Streamen Sie bei langem Reasoning die Antwort mit `stream=True`; ohne Streaming 
 
 Neben unbegrenztem Web-Chat mit Gemini 4 Carbon, Gemini 4 Argon und allen weiteren unterstützten Modellen (mit einem [Fair-Use-Limit](/de/guides/plans-and-limits#was-unbegrenzt-bedeutet) von 200 Nachrichten pro Tag gegen skriptgesteuerten Missbrauch) enthält Premium 5M API-Tokens im Monat für Apps und Coding-Agents; [Pläne und Limits](/de/guides/plans-and-limits) erklärt Aufstockungen, Team und den kostenlosen Web-Chat.
 
-## Wann die offizielle API besser passt
-
-Nutzen Sie Google direkt, wenn Ihre Arbeitslast vor 2027 nur auf Gemini 3.8 Flash läuft, wenn Sie Gemini 4 Hydrogen möchten, das Capriole AI nicht anbietet, oder wenn Sie die kostenlose Stufe, Batch, Flex, Priority, Grounding mit der Google-Suche oder einen Vertrag direkt mit Google brauchen.
-
 ## Häufige Fragen
 
 ### Was kostet die Gemini API?
@@ -108,13 +103,15 @@ Die kostenlose Stufe von Google enthält weder Gemini 4 Carbon noch Gemini 4 Arg
 
 `google-latest` verweist seit dem 17. November 2026 auf Gemini 4 Carbon, das stärkste Modell von Google. Es funktioniert mit `/v1/chat/completions`, dem Endpunkt für Gemini-Modelle. Wenn Sie weiter Argon nutzen möchten, rufen Sie `google/gemini-4-argon` auf.
 
-### Ist API-Nutzung im unbegrenzten Chat enthalten?
+### Wie werden API- und Coding-Agent-Anfragen mit Premium abgerechnet?
 
-Nein. Unbegrenzt gilt für den Web-Chat. API- und Coding-Agent-Anfragen verbrauchen Ihr API-Token-Guthaben.
+Premium umfasst monatlich 5M API-Tokens für Anwendungen und Coding-Agents. Weitere 5M Tokens kosten USD 8.
 
 ## Mit Capriole AI starten
 
 [Chatten Sie kostenlos](https://www.capriole.ai/de) ohne Konto, oder [holen Sie sich mit Premium einen API-Schlüssel](https://www.capriole.ai/de?view=api). Der [API-Schnellstart](/de/quickstart) führt Sie durch Ihre erste Anfrage.
+
+Capriole AI ist ein unabhängiger Arbeitsbereich und steht in keiner Verbindung zu Google.
 
 ## Offizielle Quellen
 

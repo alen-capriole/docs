@@ -65,12 +65,12 @@ Thinking은 토큰을 더 많이 씁니다. Premium과 Team에서는 어느 쪽�
 |---|---|
 | GPT-6.2 Astra, GPT-6.2 Sol, GPT-6 Astra, GPT-6.1 Sol, GPT-6 Sol, GPT-6 Luna | **Thinking**(추론 강도 중간)과 **Fast**(추론 강도 낮음) |
 | Claude Fable 5.1, Claude Opus 5.5 | 추론이 항상 켜져 있습니다. **Thinking**은 추론 강도 중간, **Fast**는 낮음입니다. |
-| Gemini 4 Carbon, Gemini 4 Argon | 웹 채팅에는 **Thinking** 프리셋만 있습니다. **Fast**를 선택하면 채팅이 Gemini 3.8 Flash로 전환됩니다. |
+| Gemini 4 Carbon, Gemini 4 Argon | Gemini 4 Carbon / Gemini 4 Argon에서 Thinking 프리셋을 사용할 수 있습니다. **Fast**를 선택하면 Gemini 3.8 Flash로 전환됩니다. |
 | Kimi K3.1 Pro | 항상 추론합니다. **Thinking**은 높은 추론 강도, **Fast**는 낮은 추론 강도를 씁니다. |
 | GLM | **Fast**는 GLM 5.3 Flash입니다. **Thinking**은 이전 모델인 GLM 5.2(API에서는 `zai/glm-5.2`)를 사용합니다. |
 | Grok 4.7 | 프리셋 하나 |
 
-Thinking 프리셋은 웹 채팅 전용입니다. API에서 더 많은 추론이 필요하면 모델 ID를 호출하고 요청에서 추론 옵션을 설정하세요.
+웹 채팅에서 Thinking 프리셋을 선택하세요. API에서 더 많은 추론이 필요하면 모델 ID를 호출하고 요청에서 추론 옵션을 설정하세요.
 
 ## 채팅 중간에 모델 전환하기
 
@@ -95,7 +95,7 @@ API 기본 URL은 `https://api.caprioletech.com`입니다. 모델 하나를 고�
 </Note>
 
 <Note>
-2026년 11월 17일부터 `google-latest`는 Gemini 4 Argon 대신 Gemini 4 Carbon을 사용합니다. Chat Completions에서 Carbon은 Google의 기본 수준인 `medium`으로 추론하며, 우리 테스트에서는 같은 프롬프트에 Argon보다 출력 토큰을 약 3~4배 썼습니다. OpenAI의 `reasoning_effort`로는 이 수준이 바뀌지 않습니다. 더 가볍게 호출하려면 Google의 `thinking_level`을 `low`로 설정하거나(`medium`과 `high`도 쓸 수 있습니다), `google/gemini-4-argon`을 호출하세요.
+2026년 11월 17일부터 `google-latest`는 Gemini 4 Argon 대신 Gemini 4 Carbon을 사용합니다. Chat Completions에서 Carbon은 Google의 기본 수준인 `medium`으로 추론하며, 우리 테스트에서는 같은 프롬프트에 Argon보다 출력 토큰을 약 3~4배 썼습니다. 더 가볍게 호출하려면 Google의 `thinking_level`을 `low`로 설정하거나(`medium`과 `high`도 쓸 수 있습니다), `google/gemini-4-argon`을 호출하세요.
 
 <CodeGroup>
 ```bash curl
@@ -123,7 +123,7 @@ completion = client.chat.completions.create(
 
 Capriole AI는 모든 모델에서 과금 토큰을 같은 방식으로 계산합니다. 캐시되지 않은 입력, 캐시된 입력의 10%, 출력을 더한 값입니다. [과금 토큰 설명](/ko/articles/charged-tokens)에 예시가 있습니다.
 
-그림이 필요하면 모델 메뉴에서 **이미지**를 선택하고 GPT Image 2.6, Nano Banana 2.1, Seedream 5.5 중 하나를 고르세요. 이미지 모델은 웹 채팅에서만 작동합니다. [이미지 생성 가이드 보기](/ko/guides/files-web-search).
+그림이 필요하면 모델 메뉴에서 **이미지**를 선택하고 GPT Image 2.6, Nano Banana 2.1, Seedream 5.5 중 하나를 고르세요. [이미지 생성 가이드 보기](/ko/guides/files-web-search).
 
 ## 자주 묻는 질문
 
@@ -139,9 +139,9 @@ Capriole AI는 모든 모델에서 과금 토큰을 같은 방식으로 계산�
 
 네. OpenAI Chat Completions는 `anthropic/claude-fable-5-1`, `google/gemini-4-carbon`을 포함한 모든 공개 모델 ID와 별칭 세 개를 받습니다. 설정 방법은 [OpenAI 및 Anthropic SDK 가이드](/ko/guides/openai-anthropic-sdks)에 있습니다.
 
-### Thinking 프리셋을 API에서 쓸 수 있나요?
+### API에서 추론 강도는 어떻게 설정하나요?
 
-아니요. 웹 채팅 전용입니다. 모델의 API ID를 호출하고 요청에서 추론 옵션을 설정하세요.
+모델의 API ID를 호출하고 요청에서 추론 옵션을 설정하세요.
 
 ### 어떤 Claude 모델로 시작해야 하나요?
 

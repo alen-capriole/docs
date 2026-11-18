@@ -175,7 +175,7 @@ opencode --version
 
 - `package: "@opencode/ai/providers/openai-compatible"` 是该提供商的默认包，因此 Gemini、Grok、GLM 和 Kimi 使用 Chat Completions。
 - 每个 GPT 模型都用 `@opencode/ai/providers/openai-compatible/responses` 覆盖 `package`，从而使用 Responses API。每个 Claude 模型都用 `@opencode/ai/providers/anthropic-compatible` 覆盖它，从而使用 Anthropic Messages。
-- `env` 指定存放 API Key 的环境变量。`Authorization` 请求头让每个包都以 Bearer Token 形式发送 Key。没有它时，Anthropic 包会在 `x-api-key` 请求头中发送 Key，而 Capriole AI 不接受这种方式。
+- `env` 指定存放 API Key 的环境变量。`Authorization` 请求头让每个包都以 Bearer Token 形式发送 Key。
 - `reasoningEffort` 为每个 GPT 模型设定默认推理强度。没有它时，GPT 模型回答时不进行推理。
 - 每个包的 `baseURL` 都包含 `/v1`。`limit` 告诉 OpenCode 每个模型的上下文窗口和输出上限。
 - `agents.title` 设置 OpenCode 生成会话标题时使用的模型。
@@ -314,7 +314,7 @@ OpenCode 1 不读取 OpenCode 2 的写法，但 OpenCode 2 能读取下面的写
 - `npm: "@ai-sdk/openai-compatible"` 是该提供商的默认包，因此 Gemini、Grok、GLM 和 Kimi 使用 Chat Completions。
 - 每个 GPT 模型都用 `@ai-sdk/openai` 覆盖 `provider.npm`，从而使用 Responses API。每个 Claude 模型都用 `@ai-sdk/anthropic` 覆盖它，从而使用 Anthropic Messages。
 - 每个包的 `baseURL` 都包含 `/v1`。
-- `{env:CAPRIOLE_AI_API_KEY}` 从环境变量读取你的 API Key。`Authorization` 请求头让每个包都以 Bearer Token 形式发送 Key。没有它时，Anthropic 包会在 `x-api-key` 请求头中发送 Key，而 Capriole AI 不接受这种方式。
+- `{env:CAPRIOLE_AI_API_KEY}` 从环境变量读取你的 API Key。`Authorization` 请求头让每个包都以 Bearer Token 形式发送 Key。
 - `limit` 告诉 OpenCode 每个模型的上下文窗口和输出上限，让它能跟踪上下文并及时压缩会话。
 - `small_model` 是 OpenCode 处理会话标题等轻量任务时使用的模型。
 

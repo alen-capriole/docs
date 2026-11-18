@@ -12,20 +12,22 @@ Sie müssen angemeldet sein, um diese Einstellungen zu ändern.
 
 ## Die drei Verhaltensweisen vergleichen
 
-| Wahl in den Kontoeinstellungen | Wo die Chat-Historie liegt | Historie über Geräte hinweg | Uploads | Was nach dem Aktualisieren passiert |
-|---|---|---|---|---|
-| Beide Speicherschalter aus | Capriole-Kontohistorie | Verfügbar | Verfügbar | Der gespeicherte Thread kann wieder geöffnet werden |
-| **Lokalen Speicher aktivieren** ein | Aktuelle Browserdaten | Nicht verfügbar | Deaktiviert | Der Thread bleibt, bis Browserdaten gelöscht werden |
-| **No Storage aktivieren** ein | Nicht als Chat-Historie gespeichert | Nicht verfügbar | Deaktiviert | Die aktuelle Sitzung geht verloren |
+| Wahl in den Kontoeinstellungen | Wo die Chat-Historie liegt | Was nach dem Aktualisieren passiert |
+|---|---|---|
+| Beide Speicherschalter aus | Capriole-Kontohistorie | Der gespeicherte Thread kann wieder geöffnet werden |
+| **Lokalen Speicher aktivieren** ein | Aktuelle Browserdaten | Der Thread bleibt, bis Browserdaten gelöscht werden |
+| **No Storage aktivieren** ein | Aktuelle Sitzung | Die Sitzung endet, wenn Sie die Seite neu laden oder verlassen. |
 
-Diese Einstellungen steuern die Persistenz der Chat-Historie in Capriole. Modellanfragen laufen weiterhin über Capriole und den gewählten Inferenzanbieter. Die Einstellungen geben kein allgemeines Compliance- oder Null-Betriebsprotokoll-Versprechen.
+Der standardmäßige Kontospeicher synchronisiert Chats geräteübergreifend und unterstützt Datei-Uploads.
+
+Diese Einstellungen steuern die Persistenz der Chat-Historie in Capriole. Capriole AI leitet jede Anfrage zur Verarbeitung an den zuständigen Modellanbieter oder die zuständige Cloud-Plattform weiter.
 
 ## Die Speichereinstellungen öffnen
 
 <Steps>
 <Step title="Bei Capriole AI anmelden">
 
-Öffnen Sie [Capriole AI](https://www.capriole.ai/de) und melden Sie sich an. Die Speicherschalter ändern ihren Zustand für einen abgemeldeten Besucher nicht.
+Öffnen Sie [Capriole AI](https://www.capriole.ai/de) und melden Sie sich an.
 
 </Step>
 
@@ -44,48 +46,48 @@ Lassen Sie **No Storage aktivieren** und **Lokalen Speicher aktivieren** aus.
 
 Neue Chat-Historie wird mit Ihrem Konto gespeichert, kann über Geräte hinweg synchronisiert werden und kann gespeicherte Uploads nutzen. Wählen Sie dieses Verhalten für Arbeit, die Sie von einem anderen Browser oder Gerät wieder öffnen möchten.
 
-Wenn ein anderer Speichermodus aktiviert ist, schalten Sie ihn aus. Ein Chat, der absichtlich gelöscht oder aus Browserdaten verloren wurde, kann nicht wiederhergestellt werden, indem Sie die Einstellung zurücksetzen.
+Wenn ein anderer Speichermodus aktiviert ist, schalten Sie ihn aus.
 
 ## Historie in diesem Browser behalten
 
 Schalten Sie **Lokalen Speicher aktivieren** ein.
 
-Das aktive Speicherverhalten wechselt zur nur im Browser liegenden Historie. Unterhaltungen bleiben im aktuellen Browser verfügbar und können weiterhin in dessen Historienliste erscheinen. Sie werden nicht auf ein anderes Gerät synchronisiert, und Datei-Uploads sind deaktiviert.
+Das aktive Speicherverhalten wechselt zur nur im Browser liegenden Historie. Unterhaltungen bleiben im aktuellen Browser verfügbar und können weiterhin in dessen Historienliste erscheinen.
 
 <Warning>
-Das Löschen der Websitedaten dieses Browsers löscht die lokalen Unterhaltungen. Capriole kann eine nur im Browser liegende Historie nicht aus der Kontospeicherung wiederherstellen.
+Das Löschen der Websitedaten dieses Browsers löscht die lokalen Unterhaltungen.
 </Warning>
 
 Schalten Sie **Lokalen Speicher aktivieren** aus, um für neue Arbeit die standardmäßige, kontosynchronisierte Speicherung zu verwenden.
 
 ## Eine No-Storage-Sitzung starten
 
-<Warning>
-Das Aktivieren von No Storage löscht die gesamte Unterhaltungshistorie dauerhaft vom Server und aus diesem Browser. Lesen Sie die Bestätigung, bevor Sie fortfahren.
-</Warning>
-
 <Steps>
 <Step title="No Storage aktivieren">
 
 Schalten Sie unter **Konto** → **Einstellungen** **No Storage aktivieren** ein.
 
-Capriole öffnet einen Dialog mit dem Titel **Alle Chats löschen?**. Die Einstellung hat sich noch nicht geändert.
+Capriole öffnet einen Dialog mit dem Titel **Alle Chats löschen?**.
 
 </Step>
 
 <Step title="Das Löschen bestätigen">
 
-Wählen Sie **Löschen**, um die gespeicherte Server- und Browserhistorie zu entfernen und in den Modus No Storage zu wechseln. Wählen Sie **Abbrechen**, wenn Sie die bestehenden Unterhaltungen behalten müssen.
+<Warning>
+Wenn Sie die Löschung bestätigen, wird der gesamte Chatverlauf dauerhaft vom Server und aus diesem Browser gelöscht.
+</Warning>
 
-Nach dem Löschen verschwinden der Chat-Historie- und Suchbereich aus der Seitenleiste. **Lokalen Speicher aktivieren** ist deaktiviert, solange No Storage eingeschaltet bleibt.
+Wählen Sie **Löschen**, um No Storage zu aktivieren, oder **Abbrechen**, um Ihre Unterhaltungen zu behalten.
 
 </Step>
 
 <Step title="Den temporären Chat nutzen">
 
-Senden Sie Nachrichten, ohne Dateien anzuhängen. Die aktuelle Unterhaltung existiert für die aktive Seitensitzung und verschwindet, nachdem Sie die Seite verlassen oder aktualisieren.
+Die aktuelle Unterhaltung existiert für die aktive Seitensitzung und verschwindet, nachdem Sie die Seite verlassen oder aktualisieren.
 
-Schalten Sie **No Storage aktivieren** aus, wenn neue Chats wieder die standardmäßige, kontosynchronisierte Historie verwenden sollen. Zuvor gelöschte Unterhaltungen kehren nicht zurück.
+Schalten Sie **No Storage aktivieren** aus, wenn neue Chats wieder die standardmäßige, kontosynchronisierte Historie verwenden sollen.
+
+Um neue Chats wieder in diesem Browser zu speichern, schalten Sie zuerst **No Storage aktivieren** aus und dann **Lokalen Speicher aktivieren** ein.
 
 </Step>
 </Steps>
@@ -111,24 +113,24 @@ Kostenlose Bilderzeugung mit GPT Image 2.6, Nano Banana 2.1 und Seedream 5.5 ist
 
 ### Behält der Modus Local eine Historienliste?
 
-Ja. Der aktuelle Browser kann seine lokalen Threads auflisten, durchsuchen, umbenennen, anheften und löschen. Ein anderer Browser oder ein anderes Gerät kann sie nicht sehen.
+Ja. Der aktuelle Browser kann seine lokalen Threads auflisten, durchsuchen, umbenennen, anheften und löschen.
 
-### Kann ich im Modus Local oder No Storage eine Datei hochladen?
+### Welcher Speichermodus unterstützt Datei-Uploads?
 
-Nein. Datei-Uploads erfordern die standardmäßige, kontosynchronisierte Speicherung.
+Der standardmäßige Kontospeicher synchronisiert Chats geräteübergreifend und unterstützt Datei-Uploads.
 
-### Behält No Storage den aktuellen Chat nach einem Aktualisieren?
+### Wann endet ein temporärer Chat?
 
-Nein. Das Verlassen oder Aktualisieren der Seite beendet diese temporäre Sitzung.
+Das Verlassen oder Aktualisieren der Seite beendet diese temporäre Sitzung.
 
-### Kann ich Chats wiederherstellen, die beim Aktivieren von No Storage gelöscht wurden?
+### Wie behalte ich meine bisherigen Chats?
 
-Nein. Die Bestätigung löscht Server- und Browser-Chat-Historie dauerhaft.
+Wählen Sie im Bestätigungsdialog **Abbrechen**, um Ihre Chats zu behalten. Wenn Sie die Löschung bestätigen, wird der gesamte Chatverlauf dauerhaft vom Server und aus diesem Browser gelöscht.
 
-### Verhindern diese Einstellungen, dass der Modellanbieter eine Anfrage erhält?
+### Wer verarbeitet die Anfragen?
 
-Nein. Sie steuern die Chat-Historie im Capriole-Arbeitsbereich. Die Anfrage muss weiterhin Capriole und den gewählten Modellanbieter für die Inferenz erreichen.
+Die Speichereinstellungen bestimmen, wo Ihr Verlauf gespeichert wird. Capriole AI leitet jede Anfrage zur Verarbeitung an den zuständigen Modellanbieter oder die zuständige Cloud-Plattform weiter.
 
 ## Die Wahl in einem Arbeitsbereich behalten
 
-Capriole lässt Sie die Speichergrenze ändern, ohne KI-Produkte zu wechseln oder die Unterhaltung in einer anderen Oberfläche neu aufzubauen. [Probieren Sie die Flaggschiff-Modelle im begrenzten kostenlosen Browser-Chat](https://www.capriole.ai/de) und wechseln Sie zu Premium für unbegrenzten Browser-Chat und den vollständigen Arbeitsbereich.
+Capriole lässt Sie die Speichergrenze ändern, ohne KI-Produkte zu wechseln oder die Unterhaltung in einer anderen Oberfläche neu aufzubauen. [Probieren Sie die Flaggschiff-Modelle im kostenlosen Browser-Chat](https://www.capriole.ai/de) und wechseln Sie zu Premium für unbegrenzten Browser-Chat und den vollständigen Arbeitsbereich.

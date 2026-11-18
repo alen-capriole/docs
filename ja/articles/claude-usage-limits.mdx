@@ -42,12 +42,12 @@ Anthropic は、枠を多く使う要因として次を挙げています。
 
 Fable 5.1 には独自のルールがあります。Pro では、Fable 5 と Fable 5.1 はプランの使用制限に含まれないため、Fable のメッセージはすべて標準の API 料金で請求される利用クレジットで動きます。Max と Ultra では、Fable モデルは追加料金なしで週間制限の最大 50% まで使えます。
 
-## 制限に達したときの Anthropic の推奨
+## Anthropic の利用上限の仕組み
 
-1. **リセットを待つ。** セッション制限は 5 時間ごとにリセットされ、**Settings** → **Usage** でリセット時刻を確認できます。
-2. **アップグレードする。** Anthropic は、Max を頻繁に使うユーザー向け、Ultra を最も長いタスク向けとしています。新しいプランの制限はすぐに適用されます。
-3. **利用クレジットをオンにする。** 制限に達したあとも、標準の API 料金で請求されるクレジットで作業を続けられます。月ごとの支出上限も設定できます。
-4. **メッセージあたりの使用量を減らす。** 長い会話を続けずに新しい会話を始め、エフォート レベルを下げ、拡張思考と不要なツールをオフにし、プロジェクトの指示を短くします。
+1. **リセット周期。** セッション制限は 5 時間ごとにリセットされ、**Settings** → **Usage** でリセット時刻を確認できます。
+2. **プラン変更。** Anthropic は、Max を頻繁に使うユーザー向け、Ultra を最も長いタスク向けとしています。新しいプランの制限はすぐに適用されます。
+3. **利用クレジット。** 制限に達したあとも、標準の API 料金で請求されるクレジットで作業を続けられます。月ごとの支出上限も設定できます。
+4. **メッセージごとの使用量。** 会話の長さ、推論の強度、拡張思考やツールの使用、プロジェクトの指示の長さによって、メッセージごとに消費する Claude の利用枠が変わります。
 
 Claude Code の応答の途中で 5 時間の制限に達した場合、Claude Code は現在のステップを終えてから停止することがあります。Pro では、これは週間の使用期間ごとに最大 1 回です。
 
@@ -55,15 +55,15 @@ Claude Code の応答の途中で 5 時間の制限に達した場合、Claude C
 
 Capriole AI Premium は月額 USD 9 で、Claude Fable 5.1、Claude Opus 5.5、GPT-6.2 Astra、Gemini 4 Carbon を含むすべての対応モデルでウェブチャットが無制限です。
 
-Capriole AI のウェブチャットには、5 時間のセッション制限も週間制限もなく、あるのは 1 アカウントあたり 1 日 200 メッセージのフェアユース上限だけです。
+ウェブチャットには 5 時間ごとや週ごとの上限はありません。自動化による不正利用を防ぐため、フェアユース上限を 1 アカウントにつき 1 日 200 メッセージとしています。
 
-Fable 5.1 に利用クレジットは不要です。すべてのモデルが同じ無制限のウェブチャットに含まれ、[会話の途中でモデルを切り替え](/ja/articles/switch-models-mid-chat)られます。たとえば、難しいステップだけ Claude Opus 5.5 から Claude Fable 5.1 に切り替えても、最初からやり直す必要はありません。
+すべてのモデルが同じ無制限のウェブチャットに含まれ、[会話の途中でモデルを切り替え](/ja/articles/switch-models-mid-chat)られます。たとえば、難しいステップだけ Claude Opus 5.5 から Claude Fable 5.1 に切り替えても、最初からやり直す必要はありません。
 
 Premium には、GPT Image 2.6・Nano Banana 2.1・Seedream 5.5 による無料の画像生成、ファイルとウェブ検索、プロジェクト、チャットのエクスポート、パーソナライズ、ストレージ制御も含まれます。
 
 ## コーディング エージェントを多用するなら API を使う
 
-無制限のウェブチャットは、コーディング エージェントには適用されません。Claude Code などのエージェントには、Capriole AI の API キーを使ってください。エージェントのリクエストは、公式 API 価格より最大 92% 安い従量制の API 残高から引かれます。
+Claude Code などのエージェントには、Capriole AI の API キーを使ってください。エージェントのリクエストは、公式 API 価格より最大 92% 安い従量制の API 残高から引かれます。
 
 | モデル | 公式 API 料金（100 万トークンあたり、入力 / 出力） | Capriole AI の個人向け API チャージ |
 |---|---|---|
@@ -77,10 +77,6 @@ Claude Code は、Capriole AI の Anthropic Messages エンドポイントで接
 
 Claude Max と Ultra には毎月の API クレジットが含まれますが、[Anthropic によると](https://support.claude.com/en/articles/17154008-monthly-api-credits-for-max-ultra-and-team-plans)、対話型の Claude Code セッションや、プランの制限に達した後の追加使用には使えません。
 
-## 手放すもの
-
-Capriole AI は独立したワークスペースで、Anthropic とは提携していません。Claude アプリでもありません。Artifacts、コネクタ、メモリ、Claude in Chrome、Claude のデスクトップ アプリとモバイル アプリなど、Anthropic の製品にしかない機能は Capriole AI にはありません。Claude Code は、上記の API ルートで引き続き使えます。
-
 ## よくある質問
 
 <AccordionGroup>
@@ -93,11 +89,11 @@ Capriole AI は独立したワークスペースで、Anthropic とは提携し�
   <Accordion title="Claude Fable 5.1 は Claude Pro に含まれますか？">
     Pro の使用制限には含まれません。Anthropic は Pro での Fable 5.1 を、標準の API 料金で利用クレジットから請求します。Max と Ultra では、Fable モデルは週間制限の最大 50% まで使えます。Capriole AI Premium なら、Fable 5.1 は月額 USD 9 の無制限ウェブチャットに含まれます。
   </Accordion>
-  <Accordion title="1 日 200 メッセージで足りますか？">
-    人が使う分には足ります。この上限は、スクリプトによる自動化された乱用を防ぐためのものです。実際のユーザーで最も多い人でも、1 日に送ったのは 132 メッセージです。
+  <Accordion title="200 メッセージのフェアユース枠はいつリセットされますか？">
+    利用枠は毎日 00:00 UTC にリセットされます。自動化による不正利用を防ぐため、ログイン済みの各アカウントには 1 日 200 メッセージのフェアユース上限があります。この比較の執筆時点で、個人の 1 日の利用実績は最大 132 メッセージでした。
   </Accordion>
   <Accordion title="Capriole AI で Claude Code を使えますか？">
-    はい。Premium または Team の Capriole AI API キーで使えます。Claude Code のリクエストは、無制限のウェブチャットではなく従量制の API 残高を使います。[Claude Code のセットアップ](/ja/integrations/claude-code)をご覧ください。
+    はい。コーディングエージェントは Premium または Team の Capriole AI API キーを使い、利用量に応じて API トークン残高を消費します。[Claude Code のセットアップ](/ja/integrations/claude-code)をご覧ください。
   </Accordion>
 </AccordionGroup>
 
@@ -111,6 +107,8 @@ Capriole AI は独立したワークスペースで、Anthropic とは提携し�
     無制限のウェブチャットと Claude Code 用の API キーが月額 USD 9。
   </Card>
 </CardGroup>
+
+Capriole AI は、Anthropic から独立して運営されているワークスペースです。
 
 ## 公式ソース
 

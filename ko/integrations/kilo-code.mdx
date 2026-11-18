@@ -185,7 +185,7 @@ Kilo CLI 7.8.15 버전은 아래 구성으로 지원 모델 섹션의 모든 모
 
 - `npm: "@ai-sdk/openai-compatible"`은 제공자의 기본 패키지이므로 Gemini, Grok, GLM, Kimi는 Chat Completions를 사용합니다.
 - 각 GPT 모델은 `provider.npm`을 Responses API를 사용하는 `@ai-sdk/openai`로 재정의합니다. 각 Claude 모델은 Anthropic Messages를 사용하는 `@ai-sdk/anthropic`으로 재정의합니다.
-- `{env:CAPRIOLE_AI_API_KEY}`는 환경 변수에서 키를 읽습니다. `Authorization` 헤더는 모든 패키지에서 키를 Bearer 토큰으로 보냅니다. 이 헤더가 없으면 Anthropic 패키지가 키를 `x-api-key` 헤더로 보내는데, Capriole AI는 이를 받지 않습니다.
+- `{env:CAPRIOLE_AI_API_KEY}`는 환경 변수에서 키를 읽습니다. `Authorization` 헤더는 모든 패키지에서 키를 Bearer 토큰으로 보냅니다.
 - `tool_call: true`는 모델이 Kilo의 도구를 호출할 수 있게 합니다.
 - `limit`은 각 모델의 컨텍스트 창과 출력 한도를 설정합니다. 이 값이 없으면 Kilo는 두 값을 모두 `0`으로 처리해 긴 세션을 압축하지 않습니다.
 
@@ -255,7 +255,7 @@ kilo run -m capriole-ai/claude-latest "Explain this repository."
 
 ## 참고
 
-- Kilo Code는 사용자 컴퓨터에서 코딩 도구를 실행합니다. Capriole AI는 모델 요청만 처리합니다.
+- Kilo Code는 로컬에서 코딩 도구를 실행하며, 모델 요청은 Capriole AI가 처리합니다.
 - 다른 Capriole AI 모델을 추가하려면 같은 계열 모델의 항목을 복사하고 ID를 바꾸세요. `GET https://api.caprioletech.com/v1/models`는 모든 모델 ID를 나열합니다.
 - Gemini 4 Carbon은 Gemini 4 Argon보다 오래 추론하므로 턴마다 시간이 더 걸리고 토큰도 더 쓸 수 있습니다. 더 빠른 응답이 필요하면 `google/gemini-4-argon`을 사용하세요.
 - 같은 키를 다른 코딩 에이전트에서도 쓰려면 [코딩 에이전트에 API 키 하나 사용하기](/ko/guides/one-api-key-coding-agents) 가이드를 참고하세요.

@@ -25,7 +25,7 @@ Poe는 무제한 웹 채팅과 잔액이 보이는 포함 API를 따로 나누�
 
 ## Capriole이 더 나은 일상 작업 공간인 이유
 
-Capriole은 봇 마켓플레이스가 아니라 완전한 작업 계정에서 시작합니다. 로그인하지 않은 방문자와 Free 사용자는 제한된 웹 채팅에서 지원 플래그십 모델을 써 볼 수 있습니다. Premium은 여러 제공자 계정을 관리하라고 요구하지 않고 무제한 웹 채팅, 월간 API 허용량, 유지 중인 외부 도구 경로를 추가합니다.
+Capriole은 봇 마켓플레이스가 아니라 완전한 작업 계정에서 시작합니다. 로그인하지 않은 방문자와 Free 사용자는 무료 웹 채팅에서 지원 플래그십 모델을 써 볼 수 있습니다. Premium은 여러 제공자 계정을 관리하라고 요구하지 않고 무제한 웹 채팅, 월간 API 허용량, 유지 중인 외부 도구 경로를 추가합니다.
 
 파일, 웹 검색, 기록, 모델 전환은 한 인터페이스에 남습니다. 작업은 웹 채팅의 문서로 시작해, 같은 스레드에서 다른 지원 모델로 이어가고, 같은 Capriole 계정을 통해 애플리케이션이나 코딩 에이전트로 이동할 수 있습니다.
 
@@ -49,29 +49,27 @@ Capriole은 이미 OpenAI Chat Completions, OpenAI Responses 또는 Anthropic Me
 
 코딩 에이전트에 Capriole은 [설정 경로 10개](/ko/articles/coding-agent-compatibility)를 유지합니다. 에이전트는 자체 도구를 로컬에서 계속 실행합니다. Capriole은 지원 모델 프로토콜과 계정 잔액을 제공합니다.
 
-Poe는 Chat Completions 및 Responses 엔드포인트와 Claude 모델용 Anthropic Messages 엔드포인트를 노출합니다. Claude Code와 여러 OpenAI 호환 코딩 클라이언트의 설정 문서도 게시합니다. 따라서 프로토콜 가용성만으로 Capriole을 선택하는 이유는 아닙니다.
+Poe는 Chat Completions 및 Responses 엔드포인트와 Claude 모델용 Anthropic Messages 엔드포인트를 노출합니다. Claude Code와 여러 OpenAI 호환 코딩 클라이언트의 설정 문서도 게시합니다.
 
 Capriole의 차이는 그 개발자 경로를 둘러싼 완전한 USD 9 번들입니다. 무제한 Premium 웹 채팅, 월 500만 과금 API 토큰, Capriole이 유지하는 코딩 에이전트 10개의 설정 가이드, 명시적 작업 공간 저장 컨트롤입니다. Poe는 자격 있는 채팅과 API 활동에 같은 포인트 잔액을 사용하므로, 빈번한 웹 채팅과 코딩 에이전트 작업이 같은 측정 시스템에서 가져갑니다.
 
 ## Capriole에서 저장 컨트롤은 계속 보입니다
 
-Capriole은 채팅 기록 지속성을 Account 설정에 바로 둡니다. Synced 모드는 계정 기록을 저장합니다. Local 모드는 현재 브라우저에 기록을 둡니다. No Storage 모드는 저장된 채팅 기록을 유지하지 않습니다. [채팅 저장 가이드](/ko/guides/chat-storage)는 보이는 설정, 삭제 단계, 그 선택에 따르는 업로드 제한을 다룹니다.
+Capriole은 채팅 기록 지속성을 Account 설정에 바로 둡니다. Synced 모드는 계정 기록을 저장합니다. Local 모드는 현재 브라우저에 기록을 둡니다. No Storage 모드는 저장된 채팅 기록을 유지하지 않습니다. [채팅 저장 가이드](/ko/guides/chat-storage)에서 파일 업로드에 사용하는 기본 동기화 모드를 선택하는 방법을 확인하세요.
 
-Local 및 No Storage 모드는 프롬프트가 Capriole 서비스와 선택한 모델 제공자를 거치는 것을 막지 않습니다. 작업 공간 안의 채팅 기록 지속성을 제어합니다.
+저장 설정에서 기록을 보관할 위치를 정합니다. 각 요청은 Capriole AI를 거쳐 처리를 담당하는 모델 제공업체나 클라우드 플랫폼으로 전달됩니다.
 
 ## 크리에이터 마켓플레이스는 다른 구매입니다
 
 Poe는 봇 탐색, 게시, Canvas 앱을 중심에 둡니다. Capriole은 사용자 자신의 작업을 중심에 둡니다. 최첨단 모델 접근을 사는 사람에게 Capriole AI는 무제한 웹 채팅, 보이는 API 허용량, 코딩 에이전트 통합, 저장 컨트롤을 하나의 플랜에 담아 제공합니다.
 
-## Poe가 더 잘 맞는 경우
-
-봇을 만들거나 게시하고, Canvas 앱을 쓰거나, 채팅과 API에 포인트 잔액 하나를 함께 쓰고 싶다면 Poe가 더 잘 맞습니다.
-
 ## 워크플로를 Capriole로 가져오기
 
 지원 최첨단 모델, 무제한 Premium 웹 채팅, 명확한 월간 API 허용량, 문서화된 에이전트 경로 10개, 저장 컨트롤을 하나의 계정에서 원하면 Capriole을 선택하세요.
 
-[제한된 무료 웹 채팅을 써 보거나](https://www.capriole.ai/ko) [USD 9 Premium으로 업그레이드해 무제한 채팅과 API 키를 받으세요](https://www.capriole.ai/ko?view=api). [저장 가이드](/ko/guides/chat-storage)는 같은 Capriole 작업 공간이 기록을 유지하는 방식을 보여 줍니다.
+[무료 웹 채팅을 써 보거나](https://www.capriole.ai/ko) [USD 9 Premium으로 업그레이드해 무제한 채팅과 API 키를 받으세요](https://www.capriole.ai/ko?view=api). [저장 가이드](/ko/guides/chat-storage)는 같은 Capriole 작업 공간이 기록을 유지하는 방식을 보여 줍니다.
+
+Capriole AI는 독립적인 워크스페이스이며 Poe 소속이 아닙니다.
 
 ## 공식 출처
 

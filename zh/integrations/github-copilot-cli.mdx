@@ -76,7 +76,7 @@ export COPILOT_PROVIDER_WIRE_MODEL="claude-latest"
 
 如需使用 Opus 5.5，请设置 `COPILOT_PROVIDER_WIRE_MODEL="claude-opus-5-5"`。
 
-- `COPILOT_PROVIDER_BEARER_TOKEN` 以 Bearer Token 形式发送 Key。`COPILOT_PROVIDER_API_KEY` 会在 `x-api-key` 请求头中发送 Key，而 Capriole AI 不接受这种方式。
+- `COPILOT_PROVIDER_BEARER_TOKEN` 以 Bearer Token 形式发送 Key。
 - Base URL 不含 `/v1`，因为 Copilot 会自行添加 `/v1/messages`。
 - 保持 `COPILOT_PROVIDER_MODEL_ID="claude-opus-4.6"`。如果使用 `claude-sonnet-4` 等较旧的模型配置，Copilot 会发送思考预算，Opus 5.5 会以 `requires adaptive thinking` 拒绝请求。
 
@@ -155,7 +155,7 @@ copilot -p "Explain this repository." --allow-all-tools
 
 ## 说明
 
-- Copilot CLI 在你的电脑上运行编程工具。Capriole AI 只处理模型请求。
+- Copilot CLI在你的电脑上运行编程工具，Capriole AI 负责处理模型请求。
 - 运行 `copilot help providers` 可以查看所有 BYOK 环境变量。
 - Gemini 4 Carbon 的思考时间比 Gemini 4 Argon 长，每一轮可能更慢、用的 token 更多。想要更快的回应，请使用 `google/gemini-4-argon`。
 - 想在其他编程智能体中使用同一个 API Key，请参阅[使用一个 API Key 配置编程智能体](/zh/guides/one-api-key-coding-agents)。

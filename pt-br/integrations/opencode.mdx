@@ -175,7 +175,7 @@ O que cada configuração faz:
 
 - `package: "@opencode/ai/providers/openai-compatible"` é o pacote padrão do provedor, então Gemini, Grok, GLM e Kimi usam Chat Completions.
 - Cada modelo GPT substitui `package` por `@opencode/ai/providers/openai-compatible/responses`, que usa a API Responses. Cada modelo Claude o substitui por `@opencode/ai/providers/anthropic-compatible`, que usa Anthropic Messages.
-- `env` indica a variável que guarda sua key. O cabeçalho `Authorization` envia a key como Bearer token em todos os pacotes. Sem ele, o pacote Anthropic envia a key em um cabeçalho `x-api-key`, que a Capriole AI não aceita.
+- `env` indica a variável que guarda sua key. O cabeçalho `Authorization` envia a key como Bearer token em todos os pacotes.
 - `reasoningEffort` dá a cada modelo GPT um nível de raciocínio padrão. Sem ele, os modelos GPT respondem sem raciocinar.
 - `baseURL` inclui `/v1` em todos os pacotes. `limit` informa ao OpenCode a janela de contexto e o limite de saída de cada modelo.
 - `agents.title` define o modelo que o OpenCode usa para títulos de sessão.
@@ -314,7 +314,7 @@ O que cada configuração faz:
 - `npm: "@ai-sdk/openai-compatible"` é o pacote padrão do provedor, então Gemini, Grok, GLM e Kimi usam Chat Completions.
 - Cada modelo GPT substitui `provider.npm` por `@ai-sdk/openai`, que usa a API Responses. Cada modelo Claude o substitui por `@ai-sdk/anthropic`, que usa Anthropic Messages.
 - `baseURL` inclui `/v1` em todos os pacotes.
-- `{env:CAPRIOLE_AI_API_KEY}` lê sua key do ambiente. O cabeçalho `Authorization` a envia como Bearer token em todos os pacotes. Sem ele, o pacote Anthropic envia a key em um cabeçalho `x-api-key`, que a Capriole AI não aceita.
+- `{env:CAPRIOLE_AI_API_KEY}` lê sua key do ambiente. O cabeçalho `Authorization` a envia como Bearer token em todos os pacotes.
 - `limit` informa ao OpenCode a janela de contexto e o limite de saída de cada modelo, para que ele acompanhe o contexto e compacte a sessão a tempo.
 - `small_model` é o modelo que o OpenCode usa para tarefas leves, como títulos de sessão.
 

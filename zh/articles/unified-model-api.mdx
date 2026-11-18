@@ -14,7 +14,7 @@ Capriole 维护三条公共路径：OpenAI Responses、兼容 OpenAI 的 Chat Co
 
 一份 USD 9 Premium 会员覆盖受支持 Premium 模型范围内的无限浏览器聊天、每月 500 万 API 计费 token 和 10 条有文档说明的编程智能体路径。应用继续使用原有协议，用户则只需管理一个 Capriole 账户、密钥、余额和账单页面。
 
-相较于分别组装多个提供商账户，这是一项实际优势。[带日期的成本对比](/zh/articles/ai-api-cost-comparison)还显示，Capriole 提供的每个受测模型均为 USD 9。在同样 500 万 token 的工作负载下，采用官方直连付费 Standard 定价时，成本在 USD 6.75 至 USD 90 之间。通过 OpenRouter 并计入其公开充值手续费后，成本则在 USD 7.55 至 USD 94.95 之间。当前旗舰模型的官方价格与 Capriole 每 500 万 token USD 8 的对比，见 [Claude API 价格](/zh/articles/claude-api-pricing)、[OpenAI API 价格](/zh/articles/openai-api-pricing)和 [Gemini API 价格](/zh/articles/gemini-api-pricing)。在这个例子中，Gemini 3.8 Flash 用官方直连或 OpenRouter 更便宜。
+相较于分别组装多个提供商账户，这是一项实际优势。[带日期的成本对比](/zh/articles/ai-api-cost-comparison)采用个人 Premium 每月 USD 9 的订阅价，其中包含 5,000,000 个 API token。在同样 500 万 token 的工作负载下，采用官方直连付费 Standard 定价时，成本在 USD 6.75 至 USD 90 之间。通过 OpenRouter 并计入其公开充值手续费后，成本则在 USD 7.55 至 USD 94.95 之间。个人 Premium 加购 5,000,000 个 token 的单包价格为 USD 8。各旗舰模型的官方费率见 [Claude API 价格](/zh/articles/claude-api-pricing)、[OpenAI API 价格](/zh/articles/openai-api-pricing)和 [Gemini API 价格](/zh/articles/gemini-api-pricing)。
 
 ## 公共路径
 
@@ -46,9 +46,7 @@ OpenAI Responses 用带类型的事件和条目（items）表达输出。Anthrop
 
 例如，Responses 路径接受持续维护的 OpenAI 别名和受支持的兼容 Responses 的 OpenAI 模型，也接受带 `xai/` 前缀发送的 Grok 模型。Messages 路径接受持续维护的 Claude 别名和受支持的 Claude Messages 模型 ID。兼容聊天路径则可以提供范围更广的公共聊天模型。
 
-模型不适用于所选路由时，请求应当验证失败。Capriole 不会把已经停用且不受支持的旧模型 ID 悄悄映射到其他模型。
-
-明确失败比返回调用方没有请求的模型答案更安全。
+每个路由都会在转发前校验模型 ID。若 ID 不符合该端点的要求，客户端会收到校验错误，可更正模型或端点后重试。
 
 ## latest 别名与可复现 ID
 
@@ -58,13 +56,13 @@ Capriole 在支持它们的公共路径上提供 `openai-latest`、`claude-lates
 
 希望 Capriole 的持续维护默认值随受支持版本更新时，可以使用别名。如果精确版本属于结果的一部分且必须可复现，则应使用具体的模型 ID。
 
-[列出模型端点](/zh/api-reference/endpoint/get)提供当前公开清单。不要假定浏览器聊天中出现的模型会自动适用于每一种 API 协议。
+[列出模型端点](/zh/api-reference/endpoint/get)提供当前公开清单。
 
 ## 回退只在响应开始前发生
 
 对于受支持的路由，如果第一个来源在发送任何响应字节前失败，Capriole 可以尝试另一个已配置来源。
 
-流式响应开始后再切换来源，可能产生重复或互相矛盾的输出。因此，自动回退只会在输出开始前运行。它无法掩盖所有提供商故障，也不能在响应进行到一半时更换模型。
+流式响应开始后，来源保持不变。
 
 通过受支持的来源回退时，请求的模型 ID 保持不变。Capriole 更改的是交付来源，不会改变用户明确选择的模型。
 
@@ -74,7 +72,7 @@ Capriole 在支持它们的公共路径上提供 `openai-latest`、`claude-lates
 
 程序化工作负载会被计量。Capriole 根据对应协议提供的元数据记录用量，在可获得用量信息时也包括已经完成的流式响应。
 
-Premium 当前每月包含 **500 万 API 计费 token**。对于这份余额，Capriole 按 100% 计算未缓存输入和输出，按 10% 计算缓存输入。还可以通过充值购买额外 token 包。Premium 的无限部分适用于受支持 Premium 模型范围内的浏览器聊天，不适用于 API 或编程智能体流量。
+Premium 当前每月包含 **5,000,000 API 计费 token**。对于这份余额，Capriole 按 100% 计算未缓存输入和输出，按 10% 计算缓存输入。还可以通过充值购买额外 token 包。
 
 [计费 token 文章](/zh/articles/charged-tokens)提供准确公式、取整规则和可复现示例。
 
@@ -107,13 +105,12 @@ Premium 当前每月包含 **500 万 API 计费 token**。对于这份余额，C
 | Anthropic Messages | 非流式输出、Anthropic SSE、`tool_use`、`tool_result` 和 `claude-latest` | 仅限 Claude Messages 模型 |
 | latest 别名 | 端点准入检查、规范模型解析、规范模型用量记录和具有代表性的客户端运行 | 别名只是输入选择器，不会创建独立的用量模型 |
 | 网页聊天中的文件 | 对图片、PDF、文本、DOCX、PPTX、CSV、XLS 和 XLSX 进行文件类型检测、转换和模型请求体组装 | 这项证据属于网页聊天工作区 |
-| 通过公共 API 处理文件 | 没有公开的跨协议通过记录 | Capriole 不宣称 Responses、Chat Completions 和 Messages 共享一种通用文件约定 |
 
 流式检查会读取完整响应，并要求出现各协议自己的结束事件。Responses 以自己的完成事件结束，Chat Completions 到达 `[DONE]`，Messages 则到达 `message_stop`。工具测试会把工具结果发回，并要求返回最终的 assistant 回合。
 
-反向测试让协议边界保持可见。`google-latest` 在 Responses 上会失败，`openai-latest` 在 Messages 上也会失败。Capriole 不会把任何一个请求转移到其他端点。
+校验测试会检查每个端点对应的模型别名。`google-latest` 用于 Chat Completions，`openai-latest` 用于 Responses 或 Chat Completions。
 
-公共 API 的文件支持有单独的发布门槛。每条候选路由都要用同一组小型图片、PDF、CSV 和 DOCX 测试文件通过针对内容的回答测试，在支持流式时重复一次，并记录准确的 SDK、模型 ID、请求结构和测试日期。这些实时测试通过前，公共 API 文档会继续沿用每种原生协议支持的文件格式，不会宣传 Capriole 共享的附件字段。
+在浏览器聊天中上传附件时，可查阅[支持的文件类型和上传步骤](/zh/guides/files-web-search)。
 
 ## 从现有客户端开始
 
@@ -121,4 +118,4 @@ Premium 当前每月包含 **500 万 API 计费 token**。对于这份余额，C
 
 第一次请求可从 [API 快速入门](/zh/quickstart)开始。Python 开发者可以参阅 [OpenAI 与 Anthropic SDK 指南](/zh/guides/openai-anthropic-sdks)。编程智能体用户可以在[一个 API 连接编程智能体](/zh/articles/coding-agent-compatibility)中查看持续维护的客户端矩阵。[LLM 网关安全风险](/zh/articles/llm-gateway-security)列出了通过任何网关发送代码之前需要检查的事项。
 
-Capriole 的职责是减少账户和访问层的碎片，同时保留客户端实际使用的协议。[在有限的免费浏览器聊天中试用受支持的旗舰模型](https://www.capriole.ai/zh)，再[升级到每月 USD 9 的 Premium 并创建 API Key](https://www.capriole.ai/zh?view=api)。
+Capriole 的职责是减少账户和访问层的碎片，同时保留客户端实际使用的协议。[在免费浏览器聊天中试用受支持的旗舰模型](https://www.capriole.ai/zh)，再[升级到每月 USD 9 的 Premium 并创建 API Key](https://www.capriole.ai/zh?view=api)。

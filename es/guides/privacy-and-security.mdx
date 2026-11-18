@@ -16,11 +16,13 @@ Aun así, cada solicitud llega al proveedor del modelo de IA que la responde: Op
 
 ## Elige dónde se guarda el historial de chat
 
-| Modo de almacenamiento | Dónde se guarda el historial de chat | Se sincroniza entre dispositivos | Subidas y creación de imágenes | Cómo elegirlo |
-|---|---|---|---|---|
-| **Server Storage** (predeterminado) | Tu cuenta, en los servidores de Capriole AI | Sí | Disponibles | Deja desactivados los dos interruptores de almacenamiento |
-| **Local Storage** | Tu navegador, no nuestra base de datos | No | Desactivadas | Activa el interruptor **Activar almacenamiento local** |
-| **No Storage** | No se guarda | No | Desactivadas | Activa el interruptor **Activar No Storage** |
+| Modo de almacenamiento | Dónde se guarda el historial de chat | Cómo elegirlo |
+|---|---|---|
+| **Server Storage** (predeterminado) | Tu cuenta, en los servidores de Capriole AI | Deja desactivados los dos interruptores de almacenamiento |
+| **Local Storage** | Tu navegador, no nuestra base de datos | Activa el interruptor **Activar almacenamiento local** |
+| **No Storage** | No se guarda | Activa el interruptor **Activar No Storage** |
+
+Usa Server Storage para sincronizar chats entre dispositivos, subir archivos y crear imágenes.
 
 Los dos interruptores están en **Cuenta** → **Ajustes**. En todos los modos, tus mensajes pasan por nuestros servidores hasta el modelo que los responde, y Capriole AI guarda un registro de uso. La [guía de almacenamiento del chat](/es/guides/chat-storage) explica cada modo paso a paso.
 
@@ -44,11 +46,11 @@ Los chats de invitado no se guardan en nuestros servidores. Queda una copia en l
 
 ## Qué guarda la API
 
-La API no guarda el contenido de las solicitudes ni de las respuestas, así que no hay historial de conversaciones de la API. Capriole AI guarda tus claves API y un registro de uso de cada solicitud para la cuota, la facturación y el soporte. La personalización de tu cuenta no se aplica a la API.
+La API no almacena el contenido de las solicitudes ni de las respuestas. Capriole AI guarda claves de API y registros de uso para gestionar cuotas, facturación y soporte. Puedes personalizar las respuestas en el chat web.
 
 ## Seguridad
 
-Capriole AI usa conexiones cifradas, almacenamiento privado de archivos y acceso limitado del personal. Ningún sistema es perfectamente seguro.
+Capriole AI usa conexiones cifradas, almacenamiento privado de archivos y acceso limitado del personal.
 
 Nuestros servidores principales y nuestra base de datos están en India. Nuestros proveedores procesan datos en otros países, incluido Estados Unidos.
 
@@ -77,7 +79,7 @@ Eliminar un chat, todo el historial de chat o un proyecto lo borra de forma perm
 | Proveedores de infraestructura | Las solicitudes en camino a los proveedores de modelos |
 | Proveedores de búsqueda, como Tavily | Las consultas de búsqueda que hace un modelo |
 | Un proveedor de datos meteorológicos | El lugar por el que preguntas, o tu dirección IP si no indicas ninguno |
-| Proveedores de servicios | Amazon Web Services (servidores, base de datos, archivos), Vercel (alojamiento del sitio web y analítica), Clerk (inicio de sesión), Stripe (pagos web), Apple, Google Play y RevenueCat (compras en las apps), Resend y Brevo (correo) y herramientas de monitoreo de errores |
+| Proveedores de servicios | Amazon Web Services (servidores, base de datos, archivos), Vercel (alojamiento del sitio web y analítica), Clerk (inicio de sesión), Stripe (pagos web), Apple, Google Play y RevenueCat (compras), Resend y Brevo (correo) y herramientas de monitoreo de errores |
 | Google y LinkedIn | Visitas al sitio web y resultados de anuncios, mediante etiquetas en nuestro sitio web |
 | Los propietarios y administradores de tu [Team](/es/guides/team-plan) | Tu correo, tu rol y tu uso de la API de Team |
 

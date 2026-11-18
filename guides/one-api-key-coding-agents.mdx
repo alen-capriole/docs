@@ -98,7 +98,7 @@ Start with a maintained alias unless you need an exact model version:
 - use `claude-latest` on Anthropic Messages paths, or `claude-fable-5-1` in Claude Code;
 - use a model listed by the integration page on Chat Completions-compatible paths.
 
-The [current model catalog](/api-reference/endpoint/get) lists public API models. A browser-chat model is not automatically valid on every API protocol.
+The [current model catalog](/api-reference/endpoint/get) lists public API models.
 
 </Step>
 
@@ -114,8 +114,6 @@ Look for a non-empty answer, ideally the requested `CAPRIOLE_OK` marker. Models 
 
 Then open the [API page](https://www.capriole.ai/?view=api) and confirm that the request appears in the usage view under the expected key and model. The usage record is the decisive check that the client used Capriole. A response alone is not enough when the client has another provider or fallback configured. The [API keys and usage guide](/guides/api-keys-usage) shows the exact filters and key lifecycle.
 
-This check does not test every tool or model feature.
-
 </Step>
 </Steps>
 
@@ -129,7 +127,7 @@ This check does not test every tool or model feature.
 | Model | The client accepts the configured latest alias or concrete ID |
 | Usage | The request appears in the API usage view as metered API traffic |
 
-Coding-agent requests use the eligible personal or [Team API balance](/guides/team-plan). They are not part of unlimited paid browser chat. Read [Capriole AI charged tokens](/articles/charged-tokens) before running a large automated workload.
+Coding-agent requests use the eligible personal or [Team API balance](/guides/team-plan). Read [Capriole AI charged tokens](/articles/charged-tokens) before running a large automated workload.
 
 ## Fix common setup failures
 
@@ -145,4 +143,4 @@ Coding-agent requests use the eligible personal or [Team API balance](/guides/te
 
 Read [the coding-agent compatibility article](/articles/coding-agent-compatibility) when you need the model behind these routes. For direct application code, continue with the [OpenAI and Anthropic SDK guide](/guides/openai-anthropic-sdks). [LLM gateway security risks](/articles/llm-gateway-security) lists what to check before an agent sends your source code. If your agent is not one of these 10, [connect it through a custom endpoint](/integrations/more-agents).
 
-[Try the current flagship models in limited free browser chat](https://www.capriole.ai/), then upgrade to Premium when you are ready to create the API key used by your coding agents.
+[Try the current flagship models in free browser chat](https://www.capriole.ai/), then upgrade to Premium when you are ready to create the API key used by your coding agents.

@@ -21,7 +21,7 @@ charged_tokens =
   + output_tokens
 ```
 
-Wenn der Anbieter keine gecachte Eingabe meldet, zählen alle Eingabe-Tokens zu 100%. Capriole leitet keinen Cache-Treffer ab, den die Nutzungsmetadaten nicht melden.
+Wenn der Anbieter keine gecachte Eingabe meldet, zählen alle Eingabe-Tokens zu 100%.
 
 | Protokoll | Normalisierte Eingabe | Gecachte Teilmenge |
 |---|---|---|
@@ -83,9 +83,7 @@ Der [datierte API-Kostenvergleich](/de/articles/ai-api-cost-comparison) wendet d
 
 Das enthaltene Kontingent wird vor dem passenden persönlichen oder Team-Aufstockungsguthaben verbraucht. Gekaufte Aufstockungsguthaben bleiben über monatliche Kontingentzeiträume und Lücken im bezahlten Zugang bestehen; ihr Verbrauch erfordert weiterhin berechtigten aktiven bezahlten Zugang. Browser-Chat ist von der API-Abrechnung getrennt; Coding-Agents zählen als API-Traffic und ziehen abgerechnete Tokens ab.
 
-Die monatlichen 5 Millionen sind Teil der Premium-Mitgliedschaft für USD 9 mit dem vollständigen Arbeitsbereich. Es ist kein unbegrenzter API-Plan und sollte nicht als eigenständiger API-Preis dargestellt werden.
-
-Aufstockungen erweitern die programmatische Nutzung. Sie ändern nicht das Browser-Chat-Kontingent, die Modellkompatibilität oder die Anforderung eines berechtigten aktiven persönlichen oder Team-Zugangs.
+Das Premium-Abo für USD 9 umfasst monatlich 5 Millionen abrechenbare API-Tokens.
 
 ## Was die API erfasst
 
@@ -111,7 +109,7 @@ Die Responses-, Chat-Completions- und Messages-Endpunkte bewahren ihre Upstream-
 | **Abgerechnete Tokens** | Nach Anwendung der Formel für gecachte Eingabe abgezogenes Kontingent |
 | **Tokens gesamt** | Protokollnormalisierte Eingabe plus Ausgabe |
 
-Ein positiver Wert für gecachte Tokens bestätigt, dass kompatible Anbieternutzungsmetadaten einen Cache-Treffer gemeldet haben. Er beweist nicht, dass jede wiederholte Anfrage denselben Anbieter-Cache trifft. Anbieterrouting, Cache-Lebensdauer, Anfragestruktur und Modellverhalten können das Ergebnis ändern.
+Ein positiver Wert für gecachte Tokens bestätigt, dass kompatible Anbieternutzungsmetadaten einen Cache-Treffer gemeldet haben. Anbieterrouting, Cache-Lebensdauer, Anfragestruktur und Modellverhalten können das Ergebnis ändern.
 
 API-Antworten behalten ihre Upstream-Schemata, daher ist die Kontonutzungstabelle der konsistente Ort, um Anfragen über Routen zu vergleichen.
 
@@ -119,18 +117,18 @@ API-Antworten behalten ihre Upstream-Schemata, daher ist die Kontonutzungstabell
 
 ### Erhält gecachte Eingabe immer den 90%-Kontingentrabatt?
 
-Nur wenn der gewählte Anbieter gecachte Eingabe in kompatiblen Nutzungsmetadaten meldet. Fehlende Cache-Metadaten werden nicht als Cache-Treffer behandelt.
+Der Rabatt von 90% gilt für Eingabetokens, die der Anbieter in seinen Nutzungsdaten als Cache-Treffer ausweist. Andere Eingabetokens zählen zum Standardsatz.
 
 ### Werden Reasoning-Tokens ein zweites Mal addiert?
 
 Nein. Die vom Anbieter gemeldete Ausgabe-Nutzung enthält bereits die Ausgabeabrechnung der Route. Capriole addiert für diese Formel keine getrennte Reasoning-Token-Belastung zusätzlich zur Ausgabe.
 
-### Ist die API-Nutzung unter Premium unbegrenzt?
+### Wie werden API- und Coding-Agent-Anfragen mit Premium abgerechnet?
 
-Nein. Der Browser-Chat mit Premium ist über die unterstützte Premium-Modellgruppe unbegrenzt. API- und Coding-Agent-Anfragen nutzen das enthaltene Guthaben an abgerechneten Tokens und jedes verfügbare Aufstockungsguthaben.
+Premium umfasst monatlich 5M API-Tokens für Anwendungen und Coding-Agents. Weitere 5M Tokens kosten USD 8.
 
 ### Wo sollte ich mit dem Programmieren beginnen?
 
-Nutzen Sie den [API-Schnellstart](/de/quickstart) für die kleinste Rohanfrage oder die [OpenAI- und Anthropic-SDK-Anleitung](/de/guides/openai-anthropic-sdks) für protokollnative Python- und TypeScript-Clients. Wenn Sie noch nicht abonniert haben, [probieren Sie die Flaggschiff-Modelle im begrenzten kostenlosen Browser-Chat](https://www.capriole.ai/de), bevor Sie upgraden.
+Nutzen Sie den [API-Schnellstart](/de/quickstart) für die kleinste Rohanfrage oder die [OpenAI- und Anthropic-SDK-Anleitung](/de/guides/openai-anthropic-sdks) für protokollnative Python- und TypeScript-Clients. Wenn Sie noch nicht abonniert haben, [probieren Sie die Flaggschiff-Modelle im kostenlosen Browser-Chat](https://www.capriole.ai/de), bevor Sie upgraden.
 
 Die Angaben zu Plänen, Kontingenten, Aufstockungen und abgerechneten Tokens von Capriole auf dieser Seite pflegt Capriole AI selbst.

@@ -46,7 +46,7 @@ Construimos Capriole AI para reemplazar una colección de membresías de IA cara
 
 Premium cuesta **USD 9 al mes**. Incluye chat web ilimitado con todos los modelos compatibles. No hay un saldo de créditos del chat que vigilar ni un cupo separado que se descuente cada vez que cambias de modelo. El chat web con sesión iniciada tiene un [límite de uso justo de 200 mensajes al día](/es/guides/plans-and-limits#qué-significa-ilimitado) que frena el abuso automatizado mediante scripts; el uso normal queda muy por debajo.
 
-Los miembros Premium también reciben **5 millones de tokens cobrados de API cada mes**, y el uso adicional está disponible mediante recargas. En nuestra [comparación de costos fechada](/es/articles/ai-api-cost-comparison), Capriole cuesta USD 9 para cada modelo probado que ofrece. El precio Standard de pago directo va de USD 6.75 a USD 90, mientras que OpenRouter va de USD 7.55 a USD 94.95 después de su tarifa publicada de compra de créditos. En este ejemplo, tanto la API directa como OpenRouter cuestan menos para Gemini 3.8 Flash.
+Los miembros Premium también reciben **5 millones de tokens cobrados de API cada mes**, y el uso adicional está disponible mediante recargas. En nuestra [comparación de costos fechada](/es/articles/ai-api-cost-comparison), Capriole cuesta USD 9 para cada modelo probado que ofrece. El precio Standard de pago directo va de USD 6.75 a USD 90, mientras que OpenRouter va de USD 7.55 a USD 94.95 después de su tarifa publicada de compra de créditos.
 
 La comparación usa una mezcla fija de tokens. El costo mínimo de la API depende del modelo. Premium también incluye el espacio de trabajo y chat web ilimitado.
 
@@ -56,11 +56,13 @@ Una cuenta puede cubrir por tanto el chat usado para pensar cada día y la API u
 
 Un hilo de investigación guardado y una conversación con material sensible no necesitan la misma política de almacenamiento.
 
-| Modo | Persistencia | Contrapartida principal |
-|---|---|---|
-| Sincronizado | Historial de la cuenta disponible entre dispositivos | El estado del chat y de los archivos subidos se guarda para la continuidad |
-| Local | Solo el navegador actual | Sin historial entre dispositivos; las subidas están deshabilitadas |
-| No Storage | Solo la sesión actual de la página | Actualizar o salir pierde el chat; las subidas están deshabilitadas |
+| Modo | Persistencia |
+|---|---|
+| Sincronizado | Historial de la cuenta disponible entre dispositivos |
+| Local | Solo el navegador actual |
+| No Storage | Solo la sesión actual de la página |
+
+El almacenamiento predeterminado de la cuenta sincroniza los chats entre dispositivos y permite subir archivos.
 
 Activar No Storage pide primero confirmación antes de eliminar el historial de chat existente del servidor y local. Todos los modos siguen enviando solicitudes a través de Capriole y el servicio de modelo seleccionado; cambian la persistencia del historial, no la ruta de la solicitud de modelo. La [guía de almacenamiento del chat](/es/guides/chat-storage) explica el límite completo.
 
@@ -76,4 +78,4 @@ Queríamos un espacio de trabajo que ahorre dinero, reduzca la configuración y 
 
 Si estás decidiendo entre un espacio de trabajo como este y un gateway de modelos más amplio, nuestra [comparación de Capriole AI y OpenRouter](/es/articles/capriole-ai-vs-openrouter) explica dónde encaja cada producto.
 
-Puedes [abrir Capriole AI](https://www.capriole.ai/es) y probar el conjunto insignia actual en el chat limitado gratuito. Pasa a Premium de USD 9 cuando quieras chat ilimitado del navegador, el saldo de API incluido y las rutas de agentes de programación mantenidas bajo la misma cuenta. Los desarrolladores pueden continuar con el [inicio rápido de la API](/es/quickstart).
+Puedes [abrir Capriole AI](https://www.capriole.ai/es) y probar el conjunto insignia actual en el chat gratuito. Pasa a Premium de USD 9 cuando quieras chat ilimitado del navegador, el saldo de API incluido y las rutas de agentes de programación mantenidas bajo la misma cuenta. Los desarrolladores pueden continuar con el [inicio rápido de la API](/es/quickstart).

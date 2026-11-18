@@ -214,7 +214,7 @@ What each setting does:
 
 - `capriole-ai-openai` sends GPT models to the Responses API. `capriole-ai-anthropic` sends Claude models to Anthropic Messages. `capriole-ai-compatible` sends Gemini, Grok, GLM, and Kimi models to Chat Completions.
 - `${CAPRIOLE_AI_API_KEY}` reads your key from the environment.
-- `request.auth` with `authorization-bearer` makes the Anthropic provider send the key as a Bearer token. Without it, the key goes in an `x-api-key` header, which Capriole AI does not accept.
+- `request.auth` with `authorization-bearer` makes the Anthropic provider send the key as a Bearer token.
 - The Anthropic `baseUrl` has no `/v1`, because OpenClaw adds `/v1/messages` itself.
 - `reasoning` is `false` for Opus 5.5. When it is `true`, OpenClaw sends a thinking budget, and Opus 5.5 rejects it with `requires adaptive thinking`.
 - `contextWindow` and `maxTokens` tell OpenClaw each model's limits.

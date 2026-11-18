@@ -98,7 +98,7 @@ Comece com um alias mantido, a menos que você precise de uma versão exata do m
 - use `claude-latest` em caminhos Anthropic Messages, ou `claude-fable-5-1` no Claude Code;
 - use um modelo listado pela página de integração em caminhos compatíveis com Chat Completions.
 
-O [catálogo atual de modelos](/pt-br/api-reference/endpoint/get) lista os modelos da API pública. Um modelo do Browser Chat não é automaticamente válido em todo protocolo da API.
+O [catálogo atual de modelos](/pt-br/api-reference/endpoint/get) lista os modelos da API pública.
 
 </Step>
 
@@ -114,8 +114,6 @@ Procure uma resposta não vazia, de preferência o marcador `CAPRIOLE_OK` pedido
 
 Depois, abra a [página da API](https://www.capriole.ai/pt-br?view=api) e confirme que a solicitação aparece na visualização de uso sob a key e o modelo esperados. O registro de uso é a verificação decisiva de que o cliente usou a Capriole. Uma resposta sozinha não basta quando o cliente tem outro provedor ou fallback configurado. O [guia de API keys e uso](/pt-br/guides/api-keys-usage) mostra os filtros exatos e o ciclo de vida da key.
 
-Esta verificação não testa toda ferramenta ou recurso de modelo.
-
 </Step>
 </Steps>
 
@@ -129,7 +127,7 @@ Esta verificação não testa toda ferramenta ou recurso de modelo.
 | Modelo | O cliente aceita o alias latest ou o ID concreto configurado |
 | Uso | A solicitação aparece na visualização de uso da API como tráfego de API medido |
 
-As solicitações de agente de programação usam o saldo de API pessoal ou [Team](/pt-br/guides/team-plan) elegível. Elas não fazem parte do Browser Chat pago ilimitado. Leia [Tokens cobrados da Capriole AI](/pt-br/articles/charged-tokens) antes de executar uma carga de trabalho automatizada grande.
+As solicitações de agente de programação usam o saldo de API pessoal ou [Team](/pt-br/guides/team-plan) elegível. Leia [Tokens cobrados da Capriole AI](/pt-br/articles/charged-tokens) antes de executar uma carga de trabalho automatizada grande.
 
 ## Corrija falhas comuns de configuração
 
@@ -145,4 +143,4 @@ As solicitações de agente de programação usam o saldo de API pessoal ou [Tea
 
 Leia [o artigo de compatibilidade de agentes de programação](/pt-br/articles/coding-agent-compatibility) quando precisar do modelo por trás dessas rotas. Para código de aplicativo direto, continue com o [guia dos SDKs OpenAI e Anthropic](/pt-br/guides/openai-anthropic-sdks). [Riscos de segurança de gateways de LLM](/pt-br/articles/llm-gateway-security) lista o que verificar antes de um agente enviar seu código-fonte. Se o seu agente não for um destes 10, [conecte-o por um endpoint personalizado](/pt-br/integrations/more-agents).
 
-[Experimente os modelos principais atuais no Browser Chat gratuito limitado](https://www.capriole.ai/pt-br) e faça upgrade para Premium quando estiver pronto para criar a API key usada pelos seus agentes de programação.
+[Experimente os modelos principais atuais no Browser Chat gratuito](https://www.capriole.ai/pt-br) e faça upgrade para Premium quando estiver pronto para criar a API key usada pelos seus agentes de programação.

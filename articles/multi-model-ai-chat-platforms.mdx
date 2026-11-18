@@ -39,15 +39,15 @@ Every platform here sends a frontier-model request to the vendor that makes the 
 | Venice | Not stated on the pages we checked | On your device | Requests are relayed without being stored; for frontier models, Venice says to assume the provider stores your content |
 | OpenRouter | Says it does not train on your data | Chatroom conversations stay on your device and do not sync | Request metadata such as model and token counts; prompts are not logged unless you opt in, but on Safety Retention endpoints OpenRouter or the provider may keep them to prevent abuse |
 
-Capriole AI's **Local Storage** and **No Storage** modes keep history out of our database, but uploads and image creation need **Server Storage**. The [privacy and data controls guide](/guides/privacy-and-security) lists what is kept in each mode, and the [chat storage guide](/guides/chat-storage) shows how to switch.
+Sign in and use **Server Storage** for file uploads and image generation. The [privacy and data controls guide](/guides/privacy-and-security) lists what is kept in each mode, and the [chat storage guide](/guides/chat-storage) shows how to switch.
 
 ## Files, web search, and the rest of the workspace
 
 Capriole AI web chat includes files and web search, [projects](/guides/projects) with their own instructions and files, chat export, and personalization. Free image generation with GPT Image 2.6, Nano Banana 2.1, and Seedream 5.5 is also included; the [files, images and web search guide](/guides/files-web-search) covers the sign-in and storage requirements.
 
-## What you give up
+Premium includes 5M API tokens a month for apps and coding agents. Top-ups cost USD 8 per 5M tokens.
 
-Capriole AI is built for individuals and small teams. Magai has built-in agents, scheduled task runs, and integrations with other apps, and Magai and Venice generate video; Capriole AI has no scheduled tasks, app integrations, or video generation. Enterprise controls such as SAML single sign-on are not offered either; [LLM gateway security risks](/articles/llm-gateway-security) lists what Capriole AI does and does not provide. Web chat is unlimited, but API requests and coding agents use a metered balance: 5M tokens a month on Premium, then USD 8 per 5M tokens.
+See [LLM gateway security](/articles/llm-gateway-security) for details on how requests are routed and what gets logged.
 
 ## Frequently asked questions
 
@@ -79,6 +79,8 @@ Capriole AI is built for individuals and small teams. Magai has built-in agents,
     Unlimited web chat and an API key for USD 9 a month.
   </Card>
 </CardGroup>
+
+Capriole AI is an independent workspace, not affiliated with Magai, T3 Chat, Venice, or OpenRouter.
 
 ## Official sources
 

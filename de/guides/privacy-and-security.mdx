@@ -16,11 +16,13 @@ Jede Anfrage geht dennoch an den KI-Modellanbieter, der sie beantwortet: OpenAI,
 
 ## Wählen, wo der Chatverlauf liegt
 
-| Speichermodus | Wo der Chatverlauf liegt | Synchronisierung über Geräte | Uploads und Bilderzeugung | So wählen Sie ihn |
-|---|---|---|---|---|
-| **Server Storage** (Standard) | Ihr Konto auf den Servern von Capriole AI | Ja | Verfügbar | Beide Speicherschalter ausgeschaltet lassen |
-| **Local Storage** | Ihr Browser, nicht unsere Datenbank | Nein | Aus | **Lokalen Speicher aktivieren** einschalten |
-| **No Storage** | Nicht gespeichert | Nein | Aus | **No Storage aktivieren** einschalten |
+| Speichermodus | Wo der Chatverlauf liegt | So wählen Sie ihn |
+|---|---|---|
+| **Server Storage** (Standard) | Ihr Konto auf den Servern von Capriole AI | Beide Speicherschalter ausgeschaltet lassen |
+| **Local Storage** | Ihr Browser, nicht unsere Datenbank | **Lokalen Speicher aktivieren** einschalten |
+| **No Storage** | Nicht gespeichert | **No Storage aktivieren** einschalten |
+
+Mit Server Storage können Sie Chats geräteübergreifend synchronisieren, Dateien hochladen und Bilder erstellen.
 
 Beide Schalter finden Sie unter **Konto** → **Einstellungen**. In jedem Modus laufen Ihre Nachrichten über unsere Server zu dem Modell, das sie beantwortet, und Capriole AI speichert einen Nutzungsdatensatz. Die [Anleitung zur Chat-Speicherung](/de/guides/chat-storage) erklärt jeden Modus im Detail.
 
@@ -44,11 +46,11 @@ Gast-Chats werden nicht auf unseren Servern gespeichert. Eine Kopie bleibt in Ih
 
 ## Was die API speichert
 
-Die API speichert keine Inhalte von Anfragen oder Antworten, daher gibt es keinen API-Gesprächsverlauf. Capriole AI speichert Ihre API-Schlüssel und für jede Anfrage einen Nutzungsdatensatz für Kontingent, Abrechnung und Support. Ihre Kontopersonalisierung gilt nicht für die API.
+Die API speichert keine Anfrage- oder Antwortinhalte. Capriole AI speichert API-Schlüssel und Nutzungsdaten für Kontingente, Abrechnung und Support. Im Web-Chat können Sie Antworten personalisieren.
 
 ## Sicherheit
 
-Capriole AI nutzt verschlüsselte Verbindungen, privaten Dateispeicher und eingeschränkten Zugriff für Mitarbeitende. Kein System ist vollkommen sicher.
+Capriole AI nutzt verschlüsselte Verbindungen, privaten Dateispeicher und eingeschränkten Zugriff für Mitarbeitende.
 
 Unsere Hauptserver und unsere Datenbank stehen in Indien. Unsere Dienstleister verarbeiten Daten auch in anderen Ländern, darunter in den USA.
 
@@ -77,7 +79,7 @@ Wenn Sie einen Chat, den gesamten Chatverlauf oder ein Projekt löschen, werden 
 | Infrastrukturanbieter | Anfragen auf dem Weg zu den Modellanbietern |
 | Suchanbieter wie Tavily | Die Suchanfragen, die ein Modell stellt |
 | Ein Wetteranbieter | Den Ort, nach dem Sie fragen, oder Ihre IP-Adresse, wenn Sie keinen nennen |
-| Dienstleister | Amazon Web Services (Server, Datenbank, Dateien), Vercel (Website-Hosting und Analyse), Clerk (Anmeldung), Stripe (Zahlungen im Web), Apple, Google Play und RevenueCat (Käufe in den Apps), Resend und Brevo (E-Mail) sowie Tools zur Fehlerüberwachung |
+| Dienstleister | Amazon Web Services (Server, Datenbank, Dateien), Vercel (Website-Hosting und Analyse), Clerk (Anmeldung), Stripe (Zahlungen im Web), Apple, Google Play und RevenueCat (Käufe), Resend und Brevo (E-Mail) sowie Tools zur Fehlerüberwachung |
 | Google und LinkedIn | Website-Besuche und Werbeergebnisse über Tags auf unserer Website |
 | Inhaber und Administratoren Ihres [Teams](/de/guides/team-plan) | Ihre E-Mail-Adresse, Ihre Rolle und Ihre Team-API-Nutzung |
 

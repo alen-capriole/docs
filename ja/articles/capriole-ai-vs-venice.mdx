@@ -6,7 +6,7 @@ description: "Capriole AI は月額 USD 9 で GPT-6.2 Astra、Claude Fable 5.1�
 
 **Capriole AI は月額 USD 9 で、GPT-6.2 Astra、Claude Fable 5.1、Claude Opus 5.5、Gemini 4 Carbon とのウェブチャットが無制限です**。API は公式 API 価格より最大 92% 安くなります。Venice Pro は月額 USD 18 で Pro モデルのテキスト プロンプトが無制限ですが、料金ページでは最先端のテキスト モデルはクレジット制です。Venice の API は、Claude Fable 5.1、GPT-6.2 Astra、GPT-6 Astra に Anthropic や OpenAI と同じトークン単価を設定しています。
 
-最先端モデルを低い定額で使いたいなら、Capriole を選んでください。検閲のないオープンソース モデル、ゼロデータ保持やエンドツーエンド暗号化の推論、動画や音楽の生成が必要なら、Venice を選んでください。
+最先端モデルを低い定額で使いたいなら、Capriole を選んでください。
 
 この比較では、Venice の料金ページ、API 料金、プライバシーのドキュメントを確認しました。
 
@@ -68,21 +68,13 @@ Venice によると、通常の推論ではプロンプトとレスポンスの�
 
 Capriole がチャット、ファイル、API のコンテンツを学習に使わないことと、チャット履歴の保存先をアカウント、ブラウザのみ、保存なしから選べることは、[プライバシーとデータ管理](/ja/guides/privacy-and-security)で詳しく説明しています。
 
-Anthropic、OpenAI、Google の最先端モデルでは、どちらの製品もプロンプトをそのプロバイダーに送ります。Venice のより強い保証が適用されるのは、Private、TEE、E2EE モードで実行するオープンソース モデルです。
+各リクエストは Capriole AI を経由し、処理を担当するモデル提供元またはクラウドプラットフォームに送信されます。
 
-## どちらを選ぶべきか
-
-次のような場合は Capriole AI を選んでください。
+## Capriole AI Premium
 
 - 月額 USD 9 で GPT-6.2 Astra、Claude Fable 5.1、Claude Opus 5.5、Gemini 4 Carbon と無制限にチャットしたい
 - Claude Code 向けの Anthropic Messages を含め、公式 API 価格より最大 92% 安い API とコーディング エージェント用のキーが欲しい
 - GPT Image 2.6、Nano Banana 2.1、Seedream 5.5 による[無料の画像生成](/ja/guides/files-web-search)に加え、ファイル、ウェブ検索、プロジェクト、チャットのエクスポートを使いたい
-
-次のような場合は Venice を選んでください。
-
-- 検閲のないオープンソース モデルを使いたい
-- 対応モデルで、ゼロデータ保持、TEE、またはエンドツーエンド暗号化の推論を使いたい
-- 動画や音楽を生成したい、または[暗号資産でクレジットを購入したい](https://docs.venice.ai/pricing)
 
 ## よくある質問
 
@@ -94,9 +86,9 @@ Anthropic、OpenAI、Google の最先端モデルでは、どちらの製品も�
 
 Claude Fable 5.1、GPT-6.2 Astra、GPT-6 Astra では安くありません。Venice はいずれも開発元と同じ料金で提供しています。Fable 5.1 と GPT-6 Astra は 100 万トークンあたり USD 10 / USD 50、GPT-6.2 Astra は USD 8 / USD 40 です。Venice は Gemini 4 Carbon と Argon を USD 2.50 と USD 12.50 としています。これは Google の 11 月 30 日までの USD 2 と USD 10 より高く、12 月 1 日からの USD 4 と USD 20 より低い価格です。Capriole はどの対応モデルでも 500 万トークンあたり USD 8 で、最大 92% 安くなります。
 
-### プライバシーを重視するならどちらですか？
+### Capriole AI はチャットのプライバシーをどう守りますか？
 
-Private、TEE、E2EE モードのオープンソース モデルなら Venice です。Claude、GPT、Gemini では、どちらもプロンプトをモデル プロバイダーに送ります。Capriole ではチャット履歴をまったく保存しない設定にでき、あなたのコンテンツを学習に使うこともありません。
+各リクエストは Capriole AI を経由し、処理を担当するモデル提供元またはクラウドプラットフォームに送信されます。Capriole ではチャット履歴をまったく保存しない設定にでき、あなたのコンテンツを学習に使うこともありません。
 
 ### Venice は Claude Code に対応していますか？
 
@@ -105,6 +97,8 @@ Private、TEE、E2EE モードのオープンソース モデルなら Venice �
 ## Capriole AI を始める
 
 アカウントなしで[無料でチャットを始める](https://www.capriole.ai/ja)ことも、Premium で [API キーを取得する](https://www.capriole.ai/ja?view=api)こともできます。
+
+Capriole AI は、Venice から独立して運営されているワークスペースです。
 
 ## 公式ソース
 

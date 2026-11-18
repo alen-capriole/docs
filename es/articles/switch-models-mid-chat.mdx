@@ -24,7 +24,7 @@ Cambiar el modelo seleccionado no crea una segunda conversación de Capriole. El
 
 El espacio de trabajo también puede llevar archivos guardados relevantes y contexto de la conversación a la siguiente solicitud cuando el modo de almacenamiento y el modelo seleccionados los admiten. No necesitas mantener copias paralelas de la misma discusión en varios productos.
 
-Siguen existiendo límites técnicos reales. Los modelos tienen distintos límites de contexto, soporte de archivos, controles de razonamiento y formatos de mensaje. Un modelo no puede usar un tipo de entrada que no admite solo porque otro modelo lo aceptó antes. Las conversaciones largas también pueden necesitar gestión de contexto antes de la siguiente solicitud.
+Los modelos tienen distintos límites de contexto, soporte de archivos, controles de razonamiento y formatos de mensaje. Las conversaciones largas también pueden necesitar gestión de contexto antes de la siguiente solicitud.
 
 Capriole gestiona esas diferencias detrás del selector de modelo. Los modelos conservan sus propios límites y capacidades, mientras que el usuario continúa desde el hilo existente.
 
@@ -46,7 +46,7 @@ Un modelo rápido puede bastar para explorar opciones. Un modelo más deliberado
 
 Cuando hay suscripciones separadas de por medio, la comparación suele convertirse en una colección de pestañas del navegador y prompts duplicados. En un solo espacio de trabajo, la comparación permanece unida al problema original.
 
-### Recupera cuando una ruta no está disponible
+### Continúa con otro modelo
 
 Capriole también mantiene fallback automático para el tráfico compatible antes de que empiece una respuesta. El cambio manual de modelo y el fallback automático son funciones distintas: uno es una decisión del usuario, mientras que el otro ayuda a que una solicitud continúe por una ruta alternativa compatible cuando es necesario.
 
@@ -68,9 +68,9 @@ La continuidad de la conversación depende de cómo elijas guardar el chat.
 
 - El historial **sincronizado** admite conversaciones guardadas entre dispositivos.
 - El historial **Local** se queda en el navegador actual y se pierde si se borran sus datos locales.
-- **No Storage** es una sesión efímera y renuncia al historial guardado, a las subidas y a la continuidad entre dispositivos.
+- **No Storage**: La sesión termina al actualizar la página o salir de ella.
 
-Esas elecciones son intencionadas. Un usuario que quiere un hilo de investigación duradero y un usuario que quiere una conversación no guardada no deberían verse forzados al mismo límite de almacenamiento. [La guía de almacenamiento del chat](/es/guides/chat-storage) explica los ajustes reales de la cuenta y lo que implica cada opción.
+La [guía de almacenamiento](/es/guides/chat-storage) explica cómo usar el historial sincronizado, el historial local del navegador y los chats temporales.
 
 ## El modelo mental más simple
 
@@ -78,6 +78,6 @@ En un producto de un solo proveedor, la conversación pertenece a la familia de 
 
 El cambio de modelo es útil porque la herramienta puede cambiar sin descartar el trabajo.
 
-[Abre Capriole AI](https://www.capriole.ai/es) para probar el conjunto insignia compatible en el chat limitado gratuito del navegador. [Chat de IA sin registro](/es/articles/ai-chat-without-login) explica los límites para invitados y cuentas gratuitas. Pasa a Premium de USD 9 cuando quieras chat ilimitado del navegador y el espacio de trabajo continuo completo.
+[Abre Capriole AI](https://www.capriole.ai/es) para probar el conjunto insignia compatible en el chat gratuito del navegador. [Chat de IA sin registro](/es/articles/ai-chat-without-login) explica los límites para invitados y cuentas gratuitas. Pasa a Premium de USD 9 cuando quieras chat ilimitado del navegador y el espacio de trabajo continuo completo.
 
 [Plataformas de chat con varios modelos de IA](/es/articles/multi-model-ai-chat-platforms) compara cómo gestionan Capriole AI, Magai, T3 Chat, Venice y OpenRouter los modelos insignia, el cambio de modelo y la privacidad.

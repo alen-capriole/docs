@@ -6,7 +6,7 @@ description: "OpenAI API의 GPT-6.2 Astra는 100만 토큰당 입력 USD 8·출�
 
 OpenAI API는 새 플래그십인 **GPT-6.2 Astra에 입력 토큰 100만당 USD 8, 출력 토큰 100만당 USD 40**을 청구하며, 캐시된 입력은 USD 0.40입니다. GPT-6 Astra의 USD 10과 USD 50보다 20% 낮은 가격입니다. GPT-6.2 Sol, GPT-6.1 Sol, GPT-6 Sol은 USD 2와 USD 10, GPT-6 Luna는 USD 0.10과 USD 0.50입니다. 출력 토큰 1개당 입력 토큰 3개 비율로 계산하면, OpenAI 표준 요율에서 500만 토큰 비용은 GPT-6.2 Astra가 USD 80, GPT-6 Astra가 USD 100입니다.
 
-Capriole AI Premium은 월 USD 9에 GPT-6.2 Astra, Claude Fable 5.1, Claude Opus 5.5, Gemini 4 Carbon과의 웹 채팅을 무제한으로 제공합니다. API는 OpenAI Responses와 Chat Completions로 GPT-6.2 Astra를 제공하며, 가격은 지원 모델 어느 것이든 500만 토큰당 USD 8로 공식 API 가격보다 최대 92% 저렴합니다. API 키 하나로 직접 만든 앱과 Codex 같은 코딩 에이전트를 모두 사용할 수 있습니다.
+Capriole AI Premium은 월 USD 9에 GPT-6.2 Astra, Claude Fable 5.1, Claude Opus 5.5, Gemini 4 Carbon과의 웹 채팅을 무제한으로 제공합니다. API는 OpenAI Responses와 Chat Completions로 GPT-6.2 Astra를 제공합니다. 개인 Premium에는 매월 API 토큰 5,000,000개가 포함됩니다. 추가 토큰 5,000,000개는 USD 8이며 모든 지원 모델에 사용할 수 있습니다. 공식 API 가격 대비 최대 92% 저렴합니다. API 키 하나로 직접 만든 앱과 Codex 같은 코딩 에이전트를 모두 사용할 수 있습니다.
 
 ## 100만 토큰당 OpenAI API 가격
 
@@ -30,7 +30,7 @@ OpenAI의 가격 페이지와 모델 페이지에는 이 요율을 바꾸는 규
 
 ## 100만 토큰과 500만 토큰의 비용
 
-다음 예시는 표준 요율, 캐싱 없음, 27만 2,000 토큰 미만 프롬프트, 출력 토큰 1개당 입력 토큰 3개를 기준으로 합니다.
+다음 예시는 표준 요율, 캐싱 없음, 27만 2,000 토큰 미만 프롬프트, 출력 토큰 1개당 입력 토큰 3개를 기준으로 합니다. Capriole AI의 API 토큰 잔액이 충분하면 예시의 사용량은 추가 결제 없이 잔액에서 차감됩니다.
 
 ```text
 official_cost = input_millions × input_price + output_millions × output_price
@@ -41,7 +41,7 @@ official_cost = input_millions × input_price + output_millions × output_price
 | 100만 | 75만 / 25만 | USD 16 | USD 20 | USD 4 | USD 0.20 | USD 1.60 |
 | 500만 | 375만 / 125만 | USD 80 | USD 100 | USD 20 | USD 1 | **USD 8** |
 
-GPT-6.2 Astra에서 500만 토큰은 3.75 × USD 8 + 1.25 × USD 40 = USD 80이므로, Capriole의 USD 8은 90% 저렴합니다. GPT-6 Astra에서는 같은 워크로드가 USD 100이고, USD 8은 92% 저렴합니다. Sol 모델에서는 USD 8이 60% 저렴합니다. GPT-6 Luna는 같은 워크로드가 USD 1이라 OpenAI에서 직접 쓰는 편이 더 저렴하므로, Capriole은 작업이 Astra나 Sol에서 실행될 때 이득입니다. Capriole은 API 토큰을 500만 단위 팩으로 판매하며, 100만 토큰 금액은 비교를 위해 팩의 5분의 1로 표시한 값입니다.
+GPT-6.2 Astra에서 5,000,000 토큰은 3.75 × USD 8 + 1.25 × USD 40 = USD 80이므로, 개인 Premium의 추가 충전 가격 USD 8은 90% 저렴합니다. GPT-6 Astra에서는 같은 워크로드가 USD 100이고, USD 8은 92% 저렴합니다. Sol 모델에서는 USD 8이 60% 저렴합니다. 같은 사용량에서 OpenAI의 GPT-6 Luna 공식 요금은 USD 1입니다. Capriole은 API 토큰을 5,000,000 단위 팩으로 판매하며, 1,000,000 토큰 금액은 비교를 위해 팩의 5분의 1로 표시한 값입니다.
 
 Capriole의 과금 토큰 공식에는 긴 프롬프트 구간이 없으므로, 30만 토큰 프롬프트도 짧은 프롬프트와 같은 토큰당 요율로 계산됩니다.
 
@@ -49,9 +49,9 @@ Capriole의 과금 토큰 공식에는 긴 프롬프트 구간이 없으므로, 
 
 ## 캐싱과 배치가 비교를 바꾸는 방식
 
-- **캐시된 입력**: OpenAI는 캐시된 토큰 100만당 GPT-6.2 Astra에서 USD 0.40, GPT-6.2 Sol과 GPT-6.1 Sol에서 USD 0.10을 청구하며 이는 각 입력 요율의 5%입니다. GPT-6 Astra에서는 입력 요율의 10%인 USD 1을 청구합니다. Capriole은 모든 모델에서 캐시된 입력을 10%로 계산하며, 이는 캐시된 토큰 100만당 USD 0.16에 해당합니다. 공식은 [과금 토큰 설명](/ko/articles/charged-tokens)에서 확인하세요.
+- **캐시된 입력**: OpenAI는 캐시된 토큰 100만당 GPT-6.2 Astra에서 USD 0.40, GPT-6.2 Sol과 GPT-6.1 Sol에서 USD 0.10을 청구하며 이는 각 입력 요율의 5%입니다. GPT-6 Astra에서는 입력 요율의 10%인 USD 1을 청구합니다. Capriole은 모든 모델에서 캐시된 입력을 10%로 계산하며, 이는 캐시된 토큰 100만당 개인 Premium 충전 가격 기준 USD 0.16에 해당합니다. 공식은 [과금 토큰 설명](/ko/articles/charged-tokens)에서 확인하세요.
 - **캐시 쓰기**: OpenAI는 30분 캐시 쓰기에 입력의 1.25배, 12시간 캐시 쓰기에 2.5배를 청구합니다. Capriole은 캐시 쓰기를 포함해 캐시되지 않은 모든 입력 토큰을 일반 요율로 계산합니다.
-- **Batch와 Flex**: 절반 가격이면 500만 토큰 GPT-6.2 Astra 예시는 USD 40입니다. Capriole에는 배치 엔드포인트가 없지만, 이 워크로드에서도 USD 8은 80% 저렴합니다.
+- **Batch와 Flex**: 절반 가격이면 5,000,000 토큰 GPT-6.2 Astra 예시는 USD 40입니다. 개인 Premium에서 토큰 5,000,000개를 추가로 충전하는 가격은 USD 8이며 위 요금보다 80% 저렴합니다.
 
 OpenRouter의 크레딧 수수료까지 포함한 500만 토큰 테스트는 [AI API 비용 비교](/ko/articles/ai-api-cost-comparison)를 참고하세요. Claude Fable 5.1과 Opus 5.5는 [Claude API 가격](/ko/articles/claude-api-pricing), Gemini 4 Carbon과 Argon은 [Gemini API 가격](/ko/articles/gemini-api-pricing)에서 확인할 수 있습니다.
 
@@ -86,10 +86,6 @@ print(response.output_text)
 
 Premium에는 [하루 200개 메시지의 공정 사용 한도](/ko/guides/plans-and-limits#무제한의-의미) 안에서 모든 지원 모델의 무제한 웹 채팅과 함께 앱과 코딩 에이전트에 쓰는 월 500만 API 토큰이 포함되며, 충전, Team, 무료 웹 채팅은 [플랜과 한도](/ko/guides/plans-and-limits)에서 확인할 수 있습니다.
 
-## 공식 API가 더 적합한 경우
-
-워크로드가 GPT-6 Luna에서만 실행되거나, Batch API, 지역 처리, 또는 OpenAI와의 직접 계약이 필요하다면 OpenAI를 직접 이용하세요.
-
 ## 자주 묻는 질문
 
 ### GPT-6.2 Astra 비용은 얼마인가요?
@@ -115,6 +111,8 @@ GPT-6 Luna입니다. 입력 토큰 100만당 USD 0.10, 출력 토큰 100만당 U
 ## Capriole AI 시작하기
 
 계정 없이 [무료로 채팅을 시작하거나](https://www.capriole.ai/ko) Premium으로 [API 키를 받으세요](https://www.capriole.ai/ko?view=api). 첫 요청은 [API 빠른 시작](/ko/quickstart)에서 다룹니다.
+
+Capriole AI는 독립적인 워크스페이스이며 OpenAI 소속이 아닙니다.
 
 ## 공식 출처
 

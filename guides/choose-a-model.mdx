@@ -65,12 +65,12 @@ Thinking uses more tokens. On Premium and Team, web chat stays unlimited either 
 |---|---|
 | GPT-6.2 Astra, GPT-6.2 Sol, GPT-6 Astra, GPT-6.1 Sol, GPT-6 Sol, GPT-6 Luna | **Thinking** (medium effort) and **Fast** (low effort) |
 | Claude Fable 5.1, Claude Opus 5.5 | Thinking is always on. **Thinking** uses medium effort and **Fast** low effort. |
-| Gemini 4 Carbon, Gemini 4 Argon | Web chat offers the **Thinking** preset only. Selecting **Fast** switches the chat to Gemini 3.8 Flash. |
+| Gemini 4 Carbon, Gemini 4 Argon | Use the Thinking preset for Gemini 4 Carbon / Gemini 4 Argon. Select **Fast** to switch to Gemini 3.8 Flash. |
 | Kimi K3.1 Pro | The model always thinks. **Thinking** uses high effort and **Fast** low effort. |
 | GLM | **Fast** is GLM 5.3 Flash. **Thinking** uses the earlier GLM 5.2 (`zai/glm-5.2` on the API). |
 | Grok 4.7 | One preset |
 
-The Thinking presets are web chat only. On the API, call the model's ID and set the reasoning option in your request when you need more reasoning.
+Choose a Thinking preset in web chat. On the API, call the model's ID and set the reasoning option in your request when you need more reasoning.
 
 ## Switch models in the middle of a chat
 
@@ -95,7 +95,7 @@ Since November 18, 2026, `openai-latest` uses GPT-6.2 Astra instead of GPT-6 Ast
 </Note>
 
 <Note>
-Since November 17, 2026, `google-latest` uses Gemini 4 Carbon instead of Gemini 4 Argon. On Chat Completions, Carbon thinks at Google's default level, `medium`, which in our test used about 3 to 4 times Argon's output tokens for the same prompt. OpenAI's `reasoning_effort` does not change it. For lighter calls, set Google's `thinking_level` to `low` (`medium` and `high` also work), or call `google/gemini-4-argon`.
+Since November 17, 2026, `google-latest` uses Gemini 4 Carbon instead of Gemini 4 Argon. On Chat Completions, Carbon thinks at Google's default level, `medium`, which in our test used about 3 to 4 times Argon's output tokens for the same prompt. For lighter calls, set Google's `thinking_level` to `low` (`medium` and `high` also work), or call `google/gemini-4-argon`.
 
 <CodeGroup>
 ```bash curl
@@ -123,7 +123,7 @@ The flagship IDs are `openai/gpt-6.2-astra`, `anthropic/claude-fable-5-1`, `anth
 
 Capriole AI counts charged tokens the same way on every model: uncached input, plus 10% of cached input, plus output. [Charged tokens explained](/articles/charged-tokens) has examples.
 
-For pictures, choose **Image** in the model menu and pick GPT Image 2.6, Nano Banana 2.1, or Seedream 5.5. Image models work in web chat only. [See the image generation guide](/guides/files-web-search).
+For pictures, choose **Image** in the model menu and pick GPT Image 2.6, Nano Banana 2.1, or Seedream 5.5. [See the image generation guide](/guides/files-web-search).
 
 ## Common questions
 
@@ -139,9 +139,9 @@ Not in web chat: Premium and Team chat is unlimited on every supported model. On
 
 Yes. OpenAI Chat Completions accepts every public model ID, including `anthropic/claude-fable-5-1` and `google/gemini-4-carbon`, plus the three aliases. The [OpenAI and Anthropic SDK guide](/guides/openai-anthropic-sdks) shows the setup.
 
-### Can I use the Thinking presets through the API?
+### How do I set reasoning effort on the API?
 
-No. They are web chat only. Call the model's API ID and set the reasoning option in your request.
+Call the model's API ID and set the reasoning option in your request.
 
 ### Which Claude model should I start with?
 

@@ -16,11 +16,13 @@ Each request still goes to the AI model provider that answers it: OpenAI, Anthro
 
 ## Choose where chat history is kept
 
-| Storage mode | Where chat history is kept | Syncs across devices | Uploads and image creation | How to choose it |
-|---|---|---|---|---|
-| **Server Storage** (default) | Your account, on Capriole AI's servers | Yes | Available | Leave both storage switches off |
-| **Local Storage** | Your browser, not our database | No | Off | Turn on **Enable local storage** |
-| **No Storage** | Not saved | No | Off | Turn on **Enable No Storage** |
+| Storage mode | Where chat history is kept | How to choose it |
+|---|---|---|
+| **Server Storage** (default) | Your account, on Capriole AI's servers | Leave both storage switches off |
+| **Local Storage** | Your browser, not our database | Turn on **Enable local storage** |
+| **No Storage** | Not saved | Turn on **Enable No Storage** |
+
+Use Server Storage to sync chats across devices, upload files, and create images.
 
 Both switches are in **Account** → **Settings**. In every mode, your messages pass through our servers to the model that answers them, and Capriole AI keeps a usage record. The [chat storage guide](/guides/chat-storage) walks through each mode.
 
@@ -44,11 +46,11 @@ Guest chats are not saved on our servers. A copy stays in your browser tab so it
 
 ## What the API keeps
 
-The API does not keep request or response content, so there is no API conversation history. Capriole AI keeps your API keys and a usage record for each request for quota, billing, and support. Your account personalization does not apply to the API.
+The API does not store request or response content. Capriole AI stores API keys and usage records for quota, billing, and support. You can personalize replies in web chat.
 
 ## Security
 
-Capriole AI uses encrypted connections, private file storage, and limited staff access. No system is perfectly secure.
+Capriole AI uses encrypted connections, private file storage, and limited staff access.
 
 Our main servers and database are in India. Our providers process data in other countries, including the United States.
 
@@ -77,7 +79,7 @@ Deleting a chat, all chat history, or a project permanently removes it from our 
 | Infrastructure providers | Requests on their way to the model providers |
 | Search providers, such as Tavily | The search queries a model makes |
 | A weather provider | The place you ask about, or your IP address if you do not name one |
-| Service providers | Amazon Web Services (servers, database, files), Vercel (website hosting and analytics), Clerk (sign-in), Stripe (web payments), Apple, Google Play, and RevenueCat (app purchases), Resend and Brevo (email), and error monitoring tools |
+| Service providers | Amazon Web Services (servers, database, files), Vercel (website hosting and analytics), Clerk (sign-in), Stripe (web payments), Apple, Google Play, and RevenueCat (purchases), Resend and Brevo (email), and error monitoring tools |
 | Google and LinkedIn | Website visits and ad results, through tags on our website |
 | Owners and admins of your [Team](/guides/team-plan) | Your email, role, and Team API usage |
 

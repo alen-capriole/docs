@@ -6,7 +6,7 @@ description: "OpenAI API の GPT-6.2 Astra は 100 万トークンあたり入�
 
 OpenAI の API の料金は、新しい旗艦モデルの **GPT-6.2 Astra が入力 100 万トークンあたり USD 8、出力 100 万トークンあたり USD 40** で、キャッシュ入力は USD 0.40 です。GPT-6 Astra の USD 10 と USD 50 より 20% 安くなっています。GPT-6.2 Sol、GPT-6.1 Sol、GPT-6 Sol は USD 2 と USD 10、GPT-6 Luna は USD 0.10 と USD 0.50 です。出力 1 トークンにつき入力 3 トークンの比率では、OpenAI の標準料金で 500 万トークンは GPT-6.2 Astra で USD 80、GPT-6 Astra で USD 100 になります。
 
-Capriole AI Premium は月額 USD 9 で、GPT-6.2 Astra、Claude Fable 5.1、Claude Opus 5.5、Gemini 4 Carbon とのウェブチャットが無制限です。API は OpenAI Responses と Chat Completions で GPT-6.2 Astra を提供し、料金はどの対応モデルでも 500 万トークンあたり USD 8 と、公式 API 価格より最大 92% 安くなります。1 つの API キーで、自分のアプリでも Codex などのコーディング エージェントでも使えます。
+Capriole AI Premium は月額 USD 9 で、GPT-6.2 Astra、Claude Fable 5.1、Claude Opus 5.5、Gemini 4 Carbon とのウェブチャットが無制限です。API は OpenAI Responses と Chat Completions で GPT-6.2 Astra を提供します。個人向け Premium には月に 5,000,000 API トークンが含まれます。どの対応モデルにも使える 5,000,000 トークンの追加パックは USD 8 で、公式 API 料金より最大 92% 割安です。1 つの API キーで、自分のアプリでも Codex などのコーディング エージェントでも使えます。
 
 ## 100 万トークンあたりの OpenAI API 料金
 
@@ -30,7 +30,7 @@ OpenAI の料金ページとモデル ページには、これらの料金が変
 
 ## 100 万トークンと 500 万トークンのコスト
 
-以下の例は、標準料金、キャッシュなし、272,000 トークン未満のプロンプト、出力 1 トークンにつき入力 3 トークンの条件で計算しています。
+以下の例は、標準料金、キャッシュなし、272,000 トークン未満のプロンプト、出力 1 トークンにつき入力 3 トークンの条件で計算しています。Capriole AI の API トークン残高が足りていれば、この例の利用で追加の支払いは発生しません。
 
 ```text
 official_cost = input_millions × input_price + output_millions × output_price
@@ -41,7 +41,7 @@ official_cost = input_millions × input_price + output_millions × output_price
 | 100 万 | 75 万 / 25 万 | USD 16 | USD 20 | USD 4 | USD 0.20 | USD 1.60 |
 | 500 万 | 375 万 / 125 万 | USD 80 | USD 100 | USD 20 | USD 1 | **USD 8** |
 
-GPT-6.2 Astra では、500 万トークンのコストが 3.75 × USD 8 + 1.25 × USD 40 = USD 80 なので、Capriole の USD 8 は 90% 安くなります。GPT-6 Astra では同じワークロードが USD 100 で、USD 8 は 92% 安くなります。Sol の各モデルでは、USD 8 は 60% 安くなります。GPT-6 Luna は同じワークロードが USD 1 で、OpenAI を直接使うほうが安いため、Capriole が得になるのは Astra または Sol で作業する場合です。Capriole は API トークンを 500 万単位のパックで販売しています。100 万の行はパックの 5 分の 1 にあたり、比較のために示しています。
+GPT-6.2 Astra では、5,000,000 トークンのコストが 3.75 × USD 8 + 1.25 × USD 40 = USD 80 なので、個人向け Premium の追加パック料金 USD 8 は 90% 安くなります。GPT-6 Astra では同じワークロードが USD 100 で、USD 8 は 92% 安くなります。Sol の各モデルでは、USD 8 は 60% 安くなります。同じ使用量での OpenAI の GPT-6 Luna の料金は USD 1 です。Capriole は API トークンを 5,000,000単位のパックで販売しています。1,000,000の行はパックの 5 分の 1 にあたり、比較のために示しています。
 
 Capriole の課金トークンの計算式には長いプロンプト向けの料金区分がないため、300,000 トークンのプロンプトも短いプロンプトと同じトークン単価で数えます。
 
@@ -49,9 +49,9 @@ Capriole の課金トークンの計算式には長いプロンプト向けの�
 
 ## キャッシュとバッチで比較はどう変わるか
 
-- **キャッシュ入力**: OpenAI はキャッシュされた 100 万トークンあたり、GPT-6.2 Astra で USD 0.40、GPT-6.2 Sol と GPT-6.1 Sol で USD 0.10（いずれも入力料金の 5%）、GPT-6 Astra で USD 1（入力料金の 10%）を請求します。Capriole はどのモデルでもキャッシュ入力を 10% で数えるため、キャッシュされた 100 万トークンあたり USD 0.16 に相当します。計算式は [Capriole AI の課金トークンの説明](/ja/articles/charged-tokens)で確認できます。
+- **キャッシュ入力**: OpenAI はキャッシュされた 100 万トークンあたり、GPT-6.2 Astra で USD 0.40、GPT-6.2 Sol と GPT-6.1 Sol で USD 0.10（いずれも入力料金の 5%）、GPT-6 Astra で USD 1（入力料金の 10%）を請求します。Capriole はどのモデルでもキャッシュ入力を 10% で数えるため、個人向け Premium の追加パック料金では、キャッシュされた 100 万トークンあたり USD 0.16 に相当します。計算式は [Capriole AI の課金トークンの説明](/ja/articles/charged-tokens)で確認できます。
 - **キャッシュ書き込み**: OpenAI は、30 分のキャッシュ書き込みに入力の 1.25 倍、12 時間のキャッシュ書き込みに 2.5 倍を請求します。Capriole は、キャッシュ書き込みを含むすべてのキャッシュなし入力トークンを通常のレートで数えます。
-- **Batch と Flex**: 半額の場合、GPT-6.2 Astra の 500 万トークンの例は USD 40 です。Capriole にバッチ エンドポイントはありませんが、このワークロードでも USD 8 は 80% 安くなります。
+- **Batch と Flex**: 半額の場合、GPT-6.2 Astra の 5,000,000 トークンの例は USD 40 です。個人向け Premium の追加パックは 5,000,000 トークンで USD 8 です。このパック価格で比較すると 80% 割安です。
 
 OpenRouter のクレジット手数料も含めた 500 万トークンのテストは、[AI API コスト比較](/ja/articles/ai-api-cost-comparison)をご覧ください。Claude Fable 5.1 と Opus 5.5 は [Claude API の料金](/ja/articles/claude-api-pricing)、Gemini 4 Carbon と Argon は [Gemini API の料金](/ja/articles/gemini-api-pricing)で確認できます。
 
@@ -86,10 +86,6 @@ print(response.output_text)
 
 Premium には、すべての対応モデルでの無制限のウェブチャット（[1 日 200 メッセージのフェアユース上限](/ja/guides/plans-and-limits#「無制限」の意味)あり）に加えて、アプリとコーディング エージェント向けの API トークンが毎月 500 万含まれます。チャージ、Team、無料のウェブチャットについては[プランと制限](/ja/guides/plans-and-limits)をご覧ください。
 
-## 公式 API のほうが合う場合
-
-ワークロードが GPT-6 Luna だけで動く場合や、Batch API、リージョン処理、または OpenAI 自体との契約が必要な場合は、OpenAI を直接利用してください。
-
 ## よくある質問
 
 ### GPT-6.2 Astra の料金はいくらですか？
@@ -115,6 +111,8 @@ GPT-6 Luna です。入力 100 万トークンあたり USD 0.10、出力 100 �
 ## Capriole AI を始める
 
 アカウントなしで[無料でチャットを始める](https://www.capriole.ai/ja)ことも、Premium で [API キーを取得する](https://www.capriole.ai/ja?view=api)こともできます。最初のリクエストは [API クイックスタート](/ja/quickstart)で説明しています。
+
+Capriole AI は、OpenAI から独立して運営されているワークスペースです。
 
 ## 公式ソース
 

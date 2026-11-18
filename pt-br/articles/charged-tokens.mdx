@@ -21,7 +21,7 @@ charged_tokens =
   + output_tokens
 ```
 
-Se o provedor não informar entrada em cache, todos os tokens de entrada contam 100%. A Capriole não infere um acerto de cache que os metadados de uso não informam.
+Se o provedor não informar entrada em cache, todos os tokens de entrada contam 100%.
 
 | Protocolo | Entrada normalizada | Subconjunto em cache |
 |---|---|---|
@@ -83,9 +83,7 @@ A [comparação datada de custo da API](/pt-br/articles/ai-api-cost-comparison) 
 
 A cota incluída é consumida antes da carteira de recarga pessoal ou Team correspondente. Saldos de recarga comprados persistem entre períodos de cota mensal e intervalos de acesso pago; consumi-los ainda exige acesso pago ativo elegível. O Browser Chat é separado da contabilidade da API; agentes de programação contam como tráfego de API e deduzem tokens cobrados.
 
-Os 5 milhões mensais fazem parte da assinatura completa de espaço de trabalho Premium de USD 9. Não é um plano de API ilimitado e não deve ser apresentado como um preço de API avulso.
-
-As recargas estendem o uso programático. Elas não alteram a cota do Browser Chat, a compatibilidade de modelos nem o requisito de acesso pessoal ou Team ativo elegível.
+A assinatura Premium de USD 9 inclui 5 milhões de tokens de API contabilizados por mês.
 
 ## O que a API registra
 
@@ -111,7 +109,7 @@ Abra a [página da API](https://www.capriole.ai/pt-br?view=api) da Capriole AI e
 | **Tokens cobrados** | Cota deduzida depois de aplicar a fórmula de entrada em cache |
 | **Tokens totais** | Entrada normalizada pelo protocolo mais saída |
 
-Um valor positivo de tokens em cache confirma que os metadados de uso compatíveis do provedor informaram um acerto de cache. Isso não prova que toda solicitação repetida vai acertar o mesmo cache do provedor. Roteamento do provedor, tempo de vida do cache, estrutura da solicitação e comportamento do modelo podem mudar o resultado.
+Um valor positivo de tokens em cache confirma que os metadados de uso compatíveis do provedor informaram um acerto de cache. Roteamento do provedor, tempo de vida do cache, estrutura da solicitação e comportamento do modelo podem mudar o resultado.
 
 As respostas da API mantêm os schemas do upstream, então a tabela de uso da conta é o lugar consistente para comparar solicitações entre rotas.
 
@@ -119,18 +117,18 @@ As respostas da API mantêm os schemas do upstream, então a tabela de uso da co
 
 ### A entrada em cache sempre recebe o desconto de 90% da cota?
 
-Só quando o provedor selecionado informa entrada em cache em metadados de uso compatíveis. Metadados de cache ausentes não são tratados como acerto de cache.
+O desconto de 90% vale para os tokens de entrada em cache identificados nos metadados de uso do provedor. Os demais contam pela taxa padrão.
 
 ### Tokens de raciocínio são somados uma segunda vez?
 
 Não. O uso de saída informado pelo provedor já contém a contabilidade de saída usada pela rota. A Capriole não adiciona uma cobrança separada de tokens de raciocínio por cima da saída nesta fórmula.
 
-### O uso da API é ilimitado no Premium?
+### Como o Premium contabiliza as solicitações de API e de agentes de programação?
 
-Não. O Browser Chat do Premium é ilimitado no conjunto de modelos Premium suportado. Solicitações de API e de agentes de programação usam o saldo incluído de tokens cobrados e qualquer saldo de recarga disponível.
+O Premium inclui 5M de tokens de API por mês para aplicativos e agentes de programação. Cada recarga de 5M de tokens custa USD 8.
 
 ### Por onde devo começar a programar?
 
-Use o [início rápido da API](/pt-br/quickstart) para a menor solicitação bruta ou o [guia dos SDKs OpenAI e Anthropic](/pt-br/guides/openai-anthropic-sdks) para clientes nativos de protocolo em Python e TypeScript. Se você ainda não assinou, [experimente os modelos principais no Browser Chat gratuito limitado](https://www.capriole.ai/pt-br) antes de fazer upgrade.
+Use o [início rápido da API](/pt-br/quickstart) para a menor solicitação bruta ou o [guia dos SDKs OpenAI e Anthropic](/pt-br/guides/openai-anthropic-sdks) para clientes nativos de protocolo em Python e TypeScript. Se você ainda não assinou, [experimente os modelos principais no Browser Chat gratuito](https://www.capriole.ai/pt-br) antes de fazer upgrade.
 
 As informações sobre planos, cotas, recargas e tokens cobrados da Capriole nesta página são documentação própria da Capriole AI.

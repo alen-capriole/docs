@@ -144,7 +144,7 @@ Qué hace cada ajuste:
 
 - El `api` del proveedor es `openai-completions`, así que Gemini, Grok, GLM y Kimi usan Chat Completions. Los modelos GPT lo sustituyen por `openai-responses`, y los modelos Claude, por `anthropic-messages` y un `baseUrl` sin `/v1`.
 - `$CAPRIOLE_AI_API_KEY` lee tu clave del entorno.
-- `authHeader: true` envía la clave como token Bearer en todos los protocolos. Sin él, los modelos Claude envían la clave en una cabecera `x-api-key`, que Capriole AI no acepta.
+- `authHeader: true` envía la clave como token Bearer en todos los protocolos.
 - `forceAdaptiveThinking` hace que los modelos Claude usen razonamiento adaptativo. Opus 5.5 rechaza un presupuesto de razonamiento fijo.
 - Pi envía el prompt de sistema con el rol `developer` en los modelos de razonamiento. Kimi K3.1 Pro no acepta ese rol, así que su entrada define `supportsDeveloperRole: false`.
 - `contextWindow` y `maxTokens` indican a Pi los límites de cada modelo.

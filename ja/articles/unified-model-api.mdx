@@ -14,7 +14,7 @@ Capriole は 3 つの公開経路を維持します。OpenAI Responses、OpenAI 
 
 1 つの USD 9 Premium メンバーシップは、対応する Premium モデル群の無制限のウェブチャット、毎月 500 万の課金 API トークン、ドキュメントのある 10 種類のコーディング エージェント経路をカバーします。アプリケーションはすでに使うプロトコルを維持し、ユーザーは 1 つの Capriole アカウント、キー、残高、請求ページを維持します。
 
-これが、プロバイダー アカウントを別々に組み立てることに対する実務上の利点です。[日付付きコスト比較](/ja/articles/ai-api-cost-comparison) も、テストしたモデルのうち提供しているものすべてについて Capriole が USD 9 であることを示します。同じ 500 万トークンのワークロードで、直接の有料 Standard 価格は USD 6.75 から USD 90、OpenRouter は公開のクレジット購入手数料後に USD 7.55 から USD 94.95 です。現在の旗艦モデルについては、公式料金と Capriole の 500 万トークンあたり USD 8 の比較を [Claude API の料金](/ja/articles/claude-api-pricing)、[OpenAI API の料金](/ja/articles/openai-api-pricing)、[Gemini API の料金](/ja/articles/gemini-api-pricing) で確認できます。この例では Gemini 3.8 Flash は直接 API と OpenRouter のほうが低額です。
+これが、プロバイダー アカウントを別々に組み立てることに対する実務上の利点です。[日付付きコスト比較](/ja/articles/ai-api-cost-comparison) では、月に 5,000,000 API トークンを含む個人向け Premium の月額料金 USD 9 を使っています。同じ 500 万トークンのワークロードで、直接の有料 Standard 価格は USD 6.75 から USD 90、OpenRouter は公開のクレジット購入手数料後に USD 7.55 から USD 94.95 です。現在の旗艦モデルについては、公式料金と個人向け Premium の追加パック料金（5,000,000 トークンで USD 8）の比較を [Claude API の料金](/ja/articles/claude-api-pricing)、[OpenAI API の料金](/ja/articles/openai-api-pricing)、[Gemini API の料金](/ja/articles/gemini-api-pricing) で確認できます。
 
 ## 公開経路
 
@@ -46,9 +46,7 @@ OpenAI Responses は出力を型付きイベントとアイテムとして表し
 
 たとえば、Responses 経路は維持されている OpenAI エイリアスと、対応する Responses 互換 OpenAI モデルに加え、`xai/` プレフィックス付きで送信する Grok モデルを受け付けます。Messages 経路は維持されている Claude エイリアスと、対応する Claude Messages モデル ID を受け付けます。互換チャット経路は、より広い公開チャット モデル集合を公開できます。
 
-モデルが選んだルートで無効な場合、リクエストは検証に失敗する必要があります。Capriole は、サポートされない廃止キーを別のものへ静かに再マップしません。
-
-その明示的な失敗は、呼び出し元が要求していないモデルからの答えを返すより安全です。
+各ルートは転送前にモデル ID を検証します。無効な ID に対しては検証エラーが返り、クライアントはモデルやエンドポイントを修正して再試行できます。
 
 ## latest エイリアスと再現可能な ID
 
@@ -58,13 +56,13 @@ Capriole は、それらをサポートする公開経路で `openai-latest`、`
 
 対応リリースに合わせて Capriole の維持デフォルトを動かしたい場合はエイリアスを使ってください。正確なバージョンが結果の一部であり、再現可能である必要がある場合は、具体的なモデル ID を使ってください。
 
-[モデル一覧エンドポイント](/ja/api-reference/endpoint/get) が現在の公開インベントリです。ウェブチャットに表示されるモデルが、すべての API プロトコルで自動的に有効だと想定しないでください。
+[モデル一覧エンドポイント](/ja/api-reference/endpoint/get) が現在の公開インベントリです。
 
 ## フォールバックはレスポンス開始前に起きる
 
 対応ルートでは、最初のソースがレスポンス バイトを送る前に失敗した場合、Capriole は別の設定済みソースを試せます。
 
-ストリーミング レスポンスが始まったあとソースを切り替えると、重複または矛盾する出力のリスクがあります。自動フォールバックは出力開始前だけ実行されます。すべてのプロバイダー失敗を隠すことも、レスポンスの途中でモデルを変えることもできません。
+ストリーミング開始後は、同じソースを使います。
 
 要求されたモデル キーは、対応するソース フォールバックを通じて保持されます。Capriole が変えるのは配信ソースであり、ユーザーが述べたモデル選択ではありません。
 
@@ -74,7 +72,7 @@ Capriole は、それらをサポートする公開経路で `openai-latest`、`
 
 プログラム ワークロードは計量されます。Capriole は、対応プロトコルが提供するメタデータから使用量を記録します。使用量が利用可能な場合は、完了したストリーミング レスポンスも含みます。
 
-Premium は現在、**毎月 500 万の課金 API トークン** を含みます。この残高では、Capriole はキャッシュなし入力と出力を 100%、キャッシュ入力を 10% で数えます。追加の token パックはチャージとして利用できます。Premium の無制限部分は、対応する Premium モデル群のウェブチャットに適用され、API またはコーディング エージェント トラフィックには適用されません。
+Premium は現在、**毎月 5,000,000 課金 API トークン** を含みます。この残高では、Capriole はキャッシュなし入力と出力を 100%、キャッシュ入力を 10% で数えます。追加の token パックはチャージとして利用できます。
 
 [課金トークンの記事](/ja/articles/charged-tokens) は、正確な計算式、丸め規則、再現可能な例を示します。
 
@@ -107,13 +105,12 @@ Capriole は、プロトコル契約と代表的な実クライアント フロ�
 | Anthropic Messages | 非ストリーミング出力、Anthropic SSE、`tool_use`、`tool_result`、`claude-latest` | Claude Messages モデルのみ |
 | latest エイリアス | エンドポイント ゲーティング、正規解決、正規使用量行、代表的なクライアント実行 | エイリアスは入力セレクターであり、別の使用量モデルは作らない |
 | ウェブチャットのファイル | 画像、PDF、テキスト、DOCX、PPTX、CSV、XLS、XLSX のファイル種類検出、変換、モデル ペイロード組み立て | この証拠はウェブチャットのワークスペースに属する |
-| 公開 API 経由のファイル | 公開されたクロスプロトコル合格はない | Capriole は Responses、Chat Completions、Messages をまたぐ 1 つの汎用ファイル契約を主張しない |
 
 ストリーム確認は完全なレスポンスを消費し、各プロトコル独自の終端イベントを要求します。Responses は完了イベントで終わり、Chat Completions は `[DONE]` に達し、Messages は `message_stop` に達します。ツール テストはツール結果を送り返し、最終アシスタント ターンを要求します。
 
-否定テストはプロトコル境界を見えるままにします。`google-latest` は Responses で失敗し、`openai-latest` は Messages で失敗します。Capriole はどちらのリクエストも別のエンドポイントへ移しません。
+検証テストでは各エンドポイントのモデルエイリアスを確認します。`google-latest` は Chat Completions、`openai-latest` は Responses または Chat Completions で使えます。
 
-公開 API のファイル対応は、別のリリース ゲートを使います。各候補ルートには、同じ小さな画像、PDF、CSV、DOCX フィクスチャ、内容固有の答え、対応する場合のストリーミング再実行、正確な SDK、モデル ID、リクエスト形状、テスト日の記録が必要です。それらのライブ フィクスチャが通るまで、公開 API ドキュメントは共有の Capriole 添付フィールドを宣伝せず、各ネイティブ プロトコルがサポートするファイル形式に従います。
+ブラウザチャットでの添付については、[対応ファイルの種類とアップロード手順](/ja/guides/files-web-search)をご覧ください。
 
 ## すでに持っているクライアントから始める
 
@@ -121,4 +118,4 @@ Capriole は、プロトコル契約と代表的な実クライアント フロ�
 
 最初のリクエストは [API クイックスタート](/ja/quickstart) から始めてください。Python 開発者は [OpenAI と Anthropic の SDK ガイド](/ja/guides/openai-anthropic-sdks) に従えます。コーディング エージェント利用者は、[コーディング エージェント向けの 1 つの API](/ja/articles/coding-agent-compatibility) で、維持されているクライアント対応表を確認できます。[LLM ゲートウェイのセキュリティ リスク](/ja/articles/llm-gateway-security) では、どのゲートウェイであれコードを送る前に確認すべき点を挙げています。
 
-Capriole の仕事は、クライアントが実際に話すプロトコルを尊重しつつ、アカウントとアクセスの断片化を取り除くことです。まず [制限付きの無料ウェブチャットで対応旗艦モデルを試し](https://www.capriole.ai/ja)、その後 [USD 9 の Premium にアップグレードして API キーを作成してください](https://www.capriole.ai/ja?view=api)。
+Capriole の仕事は、クライアントが実際に話すプロトコルを尊重しつつ、アカウントとアクセスの断片化を取り除くことです。まず [無料ウェブチャットで対応旗艦モデルを試し](https://www.capriole.ai/ja)、その後 [USD 9 の Premium にアップグレードして API キーを作成してください](https://www.capriole.ai/ja?view=api)。

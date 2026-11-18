@@ -14,7 +14,7 @@ The shared account and billing layer sits above those protocol-specific routes.
 
 One USD 9 Premium membership covers unlimited browser chat across the supported Premium model set, 5 million monthly charged API tokens, and 10 documented coding-agent paths. Applications keep the protocol they already use, while the user keeps one Capriole account, key, balance, and billing page.
 
-This is the practical advantage over assembling provider accounts separately. The [dated cost comparison](/articles/ai-api-cost-comparison) also shows Capriole at USD 9 for each tested model it offers. On the same 5 million-token workload, direct paid Standard pricing ranges from USD 6.75 to USD 90, while OpenRouter ranges from USD 7.55 to USD 94.95 after its published credit-purchase fee. For the current flagship models, [Claude API pricing](/articles/claude-api-pricing), [OpenAI API pricing](/articles/openai-api-pricing), and [Gemini API pricing](/articles/gemini-api-pricing) show how official rates compare with Capriole's USD 8 per 5M tokens. In this example, both the direct API and OpenRouter cost less for Gemini 3.8 Flash.
+This is the practical advantage over assembling provider accounts separately. The [dated cost comparison](/articles/ai-api-cost-comparison) uses the USD 9 personal Premium subscription, which includes 5M monthly API tokens. On the same 5 million-token workload, direct paid Standard pricing ranges from USD 6.75 to USD 90, while OpenRouter ranges from USD 7.55 to USD 94.95 after its published credit-purchase fee. For the current flagship models, [Claude API pricing](/articles/claude-api-pricing), [OpenAI API pricing](/articles/openai-api-pricing), and [Gemini API pricing](/articles/gemini-api-pricing) show how official rates compare with the personal Premium top-up price of USD 8 per 5M tokens.
 
 ## The public paths
 
@@ -46,9 +46,7 @@ All public generation routes use the same Capriole API key and account balance. 
 
 For example, the Responses path accepts the maintained OpenAI alias and supported Responses-compatible OpenAI models, plus Grok models sent with the `xai/` prefix. The Messages path accepts the maintained Claude alias and supported Claude Messages model IDs. Compatible chat paths can expose a broader set of public chat models.
 
-If a model is not valid for the chosen route, the request should fail validation. Capriole does not quietly remap an unsupported retired key to something else.
-
-That explicit failure is safer than returning an answer from a model the caller did not request.
+Each route validates the requested model ID before dispatch. An invalid ID returns a validation error, so clients can correct the model or endpoint before retrying.
 
 ## Latest aliases and reproducible IDs
 
@@ -58,13 +56,13 @@ Aliases are resolved before upstream dispatch. Usage, quota, and fallback record
 
 Use an alias when you want Capriole's maintained default to move with supported releases. Use a concrete model ID when the exact version is part of the result and must remain reproducible.
 
-The [List models endpoint](/api-reference/endpoint/get) is the current public inventory. Do not assume a model shown in browser chat is automatically valid on every API protocol.
+The [List models endpoint](/api-reference/endpoint/get) is the current public inventory.
 
 ## Fallback happens before the response begins
 
 For supported routes, Capriole can attempt another configured source when the first source fails before response bytes have been sent.
 
-Once a streamed response has begun, switching sources would risk duplicated or contradictory output. Automatic fallback only runs before output starts. It cannot hide every provider failure or change models halfway through a response.
+The source stays fixed once streaming begins.
 
 The requested model key is preserved through a supported source fallback. Capriole changes the delivery source, not the user's stated model choice.
 
@@ -74,7 +72,7 @@ Browser chat can separately offer optional model auto-switching and [manual mode
 
 Programmatic workloads are metered. Capriole records usage from the metadata supplied by the matching protocol, including completed streamed responses when usage is available.
 
-Premium currently includes **5 million charged API tokens per month**. Capriole counts uncached input and output at 100% and cached input at 10% for this balance. Additional token packs are available as top-ups. The unlimited part of Premium applies to browser chat across the supported Premium model set, not to API or coding-agent traffic.
+Premium currently includes **5 million charged API tokens per month**. Capriole counts uncached input and output at 100% and cached input at 10% for this balance. Additional token packs are available as top-ups.
 
 The [charged-token article](/articles/charged-tokens) gives the exact formula, rounding rule, and reproducible examples.
 
@@ -107,13 +105,12 @@ The focused public-route and file-conversion suites completed **68 automated tes
 | Anthropic Messages | Non-streaming output, Anthropic SSE, `tool_use`, `tool_result`, and `claude-latest` | Claude Messages models only |
 | Latest aliases | Endpoint gating, canonical resolution, canonical usage rows, and representative client runs | Aliases are input selectors and do not create a separate usage model |
 | Files in Browser Chat | File-kind detection, conversion, and model-payload assembly for images, PDFs, text, DOCX, PPTX, CSV, XLS, and XLSX | This evidence belongs to the Browser Chat workspace |
-| Files through the public API | No published cross-protocol pass | Capriole does not claim one universal file contract across Responses, Chat Completions, and Messages |
 
 Stream checks consume the full response and require each protocol's own terminal event. Responses ends with its completion event, Chat Completions reaches `[DONE]`, and Messages reaches `message_stop`. Tool tests send the tool result back and require the final assistant turn.
 
-Negative tests keep the protocol boundary visible. `google-latest` fails on Responses, while `openai-latest` fails on Messages. Capriole does not move either request to a different endpoint.
+Validation tests check that each endpoint accepts its own model aliases. Use `google-latest` with Chat Completions and `openai-latest` with Responses or Chat Completions.
 
-Public API file support uses a separate release gate. Each candidate route needs the same small image, PDF, CSV, and DOCX fixtures, a content-specific answer, a streaming repeat where supported, and a record of the exact SDK, model ID, request shape, and test date. Until those live fixtures pass, the public API documentation follows the file formats supported by each native protocol rather than advertising a shared Capriole attachment field.
+For Browser Chat uploads, see [supported files and upload steps](/guides/files-web-search).
 
 ## Start with the client you already have
 
@@ -121,4 +118,4 @@ If an application uses Chat Completions, follow the [Chat Completions reference]
 
 For a first request, begin with the [API quickstart](/quickstart). Python developers can follow the [OpenAI and Anthropic SDK guide](/guides/openai-anthropic-sdks). Coding-agent users can see the maintained client matrix in [One API for Coding Agents](/articles/coding-agent-compatibility). [LLM gateway security risks](/articles/llm-gateway-security) lists what to check before you send code through any gateway.
 
-Capriole's job is to remove account and access fragmentation while respecting the protocol your client actually speaks. [Try the supported flagship models in limited free browser chat](https://www.capriole.ai/), then [upgrade to USD 9 Premium to create an API key](https://www.capriole.ai/?view=api).
+Capriole's job is to remove account and access fragmentation while respecting the protocol your client actually speaks. [Try the supported flagship models in free browser chat](https://www.capriole.ai/), then [upgrade to USD 9 Premium to create an API key](https://www.capriole.ai/?view=api).

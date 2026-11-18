@@ -175,7 +175,7 @@ OpenCode 2.2.5 は、OpenCode 2 の設定を使い、「対応モデル」のす
 
 - `package: "@opencode/ai/providers/openai-compatible"` はプロバイダーのデフォルト パッケージです。そのため、Gemini、Grok、GLM、Kimi は Chat Completions を使います。
 - 各 GPT モデルは `package` を `@opencode/ai/providers/openai-compatible/responses` で上書きし、Responses API を使います。各 Claude モデルは `@opencode/ai/providers/anthropic-compatible` で上書きし、Anthropic Messages を使います。
-- `env` はキーを保持する環境変数を指定します。`Authorization` ヘッダーにより、どのパッケージでもキーが Bearer トークンとして送られます。このヘッダーがないと、Anthropic パッケージはキーを `x-api-key` ヘッダーで送りますが、Capriole AI はこれを受け付けません。
+- `env` はキーを保持する環境変数を指定します。`Authorization` ヘッダーにより、どのパッケージでもキーが Bearer トークンとして送られます。
 - `reasoningEffort` は各 GPT モデルのデフォルトの推論レベルを設定します。これがないと、GPT モデルは推論せずに回答します。
 - `baseURL` には、どのパッケージでも `/v1` を含めます。`limit` は各モデルのコンテキスト ウィンドウと出力上限を OpenCode に伝えます。
 - `agents.title` は、OpenCode がセッション タイトルに使うモデルを設定します。
@@ -314,7 +314,7 @@ OpenCode 1 は OpenCode 2 の形式を読み込みませんが、OpenCode 2 は�
 - `npm: "@ai-sdk/openai-compatible"` はプロバイダーのデフォルト パッケージです。そのため、Gemini、Grok、GLM、Kimi は Chat Completions を使います。
 - 各 GPT モデルは `provider.npm` を `@ai-sdk/openai` で上書きし、Responses API を使います。各 Claude モデルは `@ai-sdk/anthropic` で上書きし、Anthropic Messages を使います。
 - `baseURL` には、どのパッケージでも `/v1` を含めます。
-- `{env:CAPRIOLE_AI_API_KEY}` は環境変数からキーを読み取ります。`Authorization` ヘッダーにより、どのパッケージでもキーが Bearer トークンとして送られます。このヘッダーがないと、Anthropic パッケージはキーを `x-api-key` ヘッダーで送りますが、Capriole AI はこれを受け付けません。
+- `{env:CAPRIOLE_AI_API_KEY}` は環境変数からキーを読み取ります。`Authorization` ヘッダーにより、どのパッケージでもキーが Bearer トークンとして送られます。
 - `limit` は各モデルのコンテキスト ウィンドウと出力上限を OpenCode に伝えます。これにより、OpenCode はコンテキストを追跡し、適切なタイミングでセッションを圧縮できます。
 - `small_model` は、セッション タイトルの生成などの軽いタスクに OpenCode が使うモデルです。
 

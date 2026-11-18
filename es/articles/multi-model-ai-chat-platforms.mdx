@@ -39,15 +39,15 @@ Todas estas plataformas envían cada solicitud a un modelo de frontera al provee
 | Venice | No se indica en las páginas que revisamos | En tu dispositivo | Las solicitudes se retransmiten sin guardarse; en los modelos de frontera, Venice dice que asumas que el proveedor guarda tu contenido |
 | OpenRouter | Dice que no entrena con tus datos | Las conversaciones del Chatroom se quedan en tu dispositivo y no se sincronizan | Metadatos de las solicitudes, como el modelo y el número de tokens; los prompts no se registran salvo que lo actives, pero en los endpoints con Safety Retention OpenRouter o el proveedor pueden conservarlos para prevenir abusos |
 
-Los modos **Local Storage** y **No Storage** de Capriole AI mantienen el historial fuera de nuestra base de datos, pero las subidas y la creación de imágenes requieren **Server Storage**. La [guía de privacidad y control de datos](/es/guides/privacy-and-security) indica qué se guarda en cada modo, y la [guía de almacenamiento del chat](/es/guides/chat-storage) muestra cómo cambiarlo.
+Inicia sesión y usa **Server Storage** para subir archivos y generar imágenes. La [guía de privacidad y control de datos](/es/guides/privacy-and-security) indica qué se guarda en cada modo, y la [guía de almacenamiento del chat](/es/guides/chat-storage) muestra cómo cambiarlo.
 
 ## Archivos, búsqueda web y el resto del espacio de trabajo
 
 El chat web de Capriole AI incluye archivos y búsqueda web, [proyectos](/es/guides/projects) con sus propias instrucciones y archivos, exportación de chats y personalización. También se incluye la generación gratuita de imágenes con GPT Image 2.6, Nano Banana 2.1 y Seedream 5.5; la [guía de archivos, imágenes y búsqueda web](/es/guides/files-web-search) explica los requisitos de inicio de sesión y almacenamiento.
 
-## A qué renuncias
+Premium incluye 5M de tokens de API al mes para aplicaciones y agentes de programación. Cada recarga de 5M de tokens cuesta USD 8.
 
-Capriole AI está pensado para personas y equipos pequeños. Magai tiene agentes integrados, ejecuciones de tareas programadas e integraciones con otras aplicaciones, y Magai y Venice generan video; Capriole AI no tiene tareas programadas, integraciones con aplicaciones ni generación de video. Tampoco ofrece controles empresariales como el inicio de sesión único SAML; [Riesgos de seguridad de un gateway LLM](/es/articles/llm-gateway-security) detalla lo que Capriole AI ofrece y lo que no. El chat web es ilimitado, pero las solicitudes a la API y los agentes de programación usan un saldo medido: 5M de tokens al mes en Premium y después USD 8 por 5M de tokens.
+Consulta la [guía de seguridad de las pasarelas LLM](/es/articles/llm-gateway-security) para saber cómo se enrutan las solicitudes y qué datos se registran.
 
 ## Preguntas frecuentes
 
@@ -79,6 +79,8 @@ Capriole AI está pensado para personas y equipos pequeños. Magai tiene agentes
     Chat web ilimitado y una clave API por USD 9 al mes.
   </Card>
 </CardGroup>
+
+Capriole AI es un espacio de trabajo independiente, sin afiliación con Magai, T3 Chat, Venice ni OpenRouter.
 
 ## Fuentes oficiales
 

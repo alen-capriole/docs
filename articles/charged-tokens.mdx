@@ -21,7 +21,7 @@ charged_tokens =
   + output_tokens
 ```
 
-If the provider reports no cached input, all input tokens count at 100%. Capriole does not infer a cache hit that the usage metadata does not report.
+If the provider reports no cached input, all input tokens count at 100%.
 
 | Protocol | Normalized input | Cached subset |
 |---|---|---|
@@ -83,9 +83,7 @@ The [dated API cost comparison](/articles/ai-api-cost-comparison) applies this f
 
 Included quota is consumed before the matching personal or Team top-up wallet. Purchased top-up balances persist across monthly quota periods and paid-access gaps; consuming them still requires eligible active paid access. Browser chat is separate from API accounting; coding agents count as API traffic and deduct charged tokens.
 
-The monthly 5 million is part of the full USD 9 Premium workspace membership. It is not an unlimited API plan and should not be presented as a standalone API price.
-
-Top-ups extend programmatic usage. They do not change the browser-chat allowance, model compatibility, or the requirement for eligible active personal or Team access.
+The USD 9 Premium subscription includes 5 million charged API tokens each month.
 
 ## What the API records
 
@@ -111,7 +109,7 @@ Open the Capriole AI [API page](https://www.capriole.ai/?view=api), then use the
 | **Charged tokens** | Quota deducted after applying the cached-input formula |
 | **Total tokens** | Protocol-normalized input plus output |
 
-A positive cached-token value confirms that compatible provider usage metadata reported a cache hit. It does not prove that every repeated request will hit the same provider cache. Provider routing, cache lifetime, request structure, and model behavior can change the result.
+A positive cached-token value confirms that compatible provider usage metadata reported a cache hit. Provider routing, cache lifetime, request structure, and model behavior can change the result.
 
 API responses keep their upstream schemas, so the account usage table is the consistent place to compare requests across routes.
 
@@ -119,18 +117,18 @@ API responses keep their upstream schemas, so the account usage table is the con
 
 ### Does cached input always receive the 90% quota discount?
 
-Only when the selected provider reports cached input in compatible usage metadata. Missing cache metadata is not treated as a cache hit.
+The 90% discount applies to cached input tokens identified in the provider’s usage metadata. Other input tokens count at the standard rate.
 
 ### Are reasoning tokens added a second time?
 
 No. Provider-reported output usage already contains the output accounting used by the route. Capriole does not add a separate reasoning-token charge on top of output for this formula.
 
-### Is API usage unlimited under Premium?
+### How does Premium bill API and coding-agent requests?
 
-No. Premium browser chat is unlimited across the supported Premium model set. API and coding-agent requests use the included charged-token balance and any available top-up balance.
+Premium includes 5M API tokens a month for apps and coding agents. Top-ups cost USD 8 per 5M tokens.
 
 ### Where should I start coding?
 
-Use the [API quickstart](/quickstart) for the smallest raw request or the [OpenAI and Anthropic SDK guide](/guides/openai-anthropic-sdks) for protocol-native Python and TypeScript clients. If you have not subscribed yet, [try the flagship models in limited free browser chat](https://www.capriole.ai/) before upgrading.
+Use the [API quickstart](/quickstart) for the smallest raw request or the [OpenAI and Anthropic SDK guide](/guides/openai-anthropic-sdks) for protocol-native Python and TypeScript clients. If you have not subscribed yet, [try the flagship models in free browser chat](https://www.capriole.ai/) before upgrading.
 
 Capriole plan, quota, top-up, and charged-token facts on this page are maintained as first-party documentation.

@@ -14,7 +14,7 @@ Die gemeinsame Konto- und Abrechnungsschicht sitzt über diesen protokollspezifi
 
 Eine Premium-Mitgliedschaft für USD 9 deckt unbegrenzten Browser-Chat über die unterstützte Premium-Modellgruppe, 5 Millionen monatliche abgerechnete API-Tokens und 10 dokumentierte Coding-Agent-Pfade ab. Anwendungen behalten das Protokoll, das sie bereits nutzen, während der Nutzer ein Capriole-Konto, einen Schlüssel, ein Guthaben und eine Abrechnungsseite behält.
 
-Das ist der praktische Vorteil gegenüber dem getrennten Zusammenstellen von Anbieterkonten. Der [datierte Kostenvergleich](/de/articles/ai-api-cost-comparison) zeigt Capriole außerdem mit USD 9 für jedes getestete Modell, das es anbietet. Für dieselbe Arbeitslast von 5 Millionen Tokens reichen direkte bezahlte Standard-Preise von USD 6.75 bis USD 90, OpenRouter liegt nach seiner veröffentlichten Gebühr für den Credit-Kauf bei USD 7.55 bis USD 94.95. Für die aktuellen Flaggschiff-Modelle zeigen [Claude-API-Preise](/de/articles/claude-api-pricing), [OpenAI-API-Preise](/de/articles/openai-api-pricing) und [Gemini-API-Preise](/de/articles/gemini-api-pricing), wie die offiziellen Preise im Vergleich zu den USD 8 pro 5M Tokens bei Capriole abschneiden. Für Gemini 3.8 Flash sind die direkte API und OpenRouter in diesem Beispiel günstiger.
+Das ist der praktische Vorteil gegenüber dem getrennten Zusammenstellen von Anbieterkonten. Der [datierte Kostenvergleich](/de/articles/ai-api-cost-comparison) rechnet mit dem persönlichen Premium-Abo für USD 9 pro Monat, das 5 Millionen API-Tokens enthält. Für dieselbe Arbeitslast von 5 Millionen Tokens reichen direkte bezahlte Standard-Preise von USD 6.75 bis USD 90, OpenRouter liegt nach seiner veröffentlichten Gebühr für den Credit-Kauf bei USD 7.55 bis USD 94.95. Für die aktuellen Flaggschiff-Modelle zeigen [Claude-API-Preise](/de/articles/claude-api-pricing), [OpenAI-API-Preise](/de/articles/openai-api-pricing) und [Gemini-API-Preise](/de/articles/gemini-api-pricing), wie die offiziellen Preise im Vergleich zu dem Zusatzpaket für das persönliche Premium-Abo (USD 8 für 5 Millionen Tokens) abschneiden.
 
 ## Die öffentlichen Pfade
 
@@ -46,9 +46,7 @@ Alle öffentlichen Generierungsrouten verwenden denselben Capriole-API-Schlüsse
 
 Zum Beispiel akzeptiert der Responses-Pfad den gepflegten OpenAI-Alias und unterstützte Responses-kompatible OpenAI-Modelle sowie Grok-Modelle, die mit dem Präfix `xai/` gesendet werden. Der Messages-Pfad akzeptiert den gepflegten Claude-Alias und unterstützte Claude-Messages-Modell-IDs. Kompatible Chat-Pfade können eine breitere Gruppe öffentlicher Chat-Modelle bereitstellen.
 
-Wenn ein Modell für die gewählte Route nicht gültig ist, sollte die Anfrage die Validierung nicht bestehen. Capriole leitet eine nicht unterstützte, zurückgezogene Modell-ID nicht stillschweigend auf ein anderes Modell um.
-
-Dieser explizite Fehler ist sicherer, als eine Antwort von einem Modell zurückzugeben, das der Aufrufer nicht angefordert hat.
+Jede Route prüft die Modell-ID vor der Weiterleitung. Bei einer ungültigen ID erhält der Client einen Validierungsfehler und kann vor dem nächsten Versuch Modell oder Endpunkt korrigieren.
 
 ## Latest-Aliase und reproduzierbare IDs
 
@@ -58,13 +56,13 @@ Aliase werden vor der Upstream-Weiterleitung aufgelöst. Nutzungs-, Kontingent- 
 
 Verwenden Sie einen Alias, wenn sich der gepflegte Standard von Capriole mit unterstützten Releases bewegen soll. Verwenden Sie eine konkrete Modell-ID, wenn die genaue Version Teil des Ergebnisses ist und reproduzierbar bleiben muss.
 
-Der [Endpunkt Modelle auflisten](/de/api-reference/endpoint/get) ist das aktuelle öffentliche Inventar. Gehen Sie nicht davon aus, dass ein im Browser-Chat gezeigtes Modell automatisch auf jedem API-Protokoll gültig ist.
+Der [Endpunkt Modelle auflisten](/de/api-reference/endpoint/get) ist das aktuelle öffentliche Inventar.
 
 ## Fallback geschieht, bevor die Antwort beginnt
 
 Bei unterstützten Routen kann Capriole eine andere konfigurierte Quelle versuchen, wenn die erste Quelle fehlschlägt, bevor Antwortbytes gesendet wurden.
 
-Sobald eine gestreamte Antwort begonnen hat, würde ein Quellenwechsel doppelte oder widersprüchliche Ausgabe riskieren. Automatischer Fallback läuft nur, bevor die Ausgabe startet. Er kann nicht jeden Anbieterfehler verbergen oder Modelle mitten in einer Antwort wechseln.
+Sobald das Streaming beginnt, bleibt die Quelle dieselbe.
 
 Die angeforderte Modell-ID bleibt bei einem unterstützten Quellen-Fallback erhalten. Capriole ändert die Lieferquelle, nicht die vom Nutzer genannte Modellwahl.
 
@@ -74,7 +72,7 @@ Browser-Chat kann getrennt optionalen Modell-Auto-Wechsel und [manuelle Modellä
 
 Programmatische Arbeitslasten werden nutzungsabhängig abgerechnet. Capriole erfasst Nutzung aus den Metadaten des passenden Protokolls, einschließlich abgeschlossener gestreamter Antworten, wenn Nutzung verfügbar ist.
 
-Premium umfasst derzeit **5 Millionen abgerechnete API-Tokens pro Monat**. Capriole zählt ungecachte Eingabe und Ausgabe zu 100% und gecachte Eingabe zu 10% für dieses Guthaben. Zusätzliche Token-Pakete sind als Aufstockungen verfügbar. Der unbegrenzte Teil von Premium gilt für Browser-Chat über die unterstützte Premium-Modellgruppe, nicht für API- oder Coding-Agent-Traffic.
+Premium umfasst derzeit **5 Millionen abgerechnete API-Tokens pro Monat**. Capriole zählt ungecachte Eingabe und Ausgabe zu 100% und gecachte Eingabe zu 10% für dieses Guthaben. Zusätzliche Token-Pakete sind als Aufstockungen verfügbar.
 
 Der [Artikel zu abgerechneten Tokens](/de/articles/charged-tokens) gibt die genaue Formel, die Rundungsregel und reproduzierbare Beispiele.
 
@@ -107,13 +105,12 @@ Die fokussierten Suiten für öffentliche Routen und Dateikonvertierung haben **
 | Anthropic Messages | Nicht-Streaming-Ausgabe, Anthropic SSE, `tool_use`, `tool_result` und `claude-latest` | Nur Claude-Messages-Modelle |
 | Latest-Aliase | Endpunkt-Gating, kanonische Auflösung, kanonische Nutzungszeilen und repräsentative Client-Läufe | Aliase sind Eingabeauswähler und erzeugen kein getrenntes Nutzungsmodell |
 | Dateien in Browser-Chat | Dateityperkennung, Konvertierung und Modell-Payload-Zusammenbau für Bilder, PDFs, Text, DOCX, PPTX, CSV, XLS und XLSX | Diese Evidenz gehört zum Browser-Chat-Arbeitsbereich |
-| Dateien über die öffentliche API | Kein veröffentlichter protokollübergreifender Durchlauf | Capriole sagt keine einheitliche Dateischnittstelle für Responses, Chat Completions und Messages zu |
 
 Stream-Prüfungen verbrauchen die vollständige Antwort und erfordern das eigene Endereignis jedes Protokolls. Responses endet mit seinem Completion-Ereignis, Chat Completions erreicht `[DONE]`, und Messages erreicht `message_stop`. Tool-Tests senden das Tool-Ergebnis zurück und erfordern den finalen Assistenten-Turn.
 
-Negative Tests halten die Protokollgrenze sichtbar. `google-latest` schlägt auf Responses fehl, während `openai-latest` auf Messages fehlschlägt. Capriole verschiebt keine der beiden Anfragen auf einen anderen Endpunkt.
+Validierungstests prüfen die Modellaliase der einzelnen Endpunkte. Verwenden Sie `google-latest` mit Chat Completions und `openai-latest` mit Responses oder Chat Completions.
 
-Die Dateiunterstützung der öffentlichen API verwendet ein getrenntes Release-Gate. Jede Kandidatenroute braucht dieselben kleinen Bild-, PDF-, CSV- und DOCX-Fixtures, eine inhaltsspezifische Antwort, eine Streaming-Wiederholung wo unterstützt und einen Eintrag von genauem SDK, Modell-ID, Anfrageform und Testdatum. Bis diese Live-Fixtures bestehen, folgt die Dokumentation der öffentlichen API den Dateiformaten jedes nativen Protokolls, statt ein gemeinsames Capriole-Anhangfeld zu bewerben.
+Die Anleitung zu [Dateitypen und Uploads im Browser-Chat](/de/guides/files-web-search) beschreibt, wie Sie Dateien anhängen.
 
 ## Mit dem Client beginnen, den Sie bereits haben
 
@@ -121,4 +118,4 @@ Wenn eine Anwendung Chat Completions verwendet, folgen Sie der [Chat-Completions
 
 Für eine erste Anfrage beginnen Sie mit dem [API-Schnellstart](/de/quickstart). Python-Entwickler können der [OpenAI- und Anthropic-SDK-Anleitung](/de/guides/openai-anthropic-sdks) folgen. Coding-Agent-Nutzer sehen die gepflegte Client-Matrix in [Eine API für Coding-Agents](/de/articles/coding-agent-compatibility). [Sicherheitsrisiken von LLM-Gateways](/de/articles/llm-gateway-security) listet auf, was Sie prüfen sollten, bevor Sie Code über ein Gateway senden.
 
-Die Aufgabe von Capriole ist, Konto- und Zugangsfragmentierung zu entfernen und dabei das Protokoll zu respektieren, das Ihr Client tatsächlich spricht. [Probieren Sie die unterstützten Flaggschiff-Modelle im begrenzten kostenlosen Browser-Chat](https://www.capriole.ai/de) und [wechseln Sie dann zu Premium für USD 9, um einen API-Schlüssel zu erstellen](https://www.capriole.ai/de?view=api).
+Die Aufgabe von Capriole ist, Konto- und Zugangsfragmentierung zu entfernen und dabei das Protokoll zu respektieren, das Ihr Client tatsächlich spricht. [Probieren Sie die unterstützten Flaggschiff-Modelle im kostenlosen Browser-Chat](https://www.capriole.ai/de) und [wechseln Sie dann zu Premium für USD 9, um einen API-Schlüssel zu erstellen](https://www.capriole.ai/de?view=api).

@@ -175,7 +175,7 @@ What each setting does:
 
 - `package: "@opencode/ai/providers/openai-compatible"` is the default package for the provider, so Gemini, Grok, GLM, and Kimi use Chat Completions.
 - Each GPT model overrides `package` with `@opencode/ai/providers/openai-compatible/responses`, which uses the Responses API. Each Claude model overrides it with `@opencode/ai/providers/anthropic-compatible`, which uses Anthropic Messages.
-- `env` names the variable that holds your key. The `Authorization` header sends the key as a Bearer token for every package. Without it, the Anthropic package sends the key in an `x-api-key` header, which Capriole AI does not accept.
+- `env` names the variable that holds your key. The `Authorization` header sends the key as a Bearer token for every package.
 - `reasoningEffort` gives each GPT model a default reasoning effort. Without it, GPT models answer without reasoning.
 - `baseURL` includes `/v1` for every package. `limit` tells OpenCode each model's context window and output limit.
 - `agents.title` sets the model OpenCode uses for session titles.
@@ -314,7 +314,7 @@ What each setting does:
 - `npm: "@ai-sdk/openai-compatible"` is the default package for the provider, so Gemini, Grok, GLM, and Kimi use Chat Completions.
 - Each GPT model overrides `provider.npm` with `@ai-sdk/openai`, which uses the Responses API. Each Claude model overrides it with `@ai-sdk/anthropic`, which uses Anthropic Messages.
 - `baseURL` includes `/v1` for every package.
-- `{env:CAPRIOLE_AI_API_KEY}` reads your key from the environment. The `Authorization` header sends it as a Bearer token for every package. Without it, the Anthropic package sends the key in an `x-api-key` header, which Capriole AI does not accept.
+- `{env:CAPRIOLE_AI_API_KEY}` reads your key from the environment. The `Authorization` header sends it as a Bearer token for every package.
 - `limit` tells OpenCode each model's context window and output limit, so it can track context and compact the session in time.
 - `small_model` is the model OpenCode uses for light tasks such as session titles.
 

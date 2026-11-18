@@ -114,7 +114,7 @@ Claude Code does not recognize `claude-latest` as a model name, so it assumes a 
 
 ### Why does Claude Code return an authentication error?
 
-Use `ANTHROPIC_AUTH_TOKEN`, not `ANTHROPIC_API_KEY`. `ANTHROPIC_API_KEY` sends the key in an `x-api-key` header, and Capriole AI accepts only a Bearer token.
+Use `ANTHROPIC_AUTH_TOKEN` so Claude Code sends your Capriole AI key as a Bearer token in the `Authorization` header.
 
 ### Why do requests fail with endpoint errors?
 
@@ -126,7 +126,7 @@ Remove `ANTHROPIC_MODEL` from your settings and shell. When it is set, Claude Co
 
 ### Why does `/model opus` or `/model sonnet` fail?
 
-Keep the three `ANTHROPIC_DEFAULT_*_MODEL` values. Without them, Claude Code sends Anthropic's own alias targets. For example, `sonnet` requests `claude-sonnet-5-5`, which Capriole AI does not serve, and the request fails with `Unsupported Claude Messages model`.
+Keep the three `ANTHROPIC_DEFAULT_*_MODEL` values so Claude Code maps its aliases to the Claude models in your Capriole AI configuration.
 
 ### Why doesn't Claude Code use my effort level?
 
@@ -139,6 +139,6 @@ Capriole AI forwards `/v1/messages/count_tokens` to the selected upstream. When 
 ## Notes
 
 - `~/.claude/settings.json` applies to your user account in every project. Replace `YOUR_CAPRIOLE_AI_API_KEY` with your Capriole AI API key.
-- Gemini, Grok, GLM, and Kimi models do not run in Claude Code, because it speaks only the Anthropic Messages protocol. Use OpenCode, Kilo Code, or another multi-protocol agent for those models.
+- Claude Code uses Claude models through Anthropic Messages. For Gemini, Grok, GLM, and Kimi, use a multi-protocol agent such as OpenCode or Kilo Code.
 - To use the same key with your other coding agents, see [Use one API key with coding agents](/guides/one-api-key-coding-agents).
 - Official references: [Claude Code setup](https://code.claude.com/docs/en/setup), [model configuration](https://code.claude.com/docs/en/model-config), and [LLM gateway configuration](https://code.claude.com/docs/en/llm-gateway-connect).

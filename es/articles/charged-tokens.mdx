@@ -21,7 +21,7 @@ charged_tokens =
   + output_tokens
 ```
 
-Si el proveedor no informa entrada cacheada, todos los tokens de entrada cuentan al 100%. Capriole no infiere un acierto de caché que los metadatos de uso no informen.
+Si el proveedor no informa entrada cacheada, todos los tokens de entrada cuentan al 100%.
 
 | Protocolo | Entrada normalizada | Subconjunto cacheado |
 |---|---|---|
@@ -83,9 +83,7 @@ La [comparación fechada de costos de API](/es/articles/ai-api-cost-comparison) 
 
 La cuota incluida se consume antes de la billetera de recarga personal o Team coincidente. Los saldos de recarga comprados persisten entre periodos de cuota mensual y huecos de acceso de pago; consumirlos sigue requiriendo acceso de pago activo elegible. El chat del navegador es independiente de la contabilidad de API; los agentes de programación cuentan como tráfico de API y descuentan tokens cobrados.
 
-Los 5 millones mensuales forman parte de la membresía completa de espacio de trabajo Premium de USD 9. No es un plan de API ilimitada y no debe presentarse como un precio de API independiente.
-
-Las recargas extienden el uso programático. No cambian el cupo del chat del navegador, la compatibilidad de modelos ni el requisito de acceso personal o Team activo elegible.
+La suscripción Premium de USD 9 incluye 5 millones de tokens de API facturados al mes.
 
 ## Qué registra la API
 
@@ -111,7 +109,7 @@ Abre la [página de API](https://www.capriole.ai/es?view=api) de Capriole AI y u
 | **Tokens cobrados** | Cuota descontada después de aplicar la fórmula de entrada cacheada |
 | **Tokens totales** | Entrada más salida normalizadas por protocolo |
 
-Un valor positivo de tokens cacheados confirma que los metadatos de uso compatibles del proveedor informaron un acierto de caché. No prueba que cada solicitud repetida acierte la misma caché del proveedor. El enrutamiento del proveedor, la vida de la caché, la estructura de la solicitud y el comportamiento del modelo pueden cambiar el resultado.
+Un valor positivo de tokens cacheados confirma que los metadatos de uso compatibles del proveedor informaron un acierto de caché. El enrutamiento del proveedor, la vida de la caché, la estructura de la solicitud y el comportamiento del modelo pueden cambiar el resultado.
 
 Las respuestas de la API conservan sus esquemas de upstream, así que la tabla de uso de la cuenta es el lugar coherente para comparar solicitudes entre rutas.
 
@@ -119,18 +117,18 @@ Las respuestas de la API conservan sus esquemas de upstream, así que la tabla d
 
 ### ¿La entrada cacheada recibe siempre el descuento de cuota del 90%?
 
-Solo cuando el proveedor seleccionado informa entrada cacheada en metadatos de uso compatibles. La ausencia de metadatos de caché no se trata como un acierto de caché.
+El descuento del 90% se aplica a los tokens de entrada en caché que el proveedor identifica en los metadatos de uso. Los demás se contabilizan a la tarifa estándar.
 
 ### ¿Los tokens de razonamiento se suman una segunda vez?
 
 No. El uso de salida informado por el proveedor ya contiene la contabilidad de salida usada por la ruta. Capriole no añade un cargo separado de tokens de razonamiento encima de la salida para esta fórmula.
 
-### ¿El uso de API es ilimitado en Premium?
+### ¿Cómo se contabilizan las solicitudes de API y de agentes de programación en Premium?
 
-No. El chat del navegador de Premium es ilimitado con todos los modelos compatibles de Premium. Las solicitudes de API y de agentes de programación usan el saldo incluido de tokens cobrados y cualquier saldo de recarga disponible.
+Premium incluye 5M de tokens de API al mes para aplicaciones y agentes de programación. Cada recarga de 5M de tokens cuesta USD 8.
 
 ### ¿Por dónde debo empezar a programar?
 
-Usa el [inicio rápido de la API](/es/quickstart) para la solicitud en bruto más pequeña o la [guía de los SDK de OpenAI y Anthropic](/es/guides/openai-anthropic-sdks) para clientes nativos de protocolo en Python y TypeScript. Si aún no te has suscrito, [prueba los modelos insignia en el chat limitado gratuito del navegador](https://www.capriole.ai/es) antes de pasar a Premium.
+Usa el [inicio rápido de la API](/es/quickstart) para la solicitud en bruto más pequeña o la [guía de los SDK de OpenAI y Anthropic](/es/guides/openai-anthropic-sdks) para clientes nativos de protocolo en Python y TypeScript. Si aún no te has suscrito, [prueba los modelos insignia en el chat gratuito del navegador](https://www.capriole.ai/es) antes de pasar a Premium.
 
 La información sobre planes, cuota, recargas y tokens cobrados de Capriole de esta página es documentación propia de Capriole AI.

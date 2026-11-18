@@ -175,7 +175,7 @@ OpenCode 2.2.5 버전은 OpenCode 2 구성으로 지원 모델 섹션의 모든 
 
 - `package: "@opencode/ai/providers/openai-compatible"`은 제공자의 기본 패키지이므로 Gemini, Grok, GLM, Kimi는 Chat Completions를 사용합니다.
 - 각 GPT 모델은 `package`를 Responses API를 사용하는 `@opencode/ai/providers/openai-compatible/responses`로 재정의합니다. 각 Claude 모델은 Anthropic Messages를 사용하는 `@opencode/ai/providers/anthropic-compatible`로 재정의합니다.
-- `env`는 키를 담은 환경 변수를 지정합니다. `Authorization` 헤더는 모든 패키지에서 키를 Bearer 토큰으로 보냅니다. 이 헤더가 없으면 Anthropic 패키지가 키를 `x-api-key` 헤더로 보내는데, Capriole AI는 이를 받지 않습니다.
+- `env`는 키를 담은 환경 변수를 지정합니다. `Authorization` 헤더는 모든 패키지에서 키를 Bearer 토큰으로 보냅니다.
 - `reasoningEffort`는 각 GPT 모델의 기본 추론 강도를 정합니다. 이 설정이 없으면 GPT 모델은 추론 없이 답합니다.
 - `baseURL`에는 모든 패키지에서 `/v1`이 포함됩니다. `limit`은 OpenCode에 각 모델의 컨텍스트 창과 출력 한도를 알려 줍니다.
 - `agents.title`은 OpenCode가 세션 제목에 사용하는 모델을 정합니다.
@@ -314,7 +314,7 @@ OpenCode 1은 OpenCode 2 형식을 읽지 않지만, OpenCode 2는 이 형식도
 - `npm: "@ai-sdk/openai-compatible"`은 제공자의 기본 패키지이므로 Gemini, Grok, GLM, Kimi는 Chat Completions를 사용합니다.
 - 각 GPT 모델은 `provider.npm`을 Responses API를 사용하는 `@ai-sdk/openai`로 재정의합니다. 각 Claude 모델은 Anthropic Messages를 사용하는 `@ai-sdk/anthropic`으로 재정의합니다.
 - `baseURL`에는 모든 패키지에서 `/v1`이 포함됩니다.
-- `{env:CAPRIOLE_AI_API_KEY}`는 환경 변수에서 키를 읽습니다. `Authorization` 헤더는 모든 패키지에서 키를 Bearer 토큰으로 보냅니다. 이 헤더가 없으면 Anthropic 패키지가 키를 `x-api-key` 헤더로 보내는데, Capriole AI는 이를 받지 않습니다.
+- `{env:CAPRIOLE_AI_API_KEY}`는 환경 변수에서 키를 읽습니다. `Authorization` 헤더는 모든 패키지에서 키를 Bearer 토큰으로 보냅니다.
 - `limit`은 OpenCode에 각 모델의 컨텍스트 창과 출력 한도를 알려 주어, OpenCode가 컨텍스트를 추적하고 제때 세션을 압축할 수 있게 합니다.
 - `small_model`은 OpenCode가 세션 제목 생성 같은 가벼운 작업에 사용하는 모델입니다.
 

@@ -98,7 +98,7 @@ Beginnen Sie mit einem gepflegten Alias, sofern Sie keine genaue Modellversion b
 - verwenden Sie `claude-latest` auf Anthropic-Messages-Pfaden oder in Claude Code `claude-fable-5-1`;
 - verwenden Sie ein in der Integrationsseite gelistetes Modell auf Chat-Completions-kompatiblen Pfaden.
 
-Der [aktuelle Modellkatalog](/de/api-reference/endpoint/get) listet öffentliche API-Modelle. Ein Browser-Chat-Modell ist nicht automatisch auf jedem API-Protokoll gültig.
+Der [aktuelle Modellkatalog](/de/api-reference/endpoint/get) listet öffentliche API-Modelle.
 
 </Step>
 
@@ -114,8 +114,6 @@ Achten Sie auf eine nicht leere Antwort, idealerweise den angeforderten Marker `
 
 Öffnen Sie dann die [API-Seite](https://www.capriole.ai/de?view=api) und bestätigen Sie, dass die Anfrage in der Nutzungsansicht unter dem erwarteten Schlüssel und Modell erscheint. Der Nutzungseintrag ist die entscheidende Prüfung, dass der Client Capriole verwendet hat. Eine Antwort allein reicht nicht, wenn der Client einen anderen Anbieter oder Fallback konfiguriert hat. Die [Anleitung zu API-Schlüsseln und Nutzung](/de/guides/api-keys-usage) zeigt die genauen Filter und den Schlüssellebenszyklus.
 
-Diese Prüfung testet nicht jedes Tool oder jede Modellfunktion.
-
 </Step>
 </Steps>
 
@@ -129,7 +127,7 @@ Diese Prüfung testet nicht jedes Tool oder jede Modellfunktion.
 | Modell | Der Client akzeptiert den konfigurierten Latest-Alias oder die konkrete ID |
 | Nutzung | Die Anfrage erscheint in der API-Nutzungsansicht als abgerechneter API-Traffic |
 
-Coding-Agent-Anfragen nutzen das berechtigte persönliche oder [Team-API-Guthaben](/de/guides/team-plan). Sie sind nicht Teil des unbegrenzten bezahlten Browser Chats. Lesen Sie [Capriole AI abgerechnete Tokens](/de/articles/charged-tokens), bevor Sie eine große automatisierte Arbeitslast ausführen.
+Coding-Agent-Anfragen nutzen das berechtigte persönliche oder [Team-API-Guthaben](/de/guides/team-plan). Lesen Sie [Capriole AI abgerechnete Tokens](/de/articles/charged-tokens), bevor Sie eine große automatisierte Arbeitslast ausführen.
 
 ## Häufige Einrichtungsfehler beheben
 
@@ -145,4 +143,4 @@ Coding-Agent-Anfragen nutzen das berechtigte persönliche oder [Team-API-Guthabe
 
 Lesen Sie [den Artikel zur Coding-Agent-Kompatibilität](/de/articles/coding-agent-compatibility), wenn Sie das Modell hinter diesen Routen brauchen. Für direkten Anwendungscode fahren Sie mit der [OpenAI- und Anthropic-SDK-Anleitung](/de/guides/openai-anthropic-sdks) fort. [Sicherheitsrisiken von LLM-Gateways](/de/articles/llm-gateway-security) listet auf, was Sie prüfen sollten, bevor ein Agent Ihren Quellcode sendet. Wenn Ihr Agent nicht zu diesen 10 gehört, [verbinden Sie ihn über einen benutzerdefinierten Endpunkt](/de/integrations/more-agents).
 
-[Probieren Sie die aktuellen Flaggschiff-Modelle im begrenzten kostenlosen Browser-Chat](https://www.capriole.ai/de) und wechseln Sie zu Premium, wenn Sie den API-Schlüssel für Ihre Coding-Agents erstellen möchten.
+[Probieren Sie die aktuellen Flaggschiff-Modelle im kostenlosen Browser-Chat](https://www.capriole.ai/de) und wechseln Sie zu Premium, wenn Sie den API-Schlüssel für Ihre Coding-Agents erstellen möchten.

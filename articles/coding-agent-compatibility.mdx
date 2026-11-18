@@ -65,7 +65,7 @@ Capriole provides maintained aliases for supported public paths:
 
 The alias is resolved before upstream dispatch and usage accounting. The coding agent sends the stable selector; Capriole records the resolved model that handled the request.
 
-Concrete model IDs remain useful when an exact version matters for an audit, a test, or a long-running project. “Latest” is a convenience, not a substitute for version pinning.
+Concrete model IDs remain useful when an exact version matters for an audit, a test, or a long-running project.
 
 ## What has been tested
 
@@ -73,7 +73,7 @@ The maintained setup follows actual client paths and tests.
 
 Local validation covers all 10 clients through their documented configurations. Tests include basic prompts and supported tool-interaction flows.
 
-There are client-specific limits. Codex remains on the maintained OpenAI Responses models; selecting a Claude model in Capriole does not make it a Codex-compatible model. Claude Code uses the Claude Messages path. Cline and Crush use Chat Completions. Kilo Code, GitHub Copilot CLI, OpenCode, OpenClaw, Qwen Code, and Pi offer broader choices, but their configuration must still match the selected protocol.
+Match each client to its protocol. Codex uses OpenAI Responses, Claude Code uses Anthropic Messages, and Cline and Crush use Chat Completions. The table above lists the configuration for each client.
 
 The integration guides linked in the table are the source of truth for current fields and supported selectors.
 
@@ -83,7 +83,7 @@ Read [how Capriole tests multi-model API compatibility](/articles/unified-model-
 
 Research, drafting, files, web search, and mid-conversation model changes can stay in the browser workspace. When the task needs repository context, local tools, or file changes, a coding agent can use the same Capriole account.
 
-Capriole connects both surfaces to the same account. A Premium membership currently costs **USD 9 per month**, includes unlimited browser chat across the supported Premium model set, and adds **5 million charged API tokens each month**. Coding-agent usage is API usage, so it draws from that metered balance rather than the unlimited browser-chat allowance.
+Capriole connects both surfaces to the same account. A Premium membership currently costs **USD 9 per month**, includes unlimited browser chat across the supported Premium model set, and adds **5 million charged API tokens each month**. Coding agents use your Capriole AI API key and draw on your API token balance.
 
 The plan keeps the two workloads separate. Everyday browser chat is unlimited under Premium, while programmatic and agent workloads use visible charged API tokens with top-ups available when needed.
 
@@ -93,4 +93,4 @@ Use Codex when its Responses-based OpenAI workflow fits the job. Use Claude Code
 
 Each documented client gets a maintained route to the models supported by that protocol.
 
-[Try GPT-6.2 Astra, Claude Fable 5.1, Claude Opus 5.5, or Gemini 4 Carbon in limited free browser chat](https://www.capriole.ai/), then upgrade when you are ready to create an API key. Start with the [one-key coding-agent guide](/guides/one-api-key-coding-agents) for the shared workflow, then open the integration page for the agent you use.
+[Try GPT-6.2 Astra, Claude Fable 5.1, Claude Opus 5.5, or Gemini 4 Carbon in free browser chat](https://www.capriole.ai/), then upgrade when you are ready to create an API key. Start with the [one-key coding-agent guide](/guides/one-api-key-coding-agents) for the shared workflow, then open the integration page for the agent you use.
