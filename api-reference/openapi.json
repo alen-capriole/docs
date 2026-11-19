@@ -56,9 +56,6 @@
                           "id": "openai/gpt-5.6-luna"
                         },
                         {
-                          "id": "openai/gpt-5.5"
-                        },
-                        {
                           "id": "claude-latest"
                         },
                         {
@@ -604,7 +601,6 @@
               "gpt-6-luna",
               "gpt-5.6-terra",
               "gpt-5.6-luna",
-              "gpt-5.5",
               "openai-latest",
               "openai/gpt-6.2-astra",
               "openai/gpt-6.2-sol",
@@ -614,7 +610,6 @@
               "openai/gpt-6-luna",
               "openai/gpt-5.6-terra",
               "openai/gpt-5.6-luna",
-              "openai/gpt-5.5",
               "xai/grok-4.7",
               "xai/grok-4.6",
               "xai/grok-4.5"
@@ -711,7 +706,6 @@
               "openai/gpt-6-luna",
               "openai/gpt-5.6-terra",
               "openai/gpt-5.6-luna",
-              "openai/gpt-5.5",
               "claude-latest",
               "anthropic/claude-fable-5-1",
               "anthropic/claude-opus-5-5",
