@@ -24,7 +24,7 @@ Mesmo assim, cada solicitação vai para o provedor do modelo de IA que a respon
 
 Use Server Storage para sincronizar conversas entre dispositivos, enviar arquivos e criar imagens.
 
-Os dois interruptores ficam em **Conta** → **Configurações**. Em todos os modos, suas mensagens passam pelos nossos servidores até o modelo que as responde, e a Capriole AI guarda um registro de uso. O [guia de armazenamento do chat](/pt-br/guides/chat-storage) explica cada modo em detalhes.
+Os dois interruptores ficam em **Conta** → **Configurações**. Em todos os modos, suas mensagens passam pelos nossos servidores até o modelo que as responde, e a Capriole AI guarda um registro de uso. Se você denunciar uma resposta, recebemos essa resposta e a sua mensagem anterior, seja qual for o modo. O [guia de armazenamento do chat](/pt-br/guides/chat-storage) explica cada modo em detalhes.
 
 <Warning>
 Ligar **Ativar No Storage** exclui permanentemente todo o histórico de chat do servidor e deste navegador assim que você confirma.
@@ -42,6 +42,7 @@ Os chats de visitantes não são salvos nos nossos servidores. Uma cópia fica n
 | Projetos | Nomes, instruções e os arquivos que você adiciona a eles |
 | Tags | Nomes, cores e os chats aos quais você as adiciona |
 | Entrada de voz | Nada. As gravações são enviadas para transcrição sem armazenar o áudio nem o texto. |
+| Denúncias | Quando você denuncia uma resposta: a resposta, a sua mensagem anterior, as imagens marcadas e o motivo e os detalhes que você adicionar, além de dados técnicos como o modelo, o navegador e o país, e o e-mail da sua conta, se tiver feito login. As denúncias chegam por e-mail à nossa caixa de suporte. |
 | Registros de uso | Para cada chat e cada solicitação à API: horário, modelo, contagem de tokens, status, latência, custo e endereço IP, além da key usada nas solicitações à API. Nenhum conteúdo de mensagem. |
 | Pagamentos | O status da sua assinatura e os identificadores de cobrança. O Stripe processa o pagamento; não recebemos o número do seu cartão. |
 

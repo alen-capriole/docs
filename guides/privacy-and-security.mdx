@@ -24,7 +24,7 @@ Each request still goes to the AI model provider that answers it: OpenAI, Anthro
 
 Use Server Storage to sync chats across devices, upload files, and create images.
 
-Both switches are in **Account** → **Settings**. In every mode, your messages pass through our servers to the model that answers them, and Capriole AI keeps a usage record. The [chat storage guide](/guides/chat-storage) walks through each mode.
+Both switches are in **Account** → **Settings**. In every mode, your messages pass through our servers to the model that answers them, and Capriole AI keeps a usage record. If you report an answer, we receive that answer and your message before it, whatever the mode. The [chat storage guide](/guides/chat-storage) walks through each mode.
 
 <Warning>
 Turning on **Enable No Storage** permanently deletes all chat history from the server and this browser once you confirm.
@@ -42,6 +42,7 @@ Guest chats are not saved on our servers. A copy stays in your browser tab so it
 | Projects | Names, instructions, and the files you add to them |
 | Tags | Names, colors, and the chats you add them to |
 | Voice input | Nothing. Recordings are sent for transcription without storing the audio or the text. |
+| Reports | When you report an answer: the answer, your message before it, the ticked images, and the reason and any details you add, plus technical context such as the model, browser, and country, and your account email if you are signed in. Reports are emailed to our support inbox. |
 | Usage records | For each chat and API request: time, model, token counts, status, latency, cost, and IP address, plus the key used for API requests. No message content. |
 | Payments | Your subscription status and billing identifiers. Stripe processes the payment; we do not receive your card number. |
 
