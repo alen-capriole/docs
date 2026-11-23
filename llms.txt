@@ -394,7 +394,7 @@
 - [Capriole AI에서 파일, 이미지 생성, 웹 검색 사용하기](https://docs.capriole.ai/ko/guides/files-web-search.md): GPT Image 2.6, Nano Banana 2.1, Seedream 5.5 무료 이미지 생성, 파일 업로드, 웹 검색을 사용하고 로그인 및 Server Storage 요구 사항을 확인하세요.
 - [코딩 에이전트에 API 키 하나 사용하기](https://docs.capriole.ai/ko/guides/one-api-key-coding-agents.md): 각 클라이언트를 지원 프로토콜에 둔 채로, 하나의 Capriole AI API 키로 문서화된 코딩 에이전트 10개를 설정하세요.
 - [OpenAI 및 Anthropic SDK로 Capriole AI 사용하기](https://docs.capriole.ai/ko/guides/openai-anthropic-sdks.md): 공식 OpenAI 및 Anthropic SDK로 Python 또는 TypeScript에서 Capriole AI를 호출하고, 지원 프로토콜, latest 별칭, 올바른 Base URL을 사용하세요.
-- [맞춤 지침과 메모리로 Capriole AI 개인화하기](https://docs.capriole.ai/ko/guides/personalization-and-memory.md): Capriole AI에 나를 부를 이름, 하는 일, 원하는 답변 방식을 알려 주세요. 메모리는 채팅과 모델을 넘나들며 나에 관한 사실을 기억하며, 기억한 사실은 모두 직접 편집할 수 있습니다.
+- [맞춤 지침과 메모리로 Capriole AI 개인화하기](https://docs.capriole.ai/ko/guides/personalization-and-memory.md): Capriole AI에 나를 부를 이름, 하는 일, 원하는 답변 방식을 알려 주세요. 메모리는 채팅과 모델을 넘나들며 나에 관한 사실을 기억하고, 그 사실은 모두 직접 편집할 수 있습니다.
 - [Capriole AI 요금제: Premium 월 USD 9](https://docs.capriole.ai/ko/guides/plans-and-limits.md): 월 USD 9에 GPT-6.2 Astra, Claude Fable 5.1, Opus 5.5, Gemini 4 Carbon과 무제한 채팅하고, 매월 API 토큰 500만 개도 받으세요.
 - [Capriole AI 개인정보: 학습 미사용, 저장, 삭제](https://docs.capriole.ai/ko/guides/privacy-and-security.md): Capriole AI는 채팅, 파일, API 콘텐츠로 모델을 학습하지 않습니다. 저장 방식 선택, 채팅 내보내기와 삭제, API 보관 정보를 확인하세요.
 - [Capriole AI에서 프로젝트와 태그로 채팅 정리하기](https://docs.capriole.ai/ko/guides/projects.md): Capriole AI에서 관련 채팅을 프로젝트로 묶고, 프로젝트마다 지침과 파일을 두고, 채팅에 태그를 달아 프로젝트를 넘나들며 필터링하고 검색하세요.
