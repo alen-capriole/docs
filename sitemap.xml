@@ -2773,6 +2773,83 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/guides/openai-anthropic-sdks" />
   </url>
   <url>
+    <loc>https://docs.capriole.ai/guides/personalization-and-memory</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/guides/personalization-and-memory" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/guides/personalization-and-memory" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/guides/personalization-and-memory" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/guides/personalization-and-memory" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/guides/personalization-and-memory" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/guides/personalization-and-memory" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/guides/personalization-and-memory" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/guides/personalization-and-memory" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/zh/guides/personalization-and-memory</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/guides/personalization-and-memory" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/guides/personalization-and-memory" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/guides/personalization-and-memory" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/guides/personalization-and-memory" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/guides/personalization-and-memory" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/guides/personalization-and-memory" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/guides/personalization-and-memory" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/guides/personalization-and-memory" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/es/guides/personalization-and-memory</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/guides/personalization-and-memory" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/guides/personalization-and-memory" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/guides/personalization-and-memory" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/guides/personalization-and-memory" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/guides/personalization-and-memory" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/guides/personalization-and-memory" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/guides/personalization-and-memory" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/guides/personalization-and-memory" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/pt-br/guides/personalization-and-memory</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/guides/personalization-and-memory" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/guides/personalization-and-memory" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/guides/personalization-and-memory" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/guides/personalization-and-memory" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/guides/personalization-and-memory" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/guides/personalization-and-memory" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/guides/personalization-and-memory" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/guides/personalization-and-memory" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/de/guides/personalization-and-memory</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/guides/personalization-and-memory" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/guides/personalization-and-memory" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/guides/personalization-and-memory" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/guides/personalization-and-memory" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/guides/personalization-and-memory" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/guides/personalization-and-memory" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/guides/personalization-and-memory" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/guides/personalization-and-memory" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/ja/guides/personalization-and-memory</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/guides/personalization-and-memory" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/guides/personalization-and-memory" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/guides/personalization-and-memory" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/guides/personalization-and-memory" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/guides/personalization-and-memory" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/guides/personalization-and-memory" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/guides/personalization-and-memory" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/guides/personalization-and-memory" />
+  </url>
+  <url>
+    <loc>https://docs.capriole.ai/ko/guides/personalization-and-memory</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/guides/personalization-and-memory" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/guides/personalization-and-memory" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://docs.capriole.ai/es/guides/personalization-and-memory" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://docs.capriole.ai/pt-br/guides/personalization-and-memory" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://docs.capriole.ai/de/guides/personalization-and-memory" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://docs.capriole.ai/ja/guides/personalization-and-memory" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://docs.capriole.ai/ko/guides/personalization-and-memory" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://docs.capriole.ai/guides/personalization-and-memory" />
+  </url>
+  <url>
     <loc>https://docs.capriole.ai/guides/plans-and-limits</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://docs.capriole.ai/guides/plans-and-limits" />
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://docs.capriole.ai/zh/guides/plans-and-limits" />

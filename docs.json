@@ -82,6 +82,7 @@
               "guides/api-keys-usage",
               "guides/chat-storage",
               "guides/projects",
+              "guides/personalization-and-memory",
               "guides/openai-anthropic-sdks",
               "guides/one-api-key-coding-agents"
             ]
@@ -189,6 +190,7 @@
               "zh/guides/api-keys-usage",
               "zh/guides/chat-storage",
               "zh/guides/projects",
+              "zh/guides/personalization-and-memory",
               "zh/guides/openai-anthropic-sdks",
               "zh/guides/one-api-key-coding-agents"
             ]
@@ -296,6 +298,7 @@
               "es/guides/api-keys-usage",
               "es/guides/chat-storage",
               "es/guides/projects",
+              "es/guides/personalization-and-memory",
               "es/guides/openai-anthropic-sdks",
               "es/guides/one-api-key-coding-agents"
             ]
@@ -403,6 +406,7 @@
               "pt-br/guides/api-keys-usage",
               "pt-br/guides/chat-storage",
               "pt-br/guides/projects",
+              "pt-br/guides/personalization-and-memory",
               "pt-br/guides/openai-anthropic-sdks",
               "pt-br/guides/one-api-key-coding-agents"
             ]
@@ -510,6 +514,7 @@
               "de/guides/api-keys-usage",
               "de/guides/chat-storage",
               "de/guides/projects",
+              "de/guides/personalization-and-memory",
               "de/guides/openai-anthropic-sdks",
               "de/guides/one-api-key-coding-agents"
             ]
@@ -617,6 +622,7 @@
               "ja/guides/api-keys-usage",
               "ja/guides/chat-storage",
               "ja/guides/projects",
+              "ja/guides/personalization-and-memory",
               "ja/guides/openai-anthropic-sdks",
               "ja/guides/one-api-key-coding-agents"
             ]
@@ -724,6 +730,7 @@
               "ko/guides/api-keys-usage",
               "ko/guides/chat-storage",
               "ko/guides/projects",
+              "ko/guides/personalization-and-memory",
               "ko/guides/openai-anthropic-sdks",
               "ko/guides/one-api-key-coding-agents"
             ]

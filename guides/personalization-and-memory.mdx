@@ -1,0 +1,115 @@
+---
+title: "Custom Instructions and Memory Across Chats in Capriole AI"
+sidebarTitle: "Personalization and Memory"
+description: "Tell Capriole AI what to call you, what you do, and how to answer. Turn on memory so it remembers facts about you across chats and models, and edit any fact."
+---
+
+Capriole AI can follow your standing instructions and remember facts about you across chats. **Personalization** is what you tell it once, on purpose: what to call you, what you do, and how you like answers. **Memory** is what it learns as you chat: short facts you state about yourself, saved after a reply and used in your later chats. Both apply to every model you chat with, and you can see and change everything they keep.
+
+## Who can use personalization and memory
+
+Personalization and memory are available on every plan to signed-in users.
+
+- **Personalization** applies to all your chats on the web and in the app, in every storage mode.
+- **Memory** works only in chats saved with **Server Storage**: in **Account** → **Settings**, leave **Enable local storage** and **Enable No Storage** off. Local Storage, No Storage, and guest chats do not use or update memory. The [chat storage guide](/guides/chat-storage) explains the three storage modes.
+
+Neither applies to the API.
+
+## Set your custom instructions
+
+<Steps>
+<Step title="Open Account">
+
+Select your avatar or name at the bottom of the sidebar, then select **Account**.
+
+</Step>
+
+<Step title="Fill in Personalization">
+
+In the **Personalization** section, fill in any of these:
+
+- **What should Capriole AI call you?**
+- **What best describes your work?** Choose from the list.
+- **Instructions for Capriole AI**: how you like answers, for example "Answer in British English and keep replies short." Instructions can be up to 1,500 characters.
+
+</Step>
+
+<Step title="Save">
+
+Once you change a field, **Cancel** and **Save** appear; select **Save**.
+
+</Step>
+</Steps>
+
+Every chat follows them from your next message, including chats you already have. In a project, the project's instructions apply on top of yours, and when the two conflict, the project's instructions win. The [projects guide](/guides/projects#set-project-instructions) shows how to set them.
+
+## Turn on memory
+
+Memory is off until you turn it on. In **Account** → **Memory**, turn on the switch.
+
+From then on, after each reply, Capriole AI may save new facts you state about yourself, or update the ones it saved before. To find them, Capriole AI sends your latest message, its previous reply for context, and your saved memories to an AI model that picks out new facts and changes to saved ones. Once a fact is saved, Capriole AI includes it with every later message, in this chat and in new ones.
+
+### What memory saves and skips
+
+Memory saves:
+
+- Facts you state about yourself that stay useful, such as where you live, your job, or your diet, and things you ask it to remember.
+- Preferences you state as lasting, such as "I prefer metric units" or "I prefer 24-hour time".
+
+Memory skips:
+
+- Requests for the current chat or task, such as "keep this answer short".
+- Quotations, passwords and other credentials, sensitive data, and guesses about you.
+- Capriole AI's suggestions, unless you say you will follow them.
+
+Each fact stays in the language you wrote it in. When you say something new about a subject it already saved, it rewrites that fact instead of adding a second one: after "I sold my Honda and bought a Tesla", "Drives a Honda" becomes "Drives a Tesla". Capriole AI adds and updates memories but never deletes one; only you can.
+
+## See and edit your memory
+
+**Account** → **Memory** lists every fact in your general memory. You can:
+
+- Select **Add memory**, type a fact, and select **Save** or press Enter.
+- Point to a memory and select the pencil to edit it, or **×** to delete it right away.
+- Select **Delete all** and confirm with **Delete** to clear your general memory. Your projects keep their own memory.
+
+Your general memory holds up to 2,400 characters, and the section counts how many are used. When it is full, **Add memory** is unavailable and Capriole AI adds no new facts until you shorten or delete one.
+
+You manage memory on the web, and chats in the app use the same memory.
+
+## Memory in projects
+
+Each project has its own memory on its **Memory** tab, up to 1,200 characters. A chat in a project uses your general memory and the project's, and saves new facts to the project only, so chats outside the project never see them. A project chat never changes your general memory. The [projects guide](/guides/projects#use-project-memory) shows how to manage it.
+
+## Use the same memory with every model
+
+Your instructions and memory belong to your account, not to a model. Switch between GPT, Claude, and Gemini models in the same chat, and the next reply still knows your name, how you like answers, and your saved facts. The [model-switching article](/articles/switch-models-mid-chat) explains how a chat changes models mid-thread.
+
+## Turn memory off or delete it
+
+- Turn off the **Memory** switch to stop Capriole AI from using or updating memory. Your memories stay, and you can still add, edit, or delete them.
+- Deleting chats, or all chat history, keeps your memory. Deleting a project deletes its memory.
+- Deleted memories can remain in database backups for up to 7 days.
+
+The [privacy guide](/guides/privacy-and-security) covers what Capriole AI keeps and who receives it.
+
+## Common questions
+
+### Does Capriole AI remember my previous chats?
+
+It remembers short facts about you from your chats, such as your job or how you like answers, and uses them in new chats once **Memory** is on. To reopen an earlier chat, select **Search Chats** in the sidebar.
+
+### What is the difference between custom instructions and memory?
+
+Custom instructions are text you write in **Personalization**, and Capriole AI follows them as written. Memory is a list of facts that Capriole AI saves from your chats and that you can also add to yourself. Put how you want answers in your instructions, and let memory keep facts about you.
+
+### Is memory on by default?
+
+No. Memory stays off until you turn on the switch in **Account** → **Memory**.
+
+### Why didn't Capriole AI remember something I told it?
+
+Check that **Memory** is on in **Account** → **Memory** and that you are signed in and using **Server Storage**. Memory skips one-off requests, passwords, and sensitive data, and saves nothing new while the list is full. You can add the fact yourself with **Add memory**.
+
+### Does the API use my instructions or memory?
+
+No. Personalization and memory apply to web chat and the app. An API request uses only what it sends.

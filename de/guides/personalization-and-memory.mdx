@@ -1,0 +1,115 @@
+---
+title: "Benutzerdefinierte Anweisungen und Erinnerungen in Capriole AI"
+sidebarTitle: "Personalisierung und Erinnerungen"
+description: "Legen Sie Namen, Beruf und Antwortstil für Capriole AI fest. Erinnerungen speichern Fakten über Sie für alle Chats und Modelle, und Sie können jeden bearbeiten."
+---
+
+Capriole AI kann Ihren dauerhaften Anweisungen folgen und sich chatübergreifend Fakten über Sie merken. **Personalisierung** ist das, was Sie ihm einmal ganz bewusst sagen: wie es Sie nennen soll, was Sie beruflich machen und wie Sie Antworten mögen. **Erinnerungen** sind das, was es beim Chatten lernt: kurze Fakten, die Sie über sich nennen und die nach einer Antwort gespeichert und in Ihren späteren Chats genutzt werden. Beides gilt für jedes Modell, mit dem Sie chatten, und Sie können alles, was dabei gespeichert wird, ansehen und ändern.
+
+## Wer Personalisierung und Erinnerungen nutzen kann
+
+Personalisierung und Erinnerungen gibt es in jedem Plan für angemeldete Nutzer.
+
+- **Personalisierung** gilt für alle Ihre Chats im Web und in der App, in jedem Speichermodus.
+- **Erinnerungen** funktionieren nur in Chats, die mit **Server Storage** gespeichert werden: Lassen Sie unter **Konto** → **Einstellungen** die Optionen **Lokalen Speicher aktivieren** und **No Storage aktivieren** ausgeschaltet. Chats mit Local Storage oder No Storage und Gast-Chats nutzen und aktualisieren keine Erinnerungen. Die [Anleitung zur Chat-Speicherung](/de/guides/chat-storage) erklärt die drei Speichermodi.
+
+Für die API gilt keines von beiden.
+
+## Benutzerdefinierte Anweisungen festlegen
+
+<Steps>
+<Step title="Konto öffnen">
+
+Wählen Sie Ihren Avatar oder Namen unten in der Seitenleiste und dann **Konto**.
+
+</Step>
+
+<Step title="Personalisierung ausfüllen">
+
+Füllen Sie im Bereich **Personalisierung** beliebige dieser Felder aus:
+
+- **Wie soll Capriole AI dich nennen?**
+- **Was beschreibt deine Arbeit am besten?** Wählen Sie einen Eintrag aus der Liste.
+- **Anweisungen für Capriole AI**: wie Sie Antworten mögen, zum Beispiel „Antworte auf Deutsch und fasse dich kurz.“ Anweisungen können bis zu 1,500 Zeichen lang sein.
+
+</Step>
+
+<Step title="Speichern">
+
+Sobald Sie ein Feld ändern, erscheinen **Abbrechen** und **Speichern**; wählen Sie **Speichern**.
+
+</Step>
+</Steps>
+
+Jeder Chat folgt ihnen ab Ihrer nächsten Nachricht, auch bereits vorhandene Chats. In einem Projekt gelten die Projektanweisungen zusätzlich zu Ihren, und widersprechen sich beide, haben die Projektanweisungen Vorrang. Die [Anleitung zu Projekten](/de/guides/projects#projektanweisungen-festlegen) zeigt, wie Sie sie festlegen.
+
+## Erinnerungen aktivieren
+
+Erinnerungen sind aus, bis Sie sie aktivieren. Schalten Sie unter **Konto** → **Erinnerungen** den Schalter ein.
+
+Von da an kann Capriole AI nach jeder Antwort neue Fakten speichern, die Sie über sich nennen, oder zuvor gespeicherte aktualisieren. Um sie zu finden, sendet Capriole AI Ihre letzte Nachricht, seine vorherige Antwort als Kontext und Ihre gespeicherten Erinnerungen an ein KI-Modell, das neue Fakten und Änderungen an bereits gespeicherten erkennt. Sobald ein Fakt gespeichert ist, gibt Capriole AI ihn jeder weiteren Nachricht mit, in diesem Chat und in neuen.
+
+### Was gespeichert wird und was nicht
+
+Gespeichert werden:
+
+- Fakten, die Sie über sich nennen und die nützlich bleiben, etwa wo Sie wohnen, Ihr Beruf oder Ihre Ernährung, und Dinge, die sich Capriole AI auf Ihre Bitte hin merken soll.
+- Vorlieben, die Sie als dauerhaft äußern, etwa „Ich bevorzuge metrische Einheiten“ oder „Ich bevorzuge das 24-Stunden-Format“.
+
+Nicht gespeichert werden:
+
+- Bitten für den aktuellen Chat oder die aktuelle Aufgabe, etwa „fasse dich bei dieser Antwort kurz“.
+- Zitate, Passwörter und andere Zugangsdaten, sensible Daten und Vermutungen über Sie.
+- Vorschläge von Capriole AI, es sei denn, Sie sagen, dass Sie ihnen folgen werden.
+
+Jeder Fakt bleibt in der Sprache, in der Sie ihn geschrieben haben. Wenn Sie zu einem bereits gespeicherten Thema etwas Neues sagen, schreibt Capriole AI diesen Fakt um, statt einen zweiten hinzuzufügen: Nach „Ich habe meinen Honda verkauft und einen Tesla gekauft“ wird „Fährt einen Honda“ zu „Fährt einen Tesla“. Capriole AI fügt Erinnerungen hinzu und aktualisiert sie, löscht aber nie eine; das können nur Sie.
+
+## Erinnerungen ansehen und bearbeiten
+
+**Konto** → **Erinnerungen** listet jeden Fakt in Ihren allgemeinen Erinnerungen. Dort können Sie:
+
+- **Erinnerung hinzufügen** wählen, einen Fakt eingeben und **Speichern** wählen oder die Eingabetaste drücken.
+- Auf eine Erinnerung zeigen und den Stift wählen, um sie zu bearbeiten, oder **×**, um sie sofort zu löschen.
+- **Alles löschen** wählen und mit **Löschen** bestätigen, um Ihre allgemeinen Erinnerungen zu entfernen. Ihre Projekte behalten ihre eigenen Erinnerungen.
+
+Ihre allgemeinen Erinnerungen fassen bis zu 2,400 Zeichen, und der Bereich zählt, wie viele belegt sind. Ist die Liste voll, ist **Erinnerung hinzufügen** nicht verfügbar, und Capriole AI fügt keine neuen Fakten hinzu, bis Sie eine Erinnerung kürzen oder löschen.
+
+Sie verwalten Erinnerungen im Web, und Chats in der App nutzen dieselben Erinnerungen.
+
+## Erinnerungen in Projekten
+
+Jedes Projekt hat eigene Erinnerungen im Tab **Erinnerungen**, mit bis zu 1,200 Zeichen. Ein Chat in einem Projekt nutzt Ihre allgemeinen Erinnerungen und die des Projekts und speichert neue Fakten nur im Projekt, sodass Chats außerhalb des Projekts sie nie sehen. Ein Chat in einem Projekt ändert nie Ihre allgemeinen Erinnerungen. Die [Anleitung zu Projekten](/de/guides/projects#projekterinnerungen-nutzen) zeigt, wie Sie sie verwalten.
+
+## Dieselben Erinnerungen mit jedem Modell nutzen
+
+Ihre Anweisungen und Erinnerungen gehören zu Ihrem Konto, nicht zu einem Modell. Wechseln Sie im selben Chat zwischen GPT-, Claude- und Gemini-Modellen, und die nächste Antwort kennt weiterhin Ihren Namen, Ihre Antwortvorlieben und Ihre gespeicherten Fakten. Der Artikel [Modelle mitten im Chat wechseln](/de/articles/switch-models-mid-chat) erklärt, wie ein Chat innerhalb derselben Unterhaltung das Modell wechselt.
+
+## Erinnerungen ausschalten oder löschen
+
+- Schalten Sie **Erinnerungen** aus, damit Capriole AI keine Erinnerungen mehr nutzt oder aktualisiert. Ihre Erinnerungen bleiben erhalten, und Sie können sie weiterhin hinzufügen, bearbeiten oder löschen.
+- Das Löschen von Chats oder des gesamten Chatverlaufs lässt Ihre Erinnerungen bestehen. Wenn Sie ein Projekt löschen, werden auch seine Erinnerungen gelöscht.
+- Gelöschte Erinnerungen können bis zu 7 Tage in Datenbank-Backups verbleiben.
+
+Die [Datenschutz-Anleitung](/de/guides/privacy-and-security) erklärt, was Capriole AI speichert und wer die Daten erhält.
+
+## Häufige Fragen
+
+### Merkt sich Capriole AI meine früheren Chats?
+
+Es merkt sich kurze Fakten über Sie aus Ihren Chats, etwa Ihren Beruf oder wie Sie Antworten mögen, und nutzt sie in neuen Chats, sobald **Erinnerungen** aktiviert sind. Um einen früheren Chat wieder zu öffnen, wählen Sie **Chats suchen** in der Seitenleiste.
+
+### Was ist der Unterschied zwischen benutzerdefinierten Anweisungen und Erinnerungen?
+
+Benutzerdefinierte Anweisungen sind Text, den Sie unter **Personalisierung** schreiben, und Capriole AI befolgt sie so, wie sie dastehen. Erinnerungen sind eine Liste von Fakten, die Capriole AI aus Ihren Chats speichert und die Sie auch selbst ergänzen können. Legen Sie in Ihren Anweisungen fest, wie Sie Antworten haben möchten, und überlassen Sie Fakten über Sie den Erinnerungen.
+
+### Sind Erinnerungen standardmäßig aktiviert?
+
+Nein. Erinnerungen bleiben aus, bis Sie den Schalter unter **Konto** → **Erinnerungen** einschalten.
+
+### Warum hat sich Capriole AI etwas nicht gemerkt, das ich gesagt habe?
+
+Prüfen Sie, ob **Erinnerungen** unter **Konto** → **Erinnerungen** aktiviert sind und ob Sie angemeldet sind und **Server Storage** nutzen. Einmalige Bitten, Passwörter und sensible Daten werden nicht gespeichert, und solange die Liste voll ist, kommt nichts Neues hinzu. Sie können den Fakt mit **Erinnerung hinzufügen** selbst eintragen.
+
+### Nutzt die API meine Anweisungen oder Erinnerungen?
+
+Nein. Personalisierung und Erinnerungen gelten für den Web-Chat und die App. Eine API-Anfrage nutzt nur, was sie selbst sendet.

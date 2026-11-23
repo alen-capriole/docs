@@ -1,0 +1,115 @@
+---
+title: "Instrucciones personalizadas y memoria entre chats en Capriole AI"
+sidebarTitle: "Personalización y memoria"
+description: "Dile a Capriole AI cómo llamarte, a qué te dedicas y cómo responder. Activa la memoria para que recuerde datos sobre ti entre chats y modelos, y edítalos."
+---
+
+Capriole AI puede seguir tus instrucciones permanentes y recordar datos sobre ti entre chats. **Personalización** es lo que le dices una sola vez, a propósito: cómo llamarte, a qué te dedicas y cómo prefieres las respuestas. **Memoria** es lo que aprende mientras chateas: datos breves que mencionas sobre ti, que se guardan después de una respuesta y se usan en tus chats posteriores. Ambas se aplican a todos los modelos con los que chateas, y puedes ver y cambiar todo lo que guardan.
+
+## Quién puede usar la personalización y la memoria
+
+La personalización y la memoria están disponibles en todos los planes para usuarios con sesión iniciada.
+
+- **Personalización** se aplica a todos tus chats en la web y en la app, en cualquier modo de almacenamiento.
+- **Memoria** solo funciona en los chats guardados con **Server Storage**: en **Cuenta** → **Ajustes**, deja desactivados **Activar almacenamiento local** y **Activar No Storage**. Los chats de Local Storage, de No Storage y de invitados no usan ni actualizan la memoria. La [guía de almacenamiento del chat](/es/guides/chat-storage) explica los tres modos de almacenamiento.
+
+Ninguna de las dos se aplica a la API.
+
+## Define tus instrucciones personalizadas
+
+<Steps>
+<Step title="Abre Cuenta">
+
+Selecciona tu avatar o nombre en la parte inferior de la barra lateral y luego selecciona **Cuenta**.
+
+</Step>
+
+<Step title="Completa Personalización">
+
+En la sección **Personalización**, completa cualquiera de estos campos:
+
+- **¿Cómo debe llamarte Capriole AI?**
+- **¿Qué describe mejor tu trabajo?** Elige una opción de la lista.
+- **Instrucciones para Capriole AI**: cómo prefieres las respuestas, por ejemplo «Responde en español y sé breve». Las instrucciones admiten hasta 1,500 caracteres.
+
+</Step>
+
+<Step title="Guarda">
+
+Cuando cambias un campo, aparecen **Cancelar** y **Guardar**; selecciona **Guardar**.
+
+</Step>
+</Steps>
+
+Todos los chats las siguen a partir de tu próximo mensaje, incluidos los que ya tienes. En un proyecto, las instrucciones del proyecto se suman a las tuyas y, si entran en conflicto, prevalecen las del proyecto. La [guía de proyectos](/es/guides/projects#define-las-instrucciones-del-proyecto) explica cómo definirlas.
+
+## Activa la memoria
+
+La memoria está desactivada hasta que la actives. En **Cuenta** → **Memoria**, activa el interruptor.
+
+A partir de entonces, después de cada respuesta, Capriole AI puede guardar datos nuevos que menciones sobre ti o actualizar los que guardó antes. Para encontrarlos, Capriole AI envía tu último mensaje, su respuesta anterior como contexto y tus memorias guardadas a un modelo de IA que detecta datos nuevos y cambios en los ya guardados. Una vez guardado un dato, Capriole AI lo incluye en cada mensaje posterior, en este chat y en los nuevos.
+
+### Qué guarda y qué omite la memoria
+
+La memoria guarda:
+
+- Datos que mencionas sobre ti y que siguen siendo útiles, como dónde vives, tu trabajo o tu dieta, y las cosas que le pidas que recuerde.
+- Preferencias que expresas como permanentes, como «Prefiero el sistema métrico» o «Prefiero el formato de 24 horas».
+
+La memoria omite:
+
+- Peticiones para el chat o la tarea actual, como «sé breve en esta respuesta».
+- Citas, contraseñas y otras credenciales, datos sensibles y suposiciones sobre ti.
+- Las sugerencias de Capriole AI, salvo que digas que vas a seguirlas.
+
+Cada dato se guarda en el idioma en que lo escribiste. Cuando dices algo nuevo sobre un tema que ya guardó, reescribe ese dato en lugar de añadir otro: después de «Vendí mi Honda y me compré un Tesla», «Conduce un Honda» pasa a ser «Conduce un Tesla». Capriole AI añade y actualiza memorias, pero nunca elimina ninguna; solo tú puedes hacerlo.
+
+## Consulta y edita tu memoria
+
+**Cuenta** → **Memoria** muestra todos los datos de tu memoria general. Puedes:
+
+- Seleccionar **Añadir memoria**, escribir un dato y seleccionar **Guardar** o presionar Enter.
+- Colocar el puntero sobre una memoria y seleccionar el lápiz para editarla, o **×** para eliminarla al instante.
+- Seleccionar **Eliminar todo** y confirmar con **Eliminar** para vaciar tu memoria general. Tus proyectos conservan su propia memoria.
+
+Tu memoria general admite hasta 2,400 caracteres, y la sección cuenta cuántos se usan. Cuando está llena, **Añadir memoria** no está disponible y Capriole AI no añade datos nuevos hasta que acortes o elimines uno.
+
+Gestionas la memoria en la web, y los chats de la app usan la misma memoria.
+
+## La memoria en los proyectos
+
+Cada proyecto tiene su propia memoria en su pestaña **Memoria**, de hasta 1,200 caracteres. Un chat de un proyecto usa tu memoria general y la del proyecto, y guarda los datos nuevos solo en el proyecto, así que los chats de fuera del proyecto nunca los ven. Un chat de un proyecto nunca cambia tu memoria general. La [guía de proyectos](/es/guides/projects#usa-la-memoria-del-proyecto) explica cómo gestionarla.
+
+## Usa la misma memoria con todos los modelos
+
+Tus instrucciones y tu memoria pertenecen a tu cuenta, no a un modelo. Cambia entre modelos de GPT, Claude y Gemini en el mismo chat, y la siguiente respuesta seguirá sabiendo tu nombre, cómo prefieres las respuestas y tus datos guardados. El artículo [Cambia de modelo a mitad de chat](/es/articles/switch-models-mid-chat) explica cómo un chat cambia de modelo dentro de la misma conversación.
+
+## Desactiva o elimina la memoria
+
+- Desactiva el interruptor **Memoria** para que Capriole AI deje de usar y actualizar la memoria. Tus memorias se conservan, y puedes seguir añadiéndolas, editándolas o eliminándolas.
+- Eliminar chats, o todo el historial de chat, no borra tu memoria. Eliminar un proyecto elimina su memoria.
+- Las memorias eliminadas pueden permanecer en las copias de seguridad de la base de datos hasta 7 días.
+
+La [guía de privacidad](/es/guides/privacy-and-security) explica qué guarda Capriole AI y quién lo recibe.
+
+## Preguntas frecuentes
+
+### ¿Capriole AI recuerda mis chats anteriores?
+
+Recuerda datos breves sobre ti sacados de tus chats, como tu trabajo o cómo prefieres las respuestas, y los usa en chats nuevos cuando **Memoria** está activada. Para volver a abrir un chat anterior, selecciona **Buscar chats** en la barra lateral.
+
+### ¿Qué diferencia hay entre las instrucciones personalizadas y la memoria?
+
+Las instrucciones personalizadas son el texto que escribes en **Personalización**, y Capriole AI las sigue tal como las escribiste. La memoria es una lista de datos que Capriole AI guarda a partir de tus chats y a la que tú también puedes añadir datos. Pon en tus instrucciones cómo quieres las respuestas, y deja que la memoria guarde los datos sobre ti.
+
+### ¿La memoria está activada por defecto?
+
+No. La memoria permanece desactivada hasta que activas el interruptor en **Cuenta** → **Memoria**.
+
+### ¿Por qué Capriole AI no recordó algo que le dije?
+
+Comprueba que **Memoria** esté activada en **Cuenta** → **Memoria** y que hayas iniciado sesión y uses **Server Storage**. La memoria omite peticiones puntuales, contraseñas y datos sensibles, y no guarda nada nuevo mientras la lista está llena. Puedes añadir el dato tú mismo con **Añadir memoria**.
+
+### ¿La API usa mis instrucciones o mi memoria?
+
+No. La personalización y la memoria se aplican al chat web y a la app. Una solicitud a la API usa solo lo que envía.
