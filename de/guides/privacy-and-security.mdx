@@ -4,7 +4,7 @@ sidebarTitle: "Datenschutz und Datenkontrolle"
 description: "Capriole AI trainiert keine Modelle mit Ihren Chats, Dateien oder API-Inhalten. Server, Local oder No Storage, Export, Löschen und was die API speichert."
 ---
 
-Capriole AI verwendet Ihre Chats, Dateien und API-Inhalte nicht zum Training von KI-Modellen. Sie entscheiden, wo Ihr Chatverlauf liegt: in Ihrem Konto, nur in Ihrem Browser oder nirgends. Die API speichert keine Inhalte von Anfragen oder Antworten, nur Nutzungsdaten wie Token-Zahlen. Sie können jeden Chat exportieren, Chats jederzeit löschen und Ihr Konto löschen.
+Capriole AI verwendet Ihre Chats, Dateien und API-Inhalte nicht zum Training von KI-Modellen. Sie entscheiden, wo Ihr Chatverlauf liegt: in Ihrem Konto, nur in Ihrem Browser oder nirgends. Die API speichert keine Inhalte von Anfragen oder Antworten, nur Nutzungsdaten wie Token-Zahlen. Sie können jeden Chat exportieren, Chats jederzeit löschen und Ihr Konto löschen. Erinnerungen, die Fakten über Sie chatübergreifend speichern, bleiben aus, bis Sie sie aktivieren.
 
 Diese Anleitung fasst zusammen, wie wir mit Ihren Daten umgehen. Den vollständigen Text finden Sie in der [Datenschutzerklärung](/de/legal/privacy), und die [Nutzungsbedingungen](/de/legal/terms) regeln Pläne, Limits und verbotene Nutzung.
 
@@ -39,12 +39,28 @@ Gast-Chats werden nicht auf unseren Servern gespeichert. Eine Kopie bleibt in Ih
 | Konto | Ihre E-Mail-Adresse, Ihr Name und Ihr Profilbild aus der Anmeldung. Das Konto wird mit Capriole Quant geteilt. |
 | Chats | Nachrichten, angehängte Dateien, erstellte Bilder und Chattitel, je nach Speichermodus |
 | Personalisierung | Der Name, die Tätigkeit und die Anweisungen, die Sie in Ihrem Konto hinterlegen |
+| Erinnerungen | Kurze Fakten über Sie in Ihren allgemeinen Erinnerungen und den Erinnerungen jedes Projekts: die Sie selbst hinzufügen und die Capriole AI bei aktivierten **Erinnerungen** aus Ihren Chats speichert oder aktualisiert |
 | Projekte | Namen, Anweisungen und die Dateien, die Sie hinzufügen |
 | Tags | Namen, Farben und die Chats, denen Sie sie zuweisen |
 | Spracheingabe | Nichts. Aufnahmen werden zur Transkription gesendet, ohne dass Audio oder Text gespeichert werden. |
 | Meldungen | Wenn Sie eine Antwort melden: die Antwort, Ihre Nachricht davor, die markierten Bilder sowie Grund und Details, die Sie angeben, außerdem technische Angaben wie Modell, Browser und Land und, wenn Sie angemeldet sind, Ihre Konto-E-Mail-Adresse. Meldungen gehen per E-Mail an unser Support-Postfach. |
 | Nutzungsdaten | Für jede Chat- und API-Anfrage: Zeitpunkt, Modell, Token-Zahlen, Status, Latenz, Kosten und IP-Adresse, bei API-Anfragen außerdem der verwendete Schlüssel. Keine Nachrichteninhalte. |
 | Zahlungen | Ihr Abo-Status und Abrechnungskennungen. Stripe wickelt die Zahlung ab; Ihre Kartennummer erhalten wir nicht. |
+
+## Erinnerungen
+
+Mit Erinnerungen speichert Capriole AI kurze Fakten über Sie, etwa wo Sie wohnen oder wie Sie Antworten mögen, und nutzt sie in Ihren späteren Chats. Erinnerungen sind aus, bis Sie sie unter **Konto** → **Erinnerungen** aktivieren. Sind sie aktiviert, kann Capriole AI nach jeder Antwort neue Fakten speichern, die Sie über sich nennen, oder gespeicherte aktualisieren, in der Sprache, in der Sie sie geschrieben haben. Nur angemeldete Chats, die mit Server Storage gespeichert werden, nutzen Erinnerungen, im Web und in der App. Chats mit Local Storage oder No Storage und Gast-Chats nutzen sie nicht, auch die API nicht.
+
+Ihre Erinnerungen liegen mit Ihrem Konto auf unseren Servern, in zwei Arten von Listen:
+
+| Liste | Wo Sie sie verwalten | Welche Chats sie nutzen | Umfang |
+|---|---|---|---|
+| Allgemeine Erinnerungen | **Konto** → **Erinnerungen** | Jeder Chat. Chats außerhalb von Projekten speichern neue Fakten hier. | Bis zu 2,400 Zeichen |
+| Projekterinnerungen | [Tab **Erinnerungen** des Projekts](/de/guides/projects#projekterinnerungen-nutzen) | Chats in diesem Projekt, zusammen mit Ihren allgemeinen Erinnerungen. Diese Chats speichern neue Fakten hier. | Bis zu 1,200 Zeichen pro Projekt |
+
+In beiden Listen sehen Sie alles Gespeicherte und können **Erinnerung hinzufügen** wählen, eine Erinnerung bearbeiten oder löschen oder **Alles löschen** wählen. **Alles löschen** unter **Konto** → **Erinnerungen** entfernt nur Ihre allgemeinen Erinnerungen; die Erinnerungen eines Projekts entfernen Sie in dessen Tab. Beide Listen verwalten Sie im Web, und Chats in der App nutzen sie ebenfalls. Ist eine Liste voll, können weder Sie noch Capriole AI etwas hinzufügen, bis Sie eine Erinnerung kürzen oder löschen.
+
+Wenn Sie **Erinnerungen** ausschalten, nutzt und aktualisiert Capriole AI keine Erinnerungen mehr. Ihre Listen bleiben erhalten, und Sie können weiterhin Erinnerungen hinzufügen, bearbeiten oder löschen. Das Löschen von Chats oder des gesamten Chatverlaufs lässt Ihre Erinnerungen bestehen. Wenn Sie ein Projekt löschen, werden auch seine Erinnerungen gelöscht.
 
 ## Was die API speichert
 
@@ -67,17 +83,18 @@ Um einen einzelnen Chat zu exportieren, öffnen Sie sein Menü in der Seitenleis
 ## Chats oder Ihr Konto löschen
 
 - **Ein Chat**: Öffnen Sie das Menü des Chats in der Seitenleiste und wählen Sie **Löschen**.
-- **Alle Chats**: Wählen Sie unter **Konto** → **Einstellungen** neben **Gesamten Chatverlauf löschen** die Option **Alles löschen**. Ihre Projekte behalten ihre Anweisungen und Dateien.
-- **Ein Projekt**: Öffnen Sie das Menü des Projekts und wählen Sie **Löschen**. Damit werden auch seine Anweisungen, Dateien und Chats gelöscht.
+- **Alle Chats**: Wählen Sie unter **Konto** → **Einstellungen** neben **Gesamten Chatverlauf löschen** die Option **Alles löschen**. Ihre Erinnerungen bleiben erhalten, und Ihre Projekte behalten ihre Anweisungen, Dateien und Erinnerungen.
+- **Ein Projekt**: Öffnen Sie das Menü des Projekts und wählen Sie **Löschen**. Damit werden auch seine Anweisungen, Dateien, Erinnerungen und Chats gelöscht.
+- **Erinnerungen**: Löschen Sie unter **Konto** → **Erinnerungen** oder im Tab **Erinnerungen** eines Projekts eine einzelne Erinnerung, oder wählen Sie **Alles löschen**.
 - **Ihr Konto**: Öffnen Sie **Konto**, wählen Sie **Konto verwalten** und dann auf dem Tab **Sicherheit** die Option **Konto löschen**. Mit einem aktiven bezahlten Abo schreiben Sie stattdessen an [info@capriole.ai](mailto:info@capriole.ai). Da das Konto mit Capriole Quant geteilt wird, endet mit dem Löschen auch Ihre Anmeldung bei Capriole Quant.
 
-Wenn Sie einen Chat, den gesamten Chatverlauf oder ein Projekt löschen, werden die Daten dauerhaft von unseren Servern entfernt. Gelöschte Daten können bis zu 7 Tage in Datenbank-Backups verbleiben. Local-Storage-Chats bleiben in Ihrem Browser, bis Sie sie löschen.
+Wenn Sie einen Chat, den gesamten Chatverlauf, eine Erinnerung oder ein Projekt löschen, werden die Daten dauerhaft von unseren Servern entfernt. Gelöschte Daten können bis zu 7 Tage in Datenbank-Backups verbleiben. Local-Storage-Chats bleiben in Ihrem Browser, bis Sie sie löschen.
 
 ## Wer Ihre Daten erhält
 
 | Empfänger | Was sie erhalten |
 |---|---|
-| KI-Modellanbieter | Was jede Anfrage braucht: Ihre Nachrichten, Dateien, Sprachaufnahmen und den Chat-Kontext, dazu Ihre Zeitzone und einen daraus abgeleiteten ungefähren Standort |
+| KI-Modellanbieter | Was jede Anfrage braucht: Ihre Nachrichten, Dateien, Sprachaufnahmen, den Chat-Kontext und, wenn aktiviert, Ihre Erinnerungen, dazu Ihre Zeitzone und einen daraus abgeleiteten ungefähren Standort |
 | Infrastrukturanbieter | Anfragen auf dem Weg zu den Modellanbietern |
 | Suchanbieter wie Tavily | Die Suchanfragen, die ein Modell stellt |
 | Ein Wetteranbieter | Den Ort, nach dem Sie fragen, oder Ihre IP-Adresse, wenn Sie keinen nennen |
@@ -108,6 +125,14 @@ Nein. Es speichert keine Inhalte von API-Anfragen oder -Antworten, nur Nutzungsd
 ### Kann ich Capriole AI nutzen, ohne meine Chats zu speichern?
 
 Ja. Schalten Sie **No Storage aktivieren** ein, wenn Chats verschwinden sollen, sobald Sie die Seite verlassen oder aktualisieren, oder **Lokalen Speicher aktivieren**, um den Verlauf nur in Ihrem Browser zu behalten.
+
+### Hat Capriole AI Erinnerungen über Chats hinweg?
+
+Ja, sobald Sie sie aktivieren. **Erinnerungen** sind standardmäßig aus; aktivieren Sie sie unter **Konto** → **Erinnerungen**, dann kann Capriole AI in angemeldeten Server-Storage-Chats kurze Fakten speichern, die Sie über sich nennen, und sie in späteren Chats nutzen. Jedes Projekt hat außerdem eigene Erinnerungen. Sie können jeden Fakt ansehen, hinzufügen, bearbeiten und löschen oder **Erinnerungen** jederzeit ausschalten.
+
+### Wie lösche ich die Erinnerungen von Capriole AI?
+
+Zeigen Sie unter **Konto** → **Erinnerungen** auf eine Erinnerung und wählen Sie **×**, oder wählen Sie **Alles löschen**. Die Erinnerungen eines Projekts finden Sie im Tab **Erinnerungen** des Projekts. Das Löschen von Chats oder das Ausschalten von **Erinnerungen** lässt Ihre gespeicherten Erinnerungen bestehen. Gelöschte Erinnerungen können bis zu 7 Tage in Datenbank-Backups verbleiben.
 
 ### Wie lösche ich mein Capriole-AI-Konto?
 

@@ -4,7 +4,7 @@ sidebarTitle: "Privacy and Data Controls"
 description: "Capriole AI does not train models on your chats, files or API content. Choose Server, Local or No Storage, export or delete chats, and see what the API keeps."
 ---
 
-Capriole AI does not use your chats, files, or API content to train AI models. You choose where your chat history is kept: on your account, only in your browser, or nowhere. The API keeps no request or response content, only usage records such as token counts. You can export every chat, delete chats at any time, and delete your account.
+Capriole AI does not use your chats, files, or API content to train AI models. You choose where your chat history is kept: on your account, only in your browser, or nowhere. The API keeps no request or response content, only usage records such as token counts. You can export every chat, delete chats at any time, and delete your account. Memory, which keeps facts about you across chats, stays off unless you turn it on.
 
 This guide summarizes how your data is handled. The [privacy policy](/legal/privacy) is the full text, and the [Terms of Service](/legal/terms) cover plans, limits, and prohibited use.
 
@@ -39,12 +39,28 @@ Guest chats are not saved on our servers. A copy stays in your browser tab so it
 | Account | Your email address, name, and profile picture from sign-in. The account is shared with Capriole Quant. |
 | Chats | Messages, attached files, created images, and chat titles, depending on your storage mode |
 | Personalization | The name, work, and instructions you add to your account |
+| Memory | Short facts about you in your general memory and each project's memory: the ones you add, and the ones Capriole AI saves or updates from your chats while **Memory** is on |
 | Projects | Names, instructions, and the files you add to them |
 | Tags | Names, colors, and the chats you add them to |
 | Voice input | Nothing. Recordings are sent for transcription without storing the audio or the text. |
 | Reports | When you report an answer: the answer, your message before it, the ticked images, and the reason and any details you add, plus technical context such as the model, browser, and country, and your account email if you are signed in. Reports are emailed to our support inbox. |
 | Usage records | For each chat and API request: time, model, token counts, status, latency, cost, and IP address, plus the key used for API requests. No message content. |
 | Payments | Your subscription status and billing identifiers. Stripe processes the payment; we do not receive your card number. |
+
+## Memory
+
+Capriole AI's memory keeps short facts about you, such as where you live or how you like answers, and uses them in your later chats. It is off until you turn it on in **Account** → **Memory**. After each reply, Capriole AI may save new facts you state about yourself, or update saved ones, in the language you wrote them. Only signed-in chats saved with Server Storage use memory, on the web and in the app. Local Storage, No Storage, and guest chats do not, and neither does the API.
+
+Your memory is kept on our servers with your account, in two kinds of lists:
+
+| List | Where you manage it | Which chats use it | Size |
+|---|---|---|---|
+| General memory | **Account** → **Memory** | Every chat. Chats outside projects save new facts here. | Up to 2,400 characters |
+| Project memory | [The project's **Memory** tab](/guides/projects#use-project-memory) | Chats in that project, along with your general memory. They save new facts here. | Up to 1,200 characters per project |
+
+In both lists, you can see everything saved, select **Add memory**, edit or delete a memory, or select **Delete all**. **Delete all** in **Account** → **Memory** clears only your general memory; each project's memory is cleared on its own tab. You manage both lists on the web, and chats in the app use them too. When a list is full, neither you nor Capriole AI can add to it until you shorten or delete a memory.
+
+Turning **Memory** off stops Capriole AI from using or updating memory. Your lists stay, and you can still add, edit, or delete memories. Deleting chats, or all chat history, keeps your memory. Deleting a project deletes its memory.
 
 ## What the API keeps
 
@@ -67,17 +83,18 @@ To export one chat, open its menu in the sidebar and choose **Export**. A projec
 ## Delete chats or your account
 
 - **One chat**: open the chat's menu in the sidebar and choose **Delete**.
-- **All chats**: in **Account** → **Settings**, select **Delete all** next to **Delete all chat history**. Your projects keep their instructions and files.
-- **A project**: open its menu and choose **Delete**. This also deletes its instructions, files, and chats.
+- **All chats**: in **Account** → **Settings**, select **Delete all** next to **Delete all chat history**. Your memory stays, and your projects keep their instructions, files, and memory.
+- **A project**: open its menu and choose **Delete**. This also deletes its instructions, files, memory, and chats.
+- **Memory**: in **Account** → **Memory** or on a project's **Memory** tab, delete one memory or select **Delete all**.
 - **Your account**: open **Account**, select **Manage account**, and choose **Delete account** on the **Security** tab. With an active paid subscription, email [info@capriole.ai](mailto:info@capriole.ai) instead. Because the account is shared with Capriole Quant, deleting it also ends your Capriole Quant sign-in.
 
-Deleting a chat, all chat history, or a project permanently removes it from our servers. Deleted data can remain in database backups for up to 7 days. Local Storage chats stay in your browser until you clear them.
+Deleting a chat, all chat history, a memory, or a project permanently removes it from our servers. Deleted data can remain in database backups for up to 7 days. Local Storage chats stay in your browser until you clear them.
 
 ## Who receives your data
 
 | Recipient | What they receive |
 |---|---|
-| AI model providers | What each request needs: your messages, files, voice recordings, and chat context, plus your time zone and an approximate location based on it |
+| AI model providers | What each request needs: your messages, files, voice recordings, chat context, and memory when it is on, plus your time zone and an approximate location based on it |
 | Infrastructure providers | Requests on their way to the model providers |
 | Search providers, such as Tavily | The search queries a model makes |
 | A weather provider | The place you ask about, or your IP address if you do not name one |
@@ -108,6 +125,14 @@ No. It keeps no API request or response content, only usage records such as the 
 ### Can I use Capriole AI without saving my chats?
 
 Yes. Turn on **Enable No Storage** for chats that disappear when you leave or refresh the page, or **Enable local storage** to keep history only in your browser.
+
+### Does Capriole AI have memory across chats?
+
+Yes, once you turn it on. **Memory** is off by default; turn it on in **Account** → **Memory**, and Capriole AI may save short facts you state about yourself in signed-in Server Storage chats and use them in later chats. Each project also keeps its own memory. You can see, add, edit, and delete every fact, or turn **Memory** off at any time.
+
+### How do I delete Capriole AI's memory?
+
+In **Account** → **Memory**, point to a memory and select **×**, or select **Delete all**. A project's memory is on the project's **Memory** tab. Deleting chats or turning **Memory** off keeps your saved memory. Deleted memories can remain in database backups for up to 7 days.
 
 ### How do I delete my Capriole AI account?
 

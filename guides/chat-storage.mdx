@@ -101,6 +101,7 @@ To save new chats in this browser again, turn off **Enable No Storage**, then tu
 | A disposable session with no saved chat history | **Enable No Storage** |
 | File uploads | Default synced storage |
 | Image generation | Default synced storage |
+| Memory across chats | Default synced storage |
 | A thread that survives cleared browser data | Default synced storage |
 
 Changing models does not override the storage setting. The [model-switching article](/articles/switch-models-mid-chat) explains how a supported model can handle the next turn inside an active conversation.
@@ -108,6 +109,8 @@ Changing models does not override the storage setting. The [model-switching arti
 Default synced storage is also required for Browser Chat attachments. The [files and web search guide](/guides/files-web-search) covers supported formats, size limits, and source inspection.
 
 Free image generation with GPT Image 2.6, Nano Banana 2.1, and Seedream 5.5 is also included for signed-in accounts on default synced storage; see the [image generation guide](/guides/files-web-search).
+
+Memory also needs default synced storage: while **Enable local storage** or **Enable No Storage** is on, chats do not use or update it, and turning either on, or deleting chats, keeps your saved memory. The [privacy guide](/guides/privacy-and-security#memory) explains what memory keeps and how to remove it.
 
 ## Common questions
 

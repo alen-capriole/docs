@@ -4,7 +4,7 @@ sidebarTitle: "Privacidad y control de datos"
 description: "Capriole AI no entrena modelos con tus chats, archivos ni contenido de la API. Elige Server, Local o No Storage, exporta o borra chats y ve qué guarda la API."
 ---
 
-Capriole AI no usa tus chats, archivos ni contenido de la API para entrenar modelos de IA. Tú eliges dónde se guarda tu historial de chat: en tu cuenta, solo en tu navegador o en ninguna parte. La API no guarda el contenido de las solicitudes ni de las respuestas, solo registros de uso como el número de tokens. Puedes exportar todos tus chats, eliminarlos cuando quieras y eliminar tu cuenta.
+Capriole AI no usa tus chats, archivos ni contenido de la API para entrenar modelos de IA. Tú eliges dónde se guarda tu historial de chat: en tu cuenta, solo en tu navegador o en ninguna parte. La API no guarda el contenido de las solicitudes ni de las respuestas, solo registros de uso como el número de tokens. Puedes exportar todos tus chats, eliminarlos cuando quieras y eliminar tu cuenta. La memoria, que guarda datos sobre ti entre chats, permanece desactivada salvo que la actives.
 
 Esta guía resume cómo se tratan tus datos. La [política de privacidad](/es/legal/privacy) es el texto completo, y los [Términos del servicio](/es/legal/terms) cubren los planes, los límites y los usos prohibidos.
 
@@ -39,12 +39,28 @@ Los chats de invitado no se guardan en nuestros servidores. Queda una copia en l
 | Cuenta | Tu dirección de correo, tu nombre y tu foto de perfil del inicio de sesión. La cuenta se comparte con Capriole Quant. |
 | Chats | Mensajes, archivos adjuntos, imágenes creadas y títulos de chat, según tu modo de almacenamiento |
 | Personalización | El nombre, el trabajo y las instrucciones que agregas a tu cuenta |
+| Memoria | Datos breves sobre ti en tu memoria general y en la de cada proyecto: los que añades tú y los que Capriole AI guarda o actualiza a partir de tus chats mientras **Memoria** está activada |
 | Proyectos | Nombres, instrucciones y los archivos que les agregas |
 | Etiquetas | Nombres, colores y los chats a los que las agregas |
 | Entrada de voz | Nada. Las grabaciones se envían para transcribirlas sin guardar el audio ni el texto. |
 | Denuncias | Cuando denuncias una respuesta: la respuesta, tu mensaje anterior, las imágenes marcadas y el motivo y los detalles que añadas, además de datos técnicos como el modelo, el navegador y el país, y el correo de tu cuenta si has iniciado sesión. Las denuncias llegan por correo a nuestro buzón de soporte. |
 | Registros de uso | Para cada chat y cada solicitud a la API: hora, modelo, número de tokens, estado, latencia, costo y dirección IP, además de la clave usada en las solicitudes a la API. Ningún contenido de los mensajes. |
 | Pagos | El estado de tu suscripción y tus identificadores de facturación. Stripe procesa el pago; no recibimos el número de tu tarjeta. |
+
+## Memoria
+
+La memoria de Capriole AI guarda datos breves sobre ti, como dónde vives o cómo prefieres las respuestas, y los usa en tus chats posteriores. Está desactivada hasta que la actives en **Cuenta** → **Memoria**. Después de cada respuesta, Capriole AI puede guardar datos nuevos que hayas mencionado sobre ti, o actualizar los ya guardados, en el idioma en que los escribiste. Solo usan la memoria los chats con sesión iniciada guardados con Server Storage, en la web y en la app. Los chats de Local Storage, de No Storage y de invitados no la usan, y la API tampoco.
+
+Tu memoria se guarda en nuestros servidores con tu cuenta, en dos tipos de listas:
+
+| Lista | Dónde se gestiona | Qué chats la usan | Tamaño |
+|---|---|---|---|
+| Memoria general | **Cuenta** → **Memoria** | Todos los chats. Los chats fuera de proyectos guardan aquí los datos nuevos. | Hasta 2,400 caracteres |
+| Memoria del proyecto | [La pestaña **Memoria** del proyecto](/es/guides/projects#usa-la-memoria-del-proyecto) | Los chats de ese proyecto, junto con tu memoria general. Guardan aquí los datos nuevos. | Hasta 1,200 caracteres por proyecto |
+
+En ambas listas puedes ver todo lo guardado, seleccionar **Añadir memoria**, editar o eliminar una memoria, o seleccionar **Eliminar todo**. **Eliminar todo** en **Cuenta** → **Memoria** vacía solo tu memoria general; la memoria de cada proyecto se vacía en su propia pestaña. Gestionas ambas listas en la web, y los chats de la app también las usan. Cuando una lista está llena, ni tú ni Capriole AI pueden añadirle nada hasta que acortes o elimines una memoria.
+
+Al desactivar **Memoria**, Capriole AI deja de usar y actualizar la memoria. Tus listas se conservan y puedes seguir añadiendo, editando o eliminando memorias. Eliminar chats, o todo el historial de chat, no borra tu memoria. Eliminar un proyecto elimina su memoria.
 
 ## Qué guarda la API
 
@@ -67,17 +83,18 @@ Para exportar un solo chat, abre su menú en la barra lateral y elige **Exportar
 ## Elimina chats o tu cuenta
 
 - **Un chat**: abre el menú del chat en la barra lateral y elige **Eliminar**.
-- **Todos los chats**: en **Cuenta** → **Ajustes**, selecciona **Eliminar todo** junto a **Eliminar todo el historial de chat**. Tus proyectos conservan sus instrucciones y archivos.
-- **Un proyecto**: abre su menú y elige **Eliminar**. También se borran sus instrucciones, archivos y chats.
+- **Todos los chats**: en **Cuenta** → **Ajustes**, selecciona **Eliminar todo** junto a **Eliminar todo el historial de chat**. Tu memoria se conserva, y tus proyectos conservan sus instrucciones, archivos y memoria.
+- **Un proyecto**: abre su menú y elige **Eliminar**. También se borran sus instrucciones, archivos, memoria y chats.
+- **Memoria**: en **Cuenta** → **Memoria** o en la pestaña **Memoria** de un proyecto, elimina una memoria o selecciona **Eliminar todo**.
 - **Tu cuenta**: abre **Cuenta**, selecciona **Administrar cuenta** y elige **Eliminar cuenta** en la pestaña **Seguridad**. Si tienes una suscripción de pago activa, escribe a [info@capriole.ai](mailto:info@capriole.ai) en su lugar. Como la cuenta se comparte con Capriole Quant, al eliminarla también dejarás de poder iniciar sesión en Capriole Quant.
 
-Eliminar un chat, todo el historial de chat o un proyecto lo borra de forma permanente de nuestros servidores. Los datos eliminados pueden permanecer en las copias de seguridad de la base de datos hasta 7 días. Los chats de Local Storage se quedan en tu navegador hasta que los borres.
+Eliminar un chat, todo el historial de chat, una memoria o un proyecto lo borra de forma permanente de nuestros servidores. Los datos eliminados pueden permanecer en las copias de seguridad de la base de datos hasta 7 días. Los chats de Local Storage se quedan en tu navegador hasta que los borres.
 
 ## Quién recibe tus datos
 
 | Destinatario | Qué recibe |
 |---|---|
-| Proveedores de modelos de IA | Lo que necesita cada solicitud: tus mensajes, archivos, grabaciones de voz y el contexto del chat, además de tu zona horaria y una ubicación aproximada basada en ella |
+| Proveedores de modelos de IA | Lo que necesita cada solicitud: tus mensajes, archivos, grabaciones de voz, el contexto del chat y la memoria si está activada, además de tu zona horaria y una ubicación aproximada basada en ella |
 | Proveedores de infraestructura | Las solicitudes en camino a los proveedores de modelos |
 | Proveedores de búsqueda, como Tavily | Las consultas de búsqueda que hace un modelo |
 | Un proveedor de datos meteorológicos | El lugar por el que preguntas, o tu dirección IP si no indicas ninguno |
@@ -108,6 +125,14 @@ No. No guarda el contenido de las solicitudes ni de las respuestas de la API, so
 ### ¿Puedo usar Capriole AI sin guardar mis chats?
 
 Sí. Activa el interruptor **Activar No Storage** para tener chats que desaparecen cuando sales o actualizas la página, o **Activar almacenamiento local** para guardar el historial solo en tu navegador.
+
+### ¿Capriole AI tiene memoria entre chats?
+
+Sí, cuando la activas. **Memoria** está desactivada por defecto; actívala en **Cuenta** → **Memoria** y Capriole AI podrá guardar datos breves que menciones sobre ti en los chats con sesión iniciada de Server Storage y usarlos en chats posteriores. Cada proyecto también tiene su propia memoria. Puedes ver, añadir, editar y eliminar cada dato, o desactivar **Memoria** cuando quieras.
+
+### ¿Cómo elimino la memoria de Capriole AI?
+
+En **Cuenta** → **Memoria**, coloca el puntero sobre una memoria y selecciona **×**, o selecciona **Eliminar todo**. La memoria de un proyecto está en la pestaña **Memoria** del proyecto. Eliminar chats o desactivar **Memoria** no borra tu memoria guardada. Las memorias eliminadas pueden permanecer en las copias de seguridad de la base de datos hasta 7 días.
 
 ### ¿Cómo elimino mi cuenta de Capriole AI?
 
