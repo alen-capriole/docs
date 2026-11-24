@@ -157,6 +157,8 @@ const llmsLines = [
   "",
   `> ${docsConfig.description}`,
   "",
+  "Capriole AI runs on the [web](https://www.capriole.ai/) and as an [Android app on Google Play](https://play.google.com/store/apps/details?id=com.capriole.ai) (sign in or create a free account). iPhone is coming soon.",
+  "",
 ];
 
 for (const [locale, pages] of pagesByLocale) {

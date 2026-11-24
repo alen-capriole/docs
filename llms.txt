@@ -2,6 +2,8 @@
 
 > Capriole AI docs: USD 9 unlimited chat with GPT-6.2 Astra, Claude Fable 5.2, Claude Opus 5.5 and Gemini 4 Carbon, plus an API up to 92% below official prices.
 
+Capriole AI runs on the [web](https://www.capriole.ai/) and as an [Android app on Google Play](https://play.google.com/store/apps/details?id=com.capriole.ai) (sign in or create a free account). iPhone is coming soon.
+
 ## en
 
 - [Chat completions](https://docs.capriole.ai/api-reference/endpoint/chat-completions.md): Create OpenAI-compatible chat completions with Capriole AI models.
