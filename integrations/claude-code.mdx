@@ -1,10 +1,10 @@
 ---
 title: "Use Claude Code with a custom API: Capriole AI setup"
 sidebarTitle: "Claude Code"
-description: "Point Claude Code at Capriole AI with one settings file. Run Claude Fable 5.1 and Opus 5.5 at up to 92% less than official API prices."
+description: "Point Claude Code at Capriole AI with one settings file. Run Claude Fable 5.2 and Opus 5.5 at up to 92% less than official API prices."
 ---
 
-With one Capriole AI API key, you can run Claude Fable 5.1 and Opus 5.5 in Claude Code at up to 92% less than official API prices.
+With one Capriole AI API key, you can run Claude Fable 5.2 and Opus 5.5 in Claude Code at up to 92% less than official API prices.
 
 ## What is Claude Code
 
@@ -54,12 +54,12 @@ Create or update `~/.claude/settings.json`:
 
 ```json
 {
-  "model": "claude-fable-5-1",
+  "model": "claude-fable-5-2",
   "env": {
     "ANTHROPIC_BASE_URL": "https://api.caprioletech.com",
     "ANTHROPIC_AUTH_TOKEN": "YOUR_CAPRIOLE_AI_API_KEY",
     "ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-opus-5-5",
-    "ANTHROPIC_DEFAULT_SONNET_MODEL": "claude-fable-5-1",
+    "ANTHROPIC_DEFAULT_SONNET_MODEL": "claude-fable-5-2",
     "ANTHROPIC_DEFAULT_HAIKU_MODEL": "claude-sonnet-4-6"
   }
 }
@@ -77,7 +77,7 @@ For a one-time shell setup, export the endpoint and token, then pass the model:
 ```bash
 export ANTHROPIC_BASE_URL="https://api.caprioletech.com"
 export ANTHROPIC_AUTH_TOKEN="YOUR_CAPRIOLE_AI_API_KEY"
-claude --model claude-fable-5-1
+claude --model claude-fable-5-2
 ```
 
 ## Run Claude Code
@@ -98,8 +98,9 @@ claude -p "Explain this repository."
 
 Claude Code uses the Anthropic Messages protocol, so it supports Capriole AI's Claude models:
 
-- `claude-fable-5-1` (Fable 5.1, the recommended default)
+- `claude-fable-5-2` (Fable 5.2, the recommended default)
 - `claude-opus-5-5` (Opus 5.5)
+- `claude-fable-5-1`
 - `claude-fable-5`
 - `claude-opus-5`
 - `claude-opus-4-8`
@@ -108,7 +109,7 @@ Claude Code uses the Anthropic Messages protocol, so it supports Capriole AI's C
 - `claude-sonnet-4-6`
 - `claude-latest`, which always points to our latest Claude flagship (currently Fable 5.2)
 
-Claude Code does not recognize `claude-latest` as a model name, so it assumes a 200K context window for it. Use a concrete ID such as `claude-fable-5-1` to get the model's full context window.
+Claude Code does not recognize `claude-latest` as a model name, so it assumes a 200K context window for it. Use a concrete ID such as `claude-fable-5-2` to get the model's full context window.
 
 ## Troubleshooting
 

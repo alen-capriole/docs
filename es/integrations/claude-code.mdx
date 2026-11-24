@@ -1,10 +1,10 @@
 ---
 title: "Claude Code con una API personalizada: configura Capriole AI"
 sidebarTitle: "Claude Code"
-description: "Conecta Claude Code a Capriole AI con un archivo de ajustes. Usa Claude Fable 5.1 y Opus 5.5 pagando hasta un 92% menos que en la API oficial."
+description: "Conecta Claude Code a Capriole AI con un archivo de ajustes. Usa Claude Fable 5.2 y Opus 5.5 pagando hasta un 92% menos que en la API oficial."
 ---
 
-Con una sola clave API de Capriole AI, usas Claude Fable 5.1 y Opus 5.5 en Claude Code pagando hasta un 92% menos que los precios oficiales de la API.
+Con una sola clave API de Capriole AI, usas Claude Fable 5.2 y Opus 5.5 en Claude Code pagando hasta un 92% menos que los precios oficiales de la API.
 
 ## Qué es Claude Code
 
@@ -54,12 +54,12 @@ Crea o actualiza `~/.claude/settings.json`:
 
 ```json
 {
-  "model": "claude-fable-5-1",
+  "model": "claude-fable-5-2",
   "env": {
     "ANTHROPIC_BASE_URL": "https://api.caprioletech.com",
     "ANTHROPIC_AUTH_TOKEN": "YOUR_CAPRIOLE_AI_API_KEY",
     "ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-opus-5-5",
-    "ANTHROPIC_DEFAULT_SONNET_MODEL": "claude-fable-5-1",
+    "ANTHROPIC_DEFAULT_SONNET_MODEL": "claude-fable-5-2",
     "ANTHROPIC_DEFAULT_HAIKU_MODEL": "claude-sonnet-4-6"
   }
 }
@@ -77,7 +77,7 @@ Para una configuración de shell de una sola vez, exporta el endpoint y el token
 ```bash
 export ANTHROPIC_BASE_URL="https://api.caprioletech.com"
 export ANTHROPIC_AUTH_TOKEN="YOUR_CAPRIOLE_AI_API_KEY"
-claude --model claude-fable-5-1
+claude --model claude-fable-5-2
 ```
 
 ## Ejecutar Claude Code
@@ -98,8 +98,9 @@ claude -p "Explain this repository."
 
 Claude Code usa el protocolo Anthropic Messages, así que admite los modelos Claude de Capriole AI:
 
-- `claude-fable-5-1` (Fable 5.1, el modelo por defecto recomendado)
+- `claude-fable-5-2` (Fable 5.2, el modelo por defecto recomendado)
 - `claude-opus-5-5` (Opus 5.5)
+- `claude-fable-5-1`
 - `claude-fable-5`
 - `claude-opus-5`
 - `claude-opus-4-8`
@@ -108,7 +109,7 @@ Claude Code usa el protocolo Anthropic Messages, así que admite los modelos Cla
 - `claude-sonnet-4-6`
 - `claude-latest`, que siempre apunta a nuestro modelo insignia de Claude más reciente (actualmente Fable 5.2)
 
-Claude Code no reconoce `claude-latest` como nombre de modelo, así que le asigna una ventana de contexto de 200K. Usa un ID concreto como `claude-fable-5-1` para obtener la ventana de contexto completa del modelo.
+Claude Code no reconoce `claude-latest` como nombre de modelo, así que le asigna una ventana de contexto de 200K. Usa un ID concreto como `claude-fable-5-2` para obtener la ventana de contexto completa del modelo.
 
 ## Solución de problemas
 

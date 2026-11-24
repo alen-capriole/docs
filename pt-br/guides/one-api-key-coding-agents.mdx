@@ -34,7 +34,7 @@ Cada cliente mantém o protocolo de transmissão para o qual foi feito, mesmo co
 | Agente | Protocolo Capriole | Base URL | Modelo inicial | Configuração completa |
 |---|---|---|---|---|
 | Codex | OpenAI Responses | `https://api.caprioletech.com/v1` | `gpt-6.2-astra` | [Configurar Codex](/pt-br/integrations/codex) |
-| Claude Code | Anthropic Messages | `https://api.caprioletech.com` | `claude-fable-5-1` | [Configurar Claude Code](/pt-br/integrations/claude-code) |
+| Claude Code | Anthropic Messages | `https://api.caprioletech.com` | `claude-fable-5-2` | [Configurar Claude Code](/pt-br/integrations/claude-code) |
 | Kilo Code | Responses, Messages ou Chat Completions, conforme a família de modelo | `https://api.caprioletech.com/v1` | `openai-latest` ou `claude-latest` | [Configurar Kilo Code](/pt-br/integrations/kilo-code) |
 | GitHub Copilot CLI | Chat Completions, Responses ou Messages | Específico do protocolo | Específico do protocolo | [Configurar GitHub Copilot CLI](/pt-br/integrations/github-copilot-cli) |
 | OpenCode | Responses, Messages ou Chat Completions, conforme a família de modelo | `https://api.caprioletech.com/v1` | `openai-latest` ou `claude-latest` | [Configurar OpenCode](/pt-br/integrations/opencode) |
@@ -95,7 +95,7 @@ export ANTHROPIC_AUTH_TOKEN="$CAPRIOLE_AI_API_KEY"
 Comece com um alias mantido, a menos que você precise de uma versão exata do modelo:
 
 - use `openai-latest` em caminhos OpenAI Responses, ou o nativo `gpt-6.2-astra` no Codex;
-- use `claude-latest` em caminhos Anthropic Messages, ou `claude-fable-5-1` no Claude Code;
+- use `claude-latest` em caminhos Anthropic Messages, ou `claude-fable-5-2` no Claude Code;
 - use um modelo listado pela página de integração em caminhos compatíveis com Chat Completions.
 
 O [catálogo atual de modelos](/pt-br/api-reference/endpoint/get) lista os modelos da API pública.

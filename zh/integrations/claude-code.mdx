@@ -1,10 +1,10 @@
 ---
 title: "Claude Code 使用自定义 API：Capriole AI 配置"
 sidebarTitle: "Claude Code"
-description: "用一个设置文件让 Claude Code 接入 Capriole AI，使用 Claude Fable 5.1 和 Opus 5.5，价格比官方 API 最多低 92%。"
+description: "用一个设置文件让 Claude Code 接入 Capriole AI，使用 Claude Fable 5.2 和 Opus 5.5，价格比官方 API 最多低 92%。"
 ---
 
-只需一个 Capriole AI API Key，就能在 Claude Code 中使用 Claude Fable 5.1 和 Opus 5.5，价格比官方 API 最多低 92%。
+只需一个 Capriole AI API Key，就能在 Claude Code 中使用 Claude Fable 5.2 和 Opus 5.5，价格比官方 API 最多低 92%。
 
 ## Claude Code 是什么
 
@@ -54,12 +54,12 @@ claude --version
 
 ```json
 {
-  "model": "claude-fable-5-1",
+  "model": "claude-fable-5-2",
   "env": {
     "ANTHROPIC_BASE_URL": "https://api.caprioletech.com",
     "ANTHROPIC_AUTH_TOKEN": "YOUR_CAPRIOLE_AI_API_KEY",
     "ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-opus-5-5",
-    "ANTHROPIC_DEFAULT_SONNET_MODEL": "claude-fable-5-1",
+    "ANTHROPIC_DEFAULT_SONNET_MODEL": "claude-fable-5-2",
     "ANTHROPIC_DEFAULT_HAIKU_MODEL": "claude-sonnet-4-6"
   }
 }
@@ -77,7 +77,7 @@ claude --version
 ```bash
 export ANTHROPIC_BASE_URL="https://api.caprioletech.com"
 export ANTHROPIC_AUTH_TOKEN="YOUR_CAPRIOLE_AI_API_KEY"
-claude --model claude-fable-5-1
+claude --model claude-fable-5-2
 ```
 
 ## 运行 Claude Code
@@ -98,8 +98,9 @@ claude -p "Explain this repository."
 
 Claude Code 使用 Anthropic Messages 协议，因此支持 Capriole AI 的 Claude 模型。
 
-- `claude-fable-5-1`（Fable 5.1，推荐的默认模型）
+- `claude-fable-5-2`（Fable 5.2，推荐的默认模型）
 - `claude-opus-5-5`（Opus 5.5）
+- `claude-fable-5-1`
 - `claude-fable-5`
 - `claude-opus-5`
 - `claude-opus-4-8`
@@ -108,7 +109,7 @@ Claude Code 使用 Anthropic Messages 协议，因此支持 Capriole AI 的 Clau
 - `claude-sonnet-4-6`
 - `claude-latest`，始终指向我们最新的 Claude 旗舰模型（目前是 Fable 5.2）
 
-Claude Code 不认识 `claude-latest` 这个模型名称，因此会假定它的上下文窗口为 200K。使用 `claude-fable-5-1` 等具体 ID，才能获得该模型的完整上下文窗口。
+Claude Code 不认识 `claude-latest` 这个模型名称，因此会假定它的上下文窗口为 200K。使用 `claude-fable-5-2` 等具体 ID，才能获得该模型的完整上下文窗口。
 
 ## 故障排除
 

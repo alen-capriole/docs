@@ -1,10 +1,10 @@
 ---
 title: "Claude Code をカスタム API で使う設定"
 sidebarTitle: "Claude Code"
-description: "設定ファイル 1 つで Claude Code の接続先を Capriole AI にします。Claude Fable 5.1 と Opus 5.5 を公式 API 価格より最大 92% 安く使えます。"
+description: "設定ファイル 1 つで Claude Code の接続先を Capriole AI にします。Claude Fable 5.2 と Opus 5.5 を公式 API 価格より最大 92% 安く使えます。"
 ---
 
-Capriole AI の API キー 1 つで、Claude Code から Claude Fable 5.1 と Opus 5.5 を公式 API 価格より最大 92% 安く使えます。
+Capriole AI の API キー 1 つで、Claude Code から Claude Fable 5.2 と Opus 5.5 を公式 API 価格より最大 92% 安く使えます。
 
 ## Claude Code とは
 
@@ -54,12 +54,12 @@ Claude Code 2.1.304 は、下記の設定を使い、「対応モデル」のす
 
 ```json
 {
-  "model": "claude-fable-5-1",
+  "model": "claude-fable-5-2",
   "env": {
     "ANTHROPIC_BASE_URL": "https://api.caprioletech.com",
     "ANTHROPIC_AUTH_TOKEN": "YOUR_CAPRIOLE_AI_API_KEY",
     "ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-opus-5-5",
-    "ANTHROPIC_DEFAULT_SONNET_MODEL": "claude-fable-5-1",
+    "ANTHROPIC_DEFAULT_SONNET_MODEL": "claude-fable-5-2",
     "ANTHROPIC_DEFAULT_HAIKU_MODEL": "claude-sonnet-4-6"
   }
 }
@@ -77,7 +77,7 @@ Claude Code 2.1.304 は、下記の設定を使い、「対応モデル」のす
 ```bash
 export ANTHROPIC_BASE_URL="https://api.caprioletech.com"
 export ANTHROPIC_AUTH_TOKEN="YOUR_CAPRIOLE_AI_API_KEY"
-claude --model claude-fable-5-1
+claude --model claude-fable-5-2
 ```
 
 ## Claude Code を実行する
@@ -98,8 +98,9 @@ claude -p "Explain this repository."
 
 Claude Code は Anthropic Messages プロトコルを使うため、Capriole AI の Claude モデルに対応しています。
 
-- `claude-fable-5-1`（Fable 5.1、推奨のデフォルト）
+- `claude-fable-5-2`（Fable 5.2、推奨のデフォルト）
 - `claude-opus-5-5`（Opus 5.5）
+- `claude-fable-5-1`
 - `claude-fable-5`
 - `claude-opus-5`
 - `claude-opus-4-8`
@@ -108,7 +109,7 @@ Claude Code は Anthropic Messages プロトコルを使うため、Capriole AI 
 - `claude-sonnet-4-6`
 - `claude-latest`（常に最新の Claude 旗艦モデルを指します。現在は Fable 5.2）
 
-Claude Code は `claude-latest` をモデル名として認識しないため、コンテキスト ウィンドウを 200K とみなします。モデル本来のコンテキスト ウィンドウを使うには、`claude-fable-5-1` などの具体的な ID を使ってください。
+Claude Code は `claude-latest` をモデル名として認識しないため、コンテキスト ウィンドウを 200K とみなします。モデル本来のコンテキスト ウィンドウを使うには、`claude-fable-5-2` などの具体的な ID を使ってください。
 
 ## トラブルシューティング
 
