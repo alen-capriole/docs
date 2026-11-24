@@ -399,7 +399,7 @@
 - [Capriole AI 개인정보: 학습 미사용, 저장, 삭제](https://docs.capriole.ai/ko/guides/privacy-and-security.md): Capriole AI는 채팅, 파일, API 콘텐츠로 모델을 학습하지 않습니다. 저장 방식 선택, 채팅 내보내기와 삭제, API 보관 정보를 확인하세요.
 - [Capriole AI에서 프로젝트와 태그로 채팅 정리하기](https://docs.capriole.ai/ko/guides/projects.md): Capriole AI에서 관련 채팅을 프로젝트로 묶고, 프로젝트마다 지침과 파일을 두고, 채팅에 태그를 달아 프로젝트를 넘나들며 필터링하고 검색하세요.
 - [Capriole AI Team 플랜: 5인 월 USD 70](https://docs.capriole.ai/ko/guides/team-plan.md): Capriole AI Team은 5인에 월 USD 70입니다. 멤버마다 GPT-6.2 Astra, Claude, Gemini와 무제한 채팅하고 API 토큰을 공유합니다. 팀 설정과 초대도 안내합니다.
-- [Claude Code 사용자 지정 API 설정](https://docs.capriole.ai/ko/integrations/claude-code.md): 설정 파일 하나로 Claude Code가 Capriole AI를 사용하게 합니다. Claude Fable 5.2과 Opus 5.5 모델을 공식 API 가격보다 최대 92% 저렴하게 사용하세요.
+- [Claude Code 사용자 지정 API 설정](https://docs.capriole.ai/ko/integrations/claude-code.md): 설정 파일 하나로 Claude Code가 Capriole AI를 사용하게 합니다. Claude Fable 5.2와 Opus 5.5 모델을 공식 API 가격보다 최대 92% 저렴하게 사용하세요.
 - [Cline에서 OpenAI 호환 API 사용하기](https://docs.capriole.ai/ko/integrations/cline.md): Cline의 OpenAI Compatible 제공자를 Capriole AI에 연결해 GPT-6.2 Astra, Claude Fable 5.2, Opus 5.5, Gemini 4 Carbon을 공식 API 가격보다 최대 92% 저렴하게 쓰세요.
 - [Codex에서 다른 API 제공자 사용하기](https://docs.capriole.ai/ko/integrations/codex.md): Capriole AI를 Codex의 사용자 지정 모델 제공자로 추가합니다. GPT-6.2 Astra와 GPT-6.2 Sol 모델을 공식 API 가격보다 최대 92% 저렴하게 사용하세요.
 - [Charm Crush 사용자 지정 제공자 추가](https://docs.capriole.ai/ko/integrations/crush.md): Capriole AI를 Charm Crush의 제공자로 추가합니다. GPT-6.2 Astra, Claude Fable 5.2, Opus 5.5, Gemini 4 Carbon 모델을 공식 API 가격보다 최대 92% 저렴하게 사용하세요.
