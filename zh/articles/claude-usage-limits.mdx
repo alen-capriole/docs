@@ -1,7 +1,7 @@
 ---
 title: "Claude 用量限制详解：Pro、Max 与替代方案"
 sidebarTitle: "Claude 用量限制"
-description: "Claude Pro 和 Max 为何会触发五小时和每周限制、Fable 5.1 如何计费，以及每月 USD 9 无限畅聊 Claude Fable 5.2 和 Opus 5.5 的对比。"
+description: "Claude Pro 和 Max 为何会触发五小时和每周限制、Fable 模型如何计费，以及每月 USD 9 无限畅聊 Claude Fable 5.2 和 Opus 5.5 的对比。"
 ---
 
 Claude Pro 和 Max 用户会触发用量限制，是因为这两个方案都有五小时会话限制和每周限制，而 claude.ai、Claude Desktop 和 Claude Code 都从中消耗额度。长对话、工具、更高的推理强度和更大的模型都会更快用完额度。如果你主要用来聊天，Capriole AI Premium **每月 USD 9**，可在网页聊天中无限使用 **Claude Fable 5.2** 和 **Claude Opus 5.5**，外加 **GPT-6.2 Astra** 和 **Gemini 4 Carbon**。
@@ -10,7 +10,7 @@ Claude Pro 和 Max 用户会触发用量限制，是因为这两个方案都有�
 
 ## Claude 各方案与限制对比
 
-| 方案 | 价格 | 聊天用量 | Claude Fable 5.1 |
+| 方案 | 价格 | 聊天用量 | Claude Fable 模型 |
 |---|---|---|---|
 | Claude Free | USD 0 | 每五小时和每周都有用量限制，仅限 Sonnet 和 Haiku | 不可用 |
 | Claude Pro | 每月 USD 20，按年付费则每月 USD 17 | 每个五小时会话的用量多于 Free，另有每周限制 | 不在方案限制内；按 API 价格用用量积分支付 |
@@ -40,7 +40,7 @@ Anthropic 列出了会消耗更多额度的因素：
 - 大型项目文件，它们会占用上下文
 - 触发自动上下文管理的长对话
 
-Fable 5.1 还有自己的规则。在 Pro 上，Fable 5 和 Fable 5.1 不计入方案的用量限制，所以每条 Fable 消息都消耗用量积分（usage credits），按标准 API 价格计费。在 Max 和 Ultra 上，Fable 模型最多可使用每周限制的 50%，不额外收费。
+Fable 模型还有自己的规则。在 Pro 上，Fable 5.2、Fable 5.1 和 Fable 5 都不计入方案的用量限制，所以每条 Fable 消息都消耗用量积分（usage credits），按标准 API 价格计费。在 Max 和 Ultra 上，Fable 模型最多可使用每周限制的 50%，不额外收费。
 
 ## Anthropic 的用量限制规则
 
@@ -87,8 +87,8 @@ Claude Max 和 Ultra 包含每月 API 额度，但 [Anthropic 称](https://suppo
   <Accordion title="Claude 的用量限制什么时候重置？">
     会话限制每五小时重置一次。每周限制在为你的账户分配的固定时间重置。在 claude.ai 的 **Settings** → **Usage** 中查看你的重置时间。
   </Accordion>
-  <Accordion title="Claude Pro 包含 Claude Fable 5.1 吗？">
-    不在 Pro 的用量限制内。在 Pro 上，Anthropic 通过用量积分按标准 API 价格对 Fable 5.1 计费。在 Max 和 Ultra 上，Fable 模型最多可使用每周限制的 50%。在 Capriole AI Premium 上，Fable 5.1 属于每月 USD 9 的无限网页聊天。
+  <Accordion title="Claude Pro 包含 Claude Fable 5.2 吗？">
+    不在 Pro 的用量限制内。在 Pro 上，Anthropic 通过用量积分按标准 API 价格对 Fable 5.2 计费，Fable 5.1 和 Fable 5 也一样。在 Max 和 Ultra 上，Fable 模型最多可使用每周限制的 50%。在 Capriole AI Premium 上，Fable 5.2 和 Fable 5.1 都属于每月 USD 9 的无限网页聊天。
   </Accordion>
   <Accordion title="Capriole AI 能用 Claude Code 吗？">
     可以，需要 Premium 或 Team 的 Capriole AI API Key。编程智能体使用你的 Capriole AI API 密钥，按用量从 API token 余额中扣费。参见 [Claude Code 配置](/zh/integrations/claude-code)。

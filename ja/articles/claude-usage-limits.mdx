@@ -1,7 +1,7 @@
 ---
 title: "Claude の使用制限を解説：Pro・Max と代替案"
 sidebarTitle: "Claude の使用制限"
-description: "Claude Pro と Max が 5 時間・週間の制限に達する理由と Fable 5.1 の課金方法。Fable 5.2 と Opus 5.5 を USD 9 で無制限に使えるウェブチャットとも比較します。"
+description: "Claude Pro と Max が 5 時間・週間の制限に達する理由と Fable モデルの課金方法。Fable 5.2 と Opus 5.5 を USD 9 で無制限に使えるウェブチャットとも比較します。"
 ---
 
 Claude Pro と Max のユーザーが使用制限に達するのは、これらのプランに 5 時間のセッション制限と週間制限があり、claude.ai、Claude Desktop、Claude Code がすべて同じ枠を消費するためです。長いチャット、ツール、高いエフォート、大きなモデルほど枠を早く使います。主にチャットに使うなら、Capriole AI Premium は **月額 USD 9** で、**Claude Fable 5.2** と **Claude Opus 5.5** に加え、**GPT-6.2 Astra** と **Gemini 4 Carbon** とのウェブチャットが無制限です。
@@ -10,7 +10,7 @@ Claude Pro と Max のユーザーが使用制限に達するのは、これら�
 
 ## Claude のプランと制限の比較
 
-| プラン | 料金 | チャットの使用量 | Claude Fable 5.1 |
+| プラン | 料金 | チャットの使用量 | Claude Fable モデル |
 |---|---|---|---|
 | Claude Free | USD 0 | 5 時間ごと・週ごとに使用量の制限あり。Sonnet と Haiku のみ | 利用不可 |
 | Claude Pro | 月額 USD 20、年払いなら月額 USD 17 | 5 時間のセッションごとに Free より多い使用量、加えて週間制限 | プランの制限の対象外。API 料金の利用クレジットで支払い |
@@ -40,7 +40,7 @@ Anthropic は、枠を多く使う要因として次を挙げています。
 - コンテキストを占める大きなプロジェクト ファイル
 - 自動コンテキスト管理が働く長いチャット
 
-Fable 5.1 には独自のルールがあります。Pro では、Fable 5 と Fable 5.1 はプランの使用制限に含まれないため、Fable のメッセージはすべて標準の API 料金で請求される利用クレジットで動きます。Max と Ultra では、Fable モデルは追加料金なしで週間制限の最大 50% まで使えます。
+Fable モデルには独自のルールがあります。Pro では、Fable 5.2、Fable 5.1、Fable 5 はプランの使用制限に含まれないため、Fable のメッセージはすべて標準の API 料金で請求される利用クレジットで動きます。Max と Ultra では、Fable モデルは追加料金なしで週間制限の最大 50% まで使えます。
 
 ## Anthropic の利用上限の仕組み
 
@@ -87,8 +87,8 @@ Claude Max と Ultra には毎月の API クレジットが含まれますが、
   <Accordion title="Claude の使用制限はいつリセットされますか？">
     セッション制限は 5 時間ごとにリセットされます。週間制限は、アカウントごとに決まった時刻にリセットされます。リセット時刻は claude.ai の **Settings** → **Usage** で確認してください。
   </Accordion>
-  <Accordion title="Claude Fable 5.1 は Claude Pro に含まれますか？">
-    Pro の使用制限には含まれません。Anthropic は Pro での Fable 5.1 を、標準の API 料金で利用クレジットから請求します。Max と Ultra では、Fable モデルは週間制限の最大 50% まで使えます。Capriole AI Premium なら、Fable 5.1 は月額 USD 9 の無制限ウェブチャットに含まれます。
+  <Accordion title="Claude Fable 5.2 は Claude Pro に含まれますか？">
+    Pro の使用制限には含まれません。Anthropic は Pro での Fable 5.2 を、Fable 5.1 や Fable 5 と同じく、標準の API 料金で利用クレジットから請求します。Max と Ultra では、Fable モデルは週間制限の最大 50% まで使えます。Capriole AI Premium なら、Fable 5.2 と Fable 5.1 は月額 USD 9 の無制限ウェブチャットに含まれます。
   </Accordion>
   <Accordion title="Capriole AI で Claude Code を使えますか？">
     はい。コーディングエージェントは Premium または Team の Capriole AI API キーを使い、利用量に応じて API トークン残高を消費します。[Claude Code のセットアップ](/ja/integrations/claude-code)をご覧ください。
