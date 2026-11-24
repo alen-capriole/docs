@@ -24,7 +24,7 @@ Latest-Aliase werden auf `POST /v1/chat/completions` wie folgt aufgelöst:
 | Latest-Alias | Wird aufgelöst zu |
 | --- | --- |
 | `openai-latest` | `openai/gpt-6.2-astra` |
-| `claude-latest` | `anthropic/claude-fable-5-1` |
+| `claude-latest` | `anthropic/claude-fable-5-2` |
 | `google-latest` | `google/gemini-4-carbon` |
 
 | Endpunkt | Latest-Aliase |
@@ -34,8 +34,8 @@ Latest-Aliase werden auf `POST /v1/chat/completions` wie folgt aufgelöst:
 | `POST /v1/messages` | `claude-latest` |
 | `POST /v1/messages/count_tokens` | `claude-latest` |
 
-Anthropic-Messages-Endpunkte akzeptieren außerdem unpräfigierte konkrete Claude-Messages-IDs wie `claude-fable-5-1`, `claude-fable-5`, `claude-opus-5-5`, `claude-opus-5`, `claude-opus-4-8`, `claude-opus-4-7`, `claude-opus-4-6` und `claude-sonnet-4-6`.
+Anthropic-Messages-Endpunkte akzeptieren außerdem unpräfigierte konkrete Claude-Messages-IDs wie `claude-fable-5-2`, `claude-fable-5-1`, `claude-fable-5`, `claude-opus-5-5`, `claude-opus-5`, `claude-opus-4-8`, `claude-opus-4-7`, `claude-opus-4-6` und `claude-sonnet-4-6`.
 
-Auf `POST /v1/messages` und `POST /v1/messages/count_tokens` wird `claude-latest` zu `claude-fable-5-1` aufgelöst und entspricht damit dem Latest-Alias von Chat Completions.
+Auf `POST /v1/messages` und `POST /v1/messages/count_tokens` wird `claude-latest` zu `claude-fable-5-2` aufgelöst und entspricht damit dem Latest-Alias von Chat Completions.
 
 Verwenden Sie die oben gezeigten reinen Alias-IDs. Anbieterpräfixe wie `openai/openai-latest` sind clientseitige Auswahlmuster, keine Capriole-AI-Modell-IDs.

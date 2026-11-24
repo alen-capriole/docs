@@ -1,12 +1,12 @@
 ---
-title: "Claude API 料金：Fable 5.1・Opus 5.5"
+title: "Claude API 料金：Fable 5.2・Opus 5.5"
 sidebarTitle: "Claude API の料金"
-description: "Claude Fable 5.1 は 100 万トークンあたり入力 USD 10・出力 USD 50、Opus 5.5 は USD 4・USD 20。計算例と、公式価格より最大 92% 安い API を紹介します。"
+description: "Claude Fable 5.2 は 100 万トークンあたり入力 USD 8・出力 USD 40、Opus 5.5 は USD 4・USD 20。Fable 5.1 との比較と計算例に加え、最大 92% 安く使う方法を紹介します。"
 ---
 
-Anthropic の Claude API の料金は、**Claude Fable 5.1 が入力 100 万トークンあたり USD 10、出力 100 万トークンあたり USD 50**、**Claude Opus 5.5 が USD 4 と USD 20** です。出力 1 トークンにつき入力 3 トークンの比率では、Anthropic の標準料金で 500 万トークンのコストは Fable 5.1 で USD 100、Opus 5.5 で USD 40 です。
+Anthropic の Claude API の料金は、最も高度な技術的作業のための新しいモデル **Claude Fable 5.2 が入力 100 万トークンあたり USD 8、出力 100 万トークンあたり USD 40**、**Claude Opus 5.5 が USD 4 と USD 20** です。Fable 5.2 は Fable 5.1 の USD 10 と USD 50 より 20% 安くなっています。出力 1 トークンにつき入力 3 トークンの比率では、Anthropic の標準料金で 500 万トークンのコストは Fable 5.2 で USD 80、Fable 5.1 で USD 100、Opus 5.5 で USD 40 です。
 
-Capriole AI Premium は月額 USD 9 で、GPT-6.2 Astra、Claude Fable 5.1、Claude Opus 5.5、Gemini 4 Carbon とのウェブチャットが無制限です。API は Anthropic Messages 互換のエンドポイントで両方の Claude モデルを提供します。個人向け Premium には月に 5,000,000 API トークンが含まれます。どの対応モデルにも使える 5,000,000 トークンの追加パックは USD 8 で、公式 API 料金より最大 92% 割安です。1 つの API キーで、自分のアプリでも Claude Code などのコーディング エージェントでも使えます。
+Capriole AI Premium は月額 USD 9 で、GPT-6.2 Astra、Claude Fable 5.2、Claude Opus 5.5、Gemini 4 Carbon とのウェブチャットが無制限です。API は Anthropic Messages 互換のエンドポイントで 3 つの Claude モデルすべてを提供します。個人向け Premium には月に 5,000,000 API トークンが含まれます。どの対応モデルにも使える 5,000,000 トークンの追加パックは USD 8 で、公式 API 料金より最大 92% 割安です。1 つの API キーで、自分のアプリでも Claude Code などのコーディング エージェントでも使えます。
 
 ## 100 万トークンあたりの Claude API 料金
 
@@ -14,15 +14,16 @@ Anthropic は次の標準料金を [Claude API の料金ページ](https://platf
 
 | モデル | API モデル ID | 入力 | 出力 | キャッシュ読み取り | 5 分キャッシュ書き込み | 1 時間キャッシュ書き込み |
 |---|---|---:|---:|---:|---:|---:|
+| Claude Fable 5.2 | `claude-fable-5-2` | USD 8 | USD 40 | USD 0.20 | USD 10 | USD 16 |
 | Claude Fable 5.1 | `claude-fable-5-1` | USD 10 | USD 50 | USD 0.25 | USD 12.50 | USD 20 |
 | Claude Opus 5.5 | `claude-opus-5-5` | USD 4 | USD 20 | USD 0.20 | USD 5 | USD 8 |
 
 同じページには、これらの料金が変わる条件も記載されています。
 
-- **Batch API**: 非同期のバッチ処理は、入力・出力とも 50% 安くなります。Fable 5.1 は USD 5 と USD 25、Opus 5.5 は USD 2 と USD 10 です。
-- **長いコンテキスト**: どちらのモデルも、100 万トークンのコンテキスト ウィンドウ全体を標準料金で使えます。
+- **Batch API**: 非同期のバッチ処理は、入力・出力とも 50% 安くなります。Fable 5.2 は USD 4 と USD 20、Fable 5.1 は USD 5 と USD 25、Opus 5.5 は USD 2 と USD 10 です。
+- **長いコンテキスト**: 3 つのモデルすべてで、100 万トークンのコンテキスト ウィンドウ全体を標準料金で使えます。
 - **米国内のみの推論**: `inference_geo` を `"us"` に設定すると、すべてのトークン価格が 1.1 倍になります。
-- **高速モード**: 高速モードの Opus 5.5 は入力 USD 8、出力 USD 40 です。高速モードは Batch API と併用できません。
+- **高速モード**: 高速モードの Fable 5.2 は入力 USD 16、出力 USD 80、Opus 5.5 は USD 8 と USD 40 です。高速モードは Batch API と併用できません。
 
 ## 100 万トークンと 500 万トークンのコスト
 
@@ -32,22 +33,22 @@ Anthropic は次の標準料金を [Claude API の料金ページ](https://platf
 official_cost = input_millions × input_price + output_millions × output_price
 ```
 
-| トークン数 | 入力 / 出力 | Claude Fable 5.1 | Claude Opus 5.5 | Capriole AI の個人向け API チャージ |
-|---|---|---:|---:|---:|
-| 100 万 | 75 万 / 25 万 | USD 20 | USD 8 | USD 1.60 |
-| 500 万 | 375 万 / 125 万 | USD 100 | USD 40 | **USD 8** |
+| トークン数 | 入力 / 出力 | Claude Fable 5.2 | Claude Fable 5.1 | Claude Opus 5.5 | Capriole AI の個人向け API チャージ |
+|---|---|---:|---:|---:|---:|
+| 100 万 | 75 万 / 25 万 | USD 16 | USD 20 | USD 8 | USD 1.60 |
+| 500 万 | 375 万 / 125 万 | USD 80 | USD 100 | USD 40 | **USD 8** |
 
-Fable 5.1 では、500 万トークンのコストが 3.75 × USD 10 + 1.25 × USD 50 = USD 100 なので、個人向け Premium の追加パック料金 USD 8 は 92% 安くなります。Opus 5.5 では同じワークロードが USD 40 なので、USD 8 は 80% 安くなります。Capriole は API トークンを 500 万単位のパックで販売しています。100 万の行はパックの 5 分の 1 にあたり、比較のために示しています。
+Fable 5.2 では、500 万トークンのコストが 3.75 × USD 8 + 1.25 × USD 40 = USD 80 なので、個人向け Premium の追加パック料金 USD 8 は 90% 安くなります。Fable 5.1 では同じワークロードが USD 100 なので、USD 8 は 92% 安くなります。Opus 5.5 では USD 40 なので、USD 8 は 80% 安くなります。Capriole は API トークンを 500 万単位のパックで販売しています。100 万の行はパックの 5 分の 1 にあたり、比較のために示しています。
 
-Anthropic は出力を入力の 5 倍の価格に設定しています。Capriole は入力と出力を同じレートで数えるため、どれだけ安くなるかは実際の入出力の比率で決まります。たとえば、入力だけの 500 万トークンは Fable 5.1 で USD 50、Opus 5.5 で USD 20 です。
+Anthropic は出力を入力の 5 倍の価格に設定しています。Capriole は入力と出力を同じレートで数えるため、どれだけ安くなるかは実際の入出力の比率で決まります。たとえば、入力だけの 500 万トークンは Fable 5.2 で USD 40、Fable 5.1 で USD 50、Opus 5.5 で USD 20 です。
 
 [無料でチャットを始める](https://www.capriole.ai/ja)ことも、[API キーを取得する](https://www.capriole.ai/ja?view=api)こともできます。
 
 ## キャッシュとバッチで比較はどう変わるか
 
-- **キャッシュ読み取り**: Anthropic は、キャッシュされた 100 万トークンあたり Fable 5.1 で USD 0.25、Opus 5.5 で USD 0.20 を請求します。Capriole はキャッシュ入力を 10% で数えるため、個人向け Premium の追加パック料金では、キャッシュされた 100 万トークンあたり USD 0.16 に相当します。計算式は [Capriole AI の課金トークンの説明](/ja/articles/charged-tokens)で確認できます。
+- **キャッシュ読み取り**: Anthropic は、キャッシュされた 100 万トークンあたり Fable 5.2 と Opus 5.5 で USD 0.20、Fable 5.1 で USD 0.25 を請求します。Capriole はキャッシュ入力を 10% で数えるため、個人向け Premium の追加パック料金では、キャッシュされた 100 万トークンあたり USD 0.16 に相当します。計算式は [Capriole AI の課金トークンの説明](/ja/articles/charged-tokens)で確認できます。
 - **キャッシュ書き込み**: Anthropic は、5 分の書き込みに入力の 1.25 倍、1 時間の書き込みに入力の 2 倍を請求します。Capriole はキャッシュ書き込みを通常の入力として数えます。
-- **バッチ**: Anthropic のバッチ料金では、5,000,000 トークンの例は Fable 5.1 で USD 50、Opus 5.5 で USD 20 です。個人向け Premium の追加パックは 5,000,000 トークンで USD 8 です。このパック価格で比較するとそれぞれ 84%、60% 割安です。
+- **バッチ**: Anthropic のバッチ料金では、5,000,000 トークンの例は Fable 5.2 で USD 40、Fable 5.1 で USD 50、Opus 5.5 で USD 20 です。個人向け Premium の追加パックは 5,000,000 トークンで USD 8 です。このパック価格で比較するとそれぞれ 80%、84%、60% 割安です。
 
 OpenRouter のクレジット手数料も含めた 500 万トークンのテストは、[AI API コスト比較](/ja/articles/ai-api-cost-comparison)をご覧ください。GPT-6.2 Astra、Sol、Luna は [OpenAI API の料金](/ja/articles/openai-api-pricing)、Gemini 4 Carbon と Argon は [Gemini API の料金](/ja/articles/gemini-api-pricing)で確認できます。
 
@@ -55,8 +56,8 @@ OpenRouter のクレジット手数料も含めた 500 万トークンのテス�
 
 Capriole の API は Anthropic Messages と互換性があります。Anthropic SDK または任意の Messages クライアントの接続先を `https://api.caprioletech.com` に設定し、`POST /v1/messages` を呼び出してください。
 
-- `claude-latest` は Claude Fable 5.1 を選択します。そのため、設定が現在推奨される Claude モデルに追従します。
-- `claude-fable-5-1` と `claude-opus-5-5` は、モデルを明示的に選択します。
+- `claude-latest` は Claude Fable 5.2 を選択します。そのため、設定が現在推奨される Claude モデルに追従します。
+- `claude-fable-5-2`、`claude-fable-5-1`、`claude-opus-5-5` は、モデルを明示的に選択します。
 - キーは Bearer トークンとして送信します。Anthropic SDK では `auth_token` として渡してください。
 
 ```python
@@ -81,7 +82,7 @@ print(message.content[0].text)
 
 ## 月額 USD 9 に含まれるもの
 
-- GPT-6.2 Astra、Claude Fable 5.1、Claude Opus 5.5、Gemini 4 Carbon をはじめ、すべての対応モデルで[ウェブチャットが無制限](/ja/guides/plans-and-limits#「無制限」の意味)です。
+- GPT-6.2 Astra、Claude Fable 5.2、Claude Opus 5.5、Gemini 4 Carbon をはじめ、すべての対応モデルで[ウェブチャットが無制限](/ja/guides/plans-and-limits#「無制限」の意味)です。
 - アプリとコーディング エージェント向けに、毎月 500 万 API トークンが含まれます。
 - 追加の API トークンは 500 万あたり USD 8 で、1 回の購入で 1 から 11 パックまで購入でき、複数パックの割引は最大 15% です。
 - GPT Image 2.6・Nano Banana 2.1・Seedream 5.5 による無料の画像生成、ファイルとウェブ検索、プロジェクト、チャットのエクスポート、[ドキュメントのある 10 種類のコーディング エージェント](/ja/articles/coding-agent-compatibility)も利用できます。
@@ -92,15 +93,15 @@ API キーには Premium または Team が必要です。Team は月額 USD 70 
 
 ### Claude API の料金はいくらですか？
 
-Claude Fable 5.1 は入力 100 万トークンあたり USD 10、出力 100 万トークンあたり USD 50 です。Claude Opus 5.5 は USD 4 と USD 20 です。バッチ リクエストは半額です。
+Claude Fable 5.2 は入力 100 万トークンあたり USD 8、出力 100 万トークンあたり USD 40 です。Claude Fable 5.1 は USD 10 と USD 50、Claude Opus 5.5 は USD 4 と USD 20 です。バッチ リクエストは半額です。
 
-### Claude Opus 5.5 は Claude Fable 5.1 より安いですか？
+### Claude Opus 5.5 は Claude Fable 5.2 より安いですか？
 
-はい。Anthropic の API では、Opus 5.5 のトークン単価は Fable 5.1 より 60% 安くなっています。Capriole AI では両モデルが同じ残高を使います。個人向け Premium の追加パックは 5,000,000 トークンで USD 8 です。
+はい。Anthropic の API では、Opus 5.5 のトークン単価は Fable 5.2 の半分で、Fable 5.1 より 60% 安くなっています。Capriole AI では 3 つのモデルすべてが同じ残高を使います。個人向け Premium の追加パックは 5,000,000 トークンで USD 8 です。
 
 ### Capriole AI の `claude-latest` とは何ですか？
 
-`claude-latest` は Claude Fable 5.1 を指します。`/v1/messages` と `/v1/chat/completions` で使えます。
+`claude-latest` は 2026 年 11 月 24 日から Claude Fable 5.2 を指します。`/v1/messages` と `/v1/chat/completions` で使えます。
 
 ### Capriole AI のキーで Claude Code を使えますか？
 
@@ -118,8 +119,9 @@ Capriole AI は、Anthropic から独立して運営されているワークス�
 
 ## 公式ソース
 
-これらのページは 2026 年 11 月 17 日に確認しました。
+これらのページは 2026 年 11 月 24 日に確認しました。
 
 - Anthropic: [Claude API の料金](https://platform.claude.com/docs/en/about-claude/pricing)
+- Anthropic: [Claude Fable 5.2 と Mythos 5.2 の発表](https://www.anthropic.com/claude-fable-and-mythos-5-2)、[Claude Fable 5.2 のモデル ページ](https://platform.claude.com/docs/en/models/fable-5-2/overview)
 
 このページの Capriole AI のプラン、チャージ、課金トークンに関する情報は、当社が公式ドキュメントとして管理しています。

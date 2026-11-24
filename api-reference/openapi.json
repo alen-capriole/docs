@@ -59,6 +59,9 @@
                           "id": "claude-latest"
                         },
                         {
+                          "id": "anthropic/claude-fable-5-2"
+                        },
+                        {
                           "id": "anthropic/claude-fable-5-1"
                         },
                         {
@@ -707,6 +710,7 @@
               "openai/gpt-5.6-terra",
               "openai/gpt-5.6-luna",
               "claude-latest",
+              "anthropic/claude-fable-5-2",
               "anthropic/claude-fable-5-1",
               "anthropic/claude-opus-5-5",
               "anthropic/claude-fable-5",
@@ -851,6 +855,7 @@
             "description": "Public Anthropic Messages model identifier or Claude latest alias",
             "enum": [
               "claude-latest",
+              "claude-fable-5-2",
               "claude-fable-5-1",
               "claude-opus-5-5",
               "claude-fable-5",
@@ -922,6 +927,7 @@
             "description": "Public Anthropic Messages model identifier or Claude latest alias",
             "enum": [
               "claude-latest",
+              "claude-fable-5-2",
               "claude-fable-5-1",
               "claude-opus-5-5",
               "claude-fable-5",

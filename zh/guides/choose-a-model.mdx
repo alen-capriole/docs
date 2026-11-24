@@ -1,17 +1,17 @@
 ---
 title: "选哪个 AI 模型：GPT-6.2 Astra、Claude 还是 Gemini"
 sidebarTitle: "选择模型"
-description: "按厂商说明的定位、上下文窗口和官方价格比较 GPT-6.2 Astra、Claude Fable 5.1、Claude Opus 5.5 和 Gemini 4 Carbon，再选择 Thinking 或 Fast。"
+description: "按厂商说明的定位、上下文窗口和官方价格比较 GPT-6.2 Astra、Claude Fable 5.2、Claude Opus 5.5 和 Gemini 4 Carbon，再选择 Thinking 或 Fast。"
 ---
 
-Capriole AI 提供四个旗舰模型：OpenAI 的 GPT-6.2 Astra、Anthropic 的 Claude Fable 5.1 和 Claude Opus 5.5，以及 Google 的 Gemini 4 Carbon。Premium 每月 USD 9，可在网页聊天中无限使用这四个模型，API 价格最多比官方 API 低 92%。网页聊天默认使用 GPT-6.2 Astra Thinking，直到你选择其他模型。如果下文摘要显示另一个模型的厂商说它专为你的任务打造，就切换过去。
+Capriole AI 提供四个旗舰模型：OpenAI 的 GPT-6.2 Astra、Anthropic 的 Claude Fable 5.2 和 Claude Opus 5.5，以及 Google 的 Gemini 4 Carbon。Premium 每月 USD 9，可在网页聊天中无限使用这四个模型，API 价格最多比官方 API 低 92%。网页聊天默认使用 GPT-6.2 Astra Thinking，直到你选择其他模型。如果下文摘要显示另一个模型的厂商说它专为你的任务打造，就切换过去。
 
 ## 四个旗舰模型
 
 | 模型 | 厂商的定位 | 上下文窗口 | 官方 API 价格，每 100 万 token（输入 / 输出） |
 |---|---|---|---|
 | [GPT-6.2 Astra](https://developers.openai.com/api/docs/models/gpt-6.2-astra)（OpenAI） | 从头到尾完成你最艰巨的项目，专业文档、编程和计算机操作表现更好 | 105 万 token（在 Capriole AI 中为 87.2 万） | USD 8 / USD 40 |
-| [Claude Fable 5.1](https://platform.claude.com/docs/en/models/fable-5-1/overview)（Anthropic） | 高要求推理和长周期智能体任务 | 100 万 token | USD 10 / USD 50 |
+| [Claude Fable 5.2](https://platform.claude.com/docs/en/models/fable-5-2/overview)（Anthropic） | 高要求推理和长周期智能体任务 | 100 万 token | USD 8 / USD 40 |
 | [Claude Opus 5.5](https://platform.claude.com/docs/en/models/opus-5-5/overview)（Anthropic） | 长时间运行的智能体编程和知识工作 | 100 万 token | USD 4 / USD 20 |
 | [Gemini 4 Carbon](https://aistudio.google.com/docs/models/gemini-4-carbon)（Google） | 考验模型智能极限的任务，例如复杂的多步骤编程和调试、长周期智能体任务和科学推理 | 100 万 token | 截至 2026 年 11 月 30 日为 USD 2 / USD 10，之后为 USD 4 / USD 20 |
 
@@ -21,13 +21,13 @@ Capriole AI 提供四个旗舰模型：OpenAI 的 GPT-6.2 Astra、Anthropic 的 
 
 OpenAI 称 GPT-6.2 Astra 是其面向你最艰巨项目的全新前沿模型，它取代 GPT-6 Astra，成为 OpenAI 的旗舰模型。OpenAI 表示，它做出的幻灯片、表格和文档更不像 AI 写的，并会遵循模板和所在领域的惯例；它写的代码也更简洁，前端更出色。OpenAI 列出的上下文窗口为 105 万 token，最多输出 128,000 个 token，API 价格比 GPT-6 Astra 低 20%。在 Capriole AI 中，GPT-6.2 Astra 的上下文窗口为 87.2 万 token。在你选择其他模型之前，**GPT-6.2 Astra Thinking** 是网页聊天的默认模型，API 上的 `openai-latest` 使用 GPT-6.2 Astra。
 
-### Claude Fable 5.1
+### Claude Fable 5.2
 
-Anthropic 将 Claude Fable 5.1 定位于高要求推理和长周期智能体任务。Anthropic 表示，它在长时间运行的智能体编程、多步骤研究，以及文档、表格和幻灯片工作上都比 Claude Fable 5 有所提升。按 Anthropic 的评级，它比 Claude Opus 5.5 慢。`claude-latest` 使用 Claude Fable 5.1。在 Anthropic 自己的 Pro 方案中，Fable 5.1 不计入用量限制，而是消耗用量积分（usage credits）计费，详见 [Claude 用量限制详解](/zh/articles/claude-usage-limits)。
+Anthropic 将 Claude Fable 5.2 定位于高要求推理和长周期智能体任务，它取代 Claude Fable 5.1，成为 Anthropic 面向要求最高的技术工作的模型。Anthropic 表示，它在编程、推理和视觉上都比 Fable 5.1 有所提升，表达也更清晰。Anthropic 列出的上下文窗口为 100 万 token，最多输出 128,000 个 token，API 价格比 Fable 5.1 低 20%。`claude-latest` 使用 Claude Fable 5.2。
 
 ### Claude Opus 5.5
 
-Anthropic 为长时间运行的智能体编程和知识工作打造了 Claude Opus 5.5，官方价格不到 Fable 5.1 的一半。Anthropic 建议大多数工作先从 Opus 5.5 开始，如果把 Opus 5.5 调到更高推理强度仍然不够，再换用 Fable 5.1。和 Fable 5.1 一样，它始终开启思考，因此在 Capriole AI 中，**Fast** 会降低它的推理强度，而不是关闭思考。
+Anthropic 为长时间运行的智能体编程和知识工作打造了 Claude Opus 5.5，官方价格是 Fable 5.2 的一半。Anthropic 称 Opus 5.5 是其最强的日常主力模型，建议大多数工作先从它开始，只有任务需要更强能力时才换用 Fable 5.2。和 Fable 5.2 一样，它始终开启思考，因此在 Capriole AI 中，**Fast** 会降低它的推理强度，而不是关闭思考。
 
 ### Gemini 4 Carbon
 
@@ -44,6 +44,7 @@ Google 称 Gemini 4 Carbon 是其最强的模型，专为考验模型智能极�
 | GPT-6.1 Sol（OpenAI） | 以更低成本接近 Astra 的表现，适合复杂编程、计算机操作和专业工作 | 105 万 token | USD 2 / USD 10 | `openai/gpt-6.1-sol` |
 | GPT-6 Sol（OpenAI） | 复杂编程和智能体工作流 | 105 万 token | USD 2 / USD 10 | `openai/gpt-6-sol` |
 | GPT-6 Luna（OpenAI） | OpenAI 效率最高的模型，适合目标明确的大批量任务 | 105 万 token | USD 0.10 / USD 0.50 | `openai/gpt-6-luna` |
+| Claude Fable 5.1（Anthropic） | 高要求推理和长周期智能体任务 | 100 万 token | USD 10 / USD 50 | `anthropic/claude-fable-5-1` |
 | Gemini 4 Argon（Google） | 大多数软件工程和知识工作，比 Gemini 4 Carbon 回复更快、每轮消耗的 token 更少 | 100 万 token | 截至 2026 年 11 月 30 日为 USD 2 / USD 10，之后为 USD 4 / USD 20 | `google/gemini-4-argon` |
 | Gemini 3.8 Flash（Google） | Google 最智能的 Flash 模型，适合长周期软件工程、自主智能体和复杂的企业工作流 | 未公布 | 截至 2026 年 12 月 31 日为 USD 0.75 / USD 3.75，之后为 USD 1.50 / USD 7.50 | `google/gemini-3.8-flash` |
 | Grok 4.7（xAI） | 编程、智能体任务和知识工作 | 50 万 token | 提示词少于 20 万 token 时为 USD 2 / USD 6 | `xai/grok-4.7` |
@@ -64,7 +65,7 @@ Thinking 会消耗更多 token。在 Premium 和 Team 中，无论选哪个，�
 | 模型 | 网页聊天中的预设 |
 |---|---|
 | GPT-6.2 Astra、GPT-6.2 Sol、GPT-6 Astra、GPT-6.1 Sol、GPT-6 Sol、GPT-6 Luna | **Thinking**（中等推理强度）和 **Fast**（低推理强度） |
-| Claude Fable 5.1、Claude Opus 5.5 | 始终开启思考。**Thinking** 使用中等推理强度，**Fast** 使用低推理强度。 |
+| Claude Fable 5.2、Claude Fable 5.1、Claude Opus 5.5 | 始终开启思考。**Thinking** 使用中等推理强度，**Fast** 使用低推理强度。 |
 | Gemini 4 Carbon、Gemini 4 Argon | 使用 Gemini 4 Carbon / Gemini 4 Argon 时可选择 Thinking 预设。选择 **Fast** 会切换到 Gemini 3.8 Flash。 |
 | Kimi K3.1 Pro | 模型始终会思考。**Thinking** 使用高推理强度，**Fast** 使用低推理强度。 |
 | GLM | **Fast** 是 GLM 5.3 Flash。**Thinking** 使用较早的 GLM 5.2（API 上为 `zai/glm-5.2`）。 |
@@ -87,8 +88,12 @@ API 基础 URL 是 `https://api.caprioletech.com`。使用具体的模型 ID 可
 | 别名 | 使用的模型 | 端点 |
 |---|---|---|
 | `openai-latest` | `openai/gpt-6.2-astra` | Chat Completions、Responses |
-| `claude-latest` | `anthropic/claude-fable-5-1`（Messages 上为 `claude-fable-5-1`） | Chat Completions、Messages |
+| `claude-latest` | `anthropic/claude-fable-5-2`（Messages 上为 `claude-fable-5-2`） | Chat Completions、Messages |
 | `google-latest` | `google/gemini-4-carbon` | Chat Completions |
+
+<Note>
+自 2026 年 11 月 24 日起，`claude-latest` 使用 Claude Fable 5.2，不再使用 Claude Fable 5.1。如需继续使用 Fable 5.1，请调用 `anthropic/claude-fable-5-1`，在 Messages 上调用 `claude-fable-5-1`。
+</Note>
 
 <Note>
 自 2026 年 11 月 18 日起，`openai-latest` 使用 GPT-6.2 Astra，不再使用 GPT-6 Astra。如需继续使用 GPT-6 Astra，请调用 `openai/gpt-6-astra`。
@@ -119,7 +124,7 @@ completion = client.chat.completions.create(
 </CodeGroup>
 </Note>
 
-旗舰模型的 ID 是 `openai/gpt-6.2-astra`、`anthropic/claude-fable-5-1`、`anthropic/claude-opus-5-5` 和 `google/gemini-4-carbon`。在 Anthropic Messages 上，请使用不带前缀的 Claude ID，例如 `claude-opus-5-5`。调用 `GET /v1/models` 可获取当前列表，也可以查看[列出模型](/zh/api-reference/endpoint/get)。
+旗舰模型的 ID 是 `openai/gpt-6.2-astra`、`anthropic/claude-fable-5-2`、`anthropic/claude-opus-5-5` 和 `google/gemini-4-carbon`。在 Anthropic Messages 上，请使用不带前缀的 Claude ID，例如 `claude-opus-5-5`。调用 `GET /v1/models` 可获取当前列表，也可以查看[列出模型](/zh/api-reference/endpoint/get)。
 
 Capriole AI 在所有模型上都用同一种方式计算计费 token：未缓存输入，加上缓存输入的 10%，再加上输出。[计费 token 说明](/zh/articles/charged-tokens)提供了示例。
 
@@ -137,7 +142,7 @@ Capriole AI 在所有模型上都用同一种方式计算计费 token：未缓�
 
 ### 可以用 OpenAI SDK 调用 Claude 或 Gemini 吗？
 
-可以。OpenAI Chat Completions 接受所有公开的模型 ID，包括 `anthropic/claude-fable-5-1` 和 `google/gemini-4-carbon`，以及三个别名。[OpenAI 和 Anthropic SDK 指南](/zh/guides/openai-anthropic-sdks)介绍了配置方法。
+可以。OpenAI Chat Completions 接受所有公开的模型 ID，包括 `anthropic/claude-fable-5-2` 和 `google/gemini-4-carbon`，以及三个别名。[OpenAI 和 Anthropic SDK 指南](/zh/guides/openai-anthropic-sdks)介绍了配置方法。
 
 ### 如何在 API 中设置推理强度？
 
@@ -145,12 +150,12 @@ Capriole AI 在所有模型上都用同一种方式计算计费 token：未缓�
 
 ### 应该先用哪个 Claude 模型？
 
-Anthropic 建议大多数工作先从 Claude Opus 5.5 开始，遇到高要求推理和长周期智能体任务时再换用 Claude Fable 5.1。[Claude vs ChatGPT](/zh/articles/claude-vs-chatgpt) 将这两个 Claude 模型与 GPT-6.2 Astra 做了对比。
+Anthropic 建议大多数工作先从 Claude Opus 5.5 开始，遇到高要求推理和长周期智能体任务时再换用 Claude Fable 5.2。[Claude vs ChatGPT](/zh/articles/claude-vs-chatgpt) 将这两个 Claude 模型与 GPT-6.2 Astra 做了对比。
 
 ## 官方来源
 
 - [OpenAI：GPT-6.2 Astra](https://developers.openai.com/api/docs/models/gpt-6.2-astra)、[GPT-6.2 Sol](https://developers.openai.com/api/docs/models/gpt-6.2-sol)、[GPT-6 Astra](https://developers.openai.com/api/docs/models/gpt-6-astra)、[GPT-6.1 Sol](https://developers.openai.com/api/docs/models/gpt-6.1-sol)、[GPT-6 Sol](https://developers.openai.com/api/docs/models/gpt-6-sol) 和 [GPT-6 Luna](https://developers.openai.com/api/docs/models/gpt-6-luna)
-- [Anthropic：Claude Fable 5.1](https://platform.claude.com/docs/en/models/fable-5-1/overview) 和 [Claude Opus 5.5](https://platform.claude.com/docs/en/models/opus-5-5/overview)
+- [Anthropic：Claude Fable 5.2](https://platform.claude.com/docs/en/models/fable-5-2/overview)、[Claude Fable 5.1](https://platform.claude.com/docs/en/models/fable-5-1/overview) 和 [Claude Opus 5.5](https://platform.claude.com/docs/en/models/opus-5-5/overview)
 - [Google：Gemini 4 Carbon](https://aistudio.google.com/docs/models/gemini-4-carbon)、[Gemini 4 Argon](https://aistudio.google.com/docs/models/gemini-4-argon) 和 [Gemini API 价格](https://ai.google.dev/gemini-api/docs/pricing)
 - [xAI：Grok 4.7](https://docs.x.ai/developers/models/grok-4.7)
 - [Z.ai：GLM 5.3 Flash](https://docs.z.ai/guides/llm/glm-5.3-flash) 和 [Z.ai 价格](https://docs.z.ai/guides/overview/pricing)

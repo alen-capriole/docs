@@ -1,12 +1,12 @@
 ---
-title: "Claude API 가격: Fable 5.1·Opus 5.5"
+title: "Claude API 가격: Fable 5.2·Opus 5.5"
 sidebarTitle: "Claude API 가격"
-description: "Claude Fable 5.1은 100만 토큰당 입력 USD 10·출력 USD 50, Opus 5.5는 USD 4·USD 20입니다. 계산 예시와 공식 가격보다 최대 92% 저렴한 API를 보세요."
+description: "Claude Fable 5.2는 100만 토큰당 입력 USD 8·출력 USD 40, Opus 5.5는 USD 4·USD 20입니다. Fable 5.1 비교, 계산 예시, 공식 가격보다 최대 92% 저렴한 API를 보세요."
 ---
 
-Anthropic의 Claude API는 **Claude Fable 5.1에 입력 토큰 100만당 USD 10, 출력 토큰 100만당 USD 50**을, **Claude Opus 5.5에 USD 4와 USD 20**을 청구합니다. 출력 토큰 1개당 입력 토큰 3개 비율로 계산하면, Anthropic 표준 요율에서 500만 토큰 비용은 Fable 5.1이 USD 100, Opus 5.5가 USD 40입니다.
+Anthropic의 Claude API는 가장 까다로운 기술 작업을 위한 새 모델인 **Claude Fable 5.2에 입력 토큰 100만당 USD 8, 출력 토큰 100만당 USD 40**을, **Claude Opus 5.5에 USD 4와 USD 20**을 청구합니다. Fable 5.2는 Fable 5.1의 USD 10과 USD 50보다 20% 낮은 가격입니다. 출력 토큰 1개당 입력 토큰 3개 비율로 계산하면, Anthropic 표준 요율에서 500만 토큰 비용은 Fable 5.2가 USD 80, Fable 5.1이 USD 100, Opus 5.5가 USD 40입니다.
 
-Capriole AI Premium은 월 USD 9에 GPT-6.2 Astra, Claude Fable 5.1, Claude Opus 5.5, Gemini 4 Carbon과의 웹 채팅을 무제한으로 제공합니다. API는 Anthropic Messages 호환 엔드포인트로 두 Claude 모델을 모두 제공합니다. 개인 Premium에는 매월 API 토큰 5,000,000개가 포함됩니다. 추가 토큰 5,000,000개는 USD 8이며 모든 지원 모델에 사용할 수 있습니다. 공식 API 가격 대비 최대 92% 저렴합니다. API 키 하나로 직접 만든 앱과 Claude Code 같은 코딩 에이전트를 모두 사용할 수 있습니다.
+Capriole AI Premium은 월 USD 9에 GPT-6.2 Astra, Claude Fable 5.2, Claude Opus 5.5, Gemini 4 Carbon과의 웹 채팅을 무제한으로 제공합니다. API는 Anthropic Messages 호환 엔드포인트로 세 Claude 모델을 모두 제공합니다. 개인 Premium에는 매월 API 토큰 5,000,000개가 포함됩니다. 추가 토큰 5,000,000개는 USD 8이며 모든 지원 모델에 사용할 수 있습니다. 공식 API 가격 대비 최대 92% 저렴합니다. API 키 하나로 직접 만든 앱과 Claude Code 같은 코딩 에이전트를 모두 사용할 수 있습니다.
 
 ## 100만 토큰당 Claude API 가격
 
@@ -14,15 +14,16 @@ Anthropic은 [Claude API 가격 페이지](https://platform.claude.com/docs/en/a
 
 | 모델 | API 모델 ID | 입력 | 출력 | 캐시 읽기 | 5분 캐시 쓰기 | 1시간 캐시 쓰기 |
 |---|---|---:|---:|---:|---:|---:|
+| Claude Fable 5.2 | `claude-fable-5-2` | USD 8 | USD 40 | USD 0.20 | USD 10 | USD 16 |
 | Claude Fable 5.1 | `claude-fable-5-1` | USD 10 | USD 50 | USD 0.25 | USD 12.50 | USD 20 |
 | Claude Opus 5.5 | `claude-opus-5-5` | USD 4 | USD 20 | USD 0.20 | USD 5 | USD 8 |
 
 같은 페이지에는 이 요율을 바꾸는 규칙도 나와 있습니다.
 
-- **Batch API**: 비동기 배치는 입력과 출력 모두 50% 저렴합니다. Fable 5.1은 USD 5와 USD 25, Opus 5.5는 USD 2와 USD 10입니다.
-- **긴 컨텍스트**: 두 모델 모두 100만 토큰 컨텍스트 창 전체를 표준 요율로 제공합니다.
+- **Batch API**: 비동기 배치는 입력과 출력 모두 50% 저렴합니다. Fable 5.2는 USD 4와 USD 20, Fable 5.1은 USD 5와 USD 25, Opus 5.5는 USD 2와 USD 10입니다.
+- **긴 컨텍스트**: 세 모델 모두 100만 토큰 컨텍스트 창 전체를 표준 요율로 제공합니다.
 - **미국 전용 추론**: `inference_geo`를 `"us"`로 설정하면 모든 토큰 가격에 1.1을 곱합니다.
-- **Fast 모드**: Fast 모드의 Opus 5.5는 입력 USD 8, 출력 USD 40이며, Fast 모드는 Batch API와 함께 쓸 수 없습니다.
+- **Fast 모드**: Fast 모드의 Fable 5.2는 입력 USD 16, 출력 USD 80이고, Opus 5.5는 USD 8과 USD 40입니다. Fast 모드는 Batch API와 함께 쓸 수 없습니다.
 
 ## 100만 토큰과 500만 토큰의 비용
 
@@ -32,22 +33,22 @@ Anthropic은 [Claude API 가격 페이지](https://platform.claude.com/docs/en/a
 official_cost = input_millions × input_price + output_millions × output_price
 ```
 
-| 토큰 | 입력 / 출력 | Claude Fable 5.1 | Claude Opus 5.5 | Capriole AI 개인용 API 충전 |
-|---|---|---:|---:|---:|
-| 100만 | 75만 / 25만 | USD 20 | USD 8 | USD 1.60 |
-| 500만 | 375만 / 125만 | USD 100 | USD 40 | **USD 8** |
+| 토큰 | 입력 / 출력 | Claude Fable 5.2 | Claude Fable 5.1 | Claude Opus 5.5 | Capriole AI 개인용 API 충전 |
+|---|---|---:|---:|---:|---:|
+| 100만 | 75만 / 25만 | USD 16 | USD 20 | USD 8 | USD 1.60 |
+| 500만 | 375만 / 125만 | USD 80 | USD 100 | USD 40 | **USD 8** |
 
-Fable 5.1에서 500만 토큰은 3.75 × USD 10 + 1.25 × USD 50 = USD 100이므로, 개인 Premium의 추가 충전 가격 USD 8은 92% 저렴합니다. Opus 5.5에서는 같은 워크로드가 USD 40이므로 USD 8은 80% 저렴합니다. Capriole은 API 토큰을 500만 단위 팩으로 판매하며, 100만 토큰 금액은 비교를 위해 팩의 5분의 1로 표시한 값입니다.
+Fable 5.2에서 500만 토큰은 3.75 × USD 8 + 1.25 × USD 40 = USD 80이므로, 개인 Premium의 추가 충전 가격 USD 8은 90% 저렴합니다. Fable 5.1에서는 같은 워크로드가 USD 100이므로 USD 8은 92% 저렴합니다. Opus 5.5에서는 USD 40이므로 USD 8은 80% 저렴합니다. Capriole은 API 토큰을 500만 단위 팩으로 판매하며, 100만 토큰 금액은 비교를 위해 팩의 5분의 1로 표시한 값입니다.
 
-Anthropic은 출력 가격을 입력의 5배로 책정합니다. Capriole은 입력과 출력을 같은 요율로 계산하므로, 절감 폭은 실제 입력과 출력 비율에 따라 달라집니다. 예를 들어 입력 토큰만 500만 개를 써도 Fable 5.1은 USD 50, Opus 5.5는 USD 20입니다.
+Anthropic은 출력 가격을 입력의 5배로 책정합니다. Capriole은 입력과 출력을 같은 요율로 계산하므로, 절감 폭은 실제 입력과 출력 비율에 따라 달라집니다. 예를 들어 입력 토큰만 500만 개를 써도 Fable 5.2는 USD 40, Fable 5.1은 USD 50, Opus 5.5는 USD 20입니다.
 
 [무료로 채팅을 시작하거나](https://www.capriole.ai/ko) [API 키를 받으세요](https://www.capriole.ai/ko?view=api).
 
 ## 캐싱과 배치가 비교를 바꾸는 방식
 
-- **캐시 읽기**: Anthropic은 캐시된 토큰 100만당 Fable 5.1에 USD 0.25, Opus 5.5에 USD 0.20을 청구합니다. Capriole은 캐시된 입력을 10%로 계산하며, 이는 캐시된 토큰 100만당 개인 Premium 충전 가격 기준 USD 0.16에 해당합니다. 공식은 [과금 토큰 설명](/ko/articles/charged-tokens)에서 확인하세요.
+- **캐시 읽기**: Anthropic은 캐시된 토큰 100만당 Fable 5.2와 Opus 5.5에 USD 0.20, Fable 5.1에 USD 0.25를 청구합니다. Capriole은 캐시된 입력을 10%로 계산하며, 이는 캐시된 토큰 100만당 개인 Premium 충전 가격 기준 USD 0.16에 해당합니다. 공식은 [과금 토큰 설명](/ko/articles/charged-tokens)에서 확인하세요.
 - **캐시 쓰기**: Anthropic은 5분 쓰기에 입력의 1.25배, 1시간 쓰기에 입력의 2배를 청구합니다. Capriole은 캐시 쓰기를 일반 입력으로 계산합니다.
-- **배치**: Anthropic 배치 요율에서 5,000,000 토큰 예시는 Fable 5.1이 USD 50, Opus 5.5가 USD 20입니다. 개인 Premium에서 토큰 5,000,000개를 추가로 충전하는 가격은 USD 8이며 위 요금보다 각각 84%, 60% 저렴합니다.
+- **배치**: Anthropic 배치 요율에서 5,000,000 토큰 예시는 Fable 5.2가 USD 40, Fable 5.1이 USD 50, Opus 5.5가 USD 20입니다. 개인 Premium에서 토큰 5,000,000개를 추가로 충전하는 가격은 USD 8이며 위 요금보다 각각 80%, 84%, 60% 저렴합니다.
 
 OpenRouter의 크레딧 수수료까지 포함한 500만 토큰 테스트는 [AI API 비용 비교](/ko/articles/ai-api-cost-comparison)를 참고하세요. GPT-6.2 Astra, Sol, Luna는 [OpenAI API 가격](/ko/articles/openai-api-pricing), Gemini 4 Carbon과 Argon은 [Gemini API 가격](/ko/articles/gemini-api-pricing)에서 확인할 수 있습니다.
 
@@ -55,8 +56,8 @@ OpenRouter의 크레딧 수수료까지 포함한 500만 토큰 테스트는 [AI
 
 Capriole의 API는 Anthropic Messages와 호환됩니다. Anthropic SDK나 다른 Messages 클라이언트를 `https://api.caprioletech.com`으로 지정하고 `POST /v1/messages`를 호출하세요.
 
-- `claude-latest`는 Claude Fable 5.1을 선택하므로, 구성이 현재 권장 Claude 모델을 따라갑니다.
-- `claude-fable-5-1`과 `claude-opus-5-5`는 모델을 명시적으로 선택합니다.
+- `claude-latest`는 Claude Fable 5.2를 선택하므로, 구성이 현재 권장 Claude 모델을 따라갑니다.
+- `claude-fable-5-2`, `claude-fable-5-1`, `claude-opus-5-5`는 모델을 명시적으로 선택합니다.
 - 키는 Bearer 토큰으로 보내세요. Anthropic SDK에서는 `auth_token`으로 전달합니다.
 
 ```python
@@ -81,7 +82,7 @@ print(message.content[0].text)
 
 ## 월 USD 9에 포함되는 것
 
-- GPT-6.2 Astra, Claude Fable 5.1, Claude Opus 5.5, Gemini 4 Carbon을 비롯한 모든 지원 모델과의 [무제한 웹 채팅](/ko/guides/plans-and-limits#무제한의-의미).
+- GPT-6.2 Astra, Claude Fable 5.2, Claude Opus 5.5, Gemini 4 Carbon을 비롯한 모든 지원 모델과의 [무제한 웹 채팅](/ko/guides/plans-and-limits#무제한의-의미).
 - 앱과 코딩 에이전트에 쓰는 월 500만 API 토큰.
 - 추가 API 토큰은 500만당 USD 8이며, 한 번에 1~11개 팩을 구매할 수 있고 여러 팩을 사면 최대 15% 할인됩니다.
 - GPT Image 2.6·Nano Banana 2.1·Seedream 5.5 무료 이미지 생성, 파일과 웹 검색, 프로젝트, 채팅 내보내기, [문서화된 코딩 에이전트 10개](/ko/articles/coding-agent-compatibility).
@@ -92,15 +93,15 @@ API 키를 만들려면 Premium 또는 Team이 필요합니다. Team은 월 USD 
 
 ### Claude API 비용은 얼마인가요?
 
-Claude Fable 5.1은 입력 토큰 100만당 USD 10, 출력 토큰 100만당 USD 50입니다. Claude Opus 5.5는 USD 4와 USD 20입니다. 배치 요청은 절반 가격입니다.
+Claude Fable 5.2는 입력 토큰 100만당 USD 8, 출력 토큰 100만당 USD 40입니다. Claude Fable 5.1은 USD 10과 USD 50, Claude Opus 5.5는 USD 4와 USD 20입니다. 배치 요청은 절반 가격입니다.
 
-### Claude Opus 5.5가 Claude Fable 5.1보다 저렴한가요?
+### Claude Opus 5.5가 Claude Fable 5.2보다 저렴한가요?
 
-예. Anthropic API에서 Opus 5.5는 Fable 5.1보다 토큰당 60% 저렴합니다. Capriole AI에서는 두 모델이 같은 잔액을 사용합니다. 개인 Premium에서 토큰 5,000,000개를 추가로 충전하는 가격은 USD 8입니다.
+예. Anthropic API에서 Opus 5.5의 토큰당 가격은 Fable 5.2의 절반이고, Fable 5.1보다는 60% 저렴합니다. Capriole AI에서는 세 모델이 같은 잔액을 사용합니다. 개인 Premium에서 토큰 5,000,000개를 추가로 충전하는 가격은 USD 8입니다.
 
 ### Capriole AI에서 `claude-latest`는 무엇을 뜻하나요?
 
-`claude-latest`는 Claude Fable 5.1을 가리킵니다. `/v1/messages`와 `/v1/chat/completions`에서 작동합니다.
+`claude-latest`는 2026년 11월 24일부터 Claude Fable 5.2를 가리킵니다. `/v1/messages`와 `/v1/chat/completions`에서 작동합니다.
 
 ### Capriole AI 키로 Claude Code를 쓸 수 있나요?
 
@@ -118,8 +119,9 @@ Capriole AI는 독립적인 워크스페이스이며 Anthropic 소속이 아닙�
 
 ## 공식 출처
 
-2026년 11월 17일에 아래 페이지를 확인했습니다.
+2026년 11월 24일에 아래 페이지를 확인했습니다.
 
 - Anthropic: [Claude API 요금](https://platform.claude.com/docs/en/about-claude/pricing)
+- Anthropic: [Claude Fable 5.2와 Mythos 5.2 발표](https://www.anthropic.com/claude-fable-and-mythos-5-2) 및 [Claude Fable 5.2 모델 페이지](https://platform.claude.com/docs/en/models/fable-5-2/overview)
 
 이 페이지의 Capriole AI 플랜, 충전, 과금 토큰 관련 정보는 Capriole이 직접 관리하는 문서를 기준으로 합니다.

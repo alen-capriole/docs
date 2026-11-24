@@ -1,17 +1,17 @@
 ---
 title: "Welches KI-Modell? GPT-6.2 Astra, Claude oder Gemini 4 Carbon"
 sidebarTitle: "Modell wählen"
-description: "GPT-6.2 Astra, Claude Fable 5.1, Claude Opus 5.5 und Gemini 4 Carbon im Vergleich: Herstellerangaben, Kontext und offizieller Preis, dazu Thinking oder Fast."
+description: "GPT-6.2 Astra, Claude Fable 5.2, Claude Opus 5.5 und Gemini 4 Carbon im Vergleich: Herstellerangaben, Kontext und offizieller Preis, dazu Thinking oder Fast."
 ---
 
-Capriole AI enthält vier Flaggschiff-Modelle: GPT-6.2 Astra von OpenAI, Claude Fable 5.1 und Claude Opus 5.5 von Anthropic sowie Gemini 4 Carbon von Google. Mit Premium chatten Sie für USD 9 im Monat unbegrenzt mit allen vier, und die API kostet bis zu 92% weniger als die offiziellen API-Preise. Der Web-Chat startet mit GPT-6.2 Astra Thinking, bis Sie ein anderes Modell wählen. Wechseln Sie, wenn der Anbieter eines anderen Modells es laut der Übersicht unten für Ihre Aufgabe entwickelt hat.
+Capriole AI enthält vier Flaggschiff-Modelle: GPT-6.2 Astra von OpenAI, Claude Fable 5.2 und Claude Opus 5.5 von Anthropic sowie Gemini 4 Carbon von Google. Mit Premium chatten Sie für USD 9 im Monat unbegrenzt mit allen vier, und die API kostet bis zu 92% weniger als die offiziellen API-Preise. Der Web-Chat startet mit GPT-6.2 Astra Thinking, bis Sie ein anderes Modell wählen. Wechseln Sie, wenn der Anbieter eines anderen Modells es laut der Übersicht unten für Ihre Aufgabe entwickelt hat.
 
 ## Die vier Flaggschiff-Modelle
 
 | Modell | Wofür der Anbieter es entwickelt | Kontextfenster | Offizieller API-Preis pro 1M Tokens (Eingabe / Ausgabe) |
 |---|---|---|---|
 | [GPT-6.2 Astra](https://developers.openai.com/api/docs/models/gpt-6.2-astra) (OpenAI) | Ihre schwierigsten Projekte von Anfang bis Ende, mit besseren professionellen Dokumenten, besserem Coding und besserem Computer Use | 1.05M Tokens (872K in Capriole AI) | USD 8 / USD 40 |
-| [Claude Fable 5.1](https://platform.claude.com/docs/en/models/fable-5-1/overview) (Anthropic) | Anspruchsvolles Reasoning und agentische Arbeit über lange Zeiträume | 1M Tokens | USD 10 / USD 50 |
+| [Claude Fable 5.2](https://platform.claude.com/docs/en/models/fable-5-2/overview) (Anthropic) | Anspruchsvolles Reasoning und agentische Arbeit über lange Zeiträume | 1M Tokens | USD 8 / USD 40 |
 | [Claude Opus 5.5](https://platform.claude.com/docs/en/models/opus-5-5/overview) (Anthropic) | Lang laufendes agentisches Coding und Wissensarbeit | 1M Tokens | USD 4 / USD 20 |
 | [Gemini 4 Carbon](https://aistudio.google.com/docs/models/gemini-4-carbon) (Google) | Aufgaben, die die Grenzen der Intelligenz eines Modells ausloten, etwa komplexes mehrstufiges Coding und Debugging, agentische Arbeit über lange Zeiträume und wissenschaftliches Reasoning | 1M Tokens | USD 2 / USD 10 bis 30. November 2026, danach USD 4 / USD 20 |
 
@@ -21,13 +21,13 @@ In Capriole AI ist jedes Modell dieser Tabelle im Web-Chat von Premium und Team 
 
 OpenAI nennt GPT-6.2 Astra sein neues Frontier-Modell für Ihre schwierigsten Projekte, und es löst GPT-6 Astra als Flaggschiff von OpenAI ab. Laut OpenAI wirken seine Präsentationen, Tabellen und Dokumente weniger nach KI und folgen Vorlagen und den Konventionen des jeweiligen Fachs, und es schreibt saubereren Code und bessere Frontends. OpenAI gibt ein Kontextfenster von 1.05M Tokens und bis zu 128,000 Ausgabe-Tokens an, und sein API-Preis liegt 20% unter dem von GPT-6 Astra. In Capriole AI hat GPT-6.2 Astra ein Kontextfenster von 872,000 Tokens. **GPT-6.2 Astra Thinking** ist der Standard im Web-Chat, bis Sie ein anderes Modell wählen, und über die API nutzt `openai-latest` GPT-6.2 Astra.
 
-### Claude Fable 5.1
+### Claude Fable 5.2
 
-Anthropic positioniert Claude Fable 5.1 für anspruchsvolles Reasoning und agentische Arbeit über lange Zeiträume. Laut Anthropic ist es besser als Claude Fable 5 bei lang laufendem agentischem Coding, mehrstufiger Recherche und der Arbeit mit Dokumenten, Tabellen und Präsentationen. Anthropic stuft es als langsamer ein als Claude Opus 5.5. `claude-latest` nutzt Claude Fable 5.1. Im Pro-Plan von Anthropic selbst liegt Fable 5.1 außerhalb der Nutzungslimits und wird über Nutzungsguthaben abgerechnet; siehe [Claude-Nutzungslimits erklärt](/de/articles/claude-usage-limits).
+Anthropic positioniert Claude Fable 5.2 für anspruchsvolles Reasoning und agentische Arbeit über lange Zeiträume, und es löst Claude Fable 5.1 als Modell von Anthropic für die anspruchsvollste technische Arbeit ab. Laut Anthropic ist es besser als Fable 5.1 bei Coding, Reasoning und Vision und kommuniziert klarer. Anthropic gibt ein Kontextfenster von 1M Tokens und bis zu 128,000 Ausgabe-Tokens an, und sein API-Preis liegt 20% unter dem von Fable 5.1. `claude-latest` nutzt Claude Fable 5.2.
 
 ### Claude Opus 5.5
 
-Anthropic hat Claude Opus 5.5 für lang laufendes agentisches Coding und Wissensarbeit entwickelt, zu weniger als der Hälfte des offiziellen Preises von Fable 5.1. Anthropic empfiehlt, die meisten Workloads mit Opus 5.5 zu beginnen und zu Fable 5.1 zu wechseln, wenn Opus 5.5 auch mit höherer Effort-Stufe nicht ausreicht. Wie bei Fable 5.1 ist sein Thinking immer aktiv, daher senkt **Fast** in Capriole AI die Effort-Stufe, statt Thinking abzuschalten.
+Anthropic hat Claude Opus 5.5 für lang laufendes agentisches Coding und Wissensarbeit entwickelt, zur Hälfte des offiziellen Preises von Fable 5.2. Anthropic nennt Opus 5.5 sein stärkstes Modell für den Alltag und empfiehlt, die meisten Workloads damit zu beginnen und nur dann zu Fable 5.2 zu wechseln, wenn eine Aufgabe mehr verlangt. Wie bei Fable 5.2 ist sein Thinking immer aktiv, daher senkt **Fast** in Capriole AI die Effort-Stufe, statt Thinking abzuschalten.
 
 ### Gemini 4 Carbon
 
@@ -44,6 +44,7 @@ Diese Modelle sind ebenfalls im Web-Chat und über die API verfügbar.
 | GPT-6.1 Sol (OpenAI) | Leistung nahe an Astra zu geringeren Kosten, für komplexes Coding, Computer Use und professionelle Arbeit | 1.05M Tokens | USD 2 / USD 10 | `openai/gpt-6.1-sol` |
 | GPT-6 Sol (OpenAI) | Komplexes Coding und agentische Workflows | 1.05M Tokens | USD 2 / USD 10 | `openai/gpt-6-sol` |
 | GPT-6 Luna (OpenAI) | Klar umrissene Aufgaben in großer Menge, als effizientestes Modell von OpenAI | 1.05M Tokens | USD 0.10 / USD 0.50 | `openai/gpt-6-luna` |
+| Claude Fable 5.1 (Anthropic) | Anspruchsvolles Reasoning und agentische Arbeit über lange Zeiträume | 1M Tokens | USD 10 / USD 50 | `anthropic/claude-fable-5-1` |
 | Gemini 4 Argon (Google) | Der Großteil der Softwareentwicklung und Wissensarbeit, mit schnelleren Antworten und weniger Tokens pro Antwort als Gemini 4 Carbon | 1M Tokens | USD 2 / USD 10 bis 30. November 2026, danach USD 4 / USD 20 | `google/gemini-4-argon` |
 | Gemini 3.8 Flash (Google) | Das intelligenteste Flash-Modell von Google, für Softwareentwicklung über lange Zeiträume, autonome Agents und komplexe Unternehmens-Workflows | Nicht angegeben | USD 0.75 / USD 3.75 bis 31. Dezember 2026, danach USD 1.50 / USD 7.50 | `google/gemini-3.8-flash` |
 | Grok 4.7 (xAI) | Coding, agentische Aufgaben und Wissensarbeit | 500K Tokens | USD 2 / USD 6 für Prompts unter 200K Tokens | `xai/grok-4.7` |
@@ -64,7 +65,7 @@ Thinking verbraucht mehr Tokens. Mit Premium und Team bleibt der Web-Chat in bei
 | Modell | Presets im Web-Chat |
 |---|---|
 | GPT-6.2 Astra, GPT-6.2 Sol, GPT-6 Astra, GPT-6.1 Sol, GPT-6 Sol, GPT-6 Luna | **Thinking** (mittlere Effort-Stufe) und **Fast** (niedrige Effort-Stufe) |
-| Claude Fable 5.1, Claude Opus 5.5 | Thinking ist immer aktiv. **Thinking** nutzt die mittlere, **Fast** die niedrige Effort-Stufe. |
+| Claude Fable 5.2, Claude Fable 5.1, Claude Opus 5.5 | Thinking ist immer aktiv. **Thinking** nutzt die mittlere, **Fast** die niedrige Effort-Stufe. |
 | Gemini 4 Carbon, Gemini 4 Argon | Nutzen Sie die Thinking-Voreinstellung für Gemini 4 Carbon / Gemini 4 Argon. Mit **Fast** wechseln Sie zu Gemini 3.8 Flash. |
 | Kimi K3.1 Pro | Das Modell denkt immer nach. **Thinking** nutzt eine hohe, **Fast** eine niedrige Effort-Stufe. |
 | GLM | **Fast** ist GLM 5.3 Flash. **Thinking** nutzt das frühere GLM 5.2 (`zai/glm-5.2` über die API). |
@@ -87,8 +88,12 @@ Die Basis-URL der API ist `https://api.caprioletech.com`. Verwenden Sie eine kon
 | Alias | Nutzt | Endpunkte |
 |---|---|---|
 | `openai-latest` | `openai/gpt-6.2-astra` | Chat Completions, Responses |
-| `claude-latest` | `anthropic/claude-fable-5-1` (`claude-fable-5-1` bei Messages) | Chat Completions, Messages |
+| `claude-latest` | `anthropic/claude-fable-5-2` (`claude-fable-5-2` bei Messages) | Chat Completions, Messages |
 | `google-latest` | `google/gemini-4-carbon` | Chat Completions |
+
+<Note>
+Seit dem 24. November 2026 nutzt `claude-latest` Claude Fable 5.2 statt Claude Fable 5.1. Um bei Fable 5.1 zu bleiben, rufen Sie `anthropic/claude-fable-5-1` auf, bei Messages `claude-fable-5-1`.
+</Note>
 
 <Note>
 Seit dem 18. November 2026 nutzt `openai-latest` GPT-6.2 Astra statt GPT-6 Astra. Um bei GPT-6 Astra zu bleiben, rufen Sie `openai/gpt-6-astra` auf.
@@ -119,7 +124,7 @@ completion = client.chat.completions.create(
 </CodeGroup>
 </Note>
 
-Die Flaggschiff-IDs sind `openai/gpt-6.2-astra`, `anthropic/claude-fable-5-1`, `anthropic/claude-opus-5-5` und `google/gemini-4-carbon`. Verwenden Sie bei Anthropic Messages Claude-IDs ohne Präfix, etwa `claude-opus-5-5`. Rufen Sie `GET /v1/models` für die aktuelle Liste auf oder sehen Sie unter [Modelle auflisten](/de/api-reference/endpoint/get) nach.
+Die Flaggschiff-IDs sind `openai/gpt-6.2-astra`, `anthropic/claude-fable-5-2`, `anthropic/claude-opus-5-5` und `google/gemini-4-carbon`. Verwenden Sie bei Anthropic Messages Claude-IDs ohne Präfix, etwa `claude-opus-5-5`. Rufen Sie `GET /v1/models` für die aktuelle Liste auf oder sehen Sie unter [Modelle auflisten](/de/api-reference/endpoint/get) nach.
 
 Capriole AI zählt abgerechnete Tokens auf jedem Modell gleich: ungecachte Eingabe plus 10% der gecachten Eingabe plus Ausgabe. [Abgerechnete Tokens erklärt](/de/articles/charged-tokens) enthält Beispiele.
 
@@ -137,7 +142,7 @@ Im Web-Chat nicht: Der Chat mit Premium und Team ist auf jedem unterstützten Mo
 
 ### Kann ich Claude oder Gemini mit dem OpenAI-SDK nutzen?
 
-Ja. OpenAI Chat Completions akzeptiert jede öffentliche Modell-ID, darunter `anthropic/claude-fable-5-1` und `google/gemini-4-carbon`, sowie die drei Aliase. Die [Anleitung zu OpenAI- und Anthropic-SDKs](/de/guides/openai-anthropic-sdks) zeigt die Einrichtung.
+Ja. OpenAI Chat Completions akzeptiert jede öffentliche Modell-ID, darunter `anthropic/claude-fable-5-2` und `google/gemini-4-carbon`, sowie die drei Aliase. Die [Anleitung zu OpenAI- und Anthropic-SDKs](/de/guides/openai-anthropic-sdks) zeigt die Einrichtung.
 
 ### Wie stellen Sie den Denkaufwand über die API ein?
 
@@ -145,12 +150,12 @@ Rufen Sie die API-ID des Modells auf und setzen Sie die Reasoning-Option in Ihre
 
 ### Mit welchem Claude-Modell sollte ich beginnen?
 
-Anthropic empfiehlt, die meiste Arbeit mit Claude Opus 5.5 zu beginnen und für anspruchsvolles Reasoning und agentische Arbeit über lange Zeiträume zu Claude Fable 5.1 zu wechseln. [Claude vs ChatGPT](/de/articles/claude-vs-chatgpt) vergleicht beide mit GPT-6.2 Astra.
+Anthropic empfiehlt, die meiste Arbeit mit Claude Opus 5.5 zu beginnen und für anspruchsvolles Reasoning und agentische Arbeit über lange Zeiträume zu Claude Fable 5.2 zu wechseln. [Claude vs ChatGPT](/de/articles/claude-vs-chatgpt) vergleicht beide mit GPT-6.2 Astra.
 
 ## Offizielle Quellen
 
 - [OpenAI: GPT-6.2 Astra](https://developers.openai.com/api/docs/models/gpt-6.2-astra), [GPT-6.2 Sol](https://developers.openai.com/api/docs/models/gpt-6.2-sol), [GPT-6 Astra](https://developers.openai.com/api/docs/models/gpt-6-astra), [GPT-6.1 Sol](https://developers.openai.com/api/docs/models/gpt-6.1-sol), [GPT-6 Sol](https://developers.openai.com/api/docs/models/gpt-6-sol) und [GPT-6 Luna](https://developers.openai.com/api/docs/models/gpt-6-luna)
-- [Anthropic: Claude Fable 5.1](https://platform.claude.com/docs/en/models/fable-5-1/overview) und [Claude Opus 5.5](https://platform.claude.com/docs/en/models/opus-5-5/overview)
+- [Anthropic: Claude Fable 5.2](https://platform.claude.com/docs/en/models/fable-5-2/overview), [Claude Fable 5.1](https://platform.claude.com/docs/en/models/fable-5-1/overview) und [Claude Opus 5.5](https://platform.claude.com/docs/en/models/opus-5-5/overview)
 - [Google: Gemini 4 Carbon](https://aistudio.google.com/docs/models/gemini-4-carbon), [Gemini 4 Argon](https://aistudio.google.com/docs/models/gemini-4-argon) und [Preise der Gemini API](https://ai.google.dev/gemini-api/docs/pricing)
 - [xAI: Grok 4.7](https://docs.x.ai/developers/models/grok-4.7)
 - [Z.ai: GLM 5.3 Flash](https://docs.z.ai/guides/llm/glm-5.3-flash) und [Preise von Z.ai](https://docs.z.ai/guides/overview/pricing)

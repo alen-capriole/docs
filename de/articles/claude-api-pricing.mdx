@@ -1,12 +1,12 @@
 ---
-title: "Claude-API-Preise: Fable 5.1 und Opus 5.5 pro 1M Tokens"
+title: "Claude-API-Preise: Fable 5.2 und Opus 5.5 pro 1M Tokens"
 sidebarTitle: "Claude-API-Preise"
-description: "Claude Fable 5.1 kostet USD 10 Eingabe und USD 50 Ausgabe pro 1M Tokens, Opus 5.5 USD 4 und USD 20. Mit Rechenbeispielen und einer API bis zu 92% günstiger."
+description: "Claude Fable 5.2 kostet USD 8 Eingabe und USD 40 Ausgabe pro 1M Tokens, Opus 5.5 USD 4 und USD 20. Mit Vergleich zu Fable 5.1, Rechenbeispielen und einer API bis zu 92% günstiger."
 ---
 
-Die Claude-API von Anthropic berechnet **für Claude Fable 5.1 USD 10 pro 1M Eingabe-Tokens und USD 50 pro 1M Ausgabe-Tokens** und **für Claude Opus 5.5 USD 4 und USD 20**. Bei drei Eingabe-Tokens pro Ausgabe-Token kosten 5M Tokens zu den Standardpreisen von Anthropic USD 100 mit Fable 5.1 und USD 40 mit Opus 5.5.
+Die Claude-API von Anthropic berechnet **für Claude Fable 5.2 USD 8 pro 1M Eingabe-Tokens und USD 40 pro 1M Ausgabe-Tokens** und **für Claude Opus 5.5 USD 4 und USD 20**. Fable 5.2 ist das neue Modell von Anthropic für die anspruchsvollste technische Arbeit und kostet 20% weniger als Fable 5.1 mit USD 10 und USD 50. Bei drei Eingabe-Tokens pro Ausgabe-Token kosten 5M Tokens zu den Standardpreisen von Anthropic USD 80 mit Fable 5.2, USD 100 mit Fable 5.1 und USD 40 mit Opus 5.5.
 
-Capriole AI Premium kostet USD 9 pro Monat für unbegrenzten Web-Chat mit GPT-6.2 Astra, Claude Fable 5.1, Claude Opus 5.5 und Gemini 4 Carbon. Die API stellt beide Claude-Modelle über einen Anthropic-Messages-kompatiblen Endpunkt bereit. Das persönliche Premium-Abo enthält monatlich 5 Millionen API-Tokens. Ein Zusatzpaket mit 5 Millionen Tokens kostet USD 8 und gilt für alle unterstützten Modelle. Damit sparen Sie bis zu 92% gegenüber den offiziellen API-Preisen. Ein API-Schlüssel funktioniert in Ihren eigenen Apps und in Coding-Agents wie Claude Code.
+Capriole AI Premium kostet USD 9 pro Monat für unbegrenzten Web-Chat mit GPT-6.2 Astra, Claude Fable 5.2, Claude Opus 5.5 und Gemini 4 Carbon. Die API stellt alle drei Claude-Modelle über einen Anthropic-Messages-kompatiblen Endpunkt bereit. Das persönliche Premium-Abo enthält monatlich 5 Millionen API-Tokens. Ein Zusatzpaket mit 5 Millionen Tokens kostet USD 8 und gilt für alle unterstützten Modelle. Damit sparen Sie bis zu 92% gegenüber den offiziellen API-Preisen. Ein API-Schlüssel funktioniert in Ihren eigenen Apps und in Coding-Agents wie Claude Code.
 
 ## Claude-API-Preise pro 1M Tokens
 
@@ -14,15 +14,16 @@ Anthropic veröffentlicht diese Standardpreise auf seiner [Preisseite für die C
 
 | Modell | API-Modell-ID | Eingabe | Ausgabe | Cache-Read | Cache-Write (5 Minuten) | Cache-Write (1 Stunde) |
 |---|---|---:|---:|---:|---:|---:|
+| Claude Fable 5.2 | `claude-fable-5-2` | USD 8 | USD 40 | USD 0.20 | USD 10 | USD 16 |
 | Claude Fable 5.1 | `claude-fable-5-1` | USD 10 | USD 50 | USD 0.25 | USD 12.50 | USD 20 |
 | Claude Opus 5.5 | `claude-opus-5-5` | USD 4 | USD 20 | USD 0.20 | USD 5 | USD 8 |
 
 Dieselbe Seite nennt die Regeln, die diese Preise verändern:
 
-- **Batch-API**: Asynchrone Batches kosten bei Eingabe und Ausgabe 50% weniger. Fable 5.1 kostet dann USD 5 und USD 25, Opus 5.5 USD 2 und USD 10.
-- **Langer Kontext**: Beide Modelle bieten das volle Kontextfenster von 1M Tokens zu Standardpreisen.
+- **Batch-API**: Asynchrone Batches kosten bei Eingabe und Ausgabe 50% weniger. Fable 5.2 kostet dann USD 4 und USD 20, Fable 5.1 USD 5 und USD 25 und Opus 5.5 USD 2 und USD 10.
+- **Langer Kontext**: Alle drei Modelle bieten das volle Kontextfenster von 1M Tokens zu Standardpreisen.
 - **Inferenz nur in den USA**: Wenn Sie `inference_geo` auf `"us"` setzen, wird jeder Tokenpreis mit 1.1 multipliziert.
-- **Fast-Modus**: Opus 5.5 kostet im Fast-Modus USD 8 Eingabe und USD 40 Ausgabe, und der Fast-Modus funktioniert nicht mit der Batch-API.
+- **Fast-Modus**: Fable 5.2 kostet im Fast-Modus USD 16 Eingabe und USD 80 Ausgabe, Opus 5.5 USD 8 und USD 40. Der Fast-Modus funktioniert nicht mit der Batch-API.
 
 ## Was 1M und 5M Tokens kosten
 
@@ -32,22 +33,22 @@ Diese Beispiele verwenden Standardpreise, kein Caching und drei Eingabe-Tokens p
 official_cost = input_millions × input_price + output_millions × output_price
 ```
 
-| Tokens | Eingabe / Ausgabe | Claude Fable 5.1 | Claude Opus 5.5 | Persönliche API-Aufstockung bei Capriole AI |
-|---|---|---:|---:|---:|
-| 1M | 750K / 250K | USD 20 | USD 8 | USD 1.60 |
-| 5M | 3.75M / 1.25M | USD 100 | USD 40 | **USD 8** |
+| Tokens | Eingabe / Ausgabe | Claude Fable 5.2 | Claude Fable 5.1 | Claude Opus 5.5 | Persönliche API-Aufstockung bei Capriole AI |
+|---|---|---:|---:|---:|---:|
+| 1M | 750K / 250K | USD 16 | USD 20 | USD 8 | USD 1.60 |
+| 5M | 3.75M / 1.25M | USD 80 | USD 100 | USD 40 | **USD 8** |
 
-Mit Fable 5.1 kosten 5M Tokens 3.75 × USD 10 + 1.25 × USD 50 = USD 100, die USD 8 für das Zusatzpaket im persönlichen Premium-Abo sind also 92% günstiger. Mit Opus 5.5 kostet dieselbe Arbeitslast USD 40, USD 8 sind also 80% günstiger. Capriole verkauft API-Tokens in Paketen zu 5M; der Wert für 1M ist ein Fünftel eines Pakets und dient nur dem Vergleich.
+Mit Fable 5.2 kosten 5M Tokens 3.75 × USD 8 + 1.25 × USD 40 = USD 80, die USD 8 für das Zusatzpaket im persönlichen Premium-Abo sind also 90% günstiger. Mit Fable 5.1 kostet dieselbe Arbeitslast USD 100, USD 8 sind also 92% günstiger. Mit Opus 5.5 kostet sie USD 40, USD 8 sind also 80% günstiger. Capriole verkauft API-Tokens in Paketen zu 5M; der Wert für 1M ist ein Fünftel eines Pakets und dient nur dem Vergleich.
 
-Anthropic berechnet für Ausgabe das Fünffache der Eingabe. Capriole zählt Eingabe und Ausgabe zum selben Satz, daher entscheidet Ihr eigenes Verhältnis über die Ersparnis. So kosten zum Beispiel 5M reine Eingabe-Tokens USD 50 mit Fable 5.1 und USD 20 mit Opus 5.5.
+Anthropic berechnet für Ausgabe das Fünffache der Eingabe. Capriole zählt Eingabe und Ausgabe zum selben Satz, daher entscheidet Ihr eigenes Verhältnis über die Ersparnis. So kosten zum Beispiel 5M reine Eingabe-Tokens USD 40 mit Fable 5.2, USD 50 mit Fable 5.1 und USD 20 mit Opus 5.5.
 
 [Jetzt kostenlos chatten](https://www.capriole.ai/de) oder [API-Schlüssel holen](https://www.capriole.ai/de?view=api).
 
 ## Wie Caching und Batch den Vergleich verändern
 
-- **Cache-Reads**: Anthropic berechnet USD 0.25 pro 1M gecachte Tokens bei Fable 5.1 und USD 0.20 bei Opus 5.5. Capriole zählt gecachte Eingabe zu 10%. Zum Preis eines Zusatzpakets im persönlichen Premium-Abo entspricht das USD 0.16 pro 1M gecachte Tokens. [Abgerechnete Tokens erklärt](/de/articles/charged-tokens) zeigt die Formel.
+- **Cache-Reads**: Anthropic berechnet USD 0.20 pro 1M gecachte Tokens bei Fable 5.2 und Opus 5.5 und USD 0.25 bei Fable 5.1. Capriole zählt gecachte Eingabe zu 10%. Zum Preis eines Zusatzpakets im persönlichen Premium-Abo entspricht das USD 0.16 pro 1M gecachte Tokens. [Abgerechnete Tokens erklärt](/de/articles/charged-tokens) zeigt die Formel.
 - **Cache-Writes**: Anthropic berechnet für 5-Minuten-Writes das 1.25-Fache und für 1-Stunden-Writes das 2-Fache des Eingabepreises. Capriole zählt Cache-Writes als normale Eingabe.
-- **Batch**: Zu den Batch-Preisen von Anthropic kostet das 5M-Token-Beispiel USD 50 mit Fable 5.1 und USD 20 mit Opus 5.5. Ein Zusatzpaket mit 5 Millionen Tokens kostet im persönlichen Premium-Abo USD 8. Das entspricht einer Ersparnis von 84% bzw. 60%.
+- **Batch**: Zu den Batch-Preisen von Anthropic kostet das 5M-Token-Beispiel USD 40 mit Fable 5.2, USD 50 mit Fable 5.1 und USD 20 mit Opus 5.5. Ein Zusatzpaket mit 5 Millionen Tokens kostet im persönlichen Premium-Abo USD 8. Das entspricht einer Ersparnis von 80%, 84% bzw. 60%.
 
 Einen 5M-Token-Test, der auch die Credit-Gebühr von OpenRouter einbezieht, finden Sie im [KI-API-Kostenvergleich](/de/articles/ai-api-cost-comparison). Die Preise für GPT-6.2 Astra, Sol und Luna stehen unter [OpenAI-API-Preise](/de/articles/openai-api-pricing), die für Gemini 4 Carbon und Argon unter [Gemini-API-Preise](/de/articles/gemini-api-pricing).
 
@@ -55,8 +56,8 @@ Einen 5M-Token-Test, der auch die Credit-Gebühr von OpenRouter einbezieht, find
 
 Die API von Capriole ist mit Anthropic Messages kompatibel. Richten Sie das Anthropic-SDK oder einen beliebigen Messages-Client auf `https://api.caprioletech.com` aus und rufen Sie `POST /v1/messages` auf.
 
-- `claude-latest` wählt Claude Fable 5.1, sodass Ihre Konfiguration dem aktuell empfohlenen Claude-Modell folgt.
-- `claude-fable-5-1` und `claude-opus-5-5` wählen ein Modell explizit.
+- `claude-latest` wählt Claude Fable 5.2, sodass Ihre Konfiguration dem aktuell empfohlenen Claude-Modell folgt.
+- `claude-fable-5-2`, `claude-fable-5-1` und `claude-opus-5-5` wählen ein Modell explizit.
 - Senden Sie Ihren Schlüssel als Bearer-Token. Im Anthropic-SDK übergeben Sie ihn als `auth_token`.
 
 ```python
@@ -81,7 +82,7 @@ Derselbe Schlüssel funktioniert mit OpenAI Chat Completions unter `/v1/chat/com
 
 ## Was in USD 9 im Monat enthalten ist
 
-- [Unbegrenzter Web-Chat](/de/guides/plans-and-limits#was-unbegrenzt-bedeutet) mit GPT-6.2 Astra, Claude Fable 5.1, Claude Opus 5.5, Gemini 4 Carbon und allen weiteren unterstützten Modellen.
+- [Unbegrenzter Web-Chat](/de/guides/plans-and-limits#was-unbegrenzt-bedeutet) mit GPT-6.2 Astra, Claude Fable 5.2, Claude Opus 5.5, Gemini 4 Carbon und allen weiteren unterstützten Modellen.
 - 5M API-Tokens im Monat für Ihre Apps und Coding-Agents.
 - Weitere API-Tokens für USD 8 pro 5M, 1 bis 11 Pakete pro Kauf, mit Mengenrabatten von bis zu 15% beim Kauf mehrerer Pakete.
 - Kostenlose Bilderzeugung (GPT Image 2.6, Nano Banana 2.1 und Seedream 5.5), Dateien und Websuche, Projekte, Chat-Export und [10 dokumentierte Coding-Agents](/de/articles/coding-agent-compatibility).
@@ -92,15 +93,15 @@ Ein API-Schlüssel setzt Premium oder Team voraus. Team kostet USD 70 pro Monat 
 
 ### Was kostet die Claude API?
 
-Claude Fable 5.1 kostet USD 10 pro 1M Eingabe-Tokens und USD 50 pro 1M Ausgabe-Tokens. Claude Opus 5.5 kostet USD 4 und USD 20. Batch-Anfragen kosten die Hälfte.
+Claude Fable 5.2 kostet USD 8 pro 1M Eingabe-Tokens und USD 40 pro 1M Ausgabe-Tokens. Claude Fable 5.1 kostet USD 10 und USD 50, Claude Opus 5.5 USD 4 und USD 20. Batch-Anfragen kosten die Hälfte.
 
-### Ist Claude Opus 5.5 günstiger als Claude Fable 5.1?
+### Ist Claude Opus 5.5 günstiger als Claude Fable 5.2?
 
-Ja. Über die API von Anthropic kostet Opus 5.5 pro Token 60% weniger als Fable 5.1. Bei Capriole AI nutzen beide Modelle dasselbe Guthaben. Im persönlichen Premium-Abo kostet ein Zusatzpaket mit 5 Millionen Tokens USD 8.
+Ja. Über die API von Anthropic kostet Opus 5.5 pro Token halb so viel wie Fable 5.2 und 60% weniger als Fable 5.1. Bei Capriole AI nutzen alle drei Modelle dasselbe Guthaben. Im persönlichen Premium-Abo kostet ein Zusatzpaket mit 5 Millionen Tokens USD 8.
 
 ### Was bedeutet `claude-latest` bei Capriole AI?
 
-`claude-latest` verweist auf Claude Fable 5.1. Es funktioniert mit `/v1/messages` und `/v1/chat/completions`.
+`claude-latest` verweist seit dem 24. November 2026 auf Claude Fable 5.2. Es funktioniert mit `/v1/messages` und `/v1/chat/completions`.
 
 ### Kann ich Claude Code mit einem Capriole-AI-Schlüssel nutzen?
 
@@ -118,8 +119,9 @@ Capriole AI ist ein unabhängiger Arbeitsbereich und steht in keiner Verbindung 
 
 ## Offizielle Quellen
 
-Wir haben diese Seiten am 17. November 2026 geprüft.
+Wir haben diese Seiten am 24. November 2026 geprüft.
 
 - Anthropic: [Preise der Claude API](https://platform.claude.com/docs/en/about-claude/pricing)
+- Anthropic: [Ankündigung von Claude Fable 5.2 und Mythos 5.2](https://www.anthropic.com/claude-fable-and-mythos-5-2) und [Modellseite zu Claude Fable 5.2](https://platform.claude.com/docs/en/models/fable-5-2/overview)
 
 Die Angaben zu Plänen, Aufstockungen und abgerechneten Tokens von Capriole AI auf dieser Seite pflegt Capriole AI selbst.
