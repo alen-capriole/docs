@@ -212,6 +212,8 @@ print(completion.choices[0].message.content)
 
 `google-latest` 使用 Gemini 4 Carbon，它在 Chat Completions 上按 Google 的默认思考等级 `medium` 思考。如需减少 token 用量，可以添加 `extra_body={"extra_body": {"google": {"thinking_config": {"thinking_level": "low"}}}}`，或调用 `google/gemini-4-argon`。详见[选择模型](/zh/guides/choose-a-model#api-模型-id)。
 
+使用 `google/gemini-4-neon` 可直接选择 Gemini 4 Neon。
+
 不要把 `google-latest` 移到 `responses.create()`。Responses 路由接受 OpenAI 模型和带 `xai/` 前缀的 Grok 模型，Chat Completions 则接受范围更广的公共兼容模型目录。
 
 ## 解决常见 SDK 错误

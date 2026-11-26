@@ -28,6 +28,10 @@ Kimi K3.1 Pro 固定 `temperature` 为 1、`top_p` 为 0.95。调用此模型时
 
 使用 OpenAI Python SDK 时，请传入 `extra_body={"extra_body": {"google": {"thinking_config": {"thinking_level": "low"}}}}`。Google 提到，Carbon 处理较难的提示可能需要几分钟，因此请按[长任务](#长任务)中的说明使用流式传输；想缩短等待时，请把 `thinking_level` 设为 `low`，或改用 `google/gemini-4-argon`。
 
+## Gemini 4 Neon
+
+调用 `google/gemini-4-neon` 选择 Neon。Google 的模型文档列明输入与输出共享 1,048,576 token 的窗口，默认同步输出上限为 65,536 token，并支持 JSON Schema。思考等级包括 `low`、`medium`、`high`（默认）和 `xhigh`。详见 [Google 模型文档](https://aistudio.google.com/docs/models/gemini-4-neon)。
+
 ## 网页搜索
 
 此端点不提供网页搜索。对于 Grok 模型，如果请求中的 `web_search_options` 或 `search_parameters` 字段不为 null，请求会以 HTTP 400 失败：

@@ -212,6 +212,8 @@ print(completion.choices[0].message.content)
 
 `google-latest` は Gemini 4 Carbon を使い、Chat Completions では Google の既定の思考レベル `medium` で思考します。トークンを減らすには、`extra_body={"extra_body": {"google": {"thinking_config": {"thinking_level": "low"}}}}` を追加するか、`google/gemini-4-argon` を呼び出してください。詳しくは [モデル選びのガイド](/ja/guides/choose-a-model#api-のモデル-id) をご覧ください。
 
+Gemini 4 Neon を指定するには `google/gemini-4-neon` を使ってください。
+
 `google-latest` を `responses.create()` に移さないでください。Responses ルートは OpenAI のモデルと `xai/` プレフィックス付きの Grok モデルを受け付け、Chat Completions はより広い公開互換カタログを受け付けます。
 
 ## よくある SDK エラーを直す

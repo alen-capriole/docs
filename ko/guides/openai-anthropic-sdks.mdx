@@ -212,6 +212,8 @@ print(completion.choices[0].message.content)
 
 `google-latest`는 Gemini 4 Carbon을 사용하며, Chat Completions에서는 Google의 기본 수준인 `medium`으로 추론합니다. 토큰을 덜 쓰려면 `extra_body={"extra_body": {"google": {"thinking_config": {"thinking_level": "low"}}}}`를 추가하거나 `google/gemini-4-argon`을 호출하세요. 자세한 내용은 [모델 선택](/ko/guides/choose-a-model#api-모델-id)에 있습니다.
 
+Gemini 4 Neon을 선택하려면 `google/gemini-4-neon`을 사용하세요.
+
 `google-latest`를 `responses.create()`로 옮기지 마세요. Responses 경로는 OpenAI 모델과 `xai/` 접두사가 붙은 Grok 모델을 받고, Chat Completions는 더 넓은 공개 호환 카탈로그를 받습니다.
 
 ## 흔한 SDK 오류 해결하기

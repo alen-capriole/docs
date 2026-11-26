@@ -28,6 +28,10 @@ Bei Kimi K3.1 Pro sind `temperature` auf 1 und `top_p` auf 0.95 festgelegt. Lass
 
 Übergeben Sie mit dem OpenAI Python SDK `extra_body={"extra_body": {"google": {"thinking_config": {"thinking_level": "low"}}}}`. Laut Google können schwierige Prompts bei Carbon mehrere Minuten dauern, streamen Sie sie daher wie unter [Lange Aufgaben](#lange-aufgaben) beschrieben; für kürzere Wartezeiten setzen Sie `thinking_level` auf `low` oder verwenden Sie `google/gemini-4-argon`.
 
+## Gemini 4 Neon
+
+Wählen Sie Neon mit `google/gemini-4-neon` aus. Google dokumentiert ein gemeinsames Kontextfenster für Eingabe und Ausgabe von 1.048.576 Tokens, ein standardmäßiges synchrones Ausgabelimit von 65.536 Tokens und die Unterstützung von JSON Schema. Die Denkstufen sind `low`, `medium`, `high` (Standard) und `xhigh`. [Googles Modelldokumentation](https://aistudio.google.com/docs/models/gemini-4-neon).
+
 ## Websuche
 
 Dieser Endpunkt bietet keine Websuche. Bei Grok-Modellen schlägt eine Anfrage mit einem Feld `web_search_options` oder `search_parameters`, das nicht null ist, mit HTTP 400 fehl:

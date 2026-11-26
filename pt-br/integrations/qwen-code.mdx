@@ -148,6 +148,15 @@ Crie ou atualize `~/.qwen/settings.json`:
         }
       },
       {
+        "id": "google/gemini-4-neon",
+        "name": "google/gemini-4-neon",
+        "baseUrl": "https://api.caprioletech.com/v1",
+        "envKey": "CAPRIOLE_AI_API_KEY",
+        "generationConfig": {
+          "contextWindowSize": 1048576
+        }
+      },
+      {
         "id": "google/gemini-3.8-flash",
         "name": "google/gemini-3.8-flash",
         "baseUrl": "https://api.caprioletech.com/v1",
@@ -214,6 +223,7 @@ qwen "Explain this repository." -m claude-latest --auth-type anthropic
 | Google latest | `google-latest` | `openai` | Chat Completions |
 | Gemini 4 Carbon | `google/gemini-4-carbon` | `openai` | Chat Completions |
 | Gemini 4 Argon | `google/gemini-4-argon` | `openai` | Chat Completions |
+| Gemini 4 Neon | `google/gemini-4-neon` | `openai` | Chat Completions |
 | Gemini 3.8 Flash | `google/gemini-3.8-flash` | `openai` | Chat Completions |
 | Grok 4.7 | `xai/grok-4.7` | `openai` | Chat Completions |
 | GLM 5.3 Flash | `zai/glm-5.3-flash` | `openai` | Chat Completions |

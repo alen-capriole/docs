@@ -130,6 +130,13 @@ opencode --version
             "output": 65536
           }
         },
+        "google/gemini-4-neon": {
+          "name": "Gemini 4 Neon",
+          "limit": {
+            "context": 1048576,
+            "output": 65536
+          }
+        },
         "google/gemini-3.8-flash": {
           "name": "Gemini 3.8 Flash",
           "limit": {
@@ -268,6 +275,13 @@ OpenCode 1 不读取 OpenCode 2 的写法，但 OpenCode 2 能读取下面的写
             "output": 65536
           }
         },
+        "google/gemini-4-neon": {
+          "name": "Gemini 4 Neon",
+          "limit": {
+            "context": 1048576,
+            "output": 65536
+          }
+        },
         "google/gemini-3.8-flash": {
           "name": "Gemini 3.8 Flash",
           "limit": {
@@ -349,6 +363,7 @@ opencode run -m capriole-ai/claude-latest "Explain this repository."
 | Google latest | `google-latest` | Chat Completions |
 | Gemini 4 Carbon | `google/gemini-4-carbon` | Chat Completions |
 | Gemini 4 Argon | `google/gemini-4-argon` | Chat Completions |
+| Gemini 4 Neon | `google/gemini-4-neon` | Chat Completions |
 | Gemini 3.8 Flash | `google/gemini-3.8-flash` | Chat Completions |
 | Grok 4.7 | `xai/grok-4.7` | Chat Completions |
 | GLM 5.3 Flash | `zai/glm-5.3-flash` | Chat Completions |

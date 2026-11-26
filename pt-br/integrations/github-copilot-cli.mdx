@@ -94,7 +94,7 @@ export COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"
 export COPILOT_PROVIDER_WIRE_MODEL="moonshot/kimi-k3"
 ```
 
-Para os outros modelos, altere `COPILOT_PROVIDER_WIRE_MODEL` para `google-latest`, `google/gemini-4-carbon`, `google/gemini-4-argon`, `google/gemini-3.8-flash`, `xai/grok-4.7` ou `zai/glm-5.3-flash`.
+Para os outros modelos, altere `COPILOT_PROVIDER_WIRE_MODEL` para `google-latest`, `google/gemini-4-carbon`, `google/gemini-4-argon`, `google/gemini-4-neon`, `google/gemini-3.8-flash`, `xai/grok-4.7` ou `zai/glm-5.3-flash`.
 
 Mantenha `COPILOT_PROVIDER_MODEL_ID="claude-sonnet-4"`. Com um perfil GPT, como `gpt-5.4`, o Copilot envia tipos de ferramenta que esses modelos rejeitam.
 
@@ -127,6 +127,7 @@ copilot -p "Explain this repository." --allow-all-tools
 | Google latest | `google-latest` | `claude-sonnet-4` | Chat Completions |
 | Gemini 4 Carbon | `google/gemini-4-carbon` | `claude-sonnet-4` | Chat Completions |
 | Gemini 4 Argon | `google/gemini-4-argon` | `claude-sonnet-4` | Chat Completions |
+| Gemini 4 Neon | `google/gemini-4-neon` | `claude-sonnet-4` | Chat Completions |
 | Gemini 3.8 Flash | `google/gemini-3.8-flash` | `claude-sonnet-4` | Chat Completions |
 | Grok 4.7 | `xai/grok-4.7` | `claude-sonnet-4` | Chat Completions |
 | GLM 5.3 Flash | `zai/glm-5.3-flash` | `claude-sonnet-4` | Chat Completions |

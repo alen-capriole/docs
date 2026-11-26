@@ -28,6 +28,10 @@ Kimi K3.1 Pro는 `temperature`를 1, `top_p`를 0.95로 고정합니다. 이 모
 
 OpenAI Python SDK에서는 `extra_body={"extra_body": {"google": {"thinking_config": {"thinking_level": "low"}}}}`를 전달하세요. Google은 Carbon에서 어려운 프롬프트는 몇 분이 걸릴 수 있다고 안내하므로, [긴 작업](#긴-작업)에 설명된 대로 스트리밍하세요. 기다리는 시간을 줄이려면 `thinking_level`을 `low`로 설정하거나 `google/gemini-4-argon`을 사용하세요.
 
+## Gemini 4 Neon
+
+Neon을 선택하려면 `google/gemini-4-neon`을 호출하세요. Google 문서에 따르면 입력과 출력은 1,048,576 토큰의 컨텍스트 창을 공유하고, 동기 출력의 기본 한도는 65,536 토큰이며, JSON Schema를 지원합니다. 추론 수준은 `low`, `medium`, `high`(기본값), `xhigh`입니다. [Google 모델 문서](https://aistudio.google.com/docs/models/gemini-4-neon)를 확인하세요.
+
 ## 웹 검색
 
 이 엔드포인트는 웹 검색을 제공하지 않습니다. Grok 모델에서 `web_search_options` 또는 `search_parameters` 필드가 null이 아닌 요청은 HTTP 400으로 실패합니다.

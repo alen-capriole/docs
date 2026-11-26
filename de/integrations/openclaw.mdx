@@ -59,6 +59,7 @@ Fügen Sie den folgenden `models`-Block und die Modelleinstellungen unter `agent
         "capriole-ai-compatible/google-latest": {},
         "capriole-ai-compatible/google/gemini-4-carbon": {},
         "capriole-ai-compatible/google/gemini-4-argon": {},
+        "capriole-ai-compatible/google/gemini-4-neon": {},
         "capriole-ai-compatible/google/gemini-3.8-flash": {}
       }
     }
@@ -195,6 +196,15 @@ Fügen Sie den folgenden `models`-Block und die Modelleinstellungen unter `agent
             "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 }
           },
           {
+            "id": "google/gemini-4-neon",
+            "name": "Gemini 4 Neon",
+            "reasoning": true,
+            "input": ["text"],
+            "contextWindow": 1048576,
+            "maxTokens": 65536,
+            "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 }
+          },
+          {
             "id": "google/gemini-3.8-flash",
             "name": "Gemini 3.8 Flash",
             "reasoning": true,
@@ -259,6 +269,7 @@ Modellreferenzen haben die Form `<provider-id>/<model-id>`.
 | Google latest | `capriole-ai-compatible/google-latest` | Chat Completions |
 | Gemini 4 Carbon | `capriole-ai-compatible/google/gemini-4-carbon` | Chat Completions |
 | Gemini 4 Argon | `capriole-ai-compatible/google/gemini-4-argon` | Chat Completions |
+| Gemini 4 Neon | `capriole-ai-compatible/google/gemini-4-neon` | Chat Completions |
 | Gemini 3.8 Flash | `capriole-ai-compatible/google/gemini-3.8-flash` | Chat Completions |
 | Grok 4.7 | `capriole-ai-compatible/xai/grok-4.7` | Chat Completions |
 | GLM 5.3 Flash | `capriole-ai-compatible/zai/glm-5.3-flash` | Chat Completions |

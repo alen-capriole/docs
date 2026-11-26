@@ -28,6 +28,10 @@ Kimi K3.1 Pro は `temperature` を 1、`top_p` を 0.95 に固定していま�
 
 OpenAI Python SDK では `extra_body={"extra_body": {"google": {"thinking_config": {"thinking_level": "low"}}}}` を渡してください。Google によると、Carbon では難しいプロンプトに数分かかることがあるため、[長時間のタスク](#長時間のタスク)のとおりストリーミングしてください。待ち時間を短くしたい場合は、`thinking_level` を `low` にするか、`google/gemini-4-argon` を使ってください。
 
+## Gemini 4 Neon
+
+Neon を選ぶには `google/gemini-4-neon` を指定してください。Google のモデル仕様では、入力と出力で共有するコンテキストウィンドウは 1,048,576 トークン、同期出力の既定の上限は 65,536 トークンです。JSON Schema に対応し、思考レベルは `low`、`medium`、`high`（既定）、`xhigh` です。[Google のモデルドキュメント](https://aistudio.google.com/docs/models/gemini-4-neon)をご覧ください。
+
 ## ウェブ検索
 
 このエンドポイントはウェブ検索を提供しません。Grok モデルでは、`web_search_options` または `search_parameters` フィールドが null 以外のリクエストは HTTP 400 で失敗します。

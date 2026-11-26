@@ -46,12 +46,15 @@ Google은 Gemini 4 Carbon을 복잡한 여러 단계의 코딩과 디버깅, 장
 | GPT-6 Luna (OpenAI) | OpenAI의 가장 효율적인 모델로, 범위가 명확한 대량 작업용 | 105만 토큰 | USD 0.10 / USD 0.50 | `openai/gpt-6-luna` |
 | Claude Fable 5.1 (Anthropic) | 까다로운 추론과 장기 에이전트 작업 | 100만 토큰 | USD 10 / USD 50 | `anthropic/claude-fable-5-1` |
 | Gemini 4 Argon (Google) | 대부분의 소프트웨어 엔지니어링과 지식 작업. Gemini 4 Carbon보다 응답이 빠르고 턴당 토큰 사용량이 적음 | 100만 토큰 | 2026년 11월 30일까지 USD 2 / USD 10, 이후 USD 4 / USD 20 | `google/gemini-4-argon` |
+| [Gemini 4 Neon](https://aistudio.google.com/docs/models/gemini-4-neon) (Google) | 복잡한 소프트웨어 엔지니어링, 분석 및 과학적 추론 | 1,048,576 토큰 | USD 3 / USD 15 | `google/gemini-4-neon` |
 | Gemini 3.8 Flash (Google) | Google의 가장 지능적인 Flash 모델. 장기 소프트웨어 엔지니어링, 자율 에이전트, 복잡한 기업 워크플로용 | 명시되지 않음 | 2026년 12월 31일까지 USD 0.75 / USD 3.75, 이후 USD 1.50 / USD 7.50 | `google/gemini-3.8-flash` |
 | Grok 4.7 (xAI) | 코딩, 에이전트 작업, 지식 작업 | 50만 토큰 | 20만 토큰 미만 프롬프트 기준 USD 2 / USD 6 | `xai/grok-4.7` |
 | GLM 5.3 Flash (Z.ai) | 매우 낮은 비용으로 GLM 5.2보다 높은 성능. 사무 작업, 금융 리서치, 문서 처리 포함 | 100만 토큰 | USD 0.15 / USD 0.50 | `zai/glm-5.3-flash` |
 | Kimi K3.1 Pro (Moonshot AI) | Moonshot의 가장 뛰어난 Kimi 모델. 코딩, 3D 제작, 금융 리서치 성능 향상 | 100만 토큰 | USD 2 / USD 10 | `moonshot/kimi-k3.1-pro` |
 
 웹 채팅 모델 메뉴에서 GPT-6.2 Sol, GPT-6 Astra, GPT-6.1 Sol, GPT-6 Sol, GPT-6 Luna, Claude Fable 5.1과 Claude Fable 5 같은 이전 버전은 **더 많은 모델** 아래에 있습니다. 이전 버전은 기존 채팅과 API 설정을 위해 계속 제공됩니다.
+
+웹 채팅의 기본 Google 그룹에는 Gemini 4 Carbon Thinking, Gemini 4 Argon Thinking, Gemini 4 Neon Thinking이 있습니다.
 
 ## Thinking과 Fast
 
@@ -66,7 +69,7 @@ Thinking은 토큰을 더 많이 씁니다. Premium과 Team에서는 어느 쪽�
 |---|---|
 | GPT-6.2 Astra, GPT-6.2 Sol, GPT-6 Astra, GPT-6.1 Sol, GPT-6 Sol, GPT-6 Luna | **Thinking**(추론 강도 중간)과 **Fast**(추론 강도 낮음) |
 | Claude Fable 5.2, Claude Fable 5.1, Claude Opus 5.5 | 추론이 항상 켜져 있습니다. **Thinking**은 추론 강도 중간, **Fast**는 낮음입니다. |
-| Gemini 4 Carbon, Gemini 4 Argon | Gemini 4 Carbon / Gemini 4 Argon에서 Thinking 프리셋을 사용할 수 있습니다. **Fast**를 선택하면 Gemini 3.8 Flash로 전환됩니다. |
+| Gemini 4 Carbon, Gemini 4 Argon, Gemini 4 Neon | Gemini 4 Carbon / Gemini 4 Argon / Gemini 4 Neon에서 Thinking 프리셋을 사용할 수 있습니다. **Fast**를 선택하면 Gemini 3.8 Flash로 전환됩니다. |
 | Kimi K3.1 Pro | 항상 추론합니다. **Thinking**은 높은 추론 강도, **Fast**는 낮은 추론 강도를 씁니다. |
 | GLM | **Fast**는 GLM 5.3 Flash입니다. **Thinking**은 이전 모델인 GLM 5.2(API에서는 `zai/glm-5.2`)를 사용합니다. |
 | Grok 4.7 | 프리셋 하나 |
@@ -156,7 +159,7 @@ Anthropic은 대부분의 작업을 Claude Opus 5.5로 시작하고, 까다로�
 
 - [OpenAI: GPT-6.2 Astra](https://developers.openai.com/api/docs/models/gpt-6.2-astra), [GPT-6.2 Sol](https://developers.openai.com/api/docs/models/gpt-6.2-sol), [GPT-6 Astra](https://developers.openai.com/api/docs/models/gpt-6-astra), [GPT-6.1 Sol](https://developers.openai.com/api/docs/models/gpt-6.1-sol), [GPT-6 Sol](https://developers.openai.com/api/docs/models/gpt-6-sol), [GPT-6 Luna](https://developers.openai.com/api/docs/models/gpt-6-luna)
 - [Anthropic: Claude Fable 5.2](https://platform.claude.com/docs/en/models/fable-5-2/overview), [Claude Fable 5.1](https://platform.claude.com/docs/en/models/fable-5-1/overview), [Claude Opus 5.5](https://platform.claude.com/docs/en/models/opus-5-5/overview)
-- [Google: Gemini 4 Carbon](https://aistudio.google.com/docs/models/gemini-4-carbon), [Gemini 4 Argon](https://aistudio.google.com/docs/models/gemini-4-argon), [Gemini API 가격](https://ai.google.dev/gemini-api/docs/pricing)
+- [Google: Gemini 4 Carbon](https://aistudio.google.com/docs/models/gemini-4-carbon), [Gemini 4 Argon](https://aistudio.google.com/docs/models/gemini-4-argon), [Gemini 4 Neon](https://aistudio.google.com/docs/models/gemini-4-neon), [Gemini API 가격](https://ai.google.dev/gemini-api/docs/pricing)
 - [xAI: Grok 4.7](https://docs.x.ai/developers/models/grok-4.7)
 - [Z.ai: GLM 5.3 Flash](https://docs.z.ai/guides/llm/glm-5.3-flash), [Z.ai 가격](https://docs.z.ai/guides/overview/pricing)
 - [Moonshot AI: Kimi K3.1 Pro](https://platform.kimi.ai/docs/guide/kimi-k3-1-pro-quickstart), [Kimi 가격](https://platform.kimi.ai/docs/pricing/chat)

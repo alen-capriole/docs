@@ -95,6 +95,9 @@
                           "id": "google/gemini-4-argon"
                         },
                         {
+                          "id": "google/gemini-4-neon"
+                        },
+                        {
                           "id": "google/gemini-3.8-flash"
                         },
                         {
@@ -722,6 +725,7 @@
               "google-latest",
               "google/gemini-4-carbon",
               "google/gemini-4-argon",
+              "google/gemini-4-neon",
               "google/gemini-3.8-flash",
               "xai/grok-4.7",
               "xai/grok-4.6",
