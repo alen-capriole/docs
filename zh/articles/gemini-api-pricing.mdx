@@ -18,16 +18,16 @@ Google 在其 [Gemini Developer API 定价页面](https://ai.google.dev/gemini-a
 | Gemini 4 Carbon | `gemini-4-carbon` | 2026 年 12 月 1 日起 | USD 4 | USD 0.20 | USD 20 |
 | Gemini 4 Argon | `gemini-4-argon` | 至 2026 年 11 月 30 日 | USD 2 | USD 0.10 | USD 10 |
 | Gemini 4 Argon | `gemini-4-argon` | 2026 年 12 月 1 日起 | USD 4 | USD 0.20 | USD 20 |
-| Gemini 4 Neon | `gemini-4-neon` | 标准价 | USD 3 | USD 0.15 | USD 15 |
+| Gemini 4 Neon | `gemini-4-neon` | 无截止日期 | USD 3 | USD 0.15 | USD 15 |
 | Gemini 3.8 Flash | `gemini-3.8-flash` | 至 2026 年 12 月 31 日 | USD 0.75 | USD 0.075 | USD 3.75 |
 | Gemini 3.8 Flash | `gemini-3.8-flash` | 2027 年 1 月 1 日起 | USD 1.50 | USD 0.15 | USD 7.50 |
 
 同一页面还列出了会改变这些费率的规则：
 
-- **Batch 和 Flex**：两者都是标准费率的一半。Gemini 4 Carbon 和 Gemini 4 Argon 截至 11 月 30 日均为输入 USD 1、输出 USD 5，之后为 USD 2 和 USD 10。Gemini 4 Neon的费率为输入USD 1.50、输出USD 7.50、缓存输入USD 0.075。
-- **Priority**：Gemini 4 Carbon 和 Gemini 4 Argon 截至 11 月 30 日均为输入 USD 3.60、输出 USD 18，之后为 USD 7.20 和 USD 36。Gemini 4 Neon的费率为输入USD 5.40、输出USD 27、缓存输入USD 0.27。
-- **缓存**：Gemini 4 Carbon 和 Gemini 4 Argon 只支持隐式缓存，对至少 4,096 个 token 的提示默认开启，不支持显式缓存。Gemini 4 Neon也只支持隐式缓存。
-- **免费层级**：Gemini 3.8 Flash 有免费层级，Gemini 4 Carbon 和 Gemini 4 Argon 没有。Gemini 4 Neon也没有免费层级。
+- **Batch 和 Flex**：两者都是标准费率的一半。Gemini 4 Carbon 和 Gemini 4 Argon 截至 11 月 30 日均为输入 USD 1、输出 USD 5，之后为 USD 2 和 USD 10。Gemini 4 Neon 的费率为输入 USD 1.50、输出 USD 7.50、缓存输入 USD 0.075。
+- **Priority**：Gemini 4 Carbon 和 Gemini 4 Argon 截至 11 月 30 日均为输入 USD 3.60、输出 USD 18，之后为 USD 7.20 和 USD 36。Gemini 4 Neon 的费率为输入 USD 5.40、输出 USD 27、缓存输入 USD 0.27。
+- **缓存**：Gemini 4 Carbon 和 Gemini 4 Argon 只支持隐式缓存，对至少 4,096 个 token 的提示默认开启，不支持显式缓存。Gemini 4 Neon 也只支持隐式缓存。
+- **免费层级**：Gemini 3.8 Flash 有免费层级，Gemini 4 Carbon 和 Gemini 4 Argon 没有。Gemini 4 Neon 也没有免费层级。
 - **Google 搜索增强（Grounding with Google Search）**：每月 5,000 次搜索请求免费，由 Gemini 3 及更新的模型共享，超出后每 1,000 次请求 USD 14。
 
 Google 没有为这些模型列出单独的长提示费率。
@@ -45,7 +45,7 @@ official_cost = input_millions × input_price + output_millions × output_price
 | 100 万 | 75 万 / 25 万 | USD 4 | USD 8 | USD 6 | USD 1.60 |
 | 500 万 | 375 万 / 125 万 | USD 20 | USD 40 | USD 30 | **USD 8** |
 
-按推广价，500 万 token 在 Gemini 4 Carbon 或 Argon 上的费用为 3.75 × USD 2 + 1.25 × USD 10 = USD 20，因此个人 Premium 的 USD 8 充值价低 60%。从 12 月 1 日起，同样的工作负载要 USD 40，USD 8 低 80%。同样的用量在Gemini 4 Neon上为USD 30（3.75 × USD 3 + 1.25 × USD 15），个人Premium的USD 8充值价低73%。92% 这个数字适用于定价为 USD 10 和 USD 50 的模型，例如 [GPT-6 Astra](/zh/articles/openai-api-pricing) 和 [Claude Fable 5.1](/zh/articles/claude-api-pricing)。Capriole 以每包 500 万 token 出售 API token，100 万这一行是一包的五分之一，仅供对比。
+按推广价，500 万 token 在 Gemini 4 Carbon 或 Argon 上的费用为 3.75 × USD 2 + 1.25 × USD 10 = USD 20，因此个人 Premium 的 USD 8 充值价低 60%。从 12 月 1 日起，同样的工作负载要 USD 40，USD 8 低 80%。同样的用量在 Gemini 4 Neon 上为 USD 30（3.75 × USD 3 + 1.25 × USD 15），个人 Premium 的 USD 8 充值价低 73%。92% 这个数字适用于定价为 USD 10 和 USD 50 的模型，例如 [GPT-6 Astra](/zh/articles/openai-api-pricing) 和 [Claude Fable 5.1](/zh/articles/claude-api-pricing)。Capriole 以每包 500 万 token 出售 API token，100 万这一行是一包的五分之一，仅供对比。
 
 截至 2026 年 12 月 31 日，Google 对 Gemini 3.8 Flash 的这组 5,000,000 个 token 收取 USD 7.50。自 2027 年 1 月 1 日起，Google 收取 USD 15，个人 Premium 的 USD 8 充值价比它低 47%。
 
@@ -64,7 +64,7 @@ Google 的输出价格（包括思考 token）是输入的五倍。Capriole 对�
 
 Capriole 通过 `POST /v1/chat/completions` 上的 OpenAI Chat Completions 提供 Gemini 模型。把 OpenAI SDK 的 base URL 设为 `https://api.caprioletech.com/v1`。
 
-- `google/gemini-4-carbon` 选择 Gemini 4 Carbon。`google/gemini-4-argon`、`google/gemini-4-neon`和`google/gemini-3.8-flash` 选择对应的模型。
+- `google/gemini-4-carbon` 选择 Gemini 4 Carbon。`google/gemini-4-argon`、`google/gemini-4-neon` 和 `google/gemini-3.8-flash` 选择对应的模型。
 - `google-latest` 选择 Google 最强的模型 Gemini 4 Carbon，它每轮消耗的思考 token 比 Argon 多。在 Chat Completions 上，它按 Google 的默认思考等级 `medium` 思考；[选择模型](/zh/guides/choose-a-model#api-模型-id)介绍了如何设为 `low`。
 
 ```python
@@ -94,15 +94,15 @@ print(completion.choices[0].message.content)
 
 ### Gemini API 多少钱
 
-Gemini 4 Carbon 和 Gemini 4 Argon 截至 2026 年 11 月 30 日均为每 100 万输入 token USD 2、每 100 万输出 token USD 10，之后为 USD 4 和 USD 20。Gemini 4 Neon为每100万输入token USD 3、每100万输出token USD 15。Gemini 3.8 Flash 截至 2026 年 12 月 31 日为 USD 0.75 和 USD 3.75，之后为 USD 1.50 和 USD 7.50。批处理请求价格减半。
+Gemini 4 Carbon 和 Gemini 4 Argon 截至 2026 年 11 月 30 日均为每 100 万输入 token USD 2、每 100 万输出 token USD 10，之后为 USD 4 和 USD 20。Gemini 4 Neon 为每 100 万输入 token USD 3、每 100 万输出 token USD 15。Gemini 3.8 Flash 截至 2026 年 12 月 31 日为 USD 0.75 和 USD 3.75，之后为 USD 1.50 和 USD 7.50。批处理请求价格减半。
 
-### Gemini 4 Neon多少钱
+### Gemini 4 Neon 多少钱
 
-按Google标准价，每100万token的输入为USD 3、缓存输入为USD 0.15、输出为USD 15。输出包含思考token。与 Gemini 4 Carbon 和 Argon 的推广价不同，这一价格没有截止日期。
+按 Google 标准价，Gemini 4 Neon 每 100 万 token 的输入为 USD 3、缓存输入为 USD 0.15、输出为 USD 15，输出包含思考 token。与 Gemini 4 Carbon 和 Argon 的推广价不同，Google 未列出这一价格的截止日期。按上面的 500 万 token 示例，Gemini 4 Neon 在 Google 直连的费用为 USD 30，个人 Premium 充值价为 USD 8。
 
 ### 可以免费使用 Gemini 4 Carbon 或 Argon 吗
 
-Google 的免费层级不包含 Gemini 4 Carbon、Gemini 4 Argon或Gemini 4 Neon。在 Capriole AI 上，无需账户即可在网页聊天中试用这三个模型，每天 5 条消息；Premium 让网页聊天不限量。
+Google 的免费层级不包含 Gemini 4 Carbon、Gemini 4 Argon 或 Gemini 4 Neon。在 Capriole AI 上，无需账户即可在网页聊天中试用这三个模型，每天 5 条消息；Premium 让网页聊天不限量。
 
 ### `google-latest` 在 Capriole AI 上指什么
 
@@ -120,13 +120,12 @@ Capriole AI 是独立工作区，与 Google 无隶属关系。
 
 ## 官方来源
 
-我们于 2026 年 11 月 17 日核对了这些页面，并于 2026 年 11 月 26 日再次核对了 Google 的 Gemini API 定价页面。
+我们于 2026 年 11 月 26 日核对了 Google 的定价页面和 Gemini 4 Neon 的相关页面，并于 2026 年 11 月 17 日核对了其他页面。
 
-- Google：[Gemini Developer API 定价](https://ai.google.dev/gemini-api/docs/pricing)
+- Google：[Gemini Developer API 定价](https://ai.google.dev/gemini-api/docs/pricing)，包括 [Gemini 4 Neon](https://aistudio.google.com/docs/pricing#gemini-4-neon)
 - Google：[Gemini 4 Carbon](https://aistudio.google.com/docs/models/gemini-4-carbon)
 - Google：[Gemini 4 Argon](https://aistudio.google.com/docs/models/gemini-4-argon)
 - Google：[Gemini 4 Neon](https://aistudio.google.com/docs/models/gemini-4-neon)
-- Google：[Gemini 4 Neon API 定价](https://aistudio.google.com/docs/pricing#gemini-4-neon)
 - Google：[Gemini 4 Neon 发布公告](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/)
 
 本页中关于 Capriole AI 方案、充值和计费 token 的信息由我们作为官方文档持续维护。

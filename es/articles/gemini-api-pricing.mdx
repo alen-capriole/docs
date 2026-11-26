@@ -18,7 +18,7 @@ Google publica estas tarifas del nivel de pago en su [página de precios de la G
 | Gemini 4 Carbon | `gemini-4-carbon` | Desde el 1 de diciembre de 2026 | USD 4 | USD 0.20 | USD 20 |
 | Gemini 4 Argon | `gemini-4-argon` | Hasta el 30 de noviembre de 2026 | USD 2 | USD 0.10 | USD 10 |
 | Gemini 4 Argon | `gemini-4-argon` | Desde el 1 de diciembre de 2026 | USD 4 | USD 0.20 | USD 20 |
-| Gemini 4 Neon | `gemini-4-neon` | Tarifa estándar | USD 3 | USD 0.15 | USD 15 |
+| Gemini 4 Neon | `gemini-4-neon` | Sin fecha de fin | USD 3 | USD 0.15 | USD 15 |
 | Gemini 3.8 Flash | `gemini-3.8-flash` | Hasta el 31 de diciembre de 2026 | USD 0.75 | USD 0.075 | USD 3.75 |
 | Gemini 3.8 Flash | `gemini-3.8-flash` | Desde el 1 de enero de 2027 | USD 1.50 | USD 0.15 | USD 7.50 |
 
@@ -45,7 +45,7 @@ official_cost = input_millions × input_price + output_millions × output_price
 | 1M | 750K / 250K | USD 4 | USD 8 | USD 6 | USD 1.60 |
 | 5M | 3.75M / 1.25M | USD 20 | USD 40 | USD 30 | **USD 8** |
 
-Con el precio introductorio, 5M de tokens en Gemini 4 Carbon o Argon cuestan 3.75 × USD 2 + 1.25 × USD 10 = USD 20, así que los USD 8 de la recarga de Premium personal son un 60% menos. Desde el 1 de diciembre, la misma carga de trabajo cuesta USD 40, y USD 8 son un 80% menos. La misma carga de trabajo cuesta USD 30 en Gemini 4 Neon (3.75 × USD 3 + 1.25 × USD 15). La recarga de Premium personal de USD 8 cuesta un 73% menos. La cifra del 92% se aplica a modelos con precios de USD 10 y USD 50, como [GPT-6 Astra](/es/articles/openai-api-pricing) y [Claude Fable 5.1](/es/articles/claude-api-pricing). Capriole vende tokens de API en paquetes de 5M; la cifra de 1M es una quinta parte de un paquete y se muestra solo para comparar.
+Con el precio introductorio, 5M de tokens en Gemini 4 Carbon o Argon cuestan 3.75 × USD 2 + 1.25 × USD 10 = USD 20, así que los USD 8 de la recarga de Premium personal son un 60% menos. Desde el 1 de diciembre, la misma carga de trabajo cuesta USD 40, y USD 8 son un 80% menos. La misma carga de trabajo cuesta USD 30 en Gemini 4 Neon (3.75 × USD 3 + 1.25 × USD 15), así que los USD 8 de la recarga son un 73% menos. La cifra del 92% se aplica a modelos con precios de USD 10 y USD 50, como [GPT-6 Astra](/es/articles/openai-api-pricing) y [Claude Fable 5.1](/es/articles/claude-api-pricing). Capriole vende tokens de API en paquetes de 5M; la cifra de 1M es una quinta parte de un paquete y se muestra solo para comparar.
 
 Google cobra USD 7.50 por los mismos 5M de tokens con Gemini 3.8 Flash hasta el 31 de diciembre de 2026. A partir del 1 de enero de 2027, Google cobra USD 15 y la recarga de USD 8 de Premium personal resulta un 47% menor.
 
@@ -98,11 +98,11 @@ Gemini 4 Carbon y Gemini 4 Argon cuestan cada uno USD 2 por 1M de tokens de entr
 
 ### ¿Cuánto cuesta Gemini 4 Neon?
 
-A la tarifa estándar de Google, cada millón de tokens cuesta USD 3 de entrada, USD 0.15 de entrada en caché y USD 15 de salida. La salida incluye los tokens de razonamiento. A diferencia de los precios introductorios de Gemini 4 Carbon y Argon, este precio no tiene fecha de finalización.
+Gemini 4 Neon cuesta, a la tarifa estándar de Google, USD 3 por 1M de tokens de entrada, USD 0.15 por 1M de entrada en caché y USD 15 por 1M de salida. La salida incluye los tokens de razonamiento. A diferencia de los precios introductorios de Gemini 4 Carbon y Argon, este precio no tiene fecha de finalización.
 
 ### ¿Puedo usar Gemini 4 Carbon o Argon gratis?
 
-El nivel gratuito de Google no incluye Gemini 4 Carbon ni Gemini 4 Argon ni Gemini 4 Neon. En Capriole AI puedes probar los tres en el chat web sin cuenta, con 5 mensajes al día, y Premium hace ilimitado el chat web.
+El nivel gratuito de Google no incluye Gemini 4 Carbon, Gemini 4 Argon ni Gemini 4 Neon. En Capriole AI puedes probar los tres en el chat web sin cuenta, con 5 mensajes al día, y Premium hace ilimitado el chat web.
 
 ### ¿Qué significa `google-latest` en Capriole AI?
 
@@ -120,13 +120,12 @@ Capriole AI es un espacio de trabajo independiente, sin afiliación con Google.
 
 ## Fuentes oficiales
 
-Revisamos estas páginas el 17 de noviembre de 2026 y volvimos a revisar la página de precios de la API de Gemini de Google el 26 de noviembre de 2026.
+Revisamos la página de precios de Google y las páginas de Gemini 4 Neon el 26 de noviembre de 2026, y las demás páginas el 17 de noviembre de 2026.
 
-- Google: [precios de la Gemini Developer API](https://ai.google.dev/gemini-api/docs/pricing)
+- Google: [precios de la Gemini Developer API](https://ai.google.dev/gemini-api/docs/pricing), incluidos los de [Gemini 4 Neon](https://aistudio.google.com/docs/pricing#gemini-4-neon)
 - Google: [Gemini 4 Carbon](https://aistudio.google.com/docs/models/gemini-4-carbon)
 - Google: [Gemini 4 Argon](https://aistudio.google.com/docs/models/gemini-4-argon)
 - Google: [Gemini 4 Neon](https://aistudio.google.com/docs/models/gemini-4-neon)
-- Google: [precios de la API de Gemini 4 Neon](https://aistudio.google.com/docs/pricing#gemini-4-neon)
 - Google: [anuncio de Gemini 4 Neon](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/)
 
 La información sobre planes, recargas y tokens cobrados de Capriole AI de esta página es documentación propia de Capriole AI.

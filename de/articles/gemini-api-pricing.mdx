@@ -18,7 +18,7 @@ Google veröffentlicht diese Preise der kostenpflichtigen Stufe auf seiner [Prei
 | Gemini 4 Carbon | `gemini-4-carbon` | Ab 1. Dezember 2026 | USD 4 | USD 0.20 | USD 20 |
 | Gemini 4 Argon | `gemini-4-argon` | Bis 30. November 2026 | USD 2 | USD 0.10 | USD 10 |
 | Gemini 4 Argon | `gemini-4-argon` | Ab 1. Dezember 2026 | USD 4 | USD 0.20 | USD 20 |
-| Gemini 4 Neon | `gemini-4-neon` | Standardpreis | USD 3 | USD 0.15 | USD 15 |
+| Gemini 4 Neon | `gemini-4-neon` | Ohne Enddatum | USD 3 | USD 0.15 | USD 15 |
 | Gemini 3.8 Flash | `gemini-3.8-flash` | Bis 31. Dezember 2026 | USD 0.75 | USD 0.075 | USD 3.75 |
 | Gemini 3.8 Flash | `gemini-3.8-flash` | Ab 1. Januar 2027 | USD 1.50 | USD 0.15 | USD 7.50 |
 
@@ -45,7 +45,7 @@ official_cost = input_millions × input_price + output_millions × output_price
 | 1M | 750K / 250K | USD 4 | USD 8 | USD 6 | USD 1.60 |
 | 5M | 3.75M / 1.25M | USD 20 | USD 40 | USD 30 | **USD 8** |
 
-Zum Einführungspreis kosten 5M Tokens mit Gemini 4 Carbon oder Argon 3.75 × USD 2 + 1.25 × USD 10 = USD 20, die USD 8 für das Zusatzpaket im persönlichen Premium-Abo sind also 60% günstiger. Ab dem 1. Dezember kostet dieselbe Arbeitslast USD 40, USD 8 sind dann 80% günstiger. Dieselbe Arbeitslast kostet mit Gemini 4 Neon USD 30 (3.75 × USD 3 + 1.25 × USD 15). Das Zusatzpaket für USD 8 im persönlichen Premium-Abo ist 73% günstiger. Die 92% gelten für Modelle mit Preisen von USD 10 und USD 50, etwa [GPT-6 Astra](/de/articles/openai-api-pricing) und [Claude Fable 5.1](/de/articles/claude-api-pricing). Capriole verkauft API-Tokens in Paketen zu 5M; der Wert für 1M ist ein Fünftel eines Pakets und dient nur dem Vergleich.
+Zum Einführungspreis kosten 5M Tokens mit Gemini 4 Carbon oder Argon 3.75 × USD 2 + 1.25 × USD 10 = USD 20, die USD 8 für das Zusatzpaket im persönlichen Premium-Abo sind also 60% günstiger. Ab dem 1. Dezember kostet dieselbe Arbeitslast USD 40, USD 8 sind dann 80% günstiger. Dieselbe Arbeitslast kostet mit Gemini 4 Neon USD 30 (3.75 × USD 3 + 1.25 × USD 15), die USD 8 für das Zusatzpaket sind also 73% günstiger. Die 92% gelten für Modelle mit Preisen von USD 10 und USD 50, etwa [GPT-6 Astra](/de/articles/openai-api-pricing) und [Claude Fable 5.1](/de/articles/claude-api-pricing). Capriole verkauft API-Tokens in Paketen zu 5M; der Wert für 1M ist ein Fünftel eines Pakets und dient nur dem Vergleich.
 
 Für dieselben 5M Tokens mit Gemini 3.8 Flash berechnet Google bis zum 31. Dezember 2026 USD 7.50. Ab dem 1. Januar 2027 berechnet Google USD 15. Das Zusatzpaket für USD 8 im persönlichen Premium-Abo liegt dann 47% darunter.
 
@@ -98,7 +98,7 @@ Gemini 4 Carbon und Gemini 4 Argon kosten jeweils bis 30. November 2026 USD 2 pr
 
 ### Was kostet Gemini 4 Neon?
 
-Zu Googles Standardpreisen kosten 1M Tokens für Eingabe USD 3, für gecachte Eingabe USD 0.15 und für Ausgabe USD 15. Die Ausgabe umfasst Thinking-Tokens. Anders als die Einführungspreise für Gemini 4 Carbon und Argon hat dieser Preis kein festgelegtes Enddatum.
+Gemini 4 Neon kostet zu Googles Standardpreisen USD 3 pro 1M Eingabe-Tokens, USD 0.15 pro 1M gecachte Eingabe-Tokens und USD 15 pro 1M Ausgabe-Tokens. Die Ausgabe umfasst Thinking-Tokens. Anders als die Einführungspreise für Gemini 4 Carbon und Argon hat dieser Preis kein festgelegtes Enddatum.
 
 ### Kann ich Gemini 4 Carbon oder Argon kostenlos nutzen?
 
@@ -120,13 +120,12 @@ Capriole AI ist ein unabhängiger Arbeitsbereich und steht in keiner Verbindung 
 
 ## Offizielle Quellen
 
-Wir haben diese Seiten am 17. November 2026 geprüft und Googles Preisseite für die Gemini API am 26. November 2026 erneut geprüft.
+Wir haben Googles Preisseite und die Seiten zu Gemini 4 Neon am 26. November 2026 und die übrigen Seiten am 17. November 2026 geprüft.
 
-- Google: [Preise der Gemini Developer API](https://ai.google.dev/gemini-api/docs/pricing)
+- Google: [Preise der Gemini Developer API](https://ai.google.dev/gemini-api/docs/pricing), einschließlich der [API-Preise für Gemini 4 Neon](https://aistudio.google.com/docs/pricing#gemini-4-neon)
 - Google: [Gemini 4 Carbon](https://aistudio.google.com/docs/models/gemini-4-carbon)
 - Google: [Gemini 4 Argon](https://aistudio.google.com/docs/models/gemini-4-argon)
 - Google: [Gemini 4 Neon](https://aistudio.google.com/docs/models/gemini-4-neon)
-- Google: [Gemini 4 Neon API-Preise](https://aistudio.google.com/docs/pricing#gemini-4-neon)
 - Google: [Ankündigung von Gemini 4 Neon](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/)
 
 Die Angaben zu Plänen, Aufstockungen und abgerechneten Tokens von Capriole AI auf dieser Seite pflegt Capriole AI selbst.
