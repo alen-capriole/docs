@@ -6,7 +6,7 @@ description: "Gemini 4 Carbon and Argon cost USD 2 input and USD 10 output per 1
 
 Google's Gemini API charges **USD 2 per 1M input tokens and USD 10 per 1M output tokens for Gemini 4 Carbon and Gemini 4 Argon** at its introductory price through November 30, 2026. From December 1, 2026, both cost **USD 4 and USD 20**. With three input tokens for every output token, 5M tokens cost USD 20 at the introductory price and USD 40 from December 1 at Google's standard rates.
 
-Capriole AI Premium costs USD 9 per month for unlimited web chat with GPT-6.2 Astra, Claude Fable 5.2, Claude Opus 5.5, and Gemini 4 Carbon. Its API serves Gemini 4 Carbon and Gemini 4 Argon through OpenAI Chat Completions. Personal Premium includes 5M API tokens a month. A top-up of 5M more costs USD 8 for any supported model, up to 92% below official API prices. For the Carbon and Argon workload below, the saving is 60% at Google’s introductory price and 80% from December 1. One API key works in your own apps and in coding agents.
+Capriole AI Premium costs USD 9 per month for unlimited web chat with GPT-6.2 Astra, Claude Fable 5.2, Claude Opus 5.5, and Gemini 4 Carbon. Its API serves Gemini 4 Carbon, Gemini 4 Argon, and Gemini 4 Neon through OpenAI Chat Completions. Personal Premium includes 5M API tokens a month. A top-up of 5M more costs USD 8 for any supported model, up to 92% below official API prices. For the Carbon and Argon workload below, the saving is 60% at Google's introductory price and 80% from December 1. One API key works in your own apps and in coding agents.
 
 ## Gemini API prices per 1M tokens
 
@@ -18,15 +18,16 @@ Google publishes these paid-tier rates on its [Gemini Developer API pricing page
 | Gemini 4 Carbon | `gemini-4-carbon` | From December 1, 2026 | USD 4 | USD 0.20 | USD 20 |
 | Gemini 4 Argon | `gemini-4-argon` | Through November 30, 2026 | USD 2 | USD 0.10 | USD 10 |
 | Gemini 4 Argon | `gemini-4-argon` | From December 1, 2026 | USD 4 | USD 0.20 | USD 20 |
+| Gemini 4 Neon | `gemini-4-neon` | Standard | USD 3 | USD 0.15 | USD 15 |
 | Gemini 3.8 Flash | `gemini-3.8-flash` | Through December 31, 2026 | USD 0.75 | USD 0.075 | USD 3.75 |
 | Gemini 3.8 Flash | `gemini-3.8-flash` | From January 1, 2027 | USD 1.50 | USD 0.15 | USD 7.50 |
 
 The same page lists the rules that change these rates:
 
-- **Batch and Flex**: Both cost half of standard rates. Gemini 4 Carbon and Gemini 4 Argon each cost USD 1 input and USD 5 output through November 30, then USD 2 and USD 10.
-- **Priority**: Gemini 4 Carbon and Gemini 4 Argon each cost USD 3.60 input and USD 18 output through November 30, then USD 7.20 and USD 36.
-- **Caching**: Gemini 4 Carbon and Gemini 4 Argon support implicit caching only, on by default for prompts of at least 4,096 tokens. Explicit caching is not supported.
-- **Free tier**: Gemini 3.8 Flash has a free tier. Gemini 4 Carbon and Gemini 4 Argon do not.
+- **Batch and Flex**: Both cost half of standard rates. Gemini 4 Carbon and Gemini 4 Argon each cost USD 1 input and USD 5 output through November 30, then USD 2 and USD 10. For Gemini 4 Neon, the rates are USD 1.50 input, USD 7.50 output, and USD 0.075 cached input.
+- **Priority**: Gemini 4 Carbon and Gemini 4 Argon each cost USD 3.60 input and USD 18 output through November 30, then USD 7.20 and USD 36. For Gemini 4 Neon, the rates are USD 5.40 input, USD 27 output, and USD 0.27 cached input.
+- **Caching**: Gemini 4 Carbon and Gemini 4 Argon support implicit caching only, on by default for prompts of at least 4,096 tokens. Explicit caching is not supported. Gemini 4 Neon also supports implicit caching only.
+- **Free tier**: Gemini 3.8 Flash has a free tier. Gemini 4 Carbon, Gemini 4 Argon, and Gemini 4 Neon require the paid tier.
 - **Grounding with Google Search**: 5,000 search requests a month are free, shared across Gemini 3 and newer models, then USD 14 per 1,000 requests.
 
 Google lists no separate long-prompt rate for these models.
@@ -39,12 +40,12 @@ These examples use standard rates, no caching, and three input tokens for every 
 official_cost = input_millions × input_price + output_millions × output_price
 ```
 
-| Tokens | Input / output | Gemini 4 Carbon or Argon through Nov 30 | Gemini 4 Carbon or Argon from Dec 1 | Capriole AI personal API top-up |
-|---|---|---:|---:|---:|
-| 1M | 750K / 250K | USD 4 | USD 8 | USD 1.60 |
-| 5M | 3.75M / 1.25M | USD 20 | USD 40 | **USD 8** |
+| Tokens | Input / output | Gemini 4 Carbon or Argon through Nov 30 | Gemini 4 Carbon or Argon from Dec 1 | Gemini 4 Neon | Capriole AI personal API top-up |
+|---|---|---:|---:|---:|---:|
+| 1M | 750K / 250K | USD 4 | USD 8 | USD 6 | USD 1.60 |
+| 5M | 3.75M / 1.25M | USD 20 | USD 40 | USD 30 | **USD 8** |
 
-At the introductory price, 5M tokens on Gemini 4 Carbon or Argon cost 3.75 × USD 2 + 1.25 × USD 10 = USD 20, so the USD 8 personal Premium top-up is 60% less. From December 1, the same workload costs USD 40, and USD 8 is 80% less. The 92% figure applies to models priced at USD 10 and USD 50, such as [GPT-6 Astra](/articles/openai-api-pricing) and [Claude Fable 5.1](/articles/claude-api-pricing). Capriole sells API tokens in 5M packs; the 1M figure is one fifth of a pack, shown for comparison.
+At the introductory price, 5M tokens on Gemini 4 Carbon or Argon cost 3.75 × USD 2 + 1.25 × USD 10 = USD 20, so the USD 8 personal Premium top-up is 60% less. From December 1, the same workload costs USD 40, and USD 8 is 80% less. The same workload costs USD 30 on Gemini 4 Neon (3.75 × USD 3 + 1.25 × USD 15). The USD 8 personal Premium top-up is 73% less. The 92% figure applies to models priced at USD 10 and USD 50, such as [GPT-6 Astra](/articles/openai-api-pricing) and [Claude Fable 5.1](/articles/claude-api-pricing). Capriole sells API tokens in 5M packs; the 1M figure is one fifth of a pack, shown for comparison.
 
 Google charges USD 7.50 for the same 5M tokens with Gemini 3.8 Flash through December 31, 2026. From January 1, 2027, Google charges USD 15, making the USD 8 personal Premium top-up price 47% lower.
 
@@ -63,7 +64,7 @@ For a 5M-token test that also includes OpenRouter's credit fee, see the [AI API 
 
 Capriole serves Gemini models through OpenAI Chat Completions at `POST /v1/chat/completions`. Set the OpenAI SDK base URL to `https://api.caprioletech.com/v1`.
 
-- `google/gemini-4-carbon` selects Gemini 4 Carbon. `google/gemini-4-argon` and `google/gemini-3.8-flash` select those models.
+- `google/gemini-4-carbon` selects Gemini 4 Carbon. `google/gemini-4-argon`, `google/gemini-4-neon`, and `google/gemini-3.8-flash` select those models.
 - `google-latest` selects Gemini 4 Carbon, Google's strongest model, which spends more thinking tokens per turn than Argon. On Chat Completions it thinks at Google's default `medium` level; [Choose a model](/guides/choose-a-model#model-ids-for-the-api) shows how to set `low`.
 
 ```python
@@ -93,11 +94,15 @@ Besides [unlimited web chat](/guides/plans-and-limits#what-unlimited-means) with
 
 ### How much does the Gemini API cost?
 
-Gemini 4 Carbon and Gemini 4 Argon each cost USD 2 per 1M input tokens and USD 10 per 1M output tokens through November 30, 2026, then USD 4 and USD 20. Gemini 3.8 Flash costs USD 0.75 and USD 3.75 through December 31, 2026, then USD 1.50 and USD 7.50. Batch requests cost half.
+Gemini 4 Carbon and Gemini 4 Argon each cost USD 2 per 1M input tokens and USD 10 per 1M output tokens through November 30, 2026, then USD 4 and USD 20. Gemini 4 Neon costs USD 3 per 1M input tokens and USD 15 per 1M output tokens. Gemini 3.8 Flash costs USD 0.75 and USD 3.75 through December 31, 2026, then USD 1.50 and USD 7.50. Batch requests cost half.
+
+### How much does Gemini 4 Neon cost?
+
+Google charges USD 3 for input, USD 0.15 for cached input, and USD 15 for output per 1M tokens at Standard rates. Output includes thinking tokens. Unlike Gemini 4 Carbon and Argon, this price has no introductory end date.
 
 ### Can I use Gemini 4 Carbon or Argon for free?
 
-Google's free tier does not include Gemini 4 Carbon or Gemini 4 Argon. On Capriole AI, you can try both in web chat without an account, 5 messages a day, and Premium makes web chat unlimited.
+Google requires the paid tier for Gemini 4 Carbon, Gemini 4 Argon, and Gemini 4 Neon. On Capriole AI, you can try all three in web chat without an account, 5 messages a day, and Premium makes web chat unlimited.
 
 ### What does `google-latest` mean on Capriole AI?
 
@@ -115,10 +120,13 @@ Capriole AI is an independent workspace, not affiliated with Google.
 
 ## Official sources
 
-We checked these pages on November 17, 2026.
+We checked these pages on November 17, 2026, and Google's Gemini API pricing page again on November 26, 2026.
 
 - Google: [Gemini Developer API pricing](https://ai.google.dev/gemini-api/docs/pricing)
 - Google: [Gemini 4 Carbon](https://aistudio.google.com/docs/models/gemini-4-carbon)
 - Google: [Gemini 4 Argon](https://aistudio.google.com/docs/models/gemini-4-argon)
+- Google: [Gemini 4 Neon](https://aistudio.google.com/docs/models/gemini-4-neon)
+- Google: [Gemini 4 Neon API pricing](https://aistudio.google.com/docs/pricing#gemini-4-neon)
+- Google: [Gemini 4 Neon announcement](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/)
 
 Capriole AI plan, top-up, and charged-token facts on this page are maintained as first-party documentation.

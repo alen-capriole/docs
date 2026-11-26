@@ -8,7 +8,7 @@ OpenRouter는 각 제공자의 정가로 과금하고 카드로 Standard 크레�
 
 Gemini 3.8 Flash로 같은 양을 사용하면 공식 API는 USD 6.75, OpenRouter는 크레딧 구매 수수료를 포함해 USD 7.55입니다. USD 9 Premium 구독에는 무제한 웹 채팅도 포함됩니다.
 
-이는 재현 가능한 비교이며, 모든 경우에 통하는 가격 보장이 아닙니다. 토큰 구성을 일정하게 유지하고 인용한 공개 가격을 사용합니다. 2026년 11월 24일에 요금을 확인했습니다.
+이는 재현 가능한 비교이며, 모든 경우에 통하는 가격 보장이 아닙니다. 토큰 구성을 일정하게 유지하고 인용한 공개 가격을 사용합니다. 2026년 11월 24일에 요금을 확인했습니다. 2026년 11월 26일에 Gemini 4 Neon 요금을 확인했습니다.
 
 ## 500만 토큰 비용은 API마다 얼마인가요?
 
@@ -25,6 +25,7 @@ Gemini 3.8 Flash로 같은 양을 사용하면 공식 API는 USD 6.75, OpenRoute
 | `claude-opus-5-5` | **USD 9.00*** | USD 36.00 | USD 36.00 | USD 37.98 | USD 4 / USD 20 |
 | `gemini-4-carbon` | **USD 9.00*** | USD 18.00 | USD 18.00 | USD 18.99 | USD 2 / USD 10 |
 | `gemini-4-argon` | **USD 9.00*** | USD 18.00 | USD 18.00 | USD 18.99 | USD 2 / USD 10 |
+| `gemini-4-neon` | **USD 9.00*** | USD 27.00 | USD 27.00 | USD 28.49 | USD 3 / USD 15 |
 | `gpt-6.2-sol` | **USD 9.00*** | USD 18.00 | USD 18.00 | USD 18.99 | USD 2 / USD 10 |
 | `gemini-3.8-flash` | **USD 9.00*** | USD 6.75 | USD 6.75 | USD 7.55 | USD 0.75 / USD 3.75 |
 | `claude-fable-5` | **USD 9.00*** | USD 90.00 | USD 90.00 | USD 94.95 | USD 10 / USD 50 |
@@ -56,7 +57,7 @@ openrouter_cash = inference_cost + max(USD 0.80, inference_cost × 0.055)
 USD 90 + max(USD 0.80, USD 4.95) = USD 94.95
 ```
 
-같은 계산으로 GPT-6.2 Astra와 Claude Fable 5.2는 USD 75.96(직접 API는 4 × USD 8 + 1 × USD 40 = USD 72), Claude Opus 5.5는 USD 37.98, Gemini 4 Carbon, Gemini 4 Argon, GPT-6.2 Sol은 USD 18.99, Gemini 3.1 Pro Preview는 USD 21.10이 나옵니다. Gemini 3.8 Flash는 2026년 12월 31일까지 적용되는 Google Standard 출시 요금으로 USD 6.75입니다(4 × USD 0.75 + 1 × USD 3.75). 카드 결제 최소 수수료 USD 0.80을 더하면 OpenRouter는 총 USD 7.55입니다.
+같은 계산으로 GPT-6.2 Astra와 Claude Fable 5.2는 USD 75.96(직접 API는 4 × USD 8 + 1 × USD 40 = USD 72), Claude Opus 5.5는 USD 37.98, Gemini 4 Carbon, Gemini 4 Argon, GPT-6.2 Sol은 USD 18.99, Gemini 3.1 Pro Preview는 USD 21.10이 나옵니다. Gemini 4 Neon은 Google 직접 API와 OpenRouter의 추론 요금이 모두 USD 27(4 × USD 3 + 1 × USD 15)이며, OpenRouter의 카드 결제 수수료 5.5%를 포함하면 USD 28.49입니다. Gemini 3.8 Flash는 2026년 12월 31일까지 적용되는 Google Standard 출시 요금으로 USD 6.75입니다(4 × USD 0.75 + 1 × USD 3.75). 카드 결제 최소 수수료 USD 0.80을 더하면 OpenRouter는 총 USD 7.55입니다.
 
 Gemini 3.1 Pro Preview의 입력 및 출력 토큰 1,000,000개당 요율로 계산하면 공식 API 비용은 4 × USD 2 + 1 × USD 12 = USD 20입니다. OpenRouter에서도 추론 비용은 USD 20이고 카드로 크레딧을 구매할 때 수수료 USD 1.10이 추가됩니다.
 
@@ -118,7 +119,8 @@ Capriole AI는 독립적인 워크스페이스이며 OpenRouter 소속이 아닙
 - OpenAI: [API 요금](https://developers.openai.com/api/docs/pricing)
 - Anthropic: [Claude API 요금](https://platform.claude.com/docs/en/about-claude/pricing)
 - Google: [Gemini Developer API 요금](https://ai.google.dev/gemini-api/docs/pricing)
-- OpenRouter: [가격](https://openrouter.ai/pricing), [크레딧 구매 수수료](https://openrouter.ai/blog/announcements/simplifying-our-platform-fee/), 그리고 [GPT-6.2 Astra](https://openrouter.ai/openai/gpt-6.2-astra), [GPT-6 Astra](https://openrouter.ai/openai/gpt-6-astra), [GPT-6.2 Sol](https://openrouter.ai/openai/gpt-6.2-sol), [Claude Fable 5.2](https://openrouter.ai/anthropic/claude-fable-5.2), [Claude Fable 5.1](https://openrouter.ai/anthropic/claude-fable-5.1), [Claude Opus 5.5](https://openrouter.ai/anthropic/claude-opus-5.5), [Gemini 4 Carbon](https://openrouter.ai/google/gemini-4-carbon), [Gemini 4 Argon](https://openrouter.ai/google/gemini-4-argon), [Gemini 3.8 Flash](https://openrouter.ai/google/gemini-3.8-flash), [Claude Fable 5](https://openrouter.ai/anthropic/claude-fable-5/pricing), [Gemini 3.1 Pro Preview](https://openrouter.ai/google/gemini-3.1-pro-preview/providers) 모델 페이지
+- Google: [Gemini 4 Neon API 가격](https://aistudio.google.com/docs/pricing#gemini-4-neon)
+- OpenRouter: [가격](https://openrouter.ai/pricing), [크레딧 구매 수수료](https://openrouter.ai/blog/announcements/simplifying-our-platform-fee/), 그리고 [GPT-6.2 Astra](https://openrouter.ai/openai/gpt-6.2-astra), [GPT-6 Astra](https://openrouter.ai/openai/gpt-6-astra), [GPT-6.2 Sol](https://openrouter.ai/openai/gpt-6.2-sol), [Claude Fable 5.2](https://openrouter.ai/anthropic/claude-fable-5.2), [Claude Fable 5.1](https://openrouter.ai/anthropic/claude-fable-5.1), [Claude Opus 5.5](https://openrouter.ai/anthropic/claude-opus-5.5), [Gemini 4 Carbon](https://openrouter.ai/google/gemini-4-carbon), [Gemini 4 Argon](https://openrouter.ai/google/gemini-4-argon), [Gemini 4 Neon](https://openrouter.ai/google/gemini-4-neon), [Gemini 3.8 Flash](https://openrouter.ai/google/gemini-3.8-flash), [Claude Fable 5](https://openrouter.ai/anthropic/claude-fable-5/pricing), [Gemini 3.1 Pro Preview](https://openrouter.ai/google/gemini-3.1-pro-preview/providers) 모델 페이지
 - Capriole AI: [공개 제품과 플랜](https://www.capriole.ai/ko), [현재 공개 모델 카탈로그](https://api.caprioletech.com/v1/models)
 
 이 페이지의 Capriole 플랜, 충전, 과금 토큰 관련 정보는 Capriole이 직접 관리하는 문서를 기준으로 합니다. 비교는 공개 고객 가격과 할당량 규칙만 사용합니다.

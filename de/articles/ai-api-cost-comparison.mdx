@@ -8,7 +8,7 @@ OpenRouter berechnet den Listenpreis des jeweiligen Anbieters und erhebt beim Ka
 
 Mit Gemini 3.8 Flash kostet diese Nutzung über die direkte API USD 6.75 oder über OpenRouter einschließlich der Gebühr für den Guthabenkauf USD 7.55. Das Premium-Abo für USD 9 umfasst auch unbegrenzten Web-Chat.
 
-Dies ist ein reproduzierbarer Vergleich, kein universelles Preisversprechen. Er hält die Token-Mischung konstant und verwendet die angegebenen öffentlichen Preise. Preise geprüft am 24. November 2026.
+Dies ist ein reproduzierbarer Vergleich, kein universelles Preisversprechen. Er hält die Token-Mischung konstant und verwendet die angegebenen öffentlichen Preise. Preise geprüft am 24. November 2026. Preise für Gemini 4 Neon geprüft am 26. November 2026.
 
 ## Was kosten 5M Tokens bei den einzelnen APIs?
 
@@ -25,6 +25,7 @@ Die Tabelle hält abgerechnete Token-Zahlen konstant, nicht Quelltext oder seman
 | `claude-opus-5-5` | **USD 9.00*** | USD 36.00 | USD 36.00 | USD 37.98 | USD 4 / USD 20 |
 | `gemini-4-carbon` | **USD 9.00*** | USD 18.00 | USD 18.00 | USD 18.99 | USD 2 / USD 10 |
 | `gemini-4-argon` | **USD 9.00*** | USD 18.00 | USD 18.00 | USD 18.99 | USD 2 / USD 10 |
+| `gemini-4-neon` | **USD 9.00*** | USD 27.00 | USD 27.00 | USD 28.49 | USD 3 / USD 15 |
 | `gpt-6.2-sol` | **USD 9.00*** | USD 18.00 | USD 18.00 | USD 18.99 | USD 2 / USD 10 |
 | `gemini-3.8-flash` | **USD 9.00*** | USD 6.75 | USD 6.75 | USD 7.55 | USD 0.75 / USD 3.75 |
 | `claude-fable-5` | **USD 9.00*** | USD 90.00 | USD 90.00 | USD 94.95 | USD 10 / USD 50 |
@@ -56,7 +57,7 @@ openrouter_cash = inference_cost + max(USD 0.80, inference_cost × 0.055)
 USD 90 + max(USD 0.80, USD 4.95) = USD 94.95
 ```
 
-Dieselbe Arithmetik ergibt USD 75.96 für GPT-6.2 Astra und Claude Fable 5.2 (4 × USD 8 + 1 × USD 40 = USD 72 direkt), USD 37.98 für Claude Opus 5.5, USD 18.99 für Gemini 4 Carbon, Gemini 4 Argon und GPT-6.2 Sol sowie USD 21.10 für Gemini 3.1 Pro Preview. Gemini 3.8 Flash kostet zum Standard-Einführungstarif von Google bis zum 31. Dezember 2026 USD 6.75 (4 × USD 0.75 + 1 × USD 3.75). Mit der Mindestgebühr von USD 0.80 für Kartenzahlung kostet OpenRouter insgesamt USD 7.55.
+Dieselbe Arithmetik ergibt USD 75.96 für GPT-6.2 Astra und Claude Fable 5.2 (4 × USD 8 + 1 × USD 40 = USD 72 direkt), USD 37.98 für Claude Opus 5.5, USD 18.99 für Gemini 4 Carbon, Gemini 4 Argon und GPT-6.2 Sol sowie USD 21.10 für Gemini 3.1 Pro Preview. Gemini 4 Neon kostet direkt bei Google und zum Inferenzpreis von OpenRouter jeweils USD 27 (4 × USD 3 + 1 × USD 15). Mit der Kartengebühr von 5.5% kostet OpenRouter USD 28.49. Gemini 3.8 Flash kostet zum Standard-Einführungstarif von Google bis zum 31. Dezember 2026 USD 6.75 (4 × USD 0.75 + 1 × USD 3.75). Mit der Mindestgebühr von USD 0.80 für Kartenzahlung kostet OpenRouter insgesamt USD 7.55.
 
 Für Gemini 3.1 Pro Preview ergeben die Preise je 1M Eingabe- und Ausgabetokens direkte Kosten von 4 × USD 2 + 1 × USD 12 = USD 20. Bei OpenRouter kostet dieselbe Inferenz USD 20. Für den Guthabenkauf per Karte kommen USD 1.10 hinzu.
 
@@ -118,7 +119,8 @@ Capriole AI ist ein unabhängiger Arbeitsbereich und steht in keiner Verbindung 
 - OpenAI: [API-Preise](https://developers.openai.com/api/docs/pricing)
 - Anthropic: [Preise der Claude API](https://platform.claude.com/docs/en/about-claude/pricing)
 - Google: [Preise der Gemini Developer API](https://ai.google.dev/gemini-api/docs/pricing)
-- OpenRouter: [Preise](https://openrouter.ai/pricing), [Gebühren beim Credit-Kauf](https://openrouter.ai/blog/announcements/simplifying-our-platform-fee/) und die Modellseiten für [GPT-6.2 Astra](https://openrouter.ai/openai/gpt-6.2-astra), [GPT-6 Astra](https://openrouter.ai/openai/gpt-6-astra), [GPT-6.2 Sol](https://openrouter.ai/openai/gpt-6.2-sol), [Claude Fable 5.2](https://openrouter.ai/anthropic/claude-fable-5.2), [Claude Fable 5.1](https://openrouter.ai/anthropic/claude-fable-5.1), [Claude Opus 5.5](https://openrouter.ai/anthropic/claude-opus-5.5), [Gemini 4 Carbon](https://openrouter.ai/google/gemini-4-carbon), [Gemini 4 Argon](https://openrouter.ai/google/gemini-4-argon), [Gemini 3.8 Flash](https://openrouter.ai/google/gemini-3.8-flash), [Claude Fable 5](https://openrouter.ai/anthropic/claude-fable-5/pricing) und [Gemini 3.1 Pro Preview](https://openrouter.ai/google/gemini-3.1-pro-preview/providers)
+- Google: [Gemini 4 Neon API-Preise](https://aistudio.google.com/docs/pricing#gemini-4-neon)
+- OpenRouter: [Preise](https://openrouter.ai/pricing), [Gebühren beim Credit-Kauf](https://openrouter.ai/blog/announcements/simplifying-our-platform-fee/) und die Modellseiten für [GPT-6.2 Astra](https://openrouter.ai/openai/gpt-6.2-astra), [GPT-6 Astra](https://openrouter.ai/openai/gpt-6-astra), [GPT-6.2 Sol](https://openrouter.ai/openai/gpt-6.2-sol), [Claude Fable 5.2](https://openrouter.ai/anthropic/claude-fable-5.2), [Claude Fable 5.1](https://openrouter.ai/anthropic/claude-fable-5.1), [Claude Opus 5.5](https://openrouter.ai/anthropic/claude-opus-5.5), [Gemini 4 Carbon](https://openrouter.ai/google/gemini-4-carbon), [Gemini 4 Argon](https://openrouter.ai/google/gemini-4-argon), [Gemini 4 Neon](https://openrouter.ai/google/gemini-4-neon), [Gemini 3.8 Flash](https://openrouter.ai/google/gemini-3.8-flash), [Claude Fable 5](https://openrouter.ai/anthropic/claude-fable-5/pricing) und [Gemini 3.1 Pro Preview](https://openrouter.ai/google/gemini-3.1-pro-preview/providers)
 - Capriole AI: [öffentliches Produkt und Plan](https://www.capriole.ai/de) und [aktueller öffentlicher Modellkatalog](https://api.caprioletech.com/v1/models)
 
 Die Angaben zu Plänen, Aufstockungen und abgerechneten Tokens von Capriole auf dieser Seite pflegt Capriole AI selbst. Der Vergleich verwendet nur öffentliche Kundenpreise und Kontingentregeln.
